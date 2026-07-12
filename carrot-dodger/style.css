@@ -1,106 +1,55 @@
-/* General Body Styles */
-body.game-body {
-    background-color: #f0f8ff; /* Light Alice Blue for a softer background */
-    font-family: 'Helvetica Neue', sans-serif;
-    color: #333;
-}
+/* Carrot Dodger Custom Styles */
 
-.game-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-}
-
-.game-header {
-    text-align: center;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-}
-
-.game-header h1 {
-    margin-bottom: 0.5rem;
-    color: #0056b3;
-}
-
-.score-container {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #555;
-}
-
-.game-info-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-}
-
-.game-description, .ranking-container {
-    flex: 1;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-.game-description h2, .ranking-container h2 {
-    margin-top: 0;
-    color: #0056b3;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-}
-
-.game-description ul {
-    list-style: none;
-    padding: 0;
-}
-
-.game-description li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-size: 1em;
-}
-
-.game-description img {
-    width: 28px;
-    height: 28px;
-    margin-right: 10px;
-}
-
-.ranking-container ol {
-    padding-left: 25px;
-}
-
-#ranking-list li {
-    margin-bottom: 0.5rem;
-    font-size: 1em;
-    color: #333;
-}
-
-#ranking-list li strong {
-    color: #000;
-}
-
-
+/* Prevent browser default scroll behaviors when playing with space/arrows */
 canvas {
+    touch-action: none;
     display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    background-color: #87CEEB; /* Sky blue background */
-    border-radius: 8px;
-    border: 2px solid #0056b3; /* Themed border */
+    width: 100%;
+    height: 100%;
 }
 
-@media (max-width: 768px) {
-    .game-info-container {
-        flex-direction: column;
-        align-items: stretch;
+/* Custom glow effect during Fever Mode */
+@keyframes gold-fever-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.4), inset 0 0 10px rgba(245, 158, 11, 0.2);
+        border-color: rgba(245, 158, 11, 0.5);
     }
+    50% {
+        box-shadow: 0 0 25px rgba(245, 158, 11, 0.8), inset 0 0 20px rgba(245, 158, 11, 0.4);
+        border-color: rgba(245, 158, 11, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.4), inset 0 0 10px rgba(245, 158, 11, 0.2);
+        border-color: rgba(245, 158, 11, 0.5);
+    }
+}
+
+.fever-active-border {
+    animation: gold-fever-glow 1.2s infinite ease-in-out;
+}
+
+/* Custom scrollbars for leaderboards */
+#ranking-list::-webkit-scrollbar {
+    width: 4px;
+}
+#ranking-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+#ranking-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+.dark #ranking-list::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+/* Shaking animation when player gets hit or when fever ends */
+@keyframes shake-stage {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-4px, 0); }
+    20%, 40%, 60%, 80% { transform: translate(4px, 0); }
+}
+
+.shake-animation {
+    animation: shake-stage 0.5s ease-in-out;
 }

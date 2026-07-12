@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>당근 피하기</title>
+    <title data-lang-ko="당근 피하기 - 온라인 도구모음" data-lang-en="Carrot Dodger - Online Toolkit">당근 피하기 - 온라인 도구모음</title>
 
-    <!-- New Design Scripts and Links -->
+    <!-- Design Links -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -20,16 +20,14 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#0ea5e9",
-                        "primary-hover": "#0284c7",
-                        "background-light": "#f0f9ff",
+                        "primary": "#f97316", // Carrot Orange
+                        "primary-hover": "#ea580c",
+                        "background-light": "#fdf8f5",
                         "background-dark": "#0f172a",
                         "text-main": "#0f172a",
                         "text-muted": "#64748b",
                         "card-bg-light": "#ffffff",
                         "card-bg-dark": "#1e293b",
-                        "accent-light": "#e0f2fe",
-                        "accent-dark": "#1e293b",
                     },
                     fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
                 },
@@ -41,44 +39,267 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 items-center mx-auto">            <header class="text-center py-10">
-                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🥕 당근 피하기" data-lang-en="🥕 Carrot Dodger">🥕 당근 피하기</h1>
-                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="하늘에서 떨어지는 음식을 피하거나 획득하여 점수를 얻는 게임입니다." data-lang-en="Score points by avoiding or acquiring food falling from the sky.">Score points by avoiding or acquiring food falling from the sky.</p>
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+            
+            <!-- Page Title -->
+            <header class="text-center py-8">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500" data-lang-ko="🥕 당근 피하기" data-lang-en="🥕 Carrot Dodger">🥕 당근 피하기</h1>
+                <p class="mt-2 text-md md:text-lg text-text-muted dark:text-slate-400 font-bold" data-lang-ko="바나나, 고기를 획득하여 점수를 올리고 떨어지는 당근 폭탄을 피하세요!" data-lang-en="Collect bananas and meat for points while dodging the falling carrot bombs!">바나나, 고기를 획득하여 점수를 올리고 떨어지는 당근 폭탄을 피하세요!</p>
             </header>
 
-            <div class="w-full max-w-4xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md text-center">
-                <div class="score-container mb-4 text-xl font-bold text-text-main dark:text-white">
-                    <span data-lang-ko="시간" data-lang-en="Time">시간</span>: <span id="time">0</span>s | 
-                    <span data-lang-ko="점수" data-lang-en="Score">점수</span>: <span id="score">0</span>
-                </div>
+            <!-- Game Layout Container -->
+            <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <canvas id="gameCanvas" class="mx-auto bg-sky-50 dark:bg-sky-900/50 rounded-lg shadow-inner"></canvas>
-                
-                <div class="game-info-container mt-8 grid md:grid-cols-2 gap-8 text-left">
-                    <div class="game-description">
-                        <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="게임 설명" data-lang-en="Game Rules">게임 설명</h2>
-                        <ul class="mt-4 space-y-2">
-                            <li class="flex items-center gap-2"><img src="images/banana.png" alt="Banana" class="w-6 h-6"> <span data-lang-ko="바나나: +1점" data-lang-en="Banana: +1pt">바나나: +1점</span></li>
-                            <li class="flex items-center gap-2"><img src="images/bread.png" alt="Bread" class="w-6 h-6"> <span data-lang-ko="빵: +2점" data-lang-en="Bread: +2pts">빵: +2점</span></li>
-                            <li class="flex items-center gap-2"><img src="images/meat.png" alt="Meat" class="w-6 h-6"> <span data-lang-ko="고기: +5점" data-lang-en="Meat: +5pts">고기: +5점</span></li>
-                            <li class="flex items-center gap-2"><img src="images/cake.png" alt="Cake" class="w-6 h-6"> <span data-lang-ko="케이크: +10점" data-lang-en="Cake: +10pts">케이크: +10점</span></li>
-                            <li class="flex items-center gap-2"><img src="images/carrot.png" alt="Carrot" class="w-6 h-6"> <span data-lang-ko="당근: 게임 종료" data-lang-en="Carrot: Game Over">당근: 게임 종료</span></li>
+                <!-- Left Sidebar: Controls & Point Table (3 Cols) -->
+                <div class="lg:col-span-3 space-y-6">
+                    <!-- Control Settings Card -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-lg">sports_esports</span>
+                            <span data-lang-ko="조작 설정" data-lang-en="Control Modes">조작 설정</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button id="mode-keyboard" class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-xl">keyboard</span>
+                                <span data-lang-ko="키보드" data-lang-en="Keyboard">키보드</span>
+                            </button>
+                            <button id="mode-mouse" class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-xl">mouse</span>
+                                <span data-lang-ko="마우스" data-lang-en="Mouse">마우스</span>
+                            </button>
+                        </div>
+                        <p id="control-hint" class="mt-3 text-xs text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다." data-lang-en="Use Arrow Keys (←, →) to move left/right. Decelerates smoothly with momentum.">방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다.</p>
+                    </div>
+
+                    <!-- Item Guide Card -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
+                            <span data-lang-ko="아이템 가이드" data-lang-en="Item Directory">아이템 가이드</span>
+                        </h3>
+                        <ul class="space-y-3.5 text-xs font-bold">
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-yellow-50/50 dark:bg-yellow-950/10">
+                                <div class="flex items-center gap-2">
+                                    <img src="images/banana.png" alt="Banana" class="w-6 h-6 object-contain">
+                                    <span data-lang-ko="바나나" data-lang-en="Banana">바나나</span>
+                                </div>
+                                <span class="text-yellow-600 dark:text-yellow-400">+1 Point</span>
+                            </li>
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-orange-50/30 dark:bg-orange-950/5">
+                                <div class="flex items-center gap-2">
+                                    <img src="images/bread.png" alt="Bread" class="w-6 h-6 object-contain">
+                                    <span data-lang-ko="빵" data-lang-en="Bread">빵</span>
+                                </div>
+                                <span class="text-amber-600 dark:text-amber-400">+2 Points</span>
+                            </li>
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-red-50/50 dark:bg-red-950/10">
+                                <div class="flex items-center gap-2">
+                                    <img src="images/meat.png" alt="Meat" class="w-6 h-6 object-contain">
+                                    <span data-lang-ko="신선한 고기" data-lang-en="Meat">신선한 고기</span>
+                                </div>
+                                <span class="text-red-500 dark:text-red-400">+5 Points</span>
+                            </li>
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-pink-50/50 dark:bg-pink-950/10">
+                                <div class="flex items-center gap-2">
+                                    <img src="images/cake.png" alt="Cake" class="w-6 h-6 object-contain">
+                                    <span data-lang-ko="달콤한 케이크" data-lang-en="Cake">달콤한 케이크</span>
+                                </div>
+                                <span class="text-pink-500 dark:text-pink-400">+10 Points</span>
+                            </li>
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-purple-50/50 dark:bg-purple-950/10">
+                                <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400">
+                                    <span class="material-symbols-outlined text-base">grade</span>
+                                    <span data-lang-ko="무적 스타 (실드)" data-lang-en="Fever Star (Shield)">무적 스타 (실드)</span>
+                                </div>
+                                <span class="text-purple-500">5s Shield</span>
+                            </li>
+                            <li class="flex items-center justify-between p-2 rounded-xl bg-orange-100/40 dark:bg-orange-950/30 border border-orange-200/50 dark:border-orange-900/50">
+                                <div class="flex items-center gap-2">
+                                    <img src="images/carrot.png" alt="Carrot" class="w-6 h-6 object-contain">
+                                    <span data-lang-ko="당근 폭탄" data-lang-en="Carrot Bomb">당근 폭탄</span>
+                                </div>
+                                <span class="text-orange-600 dark:text-orange-400" data-lang-ko="충돌 시 사망" data-lang-en="Game Over">충돌 시 사망</span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="ranking-container">
-                        <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="최고 기록" data-lang-en="High Scores">최고 기록</h2>
-                        <ol id="ranking-list" class="mt-4 list-decimal list-inside space-y-1 text-text-muted dark:text-slate-400">
-                            <!-- Rankings will be populated by JavaScript -->
+                </div>
+
+                <!-- Center Area: Main Game Stage (6 Cols) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <!-- Dashboard Indicators -->
+                    <div class="flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-slate-400">timer</span>
+                            <div>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 font-bold uppercase tracking-wider" data-lang-ko="생존 시간" data-lang-en="Survival Time">생존 시간</p>
+                                <p class="text-xl font-extrabold text-text-main dark:text-white"><span id="time">0</span>s</p>
+                            </div>
+                        </div>
+                        <div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-amber-500">military_tech</span>
+                            <div>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 font-bold uppercase tracking-wider" data-lang-ko="현재 점수" data-lang-en="Current Score">현재 점수</p>
+                                <p class="text-xl font-extrabold text-text-main dark:text-white"><span id="score">0</span></p>
+                            </div>
+                        </div>
+                        <div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-emerald-500">bolt</span>
+                            <div>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 font-bold uppercase tracking-wider" data-lang-ko="연속 콤보" data-lang-en="Combo Streak">연속 콤보</p>
+                                <p class="text-xl font-extrabold text-emerald-500"><span id="combo-streak">0</span>x</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Wrapper & Overlays -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-sky-100 dark:bg-slate-950">
+                        <canvas id="gameCanvas" class="w-full h-full block"></canvas>
+
+                        <!-- Start Screen Overlay -->
+                        <div id="start-overlay" class="absolute inset-0 bg-slate-950/75 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 z-10 transition-all duration-300">
+                            <div class="w-20 h-20 bg-orange-500/10 border-2 border-orange-500 rounded-full flex items-center justify-center text-orange-500 mb-4 animate-bounce">
+                                <span class="material-symbols-outlined text-4xl">play_circle</span>
+                            </div>
+                            <h2 class="text-3xl font-extrabold text-white mb-2" data-lang-ko="당근 피하기 대모험" data-lang-en="Carrot Dodger Adventure">당근 피하기 대모험</h2>
+                            <p class="text-slate-400 text-sm max-w-sm mb-8 leading-relaxed" data-lang-ko="하늘에서 내리는 먹거리를 모으고 떨어지는 당근 폭탄을 민첩하게 피해보세요! 스페이스바 혹은 아래 버튼을 눌러 출발합니다." data-lang-en="Gather falling nutrients and dodge the explosive carrot bombs! Press Space or click the button below to start.">하늘에서 내리는 먹거리를 모으고 떨어지는 당근 폭탄을 민첩하게 피해보세요! 스페이스바 혹은 아래 버튼을 눌러 출발합니다.</p>
+                            <button id="start-btn" class="px-8 h-14 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-extrabold text-lg rounded-2xl hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/20 transition-all cursor-pointer flex items-center gap-2">
+                                <span data-lang-ko="게임 시작" data-lang-en="Start Game">게임 시작</span>
+                                <span class="material-symbols-outlined text-xl">double_arrow</span>
+                            </button>
+                        </div>
+
+                        <!-- Game Over Screen Overlay -->
+                        <div id="gameover-overlay" class="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 z-10 hidden transition-all duration-300">
+                            <div class="w-16 h-16 bg-red-500/10 border-2 border-red-500 rounded-full flex items-center justify-center text-red-500 mb-4">
+                                <span class="material-symbols-outlined text-3xl">dangerous</span>
+                            </div>
+                            <h2 class="text-3xl font-extrabold text-white mb-1" data-lang-ko="게임 오버" data-lang-en="Game Over">게임 오버</h2>
+                            <p class="text-slate-400 text-sm mb-4" data-lang-ko="당근에 부딪히고 말았습니다!" data-lang-en="You collided with a carrot bomb!">당근에 부딪히고 말았습니다!</p>
+                            
+                            <!-- Highscore Achieved Form -->
+                            <div id="highscore-form-container" class="w-full max-w-xs bg-slate-900 border border-slate-800 p-5 rounded-2xl mb-6 hidden">
+                                <p class="text-amber-400 font-extrabold text-sm mb-2" data-lang-ko="👑 전당의 기록 달성! 👑" data-lang-en="👑 New High Score! 👑">👑 전당의 기록 달성! 👑</p>
+                                <p class="text-white text-2xl font-black mb-3"><span id="final-score">0</span> <span class="text-sm font-bold text-slate-400" data-lang-ko="점" data-lang-en="pts">점</span></p>
+                                <input type="text" id="username-input" class="w-full h-11 px-3 text-sm text-center font-bold rounded-xl border border-slate-700 bg-slate-800 text-white focus:border-orange-500 focus:ring-orange-500 mb-2" placeholder="이름을 입력하세요">
+                                <button id="submit-score-btn" class="w-full h-10 bg-orange-500 text-white font-extrabold text-xs rounded-xl hover:bg-orange-600 active:scale-95 transition-all cursor-pointer" data-lang-ko="점수 저장" data-lang-en="Save Score">점수 저장</button>
+                            </div>
+
+                            <div id="standard-score-container" class="mb-6">
+                                <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1" data-lang-ko="최종 획득 점수" data-lang-en="Final Score">최종 획득 점수</p>
+                                <p class="text-white text-3xl font-black"><span id="final-score-standard">0</span> <span class="text-sm font-bold text-slate-400" data-lang-ko="점" data-lang-en="pts">점</span></p>
+                            </div>
+
+                            <button id="retry-btn" class="px-6 h-12 bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm rounded-xl active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-base">replay</span>
+                                <span data-lang-ko="다시 도전하기" data-lang-en="Try Again">다시 도전하기</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar: High Scores Leaderboard (3 Cols) -->
+                <div class="lg:col-span-3">
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-lg">emoji_events</span>
+                            <span data-lang-ko="명예의 전당 (Top 10)" data-lang-en="High Scores (Top 10)">명예의 전당 (Top 10)</span>
+                        </h3>
+                        <ol id="ranking-list" class="space-y-2.5 text-xs text-text-muted dark:text-slate-400">
+                            <!-- Populated dynamically -->
                         </ol>
                     </div>
                 </div>
             </div>
+
+            <!-- Bottom Section: Carrot Ingredients & Health Tip Card Grid -->
+            <section class="w-full mt-16 border-t border-slate-200/60 dark:border-slate-800/80 pt-12">
+                <header class="text-center mb-10">
+                    <span class="px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-950/30 text-primary text-xs font-bold tracking-wide uppercase" data-lang-ko="건강 및 영양 가이드" data-lang-en="Health & Nutrition Guide">건강 및 영양 가이드</span>
+                    <h2 class="text-3xl font-extrabold text-text-main dark:text-white mt-2" data-lang-ko="🥕 매일 먹는 당근의 놀라운 기적" data-lang-en="🥕 The Surprising Benefits of Daily Carrots">🥕 매일 먹는 당근의 놀라운 기적</h2>
+                    <p class="text-text-muted dark:text-slate-400 text-sm mt-1" data-lang-ko="게임 속 방해꾼 당근이 우리 몸에는 최강의 면역 보약입니다!" data-lang-en="The annoying carrots in the game are actually immunity goldmines for your health!">게임 속 방해꾼 당근이 우리 몸에는 최강의 면역 보약입니다!</p>
+                </header>
+
+                <!-- Nutritional Profile Panel -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="p-4 rounded-2xl bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100/50 dark:border-orange-900/10 text-center">
+                        <p class="text-orange-500 font-extrabold text-2xl">7,500 <span class="text-xs">㎍</span></p>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-bold mt-1" data-lang-ko="베타카로틴 (풍부한 항산화)" data-lang-en="Beta-Carotene (Antioxidant)">베타카로틴 (풍부한 항산화)</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100/50 dark:border-orange-900/10 text-center">
+                        <p class="text-orange-500 font-extrabold text-2xl">93%</p>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-bold mt-1" data-lang-ko="일일 권장 비타민 A" data-lang-en="Daily Vitamin A Value">일일 권장 비타민 A</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100/50 dark:border-orange-900/10 text-center">
+                        <p class="text-orange-500 font-extrabold text-2xl">2.8 <span class="text-xs">g</span></p>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-bold mt-1" data-lang-ko="식이섬유 (소화/장운동)" data-lang-en="Dietary Fiber (Digestion)">식이섬유 (소화/장운동)</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100/50 dark:border-orange-900/10 text-center">
+                        <p class="text-orange-500 font-extrabold text-2xl">34 <span class="text-xs">kcal</span></p>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-bold mt-1" data-lang-ko="낮은 칼로리 (100g 당)" data-lang-en="Low Calories (per 100g)">낮은 칼로리 (100g 당)</p>
+                    </div>
+                </div>
+
+                <!-- 5 Benefits Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Card 1: Eye Health -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <div class="w-10 h-10 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="👁️ 침침한 눈을 밝게! 시력 보호" data-lang-en="👁️ Clear Vision & Eye Protection">👁️ 침침한 눈을 밝게! 시력 보호</h3>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="당근의 핵심 성분인 베타카로틴은 몸속에서 비타민 A로 전환되어 안구 건조증을 예방하고, 망막의 빛 감지 색소인 로돕신 생성을 도와 야맹증을 개선합니다." data-lang-en="Beta-carotene is converted into Vitamin A, which prevents dry eyes and helps produce rhodopsin, the pigment in the retina that improves low-light vision.">당근의 핵심 성분인 베타카로틴은 몸속에서 비타민 A로 전환되어 안구 건조증을 예방하고, 망막의 빛 감지 색소인 로돕신 생성을 도와 야맹증을 개선합니다.</p>
+                    </div>
+
+                    <!-- Card 2: Antioxidant Skin -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <div class="w-10 h-10 bg-rose-500/10 border border-rose-500/20 text-rose-500 rounded-xl flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined">spa</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="✨ 노화 방지 및 윤기 나는 피부" data-lang-en="✨ Youthful Skin & Cell Regeneration">✨ 노화 방지 및 윤기 나는 피부</h3>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="활성산소를 제거하는 강력한 항산화 성분이 노화를 늦춰줍니다. 자외선으로부터 피부 세포의 손상을 줄이고 콜라겐 생성을 촉진해 탄탄한 피부 결을 유지해 줍니다." data-lang-en="Strong antioxidants sweep away free radicals, delaying aging. Carrots protect cells from UV damage and promote collagen synthesis for healthy, glowing skin.">활성산소를 제거하는 강력한 항산화 성분이 노화를 늦춰줍니다. 자외선으로부터 피부 세포의 손상을 줄이고 콜라겐 생성을 촉진해 탄탄한 피부 결을 유지해 줍니다.</p>
+                    </div>
+
+                    <!-- Card 3: Cardiovascular Heart -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 text-red-500 rounded-xl flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="❤️ 혈관 건강 및 성인병 예방" data-lang-en="❤️ Cardiovascular Health & Blood Flow">❤️ 혈관 건강 및 성인병 예방</h3>
+                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="당근 속 풍부한 칼륨이 나트륨 방출을 유도하여 혈압을 가라앉힙니다. 또한 카로티노이드 성분이 혈관 벽의 산화를 억제하여 뇌졸중과 심장 혈관 질환을 예방합니다." data-lang-en="Rich potassium helps flush sodium out of the body, stabilizing blood pressure. Carotenoids block the oxidation of cholesterol, protecting arteries from cardiovascular risks.">당근 속 풍부한 칼륨이 나트륨 방출을 유도하여 혈압을 가라앉힙니다. 또한 카로티노이드 성분이 혈관 벽의 산화를 억제하여 뇌졸중과 심장 혈관 질환을 예방합니다.</p>
+                    </div>
+                </div>
+
+                <!-- Cooking Knowledge / Alert Tip Box -->
+                <div class="p-6 rounded-2xl bg-orange-100/40 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-900/50">
+                    <h3 class="text-md font-extrabold text-orange-800 dark:text-orange-300 flex items-center gap-2 mb-3">
+                        <span class="material-symbols-outlined">info</span>
+                        <span data-lang-ko="💡 당근 건강 흡수율 200% 올리는 핵심 비법!" data-lang-en="💡 Pro Cooking Tip: Boost Absorption by 200%!">💡 당근 건강 흡수율 200% 올리는 핵심 비법!</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs leading-relaxed text-slate-700 dark:text-slate-300 font-bold">
+                        <div>
+                            <p class="text-orange-600 dark:text-orange-400 font-extrabold mb-1" data-lang-ko="1. 기름에 볶아 드세요" data-lang-en="1. Saute with Healthy Oils">1. 기름에 볶아 드세요</p>
+                            <p data-lang-ko="당근 속 베타카로틴은 '지용성 비타민'입니다. 생으로 드시면 흡수율이 10% 미만이지만, 올리브유 등 기름과 함께 열을 가해 요리하면 흡수율이 60% 이상으로 올라갑니다." data-lang-en="Beta-carotene is fat-soluble. Eating raw carrots yield less than 10% absorption. Cooking them with oil boosts absorption to over 60%.">당근 속 베타카로틴은 '지용성 비타민'입니다. 생으로 드시면 흡수율이 10% 미만이지만, 올리브유 등 기름과 함께 열을 가해 요리하면 흡수율이 60% 이상으로 올라갑니다.</p>
+                        </div>
+                        <div>
+                            <p class="text-orange-600 dark:text-orange-400 font-extrabold mb-1" data-lang-ko="2. 껍질째 드세요" data-lang-en="2. Wash Well & Eat with Skin">2. 껍질째 드세요</p>
+                            <p data-lang-ko="베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다." data-lang-en="Most carotenoid nutrients reside near the outer skin rather than the inner core. Brush clean and eat with the skin intact for maximum benefits.">베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다.</p>
+                        </div>
+                        <div>
+                            <p class="text-orange-600 dark:text-orange-400 font-extrabold mb-1" data-lang-ko="3. 식초와 날것 매치는 피하세요" data-lang-en="3. Avoid Raw Vinegar Mixing">3. 식초와 날것 매치는 피하세요</p>
+                            <p data-lang-ko="생당근 속의 아스코르비나아제 효소는 비타민 C를 파괴합니다. 식초를 조금 곁들이거나, 열로 살짝 볶아서 효소를 무력화하면 함께 먹는 식자재의 비타민 파괴를 막아 줍니다." data-lang-en="Raw carrots contain ascorbinase, which breaks down Vitamin C. Slight heating or adding drop of vinegar deactivates the enzyme, protecting other veggies' Vitamin C.">생당근 속의 아스코르비나아제 효소는 비타민 C를 파괴합니다. 식초를 조금 곁들이거나, 열로 살짝 볶아서 효소를 무력화하면 함께 먹는 식자재의 비타민 파괴를 막아 줍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
-    
+
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts -->
     <script src="../scripts/main.js" defer></script>
     <script src="../language.js" defer></script>
     <script src="main.js"></script>
