@@ -34,6 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGameRunning = false;
     let finishedPlayerMap = {}; // Maps playerIndex -> ending colIndex
 
+    // Dragging state variables for participant reordering
+    let isDragging = false;
+    let draggedPlayerIndex = null;
+    let dragX = 0;
+    let dragY = 0;
+    let hasDragged = false;
+    let startDragX = 0;
+    let startDragY = 0;
+
     // Neon/Pastel color palette for paths
     const pathColors = [
         '#ef4444', // Red
@@ -339,6 +348,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const cx = getX(i);
             const cy = 45;
 
+            // If this badge is being dragged, draw a transparent placeholder instead
+            if (isDragging && draggedPlayerIndex === i) {
+                ctx.beginPath();
+                ctx.arc(cx, cy, 24, 0, Math.PI * 2);
+                ctx.fillStyle = isDark ? 'rgba(51, 65, 85, 0.2)' : 'rgba(226, 232, 240, 0.3)';
+                ctx.fill();
+                ctx.lineWidth = 2.5;
+                ctx.strokeStyle = isDark ? 'rgba(51, 65, 85, 0.4)' : 'rgba(226, 232, 240, 0.5)';
+                ctx.setLineDash([4, 4]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                return;
+            }
+
             // Check if player has finished or is animating to highlight
             const isAnimating = animatedPlayers.some(p => p.index === i && !p.isDone);
             const isFinished = finishedPlayerMap[i] !== undefined;
@@ -365,6 +388,29 @@ document.addEventListener('DOMContentLoaded', () => {
             let initials = player.substring(0, 3);
             ctx.fillText(initials, cx, cy);
         });
+
+        // Draw the floating dragged badge
+        if (isDragging && draggedPlayerIndex !== null) {
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = getPlayerColor(draggedPlayerIndex);
+            
+            ctx.beginPath();
+            ctx.arc(dragX, dragY, 26, 0, Math.PI * 2);
+            ctx.fillStyle = getPlayerColor(draggedPlayerIndex);
+            ctx.fill();
+
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = '#ffffff';
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '800 12px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            ctx.fillText(players[draggedPlayerIndex].substring(0, 3), dragX, dragY);
+            ctx.shadowBlur = 0;
+        }
     }
 
     // Rounded rectangle helper
@@ -613,28 +659,194 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDisplay.appendChild(card);
     }
 
-    // Canvas Mouse Click Column Headers Listener
-    canvas.addEventListener('click', (e) => {
+    // Drag and drop event listeners
+    canvas.addEventListener('mousedown', (e) => {
         if (isGameRunning) return;
 
         const rect = canvas.getBoundingClientRect();
-        // Scale coordinates matching real buffer size
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
 
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
 
-        // Check if header circle clicked
+        // Check if cursor is on any avatar
         for (let i = 0; i < numPlayers; i++) {
             const cx = getX(i);
             const cy = 45;
-            const dist = Math.hypot(x - cx, y - cy);
-            if (dist <= 30) {
-                runPath(i);
+            if (Math.hypot(x - cx, y - cy) <= 24) {
+                isDragging = true;
+                draggedPlayerIndex = i;
+                dragX = x;
+                dragY = y;
+                startDragX = x;
+                startDragY = y;
+                hasDragged = false;
                 break;
             }
         }
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+
+        if (isDragging && draggedPlayerIndex !== null) {
+            dragX = x;
+            dragY = y;
+            if (Math.hypot(x - startDragX, y - startDragY) > 8) {
+                hasDragged = true;
+            }
+            drawBoard();
+            drawActivePaths();
+        } else if (!isGameRunning) {
+            // Change cursor to pointer if hovering on an avatar
+            let hovered = false;
+            for (let i = 0; i < numPlayers; i++) {
+                const cx = getX(i);
+                const cy = 45;
+                if (Math.hypot(x - cx, y - cy) <= 24) {
+                    hovered = true;
+                    break;
+                }
+            }
+            canvas.style.cursor = hovered ? 'pointer' : 'default';
+        }
+    });
+
+    canvas.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+
+        if (hasDragged) {
+            // Check if dropped near another column header
+            let droppedIndex = null;
+            for (let j = 0; j < numPlayers; j++) {
+                if (j === draggedPlayerIndex) continue;
+                const cx = getX(j);
+                const cy = 45;
+                if (Math.hypot(x - cx, y - cy) <= 35) {
+                    droppedIndex = j;
+                    break;
+                }
+            }
+
+            if (droppedIndex !== null) {
+                // Swap player names
+                const temp = players[draggedPlayerIndex];
+                players[draggedPlayerIndex] = players[droppedIndex];
+                players[droppedIndex] = temp;
+                
+                // Redraw player inputs back in setup panel as well to match swapped state
+                const pInputs = playersDiv.querySelectorAll('input');
+                if (pInputs && pInputs.length === numPlayers) {
+                    pInputs[draggedPlayerIndex].value = players[draggedPlayerIndex];
+                    pInputs[droppedIndex].value = players[droppedIndex];
+                }
+            }
+        } else {
+            // Simple click: trigger path run
+            runPath(draggedPlayerIndex);
+        }
+
+        draggedPlayerIndex = null;
+        drawBoard();
+        drawActivePaths();
+    });
+
+    // Touch Support for mobile dragging
+    canvas.addEventListener('touchstart', (e) => {
+        if (isGameRunning || e.touches.length === 0) return;
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
+
+        for (let i = 0; i < numPlayers; i++) {
+            const cx = getX(i);
+            const cy = 45;
+            if (Math.hypot(x - cx, y - cy) <= 24) {
+                isDragging = true;
+                draggedPlayerIndex = i;
+                dragX = x;
+                dragY = y;
+                startDragX = x;
+                startDragY = y;
+                hasDragged = false;
+                e.preventDefault();
+                break;
+            }
+        }
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length === 0) return;
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (touch.clientX - rect.left) * scaleX;
+        const y = (touch.clientY - rect.top) * scaleY;
+
+        dragX = x;
+        dragY = y;
+        if (Math.hypot(x - startDragX, y - startDragY) > 8) {
+            hasDragged = true;
+        }
+        drawBoard();
+        drawActivePaths();
+        e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+
+        if (hasDragged) {
+            let droppedIndex = null;
+            for (let j = 0; j < numPlayers; j++) {
+                if (j === draggedPlayerIndex) continue;
+                const cx = getX(j);
+                const cy = 45;
+                if (Math.hypot(dragX - cx, dragY - cy) <= 35) {
+                    droppedIndex = j;
+                    break;
+                }
+            }
+
+            if (droppedIndex !== null) {
+                const temp = players[draggedPlayerIndex];
+                players[draggedPlayerIndex] = players[droppedIndex];
+                players[droppedIndex] = temp;
+                
+                const pInputs = playersDiv.querySelectorAll('input');
+                if (pInputs && pInputs.length === numPlayers) {
+                    pInputs[draggedPlayerIndex].value = players[draggedPlayerIndex];
+                    pInputs[droppedIndex].value = players[droppedIndex];
+                }
+            }
+        } else {
+            runPath(draggedPlayerIndex);
+        }
+
+        draggedPlayerIndex = null;
+        drawBoard();
+        drawActivePaths();
     });
 
     // Handle language switch redraws

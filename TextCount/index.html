@@ -6,7 +6,7 @@
     <title data-lang-ko="글자 수 세기 - 온라인 도구모음" data-lang-en="Character Counter - Online Toolkit">글자 수 세기 - 온라인 도구모음</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요. 보고서, 자기소개서 작성에 유용합니다." data-lang-en="Check the character, word, and line count of your text in real time with the online character counter tool. Useful for writing reports and cover letters.">
+    <meta name="description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 바이트 수, 줄 수를 실시간으로 확인하세요. 자기소개서, 이력서, 블로그 글 쓰기에 최적화되어 있습니다." data-lang-en="Check the character, word, byte, and line count of your text in real time. Optimized for cover letters, resumes, blog posts, and SEO writing.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/TextCount/index.html">
     <meta property="og:title" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">
     <meta property="og:description" data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 길이를 정밀하게 조절하세요." data-lang-en="Precisely control the length of your text with the online character counter tool.">
@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game.css">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <script id="tailwind-config">
@@ -36,76 +36,306 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#0ea5e9",
+                        "primary": "#0ea5e9", // Sky Blue
                         "primary-hover": "#0284c7",
-                        "background-light": "#f0f9ff",
+                        "background-light": "#f8fafc",
                         "background-dark": "#0f172a",
                         "text-main": "#0f172a",
                         "text-muted": "#64748b",
                         "card-bg-light": "#ffffff",
                         "card-bg-dark": "#1e293b",
-                        "accent-light": "#e0f2fe",
+                        "accent-light": "#f0f9ff",
                         "accent-dark": "#1e293b",
                     },
                     fontFamily: {
                         "display": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    }
                 },
             },
         }
     </script>
 </head>
-<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-slate-100">
 
     <div id="header-placeholder"></div>
 
-    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 mx-auto">            <header class="text-center py-10">
-                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="✍️ 글자 수 세기" data-lang-en="✍️ Character Counter">✍️ 글자 수 세기</h1>
-                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요." data-lang-en="Check the character, word, and line count of your text in real time.">텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요.</p>
+    <main class="px-4 md:px-12 lg:px-24 py-12 flex-1 flex justify-center">
+        <div class="layout-content-container flex flex-col w-full max-w-6xl mx-auto space-y-10">
+            
+            <!-- Hero Title -->
+            <header class="text-center space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 dark:bg-sky-950/40 text-primary text-xs font-bold uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">edit_note</span>
+                    <span data-lang-ko="텍스트 카운터" data-lang-en="TEXT COUNTER">텍스트 카운터</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight text-text-main dark:text-white" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</h1>
+                <p class="text-text-muted dark:text-slate-400 max-w-lg mx-auto text-base md:text-lg" data-lang-ko="실시간으로 텍스트의 글자 수, 단어 수, 공백 제외 크기와 바이트 용량을 정밀 분석합니다." data-lang-en="Analyze your text length, word count, space-excluded letters, and byte size in real time.">실시간으로 텍스트의 글자 수, 단어 수, 공백 제외 크기와 바이트 용량을 정밀 분석합니다.</p>
             </header>
 
-            <section class="w-full max-w-3xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md">
-                <textarea id="text-input" class="w-full h-64 p-4 rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+            <!-- Main Working Interface -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
-                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="공백 포함" data-lang-en="Characters (incl. spaces)">공백 포함</span>
-                        <span id="count-char-include-space" class="text-2xl font-bold text-text-main dark:text-white">0</span>
+                <!-- Left Section: Editor & Action Bar (7 cols) -->
+                <section class="lg:col-span-8 space-y-4">
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark rounded-3xl p-6 border border-slate-100 dark:border-slate-800/80 shadow-md">
+                        
+                        <!-- Toolbar Controls -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-1">
+                                <span class="w-2.5 h-2.5 bg-primary rounded-full animate-pulse"></span>
+                                <span class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="실시간 감지 중..." data-lang-en="Realtime detection active...">실시간 감지 중...</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <!-- UpperCase -->
+                                <button id="upper-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-bold text-text-muted dark:text-slate-300 hover:text-primary hover:bg-sky-50 dark:hover:bg-sky-950/40 border border-slate-200/60 dark:border-slate-700 transition" title="대문자로 변환">
+                                    <span class="material-symbols-outlined text-xs">keyboard_arrow_up</span>
+                                    <span data-lang-ko="대문자" data-lang-en="UPPER">대문자</span>
+                                </button>
+                                <!-- LowerCase -->
+                                <button id="lower-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-bold text-text-muted dark:text-slate-300 hover:text-primary hover:bg-sky-50 dark:hover:bg-sky-950/40 border border-slate-200/60 dark:border-slate-700 transition" title="소문자로 변환">
+                                    <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+                                    <span data-lang-ko="소문자" data-lang-en="lower">소문자</span>
+                                </button>
+                                <!-- Trim whitespace -->
+                                <button id="trim-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-bold text-text-muted dark:text-slate-300 hover:text-primary hover:bg-sky-50 dark:hover:bg-sky-950/40 border border-slate-200/60 dark:border-slate-700 transition" title="불필요한 중복 공백 제거">
+                                    <span class="material-symbols-outlined text-xs">space_bar</span>
+                                    <span data-lang-ko="공백정리" data-lang-en="Trim Spaces">공백정리</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Main input area -->
+                        <div class="relative">
+                            <textarea id="text-input" class="w-full h-80 md:h-96 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:text-white text-base leading-relaxed transition-all shadow-inner placeholder-slate-400 dark:placeholder-slate-500" placeholder="여기에 글자를 입력하거나 붙여넣으세요..."></textarea>
+                        </div>
+
+                        <!-- Footer Actions -->
+                        <div class="grid grid-cols-2 gap-4 mt-5">
+                            <button id="copy-btn" class="flex items-center justify-center gap-2 rounded-2xl h-12 bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                                <span data-lang-ko="전체 텍스트 복사" data-lang-en="Copy All Text">전체 텍스트 복사</span>
+                            </button>
+                            <button id="reset-btn" class="flex items-center justify-center gap-2 rounded-2xl h-12 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-text-main dark:text-white text-sm font-bold transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-sm">delete_sweep</span>
+                                <span data-lang-ko="비우기 (초기화)" data-lang-en="Clear All">비우기 (초기화)</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
-                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="공백 제외" data-lang-en="Characters (excl. spaces)">공백 제외</span>
-                        <span id="count-char-exclude-space" class="text-2xl font-bold text-text-main dark:text-white">0</span>
+                </section>
+
+                <!-- Right Section: Results Cards Dashboard (4 cols) -->
+                <section class="lg:col-span-4 space-y-4">
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark rounded-3xl p-6 border border-slate-100 dark:border-slate-800/80 shadow-md">
+                        <h2 class="text-sm font-bold text-text-muted dark:text-slate-400 mb-4 uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-primary">analytics</span>
+                            <span data-lang-ko="실시간 통계 보고서" data-lang-en="Realtime Statistics">실시간 통계 보고서</span>
+                        </h2>
+
+                        <div class="grid grid-cols-2 lg:grid-cols-1 gap-4">
+                            
+                            <!-- Counter: Char (Incl Space) -->
+                            <div class="counter-card p-4 rounded-2xl bg-sky-50/40 dark:bg-sky-950/20 border border-sky-100/40 dark:border-sky-950/30 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-md font-bold">format_size</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] font-bold text-text-muted dark:text-slate-400" data-lang-ko="공백 포함" data-lang-en="Characters (Incl.)">공백 포함</span>
+                                    <span id="count-char-include-space" class="text-xl font-extrabold text-text-main dark:text-white">0</span>
+                                </div>
+                            </div>
+
+                            <!-- Counter: Char (Excl Space) -->
+                            <div class="counter-card p-4 rounded-2xl bg-sky-50/40 dark:bg-sky-950/20 border border-sky-100/40 dark:border-sky-950/30 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-md font-bold">space_bar</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] font-bold text-text-muted dark:text-slate-400" data-lang-ko="공백 제외" data-lang-en="Characters (Excl.)">공백 제외</span>
+                                    <span id="count-char-exclude-space" class="text-xl font-extrabold text-text-main dark:text-white">0</span>
+                                </div>
+                            </div>
+
+                            <!-- Counter: Words -->
+                            <div class="counter-card p-4 rounded-2xl bg-sky-50/40 dark:bg-sky-950/20 border border-sky-100/40 dark:border-sky-950/30 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-md font-bold">description</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] font-bold text-text-muted dark:text-slate-400" data-lang-ko="단어 수" data-lang-en="Words">단어 수</span>
+                                    <span id="count-words" class="text-xl font-extrabold text-text-main dark:text-white">0</span>
+                                </div>
+                            </div>
+
+                            <!-- Counter: Lines -->
+                            <div class="counter-card p-4 rounded-2xl bg-sky-50/40 dark:bg-sky-950/20 border border-sky-100/40 dark:border-sky-950/30 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-md font-bold">list_alt</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] font-bold text-text-muted dark:text-slate-400" data-lang-ko="줄 수" data-lang-en="Lines">줄 수</span>
+                                    <span id="count-lines" class="text-xl font-extrabold text-text-main dark:text-white">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Byte Size Sections -->
+                        <div class="mt-6 border-t border-slate-100 dark:border-slate-800 pt-5 space-y-4">
+                            <h3 class="text-xs font-bold text-text-muted dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm text-primary">database</span>
+                                <span data-lang-ko="바이트 크기 (Bytes)" data-lang-en="Byte Calculations">바이트 크기 (Bytes)</span>
+                            </h3>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-slate-50 dark:bg-slate-900/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800/80 text-center">
+                                    <span class="block text-[10px] font-bold text-text-muted dark:text-slate-400">UTF-8 <span class="text-[9px] font-normal">(글 3B / 영 1B)</span></span>
+                                    <span id="count-bytes-utf8" class="text-lg font-bold text-text-main dark:text-white">0</span>
+                                </div>
+                                <div class="bg-slate-50 dark:bg-slate-900/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800/80 text-center">
+                                    <span class="block text-[10px] font-bold text-text-muted dark:text-slate-400">EUC-KR <span class="text-[9px] font-normal">(글 2B / 영 1B)</span></span>
+                                    <span id="count-bytes-euckr" class="text-lg font-bold text-text-main dark:text-white">0</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
-                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="단어" data-lang-en="Words">단어</span>
-                        <span id="count-words" class="text-2xl font-bold text-text-main dark:text-white">0</span>
-                    </div>
-                    <div class="bg-accent-light dark:bg-accent-dark p-4 rounded-lg">
-                        <span class="block text-sm text-text-muted dark:text-slate-400" data-lang-ko="줄" data-lang-en="Lines">줄</span>
-                        <span id="count-lines" class="text-2xl font-bold text-text-main dark:text-white">0</span>
+                </section>
+            </div>
+
+            <!-- Blog Post Section about Recommended Character Lengths (Request 3) -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-6xl mx-auto transition-all duration-300">
+                <!-- Korean Version -->
+                <div class="lang-only-ko">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📚</span> 글자수 세기가 필요한 필수 상황 및 대상별 추천 가이드
+                    </h2>
+                    <div class="space-y-8 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">contact_page</span>
+                                    1. 취업 자기소개서 및 이력서
+                                </h3>
+                                <p>대부분의 국내 주요 대기업이나 공공기관 인사팀 채용 시스템은 자기소개서 입력 시 **바이트(Byte)** 또는 **글자수(공백 포함/제외)** 제한을 엄격하게 적용하고 있습니다. 일반적으로 문항당 **500자, 700자, 1,000자** 또는 **3,000 Byte** 내외로 작성을 요구합니다.</p>
+                                <p class="mt-2 text-primary font-bold">💡 추천 가이드: 타겟 한도 기준 90% ~ 95% 내외를 안정적으로 채우는 것이 성의와 정밀성을 모두 보여주는 데 가장 좋습니다. (예: 1,000자 제한일 경우 920~970자 최적)</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">language</span>
+                                    2. 블로그 포스트 및 브런치 글쓰기
+                                </h3>
+                                <p>네이버 블로그, 티스토리, 워드프레스 등 검색 최적화(SEO) 글쓰기에서는 텍스트 분량이 검색 상위 노출에 영향을 주는 중요한 팩터입니다. 내용이 너무 짧은 글은 양질의 정보가 부족한 '저품질 글'로 검색 엔진이 인식할 확률이 높습니다.</p>
+                                <p class="mt-2 text-primary font-bold">💡 추천 가이드: 일상 글은 최소 800자 이상, 정보성/전문 글은 1,500자 ~ 3,000자 정도의 풍부한 텍스트 볼륨을 확보하는 것이 노출 및 체류시간 증가에 큰 기여를 합니다.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">manage_search</span>
+                                    3. 웹사이트 검색엔진 최적화 (SEO) 메타 정보
+                                </h3>
+                                <p>구글이나 네이버 포털에 노출되는 메인 제목과 설명문(Meta Description)의 글자가 너무 길면 검색 결과 화면(SERP)에서 뒷부분이 `...`으로 잘려 가독성이 떨어집니다.</p>
+                                <p class="mt-2 text-primary font-bold">💡 추천 가이드: 검색 노출용 제목(SEO Title)은 공백 포함 **30자 ~ 35자 내외(영문 50~60자)**, 메타 설명문(Meta Description)은 한글 기준 **70자 ~ 80자(영문 150~160자)**로 간결하게 맞춰주는 것이 클릭률(CTR) 향상에 탁월합니다.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">send</span>
+                                    4. 주요 소셜 미디어 플랫폼 제한 사항
+                                </h3>
+                                <p>SNS 플랫폼 마케팅을 진행하거나 포스트를 게재할 때 글자 제한을 초과해 잘리는 현상을 미연에 방지해야 합니다.</p>
+                                <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2 text-sm text-text-muted dark:text-slate-400">
+                                    <li><strong>X (구 트위터):</strong> 일반 계정 기준 최대 280자 (한글 140자 내외)</li>
+                                    <li><strong>인스타그램:</strong> 본문 캡션 최대 2,200자 제한 (해시태그는 30개 한정)</li>
+                                    <li><strong>유튜브:</strong> 동영상 설명글 최대 5,000자 제한</li>
+                                    <li><strong>페이스북:</strong> 일반 포스트 최대 63,206자 제한</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 5. 제품 설명서 및 광고 카피라이팅 추천 자수
+                            </h3>
+                            <p>모바일 스크린이나 카탈로그 리플릿에서 고객이 막힘 없이 집중하여 글을 읽는 데는 물리적인 글자 크기와 자수가 치명적인 역할을 합니다. 스마트폰 모바일 화면 기준, 한눈에 정보가 인식되는 단락의 분량은 **500자 전후**가 이상적입니다. 광고 배너나 카드 뉴스의 메인 카피는 단 **10자 ~ 15자 내외**로 감정을 자극해야 강렬하게 남습니다.</p>
+                        </section>
                     </div>
                 </div>
 
-                <button id="reset-btn" class="mt-6 w-full flex items-center justify-center rounded-lg h-11 px-6 bg-slate-200 dark:bg-slate-700 text-text-main dark:text-white text-md font-bold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
-                    <span data-lang-ko="초기화" data-lang-en="Reset">초기화</span>
-                </button>
-            </section>
+                <!-- English Version -->
+                <div class="lang-only-en">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📚</span> Essential Scenarios for Character Counting & Recommended Limits
+                    </h2>
+                    <div class="space-y-8 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">contact_page</span>
+                                    1. Job Applications & Resumes
+                                </h3>
+                                <p>Major global job boards, universities, and Applicant Tracking Systems (ATS) enforce strict character or word limits for resumes and statements of purpose (SOP). Standard limits range from **250 to 500 words** per question, or **2,000 to 4,000 characters**.</p>
+                                <p class="mt-2 text-primary font-bold">💡 Tip: Target hitting 90% to 95% of the stated limit. This demonstrates diligence and thoroughness without risking text truncation in recruitment portals.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">language</span>
+                                    2. Blog Posts & Content Writing
+                                </h3>
+                                <p>For websites running SEO strategies (Google Search Engine Optimization), text volume is a primary factor. Search engines flag thin content (under 500 words) as low quality, making higher word counts favorable for organic rankings.</p>
+                                <p class="mt-2 text-primary font-bold">💡 Tip: Everyday lifestyle posts should be at least 800 characters. Informational, research-intensive articles gain maximum SEO authority when kept between 1,500 and 3,000 words.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">manage_search</span>
+                                    3. Search Engine Optimization (SEO) Metadata
+                                </h3>
+                                <p>If search titles or meta descriptions exceed standard display dimensions, search engines cut off the text with an ellipsis `...`, rendering it incomplete.</p>
+                                <p class="mt-2 text-primary font-bold">💡 Tip: Keep SEO Titles between **50 to 60 characters** (including spaces) and Meta Descriptions between **150 to 160 characters** to ensure they render beautifully on Google SERPs.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                                <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">send</span>
+                                    4. Social Media Limits
+                                </h3>
+                                <p>Avoid having your key message cropped mid-sentence on feed scrolls by keeping your copy within standard limits.</p>
+                                <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2 text-sm text-text-muted dark:text-slate-400">
+                                    <li><strong>X (Twitter):</strong> Up to 280 characters for standard accounts.</li>
+                                    <li><strong>Instagram:</strong> Captions support up to 2,200 characters (max 30 hashtags).</li>
+                                    <li><strong>YouTube Video Descriptions:</strong> Up to 5,000 characters.</li>
+                                    <li><strong>Facebook Posts:</strong> Up to 63,206 characters.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 5. Product Manuals & Copywriting recommendations
+                            </h3>
+                            <p>To retain reader attention on mobile views or printed pamphlets, density matters. Single sections of copy are most comfortable for human reading when kept around **500 characters**. Short advertisement banners perform best when restricted to a punchy **10 to 15 characters**.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
-    <script src="main.js" defer></script>
+    <!-- Scripts -->
+    <script src="../scripts/app.js" defer></script>
     <script src="../language.js" defer></script>
-    <script src="../scripts/main.js" defer></script>
+    <script src="game.js"></script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "글자 수 세기 - 온라인 도구모음",
-      "description": "온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 확인하세요. 보고서, 자기소개서 작성에 유용합니다.",
+      "description": "온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 바이트 수, 줄 수를 실시간으로 확인하세요.",
       "url": "https://tesla-tool.pages.dev/TextCount/index.html"
     }
     </script>

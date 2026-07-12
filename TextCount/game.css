@@ -1,0 +1,37 @@
+/* Text Counter Custom Styles */
+#text-input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#text-input:focus {
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.counter-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.counter-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbars for textarea */
+#text-input::-webkit-scrollbar {
+    width: 8px;
+}
+#text-input::-webkit-scrollbar-track {
+    background: transparent;
+}
+#text-input::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.dark #text-input::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+/* Bilingual switcher */
+html[lang="ko"] .lang-only-ko { display: block !important; }
+html[lang="ko"] .lang-only-en { display: none !important; }
+html[lang="en"] .lang-only-ko { display: none !important; }
+html[lang="en"] .lang-only-en { display: block !important; }

@@ -346,6 +346,185 @@ if (clearPlannerBtn) {
     });
 }
 
+// 텍스트 파일 (.txt) 다운로드 기능
+function downloadTxt() {
+    const lang = document.documentElement.lang || 'ko';
+    let text = lang === 'en' ? "=== MY WEEKLY MEAL PLAN ===\n\n" : "=== 나의 일주일 식단표 ===\n\n";
+    const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    
+    days.forEach(day => {
+        const dayLabel = dayLabels[lang][day];
+        const lunchMenu = plannerState[day]['lunch'];
+        const dinnerMenu = plannerState[day]['dinner'];
+        
+        const lunchStr = lunchMenu ? (lang === 'en' ? `${lunchMenu.name_en} (${lunchMenu.category_en})` : `${lunchMenu.name_ko} (${lunchMenu.category_ko})`) : (lang === 'en' ? "Empty" : "비어 있음");
+        const dinnerStr = dinnerMenu ? (lang === 'en' ? `${dinnerMenu.name_en} (${dinnerMenu.category_en})` : `${dinnerMenu.name_ko} (${dinnerMenu.category_ko})`) : (lang === 'en' ? "Empty" : "비어 있음");
+        
+        text += `${dayLabel}:\n`;
+        text += `  - ${dayLabels[lang]['lunch']}: ${lunchStr}\n`;
+        text += `  - ${dayLabels[lang]['dinner']}: ${dinnerStr}\n\n`;
+    });
+    
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = lang === 'en' ? 'weekly_meal_plan.txt' : 'weekly_planner.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// 이미지 파일 (.png) 다운로드 기능 (HTML5 Canvas 빌드)
+function downloadPng() {
+    const lang = document.documentElement.lang || 'ko';
+    const canvas = document.createElement('canvas');
+    canvas.width = 1000;
+    canvas.height = 800;
+    const ctx = canvas.getContext('2d');
+
+    // 1. 배경 그라데이션
+    const grad = ctx.createLinearGradient(0, 0, 1000, 800);
+    grad.addColorStop(0, '#f0f9ff');
+    grad.addColorStop(1, '#e0f2fe');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1000, 800);
+
+    // 2. 메인 카드 박스
+    ctx.fillStyle = '#ffffff';
+    ctx.shadowColor = 'rgba(14, 165, 233, 0.15)';
+    ctx.shadowBlur = 30;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 10;
+    
+    function drawRoundedRect(x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x+r, y);
+        ctx.arcTo(x+w, y, x+w, y+h, r);
+        ctx.arcTo(x+w, y+h, x, y+h, r);
+        ctx.arcTo(x, y+h, x, y, r);
+        ctx.arcTo(x, y, x+w, y, r);
+        ctx.closePath();
+        ctx.fill();
+    }
+    drawRoundedRect(50, 50, 900, 700, 24);
+
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+
+    // 3. 타이틀 텍스트
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 32px sans-serif';
+    ctx.textAlign = 'center';
+    const title = lang === 'en' ? 'My Weekly Meal Planner' : '나의 일주일 식단표';
+    ctx.fillText(title, 500, 110);
+
+    ctx.fillStyle = '#64748b';
+    ctx.font = '16px sans-serif';
+    const subtitle = lang === 'en' ? 'Online Toolkit - tesla-tool.pages.dev' : '온라인 도구모음 - tesla-tool.pages.dev';
+    ctx.fillText(subtitle, 500, 140);
+
+    // 4. 테이블 헤더 렌더링
+    const colWidths = [180, 330, 330];
+    const startX = 80;
+    const startY = 180;
+    const rowHeight = 70;
+
+    ctx.fillStyle = '#0ea5e9';
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+    ctx.arcTo(startX + 840, startY, startX + 840, startY + rowHeight, 12);
+    ctx.arcTo(startX + 840, startY + rowHeight, startX, startY + rowHeight, 0);
+    ctx.arcTo(startX, startY + rowHeight, startX, startY, 0);
+    ctx.arcTo(startX, startY, startX + 840, startY, 12);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 18px sans-serif';
+    ctx.textAlign = 'left';
+    
+    ctx.fillText(lang === 'en' ? 'Day of the Week' : '요일', startX + 20, startY + 42);
+    ctx.fillText(dayLabels[lang]['lunch'].replace(/^[^\s]+\s+/, ''), startX + colWidths[0] + 20, startY + 42);
+    ctx.fillText(dayLabels[lang]['dinner'].replace(/^[^\s]+\s+/, ''), startX + colWidths[0] + colWidths[1] + 20, startY + 42);
+
+    // 5. 요일별 리스트 렌더링
+    const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+    days.forEach((day, index) => {
+        const y = startY + rowHeight + (index * rowHeight);
+
+        ctx.fillStyle = index % 2 === 0 ? '#f8fafc' : '#ffffff';
+        
+        if (index === 6) {
+            ctx.beginPath();
+            ctx.moveTo(startX, y);
+            ctx.lineTo(startX + 840, y);
+            ctx.arcTo(startX + 840, y + rowHeight, startX, y + rowHeight, 12);
+            ctx.arcTo(startX, y + rowHeight, startX, y, 12);
+            ctx.closePath();
+            ctx.fill();
+        } else {
+            ctx.fillRect(startX, y, 840, rowHeight);
+        }
+
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(startX, y);
+        ctx.lineTo(startX + 840, y);
+        ctx.stroke();
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText(dayLabels[lang][day], startX + 20, y + 42);
+
+        ['lunch', 'dinner'].forEach((meal, mIdx) => {
+            const menu = plannerState[day][meal];
+            const x = startX + colWidths[0] + (mIdx * colWidths[1]) + 20;
+
+            if (menu) {
+                const menuName = lang === 'en' ? menu.name_en : menu.name_ko;
+                const category = lang === 'en' ? menu.category_en : menu.category_ko;
+                
+                // 태그 배경 그리기
+                ctx.fillStyle = '#e0f2fe';
+                ctx.beginPath();
+                ctx.arc(x + 15, y + 36, 12, Math.PI/2, 3*Math.PI/2);
+                ctx.lineTo(x + 65, y + 24);
+                ctx.arc(x + 65, y + 36, 12, 3*Math.PI/2, Math.PI/2);
+                ctx.lineTo(x + 15, y + 48);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.fillStyle = '#0369a1';
+                ctx.font = 'bold 11px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(category.slice(0, 3), x + 40, y + 40);
+
+                ctx.fillStyle = '#1e293b';
+                ctx.font = 'bold 15px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(menuName, x + 85, y + 41);
+            } else {
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = 'italic 14px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(dayLabels[lang]['empty'], x, y + 41);
+            }
+        });
+    });
+
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = lang === 'en' ? 'weekly_meal_plan.png' : 'weekly_planner.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
 // 다국어 언어 변경 Hooking 처리
 function hookApplyLanguage() {
     if (typeof window.applyLanguage === 'function') {
@@ -379,4 +558,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 다운로드 버튼 이벤트 리스너 바인딩
+    const downloadTxtBtn = document.getElementById('download-txt-btn');
+    const downloadPngBtn = document.getElementById('download-png-btn');
+    if (downloadTxtBtn) downloadTxtBtn.addEventListener('click', downloadTxt);
+    if (downloadPngBtn) downloadPngBtn.addEventListener('click', downloadPng);
 });
