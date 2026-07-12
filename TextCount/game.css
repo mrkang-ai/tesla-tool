@@ -30,8 +30,4 @@
     background: #475569;
 }
 
-/* Bilingual switcher */
-html[lang="ko"] .lang-only-ko { display: block !important; }
-html[lang="ko"] .lang-only-en { display: none !important; }
-html[lang="en"] .lang-only-ko { display: none !important; }
-html[lang="en"] .lang-only-en { display: block !important; }
+

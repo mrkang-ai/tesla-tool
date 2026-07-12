@@ -48,3 +48,10 @@ body {
     font-family: inherit;
     color: inherit;
 }
+
+/* Language toggling styles for bilingual rich text blocks */
+html[lang="ko"] .lang-only-en { display: none !important; }
+html[lang="ko"] .lang-only-ko { display: block !important; }
+html[lang="en"] .lang-only-ko { display: none !important; }
+html[lang="en"] .lang-only-en { display: block !important; }
+

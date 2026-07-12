@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (text) {
                 if (element.placeholder !== undefined) {
                     element.placeholder = text;
+                } else if (element.tagName === 'META') {
+                    element.setAttribute('content', text);
                 } else if (element.id !== 'current-service-name' && element.id !== 'current-language-text') {
                     // Avoid directly setting text for elements controlled by other functions
                     element.textContent = text;

@@ -6,15 +6,15 @@
     <title data-lang-ko="로또 번호 생성기 - 온라인 도구모음" data-lang-en="Lotto Number Generator - Online Toolkit">로또 번호 생성기 - 온라인 도구모음</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요. 최신 당첨 정보와 로또에 대한 모든 것을 확인할 수 있습니다." data-lang-en="Get your lucky numbers with the online lotto number generator. You can check the latest winning information and everything about the lottery.">
+    <meta name="description" content="온라인 로또 번호 생성기로 행운의 번호를 받아보세요. 최신 당첨 정보와 로또에 대한 모든 것을 확인할 수 있습니다." data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요. 최신 당첨 정보와 로또에 대한 모든 것을 확인할 수 있습니다." data-lang-en="Get your lucky numbers with the online lotto number generator. You can check the latest winning information and everything about the lottery.">
     <link rel="canonical" href="https://tesla-tool.pages.dev/lotto/index.html">
-    <meta property="og:title" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
-    <meta property="og:description" data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-en="Get your lucky numbers with the online lotto number generator.">
+    <meta property="og:title" content="로또 번호 생성기" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
+    <meta property="og:description" content="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-en="Get your lucky numbers with the online lotto number generator.">
     <meta property="og:image" content="https://tesla-tool.pages.dev/og-image-lotto.jpg">
     <meta property="og:url" content="https://tesla-tool.pages.dev/lotto/index.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
-    <meta name="twitter:description" data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-en="Get your lucky numbers with the online lotto number generator.">
+    <meta name="twitter:title" content="로또 번호 생성기" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">
+    <meta name="twitter:description" content="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-ko="온라인 로또 번호 생성기로 행운의 번호를 받아보세요." data-lang-en="Get your lucky numbers with the online lotto number generator.">
     <meta name="twitter:image" content="https://tesla-tool.pages.dev/twitter-image-lotto.jpg">
 
     <!-- Google Analytics & Other Scripts -->
@@ -30,8 +30,9 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../game.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="../agent-fixes.css">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <script id="tailwind-config">
@@ -187,13 +188,7 @@
                 </div>
             </div>
 
-            <!-- Custom Style for rich text language toggling -->
-            <style>
-                html[lang="ko"] .lang-only-en { display: none !important; }
-                html[lang="ko"] .lang-only-ko { display: block !important; }
-                html[lang="en"] .lang-only-ko { display: none !important; }
-                html[lang="en"] .lang-only-en { display: block !important; }
-            </style>
+
 
             <!-- Bottom Section: Lotto History & Historic Records -->
             <div class="mt-12 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[1200px] w-full mx-auto transition-all duration-300">
