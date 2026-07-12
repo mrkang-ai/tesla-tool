@@ -72,28 +72,40 @@
                 <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-hover transition-colors" data-lang-ko="동행복권 당첨조회 바로가기 🔗" data-lang-en="Go to Donghang Lottery Winning Check 🔗">동행복권 당첨조회 바로가기 🔗</a>
             </div>
 
-            <!-- Main workspace grid (2 columns) -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4">
+            <!-- Workspace Layout (Stacked Vertically) -->
+            <div class="flex flex-col gap-8 mt-4">
                 
-                <!-- LEFT COLUMN: Generator (5 cols) -->
-                <div class="lg:col-span-5 flex flex-col gap-6">
+                <!-- SECTION 1: Lucky Number Generator (max-w-3xl mx-auto w-full) -->
+                <div class="max-w-3xl mx-auto w-full">
                     <section class="bg-card-bg-light dark:bg-card-bg-dark p-6 md:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md">
                         <h2 class="text-xl font-bold text-text-main dark:text-white mb-4 flex items-center gap-2" data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
-                        <p class="text-sm text-text-muted dark:text-slate-400 mb-6" data-lang-ko="아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요." data-lang-en="Click the button below to generate 6 random lucky numbers from 1 to 45.">아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요.</p>
+                        <p class="text-sm text-text-muted dark:text-slate-400 mb-6" data-lang-ko="1개 세트를 단독으로 생성하거나, 한 번에 10개 세트를 연속으로 생성하여 나만의 행운을 확인하세요." data-lang-en="Generate 1 set individually or 10 sets continuously at once to find your luck.">1개 세트를 단독으로 생성하거나, 한 번에 10개 세트를 연속으로 생성하여 나만의 행운을 확인하세요.</p>
                         
-                        <button id="generate-btn" class="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-gradient-to-r from-sky-400 to-primary hover:from-sky-500 hover:to-primary-hover text-white text-lg font-bold hover:shadow-lg hover:shadow-sky-100 dark:hover:shadow-none hover:-translate-y-0.5 active:scale-95 transition-all duration-300">
-                            <span class="material-symbols-outlined">casino</span>
-                            <span data-lang-ko="행운 번호 추출하기" data-lang-en="Generate Lucky Numbers">행운 번호 추출하기</span>
-                        </button>
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                            <button id="generate-btn" class="flex items-center justify-center gap-2 rounded-xl h-12 bg-primary text-white text-sm font-bold whitespace-nowrap hover:bg-primary-hover shadow-md hover:shadow-sky-100 dark:hover:shadow-none hover:-translate-y-0.5 active:scale-95 transition-all duration-300">
+                                <span class="material-symbols-outlined text-lg">casino</span>
+                                <span data-lang-ko="1개 세트 생성" data-lang-en="Generate 1 Set">1개 세트 생성</span>
+                            </button>
+                            <button id="generate-10-btn" class="flex items-center justify-center gap-2 rounded-xl h-12 bg-indigo-600 text-white text-sm font-bold whitespace-nowrap hover:bg-indigo-700 shadow-md hover:shadow-indigo-100 dark:hover:shadow-none hover:-translate-y-0.5 active:scale-95 transition-all duration-300">
+                                <span class="material-symbols-outlined text-lg">layers</span>
+                                <span data-lang-ko="10개 세트 생성" data-lang-en="Generate 10 Sets">10개 세트 생성</span>
+                            </button>
+                            <button id="reset-btn" class="flex items-center justify-center gap-2 rounded-xl h-12 bg-slate-100 dark:bg-slate-800 text-text-main dark:text-white text-sm font-semibold whitespace-nowrap hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all">
+                                <span class="material-symbols-outlined text-lg">delete</span>
+                                <span data-lang-ko="기록 초기화" data-lang-en="Reset Records">기록 초기화</span>
+                            </button>
+                        </div>
                         
+                        <!-- List Container -->
                         <div id="generated-numbers-container">
-                            <!-- Generated number list dynamically inserted here -->
+                            <!-- Generated sets dynamically inserted here -->
                         </div>
                     </section>
                 </div>
                 
-                <!-- RIGHT COLUMN: Latest Draw Info (7 cols) -->
-                <div class="lg:col-span-7 flex flex-col gap-6">
+                <!-- SECTION 2: Latest Draw Info (max-w-4xl mx-auto w-full) -->
+                <div class="max-w-4xl mx-auto w-full">
                     <section class="bg-card-bg-light dark:bg-card-bg-dark p-6 md:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md">
                         <h2 class="text-xl font-bold text-text-main dark:text-white mb-4 flex items-center gap-2" data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
                         
@@ -269,6 +281,45 @@
                                 </table>
                             </div>
                         </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 3. 로또의 당첨 확률과 구조
+                            </h3>
+                            <p>로또 6/45는 1부터 45까지의 숫자 중 6개를 맞추는 게임으로, 각 등수별 당첨 확률은 수학적으로 다음과 같이 정밀하게 결정됩니다.</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>**1등 (6개 번호 일치)**: **1 / 8,145,060** (약 814만분의 1). 번개에 맞거나 극단적인 확률에 비견됩니다.</li>
+                                <li>**2등 (5개 번호 + 보너스 번호 일치)**: **1 / 1,357,510** (약 135만분의 1).</li>
+                                <li>**3등 (5개 번호 일치)**: **1 / 35,724** (약 3만 5천분의 1).</li>
+                                <li>**4등 (4개 번호 일치)**: **1 / 733** (고정 당첨금 50,000원).</li>
+                                <li>**5등 (3개 번호 일치)**: **1 / 45** (고정 당첨금 5,000원).</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 4. 공정한 추첨 방식: 비너스 추첨기
+                            </h3>
+                            <p>대한민국 로또는 매주 토요일 저녁 방송을 통해 투명하게 추첨 과정을 중계합니다.</p>
+                            <p class="mt-2">추첨에는 프랑스 에디텍(Editec)사에서 제작한 **'비너스(Venus) 추첨기'**를 사용합니다. 이 추첨기는 투명한 드럼통 안에 45개의 공을 넣고 강한 바람(공기 흡입 방식)으로 공을 회전시키다가, 드럼 상단의 튜브를 통해 무작위로 공을 하나씩 뽑아 올리는 공기역학적 방식으로 작동합니다. 공의 무게나 크기에 따른 미세한 오차를 배제하기 위해 매회 추첨 전 공인 규격 검사를 철저히 수행하며, 6개의 당첨 번호와 2등 판정을 위한 1개의 보너스 번호가 공정하게 가려집니다.</p>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 5. 당첨금 분배 및 세금 정보
+                            </h3>
+                            <p>로또 총 판매 대금의 50%는 당첨금으로 환원되며, 나머지 50%는 복권 기금 및 판매점 수수료 등으로 쓰입니다.</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>**당첨금 재원**: 4등(5만원)과 5등(5천원) 금액을 먼저 지급한 후, 남은 금액을 1등(75%), 2등(12.5%), 3등(12.5%) 비율로 나누어 가집니다. 따라서 당첨자가 많을수록 개인이 수령하는 당첨금은 줄어듭니다.</li>
+                                <li>**세금 규정 (기타소득세 + 지방소득세)**:
+                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-xs text-text-muted dark:text-slate-400">
+                                        <li>**200만 원 이하**: **비과세** (세금을 떼지 않고 100% 수령).</li>
+                                        <li>**200만 원 초과 ~ 3억 원 이하**: **22%** 세율 적용 (기타소득세 20% + 지방소득세 2%).</li>
+                                        <li>**3억 원 초과**: **33%** 세율 적용 (국세 30% + 지방세 3%).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </section>
                     </div>
                 </div>
 
@@ -351,6 +402,45 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 3. Winning Probabilities of Lotto
+                            </h3>
+                            <p>Lotto 6/45 requires matching 6 numbers from a range of 1 to 45. The exact probabilities for each prize tier are mathematically calculated as follows:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>**1st Place (6 Numbers Match)**: **1 in 8,145,060** (approx. 1 in 8.14 million).</li>
+                                <li>**2nd Place (5 Numbers + Bonus Number Match)**: **1 in 1,357,510** (approx. 1 in 1.35 million).</li>
+                                <li>**3rd Place (5 Numbers Match)**: **1 in 35,724** (approx. 1 in 35,000).</li>
+                                <li>**4th Place (4 Numbers Match)**: **1 in 733** (Fixed prize of 50,000 KRW).</li>
+                                <li>**5th Place (3 Numbers Match)**: **1 in 45** (Fixed prize of 5,000 KRW).</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 4. The Drawing Method: Venus Machine
+                            </h3>
+                            <p>The lotto draw in South Korea is broadcast live every Saturday evening to ensure transparency and trust.</p>
+                            <p class="mt-2">The draw utilizes the **'Venus Drawing Machine'** manufactured by Editec in France. This machine works by circulating 45 balls inside a transparent drum with a powerful airflow (air-suction technique). A tube at the top of the drum then randomly draws a single ball at a time. To eliminate any physical bias due to ball weight or size variations, certified size and weight inspections are thoroughly executed before every draw, selecting 6 winning numbers and 1 bonus number under strict audit protocols.</p>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 5. Prize Distribution & Tax Regulations
+                            </h3>
+                            <p>50% of the total lotto sales is allocated for prize payouts, while the remaining 50% is reserved for state welfare funds and store margins.</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>**Prize Allocation**: Fixed payouts for 4th (50k KRW) and 5th (5k KRW) places are paid out first. The remaining prize pool is split: 1st (75%), 2nd (12.5%), and 3rd (12.5%). Hence, more winners in a tier reduce the individual payout amount.</li>
+                                <li>**Taxation (Income Tax + Local Tax)**:
+                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-xs text-text-muted dark:text-slate-400">
+                                        <li>**Under 2 Million KRW**: **Tax-Free** (100% payout without tax deductions).</li>
+                                        <li>**2 Million KRW to 300 Million KRW**: **22%** Tax Rate (20% Income Tax + 2% Local Tax).</li>
+                                        <li>**Over 300 Million KRW**: **33%** Tax Rate (30% Income Tax + 3% Local Tax).</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </section>
                     </div>
                 </div>
