@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="밈 생성기 - 온라인 도구모음" data-lang-en="Meme Generator - Online Toolkit">밈 생성기 - 온라인 도구모음</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" data-lang-ko="인기 밈 템플릿에 글자와 이미지를 오버레이하여 나만의 밈을 쉽고 빠르게 디자인해 보세요. 실시간 편집과 고화질 다운로드를 지원합니다." data-lang-en="Design your own memes quickly by overlaying text and images on popular templates. Supports real-time editing and high-quality download.">
+    <link rel="canonical" href="https://tesla-tool.pages.dev/meme-generator/index.html">
+    <meta property="og:title" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">
+    <meta property="og:description" data-lang-ko="다양한 템플릿과 고화질 편집 기능으로 재미있는 밈을 실시간으로 만들어 보세요." data-lang-en="Create funny memes in real time with various templates and high-quality editing features.">
+    <meta property="og:image" content="https://tesla-tool.pages.dev/og-image-meme.jpg">
+    <meta property="og:url" content="https://tesla-tool.pages.dev/meme-generator/index.html">
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL87MVDM35"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NL87MVDM35');
+    </script>
+    
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Interactive canvas styles */
+        #canvas-wrapper {
+            position: relative;
+            background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+            background-color: #f1f5f9;
+        }
+        .dark #canvas-wrapper {
+            background-color: #0b0f19;
+            background-image: radial-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 0);
+        }
+    </style>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1280px] flex-1 mx-auto">
+            <header class="text-center py-6">
+                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🎨 밈 생성기" data-lang-en="🎨 Meme Generator">🎨 밈 생성기</h1>
+                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="텍스트와 이미지를 오버레이하여 나만의 밈을 쉽고 멋지게 만들어 보세요." data-lang-en="Easily create custom memes by overlaying text and images.">텍스트와 이미지를 오버레이하여 나만의 밈을 쉽고 멋지게 만들어 보세요.</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-6">
+                
+                <!-- LEFT COLUMN: Canvas workspace (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col items-center gap-4">
+                    <div id="canvas-wrapper" class="w-full flex justify-center items-center p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-inner overflow-hidden min-h-[350px] md:min-h-[500px]">
+                        <canvas id="meme-canvas" class="max-w-full rounded-lg shadow-lg cursor-default bg-white"></canvas>
+                    </div>
+                    
+                    <!-- Canvas Toolbar Info -->
+                    <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-text-muted dark:text-slate-400 px-2">
+                        <span data-lang-ko="💡 요소(텍스트/이미지)를 드래그하여 이동하고, 모서리를 잡아 크기를 조절하세요." data-lang-en="💡 Drag elements to move, and pull corners to resize them.">💡 요소(텍스트/이미지)를 드래그하여 이동하고, 모서리를 잡아 크기를 조절하세요.</span>
+                        <div class="flex gap-2">
+                            <button id="add-text-btn" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover transition-colors text-xs">
+                                <span class="material-symbols-outlined text-sm">title</span>
+                                <span data-lang-ko="텍스트 추가" data-lang-en="Add Text">텍스트 추가</span>
+                            </button>
+                            <button id="add-overlay-btn" class="flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors text-xs relative">
+                                <span class="material-symbols-outlined text-sm">image</span>
+                                <span data-lang-ko="이미지 추가" data-lang-en="Add Image">이미지 추가</span>
+                                <input type="file" id="overlay-image-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Control Panel (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-6 bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-md">
+                    
+                    <!-- Section 1: Template Selection -->
+                    <div>
+                        <h3 class="text-base font-bold text-text-main dark:text-white mb-3" data-lang-ko="1. 템플릿 선택" data-lang-en="1. Select Template">1. 템플릿 선택</h3>
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <button class="template-thumb border-2 border-primary rounded-lg overflow-hidden transition-all focus:outline-none" data-template="uncle-drake" title="Stressed/Happy Uncle">
+                                <img src="./templates/uncle-drake.png" class="w-full aspect-square object-cover" alt="Uncle Drake">
+                            </button>
+                            <button class="template-thumb border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden transition-all focus:outline-none" data-template="denim-drake" title="Reject/Approve Guy">
+                                <img src="./templates/denim-drake.png" class="w-full aspect-square object-cover" alt="Denim Drake">
+                            </button>
+                            <button class="template-thumb border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden transition-all focus:outline-none" data-template="rocket-launch" title="Rocket Launch">
+                                <img src="./templates/rocket-launch.png" class="w-full aspect-square object-cover" alt="Rocket Launch">
+                            </button>
+                            <button class="template-thumb border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden transition-all focus:outline-none" data-template="tea-grandpa" title="Grandpa drinking tea">
+                                <img src="./templates/tea-grandpa.png" class="w-full aspect-square object-cover" alt="Tea Grandpa">
+                            </button>
+                            <button class="template-thumb border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden transition-all focus:outline-none" data-template="two-buttons" title="Two Buttons Decision">
+                                <img src="./templates/two-buttons.png" class="w-full aspect-square object-cover" alt="Two Buttons">
+                            </button>
+                        </div>
+                        
+                        <!-- Upload Background -->
+                        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3">
+                            <span class="text-xs text-text-muted dark:text-slate-400" data-lang-ko="또는 직접 배경 업로드:" data-lang-en="Or upload custom background:">또는 직접 배경 업로드:</span>
+                            <label class="cursor-pointer px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-text-main dark:text-white transition-colors">
+                                <span data-lang-ko="파일 선택..." data-lang-en="Select File...">파일 선택...</span>
+                                <input type="file" id="bg-upload-input" accept="image/*" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Active Element Styling Controls -->
+                    <div id="style-panel" class="border-t border-slate-100 dark:border-slate-800 pt-4 hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 id="style-panel-title" class="text-base font-bold text-text-main dark:text-white" data-lang-ko="2. 선택한 텍스트 스타일" data-lang-en="2. Selected Text Style">2. 선택한 텍스트 스타일</h3>
+                            <div class="flex items-center gap-3">
+                                <button id="duplicate-selected-btn" class="flex items-center gap-1 text-primary hover:text-primary-hover font-semibold text-xs transition-colors">
+                                    <span class="material-symbols-outlined text-sm">content_copy</span>
+                                    <span data-lang-ko="복제 (Ctrl+C/V)" data-lang-en="Duplicate (Ctrl+C/V)">복제</span>
+                                </button>
+                                <button id="delete-selected-btn" class="flex items-center gap-1 text-red-500 hover:text-red-600 font-semibold text-xs transition-colors">
+                                    <span class="material-symbols-outlined text-sm">delete</span>
+                                    <span data-lang-ko="삭제 (Del)" data-lang-en="Delete (Del)">삭제 (Del)</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col gap-4 text-xs">
+                            
+                            <!-- Style Presets (Only for text) -->
+                            <div class="style-text-only">
+                                <label class="block text-text-muted dark:text-slate-400 mb-2" data-lang-ko="글자 스타일 프리셋" data-lang-en="Text Style Presets">글자 스타일 프리셋</label>
+                                <div class="grid grid-cols-2 gap-2" id="style-presets-grid">
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-white text-slate-900 border-slate-300 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-white" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px black;">흰색 (White)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-slate-900 text-white border-slate-800 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-black" style="font-family: 'Plus Jakarta Sans', sans-serif;">검정 (Black)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-red-500 text-white border-red-600 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-red" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px white;">빨강 (Red)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-bold transition-all text-xs bg-yellow-400 text-black border-yellow-500 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-yellow-outline" style="font-family: 'Impact', sans-serif; -webkit-text-stroke: 1px black;">노랑 테두리</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-black text-green-400 border-slate-900 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-green-neon" style="font-family: 'Courier New', monospace;">그린 네온</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-amber-50 text-amber-900 border-amber-200 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-elegant-serif" style="font-family: 'Georgia', serif;">세리프 차분</button>
+                                </div>
+                            </div>
+
+                            <!-- Font Size (Only for text) -->
+                            <div class="style-text-only border-t border-slate-100 dark:border-slate-800/60 pt-3">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="글자 크기" data-lang-en="Font Size">글자 크기</label>
+                                    <div class="flex items-center gap-1">
+                                        <input type="number" id="font-size-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <span class="text-text-muted dark:text-slate-400">px</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="font-size-slider" min="10" max="100" value="20" class="w-full accent-primary">
+                            </div>
+
+                            <!-- Rotation (For both text & image) -->
+                            <div class="border-t border-slate-100 dark:border-slate-800/60 pt-3">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="회전 각도" data-lang-en="Rotate">회전 각도</label>
+                                    <div class="flex items-center gap-1">
+                                        <input type="number" id="rotation-num" min="-180" max="180" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <span class="text-text-muted dark:text-slate-400">°</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="rotation-slider" min="-180" max="180" value="0" class="w-full accent-primary">
+                            </div>
+
+                            <!-- Opacity (For both text & image) -->
+                            <div class="border-t border-slate-100 dark:border-slate-800/60 pt-3">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="불투명도" data-lang-en="Opacity">불투명도</label>
+                                    <div class="flex items-center gap-1">
+                                        <input type="number" id="opacity-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <span class="text-text-muted dark:text-slate-400">%</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="opacity-slider" min="10" max="100" value="100" class="w-full accent-primary">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Emoji Helper Picker -->
+                    <div class="border-t border-slate-100 dark:border-slate-800 pt-4">
+                        <h3 class="text-base font-bold text-text-main dark:text-white mb-2" data-lang-ko="3. 자주 쓰는 이모지" data-lang-en="3. Popular Emojis">3. 자주 쓰는 이모지</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400 mb-3" data-lang-ko="클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다." data-lang-en="Click an emoji to insert it into the selected textbox & copy to clipboard.">클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다.</p>
+                        
+                        <div class="flex flex-wrap gap-2 p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl">
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😂</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😭</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😩</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🥺</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🤣</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😍</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😡</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🤔</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🙄</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🤡</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">💀</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🔥</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">💯</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">✨</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">👍</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">👎</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">💩</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">🚨</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">📈</button>
+                            <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">📉</button>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-col gap-3 border-t border-slate-100 dark:border-slate-800 pt-4">
+                        <button id="download-btn" class="w-full flex items-center justify-center gap-2 rounded-xl h-12 bg-primary text-white text-md font-bold hover:bg-primary-hover shadow-lg hover:shadow-sky-200 dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-300">
+                            <span class="material-symbols-outlined">download</span>
+                            <span data-lang-ko="밈 다운로드" data-lang-en="Download Meme">밈 다운로드</span>
+                        </button>
+                        <button id="reset-btn" class="w-full flex items-center justify-center rounded-xl h-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-text-main dark:text-white text-sm font-semibold transition-colors">
+                            <span data-lang-ko="템플릿 초기화" data-lang-en="Reset Template">템플릿 초기화</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        <!-- Custom Style for rich text language toggling -->
+        <style>
+            html[lang="ko"] .lang-only-en { display: none !important; }
+            html[lang="ko"] .lang-only-ko { display: block !important; }
+            html[lang="en"] .lang-only-ko { display: none !important; }
+            html[lang="en"] .lang-only-en { display: block !important; }
+        </style>
+
+        <!-- Blog Post Section about Memes -->
+        <div class="mt-16 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300">
+            <!-- Korean Version -->
+            <div class="lang-only-ko">
+                <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2">
+                    <span class="text-3xl">📚</span> 인터넷 문화의 핵심, '밈(Meme)'의 모든 것
+                </h2>
+                <div class="space-y-6 text-sm text-text-muted dark:text-slate-300 leading-relaxed">
+                    <section>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. 밈(Meme)의 유래: 유전자에서 문화 복제자로</h3>
+                        <p>오늘날 온라인에서 유행하는 재미있는 이미지나 영상을 뜻하는 '밈'이라는 용어는 원래 학술적 개념에서 탄생했습니다. 1976년 진화생물학자 리처드 도킨스(Richard Dawkins)는 그의 명저 《이기적 유전자(The Selfish Gene)》에서 문화적 정보가 한 사람에게서 다른 사람으로 전달되는 과정을 설명하기 위해 이 단어를 처음 제안했습니다.</p>
+                        <p class="mt-2">도킨스는 생물학적 정보가 '유전자(Gene)'를 통해 유전되듯, 인류의 문화적 사상, 행동, 스타일 역시 모방을 통해 뇌에서 뇌로 복제되고 널리 퍼져나간다고 보았고, 이를 복제한다는 뜻의 그리스어 '미메메(Mimeme)'와 '유전자(Gene)'를 결합해 '밈(Meme)'이라고 이름 붙였습니다.</p>
+                    </section>
+                    
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. 시대를 풍미한 대표적인 밈</h3>
+                        <p>인터넷의 발전과 함께 밈은 시각적이고 유머러스한 놀이 문화로 자리 잡았습니다. 대표적인 글로벌 밈들은 다음과 같습니다.</p>
+                        <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2">
+                            <li><strong>드레이크(Drake) 리액션:</strong> 캐나다 래퍼 드레이크의 뮤직비디오 장면을 활용하여, 위쪽은 거절하고 아래쪽은 선호하는 대조 상황을 재치 있게 나타냅니다.</li>
+                            <li><strong>두 개의 버튼(Two Buttons):</strong> 두 개의 붉은 버튼을 앞두고 땀 흘리며 고뇌하는 캐릭터로, 선택하기 힘든 모순적인 딜레마를 표현합니다.</li>
+                            <li><strong>생각을 바꿔봐(Change My Mind):</strong> 자신의 주장이 적힌 현수막 뒤에 앉아 상대방에게 토론을 제안하며 확고한 주장을 펼칠 때 사용됩니다.</li>
+                        </ul>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. 성공하는 밈의 조건: 왜 어떤 밈은 살아남는가?</h3>
+                        <p>매일 수많은 글과 사진이 생성되지만, 대중적으로 바이럴되는 성공한 밈에는 뚜렷한 특징이 있습니다.</p>
+                        <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2">
+                            <li><strong>높은 공감대:</strong> 일상적인 직장 생활의 애환이나 감정 등 보편적인 심리 상태를 위트 있게 묘사합니다.</li>
+                            <li><strong>변형의 용이성:</strong> 글자 한두 줄이나 이미지만 슬쩍 바꿔 나만의 맞춤 상황으로 재가공하기 쉬워야 합니다.</li>
+                            <li><strong>모방의 자발성:</strong> 원작의 맥락을 살리면서도 지속적으로 2차 창작(Remix)이 일어나도록 자극합니다.</li>
+                        </ul>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">4. 밈의 최근 현황과 메타 트렌드</h3>
+                        <p>최근 밈 문화는 이전보다 더욱 고도화된 양상을 보입니다.</p>
+                        <p class="mt-2">첫째, <strong>틱톡, 쇼츠, 릴스 등 숏폼 비디오</strong>의 유행으로 배경음악이나 댄스 챌린지 같은 행동 중심의 밈이 강력한 파급력을 가집니다. 둘째, AI 생성 툴의 비약적 성장으로 <strong>'AI 밈'</strong>과 난해한 맥락의 <strong>'초현실적 밈(Shitposting)'</strong>이 하나의 장르로 굳어졌습니다. 마지막으로, 수많은 글로벌 브랜드들이 고객 소통 수단으로 밈을 마케팅에 직접 도입하며 상업적 가치도 폭발적으로 증가하고 있습니다.</p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- English Version -->
+            <div class="lang-only-en">
+                <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2">
+                    <span class="text-3xl">📚</span> All About 'Memes': The Core of Internet Culture
+                </h2>
+                <div class="space-y-6 text-sm text-text-muted dark:text-slate-300 leading-relaxed">
+                    <section>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. Origin of the Meme: From Genes to Cultural Replicators</h3>
+                        <p>Today, the word 'meme' refers to funny images, videos, or catchphrases shared online. However, the term originated in academic theory. In his groundbreaking 1976 book *The Selfish Gene*, evolutionary biologist Richard Dawkins proposed the word to describe how cultural information is transmitted from one person to another.</p>
+                        <p class="mt-2">Dawkins argued that just as biological information is inherited through genes, human ideas, behaviors, and cultural styles replicate from brain to brain via imitation. He named this cultural unit 'meme', combining the Greek word 'mimeme' (meaning "imitated thing") with 'gene'.</p>
+                    </section>
+                    
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. Representative Internet Memes</h3>
+                        <p>With the growth of the internet, memes evolved into a visual, humorous playing culture. Some of the most iconic global memes include:</p>
+                        <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2">
+                            <li><strong>Drake Reaction:</strong> Screen captures from Drake's music video showing him rejecting something on the top and approving something on the bottom, widely used to contrast preferences.</li>
+                            <li><strong>Two Buttons:</strong> A cartoon of a character sweating over which of two red buttons to press, highlighting contradictory choices or difficult dilemmas.</li>
+                            <li><strong>Change My Mind:</strong> Based on a photograph of a podcaster sitting behind a sign saying a controversial statement followed by "Change My Mind," inviting debate.</li>
+                        </ul>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. Anatomy of a Successful Meme</h3>
+                        <p>While thousands of jokes are posted online daily, only a few go viral and survive. Successful memes share key characteristics:</p>
+                        <ul class="list-disc list-inside space-y-1.5 mt-2 pl-2">
+                            <li><strong>Relatability:</strong> They capture universal experiences—like daily fatigue, awkwardness, or excitement.</li>
+                            <li><strong>Simplicity:</strong> They have clear templates that can be easily customized with a few lines of text.</li>
+                            <li><strong>Remixability:</strong> They leave enough room for modification while maintaining the recognizable essence of the original.</li>
+                        </ul>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">4. Modern Meme Trends and Ecosystem</h3>
+                        <p>The meme landscape continues to evolve rapidly:</p>
+                        <p class="mt-2">First, the rise of **short-form videos** (TikTok, Reels, Shorts) has turned audio tracks and dances into audio-behavioral memes. Second, advancements in AI have enabled the rise of surreal, bizarre, and **AI-generated memes**. Finally, companies have embraced **meme marketing** to build authentic, lighthearted connections with modern consumers.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/main.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

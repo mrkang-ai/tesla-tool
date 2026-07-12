@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.updateCurrentServiceName = updateCurrentServiceName;
 
     const path = window.location.pathname;
-    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') ? '../' : '';
+    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') ? '../' : '';
 
     loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
         initializeDropdowns();
