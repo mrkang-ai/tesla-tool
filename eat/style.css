@@ -135,6 +135,10 @@ div:hover > .delete-slot-btn {
     transform: scale(1);
 }
 
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
 .hidden {
     display: none;
 }

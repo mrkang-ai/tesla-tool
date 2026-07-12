@@ -13,6 +13,9 @@ const addToPlannerBtn = document.getElementById('add-to-planner-btn');
 const autoFillBtn = document.getElementById('auto-fill-btn');
 const clearPlannerBtn = document.getElementById('clear-planner-btn');
 const plannerGrid = document.getElementById('planner-grid');
+const plannerToggleBtn = document.getElementById('planner-toggle-btn');
+const plannerContent = document.getElementById('planner-content');
+const plannerChevron = document.getElementById('planner-chevron');
 
 // 식단표 데이터 상태 관리 (기본값)
 let plannerState = {
@@ -133,6 +136,14 @@ if (addToPlannerBtn) {
         setTimeout(() => {
             addToPlannerBtn.className = originalBg;
         }, 500);
+
+        // 식단표가 접혀있는 경우 자동으로 펼침
+        if (plannerContent && plannerContent.classList.contains('hidden')) {
+            plannerContent.classList.remove('hidden');
+            if (plannerChevron) {
+                plannerChevron.classList.add('rotate-180');
+            }
+        }
     });
 }
 
@@ -348,4 +359,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentLang = localStorage.getItem('language') || 'ko';
     renderPlanner(currentLang);
     hookApplyLanguage();
+
+    // 식단표 토글 버튼 리스너 바인딩
+    if (plannerToggleBtn && plannerContent && plannerChevron) {
+        plannerToggleBtn.addEventListener('click', () => {
+            const isCollapsed = plannerContent.classList.contains('hidden');
+            if (isCollapsed) {
+                plannerContent.classList.remove('hidden');
+                plannerChevron.classList.add('rotate-180');
+            } else {
+                plannerContent.classList.add('hidden');
+                plannerChevron.classList.remove('rotate-180');
+            }
+        });
+    }
 });
