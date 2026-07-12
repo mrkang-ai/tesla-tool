@@ -1,12 +1,293 @@
-// NOTE: This data has been updated to support internationalization (i18n).
-// English translations have been added for a few items as a demonstration.
-// More translations need to be added to complete the feature.
+// Expanded food database with 35 diverse menus.
+// Each maps to an available WebP image in eat/images/<name_ko>.webp
 const menuData = [
-    { category_ko: "한식", category_en: "Korean", name_ko: "김치찌개", name_en: "Kimchi Stew", description_ko: "김치찌개는 한국의 대표적인 찌개 요리로, 잘 익은 김치와 돼지고기, 두부, 양파 등을 넣고 얼큰하게 끓여냅니다. 오랜 시간 사랑받아온 한국인의 소울푸드이며, 주로 가정이나 식당에서 흔히 접할 수 있습니다. 지역별로 돼지고기 대신 참치나 꽁치를 넣기도 하며, 김치의 신맛과 돼지고기의 고소함, 국물의 시원함이 어우러져 밥 한 그릇을 뚝딱 비우게 만드는 매력이 있습니다. 특히 추운 겨울날 뜨끈한 김치찌개 하나면 온몸이 녹아내리는 듯한 따뜻함을 느낄 수 있습니다.", description_en: "Kimchi stew is a representative Korean stew, boiled with well-ripened kimchi, pork, tofu, and onions. It's a long-loved soul food for Koreans, commonly found in homes and restaurants. Depending on the region, tuna or saury is used instead of pork. The sour taste of kimchi, the savory taste of pork, and the refreshing taste of the broth combine to create an appeal that makes you finish a bowl of rice in an instant. Especially on a cold winter day, a hot kimchi stew can make you feel warm as if your whole body is melting." },
-    { category_ko: "한식", category_en: "Korean", name_ko: "된장찌개", name_en: "Soybean Paste Stew", description_ko: "된장찌개는 구수한 된장을 주재료로 하여 각종 채소, 두부, 해산물 등을 넣고 끓인 한국의 전통 찌개입니다. 한국인의 밥상에서 빼놓을 수 없는 메뉴로, 집집마다 각기 다른 비법으로 맛을 냅니다. 멸치 육수를 기본으로 하지만, 소고기나 바지락을 넣어 깊은 맛을 더하기도 합니다. 구수하면서도 짭짤한 맛이 일품이며, 어떤 재료를 넣느냐에 따라 무궁무진한 맛의 변주가 가능하여 매일 먹어도 질리지 않는 매력을 가지고 있습니다. 전주, 강릉 등 지역별로 특색 있는 된장찌개를 맛볼 수 있습니다.", description_en: "Soybean paste stew is a traditional Korean stew boiled with savory soybean paste as the main ingredient, along with various vegetables, tofu, and seafood. It's an indispensable menu on the Korean dining table, and each household has its own secret recipe. Although anchovy broth is basic, beef or clams are sometimes added to deepen the flavor. The savory and salty taste is excellent, and depending on the ingredients, endless variations of taste are possible, making it a charming dish that you won't get tired of even if you eat it every day. You can taste distinctive soybean paste stews in various regions such as Jeonju and Gangneung." },
-    { category_ko: "한식", category_en: "Korean", name_ko: "비빔밥", name_en: "Bibimbap", description_ko: "비빔밥은 따뜻한 밥 위에 시금치, 고사리, 도라지 등 다양한 나물과 볶은 고기, 계란 프라이 등을 얹고 고추장이나 간장 양념으로 비벼 먹는 한국의 전통 음식입니다. 전주비빔밥과 진주비빔밥이 특히 유명하며, 화려한 색감과 균형 잡힌 영양으로 외국인들에게도 인기가 많습니다. 각 재료가 가진 본연의 맛과 식감이 고추장 양념과 어우러지며 풍성한 맛을 만들어냅니다. 비빔밥은 준비 과정이 다소 복잡하지만, 그만큼 정성이 가득 담긴 건강하고 맛있는 한 끼 식사입니다.", description_en: "Bibimbap is a traditional Korean food made by mixing warm rice with various vegetables such as spinach, bracken, and bellflower roots, as well as stir-fried meat and a fried egg, with gochujang (red chili paste) or soy sauce seasoning. Jeonju Bibimbap and Jinju Bibimbap are particularly famous, and it is also popular among foreigners for its vibrant colors and balanced nutrition. The inherent taste and texture of each ingredient harmonize with the gochujang seasoning to create a rich flavor. Bibimbap is a bit complicated to prepare, but it is a healthy and delicious meal full of sincerity." },
-    { category_ko: "한식", category_en: "Korean", name_ko: "불고기", name_en: "Bulgogi", description_ko: "불고기는 얇게 썬 소고기를 간장, 설탕, 배즙 등으로 만든 달콤 짭짤한 양념에 재워 구워 먹는 한국의 대표적인 고기 요리입니다. 서울식 불고기는 국물이 자작하게 있는 것이 특징이며, 광양식 불고기는 얇게 저민 고기를 숯불에 구워 먹는 방식입니다. 남녀노소 누구나 좋아하는 대중적인 맛으로, 외국인들에게도 가장 인기 있는 한식 메뉴 중 하나입니다. 부드러운 고기와 달콤한 양념의 조화는 밥반찬으로도, 술안주로도 훌륭합니다.", description_en: "Bulgogi is a representative Korean meat dish made by grilling thinly sliced beef marinated in a sweet and savory sauce made with soy sauce, sugar, and pear juice. Seoul-style bulgogi is characterized by its soupy texture, while Gwangyang-style bulgogi is grilled thinly sliced meat over charcoal. It's a popular taste loved by people of all ages and is one of the most popular Korean food menus among foreigners. The harmony of soft meat and sweet seasoning is excellent as a side dish for rice or as a snack with drinks." },
-    { category_ko: "한식", category_en: "Korean", name_ko: "잡채", name_en: "Japchae", description_ko: "잡채는 삶은 당면과 시금치, 당근, 양파, 버섯 등 다양한 채소, 그리고 얇게 썬 고기를 간장 양념에 함께 볶아 만든 요리입니다. 본래 잡채는 당면 없이 채소만으로 만들었으나, 현대에 와서 당면이 주재료가 되었습니다. 잔칫상에 빠지지 않는 화려하고 풍성한 비주얼을 자랑하며, 쫄깃한 당면과 아삭한 채소의 식감이 일품입니다. 손이 많이 가는 음식이지만, 그만큼 정성과 맛이 가득하여 특별한 날에 주로 즐겨 먹습니다.", description_en: "Japchae is a dish made by stir-frying boiled glass noodles with various vegetables such as spinach, carrots, onions, and mushrooms, and thinly sliced meat in a soy sauce seasoning. Originally, japchae was made with only vegetables without glass noodles, but in modern times, glass noodles have become the main ingredient. It boasts a splendid and rich visual that is indispensable for a feast, and the chewy texture of glass noodles and the crispy texture of vegetables are excellent. It's a time-consuming dish, but it's full of sincerity and flavor, so it's mainly enjoyed on special days." },
-    { category_ko: "한식", category_en: "Korean", name_ko: "삼겹살", name_en: "Samgyeopsal", description_ko: "삼겹살 구이는 한국인이 가장 사랑하는 외식 메뉴 중 하나로, 돼지고기의 삼겹살 부위를 불판에 구워 쌈장, 마늘, 김치 등과 함께 상추나 깻잎에 싸 먹는 요리입니다. '삼겹살 데이'가 있을 정도로 대중적인 사랑을 받고 있으며, 퇴근 후 직장 동료들과, 또는 가족들과 함께 둘러앉아 즐기는 대표적인 회식 메뉴이기도 합니다. 고소한 돼지 기름에 김치나 콩나물을 구워 함께 먹으면 그 맛이 배가 됩니다. 전국 어디서나 쉽게 접할 수 있지만, 특히 청주 등 돼지고기가 유명한 지역의 삼겹살 맛은 일품입니다.", description_en: "Samgyeopsal-gui (grilled pork belly) is one of the most beloved dining-out menus for Koreans. It's a dish where pork belly is grilled on a griddle and eaten wrapped in lettuce or perilla leaves with ssamjang (a dipping sauce), garlic, and kimchi. It's so popular that there's a 'Samgyeopsal Day.' It's also a representative company dinner menu enjoyed with colleagues after work or with family. Grilling kimchi or bean sprouts in the savory pork fat doubles the taste. You can easily find it anywhere in the country, but the taste of samgyeopsal in areas famous for pork, such as Cheongju, is exceptional." },
-    { category_ko: "중식", category_en: "Chinese", name_ko: "짜장면", name_en: "Jajangmyeon", description_ko: "짜장면은 중국 산둥 지방의 '작장면'에서 유래했지만, 한국인의 입맛에 맞게 변화한 한국식 중화요리의 대표 주자입니다. 달콤한 춘장에 돼지고기와 양파 등 다양한 채소를 볶아 만든 소스를 면 위에 부어 비벼 먹습니다. 졸업식이나 이사하는 날 등 특별한 날에 즐겨 먹던 추억의 음식이기도 합니다. 저렴한 가격과 푸짐한 양으로 남녀노소 모두에게 사랑받는 대중적인 메뉴입니다. 인천 차이나타운이 한국 짜장면의 발상지로 알려져 있습니다.", description_en: "Jajangmyeon, although originating from 'zhajiangmian' in the Shandong province of China, is a leading example of Korean-style Chinese cuisine, adapted to the Korean palate. A sweet black bean paste is stir-fried with pork and various vegetables like onions, and this sauce is then poured over noodles to be mixed and eaten. It's a nostalgic food often enjoyed on special occasions like graduation or moving days. With its affordable price and generous portions, it's a popular menu loved by people of all ages. Incheon's Chinatown is known as the birthplace of Korean jajangmyeon." }
+    // --- 한식 (Korean) ---
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "김치찌개",
+        name_en: "Kimchi Stew",
+        description_ko: "신김치와 돼지고기, 두부 등을 넣고 매콤하게 끓여낸 한국인의 대표적인 소울푸드입니다.",
+        description_en: "A representative Korean soul food made by boiling sour kimchi, pork, tofu, and onions in a spicy broth."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "된장찌개",
+        name_en: "Soybean Paste Stew",
+        description_ko: "구수한 된장을 주재료로 하여 두부, 채소, 버섯 등을 넣고 보글보글 끓인 전통 찌개입니다.",
+        description_en: "A traditional Korean stew boiled with savory fermented soybean paste, tofu, and various vegetables."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "비빔밥",
+        name_en: "Bibimbap",
+        description_ko: "따뜻한 밥 위에 알록달록한 나물, 볶은 고기, 약고추장, 계란후라이를 얹어 비벼 먹는 웰빙 식사입니다.",
+        description_en: "A healthy bowl of warm rice topped with seasoned vegetables, beef, a fried egg, and spicy red pepper paste."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "불고기",
+        name_en: "Bulgogi",
+        description_ko: "얇게 썬 소고기를 간장, 설탕, 배즙 등으로 만든 달콤 짭짤한 양념에 재워 구워 먹는 전통 요리입니다.",
+        description_en: "Thinly sliced beef marinated in a sweet and savory soy sauce mixture, grilled or stir-fried."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "잡채",
+        name_en: "Japchae",
+        description_ko: "쫄깃한 당면과 각종 채소, 고기를 간장 소스에 볶아 잔칫날이나 특별한 날 즐겨 먹는 음식입니다.",
+        description_en: "Sweet potato glass noodles stir-fried with colorful vegetables, mushrooms, and beef in a savory soy sauce."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "삼겹살",
+        name_en: "Grilled Pork Belly",
+        description_ko: "고소한 돼지고기 삼겹살을 불판에 노릇하게 구워 쌈장, 마늘과 함께 쌈을 싸 먹는 최고의 한국 외식 메뉴입니다.",
+        description_en: "Rich and savory pork belly strips grilled at the table and wrapped in fresh lettuce leaves with garlic and ssamjang."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "제육볶음",
+        name_en: "Spicy Stir-fried Pork",
+        description_ko: "돼지고기를 매콤한 고추장 양념에 각종 채소와 함께 불맛이 나도록 볶아낸 밥도둑 반찬입니다.",
+        description_en: "Pork slices stir-fried in a fiery, sweet-and-spicy gochujang sauce with onions and scallions."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "갈비탕",
+        name_en: "Short Rib Soup",
+        description_ko: "큼직한 소갈비를 오랜 시간 푹 고아 맑고 진한 국물에 당면과 파를 띄워 먹는 든든한 보양식입니다.",
+        description_en: "A rich and comforting soup made by simmering beef short ribs for hours, served with glass noodles and green onions."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "떡볶이",
+        name_en: "Tteokbokki",
+        description_ko: "말랑한 떡과 어묵을 매콤달콤한 고추장 양념에 졸여낸 국민 길거리 음식입니다.",
+        description_en: "Chewy cylinder-shaped rice cakes and fish cakes simmered in a sweet and spicy chili sauce."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "김밥",
+        name_en: "Gimbap",
+        description_ko: "김 위에 밥과 야채, 햄, 단무지, 계란 등 다양한 재료를 얹어 동그랗게 말아 썰어 낸 피크닉 대표 메뉴입니다.",
+        description_en: "Steamed rice and various fillings wrapped in dried seaweed sheet and sliced into bite-sized wheels."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "감자탕",
+        name_en: "Pork Backbone Stew",
+        description_ko: "돼지 등뼈에 감자, 시래기, 들깨가루를 듬뿍 넣고 끓여내 국물이 얼큰하고 고기가 듬뿍 붙어 있는 찌개입니다.",
+        description_en: "A hearty and spicy soup made with pork backbones, potatoes, dried radish greens, and wild sesame powder."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "닭갈비",
+        name_en: "Spicy Stir-fried Chicken",
+        description_ko: "토막 낸 닭고기를 고구마, 양배추와 함께 매콤한 양념에 철판으로 볶아 먹는 춘천 대표 음식입니다.",
+        description_en: "Diced chicken marinated in a spicy gochujang sauce and stir-fried with sweet potato and cabbage on a hot iron plate."
+    },
+    {
+        category_ko: "한식",
+        category_en: "Korean",
+        name_ko: "부대찌개",
+        name_en: "Army Base Stew",
+        description_ko: "햄, 소시지, 베이크드 빈스에 얼큰한 김치 육수와 라면 사리를 넣어 끓인 퓨전 찌개 요리입니다.",
+        description_en: "A fusion hot pot combining American processed meats like ham and hot dogs with spicy Korean kimchi broth and ramen."
+    },
+
+    // --- 중식 (Chinese) ---
+    {
+        category_ko: "중식",
+        category_en: "Chinese",
+        name_ko: "짜장면",
+        name_en: "Jajangmyeon",
+        description_ko: "달콤하고 고소한 검은 춘장 소스에 양파와 고기를 볶아 수타 면에 비벼 먹는 국민 중화요리입니다.",
+        description_en: "Noodles topped with a thick, dark sauce made of fried black bean paste, diced pork, and sweet onions."
+    },
+    {
+        category_ko: "중식",
+        category_en: "Chinese",
+        name_ko: "짬뽕",
+        name_en: "Jjamppong",
+        description_ko: "오징어, 홍합 등 신선한 해산물과 각종 채소를 기름에 볶아 얼큰하고 칼칼한 불맛 육수로 끓인 면 요리입니다.",
+        description_en: "A fiery Chinese-Korean noodle soup loaded with fresh seafood, vegetables, and a spicy chili-infused broth."
+    },
+    {
+        category_ko: "중식",
+        category_en: "Chinese",
+        name_ko: "탕수육",
+        name_en: "Sweet and Sour Pork",
+        description_ko: "바삭하게 튀겨낸 돼지고기에 달콤하고 새콤한 소스를 부어 먹거나 찍어 먹는 인기 요리입니다.",
+        description_en: "Crispy deep-fried pieces of pork coated in or served with a glossy sweet, sour, and tangy glaze."
+    },
+    {
+        category_ko: "중식",
+        category_en: "Chinese",
+        name_ko: "마파두부",
+        name_en: "Mapo Tofu",
+        description_ko: "부드러운 두부와 다진 돼지고기를 매콤하고 알싸한 사천식 두반장 소스에 조려낸 요리입니다.",
+        description_en: "Soft tofu cubes and minced pork simmered in a spicy, numbing Sichuan-style chili and broad bean paste sauce."
+    },
+    {
+        category_ko: "중식",
+        category_en: "Chinese",
+        name_ko: "꿔바로우",
+        name_en: "Guobaorou",
+        description_ko: "납작하게 썬 돼지고기에 찹쌀가루를 입혀 튀겨내 겉은 쫄깃바삭하고 속은 부드러운 북경식 탕수육입니다.",
+        description_en: "Flat pork cutlets coated in potato/tapioca starch, double-fried for an incredibly crispy and chewy texture in sweet vinegar sauce."
+    },
+
+    // --- 일식 (Japanese) ---
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "돈까스",
+        name_en: "Tonkatsu",
+        description_ko: "두툼한 돼지고기 등심에 빵가루를 묻혀 바삭하게 튀겨낸 일본식 커틀릿 요리입니다.",
+        description_en: "A thick, juicy pork cutlet breaded with flaky panko crumbs and deep-fried to a perfect golden crisp."
+    },
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "라멘",
+        name_en: "Japanese Ramen",
+        description_ko: "진하게 우려낸 돼지뼈 또는 닭 육수에 쫄깃한 면발과 차슈, 아지타마고를 얹어 먹는 면 요리입니다.",
+        description_en: "Fresh noodles served in a rich broth (such as pork bone tonkotsu or soy sauce shoyu), topped with tender braised pork belly."
+    },
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "초밥",
+        name_en: "Sushi",
+        description_ko: "식초로 양념한 밥 위에 신선한 광어, 연어, 참치, 새우 등 다양한 생선과 해산물을 올려 먹는 대표 일식입니다.",
+        description_en: "Bite-sized vinegared rice blocks topped with premium, fresh slices of raw fish, shrimp, or egg."
+    },
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "규동",
+        name_en: "Gyudon",
+        description_ko: "얇게 썬 소고기와 양파를 달콤한 쯔유 소스에 조려 밥 위에 얹어 먹는 덮밥입니다.",
+        description_en: "A popular Japanese rice bowl topped with thinly sliced beef and sweet onions simmered in a savory dashi-soy sauce."
+    },
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "우동",
+        name_en: "Udon",
+        description_ko: "탱글하고 두툼한 밀가루 면발을 가쓰오부시 국물에 끓여 어묵, 튀김 등을 얹어 먹는 면 요리입니다.",
+        description_en: "Thick wheat noodles served hot in a clean, soy-infused dashi broth, garnished with scallions and fish cakes."
+    },
+    {
+        category_ko: "일식",
+        category_en: "Japanese",
+        name_ko: "타코야키",
+        name_en: "Takoyaki",
+        description_ko: "밀가루 반죽 안에 문어를 넣고 구워 데리야끼 소스, 마요네즈, 가쓰오부시를 얹은 간식입니다.",
+        description_en: "Ball-shaped Japanese snacks made of wheat batter and filled with minced octopus, drizzled with savory sauces and bonito flakes."
+    },
+
+    // --- 양식 (Western) ---
+    {
+        category_ko: "양식",
+        category_en: "Western",
+        name_ko: "파스타",
+        name_en: "Pasta",
+        description_ko: "크림, 토마토, 올리브 오일 등 취향에 맞는 소스에 다양한 파스타 면과 재료를 볶아낸 이탈리아 요리입니다.",
+        description_en: "Noodles cooked al dente and tossed in a variety of delicious sauces like rich cream, fresh tomato marinara, or garlic olive oil."
+    },
+    {
+        category_ko: "양식",
+        category_en: "Western",
+        name_ko: "피자",
+        name_en: "Pizza",
+        description_ko: "넓게 편 도우 위에 토마토 소스, 치즈, 페퍼로니, 채소 등을 얹어 오븐에 구워낸 요리입니다.",
+        description_en: "Baked flatbread topped with rich marinara sauce, melted mozzarella cheese, pepperoni, and a variety of delicious toppings."
+    },
+    {
+        category_ko: "양식",
+        category_en: "Western",
+        name_ko: "스테이크",
+        name_en: "Steak",
+        description_ko: "소고기 등심 또는 안심을 원하는 굽기로 구워 육즙이 가득하고 풍미가 훌륭한 서양식 요리입니다.",
+        description_en: "A thick, premium cut of beef seared on a hot grill to lock in rich juices and served with savory reduction sauces."
+    },
+    {
+        category_ko: "양식",
+        category_en: "Western",
+        name_ko: "햄버거",
+        name_en: "Hamburger",
+        description_ko: "부드러운 번 사이에 소고기 패티, 치즈, 양상추, 토마토를 듬뿍 넣어 한 입에 즐기는 아메리칸 요리입니다.",
+        description_en: "A juicy flame-grilled beef patty, melted cheddar cheese, fresh lettuce, and tomato slices sandwiched inside a soft toasted bun."
+    },
+    {
+        category_ko: "양식",
+        category_en: "Western",
+        name_ko: "리조또",
+        name_en: "Risotto",
+        description_ko: "쌀을 육수에 천천히 저으며 끓여 크림이나 토마토 소스, 치즈로 깊은 맛을 낸 이탈리아식 밥 요리입니다.",
+        description_en: "A creamy Italian rice dish cooked slow with broth, white wine, butter, and parmesan cheese for a rich and comforting meal."
+    },
+
+    // --- 아시안 (Asian) ---
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "쌀국수",
+        name_en: "Vietnamese Pho",
+        description_ko: "맑은 소고기 육수에 납작한 쌀 면을 넣고 소고기 슬라이스와 숙주, 고수를 곁들여 먹는 베트남 전통 국수입니다.",
+        description_en: "A fragrant Vietnamese rice noodle soup served in a clear beef broth, topped with tender beef cuts, beansprouts, and fresh herbs."
+    },
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "팟타이",
+        name_en: "Pad Thai",
+        description_ko: "새콤달콤한 타마린드 소스에 쌀국수, 새우, 두부, 숙주 등을 넣고 볶아 땅콩가루를 뿌려 먹는 태국식 볶음면입니다.",
+        description_en: "A classic Thai stir-fried rice noodle dish featuring fresh shrimp, tofu, scrambled eggs, bean sprouts, and crushed peanuts."
+    },
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "나시고랭",
+        name_en: "Nasi Goreng",
+        description_ko: "달콤짭짤한 인도네시아 소스에 해산물과 밥을 볶고 계란후라이와 알새우칩을 곁들여 먹는 볶음밥입니다.",
+        description_en: "An Indonesian stir-fried rice dish loaded with shrimp and chicken in a sweet soy sauce glaze, topped with a sunny-side-up egg."
+    },
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "분짜",
+        name_en: "Bun Cha",
+        description_ko: "숯불에 구운 돼지고기와 완자, 야채, 쌀면을 새콤달콤하고 따뜻한 피시 소스에 적셔 먹는 베트남 요리입니다.",
+        description_en: "A Vietnamese dish consisting of cold rice vermicelli, fresh herbs, and charcoal-grilled pork patties dipped in warm fish sauce."
+    },
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "반미",
+        name_en: "Banh Mi",
+        description_ko: "바삭한 바게트 사이에 숯불고기, 야채 절임, 마요네즈, 고수를 듬뿍 넣어 먹는 샌드위치입니다.",
+        description_en: "A crispy Vietnamese baguette sandwich stuffed with savory roasted pork, pickled vegetables, fresh cucumber, and cilantro."
+    },
+    {
+        category_ko: "아시안",
+        category_en: "Asian",
+        name_ko: "똠양꿍",
+        name_en: "Tom Yum Goong",
+        description_ko: "새우에 레몬그라스, 라임, 고추 등을 넣고 끓여 매콤, 새콤, 달콤, 짭짤한 맛이 조화로운 태국의 대표 수프 요리입니다.",
+        description_en: "A world-famous Thai hot and sour soup loaded with juicy shrimp, lemongrass, lime leaves, galangal, and red chili peppers."
+    }
 ];

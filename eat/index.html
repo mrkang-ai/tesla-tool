@@ -56,27 +56,89 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 items-center mx-auto">            <header class="text-center py-10">
-                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
-                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!" data-lang-en="Press the button to get a recommendation for today's menu!">버튼을 눌러 오늘 먹을 메뉴를 추천받으세요!</p>
-            </header>
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+            <!-- SECTION 1: Recommender (max-w-xl mx-auto) -->
+            <div class="max-w-xl w-full mx-auto text-center">
+                <header class="py-8">
+                    <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
+                    <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="결정 장애 해결! 버튼을 눌러 오늘 먹을 최적의 메뉴를 추천받으세요." data-lang-en="Get the perfect menu recommendation for today with a single click!">결정 장애 해결! 버튼을 눌러 오늘 먹을 최적의 메뉴를 추천받으세요.</p>
+                </header>
 
-            <section class="w-full max-w-md mx-auto text-center">
-                <button id="recommend-btn" class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-16 px-6 bg-primary text-white text-2xl font-bold leading-normal tracking-[0.015em] hover:bg-primary-hover shadow-lg shadow-sky-200 dark:shadow-none transition-all active:scale-95">
-                    <span data-lang-ko="메뉴 추천해 줘!" data-lang-en="Recommend a Menu!">메뉴 추천해 줘!</span>
+                <button id="recommend-btn" class="w-full flex items-center justify-center rounded-2xl h-16 px-6 bg-primary text-white text-xl font-extrabold hover:bg-primary-hover shadow-lg hover:shadow-sky-100 dark:hover:shadow-none transition-all active:scale-95">
+                    <span data-lang-ko="🍽️ 메뉴 추천받기" data-lang-en="🍽️ Recommend a Menu!">🍽️ 메뉴 추천받기</span>
                 </button>
                 
                 <div id="loading-animation" class="hidden mt-8">
-                    <p class="text-lg text-text-muted dark:text-slate-400" data-lang-ko="메뉴 탐색중..." data-lang-en="Searching for a menu...">메뉴 탐색중...</p>
+                    <p class="text-lg font-bold text-text-muted dark:text-slate-400 animate-pulse" data-lang-ko="🍽️ 맛있는 메뉴 탐색중..." data-lang-en="🍽️ Searching for delicious menu...">🍽️ 맛있는 메뉴 탐색중...</p>
                     <div id="image-spinner" class="mt-4"></div>
                 </div>
 
-                <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-xl shadow-md">
-                    <h2 class="text-2xl font-bold text-text-main dark:text-white" data-lang-ko="추천 메뉴" data-lang-en="Recommended Menu">추천 메뉴</h2>
-                    <img id="result-image" src="" alt="추천 메뉴" class="mt-4 w-full h-64 object-cover rounded-lg shadow-inner">
-                    <p id="result-name" class="mt-4 text-3xl font-extrabold text-primary"></p>
-                    <p id="result-description" class="mt-2 text-md text-text-muted dark:text-slate-400"></p>
+                <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-12">
+                        <!-- Image Container (Col 5) -->
+                        <div class="md:col-span-5 relative h-64 md:h-auto min-h-[240px]">
+                            <img id="result-image" src="" alt="추천 메뉴" class="w-full h-full object-cover">
+                            <span id="result-category" class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">한식</span>
+                        </div>
+                        <!-- Info Container (Col 7) -->
+                        <div class="md:col-span-7 p-6 md:p-8 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
+                                <h3 id="result-name" class="mt-3 text-3xl font-extrabold text-text-main dark:text-white leading-tight"></h3>
+                                <p id="result-description" class="mt-3 text-sm text-text-muted dark:text-slate-400 leading-relaxed"></p>
+                            </div>
+                            
+                            <!-- Add to Planner section -->
+                            <div id="add-to-planner-sec" class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-3">
+                                <p class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <select id="select-day" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option value="mon" data-lang-ko="월요일" data-lang-en="Monday">월요일</option>
+                                        <option value="tue" data-lang-ko="화요일" data-lang-en="Tuesday">화요일</option>
+                                        <option value="wed" data-lang-ko="수요일" data-lang-en="Wednesday">수요일</option>
+                                        <option value="thu" data-lang-ko="목요일" data-lang-en="Thursday">목요일</option>
+                                        <option value="fri" data-lang-ko="금요일" data-lang-en="Friday">금요일</option>
+                                        <option value="sat" data-lang-ko="토요일" data-lang-en="Saturday">토요일</option>
+                                        <option value="sun" data-lang-ko="일요일" data-lang-en="Sunday">일요일</option>
+                                    </select>
+                                    <select id="select-meal" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option value="lunch" data-lang-ko="점심 식사" data-lang-en="Lunch">점심 식사</option>
+                                        <option value="dinner" data-lang-ko="저녁 식사" data-lang-en="Dinner">저녁 식사</option>
+                                    </select>
+                                    <button id="add-to-planner-btn" class="h-10 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-bold shadow-md hover:shadow-emerald-100 dark:hover:shadow-none transition-all flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-base">add_circle</span>
+                                        <span data-lang-ko="식단에 추가" data-lang-en="Add to Plan">식단에 추가</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) -->
+            <section id="planner-section" class="w-full mt-16 pt-10 border-t border-slate-200 dark:border-slate-800/80">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-extrabold text-text-main dark:text-white flex items-center justify-center gap-2" data-lang-ko="📅 나의 일주일 식단표" data-lang-en="📅 My Weekly Meal Planner">📅 나의 일주일 식단표</h2>
+                    <p class="text-sm text-text-muted dark:text-slate-400 mt-2" data-lang-ko="오늘 추천받은 메뉴로 식단표를 구성해 보세요. 카드를 드래그하거나 탭하여 식단 순서를 변경할 수 있습니다." data-lang-en="Build your weekly menu with recommended dishes. Drag or click cards to swap their positions.">오늘 추천받은 메뉴로 식단표를 구성해 보세요. 카드를 드래그하거나 탭하여 식단 순서를 변경할 수 있습니다.</p>
+                </div>
+
+                <!-- Planner Controls -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button id="auto-fill-btn" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-indigo-100 dark:hover:shadow-none transition-all flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-lg">auto_awesome</span>
+                        <span data-lang-ko="식단 전체 자동 구성" data-lang-en="Auto-Generate Week">식단 전체 자동 구성</span>
+                    </button>
+                    <button id="clear-planner-btn" class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/30 dark:hover:text-red-400 text-text-main dark:text-white text-sm font-semibold rounded-xl border border-slate-200/60 dark:border-slate-800 active:scale-95 transition-all flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-lg">delete_sweep</span>
+                        <span data-lang-ko="식단표 전체 초기화" data-lang-en="Reset Planner">식단표 전체 초기화</span>
+                    </button>
+                </div>
+
+                <!-- Planner Grid (7 Columns representing Mon - Sun) -->
+                <div id="planner-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 w-full">
+                    <!-- Day Columns will be dynamically generated by JS -->
                 </div>
             </section>
         </div>
