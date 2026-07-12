@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let results = [];
     let rungs = []; // Array of { col: index, y: coord }
     let paths = []; // Precalculated waypoints for each player
-    let areRungsVisible = true;
+    let areRungsVisible = false;
     let animatedPlayers = []; // Track players currently animating: { index, currentSegment, segmentProgress, pathCoords, color, isDone }
     let isGameRunning = false;
     let finishedPlayerMap = {}; // Maps playerIndex -> ending colIndex
@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         generateLadder();
         precalculatePaths();
-        areRungsVisible = true;
+        areRungsVisible = false;
         drawBoard();
         updateToggleRungsButton();
     });
