@@ -54,47 +54,121 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 items-center mx-auto">            <header class="text-center py-10">
-                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🪜 사다리 게임" data-lang-en="🪜 Ladder Game">🪜 사다리 게임</h1>
-                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="친구들과 함께 즐거운 내기를 해보세요." data-lang-en="Have a fun bet with your friends.">친구들과 함께 즐거운 내기를 해보세요.</p>
-            </header>
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+            <div class="text-center py-10">
+                <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🪜 실시간 사다리 타기" data-lang-en="🪜 Sleek Ladder Climb">🪜 실시간 사다리 타기</h1>
+                <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!" data-lang-en="Enjoy a fair, real-time ladder climb game for quick bets with your friends!">친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!</p>
+            </div>
 
-            <section id="setup" class="w-full max-w-lg mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md">
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="flex flex-col gap-2">
-                        <label for="player-count" class="text-sm font-medium text-text-muted dark:text-slate-400" data-lang-ko="참가자 수" data-lang-en="Number of Participants">참가자 수</label>
-                        <input type="number" id="player-count" value="2" min="2" max="20" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:border-primary focus:ring-primary">
+            <!-- SECTION 1: Game Setup -->
+            <section id="setup" class="w-full max-w-4xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
+                <!-- Preset Row -->
+                <div class="mb-8">
+                    <h2 class="text-sm font-extrabold text-text-muted dark:text-slate-400 uppercase tracking-widest mb-3" data-lang-ko="⚡ 빠른 내기 프리셋" data-lang-en="⚡ QUICK BET PRESETS">⚡ 빠른 내기 프리셋</h2>
+                    <div class="flex flex-wrap gap-2.5">
+                        <button type="button" id="preset-coffee" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>☕</span>
+                            <span data-lang-ko="커피 내기" data-lang-en="Coffee Bet">커피 내기</span>
+                        </button>
+                        <button type="button" id="preset-lunch" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>🍲</span>
+                            <span data-lang-ko="점심 턱내기" data-lang-en="Lunch Penalty">점심 턱내기</span>
+                        </button>
+                        <button type="button" id="preset-order" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>🔢</span>
+                            <span data-lang-ko="순서 정하기" data-lang-en="Draw Sequence">순서 정하기</span>
+                        </button>
                     </div>
-                    <div id="players" class="flex flex-col gap-4">
-                        <h2 class="text-lg font-semibold text-text-main dark:text-white" data-lang-ko="참가자" data-lang-en="Participants">참가자</h2>
-                        <input type="text" placeholder="참가자 1" value="참가자 1" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:border-primary focus:ring-primary">
-                        <input type="text" placeholder="참가자 2" value="참가자 2" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:border-primary focus:ring-primary">
+                </div>
+
+                <!-- Number of Participants Adjuster -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center border-t border-slate-100 dark:border-slate-800/80 pt-6 mb-6">
+                    <div class="flex flex-col gap-1.5 col-span-1">
+                        <label class="text-sm font-extrabold text-text-main dark:text-white" data-lang-ko="참가 인원 설정" data-lang-en="Number of Participants">참가 인원 설정</label>
+                        <p class="text-xs text-text-muted" data-lang-ko="2명에서 최대 12명까지 가능합니다." data-lang-en="Supports 2 to 12 participants.">2명에서 최대 12명까지 가능합니다.</p>
                     </div>
-                    <div id="results" class="flex flex-col gap-4">
-                        <h2 class="text-lg font-semibold text-text-main dark:text-white" data-lang-ko="결과" data-lang-en="Results">결과</h2>
-                        <input type="text" placeholder="결과 1" value="결과 1" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:border-primary focus:ring-primary">
-                        <input type="text" placeholder="결과 2" value="결과 2" class="form-input w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:border-primary focus:ring-primary">
+                    <div class="flex items-center gap-3 col-span-2">
+                        <button type="button" id="btn-count-dec" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xl font-bold cursor-pointer transition-colors">-</button>
+                        <input type="number" id="player-count" value="4" min="2" max="12" class="form-input w-24 h-12 text-center rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-lg font-extrabold text-text-main dark:text-white focus:border-primary focus:ring-primary [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                        <button type="button" id="btn-count-inc" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xl font-bold cursor-pointer transition-colors">+</button>
                     </div>
-                    <button id="start-game" class="w-full flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-lg font-bold hover:bg-primary-hover transition-colors">
-                        <span data-lang-ko="시작" data-lang-en="Start">시작</span>
+                </div>
+
+                <!-- Inputs Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                    <!-- Participant Names -->
+                    <div>
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-xl">groups</span>
+                            <span data-lang-ko="참가자 이름 입력" data-lang-en="Participant Names">참가자 이름 입력</span>
+                        </h3>
+                        <div id="players" class="space-y-3">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Match Results -->
+                    <div>
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-emerald-500 text-xl">emoji_events</span>
+                            <span data-lang-ko="대결 결과 (벌칙) 입력" data-lang-en="Match Outcomes (Penalties)">대결 결과 (벌칙) 입력</span>
+                        </h3>
+                        <div id="results" class="space-y-3">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                    <button id="start-game" class="w-full flex items-center justify-center rounded-2xl h-14 px-6 bg-primary text-white text-lg font-extrabold hover:bg-primary-hover shadow-lg hover:shadow-sky-100 dark:hover:shadow-none active:scale-95 transition-all cursor-pointer">
+                        <span data-lang-ko="사다리 생성하기 🚀" data-lang-en="Create Ladder 🚀">사다리 생성하기 🚀</span>
                     </button>
                 </div>
             </section>
             
-            <section id="game-container" style="display: none;" class="w-full mt-8 text-center">
-                <div id="start-buttons" class="mb-4 flex flex-wrap justify-center gap-4"></div>
-                <canvas id="ladder-canvas" class="mx-auto bg-white dark:bg-slate-800 rounded-lg shadow-md"></canvas>
-                <div id="result-display" class="mt-4 text-2xl font-bold text-primary"></div>
-                <div class="mt-6 flex justify-center gap-4">
-                    <button id="toggle-rungs" class="toggle-button flex items-center justify-center rounded-lg h-11 px-6 bg-accent-light dark:bg-accent-dark text-text-main dark:text-white font-bold hover:bg-sky-200 dark:hover:bg-sky-900 transition-colors">
+            <!-- SECTION 2: Active Game Area -->
+            <section id="game-container" style="display: none;" class="w-full flex flex-col items-center">
+                <!-- Hint Banner -->
+                <div class="w-full max-w-4xl bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-lg">info</span>
+                    <span data-lang-ko="사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다." data-lang-en="Click the circular player button at the top of the canvas to run their path individually.">사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다.</span>
+                </div>
+
+                <!-- Canvas Wrapper with horizontal scrollbar for overflow on small displays -->
+                <div class="w-full max-w-4xl overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
+                    <canvas id="ladder-canvas" class="bg-transparent block cursor-pointer"></canvas>
+                </div>
+
+                <!-- Results Display Panel -->
+                <div id="result-panel" class="w-full max-w-4xl bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
+                    <h3 class="text-lg font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
+                        <span data-lang-ko="🎯 대결 매칭 결과 요약" data-lang-en="🎯 Match Results Summary">🎯 대결 매칭 결과 요약</span>
+                    </h3>
+                    <div id="result-display" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm font-bold text-text-main dark:text-white">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Game Action Buttons -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <button id="run-all-btn" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-emerald-500 text-white font-extrabold hover:bg-emerald-600 active:scale-95 shadow-md transition-all cursor-pointer">
+                        <span class="material-symbols-outlined">double_arrow</span>
+                        <span data-lang-ko="전체 사다리 타기 🚀" data-lang-en="Run All Paths 🚀">전체 사다리 타기 🚀</span>
+                    </button>
+                    <button id="toggle-rungs" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 text-text-main dark:text-white font-extrabold active:scale-95 transition-all cursor-pointer border border-slate-200/40 dark:border-slate-800">
+                        <span class="material-symbols-outlined text-base">visibility</span>
                         <span data-lang-ko="사다리 보이기" data-lang-en="Show Rungs">사다리 보이기</span>
                     </button>
-                    <button id="reset-game" class="reset-button flex items-center justify-center rounded-lg h-11 px-6 bg-slate-200 dark:bg-slate-700 text-text-main dark:text-white font-bold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
-                        <span data-lang-ko="다시하기" data-lang-en="Play Again">다시하기</span>
+                    <button id="reset-game" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-slate-500 hover:bg-slate-600 text-white font-extrabold active:scale-95 transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-base">settings_backup_restore</span>
+                        <span data-lang-ko="사다리 재설정" data-lang-en="Reset Ladder">사다리 재설정</span>
                     </button>
                 </div>
             </section>
+        </div>
+    </main>
         </div>
     </main>
 
