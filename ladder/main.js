@@ -418,6 +418,20 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.shadowBlur = 0;
     }
 
+    function updateToggleRungsButton() {
+        const lang = document.documentElement.lang || 'ko';
+        const label = toggleRungsBtn.querySelector('span:last-child');
+        const icon = toggleRungsBtn.querySelector('.material-symbols-outlined');
+
+        if (areRungsVisible) {
+            label.textContent = lang === 'en' ? 'Hide Rungs' : '사다리 감추기';
+            icon.textContent = 'visibility_off';
+        } else {
+            label.textContent = lang === 'en' ? 'Show Rungs' : '사다리 보이기';
+            icon.textContent = 'visibility';
+        }
+    }
+
     // Setup Game Arena
     startGameBtn.addEventListener('click', () => {
         const pInputs = playersDiv.querySelectorAll('input');
@@ -447,8 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Preset "Show Rungs" label
         areRungsVisible = true;
-        toggleRungsBtn.querySelector('span:last-child').textContent = document.documentElement.lang === 'en' ? 'Hide Rungs' : '사다리 감추기';
-        toggleRungsBtn.querySelector('.material-symbols-outlined').textContent = 'visibility_off';
+        updateToggleRungsButton();
     });
 
     // Reset Game trigger
@@ -462,18 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle Rungs visibility
     toggleRungsBtn.addEventListener('click', () => {
         areRungsVisible = !areRungsVisible;
-        const lang = document.documentElement.lang || 'ko';
-        
-        const label = toggleRungsBtn.querySelector('span:last-child');
-        const icon = toggleRungsBtn.querySelector('.material-symbols-outlined');
-
-        if (areRungsVisible) {
-            label.textContent = lang === 'en' ? 'Hide Rungs' : '사다리 감추기';
-            icon.textContent = 'visibility_off';
-        } else {
-            label.textContent = lang === 'en' ? 'Show Rungs' : '사다리 보이기';
-            icon.textContent = 'visibility';
-        }
+        updateToggleRungsButton();
         drawBoard();
         drawActivePaths();
     });
@@ -640,6 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle language switch redraws
     const langObserver = new MutationObserver(() => {
         updateInputFields();
+        updateToggleRungsButton();
         drawBoard();
     });
     langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
