@@ -457,10 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         generateLadder();
         precalculatePaths();
-        drawBoard();
-
-        // Preset "Show Rungs" label
         areRungsVisible = true;
+        drawBoard();
         updateToggleRungsButton();
     });
 
