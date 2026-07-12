@@ -422,7 +422,7 @@ function downloadPng() {
 
     ctx.fillStyle = '#64748b';
     ctx.font = '16px sans-serif';
-    const subtitle = lang === 'en' ? 'Online Toolkit - tesla-tool.pages.dev' : '온라인 도구모음 - tesla-tool.pages.dev';
+    const subtitle = lang === 'en' ? 'Online Toolkit - tossgpt.online' : '온라인 도구모음 - tossgpt.online';
     ctx.fillText(subtitle, 500, 140);
 
     // 4. 테이블 헤더 렌더링
