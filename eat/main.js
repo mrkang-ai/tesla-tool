@@ -16,6 +16,7 @@ const plannerGrid = document.getElementById('planner-grid');
 const plannerToggleBtn = document.getElementById('planner-toggle-btn');
 const plannerContent = document.getElementById('planner-content');
 const plannerChevron = document.getElementById('planner-chevron');
+const plannerSection = document.getElementById('planner-section');
 
 // 식단표 데이터 상태 관리 (기본값)
 let plannerState = {
@@ -108,6 +109,11 @@ if (recommendBtn) {
 
             loadingAnimation.classList.add('hidden');
             resultDiv.classList.remove('hidden');
+
+            // 추천을 받은 후 식단표를 노출하도록 함
+            if (plannerSection && plannerSection.classList.contains('hidden')) {
+                plannerSection.classList.remove('hidden');
+            }
         }, 1500); // 1.5초 후 추천 결과 노출
     });
 }

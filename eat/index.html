@@ -73,52 +73,53 @@
                     <p class="text-lg font-bold text-text-muted dark:text-slate-400 animate-pulse" data-lang-ko="🍽️ 맛있는 메뉴 탐색중..." data-lang-en="🍽️ Searching for delicious menu...">🍽️ 맛있는 메뉴 탐색중...</p>
                     <div id="image-spinner" class="mt-4"></div>
                 </div>
+            </div> <!-- CLOSE the max-w-xl container early -->
 
-                <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
-                    <div class="grid grid-cols-1 md:grid-cols-12">
-                        <!-- Image Container (Col 6) - Giant photo for strong visual impact -->
-                        <div class="md:col-span-6 relative h-80 md:h-[480px]">
-                            <img id="result-image" src="" alt="추천 메뉴" class="w-full h-full object-cover">
-                            <span id="result-category" class="absolute top-5 left-5 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">한식</span>
+            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[1200px]) -->
+            <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
+                <div class="grid grid-cols-1 md:grid-cols-12">
+                    <!-- Image Container (Col 6) - Giant photo for strong visual impact -->
+                    <div class="md:col-span-6 relative h-80 md:h-[480px]">
+                        <img id="result-image" src="" alt="추천 메뉴" class="w-full h-full object-cover">
+                        <span id="result-category" class="absolute top-5 left-5 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">한식</span>
+                    </div>
+                    <!-- Info Container (Col 6) - Premium spacing -->
+                    <div class="md:col-span-6 p-6 md:p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1.5 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
+                            <h3 id="result-name" class="mt-4 text-4xl font-black text-text-main dark:text-white leading-tight"></h3>
+                            <p id="result-description" class="mt-4 text-[15px] text-text-muted dark:text-slate-400 leading-relaxed font-medium italic"></p>
                         </div>
-                        <!-- Info Container (Col 6) - Premium spacing -->
-                        <div class="md:col-span-6 p-6 md:p-10 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1.5 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
-                                <h3 id="result-name" class="mt-4 text-4xl font-black text-text-main dark:text-white leading-tight"></h3>
-                                <p id="result-description" class="mt-4 text-[15px] text-text-muted dark:text-slate-400 leading-relaxed font-medium italic"></p>
-                            </div>
-                            
-                            <!-- Add to Planner section -->
-                            <div id="add-to-planner-sec" class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-3">
-                                <p class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <select id="select-day" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
-                                        <option value="mon" data-lang-ko="월요일" data-lang-en="Monday">월요일</option>
-                                        <option value="tue" data-lang-ko="화요일" data-lang-en="Tuesday">화요일</option>
-                                        <option value="wed" data-lang-ko="수요일" data-lang-en="Wednesday">수요일</option>
-                                        <option value="thu" data-lang-ko="목요일" data-lang-en="Thursday">목요일</option>
-                                        <option value="fri" data-lang-ko="금요일" data-lang-en="Friday">금요일</option>
-                                        <option value="sat" data-lang-ko="토요일" data-lang-en="Saturday">토요일</option>
-                                        <option value="sun" data-lang-ko="일요일" data-lang-en="Sunday">일요일</option>
-                                    </select>
-                                    <select id="select-meal" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
-                                        <option value="lunch" data-lang-ko="점심 식사" data-lang-en="Lunch">점심 식사</option>
-                                        <option value="dinner" data-lang-ko="저녁 식사" data-lang-en="Dinner">저녁 식사</option>
-                                    </select>
-                                    <button id="add-to-planner-btn" class="h-10 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-bold shadow-md hover:shadow-emerald-100 dark:hover:shadow-none transition-all flex items-center gap-1">
-                                        <span class="material-symbols-outlined text-base">add_circle</span>
-                                        <span data-lang-ko="식단에 추가" data-lang-en="Add to Plan">식단에 추가</span>
-                                    </button>
-                                </div>
+                        
+                        <!-- Add to Planner section -->
+                        <div id="add-to-planner-sec" class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-3">
+                            <p class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <select id="select-day" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="mon" data-lang-ko="월요일" data-lang-en="Monday">월요일</option>
+                                    <option value="tue" data-lang-ko="화요일" data-lang-en="Tuesday">화요일</option>
+                                    <option value="wed" data-lang-ko="수요일" data-lang-en="Wednesday">수요일</option>
+                                    <option value="thu" data-lang-ko="목요일" data-lang-en="Thursday">목요일</option>
+                                    <option value="fri" data-lang-ko="금요일" data-lang-en="Friday">금요일</option>
+                                    <option value="sat" data-lang-ko="토요일" data-lang-en="Saturday">토요일</option>
+                                    <option value="sun" data-lang-ko="일요일" data-lang-en="Sunday">일요일</option>
+                                </select>
+                                <select id="select-meal" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="lunch" data-lang-ko="점심 식사" data-lang-en="Lunch">점심 식사</option>
+                                    <option value="dinner" data-lang-ko="저녁 식사" data-lang-en="Dinner">저녁 식사</option>
+                                </select>
+                                <button id="add-to-planner-btn" class="h-10 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-bold shadow-md hover:shadow-emerald-100 dark:hover:shadow-none transition-all flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-base">add_circle</span>
+                                    <span data-lang-ko="식단에 추가" data-lang-en="Add to Plan">식단에 추가</span>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) inside a Collapsible Card -->
-            <section id="planner-section" class="w-full mt-16 border border-slate-200/60 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900/10 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm">
+            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) inside a Collapsible Card (hidden by default) -->
+            <section id="planner-section" class="hidden w-full mt-16 border border-slate-200/60 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900/10 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm">
                 <!-- Accordion Header Toggle -->
                 <button id="planner-toggle-btn" class="w-full flex items-center justify-between p-6 bg-white dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 text-left border-none focus:outline-none transition-colors cursor-pointer select-none">
                     <div class="flex items-center gap-4">
