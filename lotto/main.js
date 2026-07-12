@@ -1,9 +1,20 @@
 const generateBtn = document.getElementById('generate-btn');
-const generate10Btn = document.getElementById('generate-10-btn');
 const resetBtn = document.getElementById('reset-btn');
+const resetContainer = document.getElementById('reset-container');
 const generatedNumbersContainer = document.getElementById('generated-numbers-container');
 
-// '1개 세트 생성' 버튼 클릭 이벤트 리스너
+// '기록 초기화' 버튼 보임/숨김 제어 함수
+function updateResetButtonVisibility() {
+    if (resetContainer && generatedNumbersContainer) {
+        if (generatedNumbersContainer.children.length > 0) {
+            resetContainer.classList.remove('hidden');
+        } else {
+            resetContainer.classList.add('hidden');
+        }
+    }
+}
+
+// '행운 번호 추출하기' 버튼 클릭 이벤트 리스너
 if (generateBtn) {
     generateBtn.addEventListener('click', () => {
         generateBtn.disabled = true;
@@ -15,84 +26,11 @@ if (generateBtn) {
     });
 }
 
-// '10개 세트 생성' 버튼 클릭 이벤트 리스너
-if (generate10Btn) {
-    generate10Btn.addEventListener('click', () => {
-        generate10Btn.disabled = true;
-        
-        const cardDiv = document.createElement('div');
-        cardDiv.className = 'generated-10-card bg-slate-50/50 dark:bg-slate-900/40 border border-indigo-100 dark:border-indigo-950/60 p-5 rounded-2xl shadow-sm mb-4';
-        
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'flex justify-between items-center mb-3 pb-2 border-b border-indigo-50 dark:border-indigo-950/30';
-        
-        const titleSpan = document.createElement('span');
-        titleSpan.className = 'text-xs font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-2.5 py-1 rounded-lg flex items-center gap-1';
-        titleSpan.innerHTML = '<span class="material-symbols-outlined text-sm">layers</span> <span data-lang-ko="10회 연속 추출 결과" data-lang-en="10 Continuous Sets">10회 연속 추출 결과</span>';
-        
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'text-xs font-semibold text-text-muted dark:text-slate-400';
-        const now = new Date();
-        timeSpan.textContent = now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        
-        headerDiv.appendChild(titleSpan);
-        headerDiv.appendChild(timeSpan);
-        cardDiv.appendChild(headerDiv);
-        
-        const rowsContainer = document.createElement('div');
-        rowsContainer.className = 'flex flex-col gap-1.5';
-        
-        for (let i = 0; i < 10; i++) {
-            const rowDiv = document.createElement('div');
-            rowDiv.className = 'flex items-center gap-2 py-1 justify-between';
-            
-            const indexSpan = document.createElement('span');
-            indexSpan.className = 'text-[11px] font-bold text-text-muted/60 dark:text-slate-500 w-5';
-            indexSpan.textContent = `${i + 1}회`;
-            
-            const numbersDiv = document.createElement('div');
-            numbersDiv.className = 'flex gap-1';
-            
-            const numbers = generateLottoNumbers();
-            numbers.forEach(num => {
-                const ball = document.createElement('span');
-                ball.className = `lotto-ball ${getBallColorClass(num)}`;
-                ball.textContent = num;
-                numbersDiv.appendChild(ball);
-            });
-            
-            rowDiv.appendChild(indexSpan);
-            rowDiv.appendChild(numbersDiv);
-            
-            const spacer = document.createElement('div');
-            spacer.className = 'w-5';
-            rowDiv.appendChild(spacer);
-            
-            rowsContainer.appendChild(rowDiv);
-        }
-        
-        cardDiv.appendChild(rowsContainer);
-        generatedNumbersContainer.prepend(cardDiv);
-        
-        // Translate new elements if translation exists
-        if (window.applyLanguage && typeof window.applyLanguage === 'function') {
-            const currentLang = localStorage.getItem('language') || 'ko';
-            cardDiv.querySelectorAll('[data-lang-ko]').forEach(el => {
-                const text = el.getAttribute(`data-lang-${currentLang}`);
-                if (text) el.textContent = text;
-            });
-        }
-        
-        setTimeout(() => {
-            generate10Btn.disabled = false;
-        }, 500);
-    });
-}
-
 // '기록 초기화' 버튼 클릭 이벤트 리스너
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
         generatedNumbersContainer.innerHTML = '';
+        updateResetButtonVisibility();
     });
 }
 
@@ -148,6 +86,7 @@ function appendNewNumbers(numbers) {
     setDiv.appendChild(timestampSpan);
 
     generatedNumbersContainer.prepend(setDiv);
+    updateResetButtonVisibility();
 }
 
 const copyLinkBtn = document.getElementById('copy-link-btn');
