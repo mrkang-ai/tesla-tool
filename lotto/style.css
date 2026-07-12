@@ -106,33 +106,36 @@ h3 {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    font-weight: bold;
+    font-weight: 800;
     color: #fff;
-    font-size: 1.2rem;
-    margin: 0 0.2rem;
+    font-size: 1.15rem;
+    margin: 0 0.25rem;
+    box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.3), 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .ball-yellow {
-    background: #f0b000;
-}
-
-.ball-red {
-    background: #dc3545;
-}
-
-.ball-grey {
-    background: #6c757d;
-}
-
-.ball-green {
-    background: #28a745;
+    background: linear-gradient(135deg, #facc15 0%, #eab308 50%, #ca8a04 100%);
 }
 
 .ball-blue {
-    background: #0d6efd;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+}
+
+.ball-red {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 50%, #b91c1c 100%);
+}
+
+.ball-grey {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 50%, #475569 100%);
+}
+
+.ball-green {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #15803d 100%);
 }
 
 .win-numbers {
@@ -170,20 +173,49 @@ h3 {
 }
 
 #generated-numbers-container {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .generated-set {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: #f8fafc;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    padding: 0.85rem 1.25rem;
+    background: linear-gradient(to right, #ffffff, #f8fafc);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 14px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.generated-set:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.08), 0 4px 6px -2px rgba(14, 165, 233, 0.05);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+.dark .generated-set {
+    background: linear-gradient(to right, #1e293b, #0f172a);
+    border-color: rgba(71, 85, 105, 0.5);
+}
+
+.dark .generated-set:hover {
+    border-color: rgba(14, 165, 233, 0.5);
 }
 
 .generated-set .numbers {
@@ -192,8 +224,17 @@ h3 {
 }
 
 .generated-set .timestamp {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: #64748b;
+    background-color: #f1f5f9;
+    padding: 0.25rem 0.6rem;
+    border-radius: 8px;
+}
+
+.dark .generated-set .timestamp {
+    color: #94a3b8;
+    background-color: #334155;
 }
 
 .latest-win table {

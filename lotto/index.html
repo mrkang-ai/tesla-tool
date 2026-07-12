@@ -64,90 +64,297 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
-                    <div class="layout-content-container flex flex-col max-w-[960px] flex-1 mx-auto">            <header class="text-center py-10">
-                <h1 class="text-4xl font-bold tracking-tight text-text-main dark:text-white" data-lang-ko="🍀 로또 번호 생성기" data-lang-en="🍀 Lotto Number Generator">🍀 로또 번호 생성기</h1>
-                <p class="mt-2 text-lg text-text-muted dark:text-slate-400" data-lang-ko="행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요." data-lang-en="Generate lucky numbers and learn all about the lottery.">행운의 번호를 생성하고 로또에 대한 모든 것을 알아보세요.</p>
-                <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" class="mt-4 inline-block text-primary hover:text-primary-hover transition-colors" data-lang-ko="동행복권 당첨조회 바로가기 🔗" data-lang-en="Go to Donghang Lottery Winning Check 🔗">동행복권 당첨조회 바로가기 🔗</a>
-            </header>
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 mx-auto">
+            <div class="text-center py-8">
+                <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🍀 로또 번호 생성기" data-lang-en="🍀 Lotto Number Generator">🍀 로또 번호 생성기</h1>
+                <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="나만의 행운번호를 생성하고, 매주 자동으로 업데이트되는 최신 당첨 정보를 확인하세요." data-lang-en="Generate your lucky numbers and check the automatically updated lottery results.">나만의 행운번호를 생성하고, 매주 자동으로 업데이트되는 최신 당첨 정보를 확인하세요.</p>
+                <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-hover transition-colors" data-lang-ko="동행복권 당첨조회 바로가기 🔗" data-lang-en="Go to Donghang Lottery Winning Check 🔗">동행복권 당첨조회 바로가기 🔗</a>
+            </div>
 
-            <section class="w-full max-w-2xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-center text-text-main dark:text-white mb-6" data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
-                <button id="generate-btn" class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary-hover shadow-lg shadow-sky-200 dark:shadow-none transition-all active:scale-95">
-                    <span data-lang-ko="🍀 번호 생성하기 🍀" data-lang-en="🍀 Generate Numbers 🍀">🍀 번호 생성하기 🍀</span>
-                </button>
-                <div id="generated-numbers-container" class="mt-6">
-                    <!-- 생성된 번호가 여기에 추가됩니다. -->
+            <!-- Main workspace grid (2 columns) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4">
+                
+                <!-- LEFT COLUMN: Generator (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <section class="bg-card-bg-light dark:bg-card-bg-dark p-6 md:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md">
+                        <h2 class="text-xl font-bold text-text-main dark:text-white mb-4 flex items-center gap-2" data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
+                        <p class="text-sm text-text-muted dark:text-slate-400 mb-6" data-lang-ko="아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요." data-lang-en="Click the button below to generate 6 random lucky numbers from 1 to 45.">아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요.</p>
+                        
+                        <button id="generate-btn" class="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-gradient-to-r from-sky-400 to-primary hover:from-sky-500 hover:to-primary-hover text-white text-lg font-bold hover:shadow-lg hover:shadow-sky-100 dark:hover:shadow-none hover:-translate-y-0.5 active:scale-95 transition-all duration-300">
+                            <span class="material-symbols-outlined">casino</span>
+                            <span data-lang-ko="행운 번호 추출하기" data-lang-en="Generate Lucky Numbers">행운 번호 추출하기</span>
+                        </button>
+                        
+                        <div id="generated-numbers-container">
+                            <!-- Generated number list dynamically inserted here -->
+                        </div>
+                    </section>
                 </div>
-            </section>
+                
+                <!-- RIGHT COLUMN: Latest Draw Info (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    <section class="bg-card-bg-light dark:bg-card-bg-dark p-6 md:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md">
+                        <h2 class="text-xl font-bold text-text-main dark:text-white mb-4 flex items-center gap-2" data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
+                        
+                        <!-- Round Header -->
+                        <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl text-center mb-6 border border-slate-100 dark:border-slate-800/80">
+                            <p class="text-md font-semibold text-text-main dark:text-white flex items-center justify-center gap-2">
+                                <span class="badge px-2.5 py-0.5 bg-primary/10 text-primary text-xs font-bold rounded-full" data-lang-ko="공식 결과" data-lang-en="Official Result">공식 결과</span>
+                                <strong id="lotto-round-title" data-lang-ko="제 1208회차" data-lang-en="Round 1208" class="text-lg">제 1208회차</strong> 
+                                <span class="text-text-muted dark:text-slate-400 font-medium">|</span>
+                                <span id="lotto-draw-date" data-lang-ko="2026년 01월 24일 추첨" data-lang-en="Drawing on January 24, 2026" class="text-sm text-text-muted dark:text-slate-400">2026년 01월 24일 추첨</span>
+                            </p>
+                        </div>
+                        
+                        <!-- Draw Balls Graphic -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-6 bg-slate-50/50 dark:bg-slate-900/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/40">
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-xs text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="당첨 번호" data-lang-en="Winning Numbers">당첨 번호</span>
+                                <div id="lotto-win-balls" class="flex items-center gap-1.5">
+                                    <span class="lotto-ball ball-yellow">6</span>
+                                    <span class="lotto-ball ball-red">27</span>
+                                    <span class="lotto-ball ball-red">30</span>
+                                    <span class="lotto-ball ball-grey">36</span>
+                                    <span class="lotto-ball ball-grey">38</span>
+                                    <span class="lotto-ball ball-green">42</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-light text-text-muted/40 dark:text-slate-600 select-none">+</div>
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-xs text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="보너스" data-lang-en="Bonus">보너스</span>
+                                <div id="lotto-bonus-ball" class="flex items-center gap-1.5">
+                                    <span class="lotto-ball ball-red">25</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Prize Table -->
+                        <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner">
+                            <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
+                                <thead class="bg-slate-50 dark:bg-slate-900 text-xs font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th scope="col" class="px-5 py-3.5" data-lang-ko="등위" data-lang-en="Rank">등위</th>
+                                        <th scope="col" class="px-5 py-3.5" data-lang-ko="총 당첨금액" data-lang-en="Total Winnings">총 당첨금액</th>
+                                        <th scope="col" class="px-5 py-3.5" data-lang-ko="당첨게임 수" data-lang-en="Winners">당첨게임 수</th>
+                                        <th scope="col" class="px-5 py-3.5" data-lang-ko="1게임당 당첨금액" data-lang-en="Prize per Winner">1게임당 당첨금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr id="lotto-rank-1" class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                        <td class="px-5 py-3.5 font-bold text-text-main dark:text-white" data-lang-ko="1등" data-lang-en="1st">1등</td>
+                                        <td class="rank-total font-semibold">30,010,281,750원</td>
+                                        <td class="rank-count">6</td>
+                                        <td class="rank-amount text-primary font-bold">5,001,713,625원</td>
+                                    </tr>
+                                    <tr id="lotto-rank-2" class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                        <td class="px-5 py-3.5 font-bold text-text-main dark:text-white" data-lang-ko="2등" data-lang-en="2nd">2등</td>
+                                        <td class="rank-total">5,001,713,684원</td>
+                                        <td class="rank-count">68</td>
+                                        <td class="rank-amount font-semibold">73,554,613원</td>
+                                    </tr>
+                                    <tr id="lotto-rank-3" class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                        <td class="px-5 py-3.5 font-bold text-text-main dark:text-white" data-lang-ko="3등" data-lang-en="3rd">3등</td>
+                                        <td class="rank-total">5,001,716,392원</td>
+                                        <td class="rank-count">2,932</td>
+                                        <td class="rank-amount font-semibold">1,705,906원</td>
+                                    </tr>
+                                    <tr id="lotto-rank-4" class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                        <td class="px-5 py-3.5 font-bold text-text-main dark:text-white" data-lang-ko="4등" data-lang-en="4th">4등</td>
+                                        <td class="rank-total">7,467,950,000원</td>
+                                        <td class="rank-count">149,359</td>
+                                        <td class="rank-amount">50,000원</td>
+                                    </tr>
+                                    <tr id="lotto-rank-5" class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                        <td class="px-5 py-3.5 font-bold text-text-main dark:text-white" data-lang-ko="5등" data-lang-en="5th">5등</td>
+                                        <td class="rank-total">12,722,675,000원</td>
+                                        <td class="rank-count">2,544,535</td>
+                                        <td class="rank-amount">5,000원</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
 
-            <section class="w-full max-w-4xl mx-auto mt-12">
-                <h2 class="text-2xl font-bold text-center text-text-main dark:text-white mb-6" data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
-                <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-xl shadow-md">
-                    <p class="text-center font-semibold text-text-main dark:text-white">
-                        <strong id="lotto-round-title" data-lang-ko="제 1208회차" data-lang-en="Round 1208">제 1208회차</strong> 
-                        (<span id="lotto-draw-date" data-lang-ko="2026년 01월 24일 추첨" data-lang-en="Drawing on January 24, 2026">2026년 01월 24일 추첨</span>)
-                    </p>
-                    <div class="flex items-center justify-center my-4">
-                        <div id="lotto-win-balls" class="flex items-center gap-2">
-                            <span class="lotto-ball ball-yellow">6</span>
-                            <span class="lotto-ball ball-red">27</span>
-                            <span class="lotto-ball ball-red">30</span>
-                            <span class="lotto-ball ball-grey">36</span>
-                            <span class="lotto-ball ball-grey">38</span>
-                            <span class="lotto-ball ball-green">42</span>
-                        </div>
-                        <div class="mx-4 text-2xl font-light text-text-muted dark:text-slate-400">+</div>
-                        <div id="lotto-bonus-ball" class="flex items-center gap-2">
-                            <span class="lotto-ball ball-red">25</span>
-                        </div>
-                    </div>
-                    <div class="overflow-x-auto mt-4">
-                        <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
-                            <thead class="bg-accent-light dark:bg-accent-dark text-xs uppercase">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 rounded-l-lg" data-lang-ko="등위" data-lang-en="Rank">등위</th>
-                                    <th scope="col" class="px-6 py-3" data-lang-ko="총 당첨금액" data-lang-en="Total Winnings">총 당첨금액</th>
-                                    <th scope="col" class="px-6 py-3" data-lang-ko="당첨게임 수" data-lang-en="Number of Winning Games">당첨게임 수</th>
-                                    <th scope="col" class="px-6 py-3 rounded-r-lg" data-lang-ko="1게임당 당첨금액" data-lang-en="Winnings per Game">1게임당 당첨금액</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr id="lotto-rank-1" class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
-                                    <td class="px-6 py-4" data-lang-ko="1등" data-lang-en="1st">1등</td>
-                                    <td class="rank-total">30,010,281,750원</td>
-                                    <td class="rank-count">6</td>
-                                    <td class="rank-amount">5,001,713,625원</td>
-                                </tr>
-                                <tr id="lotto-rank-2" class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
-                                    <td class="px-6 py-4" data-lang-ko="2등" data-lang-en="2nd">2등</td>
-                                    <td class="rank-total">5,001,713,684원</td>
-                                    <td class="rank-count">68</td>
-                                    <td class="rank-amount">73,554,613원</td>
-                                </tr>
-                                <tr id="lotto-rank-3" class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
-                                    <td class="px-6 py-4" data-lang-ko="3등" data-lang-en="3rd">3등</td>
-                                    <td class="rank-total">5,001,716,392원</td>
-                                    <td class="rank-count">2,932</td>
-                                    <td class="rank-amount">1,705,906원</td>
-                                </tr>
-                                <tr id="lotto-rank-4" class="bg-card-bg-light dark:bg-card-bg-dark border-b border-slate-200 dark:border-slate-700">
-                                    <td class="px-6 py-4" data-lang-ko="4등" data-lang-en="4th">4등</td>
-                                    <td class="rank-total">7,467,950,000원</td>
-                                    <td class="rank-count">149,359</td>
-                                    <td class="rank-amount">50,000원</td>
-                                </tr>
-                                <tr id="lotto-rank-5" class="bg-card-bg-light dark:bg-card-bg-dark">
-                                    <td class="px-6 py-4" data-lang-ko="5등" data-lang-en="5th">5등</td>
-                                    <td class="rank-total">12,722,675,000원</td>
-                                    <td class="rank-count">2,544,535</td>
-                                    <td class="rank-amount">5,000원</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <!-- Custom Style for rich text language toggling -->
+            <style>
+                html[lang="ko"] .lang-only-en { display: none !important; }
+                html[lang="ko"] .lang-only-ko { display: block !important; }
+                html[lang="en"] .lang-only-ko { display: none !important; }
+                html[lang="en"] .lang-only-en { display: block !important; }
+            </style>
+
+            <!-- Bottom Section: Lotto History & Historic Records -->
+            <div class="mt-12 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[1200px] w-full mx-auto transition-all duration-300">
+                
+                <!-- Korean Version -->
+                <div class="lang-only-ko">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📚</span> 로또(Lotto)의 역사와 역대 대기록 정보
+                    </h2>
+                    
+                    <div class="space-y-8 text-sm text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section class="border-0 p-0 shadow-none mb-0">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 1. 로또의 기원과 역사
+                            </h3>
+                            <p>오늘날 전 세계적으로 널리 퍼진 로또(Lotto) 게임은 고대 사회에서 국가적 자금을 조달하던 데서 그 시초를 찾을 수 있습니다.</p>
+                            <p class="mt-2">역사적 기록에 따르면, 기원전 100년경 고대 중국 한나라에서 나라의 주요 군사비 충당과 함께 **만리장성(The Great Wall of China)** 건립 기금을 모으기 위해 숫자가 표기된 나무 패를 뽑는 복권(Keno 형식) 게임을 공식적으로 개설했던 것이 복권의 최초 형태 중 하나로 평가받습니다. 로마 제국 시기에는 황제 아우구스투스가 로마 시내의 도로 보수와 공공시설 건립 기금을 조달하기 위해 시민들에게 티켓을 판매하고 추첨을 통해 당첨자들에게 귀중품을 선물하는 형태의 복권을 최초로 공식 법제화하였습니다.</p>
+                            <p class="mt-2">베팅의 대상으로서 현대적인 숫자를 맞추는 '로또' 형태는 15세기 이탈리아 제네바(Geneva) 공화국에서 처음 설계되었습니다. 당시 제네바 공화국에서는 매년 90명의 후보 정치가 중에서 5명을 임의로 선출하는 정치 투표 방식을 취했는데, 시민들이 어떤 정치가가 선출될지 돈을 걸고 베팅하던 게임이 선풍적인 인기를 끌자 제네바 정부는 1부터 90까지의 숫자 중에서 5개를 골라 맞추는 복권 놀이를 최초로 승인 및 세수 확보용으로 정착시켰습니다. 이것이 현재 복권 시스템의 모태가 되었습니다.</p>
+                            <p class="mt-2">대한민국에서는 **2002년 12월 7일** '온라인 복권'이라는 정식 명칭 아래 1회 추첨이 진행되며 최초로 로또 6/45가 발매되었습니다. 도입 초기에는 1등 당첨자가 없을 시 당첨금이 다음 회차로 무제한 이월되는 규정이 있어 수백억 원대의 엄청난 이월 광풍이 불기도 했으나, 2004년 사행성 우려로 인해 이월 횟수를 제한하고 1게임당 가격을 2,000원에서 1,000원으로 낮추면서 서민들이 부담 없이 건전하게 즐기는 대중 유희 문화로 정착되었습니다.</p>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 2. 대한민국 로또 역대 주요 1등 당첨 대기록
+                            </h3>
+                            <p class="mb-4">2002년 판매 시작 이래, 이월 규정과 당첨 비율에 의해 남겨진 역사의 경이로운 주요 당첨 기록들입니다.</p>
+                            
+                            <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
+                                <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                                    <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="px-4 py-3 text-center">회차 (추첨일)</th>
+                                            <th class="px-4 py-3">1등 당첨 번호</th>
+                                            <th class="px-4 py-3 text-right">총 당첨금액</th>
+                                            <th class="px-4 py-3 text-center">당첨자수</th>
+                                            <th class="px-4 py-3 text-right">1인당 당첨금액</th>
+                                            <th class="px-4 py-3">기록의 의의 / 특징</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19회<br><span class="text-[10px] text-text-muted">(2003-04-12)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">6, 30, 38, 39, 40, 43 + 26</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">407억 2,295만 원</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">1명</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">40,722,959,400원</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**역대 최고 1인 당첨금**. 이월 당첨금이 단 1명에게 귀속되어 실소득 부의 극대화 기록을 세웠습니다.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019회<br><span class="text-[10px] text-text-muted">(2022-06-11)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">1, 4, 13, 17, 34, 39 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">219억 2,825만 원</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">50명</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">438,565,140원</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**역대 최다 1등 당첨자**. 동일 번호 다중 당첨자가 대거 쏟아져 나오며 세간에 큰 화제를 모았습니다.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546회<br><span class="text-[10px] text-text-muted">(2013-05-18)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">8, 17, 20, 27, 37, 43 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">121억 7,819만 원</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">30명</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">405,939,950원</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**역대 최저 1인 당첨금**. 1게임 판매가 1,000원 인하된 이후 1인당 당첨 수령액이 가장 낮게 기록된 주차 중 하나입니다.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2회<br><span class="text-[10px] text-text-muted">(2002-12-14)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">9, 25, 30, 33, 41, 44 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">86억 8,422만 원</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">0명</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">0원 (이월)</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**최초의 1등 당첨 이월 회차**. 1등 당첨자가 아무도 나오지 않아 총 당첨금이 3회차로 넘어가며 열풍의 초석이 되었습니다.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100회<br><span class="text-[10px] text-text-muted">(2023-12-30)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">17, 26, 29, 30, 31, 43 + 12</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">286억 9,853만 원</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">13명</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">2,207,579,827원</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**상징적 1100회 마일스톤**. 2023년 한 해를 마감하며 연말 보너스로 13명에게 따뜻한 행운이 찾아간 기념적 회차입니다.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
                     </div>
                 </div>
-            </section>
+
+                <!-- English Version -->
+                <div class="lang-only-en">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📚</span> The History of Lotto & Major Historic Records
+                    </h2>
+                    
+                    <div class="space-y-8 text-sm text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section class="border-0 p-0 shadow-none mb-0">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 1. The Origins and History of Lotto
+                            </h3>
+                            <p>The history of lotteries dates back to ancient civilizations, where state-sponsored draws were organized to raise funds for massive public infrastructure projects.</p>
+                            <p class="mt-2">Historically, one of the earliest recorded forms of lottery (similar to Keno) dates back to around 100 BC during the Han Dynasty in China. It was introduced to secure funding for critical national military expenses and to fund the construction of **The Great Wall of China**. In the Roman Empire, Emperor Augustus established the first public lottery where citizens bought tickets to win valuable items. The revenue raised was utilized directly for city-wide road repairs and public construction projects.</p>
+                            <p class="mt-2">The modern system of predicting numbers (Lotto) was born in 15th-century Genoa, Italy. During the Republic of Genoa's political elections, 5 names were randomly drawn from a pool of 90 candidates. Citizens loved betting on which politicians would be selected, prompting the Genoa government to commercialize the game as a lottery using numbers 1 to 90. This established the foundation for modern lotto 6/45 formats.</p>
+                            <p class="mt-2">In South Korea, the 6/45 lotto was officially launched on **December 7, 2002**. In the early days, there was no limit on the number of roll-overs, which led to a national craze with individual winnings rising to tens of millions of dollars. To prevent excessive gambling, the government introduced roll-over caps and lowered the ticket price from 2,000 KRW to 1,000 KRW in 2004, successfully transforming the game into a healthy, popular hobby for everyone.</p>
+                        </section>
+
+                        <section class="border-0 p-0 shadow-none mb-0 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-1.5">
+                                <span class="w-1.5 h-5 bg-primary rounded-full"></span> 2. Major Historical 1st Prize Records in Korea
+                            </h3>
+                            <p class="mb-4">Here are the most notable milestone rounds in Korean lotto history since the game's launch in 2002.</p>
+                            
+                            <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
+                                <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                                    <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="px-4 py-3 text-center">Round (Draw Date)</th>
+                                            <th class="px-4 py-3">Winning Numbers</th>
+                                            <th class="px-4 py-3 text-right">Total Prize Pool</th>
+                                            <th class="px-4 py-3 text-center">Winners</th>
+                                            <th class="px-4 py-3 text-right">Prize per Winner</th>
+                                            <th class="px-4 py-3">Record Significance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19th<br><span class="text-[10px] text-text-muted">(2003-04-12)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">6, 30, 38, 39, 40, 43 + 26</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">₩40.72 Billion</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">1</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">₩40,722,959,400</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**Highest Single Winnings**. A single person took home the massive rolled-over pool, setting a legendary record.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019th<br><span class="text-[10px] text-text-muted">(2022-06-11)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">1, 4, 13, 17, 34, 39 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">₩21.92 Billion</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">50</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">₩438,565,140</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**Most 1st Place Winners**. An unprecedented number of winning tickets were drawn, sparking national news.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546th<br><span class="text-[10px] text-text-muted">(2013-05-18)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">8, 17, 20, 27, 37, 43 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">₩12.17 Billion</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">30</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">₩405,939,950</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**Lowest Single Winnings**. Recorded one of the lowest pay-outs per winner since the ticket price reduction.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2nd<br><span class="text-[10px] text-text-muted">(2002-12-14)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">9, 25, 30, 33, 41, 44 + 6</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">₩8.68 Billion</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">0</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">₩0 (Roll-over)</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**First Roll-over**. No first-place winner emerged, initiating the first-ever jackpot accumulation in Korea.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100th<br><span class="text-[10px] text-text-muted">(2023-12-30)</span></td>
+                                            <td class="px-4 py-3.5 font-medium">17, 26, 29, 30, 31, 43 + 12</td>
+                                            <td class="px-4 py-3.5 text-right font-medium">₩28.69 Billion</td>
+                                            <td class="px-4 py-3.5 text-center font-bold text-primary">13</td>
+                                            <td class="px-4 py-3.5 text-right font-bold text-text-main dark:text-white">₩2,207,579,827</td>
+                                            <td class="px-4 py-3.5 text-text-muted dark:text-slate-400">**Milestone 1100th Draw**. Drawn on the last weekend of 2023, awarding 13 winners a warm year-end bonus.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
