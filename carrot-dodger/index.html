@@ -51,82 +51,8 @@
             <!-- Game Layout Container -->
             <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <!-- Left Sidebar: Controls & Point Table (3 Cols) -->
-                <div class="lg:col-span-3 space-y-6">
-                    <!-- Control Settings Card -->
-                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
-                            <span class="material-symbols-outlined text-primary text-lg">sports_esports</span>
-                            <span data-lang-ko="조작 설정" data-lang-en="Control Modes">조작 설정</span>
-                        </h3>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="mode-keyboard" class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer">
-                                <span class="material-symbols-outlined text-xl">keyboard</span>
-                                <span data-lang-ko="키보드" data-lang-en="Keyboard">키보드</span>
-                            </button>
-                            <button id="mode-mouse" class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer">
-                                <span class="material-symbols-outlined text-xl">mouse</span>
-                                <span data-lang-ko="마우스" data-lang-en="Mouse">마우스</span>
-                            </button>
-                        </div>
-                        <p id="control-hint" class="mt-3 text-xs text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다." data-lang-en="Use Arrow Keys (←, →) to move left/right. Decelerates smoothly with momentum.">방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다.</p>
-                    </div>
-
-                    <!-- Item Guide Card -->
-                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
-                            <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
-                            <span data-lang-ko="아이템 가이드" data-lang-en="Item Directory">아이템 가이드</span>
-                        </h3>
-                        <ul class="space-y-3.5 text-xs font-bold">
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-yellow-50/50 dark:bg-yellow-950/10">
-                                <div class="flex items-center gap-2">
-                                    <img src="images/banana.png" alt="Banana" class="w-6 h-6 object-contain">
-                                    <span data-lang-ko="바나나" data-lang-en="Banana">바나나</span>
-                                </div>
-                                <span class="text-yellow-600 dark:text-yellow-400">+1 Point</span>
-                            </li>
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-orange-50/30 dark:bg-orange-950/5">
-                                <div class="flex items-center gap-2">
-                                    <img src="images/bread.png" alt="Bread" class="w-6 h-6 object-contain">
-                                    <span data-lang-ko="빵" data-lang-en="Bread">빵</span>
-                                </div>
-                                <span class="text-amber-600 dark:text-amber-400">+2 Points</span>
-                            </li>
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-red-50/50 dark:bg-red-950/10">
-                                <div class="flex items-center gap-2">
-                                    <img src="images/meat.png" alt="Meat" class="w-6 h-6 object-contain">
-                                    <span data-lang-ko="신선한 고기" data-lang-en="Meat">신선한 고기</span>
-                                </div>
-                                <span class="text-red-500 dark:text-red-400">+5 Points</span>
-                            </li>
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-pink-50/50 dark:bg-pink-950/10">
-                                <div class="flex items-center gap-2">
-                                    <img src="images/cake.png" alt="Cake" class="w-6 h-6 object-contain">
-                                    <span data-lang-ko="달콤한 케이크" data-lang-en="Cake">달콤한 케이크</span>
-                                </div>
-                                <span class="text-pink-500 dark:text-pink-400">+10 Points</span>
-                            </li>
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-purple-50/50 dark:bg-purple-950/10">
-                                <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400">
-                                    <span class="material-symbols-outlined text-base">grade</span>
-                                    <span data-lang-ko="무적 스타 (실드)" data-lang-en="Fever Star (Shield)">무적 스타 (실드)</span>
-                                </div>
-                                <span class="text-purple-500">5s Shield</span>
-                            </li>
-                            <li class="flex items-center justify-between p-2 rounded-xl bg-orange-100/40 dark:bg-orange-950/30 border border-orange-200/50 dark:border-orange-900/50">
-                                <div class="flex items-center gap-2">
-                                    <img src="images/carrot.png" alt="Carrot" class="w-6 h-6 object-contain">
-                                    <span data-lang-ko="당근 폭탄" data-lang-en="Carrot Bomb">당근 폭탄</span>
-                                </div>
-                                <span class="text-orange-600 dark:text-orange-400" data-lang-ko="충돌 시 사망" data-lang-en="Game Over">충돌 시 사망</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Center Area: Main Game Stage (6 Cols) -->
-                <div class="lg:col-span-6 space-y-6">
+                <!-- Left Main Section: Stats, Canvas, Horizontal Item Guide (9 Cols) -->
+                <div class="lg:col-span-9 space-y-6">
                     <!-- Dashboard Indicators -->
                     <div class="flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center gap-3">
@@ -198,10 +124,70 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- Horizontal Item Guide Card -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-sm font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
+                            <span data-lang-ko="아이템 도감 및 점수 정보" data-lang-en="Item Index & Score Values">아이템 도감 및 점수 정보</span>
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-[11px] font-bold">
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-yellow-50/50 dark:bg-yellow-950/10 border border-yellow-100/30 dark:border-yellow-900/10 text-center gap-2">
+                                <img src="images/banana.png" alt="Banana" class="w-8 h-8 object-contain">
+                                <p data-lang-ko="바나나" data-lang-en="Banana">바나나</p>
+                                <span class="text-yellow-600 dark:text-yellow-400 font-extrabold">+1 pt</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-orange-50/30 dark:bg-orange-950/5 border border-orange-100/25 dark:border-orange-900/10 text-center gap-2">
+                                <img src="images/bread.png" alt="Bread" class="w-8 h-8 object-contain">
+                                <p data-lang-ko="빵" data-lang-en="Bread">빵</p>
+                                <span class="text-amber-600 dark:text-amber-400 font-extrabold">+2 pts</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-red-50/50 dark:bg-red-950/10 border border-red-100/30 dark:border-red-900/10 text-center gap-2">
+                                <img src="images/meat.png" alt="Meat" class="w-8 h-8 object-contain">
+                                <p data-lang-ko="신선한 고기" data-lang-en="Meat">신선한 고기</p>
+                                <span class="text-red-500 dark:text-red-400 font-extrabold">+5 pts</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-pink-50/50 dark:bg-pink-950/10 border border-pink-100/30 dark:border-pink-900/10 text-center gap-2">
+                                <img src="images/cake.png" alt="Cake" class="w-8 h-8 object-contain">
+                                <p data-lang-ko="달콤한 케이크" data-lang-en="Cake">달콤한 케이크</p>
+                                <span class="text-pink-500 dark:text-pink-400 font-extrabold">+10 pts</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-purple-50/50 dark:bg-purple-950/10 border border-purple-100/30 dark:border-purple-900/10 text-center gap-2">
+                                <span class="material-symbols-outlined text-purple-500 text-2xl">grade</span>
+                                <p data-lang-ko="무적 스타" data-lang-en="Shield Star">무적 스타</p>
+                                <span class="text-purple-500 font-extrabold">5s Shield</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-between p-3 rounded-xl bg-orange-100/30 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-900/50 text-center gap-2">
+                                <img src="images/carrot.png" alt="Carrot" class="w-8 h-8 object-contain">
+                                <p data-lang-ko="당근 폭탄" data-lang-en="Carrot Bomb">당근 폭탄</p>
+                                <span class="text-orange-600 dark:text-orange-400 font-extrabold" data-lang-ko="게임 종료" data-lang-en="Game Over">게임 종료</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Right Sidebar: High Scores Leaderboard (3 Cols) -->
-                <div class="lg:col-span-3">
+                <!-- Right Sidebar Section: Controls + Rankings (3 Cols) -->
+                <div class="lg:col-span-3 space-y-6">
+                    <!-- Control Settings Card -->
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-lg">sports_esports</span>
+                            <span data-lang-ko="조작 설정" data-lang-en="Control Modes">조작 설정</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button id="mode-keyboard" class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-xl">keyboard</span>
+                                <span data-lang-ko="키보드" data-lang-en="Keyboard">키보드</span>
+                            </button>
+                            <button id="mode-mouse" class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-xl">mouse</span>
+                                <span data-lang-ko="마우스" data-lang-en="Mouse">마우스</span>
+                            </button>
+                        </div>
+                        <p id="control-hint" class="mt-3 text-xs text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다." data-lang-en="Use Arrow Keys (←, →) to move left/right. Decelerates smoothly with momentum.">방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다.</p>
+                    </div>
+
+                    <!-- Rankings Card -->
                     <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                         <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
                             <span class="material-symbols-outlined text-primary text-lg">emoji_events</span>
@@ -212,6 +198,7 @@
                         </ol>
                     </div>
                 </div>
+
             </div>
 
             <!-- Bottom Section: Carrot Ingredients & Health Tip Card Grid -->
@@ -285,7 +272,7 @@
                         </div>
                         <div>
                             <p class="text-orange-600 dark:text-orange-400 font-extrabold mb-1" data-lang-ko="2. 껍질째 드세요" data-lang-en="2. Wash Well & Eat with Skin">2. 껍질째 드세요</p>
-                            <p data-lang-ko="베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다." data-lang-en="Most carotenoid nutrients reside near the outer skin rather than the inner core. Brush clean and eat with the skin intact for maximum benefits.">베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다.</p>
+                            <p data-lang-ko="베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다." data-lang-en="Most carotenoid nutrients reside near the outer skin rather than the inner core. Wash clean and eat with the skin intact for maximum benefits.">베타카로틴 성분은 당근의 안쪽 알맹이보다 바깥쪽 '껍질 부근'에 훨씬 많이 집중되어 있습니다. 흐르는 물에 깨끗이 솔로 씻어 껍질을 남겨 둔 채 조리하는 것을 추천합니다.</p>
                         </div>
                         <div>
                             <p class="text-orange-600 dark:text-orange-400 font-extrabold mb-1" data-lang-ko="3. 식초와 날것 매치는 피하세요" data-lang-en="3. Avoid Raw Vinegar Mixing">3. 식초와 날것 매치는 피하세요</p>
