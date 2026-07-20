@@ -18,6 +18,15 @@ let feverActive = false;
 let feverProgress = 0; // 0 to 100
 let feverEndTime = 0;
 
+// Background Image
+const imgSkyBg = new Image();
+imgSkyBg.src = '../images/sky_scenery.png';
+
+let isSkyBgLoaded = false;
+imgSkyBg.onload = () => {
+    isSkyBgLoaded = true;
+};
+
 // Stairs & Player Objects
 let stairs = [];
 let player = {
@@ -353,6 +362,20 @@ function renderGame() {
     if (!ctx) return;
 
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    // 1. Draw Infinite Scrolling Parallax Background
+    if (isSkyBgLoaded) {
+        const scrollY = (cameraY * 0.2) % CANVAS_HEIGHT;
+        ctx.drawImage(imgSkyBg, 0, -scrollY, CANVAS_WIDTH, CANVAS_HEIGHT);
+        ctx.drawImage(imgSkyBg, 0, -scrollY + (scrollY < 0 ? -CANVAS_HEIGHT : CANVAS_HEIGHT), CANVAS_WIDTH, CANVAS_HEIGHT);
+
+        // Dark mode adaptation overlay
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        if (isDarkMode) {
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.75)';
+            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        }
+    }
 
     ctx.save();
     
