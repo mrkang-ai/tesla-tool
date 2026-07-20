@@ -155,21 +155,20 @@ function handleAction(action) {
     if (!isPlaying) return;
     if (player.state === 'falling') return;
 
-    const currentStep = stairs[player.stepIndex];
     const nextStep = stairs[player.stepIndex + 1];
-
     let success = false;
 
     // Rule:
-    // - Climb: Next step has the SAME direction as player's current facing direction.
-    // - Turn: Next step has the OPPOSITE direction.
-    if (action === 'climb') {
-        if (nextStep.dir === player.direction) {
+    // - 'left' steps left (nextStep.dir === -1)
+    // - 'right' steps right (nextStep.dir === 1)
+    if (action === 'left') {
+        if (nextStep.dir === -1) {
+            player.direction = -1;
             success = true;
         }
-    } else if (action === 'turn') {
-        if (nextStep.dir !== player.direction) {
-            player.direction = -player.direction; // Flip facing direction
+    } else if (action === 'right') {
+        if (nextStep.dir === 1) {
+            player.direction = 1;
             success = true;
         }
     }
@@ -505,16 +504,16 @@ function bindEvents() {
 
         if (e.code === 'KeyZ' || e.code === 'ArrowLeft') {
             e.preventDefault();
-            handleAction('turn');
+            handleAction('left');
         } else if (e.code === 'KeyX' || e.code === 'ArrowRight' || e.code === 'Space') {
             e.preventDefault();
-            handleAction('climb');
+            handleAction('right');
         }
     });
 
     // Touch Buttons
-    document.getElementById('ctrl-turn').addEventListener('click', () => handleAction('turn'));
-    document.getElementById('ctrl-climb').addEventListener('click', () => handleAction('climb'));
+    document.getElementById('ctrl-turn').addEventListener('click', () => handleAction('left'));
+    document.getElementById('ctrl-climb').addEventListener('click', () => handleAction('right'));
 
     // Start/Restart Buttons
     document.getElementById('start-btn').addEventListener('click', startGame);

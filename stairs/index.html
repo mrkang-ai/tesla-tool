@@ -92,11 +92,11 @@
                     <div id="start-overlay" class="absolute inset-0 flex flex-col justify-center items-center bg-slate-950/80 p-6 text-center select-none z-10 transition-opacity duration-300">
                         <span class="material-symbols-outlined text-sky-400 text-6xl mb-2 animate-bounce">stairs</span>
                         <h3 class="text-2xl font-black text-white" data-lang-ko="무한의 계단 시작" data-lang-en="Infinite Stairs">무한의 계단 시작</h3>
-                        <p class="text-sm text-slate-300 mt-2 max-w-xs" data-lang-ko="Z 키로 방향 전환, X 키로 올라갑니다. 제한시간 안에 높이 올라가세요!" data-lang-en="Z Key to Turn, X Key to Climb. Climb as high as you can before time runs out!">Z 키로 방향 전환, X 키로 올라갑니다. 제한시간 안에 높이 올라가세요!</p>
+                        <p class="text-sm text-slate-300 mt-2 max-w-xs" data-lang-ko="Z 키로 왼쪽, X 키로 오른쪽 계단을 디디세요. 제한시간 안에 높이 올라가세요!" data-lang-en="Z Key to go Left, X Key to go Right. Climb as high as you can before time runs out!">Z 키로 왼쪽, X 키로 오른쪽 계단을 디디세요. 제한시간 안에 높이 올라가세요!</p>
                         
                         <div class="mt-4 flex gap-4 text-xs font-bold text-slate-400">
-                            <span data-lang-ko="[Z] 방향 전환" data-lang-en="[Z] Turn">[Z] 방향 전환</span>
-                            <span data-lang-ko="[X] 오르기" data-lang-en="[X] Climb">[X] 오르기</span>
+                            <span data-lang-ko="[Z] 왼쪽" data-lang-en="[Z] Left">[Z] 왼쪽</span>
+                            <span data-lang-ko="[X] 오른쪽" data-lang-en="[X] Right">[X] 오른쪽</span>
                         </div>
 
                         <button id="start-btn" class="mt-6 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-md font-extrabold shadow-md transform hover:scale-105 active:scale-95 transition-all select-none" data-lang-ko="게임 시작" data-lang-en="Start Game">게임 시작</button>
@@ -124,13 +124,13 @@
                 <!-- On-Screen Controls for Mobile -->
                 <div class="grid grid-cols-2 gap-4 mt-6">
                     <button id="ctrl-turn" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all select-none border border-slate-200 dark:border-slate-700 shadow-sm relative group">
-                        <span class="material-symbols-outlined text-2xl text-slate-600 dark:text-slate-300">swap_horiz</span>
-                        <span class="text-sm font-bold text-text-main dark:text-white mt-1" data-lang-ko="방향전환" data-lang-en="Turn">방향전환</span>
+                        <span class="material-symbols-outlined text-2xl text-slate-600 dark:text-slate-300">arrow_back</span>
+                        <span class="text-sm font-bold text-text-main dark:text-white mt-1" data-lang-ko="왼쪽" data-lang-en="Left">왼쪽</span>
                         <span class="absolute bottom-1 right-2 text-[10px] text-text-muted dark:text-slate-500 font-extrabold uppercase hidden md:inline">Z Key</span>
                     </button>
                     <button id="ctrl-climb" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-primary hover:bg-primary-hover active:scale-95 transition-all select-none border border-primary-hover shadow-sm relative group">
-                        <span class="material-symbols-outlined text-2xl text-white">north_east</span>
-                        <span class="text-sm font-bold text-white mt-1" data-lang-ko="오르기" data-lang-en="Climb">오르기</span>
+                        <span class="material-symbols-outlined text-2xl text-white">arrow_forward</span>
+                        <span class="text-sm font-bold text-white mt-1" data-lang-ko="오른쪽" data-lang-en="Right">오른쪽</span>
                         <span class="absolute bottom-1 right-2 text-[10px] text-sky-200 font-extrabold uppercase hidden md:inline">X Key</span>
                     </button>
                 </div>
