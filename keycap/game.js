@@ -3,7 +3,7 @@ let audioCtx = null;
 let noiseBuffer = null;
 let soundVolume = 0.7;
 let currentSwitch = 'blue';
-let currentLayout = 'keyboard';
+let currentLayout = 'key2';
 
 // Typing Game State
 let isChallengeMode = false;
@@ -639,8 +639,8 @@ function endChallenge() {
 
 // DOM Init hook
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial Render of QWERTY Keyboard
-    renderKeyboard('keyboard');
+    // Initial Render of 2-Key Keyboard
+    renderKeyboard('key2');
     
     setupCustomizer();
     setupKeyboardListeners();
