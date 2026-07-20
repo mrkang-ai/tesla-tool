@@ -83,10 +83,10 @@ function resetState() {
 
     // Build Initial Stairs
     stairs = [];
-    // Base step
+    // Base step (top surface matches player.y)
     stairs.push({
         x: player.x,
-        y: player.y + BLOCK_HEIGHT,
+        y: player.y + 6,
         dir: 1
     });
 
@@ -178,7 +178,7 @@ function handleAction(action) {
         // Step Up
         player.stepIndex++;
         player.x = nextStep.x;
-        player.y = nextStep.y - 12; // stand offset
+        player.y = nextStep.y - 6; // stand offset
         player.state = 'climbing';
         player.jumpProgress = 0;
         player.lastStepTime = Date.now();
@@ -208,7 +208,7 @@ function handleAction(action) {
         // Visual effects
         screenShake = feverActive ? 6 : 2;
         const stairColor = feverActive ? `hsl(${(score * 12) % 360}, 100%, 65%)` : '#cbd5e1';
-        createStepParticles(player.x, player.y + 12, stairColor);
+        createStepParticles(player.x, player.y + 6, stairColor);
 
         // Generate more steps to keep buffer full
         generateNextStep();
@@ -313,8 +313,8 @@ function updateState() {
             player.drawX = prevStep.x + (player.x - prevStep.x) * player.jumpProgress;
             
             // Parabole offset
-            const jumpHeight = -8;
-            const linearY = prevStep.y - 12 + (player.y - (prevStep.y - 12)) * player.jumpProgress;
+            const jumpHeight = -10;
+            const linearY = prevStep.y - 6 + (player.y - (prevStep.y - 6)) * player.jumpProgress;
             const parabolicOffset = jumpHeight * 4 * player.jumpProgress * (1 - player.jumpProgress);
             player.drawY = linearY + parabolicOffset;
         }
@@ -367,13 +367,14 @@ function renderGame() {
     // Offset camera viewport
     ctx.translate(-cameraX, -cameraY);
 
-    // Draw Stairs
-    stairs.forEach((step, idx) => {
+    // Draw Stairs (in reverse order for correct 3D depth perception)
+    for (let idx = stairs.length - 1; idx >= 0; idx--) {
+        const step = stairs[idx];
         // Draw only visible steps on screen
         if (step.y - cameraY > -50 && step.y - cameraY < CANVAS_HEIGHT + 100) {
             drawStairBlock(step.x, step.y, idx);
         }
-    });
+    }
 
     // Draw Character
     if (player.drawY - cameraY < CANVAS_HEIGHT + 100) {
@@ -398,54 +399,48 @@ function drawStairBlock(x, y, idx) {
     ctx.save();
 
     // Determine colors
-    let topColor = '#e2e8f0';
-    let frontColor = '#94a3b8';
-    let sideColor = '#cbd5e1';
+    let topColor = '#38bdf8';
+    let frontColor = '#0284c7';
+    let borderColor = '#bae6fd';
 
     if (feverActive) {
-        // Rainbow color cycle based on step index and current time
-        const hue = (idx * 12 + score * 4) % 360;
-        topColor = `hsl(${hue}, 95%, 65%)`;
-        frontColor = `hsl(${hue}, 95%, 45%)`;
-        sideColor = `hsl(${hue}, 95%, 55%)`;
+        const hue = (idx * 15 + score * 4) % 360;
+        topColor = `hsl(${hue}, 95%, 60%)`;
+        frontColor = `hsl(${hue}, 95%, 40%)`;
+        borderColor = `hsl(${hue}, 95%, 75%)`;
     } else {
-        // Soft alternating pastel colors
+        // High contrast alternating colors
         if (idx % 2 === 0) {
-            topColor = '#bae6fd'; // sky block
+            topColor = '#818cf8'; // Indigo
+            frontColor = '#4f46e5';
+            borderColor = '#c7d2fe';
+        } else {
+            topColor = '#38bdf8'; // Sky Blue
             frontColor = '#0284c7';
-            sideColor = '#38bdf8';
+            borderColor = '#e0f2fe';
         }
     }
 
-    // 1. Draw 3D side panel shadow
+    // Draw front face shadow (drop shadow under the block)
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetY = 4;
+
+    // Draw front face
     ctx.fillStyle = frontColor;
-    ctx.beginPath();
-    ctx.moveTo(x - BLOCK_WIDTH / 2, y);
-    ctx.lineTo(x + BLOCK_WIDTH / 2, y);
-    ctx.lineTo(x + BLOCK_WIDTH / 2, y + BLOCK_HEIGHT);
-    ctx.lineTo(x - BLOCK_WIDTH / 2, y + BLOCK_HEIGHT);
-    ctx.closePath();
-    ctx.fill();
+    ctx.fillRect(x - BLOCK_WIDTH / 2, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 
-    // 2. Draw 3D top surface
+    // Disable shadow for top surface and border
+    ctx.shadowColor = 'transparent';
+
+    // Draw top surface (landing area)
     ctx.fillStyle = topColor;
-    ctx.beginPath();
-    ctx.moveTo(x - BLOCK_WIDTH / 2, y);
-    ctx.lineTo(x - BLOCK_WIDTH / 2 + 6, y - 4);
-    ctx.lineTo(x + BLOCK_WIDTH / 2 + 6, y - 4);
-    ctx.lineTo(x + BLOCK_WIDTH / 2, y);
-    ctx.closePath();
-    ctx.fill();
+    ctx.fillRect(x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, 6);
 
-    // 3. Highlight side facet
-    ctx.fillStyle = sideColor;
-    ctx.beginPath();
-    ctx.moveTo(x + BLOCK_WIDTH / 2, y);
-    ctx.lineTo(x + BLOCK_WIDTH / 2 + 6, y - 4);
-    ctx.lineTo(x + BLOCK_WIDTH / 2 + 6, y + BLOCK_HEIGHT - 4);
-    ctx.lineTo(x + BLOCK_WIDTH / 2, y + BLOCK_HEIGHT);
-    ctx.closePath();
-    ctx.fill();
+    // Draw glowing landing lip (border highlight)
+    ctx.fillStyle = borderColor;
+    ctx.fillRect(x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, 1.5);
+    ctx.fillRect(x - BLOCK_WIDTH / 2, y, BLOCK_WIDTH, 1);
 
     ctx.restore();
 }
