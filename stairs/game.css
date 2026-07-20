@@ -1,0 +1,51 @@
+/* Infinite Stairs Game CSS Styles */
+
+#game-canvas {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #7dd3fc, #bae6fd);
+    image-rendering: pixelated;
+}
+
+/* Dark mode canvas background override */
+.dark #game-canvas {
+    background: linear-gradient(to bottom, #0f172a, #020617);
+}
+
+/* Pulse Fever mode glows */
+@keyframes fever-pulse {
+    0% { border-color: rgba(139, 92, 246, 0.4); box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.4); }
+    50% { border-color: rgba(139, 92, 246, 0.9); box-shadow: inset 0 0 30px rgba(139, 92, 246, 0.8); }
+    100% { border-color: rgba(139, 92, 246, 0.4); box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.4); }
+}
+
+#fever-glow.active {
+    opacity: 1;
+    animation: fever-pulse 1.2s infinite ease-in-out;
+}
+
+/* Mobile button active animations */
+#ctrl-turn:active {
+    background-color: #cbd5e1;
+}
+.dark #ctrl-turn:active {
+    background-color: #334155;
+}
+
+#ctrl-climb:active {
+    background-color: #0284c7;
+}
+
+/* Shake Animation */
+.shake {
+    animation: shake-anim 0.15s ease-in-out;
+}
+
+@keyframes shake-anim {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-4px, 3px); }
+    40% { transform: translate(4px, -3px); }
+    60% { transform: translate(-3px, -2px); }
+    80% { transform: translate(3px, 2px); }
+    100% { transform: translate(0, 0); }
+}

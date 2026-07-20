@@ -72,5 +72,21 @@
       <guid>https://tossgpt.online/carrot-dodger/index.html</guid>
       <pubDate>Sun, 12 Jul 2026 00:00:00 +0900</pubDate>
     </item>
+
+    <item>
+      <title>키캡 누르기 게임 (Keycap Clicking Game)</title>
+      <link>https://tossgpt.online/keycap/index.html</link>
+      <description>기계식 키보드의 청축, 갈축, 적축 타건음을 실시간 합성 오디오로 즐기는 ASMR 시뮬레이터 및 반응속도 콤보 기반의 영타/한타 타이핑 스피드 테스트 연습 게임입니다.</description>
+      <guid>https://tossgpt.online/keycap/index.html</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0900</pubDate>
+    </item>
+    
+    <item>
+      <title>무한의 계단 (Infinite Stairs)</title>
+      <link>https://tossgpt.online/stairs/index.html</link>
+      <description>'올라가기'와 '방향 전환' 두 개의 동작을 조합해 오르는 고속 아케이드 게임입니다. 피버 게이지, 스텝 파티클, 타이머 긴장감을 가미한 중독성 높은 기록 게임을 웹으로 즐겨보세요.</description>
+      <guid>https://tossgpt.online/stairs/index.html</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0900</pubDate>
+    </item>
   </channel>
 </rss>

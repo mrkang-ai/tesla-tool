@@ -1,0 +1,302 @@
+/* Mechanical Keyboard Keycap Styling */
+
+#keyboard-frame {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.key-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.key {
+    position: relative;
+    height: 48px;
+    min-width: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.08s ease;
+    box-shadow: 0 4px 0 var(--key-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    top: 0;
+    padding-bottom: 2px;
+}
+
+.key span {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Keyboard bottom out state */
+.key.active, .key:active {
+    top: 3px;
+    box-shadow: 0 1px 0 var(--key-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+}
+
+/* Base key dimensions */
+.key-esc { min-width: 44px; }
+.key-backspace { min-width: 76px; }
+.key-tab { min-width: 58px; }
+.key-backslash { min-width: 62px; }
+.key-caps { min-width: 68px; }
+.key-enter { min-width: 82px; }
+.key-shift-l { min-width: 90px; }
+.key-shift-r { min-width: 104px; }
+.key-ctrl { min-width: 52px; }
+.key-win { min-width: 46px; }
+.key-alt { min-width: 48px; }
+.key-space { min-width: 250px; }
+
+/* THEME 1: RETRO CLASSIC */
+.theme-retro {
+    --key-shadow: #1a202c;
+    background: #4a5568 !important;
+    border-color: #718096 !important;
+}
+.theme-retro .key {
+    background: #e2e8f0;
+    color: #4a5568;
+    border-color: #cbd5e0;
+    --key-shadow: #a0aec0;
+}
+.theme-retro .key-esc {
+    background: #f56565;
+    color: white;
+    --key-shadow: #c53030;
+}
+.theme-retro .key-enter, 
+.theme-retro .key-backspace, 
+.theme-retro .key-tab, 
+.theme-retro .key-caps, 
+.theme-retro .key-shift-l, 
+.theme-retro .key-shift-r,
+.theme-retro .key-ctrl, 
+.theme-retro .key-win, 
+.theme-retro .key-alt {
+    background: #cbd5e0;
+    color: #2d3748;
+    --key-shadow: #718096;
+}
+
+/* THEME 2: CYBERPUNK */
+.theme-cyber {
+    background: #090d16 !important;
+    border-color: #0ea5e9 !important;
+}
+.theme-cyber .key {
+    background: #111827;
+    color: #06b6d4;
+    border-color: #1e293b;
+    --key-shadow: #0f172a;
+}
+.theme-cyber .key-esc {
+    background: #ec4899;
+    color: white;
+    --key-shadow: #be185d;
+}
+.theme-cyber .key-enter, 
+.theme-cyber .key-backspace, 
+.theme-cyber .key-tab, 
+.theme-cyber .key-caps, 
+.theme-cyber .key-shift-l, 
+.theme-cyber .key-shift-r,
+.theme-cyber .key-ctrl, 
+.theme-cyber .key-win, 
+.theme-cyber .key-alt {
+    background: #1e1b4b;
+    color: #f43f5e;
+    --key-shadow: #0f0927;
+}
+
+/* THEME 3: SAKURA (CHERRY BLOSSOM) */
+.theme-sakura {
+    background: #fce7f3 !important;
+    border-color: #fbcfe8 !important;
+}
+.theme-sakura .key {
+    background: #ffffff;
+    color: #ec4899;
+    border-color: #fff1f2;
+    --key-shadow: #fbcfe8;
+}
+.theme-sakura .key-esc {
+    background: #fb7185;
+    color: white;
+    --key-shadow: #e11d48;
+}
+.theme-sakura .key-enter, 
+.theme-sakura .key-backspace, 
+.theme-sakura .key-tab, 
+.theme-sakura .key-caps, 
+.theme-sakura .key-shift-l, 
+.theme-sakura .key-shift-r,
+.theme-sakura .key-ctrl, 
+.theme-sakura .key-win, 
+.theme-sakura .key-alt {
+    background: #ffe4e6;
+    color: #db2777;
+    --key-shadow: #fda4af;
+}
+
+/* THEME 4: LAVENDER */
+.theme-lavender {
+    background: #faf5ff !important;
+    border-color: #f3e8ff !important;
+}
+.theme-lavender .key {
+    background: #ffffff;
+    color: #8b5cf6;
+    border-color: #f5f3ff;
+    --key-shadow: #e9d5ff;
+}
+.theme-lavender .key-esc {
+    background: #a78bfa;
+    color: white;
+    --key-shadow: #7c3aed;
+}
+.theme-lavender .key-enter, 
+.theme-lavender .key-backspace, 
+.theme-lavender .key-tab, 
+.theme-lavender .key-caps, 
+.theme-lavender .key-shift-l, 
+.theme-lavender .key-shift-r,
+.theme-lavender .key-ctrl, 
+.theme-lavender .key-win, 
+.theme-lavender .key-alt {
+    background: #f3e8ff;
+    color: #6d28d9;
+    --key-shadow: #d8b4fe;
+}
+
+/* RGB Lighting Underglow Effects */
+.key::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: transparent;
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* RGB Glow Class Mode: Solid */
+.rgb-glow-solid .key::before {
+    box-shadow: 0 0 8px var(--rgb-color);
+}
+
+/* Ripple active state animation styling */
+.rgb-ripple-active {
+    animation: key-ripple 0.35s ease-out;
+}
+
+@keyframes key-ripple {
+    0% {
+        box-shadow: 0 0 0px 0px var(--ripple-color);
+        filter: brightness(1.3);
+    }
+    50% {
+        box-shadow: 0 0 15px 6px var(--ripple-color);
+    }
+    100% {
+        box-shadow: 0 0 0px 0px var(--ripple-color);
+        filter: brightness(1);
+    }
+}
+
+/* Rainbow wave layout style variables */
+.rgb-rainbow-wave .key {
+    animation: rainbow-backlight 5s linear infinite;
+}
+
+@keyframes rainbow-backlight {
+    0% { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(239, 68, 68, 0.3); }
+    17% { border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(245, 158, 11, 0.3); }
+    33% { border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(16, 185, 129, 0.3); }
+    50% { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(6, 182, 212, 0.3); }
+    67% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(59, 130, 246, 0.3); }
+    83% { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(139, 92, 246, 0.3); }
+    100% { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 4px 0 var(--key-shadow), 0 0 8px rgba(239, 68, 68, 0.3); }
+}
+
+/* Typing speed word highlighter */
+.word-current {
+    color: #0ea5e9;
+    border-bottom: 3px solid #0ea5e9;
+    background: rgba(14, 165, 233, 0.05);
+    padding: 0 6px;
+    border-radius: 4px;
+    transform: scale(1.08);
+    display: inline-block;
+    transition: all 0.15s ease-in-out;
+}
+
+.word-correct {
+    color: #10b981 !important;
+}
+
+.word-wrong {
+    color: #ef4444 !important;
+    text-decoration: line-through;
+}
+
+/* Numpad-specific styling */
+.layout-numpad {
+    display: grid !important;
+    grid-template-columns: repeat(4, 56px);
+    grid-gap: 6px;
+    justify-content: center;
+    max-width: 250px;
+    margin: 0 auto;
+}
+.layout-numpad .key {
+    min-width: 56px !important;
+    height: 56px !important;
+    box-sizing: border-box;
+}
+.layout-numpad .key-numpad-add {
+    grid-column: 4;
+    grid-row: 2 / span 2;
+    height: 118px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.layout-numpad .key-numpad-enter {
+    grid-column: 4;
+    grid-row: 4 / span 2;
+    height: 118px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.layout-numpad .key-numpad-zero {
+    grid-column: 1 / span 2;
+    min-width: 118px !important;
+}
+
+/* Rhythm / Small key layout styling */
+.layout-row-only {
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 0;
+    width: 100%;
+}
+.layout-row-only .key {
+    min-width: 64px !important;
+    height: 64px !important;
+    font-size: 16px !important;
+}

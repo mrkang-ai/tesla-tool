@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="무한의 계단 - 온라인 도구모음" data-lang-en="Infinite Stairs - Online Toolkit">무한의 계단 - 온라인 도구모음</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="온라인 무한의 계단 아케이드 게임입니다. '오르기'와 '방향전환' 버튼을 신속하게 탭하여 끝없는 계단을 오르세요. 피버 모드와 콤보 시스템을 통해 최고 기록에 도전해 보세요." data-lang-ko="온라인 무한의 계단 아케이드 게임입니다. '오르기'와 '방향전환' 버튼을 신속하게 탭하여 끝없는 계단을 오르세요. 피버 모드와 콤보 시스템을 통해 최고 기록에 도전해 보세요." data-lang-en="Play the online Infinite Stairs arcade game. Tap 'Climb' and 'Turn' quickly to ascend endless stairs. Challenge high scores with combo multiplier fever modes!">
+    <link rel="canonical" href="https://tossgpt.online/stairs/index.html">
+
+    <!-- CSS Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="../agent-fixes.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 mx-auto">
+            
+            <!-- Page Title -->
+            <div class="text-center py-4">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🏃 무한의 계단" data-lang-en="🏃 Infinite Stairs">🏃 무한의 계단</h1>
+                <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="빠르게 계단을 오르는 중독성 강한 아케이드 게임입니다. 제한 시간이 지나기 전에 올바른 입력을 누르세요!" data-lang-en="An addictive, high-speed climbing arcade game. Tap the correct action before your energy runs out!">빠르게 계단을 오르는 중독성 강한 아케이드 게임입니다. 제한 시간이 지나기 전에 올바른 입력을 누르세요!</p>
+            </div>
+
+            <!-- Game Arena Card -->
+            <div class="bg-card-bg-light dark:bg-card-bg-dark rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md overflow-hidden p-4 md:p-6 mb-8 max-w-[520px] mx-auto w-full">
+                
+                <!-- Time Limit Bar -->
+                <div class="relative w-full h-4 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-4 border border-slate-300/30 dark:border-slate-600/30">
+                    <div id="energy-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-amber-500 to-rose-500 rounded-full transition-all duration-75" style="width: 100%;"></div>
+                </div>
+
+                <!-- Stats HUD -->
+                <div class="flex justify-between items-center mb-4 bg-slate-50 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-100/50 dark:border-slate-800/80">
+                    <div class="text-center">
+                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="점수" data-lang-en="Score">점수</span>
+                        <span id="score-display" class="text-2xl font-black text-primary">0</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="최고 점수" data-lang-en="High Score">최고 점수</span>
+                        <span id="highscore-display" class="text-2xl font-black text-slate-500 dark:text-slate-400">0</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="콤보" data-lang-en="Combo">콤보</span>
+                        <span id="combo-display" class="text-2xl font-black text-violet-500">0</span>
+                    </div>
+                </div>
+
+                <!-- Fever progress indicator -->
+                <div class="relative w-full h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-4">
+                    <div id="fever-bar" class="absolute top-0 left-0 h-full bg-violet-500 transition-all duration-150" style="width: 0%;"></div>
+                </div>
+
+                <!-- Canvas Game viewport -->
+                <div class="relative w-full aspect-[4/5] bg-sky-200 dark:bg-slate-950 rounded-xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-800">
+                    <canvas id="game-canvas" class="w-full h-full block"></canvas>
+                    
+                    <!-- Fever Glow Overlay -->
+                    <div id="fever-glow" class="absolute inset-0 pointer-events-none border-4 border-violet-500 opacity-0 transition-opacity duration-300 animate-pulse"></div>
+
+                    <!-- Intro Screen Overlay -->
+                    <div id="start-overlay" class="absolute inset-0 flex flex-col justify-center items-center bg-slate-950/80 p-6 text-center select-none z-10 transition-opacity duration-300">
+                        <span class="material-symbols-outlined text-sky-400 text-6xl mb-2 animate-bounce">stairs</span>
+                        <h3 class="text-2xl font-black text-white" data-lang-ko="무한의 계단 시작" data-lang-en="Infinite Stairs">무한의 계단 시작</h3>
+                        <p class="text-sm text-slate-300 mt-2 max-w-xs" data-lang-ko="Z 키로 방향 전환, X 키로 올라갑니다. 제한시간 안에 높이 올라가세요!" data-lang-en="Z Key to Turn, X Key to Climb. Climb as high as you can before time runs out!">Z 키로 방향 전환, X 키로 올라갑니다. 제한시간 안에 높이 올라가세요!</p>
+                        
+                        <div class="mt-4 flex gap-4 text-xs font-bold text-slate-400">
+                            <span data-lang-ko="[Z] 방향 전환" data-lang-en="[Z] Turn">[Z] 방향 전환</span>
+                            <span data-lang-ko="[X] 오르기" data-lang-en="[X] Climb">[X] 오르기</span>
+                        </div>
+
+                        <button id="start-btn" class="mt-6 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-md font-extrabold shadow-md transform hover:scale-105 active:scale-95 transition-all select-none" data-lang-ko="게임 시작" data-lang-en="Start Game">게임 시작</button>
+                    </div>
+
+                    <!-- Game Over Screen Overlay -->
+                    <div id="gameover-overlay" class="absolute inset-0 flex flex-col justify-center items-center bg-rose-950/90 p-6 text-center select-none z-10 opacity-0 pointer-events-none transition-opacity duration-300">
+                        <span class="material-symbols-outlined text-rose-500 text-6xl mb-2">error</span>
+                        <h3 class="text-3xl font-black text-white" data-lang-ko="게임 오버" data-lang-en="Game Over">게임 오버</h3>
+                        <p class="text-sm text-slate-300 mt-2" data-lang-ko="안타깝게도 발을 헛디뎠거나 제한시간이 끝났습니다." data-lang-en="You made a misstep or ran out of time.">안타깝게도 발을 헛디뎠거나 제한시간이 끝났습니다.</p>
+                        
+                        <div class="mt-5 space-y-1">
+                            <div class="text-slate-300 text-sm font-semibold">
+                                <span data-lang-ko="최종 점수:" data-lang-en="Final Score:">최종 점수:</span> <strong id="final-score" class="text-amber-400 text-lg">0</strong>
+                            </div>
+                            <div class="text-slate-300 text-sm font-semibold">
+                                <span data-lang-ko="최고 기록:" data-lang-en="Best Record:">최고 기록:</span> <strong id="best-score" class="text-white text-lg">0</strong>
+                            </div>
+                        </div>
+
+                        <button id="restart-btn" class="mt-6 px-6 py-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-md font-extrabold shadow-md transform hover:scale-105 active:scale-95 transition-all select-none" data-lang-ko="다시 시작" data-lang-en="Play Again">다시 시작</button>
+                    </div>
+                </div>
+
+                <!-- On-Screen Controls for Mobile -->
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <button id="ctrl-turn" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all select-none border border-slate-200 dark:border-slate-700 shadow-sm relative group">
+                        <span class="material-symbols-outlined text-2xl text-slate-600 dark:text-slate-300">swap_horiz</span>
+                        <span class="text-sm font-bold text-text-main dark:text-white mt-1" data-lang-ko="방향전환" data-lang-en="Turn">방향전환</span>
+                        <span class="absolute bottom-1 right-2 text-[10px] text-text-muted dark:text-slate-500 font-extrabold uppercase hidden md:inline">Z Key</span>
+                    </button>
+                    <button id="ctrl-climb" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-primary hover:bg-primary-hover active:scale-95 transition-all select-none border border-primary-hover shadow-sm relative group">
+                        <span class="material-symbols-outlined text-2xl text-white">north_east</span>
+                        <span class="text-sm font-bold text-white mt-1" data-lang-ko="오르기" data-lang-en="Climb">오르기</span>
+                        <span class="absolute bottom-1 right-2 text-[10px] text-sky-200 font-extrabold uppercase hidden md:inline">X Key</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Informational Blog Section (AEO) -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
+                <!-- Korean Version -->
+                <div class="lang-only-ko">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🧗</span> 계단 오르기 운동의 과학과 칼로리 소모 극대화
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. 계단 오르기(Stair Climbing)의 놀라운 칼로리 연소</h3>
+                            <p>계단 오르기는 체중을 중력의 반대 방향으로 들어 올리는 대표적인 **'고강도 유산소 및 근력 결합 운동'**입니다. 평지를 걸을 때보다 약 **3배 이상의 칼로리**를 소모하며, 30분간 계단을 오를 경우 몸무게 70kg 성인 기준으로 약 250~300kcal를 연소할 수 있습니다. 이는 조깅이나 수영과 동등하거나 이를 넘어서는 운동 효율입니다.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. 근육 강화 및 심폐 지구력 개선</h3>
+                            <p>한 칸씩 오를 때마다 대퇴사두근(허벅지 앞쪽), 둔근(엉덩이), 햄스트링(허벅지 뒤쪽), 비복근(종아리)을 고루 자극하여 하체 근력을 효과적으로 발달시킵니다. 심폐 기관에 강한 산소 요구를 전달하여 단기간 내 심폐 기능 활성화와 지구력 증진에 큰 도움이 됩니다. 안전을 위해 계단을 내려올 때는 무릎 관절에 체중의 수 배에 달하는 충격이 가해지므로 **오를 때만 운동하고, 내려올 때는 엘리베이터를 타는 것**이 관절 건강에 가장 바람직합니다.</p>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- English Version -->
+                <div class="lang-only-en">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🧗</span> Health Benefits & Caloric Science of Stair Climbing
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. Massive Caloric Expenditure of Stair Climbing</h3>
+                            <p>Stair climbing is a highly efficient hybrid of cardiorespiratory and lower-body strength training. Lifting your body mass vertically against gravity burns approximately **3 times more calories** than walking on flat ground. An average 70kg (154 lbs) individual can burn 250-300 calories in just 30 minutes, outperforming moderate jogging or lap swimming.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. Muscular Activation and Joint Health Tips</h3>
+                            <p>Each step targets the quadriceps, glutes, hamstrings, and calves. It forces your heart and lungs to deliver oxygen rapidly, strengthening cardiorespiratory endurance. To prevent knee strain, experts advise **climbing up but using elevators to go down**, as descent puts multiple times your body weight of impact on the patellar tendon and cartilage.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="game.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "무한의 계단 - 온라인 도구모음",
+      "description": "온라인 무한의 계단 아케이드 게임입니다. '오르기'와 '방향전환' 버튼을 신속하게 탭하여 끝없는 계단을 오르세요. 피버 모드와 콤보 시스템을 통해 최고 기록에 도전해 보세요.",
+      "url": "https://tossgpt.online/stairs/index.html"
+    }
+    </script>
+</body>
+</html>

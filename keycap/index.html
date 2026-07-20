@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="키캡 누르기 게임 - 온라인 도구모음" data-lang-en="Keycap Clicking Game - Online Toolkit">키캡 누르기 게임 - 온라인 도구모음</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="온라인 기계식 키보드 ASMR 시뮬레이터와 타건 연습기인 키캡 누르기 게임입니다. 청축, 갈축, 적축 스위치 사운드를 실시간으로 듣고, 다양한 RGB 백라이트와 키캡 테마를 커스텀하여 만족스러운 타이핑을 즐기세요." data-lang-ko="온라인 기계식 키보드 ASMR 시뮬레이터와 타건 연습기인 키캡 누르기 게임입니다. 청축, 갈축, 적축 스위치 사운드를 실시간으로 듣고, 다양한 RGB 백라이트와 키캡 테마를 커스텀하여 만족스러운 타이핑을 즐기세요." data-lang-en="Keycap Clicking Game: Online mechanical keyboard ASMR simulator and typing practice tool. Type to hear satisfying Blue, Brown, and Red switches synthesized in real-time. Customize RGB and keycap themes.">
+    <link rel="canonical" href="https://tossgpt.online/keycap/index.html">
+
+    <!-- CSS Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="../agent-fixes.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 mx-auto">
+            
+            <!-- Page Title -->
+            <div class="text-center py-6">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="⌨️ 키캡 누르기 게임" data-lang-en="⌨️ Keycap Clicking Game">⌨️ 키캡 누르기 게임</h1>
+                <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="웹 브라우저에서 청축, 갈축, 적축 스위치의 만족스러운 기계식 키보드 ASMR 사운드를 즐기세요. 실제 키보드로 타이핑하거나 마우스로 키캡을 클릭해 보세요." data-lang-en="Enjoy satisfying mechanical keyboard ASMR sounds in your web browser with Blue, Brown, and Red switches. Type on your physical keyboard or click virtual keycaps.">웹 브라우저에서 청축, 갈축, 적축 스위치의 만족스러운 기계식 키보드 ASMR 사운드를 즐기세요. 실제 키보드로 타이핑하거나 마우스로 키캡을 클릭해 보세요.</p>
+            </div>
+
+            <!-- Controls and Customizer Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+                <div class="lg:col-span-1 bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md space-y-5">
+                    <h2 class="text-lg font-bold text-text-main dark:text-white flex items-center gap-1.5 border-b border-slate-100 dark:border-slate-800 pb-2">
+                        <span class="material-symbols-outlined text-primary text-xl">tune</span>
+                        <span data-lang-ko="커스터마이징" data-lang-en="Customizer">커스터마이징</span>
+                    </h2>
+
+                    <!-- Keyboard Layout Selection -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-text-muted dark:text-slate-400 uppercase tracking-wider" data-lang-ko="키보드 레이아웃" data-lang-en="Keyboard Layout">키보드 레이아웃</label>
+                        <select id="keyboard-layout" class="w-full text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                            <option value="keyboard" data-lang-ko="키보드 (60% QWERTY)" data-lang-en="Keyboard (60% QWERTY)">키보드 (60% QWERTY)</option>
+                            <option value="numpad" data-lang-ko="숫자 키패드" data-lang-en="Numeric Numpad">숫자 키패드</option>
+                            <option value="key8" data-lang-ko="8버튼 (리듬게임)" data-lang-en="8-Key (Rhythm)">8버튼 (리듬게임)</option>
+                            <option value="key4" data-lang-ko="4버튼 (리듬게임)" data-lang-en="4-Key (Rhythm)">4버튼 (리듬게임)</option>
+                            <option value="key2" data-lang-ko="2버튼 (오스!)" data-lang-en="2-Key (OSU!)">2버튼 (오스!)</option>
+                        </select>
+                    </div>
+
+                    <!-- Switch Selection -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-text-muted dark:text-slate-400 uppercase tracking-wider" data-lang-ko="스위치 종류" data-lang-en="Switch Type">스위치 종류</label>
+                        <div class="grid grid-cols-3 gap-1.5">
+                            <button id="switch-blue" class="py-2 text-xs font-bold rounded-lg border border-sky-200 dark:border-sky-900 bg-sky-50 dark:bg-sky-950/40 text-primary transition-all">청축</button>
+                            <button id="switch-brown" class="py-2 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted dark:text-slate-300 transition-all">갈축</button>
+                            <button id="switch-red" class="py-2 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted dark:text-slate-300 transition-all">적축</button>
+                        </div>
+                    </div>
+
+                    <!-- RGB Lighting Mode -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-text-muted dark:text-slate-400 uppercase tracking-wider" data-lang-ko="RGB 모드" data-lang-en="RGB Pattern">RGB 모드</label>
+                        <select id="rgb-mode" class="w-full text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                            <option value="ripple" data-lang-ko="반응형 리플" data-lang-en="Reactive Ripple">반응형 리플</option>
+                            <option value="rainbow" data-lang-ko="무지개 파도" data-lang-en="Rainbow Wave">무지개 파도</option>
+                            <option value="glow" data-lang-ko="단색 발광" data-lang-en="Solid Glow">단색 발광</option>
+                            <option value="off" data-lang-ko="RGB 끄기" data-lang-en="Backlight Off">RGB 끄기</option>
+                        </select>
+                    </div>
+
+                    <!-- Keycap Theme -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-text-muted dark:text-slate-400 uppercase tracking-wider" data-lang-ko="키캡 테마" data-lang-en="Keycap Theme">키캡 테마</label>
+                        <select id="keycap-theme" class="w-full text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                            <option value="retro" data-lang-ko="레트로 클래식" data-lang-en="Retro Classic">레트로 클래식</option>
+                            <option value="cyber" data-lang-ko="사이버펑크" data-lang-en="Cyberpunk">사이버펑크</option>
+                            <option value="sakura" data-lang-ko="핑크 사쿠라" data-lang-en="Pink Sakura">핑크 사쿠라</option>
+                            <option value="lavender" data-lang-ko="라벤더 퍼플" data-lang-en="Lavender Purple">라벤더 퍼플</option>
+                        </select>
+                    </div>
+
+                    <!-- Sound Volume -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs font-bold text-text-muted dark:text-slate-400">
+                            <span data-lang-ko="볼륨 조절" data-lang-en="Volume">볼륨 조절</span>
+                            <span id="volume-val">70%</span>
+                        </div>
+                        <input id="volume-slider" type="range" min="0" max="100" value="70" class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary">
+                    </div>
+                </div>
+
+                <!-- Keyboard Area -->
+                <div class="lg:col-span-3 bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md flex flex-col justify-center items-center overflow-x-auto min-h-[350px]">
+                    
+                    <!-- Virtual Mechanical Keyboard Frame -->
+                    <div id="keyboard-frame" class="theme-retro relative p-4 rounded-2xl bg-[#2d3748] dark:bg-[#111827] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[6px] border-[#4a5568] dark:border-[#374151] select-none min-w-[760px] w-full max-w-[850px]">
+                        <!-- Rendered Dynamically by game.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Challenge / Statistics Section -->
+            <section class="bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 shadow-md mb-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-4 mb-6 gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-2xl">keyboard</span>
+                        <h2 class="text-xl font-bold text-text-main dark:text-white" data-lang-ko="⌨️ 타건 모드 선택" data-lang-en="⌨️ Select Typing Mode">⌨️ 타건 모드 선택</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="mode-free" class="px-4 py-2 rounded-xl text-xs font-extrabold bg-primary text-white shadow-md transition-all select-none" data-lang-ko="자유 타건 (ASMR)" data-lang-en="Free Play (ASMR)">자유 타건 (ASMR)</button>
+                        <button id="mode-practice" class="px-4 py-2 rounded-xl text-xs font-extrabold bg-slate-100 dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all select-none" data-lang-ko="타자 연습" data-lang-en="Typing Challenge">타자 연습</button>
+                    </div>
+                </div>
+
+                <!-- Mode 1: Free Play Instructions -->
+                <div id="free-play-box" class="text-center py-6 space-y-4">
+                    <p class="text-sm text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="이곳을 클릭하거나 아무 키나 눌러 소리를 들어보세요." data-lang-en="Click inside this page and start typing to hear the satisfying clacks!">이곳을 클릭하거나 아무 키나 눌러 소리를 들어보세요.</p>
+                    <textarea id="free-textarea" class="w-full max-w-xl mx-auto block h-24 p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 text-sm font-semibold text-text-main dark:text-white focus:ring-2 focus:ring-primary focus:outline-none resize-none" placeholder="여기에 자유롭게 타이핑해 보세요... Type anything here..." data-lang-ko="여기에 자유롭게 타이핑해 보세요..." data-lang-en="Type anything here..."></textarea>
+                </div>
+
+                <!-- Mode 2: Typing Challenge Container (hidden by default) -->
+                <div id="practice-box" class="hidden space-y-6">
+                    <!-- Statistics Panel -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                            <span class="text-xs text-text-muted dark:text-slate-500 font-extrabold uppercase tracking-wider block" data-lang-ko="현재 WPM" data-lang-en="Speed (WPM)">현재 WPM</span>
+                            <strong id="wpm-display" class="text-3xl font-black text-primary block mt-1">0</strong>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                            <span class="text-xs text-text-muted dark:text-slate-500 font-extrabold uppercase tracking-wider block" data-lang-ko="정확도" data-lang-en="Accuracy">정확도</span>
+                            <strong id="acc-display" class="text-3xl font-black text-emerald-500 block mt-1">100%</strong>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                            <span class="text-xs text-text-muted dark:text-slate-500 font-extrabold uppercase tracking-wider block" data-lang-ko="남은 시간" data-lang-en="Time Left">남은 시간</span>
+                            <strong id="timer-display" class="text-3xl font-black text-rose-500 block mt-1">60s</strong>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                            <span class="text-xs text-text-muted dark:text-slate-500 font-extrabold uppercase tracking-wider block" data-lang-ko="콤보" data-lang-en="Combo">콤보</span>
+                            <strong id="combo-display" class="text-3xl font-black text-violet-500 block mt-1">0</strong>
+                        </div>
+                    </div>
+
+                    <!-- Word Challenge display -->
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800/80 text-center relative overflow-hidden">
+                        <div id="word-challenge-line" class="text-2xl md:text-3xl font-bold tracking-wide flex justify-center items-center gap-4 flex-wrap text-slate-400 select-none">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Input word -->
+                    <div class="flex gap-3 max-w-xl mx-auto">
+                        <input id="word-input" type="text" autocomplete="off" class="flex-1 h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-md font-bold text-text-main dark:text-white text-center focus:ring-2 focus:ring-primary focus:outline-none" placeholder="단어를 입력하고 Spacebar 또는 Enter를 누르세요..." data-lang-ko="여기에 보이는 단어를 입력하세요..." data-lang-en="Type the word here...">
+                        <button id="restart-btn" class="h-12 px-5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-text-main dark:text-white font-extrabold transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-lg">refresh</span>
+                            <span data-lang-ko="다시 시작" data-lang-en="Restart">다시 시작</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AEO Informational Blog Section -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full space-y-8">
+                
+                <!-- Section 1: Mechanical switches -->
+                <!-- Korean Version -->
+                <div class="lang-only-ko space-y-6">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🎛️</span> 기계식 키보드 스위치와 타건음(ASMR)의 과학
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. 기계식 스위치의 작동 방식과 세 가지 특징</h3>
+                            <p>기계식 키보드는 키마다 독립적인 **'스위치(Switch)'**가 장착되어 있어 각각 독특한 키감과 타건 소리를 만들어 냅니다. 기계식 스위치는 작동 구조에 따라 크게 세 가지로 분류됩니다.</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>클릭형 (Clicky - 청축):</strong> 키를 누르면 내부 슬라이더(Click Jacket)가 금속 접점을 때리며 찰각하는 경쾌한 클리키 사운드를 냅니다. 타이핑 피드백이 가장 뚜렷합니다.</li>
+                                <li><strong>넌클릭형 (Tactile - 갈축):</strong> 찰각하는 소리 없이 슬라이더의 미세한 돌기가 걸리는 느낌(Tactile Bump)만 전달합니다. 소음이 적으면서 구분감이 있어 가장 대중적입니다.</li>
+                                <li><strong>리니어형 (Linear - 적축):</strong> 걸리는 느낌이나 소리 없이 부드럽고 수직으로 끝까지 내려갑니다. 키압이 가볍고 걸림쇠의 소음이 없어 조용하며, 최근 트렌드인 로우 피치(Thock) 타건음의 대표 주자입니다.</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. 타건음의 높낮이: 하이 피치(Click/Clack) vs 로우 피치(Thock)</h3>
+                            <p>최근 키보드 동호회에서 가장 핫한 주제는 바로 **'조약돌 소리(Thock)'**와 같은 로우 피치 타건음입니다. 타건음의 피치(Pitch)는 스위치의 재질(Nylon, Polycarbonate, POM)과 하우징의 내부 공간 흡음 처리에 의해 결정됩니다.</p>
+                            <p class="mt-2">청축의 사운드는 가벼운 플라스틱과 금속 접점이 부딪히는 **하이 피치 클랙(Clack)**에 속하고, 적축이나 윤활된 커스텀 스위치는 두꺼운 하우징이 마찰을 줄이며 둔탁하게 부딪히는 **로우 피치 톡(Thock)**에 가깝습니다. 당사의 시뮬레이터는 이러한 오디오적 특성을 Web Audio API의 다중 주파수 필터링을 통해 정밀하게 복원하였습니다.</p>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- English Version -->
+                <div class="lang-only-en space-y-6">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🎛️</span> Science of Mechanical Keyboard Switches & ASMR Sound
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. Working Principle of Mechanical Switches</h3>
+                            <p>Mechanical keyboards have dedicated spring-loaded physical switches under every keycap, creating a unique sound profile and tactile response. These switches fall into three main categories:</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>Clicky Switches (Blue):</strong> Feature a sliding click jacket that snaps when pressed, making a high-pitched metallic click. Gives the most obvious auditory feedback.</li>
+                                <li><strong>Tactile Switches (Brown):</strong> Provide a subtle physical bump mid-press without the loud click. Offers great feedback for typing while remaining relatively quiet.</li>
+                                <li><strong>Linear Switches (Red):</strong> Press straight down smoothly without any tactile bump or click contact. Highly preferred by gamers for fast, silent response.</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. Audio Pitch: Clacks vs Thocks</h3>
+                            <p>The keyboard community heavily favors deep, gravel-like acoustic profiles known as **"Thocks"** over thin, plasticky **"Clacks"**.</p>
+                            <p class="mt-2">Clacks are typical of hollow plastic boards and clicky blue switches, producing frequencies around 2kHz-4kHz. Thocks arise from premium materials (POM, PBT), lubricated stems, and deep sound-deadening foam, yielding lower frequencies (150Hz-400Hz). Our Web Audio simulator uses precise frequency filters to capture these acoustic nuances.</p>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Section 2: Keycap Culture -->
+                <!-- Korean Version -->
+                <div class="lang-only-ko space-y-6 border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                        <span class="text-3xl">🎨</span> 최근 유행하는 키캡(Keycap) 문화와 트렌드
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. 개성 표현의 끝판왕: 아티산 키캡(Artisan Keycaps)</h3>
+                            <p>최근 기계식 키보드는 단순한 입력 도구를 넘어 개인의 데스크 테리어를 완성하는 오브제로 진화했습니다. 그 중심에는 **'아티산 키캡(Artisan Keycaps)'**이 있습니다. 이는 수공예 아티스트들이 에폭시 레진, 클레이, 금속 등을 사용하여 직접 조각하고 색을 입힌 커스텀 키캡입니다. 우주 비행사, 귀여운 동물, 판타지 몬스터 등 하나의 미니어처 작품 같은 디자인으로 주로 잘 사용하지 않는 ESC나 방향키 등에 장착하여 시각적 포인트로 삼습니다.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. 소재와 제작 방식의 다양화: ABS vs PBT와 이중사출</h3>
+                            <p>키캡의 촉감과 내구성을 결정짓는 가장 핵심 요소는 플라스틱 소재와 각인 방식입니다.</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>ABS (Acrylonitrile Butadiene Styrene):</strong> 가볍고 선명한 색상 표현이 가능하지만, 마찰에 약해 오래 사용하면 표면이 반들반들하게 닳는 '번들거림' 현상이 생깁니다.</li>
+                                <li><strong>PBT (Polybutylene Terephthalate):</strong> 내열성과 내마모성이 우수하여 오랜 기간 사용해도 뽀송뽀송한 특유의 까슬한 질감이 유지됩니다. 둔탁하고 낮은 소리(Thock)를 내는 데 유리합니다.</li>
+                                <li><strong>이중사출 각인 (Double-Shot):</strong> 글자 부분과 몸체 부분을 서로 다른 색상의 플라스틱으로 각각 쏘아 결합하는 최고급 공정입니다. 글자가 지워질 염려가 전혀 없으며 완성도가 뛰어납니다.</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. 키캡 높이 프로파일(Profile)의 영향</h3>
+                            <p>키캡은 높이와 곡률(Ergonomics) 설계에 따라 여러 **'프로파일(Profile)'**로 나뉩니다. 가장 일반적인 것은 기성 키보드의 **OEM 프로파일**과 고급 커스텀에서 자주 쓰는 **체리(Cherry) 프로파일**입니다. 최근에는 복고풍 느낌을 주는 높고 둥근 **SA 프로파일**이나, 모든 행의 높이가 평평하여 귀여운 느낌을 주는 **DSA 프로파일** 등 다양한 키캡 배열이 매니아층 사이에서 큰 사랑을 받고 있습니다.</p>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- English Version -->
+                <div class="lang-only-en space-y-6 border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                        <span class="text-3xl">🎨</span> Modern Custom Keycap Culture & Trends
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. Visual Masterpieces: Artisan Keycaps</h3>
+                            <p>Custom mechanical keyboards have transitioned from office utilities to desktop art pieces. At the forefront of this trend are **"Artisan Keycaps"**. These are miniature hand-crafted sculptures created by resin artists. Ranging from cute animal figures to detailed landscape diorama worlds, they are placed on single keys like ESC or arrow keys to serve as the signature centerpiece of a keyboard setup.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. Materials & Manufacturing: ABS, PBT, and Double-Shot</h3>
+                            <p>The texture, sound pitch, and lifespan of a keycap depend heavily on its material and lettering process:</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>ABS (Acrylonitrile Butadiene Styrene):</strong> Lightweight and vibrant in colors, but prone to developing a greasy "shine" over prolonged typing friction.</li>
+                                <li><strong>PBT (Polybutylene Terephthalate):</strong> Heavy, textured, and resistant to oil. PBT keycaps preserve their matte, textured feel for years and promote deeper, satisfying thocks.</li>
+                                <li><strong>Double-Shot Injection:</strong> Formed by molding two separate layers of plastic together. Legends can never fade or wear off, offering the highest legends crispness.</li>
+                            </ul>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. Ergonomics and Heights: Keycap Profiles</h3>
+                            <p>Keycaps are shaped into different heights and angles, known as **"Profiles"**. Standard keyboards use the medium-height **OEM profile**. Premium custom mechanical boards favor the slightly lower **Cherry profile** for typing speed and ergonomic comfort. Retro enthusiast setups often utilize high-profile, spherical **SA profiles** for deep acoustics, or flat **DSA/MDA profiles** for clean, modern visual styles.</p>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="game.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "키캡 누르기 게임 - 온라인 도구모음",
+      "description": "온라인 기계식 키보드 ASMR 시뮬레이터와 타건 연습기인 키캡 누르기 게임입니다. 청축, 갈축, 적축 스위치 사운드를 실시간으로 듣고, 다양한 RGB 백라이트와 키캡 테마를 커스텀하여 만족스러운 타이핑을 즐기세요.",
+      "url": "https://tossgpt.online/keycap/index.html"
+    }
+    </script>
+</body>
+</html>
