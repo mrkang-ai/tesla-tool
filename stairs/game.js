@@ -497,7 +497,8 @@ function startGame() {
 function bindEvents() {
     // Desktop Keys
     window.addEventListener('keydown', (e) => {
-        if (!isPlaying && e.code === 'Enter') {
+        if (!isPlaying && (e.code === 'Enter' || e.code === 'Space')) {
+            e.preventDefault();
             startGame();
             return;
         }
