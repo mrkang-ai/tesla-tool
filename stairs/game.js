@@ -18,6 +18,26 @@ let feverActive = false;
 let feverProgress = 0; // 0 to 100
 let feverEndTime = 0;
 
+// Block Images
+const imgBlueBlock = new Image();
+imgBlueBlock.src = '../images/stair_block_blue.png';
+
+const imgPurpleBlock = new Image();
+imgPurpleBlock.src = '../images/stair_block_purple.png';
+
+const imgFeverBlock = new Image();
+imgFeverBlock.src = '../images/stair_block_fever.png';
+
+let imagesLoaded = {
+    blue: false,
+    purple: false,
+    fever: false
+};
+
+imgBlueBlock.onload = () => { imagesLoaded.blue = true; };
+imgPurpleBlock.onload = () => { imagesLoaded.purple = true; };
+imgFeverBlock.onload = () => { imagesLoaded.fever = true; };
+
 // Stairs & Player Objects
 let stairs = [];
 let player = {
@@ -397,7 +417,24 @@ function renderGame() {
 function drawStairBlock(x, y, idx) {
     ctx.save();
 
-    // Determine colors
+    // 1. Try to draw the beautiful generated 3D image assets
+    if (feverActive && imagesLoaded.fever) {
+        ctx.drawImage(imgFeverBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
+        ctx.restore();
+        return;
+    } else if (!feverActive) {
+        if (idx % 2 === 0 && imagesLoaded.purple) {
+            ctx.drawImage(imgPurpleBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
+            ctx.restore();
+            return;
+        } else if (idx % 2 !== 0 && imagesLoaded.blue) {
+            ctx.drawImage(imgBlueBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
+            ctx.restore();
+            return;
+        }
+    }
+
+    // 2. High-fidelity vector fallback if images are not loaded
     let topColor = '#38bdf8';
     let frontColor = '#0284c7';
     let borderColor = '#bae6fd';
