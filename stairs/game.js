@@ -18,26 +18,6 @@ let feverActive = false;
 let feverProgress = 0; // 0 to 100
 let feverEndTime = 0;
 
-// Block Images
-const imgBlueBlock = new Image();
-imgBlueBlock.src = '../images/stair_block_blue.png';
-
-const imgPurpleBlock = new Image();
-imgPurpleBlock.src = '../images/stair_block_purple.png';
-
-const imgFeverBlock = new Image();
-imgFeverBlock.src = '../images/stair_block_fever.png';
-
-let imagesLoaded = {
-    blue: false,
-    purple: false,
-    fever: false
-};
-
-imgBlueBlock.onload = () => { imagesLoaded.blue = true; };
-imgPurpleBlock.onload = () => { imagesLoaded.purple = true; };
-imgFeverBlock.onload = () => { imagesLoaded.fever = true; };
-
 // Stairs & Player Objects
 let stairs = [];
 let player = {
@@ -417,66 +397,83 @@ function renderGame() {
 function drawStairBlock(x, y, idx) {
     ctx.save();
 
-    // 1. Try to draw the beautiful generated 3D image assets
-    if (feverActive && imagesLoaded.fever) {
-        ctx.drawImage(imgFeverBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
-        ctx.restore();
-        return;
-    } else if (!feverActive) {
-        if (idx % 2 === 0 && imagesLoaded.purple) {
-            ctx.drawImage(imgPurpleBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
-            ctx.restore();
-            return;
-        } else if (idx % 2 !== 0 && imagesLoaded.blue) {
-            ctx.drawImage(imgBlueBlock, x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, BLOCK_HEIGHT + 6);
-            ctx.restore();
-            return;
-        }
-    }
+    const step = stairs[idx];
+    const dir = step.dir; // 1: Right, -1: Left
 
-    // 2. High-fidelity vector fallback if images are not loaded
-    let topColor = '#38bdf8';
-    let frontColor = '#0284c7';
-    let borderColor = '#bae6fd';
+    // Determine colors
+    let topColor = '#38bdf8';      // Sky blue top
+    let frontColor = '#0284c7';    // Dark blue front
+    let sideColor = '#0369a1';     // Shaded side
 
     if (feverActive) {
         const hue = (idx * 15 + score * 4) % 360;
         topColor = `hsl(${hue}, 95%, 60%)`;
         frontColor = `hsl(${hue}, 95%, 40%)`;
-        borderColor = `hsl(${hue}, 95%, 75%)`;
+        sideColor = `hsl(${hue}, 95%, 30%)`;
     } else {
-        // High contrast alternating colors
+        // High contrast alternating colors for readability
         if (idx % 2 === 0) {
-            topColor = '#818cf8'; // Indigo
-            frontColor = '#4f46e5';
-            borderColor = '#c7d2fe';
+            topColor = '#818cf8';  // Indigo top
+            frontColor = '#4f46e5'; // Indigo front
+            sideColor = '#3730a3';  // Indigo side
         } else {
-            topColor = '#38bdf8'; // Sky Blue
-            frontColor = '#0284c7';
-            borderColor = '#e0f2fe';
+            topColor = '#38bdf8';  // Sky blue top
+            frontColor = '#0284c7'; // Sky blue front
+            sideColor = '#0369a1';  // Sky blue side
         }
     }
 
-    // Draw front face shadow (drop shadow under the block)
+    // Set up a clean drop shadow for depth
     ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
-    ctx.shadowBlur = 8;
+    ctx.shadowBlur = 6;
     ctx.shadowOffsetY = 4;
 
-    // Draw front face
+    // Draw front face of the block
     ctx.fillStyle = frontColor;
     ctx.fillRect(x - BLOCK_WIDTH / 2, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 
-    // Disable shadow for top surface and border
+    // Disable drop shadow for top and side faces
     ctx.shadowColor = 'transparent';
 
-    // Draw top surface (landing area)
+    // Draw top surface polygon (skewed in the step direction!)
+    // If dir is 1, skew right (shift top points right by 8px).
+    // If dir is -1, skew left (shift top points left by 8px).
+    const skew = dir * 8;
     ctx.fillStyle = topColor;
-    ctx.fillRect(x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, 6);
+    ctx.beginPath();
+    ctx.moveTo(x - BLOCK_WIDTH / 2, y);
+    ctx.lineTo(x - BLOCK_WIDTH / 2 + skew, y - 6);
+    ctx.lineTo(x + BLOCK_WIDTH / 2 + skew, y - 6);
+    ctx.lineTo(x + BLOCK_WIDTH / 2, y);
+    ctx.closePath();
+    ctx.fill();
 
-    // Draw glowing landing lip (border highlight)
-    ctx.fillStyle = borderColor;
-    ctx.fillRect(x - BLOCK_WIDTH / 2, y - 6, BLOCK_WIDTH, 1.5);
-    ctx.fillRect(x - BLOCK_WIDTH / 2, y, BLOCK_WIDTH, 1);
+    // Draw side facet (on the trailing edge)
+    // If dir is 1, the side face is on the right side.
+    // If dir is -1, the side face is on the left side.
+    ctx.fillStyle = sideColor;
+    ctx.beginPath();
+    if (dir === 1) {
+        ctx.moveTo(x + BLOCK_WIDTH / 2, y);
+        ctx.lineTo(x + BLOCK_WIDTH / 2 + skew, y - 6);
+        ctx.lineTo(x + BLOCK_WIDTH / 2 + skew, y + BLOCK_HEIGHT - 6);
+        ctx.lineTo(x + BLOCK_WIDTH / 2, y + BLOCK_HEIGHT);
+    } else {
+        ctx.moveTo(x - BLOCK_WIDTH / 2, y);
+        ctx.lineTo(x - BLOCK_WIDTH / 2 + skew, y - 6);
+        ctx.lineTo(x - BLOCK_WIDTH / 2 + skew, y + BLOCK_HEIGHT - 6);
+        ctx.lineTo(x - BLOCK_WIDTH / 2, y + BLOCK_HEIGHT);
+    }
+    ctx.closePath();
+    ctx.fill();
+
+    // Add a neat glowing border on the top landing edge for maximum readability!
+    ctx.strokeStyle = feverActive ? '#ffffff' : (idx % 2 === 0 ? '#c7d2fe' : '#e0f2fe');
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(x - BLOCK_WIDTH / 2 + skew, y - 6);
+    ctx.lineTo(x + BLOCK_WIDTH / 2 + skew, y - 6);
+    ctx.stroke();
 
     ctx.restore();
 }
