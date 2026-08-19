@@ -137,8 +137,20 @@
                         </div>
                     </div>
 
+                    <!-- Mobile On-Screen Direction Buttons -->
+                    <div class="grid grid-cols-2 gap-3 mt-4 md:hidden">
+                        <button id="btn-touch-left" class="h-16 flex flex-col items-center justify-center rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 active:border-primary active:bg-orange-500 active:text-white dark:active:bg-orange-500 text-text-main dark:text-white shadow-sm transition-all select-none touch-none cursor-pointer">
+                            <span class="material-symbols-outlined text-3xl pointer-events-none">arrow_back</span>
+                            <span class="text-[11px] font-extrabold pointer-events-none" data-lang-ko="왼쪽 이동" data-lang-en="Left">왼쪽 이동</span>
+                        </button>
+                        <button id="btn-touch-right" class="h-16 flex flex-col items-center justify-center rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 active:border-primary active:bg-orange-500 active:text-white dark:active:bg-orange-500 text-text-main dark:text-white shadow-sm transition-all select-none touch-none cursor-pointer">
+                            <span class="material-symbols-outlined text-3xl pointer-events-none">arrow_forward</span>
+                            <span class="text-[11px] font-extrabold pointer-events-none" data-lang-ko="오른쪽 이동" data-lang-en="Right">오른쪽 이동</span>
+                        </button>
+                    </div>
+
                     <!-- Horizontal Item Guide Card -->
-                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 mt-6">
                         <h3 class="text-sm font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
                             <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
                             <span data-lang-ko="아이템 도감 및 점수 정보" data-lang-en="Item Index & Score Values">아이템 도감 및 점수 정보</span>
@@ -184,19 +196,26 @@
                     <div class="bg-card-bg-light dark:bg-card-bg-dark p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                         <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
                             <span class="material-symbols-outlined text-primary text-lg">sports_esports</span>
-                            <span data-lang-ko="조작 설정" data-lang-en="Control Modes">조작 설정</span>
+                            <span data-lang-ko="통합 조작 안내" data-lang-en="Controls Guide">통합 조작 안내</span>
                         </h3>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="mode-keyboard" class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer">
-                                <span class="material-symbols-outlined text-xl">keyboard</span>
-                                <span data-lang-ko="키보드" data-lang-en="Keyboard">키보드</span>
-                            </button>
-                            <button id="mode-mouse" class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer">
-                                <span class="material-symbols-outlined text-xl">mouse</span>
-                                <span data-lang-ko="마우스" data-lang-en="Mouse">마우스</span>
-                            </button>
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-xl mb-1">keyboard</span>
+                                <p class="text-xs font-bold text-text-main dark:text-white" data-lang-ko="키보드" data-lang-en="Keyboard">키보드</p>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 mt-0.5">← / → / A / D</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-xl mb-1">touch_app</span>
+                                <p class="text-xs font-bold text-text-main dark:text-white" data-lang-ko="터치/버튼" data-lang-en="Touch/Buttons">터치/버튼</p>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 mt-0.5" data-lang-ko="드래그/버튼" data-lang-en="Drag/Buttons">드래그/버튼</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-xl mb-1">mouse</span>
+                                <p class="text-xs font-bold text-text-main dark:text-white" data-lang-ko="마우스" data-lang-en="Mouse">마우스</p>
+                                <p class="text-[10px] text-text-muted dark:text-slate-400 mt-0.5" data-lang-ko="커서 이동" data-lang-en="Cursor Hover">커서 이동</p>
+                            </div>
                         </div>
-                        <p id="control-hint" class="mt-3 text-xs text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다." data-lang-en="Use Arrow Keys (←, →) to move left/right. Decelerates smoothly with momentum.">방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다.</p>
+                        <p id="control-hint" class="mt-3 text-xs text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="키보드(방향키, A/D), 마우스 커서 이동, 모바일 화면 터치 및 좌우 드래그가 모두 동시에 지원됩니다." data-lang-en="Supports Keyboard (Arrows, A/D), Mouse Hover, and Mobile Touch / Drag simultaneously.">키보드(방향키, A/D), 마우스 커서 이동, 모바일 화면 터치 및 좌우 드래그가 모두 동시에 지원됩니다.</p>
                     </div>
 
                     <!-- Rankings Card -->

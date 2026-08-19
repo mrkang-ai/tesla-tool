@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (navigator.share) {
                     navigator.share({
                         title: document.title,
-                        text: document.querySelector('meta[name="description"]').content,
+                        text: document.querySelector('meta[name="description"]')?.content || document.title,
                         url: window.location.href,
                     })
                     .then(() => console.log('Successful share'))
@@ -71,6 +71,55 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
+    };
+
+    const setupMobileMenu = () => {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        if (!mobileMenuBtn || !mobileMenu) return;
+
+        const toggleMenu = (forceShow) => {
+            const isCurrentlyHidden = mobileMenu.classList.contains('hidden');
+            const shouldOpen = typeof forceShow === 'boolean' ? forceShow : isCurrentlyHidden;
+
+            if (shouldOpen) {
+                mobileMenu.classList.remove('hidden');
+                if (mobileMenuIcon) mobileMenuIcon.textContent = 'close';
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                if (mobileMenuIcon) mobileMenuIcon.textContent = 'menu';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('#mobile-menu') && !event.target.closest('#mobile-menu-btn')) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close mobile menu when clicking any link inside it
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                toggleMenu(false);
+            }
+        });
     };
 
     const updateCurrentServiceName = () => {
@@ -98,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             // Default to 'Menu' if on the main page
             const menuButton = navDropdown.querySelector('.dropbtn span');
-            serviceName = menuButton.getAttribute(lang === 'en' ? 'data-lang-en' : 'data-lang-ko');
+            serviceName = menuButton ? menuButton.getAttribute(lang === 'en' ? 'data-lang-en' : 'data-lang-ko') : '';
         }
         serviceNameElement.textContent = serviceName;
     };
@@ -112,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
         initializeDropdowns();
         setupShareButtons();
+        setupMobileMenu();
         // Initial updates on page load
         if (window.applyLanguage) {
             window.applyLanguage(localStorage.getItem('language') || 'ko', true);

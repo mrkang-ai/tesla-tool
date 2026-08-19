@@ -1,54 +1,257 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-4 md:px-10 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="flex items-center gap-4 md:gap-8">
-        <a href="/" class="flex items-center gap-4 text-text-main dark:text-white cursor-pointer">
-            <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white shadow-md shadow-sky-200 dark:shadow-none">
-                <span class="material-symbols-outlined">construction</span>
+<header class="border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 transition-colors">
+    <div class="flex items-center justify-between whitespace-nowrap px-4 md:px-10 py-3">
+        <!-- Logo & Desktop Navigation -->
+        <div class="flex items-center gap-4 md:gap-8">
+            <a href="/" class="flex items-center gap-3 text-text-main dark:text-white cursor-pointer group">
+                <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white shadow-md shadow-sky-200 dark:shadow-none group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-xl">construction</span>
+                </div>
+                <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ToolBox</h2>
+            </a>
+
+            <!-- Desktop Nav Links (Hidden on Mobile) -->
+            <nav class="hidden md:flex items-center gap-6">
+                <!-- Tools Dropdown -->
+                <div class="dropdown nav-dropdown">
+                    <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1">
+                        <span data-lang-ko="도구" data-lang-en="Tools">도구</span>
+                        <span class="material-symbols-outlined text-base">expand_more</span>
+                    </button>
+                    <div class="dropdown-content rounded-xl p-2 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <a href="/lotto/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">casino</span>
+                            <span data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</span>
+                        </a>
+                        <a href="/TextCount/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">format_size</span>
+                            <span data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</span>
+                        </a>
+                        <a href="/meme-generator/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">imagesmode</span>
+                            <span data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Games Dropdown -->
+                <div class="dropdown nav-dropdown">
+                    <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1">
+                        <span data-lang-ko="게임" data-lang-en="Games">게임</span>
+                        <span class="material-symbols-outlined text-base">expand_more</span>
+                    </button>
+                    <div class="dropdown-content rounded-xl p-2 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 min-w-[200px]">
+                        <a href="/carrot-dodger/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="text-base">🥕</span>
+                            <span data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</span>
+                        </a>
+                        <a href="/stairs/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">stairs</span>
+                            <span data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</span>
+                        </a>
+                        <a href="/keycap/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">keyboard</span>
+                            <span data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</span>
+                        </a>
+                        <a href="/eat/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">restaurant</span>
+                            <span data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</span>
+                        </a>
+                        <a href="/roulette/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">motion_photos_on</span>
+                            <span data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">원판 돌리기</span>
+                        </a>
+                        <a href="/ladder/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">alt_route</span>
+                            <span data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</span>
+                        </a>
+                        <a href="/Rock-paper-scissors/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-lg">sports_handball</span>
+                            <span data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- About Link -->
+                <a class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about.html">
+                    <span data-lang-ko="소개" data-lang-en="About">소개</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Right Side: Share, Language, and Mobile Hamburger Button -->
+        <div class="flex items-center gap-2 sm:gap-4 md:gap-6">
+            <!-- Share Buttons (Visible on Desktop / Tablet) -->
+            <div class="share-buttons flex items-center gap-2">
+                <button id="copy-link-btn" class="flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="Copy Link">
+                    <span class="material-symbols-outlined text-xl">link</span>
+                    <span class="hidden sm:inline" data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
+                </button>
+                <button id="sns-share-btn" class="flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="Share">
+                    <span class="material-symbols-outlined text-xl">share</span>
+                    <span class="hidden sm:inline" data-lang-ko="공유" data-lang-en="Share">공유</span>
+                </button>
             </div>
-            <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ToolBox</h2>
-        </a>
-        <div class="hidden md:flex items-center gap-9">
-            <div class="dropdown nav-dropdown">
-                <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn" data-lang-ko="도구" data-lang-en="Tools">도구</button>
-                <div class="dropdown-content">
-                    <a href="/lotto/" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</a>
-                    <a href="/TextCount/" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</a>
-                    <a href="/meme-generator/" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</a>
+
+            <!-- Language Switcher Dropdown -->
+            <div class="dropdown language-switcher">
+                <button class="dropbtn flex items-center gap-1 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+                    <span class="material-symbols-outlined text-xl">language</span>
+                    <span id="current-language-text" class="hidden sm:inline">한국어</span>
+                </button>
+                <div class="dropdown-content rounded-xl p-1.5 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 right-0 left-auto">
+                    <a href="#" id="lang-ko" class="rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">한국어</a>
+                    <a href="#" id="lang-en" class="rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">English</a>
                 </div>
             </div>
-            <div class="dropdown nav-dropdown">
-                <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn" data-lang-ko="게임" data-lang-en="Games">게임</button>
-                <div class="dropdown-content">
-                    <a href="/eat/" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</a>
-                    <a href="/Rock-paper-scissors/" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</a>
-                    <a href="/ladder/" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</a>
-                    <a href="/carrot-dodger/" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</a>
-                    <a href="/roulette/" data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">원판 돌리기</a>
-                    <a href="/keycap/" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</a>
-                    <a href="/stairs/" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</a>
-                </div>
-            </div>
-             <a class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about.html" data-lang-ko="소개" data-lang-en="About">소개</a>
+
+            <!-- Mobile Hamburger Toggle Button (md:hidden) -->
+            <button id="mobile-menu-btn" class="flex md:hidden items-center justify-center p-2 rounded-xl text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer select-none" aria-label="메뉴 열기/닫기" aria-expanded="false">
+                <span id="mobile-menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+            </button>
         </div>
     </div>
-    <div class="flex flex-1 justify-end gap-4 md:gap-8">
-        <div class="share-buttons">
-            <button id="copy-link-btn" class="flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">link</span>
-                <span class="hidden sm:inline" data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
-            </button>
-            <button id="sns-share-btn" class="flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">share</span>
-                <span class="hidden sm:inline" data-lang-ko="SNS 공유" data-lang-en="Share">공유</span>
-            </button>
-        </div>
-        <div class="dropdown language-switcher">
-            <button class="dropbtn flex items-center gap-2 text-text-muted dark:text-slate-400 hover:text-primary transition-colors">
-                 <span class="material-symbols-outlined">language</span>
-                <span id="current-language-text" class="hidden sm:inline">한국어</span>
-            </button>
-            <div class="dropdown-content">
-                <a href="#" id="lang-ko">한국어</a>
-                <a href="#" id="lang-en">English</a>
+
+    <!-- Mobile Slide-Down Navigation Menu (md:hidden) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-4 py-5 shadow-2xl transition-all max-h-[82vh] overflow-y-auto">
+        <div class="flex flex-col gap-5">
+            <!-- Section 1: Tools -->
+            <div>
+                <div class="flex items-center gap-1.5 mb-2.5 px-1">
+                    <span class="material-symbols-outlined text-primary text-base">build</span>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-text-muted dark:text-slate-400" data-lang-ko="도구 모음" data-lang-en="Productivity Tools">도구 모음</h3>
+                </div>
+                <div class="grid grid-cols-1 gap-1.5">
+                    <a href="/lotto/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-orange-100 dark:bg-orange-950/40 text-orange-500 flex items-center justify-center material-symbols-outlined text-lg">casino</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="행운의 로또 6/45 추천" data-lang-en="AI & lucky lotto picker">행운의 로또 6/45 추천</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/TextCount/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-primary flex items-center justify-center material-symbols-outlined text-lg">format_size</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="공백 포함/제외, 바이트 계산" data-lang-en="Characters, words, bytes">공백 포함/제외, 바이트 계산</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/meme-generator/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-purple-100 dark:bg-purple-950/40 text-purple-500 flex items-center justify-center material-symbols-outlined text-lg">imagesmode</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="인기 짤방 텍스트 합성" data-lang-en="Instant meme creator">인기 짤방 텍스트 합성</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 2: Games -->
+            <div>
+                <div class="flex items-center gap-1.5 mb-2.5 px-1">
+                    <span class="material-symbols-outlined text-primary text-base">sports_esports</span>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-text-muted dark:text-slate-400" data-lang-ko="미니 게임" data-lang-en="Mini Games">미니 게임</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                    <a href="/carrot-dodger/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-orange-100 dark:bg-orange-950/40 flex items-center justify-center text-base">🥕</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="낙하물 회피 아케이드" data-lang-en="Arcade dodger">낙하물 회피 아케이드</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/stairs/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center material-symbols-outlined text-lg">stairs</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="무한 스텝 스피드런" data-lang-en="Speedrun staircase">무한 스텝 스피드런</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/keycap/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-pink-100 dark:bg-pink-950/40 text-pink-500 flex items-center justify-center material-symbols-outlined text-lg">keyboard</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="키보드 타건 ASMR" data-lang-en="Typing ASMR clicker">키보드 타건 ASMR</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/eat/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-amber-100 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center material-symbols-outlined text-lg">restaurant</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="랜덤 메뉴 추천 추첨기" data-lang-en="Random food picker">랜덤 메뉴 추천 추첨기</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/roulette/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-cyan-100 dark:bg-cyan-950/40 text-cyan-500 flex items-center justify-center material-symbols-outlined text-lg">motion_photos_on</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">원판 돌리기</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="내기/결정 맞춤 룰렛" data-lang-en="Custom decision wheel">내기/결정 맞춤 룰렛</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/ladder/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-indigo-100 dark:bg-indigo-950/40 text-indigo-500 flex items-center justify-center material-symbols-outlined text-lg">alt_route</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="공정한 당번 정하기" data-lang-en="Fair ladder matching">공정한 당번 정하기</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+
+                    <a href="/Rock-paper-scissors/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
+                        <div class="flex items-center gap-3">
+                            <span class="size-8 rounded-lg bg-teal-100 dark:bg-teal-950/40 text-teal-500 flex items-center justify-center material-symbols-outlined text-lg">sports_handball</span>
+                            <div>
+                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</p>
+                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="컴퓨터와 승률 대결" data-lang-en="Classic RPS duel">컴퓨터와 승률 대결</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 3: Info & Links -->
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <a href="/about.html" class="flex items-center gap-1.5 text-xs font-bold text-text-main dark:text-white hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-base">info</span>
+                    <span data-lang-ko="서비스 소개" data-lang-en="About ToolBox">서비스 소개</span>
+                </a>
+                <a href="/" class="flex items-center gap-1 text-xs font-extrabold text-primary hover:underline">
+                    <span data-lang-ko="홈으로 이동" data-lang-en="Go Home">홈으로 이동</span>
+                    <span class="material-symbols-outlined text-sm">home</span>
+                </a>
             </div>
         </div>
     </div>

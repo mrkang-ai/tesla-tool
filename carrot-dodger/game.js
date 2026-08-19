@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameoverOverlay = document.getElementById('gameover-overlay');
     const retryBtn = document.getElementById('retry-btn');
     
-    // Control Selector Buttons
-    const modeKeyboardBtn = document.getElementById('mode-keyboard');
-    const modeMouseBtn = document.getElementById('mode-mouse');
+    // Control Elements (Mobile Buttons)
+    const btnTouchLeft = document.getElementById('btn-touch-left');
+    const btnTouchRight = document.getElementById('btn-touch-right');
     const controlHint = document.getElementById('control-hint');
     
     // Leaderboard Form
@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let accumulatedTime = 0;
     let score = 0;
     let comboStreak = 0;
-    let controlMode = 'keyboard'; // keyboard, mouse
     let animationFrameId = null;
 
     // Player character properties
@@ -48,8 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         friction: 0.84
     };
 
-    // Control parameters
-    let targetX = 0; // Target X for mouse controls
+    // Control parameters (Unified Simultaneous Controls: Keyboard + Touch + Mouse)
+    let targetX = 0;
+    let isPointerActive = false;
+    let touchLeftPressed = false;
+    let touchRightPressed = false;
     const keysPressed = {};
 
     // Game parameters
@@ -133,28 +135,31 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.drawImage(loadedImages.cloud_l, 620, 60, 110, 50);
     }
 
-    // Controls Selection handlers
-    modeKeyboardBtn.addEventListener('click', () => {
-        controlMode = 'keyboard';
-        modeKeyboardBtn.className = "flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer";
-        modeMouseBtn.className = "flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer";
-        
-        const lang = document.documentElement.lang || 'ko';
-        controlHint.textContent = lang === 'en' 
-            ? "Use Arrow Keys (←, →) to move left/right. Decelerates smoothly with momentum." 
-            : "방향키(←, →)를 눌러서 좌우로 이동합니다. 반대 방향을 눌러도 정지하지 않고 부드럽게 감속됩니다.";
-    });
+    // Mobile Touch Buttons Handlers
+    function bindTouchButton(btn, setPressed) {
+        if (!btn) return;
+        const start = (e) => {
+            e.preventDefault();
+            setPressed(true);
+            isPointerActive = false;
+            if (gameState === 'notStarted' || gameState === 'gameOver') {
+                startGame();
+            }
+        };
+        const end = (e) => {
+            e.preventDefault();
+            setPressed(false);
+        };
+        btn.addEventListener('touchstart', start, { passive: false });
+        btn.addEventListener('touchend', end, { passive: false });
+        btn.addEventListener('touchcancel', end, { passive: false });
+        btn.addEventListener('mousedown', start);
+        btn.addEventListener('mouseup', end);
+        btn.addEventListener('mouseleave', end);
+    }
 
-    modeMouseBtn.addEventListener('click', () => {
-        controlMode = 'mouse';
-        modeMouseBtn.className = "flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-orange-50/50 dark:bg-orange-950/20 text-primary font-bold text-xs gap-1.5 transition-all cursor-pointer";
-        modeKeyboardBtn.className = "flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-text-muted dark:text-slate-400 font-bold text-xs gap-1.5 transition-all cursor-pointer";
-        
-        const lang = document.documentElement.lang || 'ko';
-        controlHint.textContent = lang === 'en' 
-            ? "Hover/drag the mouse horizontally. The character glides smoothly to follow your cursor." 
-            : "마우스 커서를 좌우로 움직여 조작합니다. 캐릭터가 포인터를 부드러운 속도로 추적하며 활공합니다.";
-    });
+    bindTouchButton(btnTouchLeft, (val) => { touchLeftPressed = val; });
+    bindTouchButton(btnTouchRight, (val) => { touchRightPressed = val; });
 
     // Start action
     startBtn.addEventListener('click', startGame);
@@ -175,6 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
         itemSpeed = initialItemSpeed;
         isFeverMode = false;
         feverTimer = 0;
+        
+        isPointerActive = false;
+        touchLeftPressed = false;
+        touchRightPressed = false;
+        targetX = player.x;
         
         items = [];
         clouds = [];
@@ -283,19 +293,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 3. Move character
-        if (controlMode === 'mouse') {
-            // Smooth mouse follow easing
-            player.x += (targetX - player.x) * 0.16;
-        } else {
-            // Momentum keyboard logic
-            let targetVx = 0;
-            if (keysPressed['ArrowLeft'] || keysPressed['Left']) targetVx = -player.speed;
-            if (keysPressed['ArrowRight'] || keysPressed['Right']) targetVx = player.speed;
+        // 3. Move character (Unified simultaneous control: Keyboard, Touch Buttons, Pointer/Touch Drag)
+        const isLeft = keysPressed['ArrowLeft'] || keysPressed['Left'] || keysPressed['KeyA'] || keysPressed['Keya'] || keysPressed['a'] || keysPressed['A'] || touchLeftPressed;
+        const isRight = keysPressed['ArrowRight'] || keysPressed['Right'] || keysPressed['KeyD'] || keysPressed['Keyd'] || keysPressed['d'] || keysPressed['D'] || touchRightPressed;
 
-            player.vx += (targetVx - player.vx) * 0.18;
+        if (isLeft || isRight) {
+            let targetVx = 0;
+            if (isLeft) targetVx -= player.speed;
+            if (isRight) targetVx += player.speed;
+
+            player.vx += (targetVx - player.vx) * 0.22;
             player.vx *= player.friction;
             player.x += player.vx;
+            targetX = player.x; // Keep targetX synced so pointer doesn't fight keyboard
+        } else if (isPointerActive) {
+            // Smooth glide towards touch / mouse position
+            player.x += (targetX - player.x) * 0.22;
+            player.vx = 0;
+        } else {
+            // Smooth deceleration for residual velocity
+            player.vx *= player.friction;
+            player.x += player.vx;
+            targetX = player.x;
         }
 
         // Keep character in bounds
@@ -710,8 +729,13 @@ document.addEventListener('DOMContentLoaded', () => {
         keysPressed[e.key] = true;
         keysPressed[e.code] = true;
 
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space'].includes(e.code)) {
+            if (gameState === 'playing' || e.code === 'Space') {
+                e.preventDefault();
+            }
+        }
+
         if (e.code === 'Space') {
-            e.preventDefault();
             if (gameState === 'notStarted' || gameState === 'gameOver') {
                 startGame();
             }
@@ -728,27 +752,49 @@ document.addEventListener('DOMContentLoaded', () => {
         keysPressed[e.code] = false;
     }
 
+    function updatePointerPosition(clientX) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const pointerX = (clientX - rect.left) * scaleX;
+        targetX = Math.max(0, Math.min(canvas.width - player.width, pointerX - player.width / 2));
+        isPointerActive = true;
+    }
+
     // Mouse handlers
     canvas.addEventListener('mousemove', (e) => {
-        if (gameState !== 'playing' || controlMode !== 'mouse') return;
-        const rect = canvas.getBoundingClientRect();
-        // Scale mouse X coordinate to fit internal buffer resolution (800)
-        const scaleX = canvas.width / rect.width;
-        const mouseX = (e.clientX - rect.left) * scaleX;
-        
-        targetX = mouseX - player.width / 2;
+        if (gameState !== 'playing') return;
+        updatePointerPosition(e.clientX);
     });
 
-    // Touch support for mobile glide
-    canvas.addEventListener('touchmove', (e) => {
-        if (gameState !== 'playing' || controlMode !== 'mouse') return;
-        e.preventDefault();
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const touchX = (e.touches[0].clientX - rect.left) * scaleX;
-        
-        targetX = touchX - player.width / 2;
+    canvas.addEventListener('mousedown', (e) => {
+        if (gameState !== 'playing') return;
+        updatePointerPosition(e.clientX);
+    });
+
+    // Touch support for mobile (touchstart, touchmove, touchend)
+    canvas.addEventListener('touchstart', (e) => {
+        if (gameState !== 'playing') return;
+        if (e.touches && e.touches.length > 0) {
+            e.preventDefault();
+            updatePointerPosition(e.touches[0].clientX);
+        }
     }, { passive: false });
+
+    canvas.addEventListener('touchmove', (e) => {
+        if (gameState !== 'playing') return;
+        if (e.touches && e.touches.length > 0) {
+            e.preventDefault();
+            updatePointerPosition(e.touches[0].clientX);
+        }
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+        isPointerActive = false;
+    });
+
+    window.addEventListener('touchcancel', () => {
+        isPointerActive = false;
+    });
 
     // Leaderboards localStorage utilities
     function getRankings() {
