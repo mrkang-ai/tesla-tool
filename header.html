@@ -92,6 +92,12 @@
                 </button>
             </div>
 
+            <!-- Sound FX Toggle Button -->
+            <button id="sound-toggle-btn" class="sound-toggle-btn flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="효과음 켜기/끄기" aria-label="사운드 토글">
+                <span class="material-symbols-outlined text-xl">volume_off</span>
+                <span class="hidden sm:inline text-xs font-semibold" data-lang-ko="효과음" data-lang-en="Sound">효과음</span>
+            </button>
+
             <!-- Language Switcher Dropdown -->
             <div class="dropdown language-switcher">
                 <button class="dropbtn flex items-center gap-1 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
@@ -244,10 +250,10 @@
 
             <!-- Section 3: Info & Links -->
             <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <a href="/about.html" class="flex items-center gap-1.5 text-xs font-bold text-text-main dark:text-white hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-base">info</span>
-                    <span data-lang-ko="서비스 소개" data-lang-en="About ToolBox">서비스 소개</span>
-                </a>
+                <button class="sound-toggle-btn flex items-center gap-1.5 text-xs font-bold text-text-main dark:text-white hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-base">volume_off</span>
+                    <span data-lang-ko="효과음 켜기/끄기" data-lang-en="Toggle Sound">효과음 켜기/끄기</span>
+                </button>
                 <a href="/" class="flex items-center gap-1 text-xs font-extrabold text-primary hover:underline">
                     <span data-lang-ko="홈으로 이동" data-lang-en="Go Home">홈으로 이동</span>
                     <span class="material-symbols-outlined text-sm">home</span>

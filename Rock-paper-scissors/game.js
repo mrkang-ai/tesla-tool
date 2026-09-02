@@ -116,6 +116,20 @@ function makeChoice(userChoice) {
     totalRounds++;
     if (result === 'win') {
         winCount++;
+        if (window.triggerConfetti) {
+            window.triggerConfetti({ count: 65 });
+        }
+        if (window.SoundFX) {
+            window.SoundFX.playWin();
+        }
+    } else if (result === 'draw') {
+        if (window.SoundFX) {
+            window.SoundFX.playPop();
+        }
+    } else {
+        if (window.SoundFX) {
+            window.SoundFX.playClick();
+        }
     }
 
     localStorage.setItem('rps_total_rounds', totalRounds);

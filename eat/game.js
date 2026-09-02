@@ -110,6 +110,13 @@ if (recommendBtn) {
             loadingAnimation.classList.add('hidden');
             resultDiv.classList.remove('hidden');
 
+            if (window.triggerConfetti) {
+                window.triggerConfetti({ count: 50 });
+            }
+            if (window.SoundFX) {
+                window.SoundFX.playWin();
+            }
+
             // 추천을 받은 후 식단표를 노출하도록 함
             if (plannerSection && plannerSection.classList.contains('hidden')) {
                 plannerSection.classList.remove('hidden');

@@ -158,10 +158,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const path = window.location.pathname;
     const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') ? '../' : '';
 
+    const setupSoundToggle = () => {
+        const soundBtns = document.querySelectorAll('.sound-toggle-btn');
+        soundBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (window.SoundFX) {
+                    window.SoundFX.toggle();
+                }
+            });
+        });
+        if (window.SoundFX) {
+            window.SoundFX.updateUI();
+        }
+    };
+
     loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
         initializeDropdowns();
         setupShareButtons();
         setupMobileMenu();
+        setupSoundToggle();
         // Initial updates on page load
         if (window.applyLanguage) {
             window.applyLanguage(localStorage.getItem('language') || 'ko', true);
@@ -171,6 +187,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     loadHTML(`${basePath}footer.html`, 'footer-placeholder');
+
+    // Dynamic Script Loader for Particles and SoundFX if not already loaded
+    const loadScriptIfNotPresent = (src) => {
+        if (!document.querySelector(`script[src*="${src}"]`)) {
+            const script = document.createElement('script');
+            script.src = `${basePath}${src}`;
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+    };
+
+    loadScriptIfNotPresent('scripts/particles.js');
+    loadScriptIfNotPresent('scripts/sound.js');
+
 
     // 3D Parallax Tilt & Dynamic Glare Engine
     const setup3DTiltCards = () => {

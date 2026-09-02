@@ -257,7 +257,17 @@ function triggerGameOver() {
     // Show Game Over Overlay after brief delay
     setTimeout(() => {
         document.getElementById('final-score').textContent = score;
-        if (score > highScore) {
+        if (score > highScore && score >= 10) {
+            highScore = score;
+            localStorage.setItem('stairs_highscore', highScore);
+            document.getElementById('highscore-display').textContent = highScore;
+            if (window.triggerConfetti) {
+                window.triggerConfetti({ count: 70 });
+            }
+            if (window.SoundFX) {
+                window.SoundFX.playWin();
+            }
+        } else if (score > highScore) {
             highScore = score;
             localStorage.setItem('stairs_highscore', highScore);
             document.getElementById('highscore-display').textContent = highScore;

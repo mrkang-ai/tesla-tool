@@ -1119,6 +1119,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            if (window.triggerConfetti) {
+                window.triggerConfetti({ count: 60 });
+            }
+            if (window.SoundFX) {
+                window.SoundFX.playWin();
+            }
         } catch (error) {
             console.error("Failed to export image:", error);
             alert(document.documentElement.lang === "en" ? 

@@ -20,6 +20,14 @@ if (generateBtn) {
         generateBtn.disabled = true;
         const numbers = generateLottoNumbers();
         appendNewNumbers(numbers);
+
+        if (window.triggerConfetti) {
+            window.triggerConfetti({ count: 60 });
+        }
+        if (window.SoundFX) {
+            window.SoundFX.playWin();
+        }
+
         setTimeout(() => {
             generateBtn.disabled = false;
         }, 300);
