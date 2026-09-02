@@ -55,3 +55,63 @@ html[lang="ko"] .lang-only-ko { display: block !important; }
 html[lang="en"] .lang-only-ko { display: none !important; }
 html[lang="en"] .lang-only-en { display: block !important; }
 
+/* 3D Tilt Card Effects & Glassmorphism */
+.tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
+    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tilt-card-inner {
+    transform-style: preserve-3d;
+    transform: translateZ(0px);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+.tilt-card:hover .tilt-card-inner {
+    transform: translateZ(24px);
+}
+
+/* Dynamic Specular Glare effect */
+.tilt-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+    z-index: 20;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.dark .tilt-glare {
+    mix-blend-mode: color-dodge;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.35) 0%, rgba(56, 189, 248, 0) 65%);
+}
+
+/* Tactile 3D Button feedback */
+.btn-tactile {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+}
+.btn-tactile:active {
+    transform: scale(0.96) translateY(2px);
+}
+
+/* Floating animation for 3D elements */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+.animate-float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+

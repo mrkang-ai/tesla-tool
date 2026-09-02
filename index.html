@@ -64,23 +64,56 @@
     <div id="header-placeholder"></div>
 
     <main class="layout-container flex h-full grow flex-col">
-        <!-- Hero Section -->
-        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <!-- Hero Section with 3D Interactive Canvas -->
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-6 md:py-10">
             <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
                 <div class="@container">
-                    <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row items-center">
-                        <div class="w-full @[864px]:w-1/2 flex flex-col gap-6 @[480px]:gap-8 justify-center">
-                            <div class="flex flex-col gap-2 text-left">
-                                <h1 class="text-text-main dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl" data-lang-ko="당신의 일상을 위한 디지털 툴킷" data-lang-en="Your Daily Digital Toolkit">
-                                    Your Daily Digital Toolkit
+                    <div class="flex flex-col gap-8 px-4 py-6 @[480px]:gap-10 @[864px]:flex-row items-center">
+                        <div class="w-full @[864px]:w-1/2 flex flex-col gap-6 justify-center">
+                            <!-- Glowing 3D Badge -->
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/70 border border-sky-200 dark:border-sky-800 text-primary text-xs font-bold shadow-sm backdrop-blur-sm w-fit">
+                                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                <span data-lang-ko="✨ 인터랙티브 디지털 툴킷 2.0" data-lang-en="✨ Interactive Digital Toolkit 2.0">✨ 인터랙티브 디지털 툴킷 2.0</span>
+                            </div>
+
+                            <div class="flex flex-col gap-3 text-left">
+                                <h1 class="text-text-main dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl" data-lang-ko="당신의 일상을 위한 스마트 툴 & 게임" data-lang-en="Smart Tools & Games for Your Everyday Life">
+                                    Smart Tools & Games for Your Everyday Life
                                 </h1>
-                                <h2 class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal @[480px]:text-base" data-lang-ko="작은 일상 업무를 위한 큰 도구들. 당신의 하루를 더 쉽게 만들어 줄 유용하고 재미있는 위젯 컬렉션을 탐색해 보세요." data-lang-en="Small tools for big tasks. Explore our collection of fun and functional widgets designed to make your day easier.">
-                                    Small tools for big tasks. Explore our collection of fun and functional widgets designed to make your day easier.
+                                <h2 class="text-text-muted dark:text-slate-400 text-sm font-normal leading-relaxed @[480px]:text-base" data-lang-ko="작은 일상 업무를 위한 큰 도구들. 복잡한 설치 없이 브라우저에서 바로 즐기는 10가지 유용하고 재미있는 도구와 미니 게임 컬렉션을 탐색해 보세요." data-lang-en="Small tools for big tasks. Explore our collection of 10 fun and functional widgets and mini-games designed to make your day easier without any installation.">
+                                    Small tools for big tasks. Explore our collection of 10 fun and functional widgets and mini-games designed to make your day easier without any installation.
                                 </h2>
                             </div>
+
+                            <!-- Feature Tags -->
+                            <div class="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-semibold text-text-muted dark:text-slate-400">
+                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
+                                    <span class="text-primary text-sm">🛠️</span> <span data-lang-ko="3종 유틸리티 도구" data-lang-en="3 Pro Tools">3종 유틸리티 도구</span>
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
+                                    <span class="text-amber-500 text-sm">🎮</span> <span data-lang-ko="7종 미니 게임" data-lang-en="7 Mini Games">7종 미니 게임</span>
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
+                                    <span class="text-emerald-500 text-sm">⚡</span> <span data-lang-ko="무설치 100% 무료" data-lang-en="100% Free / No Install">무설치 100% 무료</span>
+                                </span>
+                            </div>
                         </div>
+
+                        <!-- 3D Interactive Canvas Showcase -->
                         <div class="w-full @[864px]:w-1/2 flex justify-center @[864px]:justify-end">
-                            <div class="w-full aspect-square max-w-[400px] bg-center bg-no-repeat bg-cover rounded-xl shadow-xl shadow-sky-100 dark:shadow-none" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDSFMierFOei345l4BA7dOZn6EUXpOI3b9Zui8Mx1CxEuQc5SazxKPgKZlu2_g_-bX_nroBq9o9PAS4aIUD2U4_aKN2kBzGCtymHopDk9Kh6zAWPACo0f5Ad-MrsdjmWS6jIyAeu2PvWALTYzH5AacqrSZA2gbLEqLRfOh3bcUL8hOJBI6UaMuLHXhuCb09EbPVAy45ltgos8rog-vKXk78k8_Ts-GKXAkbn-tijtYNRLnfuwfWgbL1mohQBfGAv-h22MVsBFgxNpd5");'>
+                            <div class="relative w-full aspect-square max-w-[400px] rounded-3xl bg-gradient-to-br from-white/95 via-sky-50/60 to-indigo-50/40 dark:from-slate-800/90 dark:via-slate-900/80 dark:to-slate-950/95 border border-slate-200/80 dark:border-slate-700/80 shadow-[0_20px_45px_rgba(14,165,233,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center p-2 group transition-all duration-300">
+                                <!-- Ambient Lighting Glow -->
+                                <div class="absolute -top-10 -right-10 w-44 h-44 bg-sky-400/20 dark:bg-sky-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                                <div class="absolute -bottom-10 -left-10 w-44 h-44 bg-indigo-500/20 dark:bg-purple-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                                <!-- 3D Canvas -->
+                                <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing z-10 block"></canvas>
+
+                                <!-- Interactive Hint Overlay -->
+                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-md text-[11px] font-semibold text-text-muted dark:text-slate-400 shadow-sm z-20 pointer-events-none flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs text-primary">touch_app</span>
+                                    <span data-lang-ko="마우스/터치로 3D 공간을 회전해보세요" data-lang-en="Hover/Drag to explore in 3D">마우스/터치로 3D 공간을 회전해보세요</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,145 +124,148 @@
         <!-- Tools Section -->
         <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
             <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                <h2 class="text-text-main dark:text-white tracking-tight text-[28px] font-bold leading-tight px-4 text-left pb-6 pt-2" data-lang-ko="모든 도구" data-lang-en="All Tools">All Tools</h2>
+                <h2 class="text-text-main dark:text-white tracking-tight text-[28px] font-bold leading-tight px-4 text-left pb-6 pt-2 flex items-center gap-2" data-lang-ko="모든 도구 및 미니 게임" data-lang-en="All Tools & Mini Games">
+                    <span>⚡</span>
+                    <span data-lang-ko="모든 도구 및 미니 게임" data-lang-en="All Tools & Mini Games">All Tools & Mini Games</span>
+                </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                     
                     <!-- Lotto Generator -->
-                    <a href="/lotto/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/lotto/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-primary mb-1"><span class="material-symbols-outlined">casino</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center text-primary mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">casino</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">Lotto Number Generator</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="행운의 번호를 생성하고 최신 당첨 정보를 확인하세요." data-lang-en="Generate lucky numbers and check the latest winning information.">Generate lucky numbers and check the latest winning information.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Character Counter -->
-                    <a href="/TextCount/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/TextCount/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600 mb-1"><span class="material-symbols-outlined">description</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-900/40 flex items-center justify-center text-cyan-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">description</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">Character Counter</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="문서의 글자 수, 단어 수를 간편하게 확인하세요." data-lang-en="Easily check the character and word count of your documents.">Easily check the character and word count of your documents.</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="문서의 글자 수, 바이트 수를 간편하게 실시간 확인하세요." data-lang-en="Easily check the character and byte count of your documents.">Easily check the character and byte count of your documents.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
  
                     <!-- Meme Generator -->
-                    <a href="/meme-generator/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/meme-generator/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-600 mb-1"><span class="material-symbols-outlined">palette</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">palette</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">Meme Generator</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="인기 밈 템플릿에 나만의 텍스트를 더하고 자유롭게 편집해 저장하세요." data-lang-en="Add your own text to popular meme templates, customize styles, and save them.">Add your own text to popular meme templates, customize styles, and save them.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- What to Eat Today? -->
-                    <a href="/eat/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/eat/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 mb-1"><span class="material-symbols-outlined">restaurant</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">restaurant</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">What to Eat Today?</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get recommendations for today's menu.">Get recommendations for today's menu.</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="결정 장애를 해결해 주는 오늘의 메뉴 추천 룰렛." data-lang-en="Get recommendations for today's menu.">Get recommendations for today's menu.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Rock-Paper-Scissors -->
-                    <a href="/Rock-paper-scissors/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/Rock-paper-scissors/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 mb-1"><span class="material-symbols-outlined">sports_esports</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-teal-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">sports_esports</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">Rock-Paper-Scissors Game</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="컴퓨터와 가위바위보 대결을 해보세요." data-lang-en="Play rock-paper-scissors against the computer.">Play rock-paper-scissors against the computer.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Ladder Game -->
-                    <a href="/ladder/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/ladder/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-500 mb-1"><span class="material-symbols-outlined">turn_sharp_right</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-900/40 flex items-center justify-center text-pink-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">turn_sharp_right</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">Ladder Game</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="친구들과 함께 사다리 게임을 즐겨보세요." data-lang-en="Enjoy a ladder game with your friends.">Enjoy a ladder game with your friends.</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="친구들과 함께 즐거운 랜덤 내기 사다리 게임을 즐겨보세요." data-lang-en="Enjoy a ladder game with your friends.">Enjoy a ladder game with your friends.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Carrot Dodger -->
-                    <a href="/carrot-dodger/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/carrot-dodger/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800/50 flex items-center justify-center text-slate-600 mb-1"><span class="material-symbols-outlined">videogame_asset</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center text-orange-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">videogame_asset</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">Carrot Dodger</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="떨어지는 당근을 피하고, 맛있는 음식을 획득하세요!" data-lang-en="Avoid the falling carrots and get delicious food!">Avoid the falling carrots and get delicious food!</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Spin the Wheel (Roulette) -->
-                    <a href="/roulette/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/roulette/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 mb-1"><span class="material-symbols-outlined">published_with_changes</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">published_with_changes</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">Spin the Wheel</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="옵션들을 적고 원판을 돌려 랜덤으로 결정을 내리세요." data-lang-en="Enter choices and spin the wheel for a random decision.">Enter choices and spin the wheel for a random decision.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Keycap Clicker -->
-                    <a href="/keycap/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/keycap/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-500 mb-1"><span class="material-symbols-outlined">keyboard</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">keyboard</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">Keycap Clicking Game</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="청축, 갈축, 적축 기계식 타건 사운드 ASMR과 타자 연습을 즐겨보세요." data-lang-en="Enjoy mechanical switch sounds ASMR (Blue, Brown, Red) and typing practice.">Enjoy mechanical switch sounds ASMR (Blue, Brown, Red) and typing practice.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Infinite Stairs -->
-                    <a href="/stairs/" class="group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-5 shadow-[0_2px_12px_rgba(14,165,233,0.08)] hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                        <div class="flex flex-[2_2_0px] flex-col justify-between gap-4">
+                    <a href="/stairs/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mb-1"><span class="material-symbols-outlined">stairs</span></div>
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">stairs</span></div>
                                 <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">Infinite Stairs</p>
                                 <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="방향 전환과 오르기 타이밍에 맞춰 끝없이 계단을 오르며 경쟁하세요." data-lang-en="Turn and climb quickly to scale infinite steps under a timer limit.">Turn and climb quickly to scale infinite steps under a timer limit.</p>
                             </div>
-                            <div class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors">
-                                <span class="truncate" data-lang-ko="실행" data-lang-en="Launch">Launch</span>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
@@ -240,6 +276,7 @@
     
     <div id="footer-placeholder"></div>
     
+    <script src="scripts/hero-3d.js" defer></script>
     <script src="scripts/app.js" defer></script>
     <script src="language.js" defer></script>
     <script type="application/ld+json">
