@@ -311,6 +311,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- FAQ Section -->
+                <div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
+                    <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">help</span> 자주 묻는 질문 (FAQ)
+                    </h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                            <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 모바일 스마트폰에서 터치로 캐릭터를 어떻게 조작하나요?</h4>
+                            <p class="text-text-muted dark:text-slate-400">모바일 환경에서는 게임 화면 하단에 표시되는 '왼쪽 이동'과 '오른쪽 이동' 온스크린 터치 버튼을 가볍게 터치하거나, 캔버스 좌우 영역을 직접 터치하여 직관적으로 이동할 수 있습니다.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                            <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 고득점을 기록하기 위한 공략 팁은 무엇인가요?</h4>
+                            <p class="text-text-muted dark:text-slate-400">화면 중앙 부근에 머물면서 좌우로 떨어지는 당근의 궤적을 넓게 관찰하세요. 보너스 과일 아이템을 놓치지 않고 획득하면 점수가 급격하게 올라가 명예의 전당에 이름을 올릴 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
@@ -324,10 +341,36 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "당근 피하기 - 온라인 도구모음",
-      "description": "귀여운 토끼 캐릭터를 조작하여 떨어지는 당근과 바위를 피하는 흥미진진한 아케이드 게임입니다. 최고 기록에 도전해 보세요!",
-      "url": "https://tossgpt.online/carrot-dodger/index.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://tossgpt.online/carrot-dodger/index.html",
+          "name": "당근 피하기 아케이드 게임 - 온라인 도구모음",
+          "description": "귀여운 토끼 캐릭터를 조작하여 낙하하는 당근을 피하는 흥미진진한 아케이드 게임과 당근의 영양학적 건강 가이드입니다.",
+          "url": "https://tossgpt.online/carrot-dodger/index.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "모바일 환경에서 캐릭터 조작 방법은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "모바일에서는 하단 온스크린 터치 버튼 또는 캔버스 터치를 통해 캐릭터를 좌우로 조작할 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "당근의 영양소를 가장 효과적으로 흡수하는 조리법은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "베타카로틴은 지용성이므로 기름과 함께 가열 조리하여 껍질째 섭취할 때 체내 흡수율이 60% 이상으로 극대화됩니다."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </body>

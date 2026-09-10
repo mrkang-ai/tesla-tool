@@ -156,7 +156,109 @@ document.addEventListener("DOMContentLoaded", function() {
     window.updateCurrentServiceName = updateCurrentServiceName;
 
     const path = window.location.pathname;
-    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') ? '../' : '';
+    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') ? '../' : '';
+
+    const setupPortalSearchAndFilters = () => {
+        const searchInput = document.getElementById('portal-search-input');
+        const clearBtn = document.getElementById('search-clear-btn');
+        const categoryBar = document.getElementById('category-filter-bar');
+        const noResults = document.getElementById('no-search-results');
+        const cards = document.querySelectorAll('.portal-card');
+
+        if (!searchInput && !categoryBar) return;
+
+        let currentCategory = 'all';
+        let currentQuery = '';
+
+        const filterItems = () => {
+            let visibleCount = 0;
+            const q = currentQuery.trim().toLowerCase();
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+                const textContent = card.innerText.toLowerCase();
+
+                const matchesCategory = (currentCategory === 'all') || (category === currentCategory);
+                const matchesQuery = !q || keywords.includes(q) || textContent.includes(q);
+
+                if (matchesCategory && matchesQuery) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Hide/show guide section heading if in specific filter or empty
+            const guidesSection = document.getElementById('guides');
+            if (guidesSection) {
+                if (currentCategory !== 'all' && currentCategory !== 'guides') {
+                    guidesSection.classList.add('hidden');
+                } else {
+                    const visibleGuides = guidesSection.querySelectorAll('.portal-card:not(.hidden)');
+                    if (visibleGuides.length === 0 && q) {
+                        guidesSection.classList.add('hidden');
+                    } else {
+                        guidesSection.classList.remove('hidden');
+                    }
+                }
+            }
+
+            if (noResults) {
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+        };
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentQuery = e.target.value;
+                if (clearBtn) {
+                    if (currentQuery.length > 0) {
+                        clearBtn.classList.remove('hidden');
+                    } else {
+                        clearBtn.classList.add('hidden');
+                    }
+                }
+                filterItems();
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                if (searchInput) {
+                    searchInput.value = '';
+                    currentQuery = '';
+                    clearBtn.classList.add('hidden');
+                    filterItems();
+                    searchInput.focus();
+                }
+            });
+        }
+
+        if (categoryBar) {
+            const buttons = categoryBar.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => {
+                        b.classList.remove('active', 'bg-primary', 'text-white');
+                        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-text-muted', 'dark:text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-primary', 'text-white');
+                    btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-text-muted', 'dark:text-slate-300');
+
+                    currentCategory = btn.getAttribute('data-filter') || 'all';
+                    filterItems();
+                });
+            });
+        }
+    };
+
+    setupPortalSearchAndFilters();
 
     const setupSoundToggle = () => {
         const soundBtns = document.querySelectorAll('.sound-toggle-btn');

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="한글 바이트(Byte)와 글자 수 계산의 모든 것 - ToolBox 지식 가이드" data-lang-en="Korean Byte & Character Count Guide - ToolBox Guide">한글 바이트(Byte)와 글자 수 계산의 모든 것 - ToolBox 지식 가이드</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="공백 포함/제외 글자수와 바이트(Byte) 계산 원리, UTF-8(3바이트)과 EUC-KR(2바이트) 차이점, 취업 자소서 및 SNS 플랫폼별 최적 글자수 작성 전략을 총정리합니다." data-lang-ko="공백 포함/제외 글자수와 바이트(Byte) 계산 원리, UTF-8(3바이트)과 EUC-KR(2바이트) 차이점, 취업 자소서 및 SNS 플랫폼별 최적 글자수 작성 전략을 총정리합니다." data-lang-en="Comprehensive guide to character and byte counting, UTF-8 vs EUC-KR encoding, job application essay character limits, and social media length optimization.">
+    <link rel="canonical" href="https://tossgpt.online/guides/korean-byte-character-guide.html">
+    <meta property="og:title" content="한글 바이트(Byte)와 글자 수 계산의 모든 것">
+    <meta property="og:description" content="UTF-8 vs EUC-KR 인코딩 원리와 자기소개서 글자수 제한 완벽 대응 가이드">
+    <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
+    <meta property="og:url" content="https://tossgpt.online/guides/korean-byte-character-guide.html">
+    
+    <!-- Design & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="layout-container flex h-full grow flex-col justify-center py-8 md:py-12 px-4 md:px-20 lg:px-40">
+        <div class="layout-content-container flex flex-col max-w-[860px] mx-auto w-full">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-xs font-medium text-text-muted dark:text-slate-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    <span data-lang-ko="홈" data-lang-en="Home">홈</span>
+                </a>
+                <span>/</span>
+                <a href="/#guides" class="hover:text-primary transition-colors" data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</a>
+                <span>/</span>
+                <span class="text-text-main dark:text-white font-bold" data-lang-ko="한글 바이트 계산 가이드" data-lang-en="Korean Byte Guide">한글 바이트 계산 가이드</span>
+            </nav>
+
+            <article class="bg-card-bg-light dark:bg-card-bg-dark p-6 sm:p-12 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-700/80 prose dark:prose-invert max-w-none">
+                
+                <!-- Category Tag & Meta -->
+                <div class="flex flex-wrap items-center gap-3 not-prose mb-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800">
+                        컴퓨터 과학 & 글쓰기 (Computer Science & Writing)
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span> 2026.09.11
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">timer</span> 읽는 시간 약 5분
+                    </span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-text-main dark:text-white mb-6">
+                    한글 바이트(Byte)와 글자 수 계산의 완벽 가이드: UTF-8 vs EUC-KR
+                </h1>
+
+                <p class="lead text-lg text-text-muted dark:text-slate-300 leading-relaxed">
+                    대기업 채용 사이트나 공기업 입사지원서를 작성할 때 "1,000자 이내" 또는 "3,000Byte 이내"라는 글자 수 제한 조건을 자주 보게 됩니다. 그런데 한글 한 글자는 몇 바이트일까요? 왜 어떤 사이트에서는 2바이트로 계산되고, 다른 곳에서는 3바이트로 계산될까요? 인코딩의 기초 원리부터 공백 처리, 플랫폼별 최적 글자수 전략까지 명쾌하게 정리해 드립니다.
+                </p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700">
+
+                <h2>1. 글자 수(Characters)와 바이트(Bytes)의 차이점</h2>
+                <p>
+                    <strong>글자 수(Character Count)</strong>는 언어나 문자의 종류와 관계없이 '글자 기호의 개수' 자체를 세는 물리적인 단위입니다. 반면 <strong>바이트(Byte)</strong>는 컴퓨터가 그 글자를 디지털 메모리에 저장할 때 차지하는 '데이터 용량(8비트)'을 뜻합니다.
+                </p>
+                <p>
+                    영어 알파벳(A~Z, a~z), 숫자(0~9), 기본 특수문자는 7비트로 표현되는 아스키(ASCII) 표준에 속하므로 전 세계 모든 표준에서 **항상 1바이트(1 Byte)**를 차지합니다. 반면 초성, 중성, 종성이 결합되는 한글은 아스키 코드로 표현할 수 없기 때문에 2바이트 이상의 멀티바이트 인코딩이 필요합니다.
+                </p>
+
+                <h2>2. UTF-8 vs EUC-KR: 한글은 왜 2바이트 혹은 3바이트인가?</h2>
+                <div class="not-prose overflow-x-auto my-6">
+                    <table class="w-full text-left text-sm border-collapse border border-slate-200 dark:border-slate-700">
+                        <thead class="bg-slate-100 dark:bg-slate-800 text-text-main dark:text-white">
+                            <tr>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">문자 종류</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">EUC-KR (CP949)</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">UTF-8 (유니코드)</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">글자 수</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700 text-text-muted dark:text-slate-300">
+                            <tr>
+                                <td class="p-3 font-bold">영문 알파벳 (A-Z, a-z)</td>
+                                <td class="p-3">1 Byte</td>
+                                <td class="p-3">1 Byte</td>
+                                <td class="p-3">1자</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">숫자 (0-9) 및 반각 공백(Space)</td>
+                                <td class="p-3">1 Byte</td>
+                                <td class="p-3">1 Byte</td>
+                                <td class="p-3">1자</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-primary">완성형 한글 (가, 나, 다 등)</td>
+                                <td class="p-3 font-bold text-amber-600 dark:text-amber-400">2 Bytes</td>
+                                <td class="p-3 font-bold text-sky-600 dark:text-sky-400">3 Bytes</td>
+                                <td class="p-3">1자</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">줄바꿈 (Line Break, \r\n / \n)</td>
+                                <td class="p-3">1~2 Bytes</td>
+                                <td class="p-3">1~2 Bytes</td>
+                                <td class="p-3">1자</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">이모지 (Emoji: 🚀, ✨ 등)</td>
+                                <td class="p-3 text-rose-500">지원 안 됨 (깨짐)</td>
+                                <td class="p-3">4 Bytes</td>
+                                <td class="p-3">1~2자 (서로게이트)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>왜 차이가 발생할까요?</h3>
+                <ul>
+                    <li>
+                        <strong>EUC-KR (완성형 2바이트):</strong> 1980년대 제정된 한국 표준입니다. 한글 완성형 2,350자만을 2바이트(16비트) 고정으로 담았습니다. 구형 관공서 및 레거시 데이터베이스(Oracle VARCHAR2 Byte 기준)에서 여전히 한글을 2바이트로 계산하는 채용 사이트들이 많습니다.
+                    </li>
+                    <li>
+                        <strong>UTF-8 (가변길이 3바이트):</strong> 전 세계 모든 언어를 표현하는 글로벌 웹 표준(유니코드)입니다. 영어는 1바이트, 한글/한자/일본어 등 CJK 문자는 3바이트(24비트), 이모지는 4바이트로 가변 인코딩됩니다. 현대 웹 브라우저와 클라우드 시스템의 사실상 표준입니다.
+                    </li>
+                </ul>
+
+                <h2>3. 채용 자기소개서 글자 수 제한 공략 팁</h2>
+                <p>
+                    대부분의 입사지원서 시스템은 입력란이 글자 수 또는 바이트 수를 초과하면 뒷부분을 자동으로 잘라버립니다. 합격을 부르는 자기소개서 분량 조절 노하우 3가지를 권장합니다.
+                </p>
+                <ol>
+                    <li>
+                        <strong>목표 분량의 90~95% 채우기:</strong> 예를 들어 '1,000자 이내'라면 900~950자 내외가 가장 성의 있고 완성도 높은 분량입니다. 너무 적으면 성의 부족으로 보이고, 꽉 채우다 문장이 잘리면 감점 요인이 됩니다.
+                    </li>
+                    <li>
+                        <strong>공백 포함 vs 공백 제외 기준 확인:</strong> 명시가 없다면 통상 '공백 포함'이 기준입니다. 띄어쓰기와 문단 줄바꿈도 소중한 글자 수에 포함되므로, 불필요한 엔터나 중복 띄어쓰기를 정리하면 30~50자를 절약할 수 있습니다.
+                    </li>
+                    <li>
+                        <strong>'바이트 제한'인 경우 시스템 인코딩 사전 점검:</strong> 공기업 지원 사이트가 '3,000 Byte' 제한이라면 한글 기준 1,000자(UTF-8 기준 3바이트)일 수도 있고, 1,500자(EUC-KR 기준 2바이트)일 수도 있습니다. ToolBox의 <a href="/TextCount/" class="text-primary font-bold underline">글자 수 세기</a>는 두 인코딩의 바이트를 실시간으로 모두 보여주므로 안전하게 대조할 수 있습니다.
+                    </li>
+                </ol>
+
+                <h2>4. 주요 SNS 플랫폼별 최적 글자 수 가이드</h2>
+                <ul>
+                    <li><strong>인스타그램 (Instagram):</strong> 최대 2,200자까지 작성 가능하지만, 피드에서 '더보기'를 누르기 전 노출되는 <strong>첫 125자 이내</strong>에 핵심 메시지와 호기심 유발 문장을 배치해야 합니다.</li>
+                    <li><strong>X (구 트위터):</strong> 일반 계정 기준 영문 280자, 한글 140자까지 작성할 수 있습니다. 한글은 영문 대비 글자당 2배의 길이를 차지합니다.</li>
+                    <li><strong>네이버 블로그 & 웹사이트 SEO:</strong> 구글 및 네이버 검색 알고리즘에서 양질의 문서로 평가받기 위한 본문 길이는 <strong>공백 제외 1,500~2,500자 이상</strong>을 권장합니다.</li>
+                </ul>
+
+                <!-- Call to Action -->
+                <div class="not-prose my-10 p-6 rounded-3xl bg-gradient-to-r from-cyan-50 to-sky-50 dark:from-slate-800 dark:to-slate-900 border border-cyan-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-bold text-base text-text-main dark:text-white mb-1">지금 작성 중인 글의 글자 수와 바이트를 확인하세요!</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400">공백 포함/제외, UTF-8 및 EUC-KR 바이트, 읽는 시간까지 실시간 계산됩니다.</p>
+                    </div>
+                    <a href="/TextCount/" class="btn-tactile px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold whitespace-nowrap shadow-md">
+                        글자 수 세기 실행하기 →
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "한글 바이트(Byte)와 글자 수 계산의 완벽 가이드: UTF-8 vs EUC-KR",
+      "description": "한글 바이트 계산 원리, UTF-8과 EUC-KR 인코딩 차이, 자소서 작성 팁을 정리한 지식 가이드",
+      "author": {
+        "@type": "Organization",
+        "name": "ToolBox Editorial Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ToolBox",
+        "url": "https://tossgpt.online"
+      },
+      "datePublished": "2026-09-11",
+      "mainEntityOfPage": "https://tossgpt.online/guides/korean-byte-character-guide.html"
+    }
+    </script>
+</body>
+</html>

@@ -1,87 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Portal -->
   <url>
     <loc>https://tossgpt.online/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Knowledge Guides Hub (Phase 4) -->
   <url>
-    <loc>https://tossgpt.online/about.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tossgpt.online/eat/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <loc>https://tossgpt.online/guides/lotto-mathematics.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://tossgpt.online/ladder/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <loc>https://tossgpt.online/guides/korean-byte-character-guide.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://tossgpt.online/guides/game-theory-and-psychology.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/guides/decision-making-tools.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/guides/mechanical-keyboard-guide.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Interactive Tools & Games -->
   <url>
     <loc>https://tossgpt.online/lotto/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://tossgpt.online/Rock-paper-scissors/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tossgpt.online/TextCount/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tossgpt.online/meme-generator/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <loc>https://tossgpt.online/eat/index.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tossgpt.online/roulette/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tossgpt.online/carrot-dodger/index.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <loc>https://tossgpt.online/ladder/index.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/Rock-paper-scissors/index.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tossgpt.online/keycap/index.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tossgpt.online/stairs/index.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tossgpt.online/privacy.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <loc>https://tossgpt.online/carrot-dodger/index.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/meme-generator/index.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- E-E-A-T & Trust Pages -->
+  <url>
+    <loc>https://tossgpt.online/about.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/contact.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/privacy.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tossgpt.online/terms.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tossgpt.online/sitemap.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

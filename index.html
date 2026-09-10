@@ -121,22 +121,70 @@
             </div>
         </div>
 
-        <!-- Tools Section -->
-        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+        <!-- Tools & Portal Section -->
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-6">
             <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                <h2 class="text-text-main dark:text-white tracking-tight text-[28px] font-bold leading-tight px-4 text-left pb-6 pt-2 flex items-center gap-2" data-lang-ko="모든 도구 및 미니 게임" data-lang-en="All Tools & Mini Games">
-                    <span>⚡</span>
-                    <span data-lang-ko="모든 도구 및 미니 게임" data-lang-en="All Tools & Mini Games">All Tools & Mini Games</span>
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+                
+                <!-- Section Header & Subtitle -->
+                <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
+                    <h2 class="text-text-main dark:text-white tracking-tight text-[28px] font-black leading-tight flex items-center gap-2">
+                        <span>⚡</span>
+                        <span data-lang-ko="디지털 툴 & 게임 포털" data-lang-en="Digital Tools & Game Portal">디지털 툴 & 게임 포털</span>
+                    </h2>
+                    <p class="text-text-muted dark:text-slate-400 text-xs sm:text-sm" data-lang-ko="실생활에 필요한 계산 유틸리티, 결정 도구, 인터랙티브 게임 및 수학·과학 가이드를 만나보세요." data-lang-en="Explore productivity utilities, decision tools, interactive games, and mathematical guides.">실생활에 필요한 계산 유틸리티, 결정 도구, 인터랙티브 게임 및 수학·과학 가이드를 만나보세요.</p>
+                </div>
+
+                <!-- Instant Search & Category Filter Bar -->
+                <div class="px-4 mb-6 flex flex-col md:flex-row gap-3.5 justify-between items-center">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-80">
+                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                        <input type="text" id="portal-search-input" placeholder="도구, 게임, 가이드 검색..." data-lang-ko-ph="도구, 게임, 가이드 검색..." data-lang-en-ph="Search tools, games, guides..." class="w-full pl-10 pr-9 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-text-main dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-sm">
+                        <button id="search-clear-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer">
+                            <span class="material-symbols-outlined text-base">cancel</span>
+                        </button>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="category-filter-bar">
+                        <button data-filter="all" class="category-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-primary text-white shadow-sm cursor-pointer whitespace-nowrap">
+                            <span data-lang-ko="전체 (All)" data-lang-en="All">전체</span>
+                        </button>
+                        <button data-filter="productivity" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🛠️ <span data-lang-ko="생산성" data-lang-en="Productivity">생산성</span>
+                        </button>
+                        <button data-filter="decision" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🎲 <span data-lang-ko="결정·추첨" data-lang-en="Decision">결정·추첨</span>
+                        </button>
+                        <button data-filter="games" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🕹️ <span data-lang-ko="게임" data-lang-en="Games">게임</span>
+                        </button>
+                        <button data-filter="guides" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            📚 <span data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Empty Search Result Alert -->
+                <div id="no-search-results" class="hidden p-8 text-center bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 mx-4 my-4">
+                    <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">search_off</span>
+                    <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="검색 결과가 없습니다." data-lang-en="No results found.">검색 결과가 없습니다.</p>
+                    <p class="text-xs text-text-muted dark:text-slate-400 mt-1" data-lang-ko="다른 검색어를 입력하시거나 카테고리 필터를 변경해 보세요." data-lang-en="Try searching for other keywords or select a different category.">다른 검색어를 입력하시거나 카테고리 필터를 변경해 보세요.</p>
+                </div>
+
+                <!-- Tools & Games Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4" id="tools-cards-grid">
                     
                     <!-- Lotto Generator -->
-                    <a href="/lotto/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/lotto/" data-category="productivity" data-keywords="로또 로또번호 645 복권 번호 생성기 통계 확률 lotto generator" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center text-primary mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">casino</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">Lotto Number Generator</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="행운의 번호를 생성하고 최신 당첨 정보를 확인하세요." data-lang-en="Generate lucky numbers and check the latest winning information.">Generate lucky numbers and check the latest winning information.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center text-primary mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">casino</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-sky-50 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">생산성 & 유틸리티</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="행운의 번호를 생성하고 최신 당첨 통계와 수학적 확률 분석을 확인하세요." data-lang-en="Generate lucky numbers and check probability analysis.">행운의 번호를 생성하고 최신 당첨 통계와 수학적 확률 분석을 확인하세요.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -145,12 +193,15 @@
                     </a>
 
                     <!-- Character Counter -->
-                    <a href="/TextCount/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/TextCount/" data-category="productivity" data-keywords="글자수 글자수세기 바이트 byte utf8 euckr 단어 자소서 자기소개서 text counter" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-900/40 flex items-center justify-center text-cyan-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">description</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">Character Counter</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="문서의 글자 수, 바이트 수를 간편하게 실시간 확인하세요." data-lang-en="Easily check the character and byte count of your documents.">Easily check the character and byte count of your documents.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-900/40 flex items-center justify-center text-cyan-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">description</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 border border-cyan-200 dark:border-cyan-800">생산성 & 유틸리티</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 실시간 계산하세요." data-lang-en="Check character, word, and UTF-8 / EUC-KR byte count in real time.">문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 실시간 계산하세요.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -159,12 +210,15 @@
                     </a>
  
                     <!-- Meme Generator -->
-                    <a href="/meme-generator/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/meme-generator/" data-category="productivity" data-keywords="밈 짤방 짤 짤생성기 meme generator 밈제작 템플릿" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">palette</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">Meme Generator</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="인기 밈 템플릿에 나만의 텍스트를 더하고 자유롭게 편집해 저장하세요." data-lang-en="Add your own text to popular meme templates, customize styles, and save them.">Add your own text to popular meme templates, customize styles, and save them.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">palette</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 border border-amber-200 dark:border-amber-800">크리에이티브</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="인기 밈 템플릿에 나만의 텍스트를 더하고 자유롭게 편집해 고화질로 저장하세요." data-lang-en="Add your own text to popular meme templates, customize styles, and save them.">인기 밈 템플릿에 나만의 텍스트를 더하고 자유롭게 편집해 고화질로 저장하세요.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -173,54 +227,15 @@
                     </a>
 
                     <!-- What to Eat Today? -->
-                    <a href="/eat/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/eat/" data-category="decision" data-keywords="오늘뭐먹지 점심 메뉴 추천 식단 음식 eat lunch food 결정장애" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">restaurant</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">What to Eat Today?</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="결정 장애를 해결해 주는 오늘의 메뉴 추천 룰렛." data-lang-en="Get recommendations for today's menu.">Get recommendations for today's menu.</p>
-                            </div>
-                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
-                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Rock-Paper-Scissors -->
-                    <a href="/Rock-paper-scissors/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
-                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
-                            <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-teal-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">sports_esports</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">Rock-Paper-Scissors Game</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="컴퓨터와 가위바위보 대결을 해보세요." data-lang-en="Play rock-paper-scissors against the computer.">Play rock-paper-scissors against the computer.</p>
-                            </div>
-                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
-                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Ladder Game -->
-                    <a href="/ladder/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
-                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
-                            <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-900/40 flex items-center justify-center text-pink-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">turn_sharp_right</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">Ladder Game</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="친구들과 함께 즐거운 랜덤 내기 사다리 게임을 즐겨보세요." data-lang-en="Enjoy a ladder game with your friends.">Enjoy a ladder game with your friends.</p>
-                            </div>
-                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
-                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Carrot Dodger -->
-                    <a href="/carrot-dodger/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
-                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
-                            <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center text-orange-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">videogame_asset</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">Carrot Dodger</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="떨어지는 당근을 피하고, 맛있는 음식을 획득하세요!" data-lang-en="Avoid the falling carrots and get delicious food!">Avoid the falling carrots and get delicious food!</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">restaurant</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 border border-indigo-200 dark:border-indigo-800">결정 & 추첨</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="점심 결정 장애를 단 3초 만에 해결해 주는 카테고리별 맞춤 메뉴 추천 룰렛." data-lang-en="Get fast recommendations for today's lunch menu.">점심 결정 장애를 단 3초 만에 해결해 주는 카테고리별 맞춤 메뉴 추천 룰렛.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -229,12 +244,66 @@
                     </a>
 
                     <!-- Spin the Wheel (Roulette) -->
-                    <a href="/roulette/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/roulette/" data-category="decision" data-keywords="원판돌리기 룰렛 룰렛게임 추첨 roulette spin wheel 벌칙 랜덤" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">published_with_changes</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">Spin the Wheel</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="옵션들을 적고 원판을 돌려 랜덤으로 결정을 내리세요." data-lang-en="Enter choices and spin the wheel for a random decision.">Enter choices and spin the wheel for a random decision.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">published_with_changes</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-600 border border-purple-200 dark:border-purple-800">결정 & 추첨</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="원판 돌리기 (룰렛)" data-lang-en="Spin the Wheel">원판 돌리기 (룰렛)</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="원하는 옵션을 직접 입력하고 원판을 돌려 공정하고 투명한 결정을 내리세요." data-lang-en="Enter choices and spin the wheel for a random decision.">원하는 옵션을 직접 입력하고 원판을 돌려 공정하고 투명한 결정을 내리세요.</p>
+                            </div>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Ladder Game -->
+                    <a href="/ladder/" data-category="decision" data-keywords="사다리 사다리타기 내기 amidakuji ladder game 대칭군 순서정하기" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-900/40 flex items-center justify-center text-pink-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">turn_sharp_right</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-pink-50 dark:bg-pink-950/60 text-pink-500 border border-pink-200 dark:border-pink-800">결정 & 추첨</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="동료들과 함께 즐기는 공정한 1:1 매칭 무작위 사다리타기 게임." data-lang-en="Enjoy a ladder game with friends and colleagues.">동료들과 함께 즐기는 공정한 1:1 매칭 무작위 사다리타기 게임.</p>
+                            </div>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Rock-Paper-Scissors -->
+                    <a href="/Rock-paper-scissors/" data-category="games" data-keywords="가위바위보 rps rock paper scissors 승률 게임이론 심리전" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-teal-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">sports_esports</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-600 border border-teal-200 dark:border-teal-800">아케이드 게임</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="가위바위보 승률 대결" data-lang-en="Rock-Paper-Scissors Game">가위바위보 승률 대결</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="컴퓨터의 무작위 인공지능을 상대로 게임이론 심리전 대결을 펼쳐보세요." data-lang-en="Play rock-paper-scissors against the computer.">컴퓨터의 무작위 인공지능을 상대로 게임이론 심리전 대결을 펼쳐보세요.</p>
+                            </div>
+                            <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Carrot Dodger -->
+                    <a href="/carrot-dodger/" data-category="games" data-keywords="당근피하기 당근 회피 게임 carrot dodger arcade 아케이드 반응속도" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                        <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center text-orange-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">videogame_asset</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-orange-50 dark:bg-orange-950/60 text-orange-600 border border-orange-200 dark:border-orange-800">아케이드 게임</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="하늘에서 떨어지는 당근을 피하고 맛있는 음식을 획득하는 동체시력 아케이드." data-lang-en="Avoid falling carrots and grab items in this arcade challenge.">하늘에서 떨어지는 당근을 피하고 맛있는 음식을 획득하는 동체시력 아케이드.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -243,12 +312,15 @@
                     </a>
 
                     <!-- Keycap Clicker -->
-                    <a href="/keycap/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/keycap/" data-category="games" data-keywords="키캡 키보드 asmr 기계식 타건 청축 갈축 적축 keycap clicking 소리" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">keyboard</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">Keycap Clicking Game</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="청축, 갈축, 적축 기계식 타건 사운드 ASMR과 타자 연습을 즐겨보세요." data-lang-en="Enjoy mechanical switch sounds ASMR (Blue, Brown, Red) and typing practice.">Enjoy mechanical switch sounds ASMR (Blue, Brown, Red) and typing practice.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">keyboard</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 border border-amber-200 dark:border-amber-800">ASMR & 시뮬레이터</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="기계식 키캡 누르기 ASMR" data-lang-en="Keycap Clicking Game">기계식 키캡 누르기 ASMR</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="청축, 갈축, 적축 기계식 타건 사운드 ASMR과 감성적인 타자 연습을 즐겨보세요." data-lang-en="Enjoy mechanical switch sounds ASMR (Blue, Brown, Red) and typing practice.">청축, 갈축, 적축 기계식 타건 사운드 ASMR과 감성적인 타자 연습을 즐겨보세요.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
@@ -257,18 +329,102 @@
                     </a>
 
                     <!-- Infinite Stairs -->
-                    <a href="/stairs/" class="tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                    <a href="/stairs/" data-category="games" data-keywords="무한의계단 계단오르기 stairs infinite timing reaction 타이밍 리듬" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.18)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.12)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
                         <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">stairs</span></div>
-                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">Infinite Stairs</p>
-                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="방향 전환과 오르기 타이밍에 맞춰 끝없이 계단을 오르며 경쟁하세요." data-lang-en="Turn and climb quickly to scale infinite steps under a timer limit.">Turn and climb quickly to scale infinite steps under a timer limit.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-500 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">stairs</span></div>
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">아케이드 게임</span>
+                                </div>
+                                <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</p>
+                                <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="순발력과 타이밍에 맞춰 끝없이 계단을 오르며 글로벌 최고기록에 도전하세요." data-lang-en="Turn and climb quickly to scale infinite steps under a timer limit.">순발력과 타이밍에 맞춰 끝없이 계단을 오르며 글로벌 최고기록에 도전하세요.</p>
                             </div>
                             <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
                                 <span class="truncate" data-lang-ko="실행하기" data-lang-en="Launch">실행하기</span>
                             </div>
                         </div>
                     </a>
+                </div>
+
+                <!-- Knowledge Guides Section (SEO & Content Anchor) -->
+                <div class="mt-14 px-4" id="guides">
+                    <div class="flex items-center justify-between pb-6">
+                        <div>
+                            <h3 class="text-text-main dark:text-white text-2xl font-black tracking-tight flex items-center gap-2">
+                                <span>📚</span>
+                                <span data-lang-ko="추천 지식 가이드 & 칼럼" data-lang-en="Featured Knowledge Guides">추천 지식 가이드 & 칼럼</span>
+                            </h3>
+                            <p class="text-text-muted dark:text-slate-400 text-xs sm:text-sm mt-1" data-lang-ko="도구의 수학적 원리, 컴퓨터 과학 이론, 실생활 활용법을 심층 분석한 전문 아티클입니다." data-lang-en="In-depth editorial articles analyzing the math, science, and use-cases of our tools.">도구의 수학적 원리, 컴퓨터 과학 이론, 실생활 활용법을 심층 분석한 전문 아티클입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="guides-cards-grid">
+                        
+                        <!-- Guide 1: Lotto Math -->
+                        <a href="/guides/lotto-mathematics.html" data-category="guides" data-keywords="로또 수학 확률 조합 통계 몬테카를로 독립시행 도박사의오류 lotto math" class="portal-card group p-5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-primary transition-all flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950/60 text-primary mb-2.5 inline-block">수학 & 확률</span>
+                                <h4 class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-snug mb-2">로또 6/45 당첨 확률 814만 분의 1의 수학적 증명과 통계학적 진실</h4>
+                                <p class="text-xs text-text-muted dark:text-slate-400 line-clamp-2 leading-relaxed">조합 공식으로 증명하는 당첨 확률과 독립시행의 법칙, 몬테카를로 시뮬레이션의 원리 분석.</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold text-primary mt-4">
+                                <span>가이드 읽기</span>
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </div>
+                        </a>
+
+                        <!-- Guide 2: Character Byte -->
+                        <a href="/guides/korean-byte-character-guide.html" data-category="guides" data-keywords="글자수 바이트 byte utf8 euckr 자소서 인코딩 유니코드 character count" class="portal-card group p-5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-primary transition-all flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-cyan-100 dark:bg-cyan-950/60 text-cyan-600 mb-2.5 inline-block">컴퓨터 과학</span>
+                                <h4 class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-snug mb-2">한글 바이트(Byte)와 글자 수 계산의 완벽 가이드: UTF-8 vs EUC-KR</h4>
+                                <p class="text-xs text-text-muted dark:text-slate-400 line-clamp-2 leading-relaxed">2바이트와 3바이트의 인코딩 차이와 채용 자기소개서 글자수 제한 100% 맞춤 공략법.</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold text-primary mt-4">
+                                <span>가이드 읽기</span>
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </div>
+                        </a>
+
+                        <!-- Guide 3: Game Theory RPS & Ladder -->
+                        <a href="/guides/game-theory-and-psychology.html" data-category="guides" data-keywords="게임이론 가위바위보 사다리 대칭군 내시균형 winstay 심리학 math" class="portal-card group p-5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-primary transition-all flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-teal-100 dark:bg-teal-950/60 text-teal-600 mb-2.5 inline-block">게임 이론</span>
+                                <h4 class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-snug mb-2">가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군</h4>
+                                <p class="text-xs text-text-muted dark:text-slate-400 line-clamp-2 leading-relaxed">존 내시의 내시 균형, 인간의 승자유지-패자변경 심리 및 사다리 치환 함수의 수학적 증명.</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold text-primary mt-4">
+                                <span>가이드 읽기</span>
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </div>
+                        </a>
+
+                        <!-- Guide 4: Keyboard ASMR -->
+                        <a href="/guides/mechanical-keyboard-guide.html" data-category="guides" data-keywords="키보드 기계식 청축 갈축 적축 스위치 키압 타건 asmr 소음 keyboard" class="portal-card group p-5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-primary transition-all flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950/60 text-amber-600 mb-2.5 inline-block">하드웨어 & 음향</span>
+                                <h4 class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-snug mb-2">기계식 키보드 스위치 비교: 청축, 갈축, 적축의 물리적 차이와 ASMR</h4>
+                                <p class="text-xs text-text-muted dark:text-slate-400 line-clamp-2 leading-relaxed">클릭, 넌클릭, 리니어 스위치의 내부 구조와 키압, 뇌파를 안정시키는 타건음의 원리.</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold text-primary mt-4">
+                                <span>가이드 읽기</span>
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </div>
+                        </a>
+
+                        <!-- Guide 5: Decision Fatigue -->
+                        <a href="/guides/decision-making-tools.html" data-category="guides" data-keywords="결정장애 결정피로 점심메뉴 추천 룰렛 심리학 인지부하 선택 decision fatigue" class="portal-card group p-5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-primary transition-all flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950/60 text-purple-600 mb-2.5 inline-block">행동 심리학</span>
+                                <h4 class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-snug mb-2">결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학</h4>
+                                <p class="text-xs text-text-muted dark:text-slate-400 line-clamp-2 leading-relaxed">하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 식단 추천의 인지과학.</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold text-primary mt-4">
+                                <span>가이드 읽기</span>
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="로또 6/45 당첨 확률과 통계학의 진실 - ToolBox 지식 가이드" data-lang-en="Lotto 6/45 Probability & Statistical Truths - ToolBox Guide">로또 6/45 당첨 확률과 통계학의 진실 - ToolBox 지식 가이드</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="로또 6/45의 1등 당첨 확률 814만 분의 1의 수학적 유도 과정, 독립시행과 도박사의 오류, 몬테카를로 알고리즘을 통한 번호 추출 원리를 심층 분석합니다." data-lang-ko="로또 6/45의 1등 당첨 확률 814만 분의 1의 수학적 유도 과정, 독립시행과 도박사의 오류, 몬테카를로 알고리즘을 통한 번호 추출 원리를 심층 분석합니다." data-lang-en="In-depth analysis of Lotto 6/45 winning probability (1 in 8.14M), independent trials, gambler's fallacy, and Monte Carlo simulation algorithms.">
+    <link rel="canonical" href="https://tossgpt.online/guides/lotto-mathematics.html">
+    <meta property="og:title" content="로또 6/45 당첨 확률과 통계학의 진실">
+    <meta property="og:description" content="수학 공식으로 파헤치는 로또 6/45 당첨 확률과 독립시행의 과학적 분석">
+    <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
+    <meta property="og:url" content="https://tossgpt.online/guides/lotto-mathematics.html">
+    
+    <!-- Design & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="layout-container flex h-full grow flex-col justify-center py-8 md:py-12 px-4 md:px-20 lg:px-40">
+        <div class="layout-content-container flex flex-col max-w-[860px] mx-auto w-full">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-xs font-medium text-text-muted dark:text-slate-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    <span data-lang-ko="홈" data-lang-en="Home">홈</span>
+                </a>
+                <span>/</span>
+                <a href="/#guides" class="hover:text-primary transition-colors" data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</a>
+                <span>/</span>
+                <span class="text-text-main dark:text-white font-bold" data-lang-ko="로또 수학과 확률" data-lang-en="Lotto Mathematics">로또 수학과 확률</span>
+            </nav>
+
+            <article class="bg-card-bg-light dark:bg-card-bg-dark p-6 sm:p-12 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-700/80 prose dark:prose-invert max-w-none">
+                
+                <!-- Category Tag & Meta -->
+                <div class="flex flex-wrap items-center gap-3 not-prose mb-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">
+                        수학 & 확률 통계 (Mathematics & Probability)
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span> 2026.09.11
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">timer</span> 읽는 시간 약 6분
+                    </span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-text-main dark:text-white mb-6">
+                    로또 6/45 당첨 확률의 수학적 증명과 통계학적 진실
+                </h1>
+
+                <p class="lead text-lg text-text-muted dark:text-slate-300 leading-relaxed">
+                    매주 수백만 명이 일확천금의 희망을 품고 구매하는 로또 6/45. 많은 사람이 '자주 나오는 번호'나 '최근 안 나온 번호'를 찾으며 패턴을 분석하려 애씁니다. 하지만 수학과 통계학의 관점에서 로또 번호는 어떤 법칙을 따르고 있을까요? 1등 당첨 확률 814만 분의 1의 수학적 유도부터 몬테카를로 시뮬레이션 난수 생성의 과학적 원리까지 깊이 있게 파헤쳐 봅니다.
+                </p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700">
+
+                <h2>1. 1등 당첨 확률 $1 / 8,145,060$의 수학적 유도</h2>
+                <p>
+                    한국의 로또 6/45는 1부터 45까지 적힌 45개의 공 중에서 순서에 상관없이 서로 다른 6개의 숫자를 맞히는 게임입니다. 이때 가능한 모든 6개 숫자 조합의 총 가짓수는 수학의 <strong>조합론(Combinatorics)</strong> 공식인 $_nC_r$로 계산됩니다.
+                </p>
+
+                <div class="not-prose my-6 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 font-mono text-center text-sm md:text-base">
+                    $$_{45}C_6 = \frac{45 \times 44 \times 43 \times 42 \times 41 \times 40}{6 \times 5 \times 4 \times 3 \times 2 \times 1} = \frac{5,864,443,200}{720} = 8,145,060$$
+                </div>
+
+                <p>
+                    즉, 로또 1장을 구매했을 때 1등에 당첨될 정확한 수학적 확률은 <strong>$\frac{1}{8,145,060}$ (약 0.00001227%)</strong>입니다. 이는 한 사람이 벼락에 맞을 확률(약 50만 분의 1)보다 훨씬 희박한 수치입니다.
+                </p>
+
+                <h3>등수별 당첨 조건 및 수학적 확률 비교표</h3>
+                <div class="not-prose overflow-x-auto my-6">
+                    <table class="w-full text-left text-sm border-collapse border border-slate-200 dark:border-slate-700">
+                        <thead class="bg-slate-100 dark:bg-slate-800 text-text-main dark:text-white">
+                            <tr>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">등수</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">일치 조건</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">조합 경우의 수</th>
+                                <th class="p-3 border border-slate-200 dark:border-slate-700">당첨 확률</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700 text-text-muted dark:text-slate-300">
+                            <tr>
+                                <td class="p-3 font-bold text-primary">1등</td>
+                                <td class="p-3">6개 번호 모두 일치</td>
+                                <td class="p-3">1</td>
+                                <td class="p-3">1 / 8,145,060 (0.000012%)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">2등</td>
+                                <td class="p-3">5개 번호 + 보너스 번호 일치</td>
+                                <td class="p-3">6</td>
+                                <td class="p-3">1 / 1,357,510 (0.000073%)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">3등</td>
+                                <td class="p-3">5개 번호 일치</td>
+                                <td class="p-3">228</td>
+                                <td class="p-3">1 / 35,724 (0.0028%)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">4등</td>
+                                <td class="p-3">4개 번호 일치 (고정 5만원)</td>
+                                <td class="p-3">11,115</td>
+                                <td class="p-3">1 / 733 (0.136%)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">5등</td>
+                                <td class="p-3">3개 번호 일치 (고정 5천원)</td>
+                                <td class="p-3">182,780</td>
+                                <td class="p-3">1 / 45 (2.24%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>2. 독립 시행(Independent Trials)과 도박사의 오류</h2>
+                <p>
+                    많은 복권 분석가들이 "지난주에 7번이 나왔으니 이번 주에는 나오지 않을 것이다"라거나 "최근 10회 동안 23번이 한 번도 안 나왔으니 곧 나올 때가 되었다"고 주장합니다.
+                </p>
+                <p>
+                    그러나 확률론에서 로또 추첨은 엄격한 <strong>독립 시행(Independent Event)</strong>입니다. 매주 추첨기계에 들어가는 45개의 공은 과거에 자신이 몇 번 뽑혔는지 기억하지 못합니다(Memoryless Property). 이전 1,000회 동안 1번 공이 매주 나왔든 단 한 번도 나오지 않았든, <strong>이번 회차에서 1번 공이 추첨될 확률은 변함없이 정확히 $\frac{6}{45} = \frac{2}{15} \approx 13.33\%$</strong>입니다.
+                </p>
+                <p>
+                    과거의 독립적인 결과가 미래의 결과에 영향을 미칠 것이라 믿는 착각을 심리학과 경제학에서는 <strong>도박사의 오류(Gambler's Fallacy)</strong>라고 부릅니다.
+                </p>
+
+                <h2>3. 컴퓨터 난수 생성과 몬테카를로 시뮬레이션</h2>
+                <p>
+                    인간이 직접 번호를 선택하면 무의식적으로 생일(1~31), 연속 번호 기피, 기하학적 배열 등의 편향(Cognitive Bias)이 발생합니다. 이는 만약 당첨되더라도 동일 번호 당첨자가 많아져 수령액이 크게 줄어드는 역효과를 낳습니다.
+                </p>
+                <p>
+                    ToolBox의 <a href="/lotto/" class="text-primary font-bold underline">로또 번호 생성기</a>는 브라우저 내장 암호학적 난수생성기(Cryptographically Secure Pseudo-Random Number Generator, CSPRNG)를 활용하여 편향 없는 순수 무작위 균등 분포를 구현합니다. 45개의 번호가 100% 동일한 확률로 선택되므로, 인간의 심리적 편향에 휘둘리지 않고 통계적으로 독립된 번호 조합을 추출할 수 있습니다.
+                </p>
+
+                <h2>4. 자주 묻는 질문 (FAQ)</h2>
+                <div class="not-prose space-y-4 my-6">
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-text-main dark:text-white mb-2">Q. '1, 2, 3, 4, 5, 6' 같은 연속 번호도 당첨 확률이 같나요?</h4>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">
+                            네, 완벽하게 같습니다. [1, 2, 3, 4, 5, 6] 조합이 나올 확률도 정확히 8,145,060분의 1입니다. 다만 이 조합은 호기심으로 수천 명이 함께 마킹하기 때문에, 만약 당첨되더라도 1등 당첨금을 수천 명이 나누어 가져야 하므로 실질적인 기대 수령액은 극히 낮아집니다.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-text-main dark:text-white mb-2">Q. 자동으로 사는 것과 수동으로 사는 것 중 무엇이 유리한가요?</h4>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">
+                            수학적 당첨 확률은 100% 동일합니다. 통계청과 동행복권 자료에 따르면 1등 당첨자 중 약 70%가 자동, 25%가 수동, 5%가 반자동입니다. 이는 자동 구매자가 전체 구매액의 약 70%를 차지하기 때문에 나타나는 당연한 비례 통계일 뿐입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="not-prose my-10 p-6 rounded-3xl bg-gradient-to-r from-sky-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 border border-sky-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-bold text-base text-text-main dark:text-white mb-1">지금 행운의 번호를 추출해 보세요!</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400">ToolBox의 균등 난수 알고리즘으로 오늘의 추천 번호를 확인하세요.</p>
+                    </div>
+                    <a href="/lotto/" class="btn-tactile px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold whitespace-nowrap shadow-md">
+                        로또 번호 생성기 실행하기 →
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "로또 6/45 당첨 확률과 통계학의 진실",
+      "description": "로또 6/45의 1등 당첨 확률 814만 분의 1의 수학적 유도 과정과 통계학적 진실을 정리한 전문 지식 가이드",
+      "author": {
+        "@type": "Organization",
+        "name": "ToolBox Editorial Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ToolBox",
+        "url": "https://tossgpt.online"
+      },
+      "datePublished": "2026-09-11",
+      "mainEntityOfPage": "https://tossgpt.online/guides/lotto-mathematics.html"
+    }
+    </script>
+</body>
+</html>

@@ -182,8 +182,21 @@
                 </div>
             </section>
 
+            <!-- Guide Link Banner -->
+            <div class="w-full max-w-4xl mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="space-y-2 text-center sm:text-left">
+                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">수학 & 대칭군 가이드</span>
+                    <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명" data-lang-en="Mathematics of Amidakuji: Symmetric Groups & Permutations">사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명</h3>
+                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요." data-lang-en="Explore the algebraic proof of bijective permutation mappings and how horizontal rungs create binomial probability distributions.">사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요.</p>
+                </div>
+                <a href="../guides/game-theory-and-psychology.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                    <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
             <!-- Blog Section: Ladder Game Probability & Secret Strategy -->
-            <div class="mt-16 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
+            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
                 <!-- Korean Version -->
                 <div class="lang-only-ko">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
@@ -210,6 +223,23 @@
                                 <li><strong>사다리의 밀도(가로줄 개수)를 관찰하라:</strong> 사다리를 생성할 때 가로줄 개수가 적을수록 무작위 행보의 굴곡이 발생하지 않아 바로 밑으로 직행할 확률이 70% 이상으로 올라갑니다. 가로줄이 적게 설정되어 있다면 100% 수직 정조준 전략을 사용해야 합니다.</li>
                                 <li><strong>경계선(가장자리)을 공략하라:</strong> 1번 선이나 마지막 번호선은 좌우 중 한쪽 방향으로만 다리가 연결되기 때문에, 사다리 중앙선에 위치한 참가자들에 비해 반대편 반경으로 튕겨 나갈 확률이 가장 적어 경로 예측이 훨씬 수월합니다.</li>
                             </ul>
+                        </section>
+
+                        <!-- FAQ Section (KO) -->
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-xl">help</span> 4. 자주 묻는 질문 (FAQ)
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 두 사람이 같은 결과 슬롯에 도착하는 일이 발생할 수 있나요?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">수학적으로 절대 불가능합니다. 각 가로선은 인접한 두 수직선의 위치를 교환하는 대칭군 호환(Transposition)으로 작용하므로, 아무리 복잡한 사다리라도 출발지와 도착지는 항상 1대1 전단사 함수(Bijective Mapping)를 이룹니다.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 사다리를 가장 공평하게 만들려면 가로줄을 몇 개나 두어야 하나요?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">참가자가 N명일 때 수직 강하 편향을 최소화하고 모든 참가자가 모든 결과 칸에 균등한 확률로 도달하려면, 가로선의 개수가 최소 O(N²) 이상 충분히 촘촘하게 배치되어야 합니다.</p>
+                                </div>
+                            </div>
                         </section>
                     </div>
                 </div>
@@ -241,6 +271,19 @@
                                 <li><strong>Prefer the Edges:</strong> The leftmost and rightmost lines only allow rungs in one direction. This restriction makes their paths highly predictable compared to middle lines that can divert in both directions.</li>
                             </ul>
                         </section>
+
+                        <!-- FAQ Section (EN) -->
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-xl">help</span> 4. Frequently Asked Questions (FAQ)
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. Can two players ever land on the exact same outcome?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">No. Mathematically, rungs represent adjacent transpositions in symmetric group theory, ensuring that every configuration produces a strict bijective (1-to-1) mapping.</p>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -255,10 +298,36 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "사다리 게임 - 온라인 도구모음",
-      "description": "온라인 사다리 게임으로 친구들과 함께 즐거운 내기를 해보세요. 참가자 수와 결과를 입력하고 바로 시작할 수 있습니다.",
-      "url": "https://tossgpt.online/ladder/index.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://tossgpt.online/ladder/index.html",
+          "name": "사다리 게임 및 수학적 확률 분석 - 온라인 도구모음",
+          "description": "온라인 사다리 게임으로 복불복 내기와 대결을 즐기고 대칭군 치환 이론과 수직 강하 편향의 수학적 확률을 확인하세요.",
+          "url": "https://tossgpt.online/ladder/index.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "두 사람이 같은 결과 칸에 도달할 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "사다리의 가로선은 인접 호환으로 작용하여 항상 일대일 전단사 매칭을 보장하므로 중복 당첨은 불가능합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "사다리타기에서 출발점 바로 밑이 당첨될 확률이 왜 더 높은가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "가로줄이 무한히 많지 않은 이상 경로는 유한 무작위 행보를 따르며, 출발선 주변으로 이항분포 형태의 수직 강하 편향이 나타나기 때문입니다."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </body>

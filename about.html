@@ -50,11 +50,53 @@
 
     <main class="px-4 md:px-40 flex flex-1 justify-center py-5">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="prose dark:prose-invert max-w-none w-full bg-card-bg-light dark:bg-card-bg-dark p-8 md:p-12 rounded-xl shadow-md">
-                <h1 data-lang-ko="소개" data-lang-en="About Us">About Us</h1>
-                <p data-lang-ko="저희 온라인 도구모음 사이트는 복잡한 설치 과정 없이 누구나 웹 브라우저만으로 쉽게 사용할 수 있는 다양한 편의 기능을 제공하는 것을 목표로 합니다." data-lang-en="Our Online Toolkit site aims to provide a variety of convenient features that anyone can easily use with just a web browser, without any complicated installation process.">Our Online Toolkit site aims to provide a variety of convenient features that anyone can easily use with just a web browser, without any complicated installation process.</p>
-                <p data-lang-ko="로또 번호 생성기, 글자 수 세기, 오늘 뭐 먹지?, 가위바위보, 사다리 게임, 당근 피하기 게임 등 재미있고 유용한 도구들을 지속적으로 추가하고 있습니다." data-lang-en="We are constantly adding fun and useful tools such as a Lotto Number Generator, Character Counter, What to Eat Today?, Rock-Paper-Scissors, Ladder Game, and Carrot Dodger Game.">We are constantly adding fun and useful tools such as a Lotto Number Generator, Character Counter, What to Eat Today?, Rock-Paper-Scissors, Ladder Game, and Carrot Dodger Game.</p>
-                <p data-lang-ko="저희 사이트를 방문해주셔서 감사합니다." data-lang-en="Thank you for visiting our site.">Thank you for visiting our site.</p>
+            <div class="prose dark:prose-invert max-w-none w-full bg-card-bg-light dark:bg-card-bg-dark p-8 md:p-14 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-700/80">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/70 border border-sky-200 dark:border-sky-800 text-primary text-xs font-bold shadow-sm mb-4">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span data-lang-ko="About ToolBox" data-lang-en="About ToolBox">About ToolBox</span>
+                </div>
+
+                <h1 class="text-3xl md:text-5xl font-black text-text-main dark:text-white tracking-tight mb-4" data-lang-ko="ToolBox 소개 및 운영 철학" data-lang-en="About ToolBox & Editorial Mission">ToolBox 소개 및 운영 철학</h1>
+                
+                <p class="text-base md:text-lg text-text-muted dark:text-slate-300 leading-relaxed mb-8" data-lang-ko="ToolBox는 '일상 속 작은 문제들을 가장 빠르고 유쾌하게 해결한다'는 비전 아래 기획된 온라인 유틸리티 도구 및 인터랙티브 웹 게임 지식 포털입니다. 회원가입이나 번거로운 소프트웨어 설치 없이, 전 세계 표준 웹 브라우저만으로 누구나 신뢰할 수 있는 정확한 계산과 인터랙티브한 즐거움을 누릴 수 있는 공간을 지향합니다." data-lang-en="ToolBox is an online utility toolkit and interactive web game knowledge portal founded on the vision of 'solving everyday micro-problems in the fastest, most delightful way.' Without requiring sign-ups or cumbersome software installations, we provide a trustworthy space where anyone can access accurate computations and interactive entertainment through web standards.">ToolBox는 '일상 속 작은 문제들을 가장 빠르고 유쾌하게 해결한다'는 비전 아래 기획된 온라인 유틸리티 도구 및 인터랙티브 웹 게임 지식 포털입니다. 회원가입이나 번거로운 소프트웨어 설치 없이, 전 세계 표준 웹 브라우저만으로 누구나 신뢰할 수 있는 정확한 계산과 인터랙티브한 즐거움을 누릴 수 있는 공간을 지향합니다.</p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700">
+
+                <h2 data-lang-ko="1. ToolBox가 지키는 3대 핵심 가치" data-lang-en="1. Our Three Core Values">1. ToolBox가 지키는 3대 핵심 가치</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-6">
+                    <div class="p-6 rounded-2xl bg-sky-50/50 dark:bg-slate-800/50 border border-sky-100 dark:border-slate-700">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-3">lock</span>
+                        <h3 class="text-base font-bold text-text-main dark:text-white mb-2" data-lang-ko="프라이버시 & 무서버 저장" data-lang-en="Client-Side Privacy">프라이버시 & 무서버 저장</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed" data-lang-ko="글자수 세기, 밈 생성 등 사용자가 입력한 텍스트와 이미지는 절대 외부 서버로 전송되거나 저장되지 않으며, 사용자 기기(브라우저) 내에서만 안전하게 연산됩니다." data-lang-en="Text and images entered by users are never transmitted or stored on external servers, remaining 100% secure in your local browser sandbox.">글자수 세기, 밈 생성 등 사용자가 입력한 텍스트와 이미지는 절대 외부 서버로 전송되거나 저장되지 않으며, 사용자 기기(브라우저) 내에서만 안전하게 연산됩니다.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-indigo-50/50 dark:bg-slate-800/50 border border-indigo-100 dark:border-slate-700">
+                        <span class="material-symbols-outlined text-indigo-500 text-3xl mb-3">calculate</span>
+                        <h3 class="text-base font-bold text-text-main dark:text-white mb-2" data-lang-ko="투명한 수학적 알고리즘" data-lang-en="Deterministic Accuracy">투명한 수학적 알고리즘</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed" data-lang-ko="로또 번호의 균등 난수 분포, 사다리타기의 치환군 수학 법칙, 한글 바이트 인코딩(UTF-8 vs EUC-KR) 공식 등 검증된 표준 알고리즘만을 철저히 적용합니다." data-lang-en="We strictly adhere to verified standard algorithms, including uniform random distributions, permutation group math, and character byte encoding standards.">로또 번호의 균등 난수 분포, 사다리타기의 치환군 수학 법칙, 한글 바이트 인코딩(UTF-8 vs EUC-KR) 공식 등 검증된 표준 알고리즘만을 철저히 적용합니다.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-emerald-50/50 dark:bg-slate-800/50 border border-emerald-100 dark:border-slate-700">
+                        <span class="material-symbols-outlined text-emerald-500 text-3xl mb-3">speed</span>
+                        <h3 class="text-base font-bold text-text-main dark:text-white mb-2" data-lang-ko="60FPS 인터랙티브 경험" data-lang-en="High-Performance 60FPS">60FPS 인터랙티브 경험</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed" data-lang-ko="무거운 라이브러리 남발을 지양하고, 순수 Web Audio API와 Canvas 3D 인터랙션을 최적화하여 저사양 기기와 모바일에서도 렉 없는 쾌적한 촉각적 손맛을 제공합니다." data-lang-en="By leveraging procedural Web Audio synthesis and optimized Canvas 3D mathematics, we ensure lightning-fast 60FPS fluid interactions across all mobile and desktop devices.">무거운 라이브러리 남발을 지양하고, 순수 Web Audio API와 Canvas 3D 인터랙션을 최적화하여 저사양 기기와 모바일에서도 렉 없는 쾌적한 촉각적 손맛을 제공합니다.</p>
+                    </div>
+                </div>
+
+                <h2 data-lang-ko="2. 포털 서비스 영역 및 구성" data-lang-en="2. Service Architecture & Domains">2. 포털 서비스 영역 및 구성</h2>
+                <ul>
+                    <li data-lang-ko="<strong>생산성 유틸리티 (Productivity Suite):</strong> 글자 수 및 바이트 계산기, 역대 로또 통계 분석기, 짤방·밈 커스텀 에디터" data-lang-en="<strong>Productivity Suite:</strong> Character and Byte Counter, Historical Lotto Statistical Analyzer, Custom Meme Generator"><strong>생산성 유틸리티 (Productivity Suite):</strong> 글자 수 및 바이트 계산기, 역대 로또 통계 분석기, 짤방·밈 커스텀 에디터</li>
+                    <li data-lang-ko="<strong>결정 & 추첨 도구 (Decision & Randomness):</strong> 직장인 점심 메뉴 큐레이터(오늘 뭐 먹지?), 커스텀 룰렛 원판, 공정한 사다리타기 게임" data-lang-en="<strong>Decision & Randomness:</strong> Lunch Menu Decision Maker, Customizable Spin Wheel, Fair Ladder Game"><strong>결정 & 추첨 도구 (Decision & Randomness):</strong> 직장인 점심 메뉴 큐레이터(오늘 뭐 먹지?), 커스텀 룰렛 원판, 공정한 사다리타기 게임</li>
+                    <li data-lang-ko="<strong>아케이드 & 엔터테인먼트 (Arcade & Play):</strong> 타이밍 반응속도 훈련(무한의 계단), 동체시력 게임(당근 피하기), 기계식 키캡 ASMR 사운드 시뮬레이터, 심리 게임(가위바위보)" data-lang-en="<strong>Arcade & Play:</strong> Timing & Reaction Training (Infinite Stairs), Motion Vision Dodger (Carrot Dodger), Mechanical Keycap ASMR Simulator, Game Theory RPS"><strong>아케이드 & 엔터테인먼트 (Arcade & Play):</strong> 타이밍 반응속도 훈련(무한의 계단), 동체시력 게임(당근 피하기), 기계식 키캡 ASMR 사운드 시뮬레이터, 심리 게임(가위바위보)</li>
+                    <li data-lang-ko="<strong>지식 & 가이드 허브 (Knowledge Guides):</strong> 각 도구의 수학적 배경, 알고리즘 분석, 실생활 활용 팁을 제공하는 심층 칼럼 섹션" data-lang-en="<strong>Knowledge Guides:</strong> In-depth editorial articles detailing the mathematical foundations, algorithms, and practical applications of each tool"><strong>지식 & 가이드 허브 (Knowledge Guides):</strong> 각 도구의 수학적 배경, 알고리즘 분석, 실생활 활용 팁을 제공하는 심층 칼럼 섹션</li>
+                </ul>
+
+                <h2 data-lang-ko="3. 콘텐츠 검증 및 에디토리얼 가이드라인" data-lang-en="3. Editorial Guidelines & Quality Standards">3. 콘텐츠 검증 및 에디토리얼 가이드라인</h2>
+                <p data-lang-ko="ToolBox의 모든 아티클과 알고리즘은 공신력 있는 컴퓨터 과학 표준(Unicode Consortium, IEEE)과 확률 통계학의 수학적 원리를 바탕으로 자체 에디토리얼 팀이 작성 및 검증합니다. 독자에게 정확하고 실용적인 정보를 전달하기 위해 주기적으로 계산 정확도를 재검증하고 최신 웹 표준을 업데이트하고 있습니다." data-lang-en="All articles and algorithms on ToolBox are written and verified by our editorial team based on recognized computer science standards (Unicode Consortium, IEEE) and mathematical principles. We regularly verify computational accuracy and update web standards to deliver reliable information to our readers.">ToolBox의 모든 아티클과 알고리즘은 공신력 있는 컴퓨터 과학 표준(Unicode Consortium, IEEE)과 확률 통계학의 수학적 원리를 바탕으로 자체 에디토리얼 팀이 작성 및 검증합니다. 독자에게 정확하고 실용적인 정보를 전달하기 위해 주기적으로 계산 정확도를 재검증하고 최신 웹 표준을 업데이트하고 있습니다.</p>
+
+                <h2 data-lang-ko="4. 문의 및 피드백" data-lang-en="4. Feedback & Inquiries">4. 문의 및 피드백</h2>
+                <p data-lang-ko="ToolBox는 사용자의 소중한 피드백을 통해 끊임없이 진화합니다. 새로운 도구에 대한 아이디어나 오류 제보는 언제든지 <a href='/contact.html' class='text-primary underline font-bold'>공식 문의하기 페이지</a> 또는 <a href='mailto:contact@tossgpt.online' class='text-primary underline font-bold'>contact@tossgpt.online</a>으로 전해주시기 바랍니다." data-lang-en="ToolBox continuously evolves through user feedback. If you have ideas for new tools or found any bug, please feel free to reach out via our <a href='/contact.html' class='text-primary underline font-bold'>Contact Page</a> or <a href='mailto:contact@tossgpt.online' class='text-primary underline font-bold'>contact@tossgpt.online</a>.">ToolBox는 사용자의 소중한 피드백을 통해 끊임없이 진화합니다. 새로운 도구에 대한 아이디어나 오류 제보는 언제든지 <a href="/contact.html" class="text-primary underline font-bold">공식 문의하기 페이지</a> 또는 <a href="mailto:contact@tossgpt.online" class="text-primary underline font-bold">contact@tossgpt.online</a>으로 전해주시기 바랍니다.</p>
             </div>
         </div>
     </main>

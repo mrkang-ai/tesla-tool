@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="가위바위보와 사다리타기로 배우는 게임 이론과 수학 - ToolBox 지식 가이드" data-lang-en="Game Theory & Math in RPS and Ladder Games - ToolBox Guide">가위바위보와 사다리타기로 배우는 게임 이론과 수학 - ToolBox 지식 가이드</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="가위바위보의 내시 균형(Nash Equilibrium)과 심리 전략(Win-Stay, Lose-Shift), 사다리타기 게임의 대칭군(Symmetric Group) 치환 수학 원리를 쉽게 설명합니다." data-lang-ko="가위바위보의 내시 균형(Nash Equilibrium)과 심리 전략(Win-Stay, Lose-Shift), 사다리타기 게임의 대칭군(Symmetric Group) 치환 수학 원리를 쉽게 설명합니다." data-lang-en="Explore game theory and mathematics in everyday games: Nash equilibrium and psychological strategies in Rock-Paper-Scissors, and symmetric group permutations in ladder games.">
+    <link rel="canonical" href="https://tossgpt.online/guides/game-theory-and-psychology.html">
+    <meta property="og:title" content="가위바위보와 사다리타기로 배우는 게임 이론과 수학">
+    <meta property="og:description" content="내시 균형과 대칭군 치환으로 파헤치는 일상 미니게임의 수학적 원리">
+    <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
+    <meta property="og:url" content="https://tossgpt.online/guides/game-theory-and-psychology.html">
+    
+    <!-- Design & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="layout-container flex h-full grow flex-col justify-center py-8 md:py-12 px-4 md:px-20 lg:px-40">
+        <div class="layout-content-container flex flex-col max-w-[860px] mx-auto w-full">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-xs font-medium text-text-muted dark:text-slate-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    <span data-lang-ko="홈" data-lang-en="Home">홈</span>
+                </a>
+                <span>/</span>
+                <a href="/#guides" class="hover:text-primary transition-colors" data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</a>
+                <span>/</span>
+                <span class="text-text-main dark:text-white font-bold" data-lang-ko="게임 이론과 수학" data-lang-en="Game Theory & Math">게임 이론과 수학</span>
+            </nav>
+
+            <article class="bg-card-bg-light dark:bg-card-bg-dark p-6 sm:p-12 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-700/80 prose dark:prose-invert max-w-none">
+                
+                <!-- Category Tag & Meta -->
+                <div class="flex flex-wrap items-center gap-3 not-prose mb-6">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-100 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+                        게임 이론 & 응용 수학 (Game Theory & Mathematics)
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span> 2026.09.11
+                    </span>
+                    <span class="text-xs text-text-muted dark:text-slate-400 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">timer</span> 읽는 시간 약 6분
+                    </span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-text-main dark:text-white mb-6">
+                    가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군
+                </h1>
+
+                <p class="lead text-lg text-text-muted dark:text-slate-300 leading-relaxed">
+                    점심 식사 내기를 하거나 순서를 정할 때 우리는 매일 가위바위보를 하고 사다리를 탑니다. 지극히 단순해 보이는 이 게임들 이면에는 노벨 경제학상을 낳은 '게임 이론(Game Theory)'과 현대 대수학의 핵심 이론인 '대칭군(Symmetric Group)'이라는 놀라운 수학적 질서가 숨어 있습니다. 일상 게임으로 배우는 재미있는 수학 이야기를 소개합니다.
+                </p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700">
+
+                <h2>1. 가위바위보와 내시 균형(Nash Equilibrium)</h2>
+                <p>
+                    가위바위보는 한 사람의 이득이 상대방의 손실이 되는 대표적인 <strong>2인 제로섬 게임(Two-player Zero-Sum Game)</strong>입니다. 바위는 가위를 이기고, 가위는 보를 이기며, 보는 바위를 이기는 순환 대칭 구조(Cyclic Symmetry)를 이룹니다.
+                </p>
+                <p>
+                    영화 《뷰티풀 마인드》의 주인공 존 내시(John Nash)가 정립한 <strong>내시 균형(Nash Equilibrium)</strong>에 따르면, 상대방이 전략을 바꾸지 않는 한 내가 전략을 바꿔도 더 나은 보상을 얻을 수 없는 안정 상태가 존재합니다.
+                </p>
+                <p>
+                    가위바위보에서의 유일한 내시 균형은 바로 <strong>'가위, 바위, 보를 각각 정확히 $\frac{1}{3}$의 확률로 완전히 무작위로 내는 혼합 전략(Mixed Strategy)'</strong>입니다. 내가 $\frac{1}{3}$ 무작위 전략을 구사하면, 상대방이 어떤 천재적인 수싸움을 걸어오더라도 나의 장기 승률은 정확히 50%(비김 제외 시 승/패 1:1)로 방어됩니다.
+                </p>
+
+                <h2>2. 인간의 뇌를 공략하는 심리 전략: Win-Stay, Lose-Shift</h2>
+                <p>
+                    하지만 사람은 컴퓨터처럼 진정한 $\frac{1}{3}$ 난수를 생성하지 못합니다. 중국 저장대학교(Zhejiang University) 연구진이 수백 명의 참가자를 대상으로 대규모 가위바위보 토너먼트를 분석한 결과, 인간에게는 명확한 무의식적 행동 패턴이 있음을 발견했습니다.
+                </p>
+                <div class="not-prose my-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl bg-emerald-50/50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-emerald-700 dark:text-emerald-300 mb-1">승자 유지 (Win-Stay)</h4>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">
+                            이전 판에서 승리한 사람은 승리의 쾌감과 안정감 때문에 다음 판에서도 <strong>같은 손동작을 그대로 낼 확률</strong>이 통계적으로 매우 높습니다.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/50 dark:bg-slate-800 border border-amber-200 dark:border-slate-700">
+                        <h4 class="font-bold text-sm text-amber-700 dark:text-amber-300 mb-1">패자 변경 (Lose-Shift)</h4>
+                        <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">
+                            이전 판에서 패배한 사람은 방금 진 패를 버리고 다음 손동작으로 변경합니다. 특히 <strong>방금 상대가 내서 나를 이겼던 그 패를 이기는 패</strong>로 순환하는 경향이 뚜렷합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <h3>실전 가위바위보 필승 공식:</h3>
+                <ul>
+                    <li><strong>내가 졌을 때:</strong> 상대는 '승자 유지' 심리에 따라 방금 낸 것을 다시 낼 확률이 높습니다. 따라서 상대의 방금 패를 이기는 패를 내면 이길 확률이 높아집니다.</li>
+                    <li><strong>내가 이겼을 때:</strong> 상대는 '패자 변경'에 따라 패를 바꿀 것입니다. 상대가 방금 진 패를 이기는 패를 예측하여 카운터를 칠 수 있습니다.</li>
+                </ul>
+
+                <h2>3. 사다리타기 게임의 수학: 대칭군과 일대일 대응(Bijection)</h2>
+                <p>
+                    사다리타기는 왜 언제나 중복 없이 각 사람이 서로 다른 결과 하나씩에 정확히 1:1로 도착할까요?
+                </p>
+                <p>
+                    수학의 추상대수학(Abstract Algebra)에서 $n$개의 요소를 재배열하는 모든 방법의 집합을 <strong>대칭군(Symmetric Group, $S_n$)</strong>이라고 부릅니다.
+                </p>
+                <p>
+                    사다리타기에서 임의의 위치에 그어지는 가로선 하나는 수학적으로 <strong>'인접한 두 원소의 자리를 맞바꾸는 인접 호환(Adjacent Transposition, $\sigma_i = (i \quad i+1)$)'</strong>을 의미합니다.
+                </p>
+                <div class="not-prose my-6 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm leading-relaxed">
+                    $$\pi = \sigma_{k} \circ \sigma_{k-1} \circ \dots \circ \sigma_2 \circ \sigma_1$$
+                </div>
+                <p>
+                    인접 호환은 항상 역함수가 존재하는 전단사 함수(Bijective Function)이므로, 아무리 많은 가로선이 복잡하게 얽혀 있더라도 가로선들의 합성 함수 역시 항상 <strong>일대일 대응(Bijection)</strong>을 이룹니다. 따라서 두 사람이 같은 결과에 도착하는 수학적 모순은 절대로 일어날 수 없습니다.
+                </p>
+
+                <h2>4. 사다리타기에서 가로선 수와 공정성의 관계</h2>
+                <p>
+                    만약 사다리에 가로선이 0개라면 시작점 1번은 100% 결과 1번에 도착합니다. 가로선이 너무 적으면 시작점 바로 아래 근처로 떨어질 확률이 높은 <strong>편향(Biased Distribution)</strong>이 발생합니다.
+                </p>
+                <p>
+                    모든 시작점이 모든 도착점에 완전하게 균등한 $\frac{1}{n}$의 확률로 도달하기 위해서는, 수학적으로 참가자 수 $n$에 대해 충분한 개수의 무작위 가로선(통상 $n \times (n-1)$ 이상)이 골고루 배치되어야 합니다. ToolBox의 <a href="/ladder/" class="text-primary font-bold underline">사다리 게임</a>은 균등 분포를 보장하는 무작위 생성 알고리즘으로 설계되었습니다.
+                </p>
+
+                <!-- Call to Action -->
+                <div class="not-prose my-10 p-6 rounded-3xl bg-gradient-to-r from-teal-50 to-sky-50 dark:from-slate-800 dark:to-slate-900 border border-teal-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-bold text-base text-text-main dark:text-white mb-1">게임 이론과 수학의 원리를 직접 테스트해 보세요!</h3>
+                        <p class="text-xs text-text-muted dark:text-slate-400">컴퓨터와의 가위바위보 대결 및 공정한 사다리타기 게임을 무료로 즐기실 수 있습니다.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="/Rock-paper-scissors/" class="btn-tactile px-4 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold whitespace-nowrap shadow-md">
+                            가위바위보 대결 →
+                        </a>
+                        <a href="/ladder/" class="btn-tactile px-4 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold whitespace-nowrap shadow-md">
+                            사다리 게임 →
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군",
+      "description": "가위바위보의 내시 균형과 심리 전략, 사다리타기의 대칭군 치환 수학을 분석한 지식 가이드",
+      "author": {
+        "@type": "Organization",
+        "name": "ToolBox Editorial Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ToolBox",
+        "url": "https://tossgpt.online"
+      },
+      "datePublished": "2026-09-11",
+      "mainEntityOfPage": "https://tossgpt.online/guides/game-theory-and-psychology.html"
+    }
+    </script>
+</body>
+</html>

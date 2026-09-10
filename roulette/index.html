@@ -165,8 +165,21 @@
 
             </div>
 
+            <!-- Guide Link Banner -->
+            <div class="w-full mt-10 bg-gradient-to-r from-purple-500/10 via-primary/10 to-pink-500/10 dark:from-purple-950/40 dark:via-pink-950/40 dark:to-slate-900 border border-purple-200/60 dark:border-purple-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="space-y-2 text-center sm:text-left">
+                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">인지심리학 가이드</span>
+                    <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학" data-lang-en="Psychology of Random Decision Tools & Decision Fatigue">결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학</h3>
+                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요." data-lang-en="Explore how random wheels bypass analysis paralysis and help uncover your true subconscious preferences.">하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요.</p>
+                </div>
+                <a href="../guides/decision-making-tools.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                    <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
             <!-- Bottom: Decisions Psychology Article -->
-            <section class="w-full mt-16 border-t border-slate-200/60 dark:border-slate-800/80 pt-12">
+            <section class="w-full mt-10 border-t border-slate-200/60 dark:border-slate-800/80 pt-10">
                 <header class="text-center mb-10">
                     <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/30 text-primary text-xs font-bold tracking-wide uppercase" data-lang-ko="심리학 및 결정 과학" data-lang-en="Decision Psychology">심리학 및 결정 과학</span>
                     <h2 class="text-3xl font-extrabold text-text-main dark:text-white mt-2" data-lang-ko="💡 결정 장애(결정 피로)를 현명하게 극복하는 법" data-lang-en="💡 The Science of Overcoming Decision Fatigue">💡 결정 장애(결정 피로)를 현명하게 극복하는 법</h2>
@@ -223,6 +236,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- FAQ Section -->
+                <div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
+                    <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">help</span> 자주 묻는 질문 (FAQ)
+                    </h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                            <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 원판의 각 항목이 당첨될 확률은 완벽하게 공평한가요?</h4>
+                            <p class="text-text-muted dark:text-slate-400">네, 원판은 등록된 항목의 개수(N)에 따라 360도를 정확히 N등분하여 각 섹터의 면적을 균등하게 배정하며, 난수 각도를 회전시켜 100% 공평한 기댓값을 보장합니다.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
+                            <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 내가 입력한 룰렛 항목들이 브라우저를 닫아도 유지되나요?</h4>
+                            <p class="text-text-muted dark:text-slate-400">네, 사용자가 추가하거나 수정한 룰렛 옵션들은 브라우저 로컬 저장소(LocalStorage)에 안전하게 자동 저장되어 재방문 시에도 그대로 유지됩니다.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
@@ -236,10 +266,36 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "원판 돌리기 - 온라인 도구모음",
-      "description": "결정이 필요할 때 항목들을 입력하고 원판을 돌려보세요. 복불복 선택, 벌칙 정하기 등에 유용한 간편한 룰렛 도구입니다.",
-      "url": "https://tossgpt.online/roulette/index.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://tossgpt.online/roulette/index.html",
+          "name": "원판 돌리기 및 복불복 룰렛 - 온라인 도구모음",
+          "description": "점심 메뉴 선택, 내기 벌칙 결정에 유용한 인터랙티브 원판 돌리기 룰렛 도구와 결정 피로 극복 가이드입니다.",
+          "url": "https://tossgpt.online/roulette/index.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "원판의 각 항목이 당첨될 확률은 공평한가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "원판은 항목 개수에 따라 360도를 균등 분할하며 공정한 물리 감속 알고리즘으로 100% 동일한 확률을 보장합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "입력한 룰렛 옵션이 저장되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네, 브라우저 로컬 스토리지에 자동 저장되어 다시 방문해도 이전 항목이 유지됩니다."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </body>
