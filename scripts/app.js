@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.updateCurrentServiceName = updateCurrentServiceName;
 
     const path = window.location.pathname;
-    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') || path.includes('/tests/') ? '../' : '';
+    const basePath = path.includes('/lotto/') || path.includes('/lotto-simulator/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') || path.includes('/tests/') ? '../' : '';
 
     const setupPortalSearchAndFilters = () => {
         const searchInput = document.getElementById('portal-search-input');

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대 | 무료 인터랙티브 텍스트 RPG - ToolBox</title>
+    <meta name="description" content="내가 만약 로또 1등에 당첨된다면? 토요일 밤 당첨 확인부터 서대문 농협 본점 VIP룸 잠입, 지점장님의 펀드 권유 방어전까지! 인터넷 레전드 밈 '로또 1등 행동강령'을 바탕으로 한 초현실 서바이벌 시뮬레이션 게임입니다.">
+    <meta name="keywords" content="로또 1등 시뮬레이터, 로또 1등 행동강령, 로또 당첨 게임, 농협 본점 수령기, 서대문 농협, 로또 1등 세금, 로또 인터랙티브 게임, 텍스트 RPG, 심리 시뮬레이션">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대">
+    <meta property="og:description" content="34억 로또 1등에 당첨되었다! 감열지 훼손, 택시기사 눈빛, 지점장 금융상품을 뚫고 23억을 온전히 수령할 수 있을까?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/lotto-simulator/index.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'gold-accent': '#f59e0b',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.8); }
+        }
+        .gold-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes heart-beat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+        .heart-pulse {
+            animation: heart-beat 1.2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#games" class="hover:text-primary transition-colors">미니 게임 &amp; 인터랙티브</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">로또 1등 당첨 시뮬레이터</span>
+        </nav>
+
+        <!-- GAME CONTAINER -->
+        <div id="game-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+
+            <!-- HUD STATUS BAR (Visible during game) -->
+            <div id="game-hud" class="hidden mb-8 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl heart-pulse">💖</span>
+                    <div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">멘탈 유지도</div>
+                        <div id="hud-mental" class="font-extrabold text-emerald-600 dark:text-emerald-400">100%</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">👁️</span>
+                    <div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">주변 의심도</div>
+                        <div id="hud-suspicion" class="font-extrabold text-blue-600 dark:text-blue-400">0%</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">💰</span>
+                    <div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">확보 예상액</div>
+                        <div id="hud-cash" class="font-extrabold text-amber-500">23.11억</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📍</span>
+                    <div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">현재 위치</div>
+                        <div id="hud-location" class="font-bold text-slate-700 dark:text-slate-200 truncate">내 방 (토요일)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. INTRO VIEW -->
+            <div id="game-intro-view" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs md:text-sm font-bold mb-5 border border-amber-300 dark:border-amber-700">
+                    <span>🎰 초현실 생존 시뮬레이션</span>
+                    <span>•</span>
+                    <span>인터넷 레전드 밈 기반</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    로또 1등 당첨 시뮬레이터<br>
+                    <span class="text-amber-500">《서대문 농협 본점 원정대》</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                    축하합니다! 방금 발표된 동행복권 1등 번호 6개가 당신의 용지와 완벽히 일치했습니다.<br>
+                    <strong>1등 당첨금 34억 5,000만 원 (세후 약 23억 1,150만 원)</strong>!<br>
+                    하지만 기뻐하기엔 이릅니다. 다리미 훼손, 5호선 소매치기, 택시기사 눈빛 대치, 그리고 3층 VIP룸 지점장님의 금융상품 폭풍 권유를 뚫고 23억을 무사히 지켜낼 수 있을까요?
+                </p>
+
+                <!-- Interactive Lottery Ticket Preview -->
+                <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-800/80 border-2 border-dashed border-amber-300 dark:border-amber-600 mb-8 max-w-md mx-auto gold-glow">
+                    <div class="text-xs text-amber-700 dark:text-amber-400 font-bold mb-2 flex items-center justify-between">
+                        <span>제 1234회 로또 6/45 1등 당첨권</span>
+                        <span class="bg-amber-500 text-white text-[10px] px-2 py-0.5 rounded-full">자동 1등</span>
+                    </div>
+                    <div class="flex justify-center gap-2 py-3">
+                        <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-900 font-black flex items-center justify-center shadow-md text-base">07</span>
+                        <span class="w-10 h-10 rounded-full bg-blue-500 text-white font-black flex items-center justify-center shadow-md text-base">14</span>
+                        <span class="w-10 h-10 rounded-full bg-blue-500 text-white font-black flex items-center justify-center shadow-md text-base">19</span>
+                        <span class="w-10 h-10 rounded-full bg-red-500 text-white font-black flex items-center justify-center shadow-md text-base">25</span>
+                        <span class="w-10 h-10 rounded-full bg-slate-600 text-white font-black flex items-center justify-center shadow-md text-base">33</span>
+                        <span class="w-10 h-10 rounded-full bg-emerald-500 text-white font-black flex items-center justify-center shadow-md text-base">42</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">지급기한: 지급개시일로부터 1년 | 농협은행 본점 복권사업팀 전용</div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <button id="start-game-btn" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-lg shadow-lg hover:shadow-amber-500/25 transition-all cursor-pointer flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                        <span>서대문 농협 원정 시작하기</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. GAMEPLAY VIEW (Dialogue & Choices) -->
+            <div id="game-play-view" class="hidden">
+                <!-- Stage Badge -->
+                <div class="flex items-center justify-between mb-4">
+                    <span id="stage-badge" class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 text-xs font-bold border border-amber-300 dark:border-amber-700">
+                        STAGE 1
+                    </span>
+                    <span id="step-counter" class="text-xs text-slate-400 font-medium">1 / 6 단계</span>
+                </div>
+
+                <!-- Scenario Card -->
+                <div class="p-6 md:p-8 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 mb-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span id="scenario-icon" class="text-3xl">🤫</span>
+                        <h2 id="scenario-title" class="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">
+                            상황 제목이 들어갑니다.
+                        </h2>
+                    </div>
+                    <p id="scenario-desc" class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
+                        상황 설명문이 들어갑니다.
+                    </p>
+                </div>
+
+                <!-- Choices Container -->
+                <div id="choices-container" class="space-y-3 mb-8">
+                    <!-- Injected dynamically -->
+                </div>
+
+                <!-- Action Feedback Log -->
+                <div id="feedback-log" class="hidden p-4 rounded-xl border mb-6 text-sm font-medium animate-pulse">
+                    <!-- Injected on choice -->
+                </div>
+            </div>
+
+            <!-- 3. RESULT & ENDING VIEW -->
+            <div id="game-result-view" class="hidden text-center py-6 md:py-8 max-w-xl mx-auto">
+                <div id="ending-rank-badge" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-black mb-4">
+                    👑 S랭크: 완벽한 갓물주
+                </div>
+                <h2 id="ending-title" class="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-3 leading-tight">
+                    세후 23억 안전 수령 &amp; 조용한 은퇴!
+                </h2>
+                <p id="ending-desc" class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6 whitespace-pre-line">
+                    엔딩 상세 텍스트가 표시됩니다.
+                </p>
+
+                <!-- Stats Summary Card -->
+                <div class="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 mb-8 text-center">
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold mb-1">최종 멘탈 잔여</div>
+                        <div id="final-mental" class="text-lg font-black text-emerald-600 dark:text-emerald-400">95%</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold mb-1">주변 의심도</div>
+                        <div id="final-suspicion" class="text-lg font-black text-blue-600 dark:text-blue-400">10%</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold mb-1">최종 손에 쥔 돈</div>
+                        <div id="final-cash" class="text-lg font-black text-amber-500">23억 1,150만</div>
+                    </div>
+                </div>
+
+                <!-- Share & Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+                    <button id="download-cert-btn" class="flex items-center justify-center gap-2 p-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm shadow-md transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                        <span>로또 1등 생존 인증서 (인스타 카드 저장)</span>
+                    </button>
+                    <button id="share-link-btn" class="flex items-center justify-center gap-2 p-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm shadow-md transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-lg">share</span>
+                        <span>카톡 / SNS 공유</span>
+                    </button>
+                </div>
+                <button id="restart-game-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
+                    다른 선택지로 다시 도전하기 ↺
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Long-Form Educational & Legal Guide Section (AdSense Anti-Thin Content Anchor) -->
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">대한민국 로또 1등 당첨금 수령 실무와 세법·금융 심리학 총람</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                매주 토요일 밤 8시 45분, 로또 6/45 추첨 방송이 끝난 직후 1등 당첨자들은 극심한 인지 부조화와 급격한 도파민 폭발을 경험합니다. 《복권 및 복권기금법》에 따라 운영되는 대한민국 로또 복권의 1등 당첨 확률은 <strong>814만 5,060분의 1</strong>에 불과합니다. 그러나 당첨의 환희 이면에는 복권 용지의 보관, 당첨금 수령처 방문, 조세 납부, 그리고 자산 보전이라는 복잡하고 현실적인 법률·세무·심리적 절차가 존재합니다. 본 가이드는 인터넷 밈을 넘어선 실제 1등 수령 프로세스와 실무 정보를 상세히 전달합니다.
+            </p>
+
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">1. 로또 1등 당첨금 수령의 법적 절차와 지정 창구</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                대한민국 로또 복권의 당첨금 지급 장소는 등수에 따라 엄격히 구분됩니다. 4등과 5등은 일반 복권 판매점 및 농협은행 각 지점에서 수령할 수 있고, 2등과 3등은 전국 농협은행 일반 지점에서 수령 가능합니다. 그러나 <strong>1등 당첨금은 오직 서울특별시 중구 충정로1가에 위치한 '농협은행 본점 복권사업팀(서대문역 5번 출구 앞)'에서만 단독 지급</strong>됩니다.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-primary mb-1">① 필수 지참물 2가지</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">1등 실물 복권 용지 원본과 당첨자 본인의 신분증(주민등록증, 운전면허증, 여권)이 필수입니다. 대리인 수령은 원칙적으로 불가능합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-primary text-sm mb-1">② 감열지 용지 보존 주의</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">로또 용지는 열에 민감한 감열지(Thermal Paper)로 인쇄됩니다. 헤어드라이어나 다리미로 열을 가하면 전체가 검게 타서 바코드 인식이 불가해지므로 상온의 그늘진 곳에 밀봉 보관해야 합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-primary text-sm mb-1">③ 지급 기한 (1년)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">당첨금 지급 개시일로부터 정확히 1년 이내에 청구해야 합니다. 기한이 지난 미수령 당첨금은 전액 복권기금으로 귀속되어 공익사업에 사용됩니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">2. 복권 당첨금 세율과 원천징수 계산 공식</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                대한민국 소득세법상 복권 당첨금은 <strong>'기타소득'</strong>으로 분류되며, 금융기관에서 당첨금을 지급할 때 세금을 원천징수한 후 차액만 지급합니다. 복권 당첨금은 종합과세에 합산되지 않고 <strong>분리과세</strong>로 종결되므로, 다른 근로소득이나 사업소득의 소득세율에 영향을 주지 않습니다.
+            </p>
+            <div class="overflow-x-auto not-prose mb-8">
+                <table class="w-full text-xs md:text-sm text-left border-collapse border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                        <tr>
+                            <th class="p-3 border border-slate-200 dark:border-slate-700">과세 구간</th>
+                            <th class="p-3 border border-slate-200 dark:border-slate-700">소득세율</th>
+                            <th class="p-3 border border-slate-200 dark:border-slate-700">지방소득세율(10%)</th>
+                            <th class="p-3 border border-slate-200 dark:border-slate-700">실효 원천징수율</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                        <tr class="bg-white dark:bg-slate-900">
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-semibold">200만 원 이하</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">비과세</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">비과세</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold text-emerald-600">0% (전액 수령)</td>
+                        </tr>
+                        <tr class="bg-slate-50 dark:bg-slate-800/50">
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-semibold">3억 원 이하 구간</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">20%</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">2%</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold text-blue-600">22%</td>
+                        </tr>
+                        <tr class="bg-white dark:bg-slate-900">
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-semibold">3억 원 초과 구간</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">30%</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700">3%</td>
+                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold text-rose-600">33%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 not-prose mb-8">
+                <h4 class="font-bold text-sm text-amber-800 dark:text-amber-300 mb-1">💡 예시: 당첨금 34억 5,000만 원의 실제 수령액 계산</h4>
+                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                    1) 3억 원 구간: \( 300,000,000 \times 22\% = 66,000,000 \)원<br>
+                    2) 3억 초과 구간(31억 5천만 원): \( 3,150,000,000 \times 33\% = 1,039,500,000 \)원<br>
+                    3) 총 세금: <strong>11억 550만 원</strong> | <strong>실제 통장 입금액: 23억 4,450만 원</strong> (구입비 1,000원 필요경비 공제)
+                </p>
+            </div>
+
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">3. '갑작스러운 부 증후군(SWS)'과 당첨자의 파산 방지 심리학</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                미국 전미경제연구소(NBER)와 케임브리지 대학의 금융심리학 연구에 따르면, 고액 복권 당첨자의 약 70%가 5년 이내에 당첨 전보다 더 심각한 재정적 파산이나 우울증에 직면하는 것으로 조사되었습니다. 이를 임상심리학에서는 <strong>'갑작스러운 부 증후군(Sudden Wealth Syndrome)'</strong>이라 부릅니다. 하룻밤 사이에 일어난 경제적 지위의 급격한 변동은 뇌의 인지적 통제력을 마비시키고 과시 소비, 충동적 사업 투자, 친인척과의 대인관계 파탄을 유발합니다. 따라서 당첨 직후 6개월간은 원금을 안전한 보통예금이나 국채에 보전하고, 중대한 자산 이전이나 조기 퇴사를 유보하는 '심리적 완충기(Cooling-off Period)'를 갖는 것이 권장됩니다.
+            </p>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>로또 1등 당첨금은 현금 다발로 즉시 들고 나올 수 있나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        아닙니다. 수십억 원의 현금은 부피와 무게가 엄청나며 보안상 치명적입니다. 농협 본점 복권사업팀에 방문하면 당첨자 명의의 신규 NH농협은행 통장을 개설한 후, 세금을 공제한 실수령액을 전산 입금 처리해 줍니다. 이후 본인이 이용하는 타 시중은행으로 분할 이체할 수 있습니다.
+                    </p>
+                </details>
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>로또 1등 당첨금을 가족에게 나누어주면 증여세가 발생하나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        네, 반드시 발생합니다. 복권 당첨금은 당첨자 1인의 고유 자산이므로, 이를 배우자나 자녀, 부모에게 무상으로 송금할 경우 상속세 및 증여세법에 따른 증여세가 부과됩니다. (단, 10년 합산 배우자 6억 원, 직계존비속 5,000만 원까지는 증여재산공제가 적용됩니다.)
+                    </p>
+                </details>
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>농협 본점에서 금융상품 가입을 강제로 강요하나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        강제성은 전혀 없습니다. 자산 관리 전담 PB나 지점장급 직원이 예금, 신탁, 연금 등의 상품을 정중히 추천할 수는 있지만, 당첨자가 거절하면 전액 보통예금으로 수령하는 데 아무런 법적·절차적 문제가 없습니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <!-- Interactive Game Engine Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- GAME STATE ---
+        const gameState = {
+            mental: 100,
+            suspicion: 0,
+            cash: 23.11, // in Billion KRW
+            currentStage: 0,
+            choicesHistory: []
+        };
+
+        // --- STAGES SCENARIOS DATA ---
+        const stages = [
+            {
+                id: 1,
+                badge: "STAGE 1 • 토요일 20:45",
+                location: "내 방 (토요일 밤)",
+                title: "운명의 1등 번호 일치! 로또 용지 보관 작전",
+                icon: "😱",
+                desc: "심장이 190bpm으로 요동칩니다. 6개 번호가 모조리 일치합니다! 34억 5천만 원의 기적이 일어났습니다.\n월요일 아침 서대문 농협 본점으로 떠나기 전까지 주말 동안 이 꼬깃꼬깃한 용지를 어디에 어떻게 보관해야 할까요?",
+                choices: [
+                    {
+                        text: "구겨진 용지가 보기 싫으니 다리미로 빳빳하게 다린다.",
+                        effect: { mental: -100, suspicion: 0, cash: 0 },
+                        log: "🚨 [대참사] 감열지 특성상 다리미 열기로 영수증 전체가 새까맣게 타버렸습니다! 바코드 인식 불가로 34억이 공중분해되었습니다!",
+                        badEnd: "다리미 소각 엔딩"
+                    },
+                    {
+                        text: "너무 기뻐서 인스타그램 스토리에 '인생 역전 1등 인증샷'을 올린다.",
+                        effect: { mental: -50, suspicion: 95, cash: 10 },
+                        log: "📱 친척 48명과 10년 전 연락 끊긴 초등학교 동창들에게 축하 전화가 500통 쏟아집니다!",
+                        badEnd: null
+                    },
+                    {
+                        text: "지퍼백에 이중 밀봉 후 가장 낡은 양말 속에 넣어 매트리스 밑에 봉인한다.",
+                        effect: { mental: 10, suspicion: -10, cash: 23.11 },
+                        log: "🧦 [스텔스 성공] 완벽한 습도 유지와 은닉! 누구도 냄새나는 낡은 양말을 건드리지 않습니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "스마트폰 투명 케이스 뒤에 자랑스럽게 끼워두고 수시로 감상한다.",
+                        effect: { mental: -20, suspicion: 60, cash: 23.11 },
+                        log: "👀 편의점 알바생과 지하철 옆자리 승객이 당신의 폰 뒷면을 뚫어져라 쳐다봅니다.",
+                        badEnd: null
+                    }
+                ]
+            },
+            {
+                id: 2,
+                badge: "STAGE 2 • 일요일 14:00",
+                location: "거실 (일요일 오후)",
+                title: "가족과의 대면과 포커페이스 마인드 컨트롤",
+                icon: "🎭",
+                desc: "가족들이 거실에서 TV를 보며 '이번 주 로또 1등 당첨자 어디서 나왔대?'라며 대화 중입니다.\n당신의 입꼬리가 주체할 수 없이 씰룩거리려 합니다. 어떻게 대처하시겠습니까?",
+                choices: [
+                    {
+                        text: "테이블을 탁 치며 '그 1등이 바로 나다! 이제 회사 때려치워!'라고 외친다.",
+                        effect: { mental: -30, suspicion: 80, cash: 15 },
+                        log: "📢 온 가족이 기절초풍하며 사촌동생 카페 창업 자금 지원 요청이 식탁 위에 쌓입니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "거울을 보며 '내일 월요일이네... 출근하기 진짜 싫다' 영혼 없는 표정을 100번 연습한다.",
+                        effect: { mental: 20, suspicion: -10, cash: 23.11 },
+                        log: "🪞 [메릴 스트립급 연기] 가족들이 '쟤 내일 또 부장한테 털릴까 봐 우울한가 보네'라며 안쓰러워합니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "기쁨을 주체하지 못하고 갑자기 가족들에게 한우 안심 투뿔 10인분을 쏜다.",
+                        effect: { mental: 0, suspicion: 40, cash: 23.10 },
+                        log: "🥩 어머니: '평소에 라면만 먹던 놈이 갑자기 쇠고기를 사? 너 사채 썼니?'",
+                        badEnd: null
+                    }
+                ]
+            },
+            {
+                id: 3,
+                badge: "STAGE 3 • 월요일 07:30",
+                location: "드레스룸 (월요일 아침)",
+                title: "농협 본점 침투를 위한 위장 드레스코드",
+                icon: "👔",
+                desc: "드디어 결전의 월요일 아침이 밝았습니다! 9시에 서대문 농협 본점으로 출발해야 합니다.\n어떤 복장으로 위장하고 집을 나서시겠습니까?",
+                choices: [
+                    {
+                        text: "자산가답게 백화점 명품 수트 + 롤렉스 + 블랙 선글라스 풀착장.",
+                        effect: { mental: -20, suspicion: 85, cash: 23.11 },
+                        log: "🕶️ 지나가는 모든 행인이 '저 사람 무슨 밀수업자나 로또 1등인가?'라며 쳐다봅니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "무릎 튀어나온 3년 된 회색 트레이닝복 + 삼선 슬리퍼 + 꼬깃한 다이소 봉투.",
+                        effect: { mental: 15, suspicion: -20, cash: 23.11 },
+                        log: "🩴 [완벽한 서민 위장] '오늘 전세대출 연장 거절당해 세상 다 끝난 영혼'의 아우라로 의심도 0% 달성!",
+                        badEnd: null
+                    },
+                    {
+                        text: "회사 정장 차림으로 서류가방에 용지를 숨기고 평범한 출근족 코스프레.",
+                        effect: { mental: 5, suspicion: 10, cash: 23.11 },
+                        log: "💼 무난하고 안전한 회사원 룩! 대중교통에 자연스럽게 스며듭니다.",
+                        badEnd: null
+                    }
+                ]
+            },
+            {
+                id: 4,
+                badge: "STAGE 4 • 월요일 08:30",
+                location: "출근길 딜레마",
+                title: "회사 출근 처리와 이동 수단 선택",
+                icon: "🚇",
+                desc: "월요일 9시 출근 시간이 다가옵니다. 서대문역 농협 본점에 가기 위해 회사에는 뭐라고 알리고, 어떤 교통편을 타시겠습니까?",
+                choices: [
+                    {
+                        text: "회사 단톡방에 부장 욕설 짤을 올리고 '나 로또 됐으니 퇴사한다' 선언 후 벤츠 렌트.",
+                        effect: { mental: -100, suspicion: 100, cash: 0 },
+                        log: "🚨 [BAD END] 당첨금 받기도 전에 명예훼손 및 업무방해 고소장이 접수되어 경찰서로 연행되었습니다!",
+                        badEnd: "사표 고소 엔딩"
+                    },
+                    {
+                        text: "'급성 장염으로 오전 반차 씁니다' 조용히 올리고 지하철 5호선 서대문역 탑승.",
+                        effect: { mental: 10, suspicion: 0, cash: 23.11 },
+                        log: "🚇 [스텔스 이동] 만원 지하철의 인파 속에 섞여 조용히 서대문역 5번 출구에 도착했습니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "카카오택시 호출 후 목적지를 '서대문 농협중앙회 본점'으로 설정.",
+                        effect: { mental: -15, suspicion: 50, cash: 23.11 },
+                        log: "🚖 기사님이 룸미러로 눈빛을 교환하며 묻습니다: '...손님, 오늘 큰돈 만지러 가시나 봅니다?' (등골 오싹)",
+                        badEnd: null
+                    }
+                ]
+            },
+            {
+                id: 5,
+                badge: "STAGE 5 • 월요일 09:30",
+                location: "서대문 농협 본점 1층 로비",
+                title: "농협 본점 침투 & 3층 VIP룸 비밀 엘리베이터",
+                icon: "🏢",
+                desc: "서대문역 5번 출구를 나와 웅장한 농협중앙회 본관 건물 1층에 발을 디뎠습니다.\n경비원과 수많은 고객들이 오가는 로비에서 어디로 향하시겠습니까?",
+                choices: [
+                    {
+                        text: "1층 일반 번호표를 뽑고 창구 직원에게 '저... 로또 1등인데요'라고 속삭인다.",
+                        effect: { mental: -50, suspicion: 90, cash: 22.0 },
+                        log: "😱 창구 직원의 동공이 흔들리며 로비 전체의 시선이 당신에게 집중됩니다! 청원경찰이 긴급 출동합니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "두리번거리지 않고 당당하게 엘리베이터로 걸어가 비공개 3층 복권사업팀 VIP룸 직행.",
+                        effect: { mental: 25, suspicion: -10, cash: 23.11 },
+                        log: "🚪 [VIP룸 무사 잠입] 푹신한 카펫과 최고급 원두커피 향이 반기며 정장 차림 직원들이 90도 폴더 인사를 건넵니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "1층 청원경찰 아저씨에게 귓속말로 '1등 돈 어디서 줘요?'라고 묻는다.",
+                        effect: { mental: -20, suspicion: 60, cash: 23.11 },
+                        log: "👮 청원경찰: '아, 고객님... 3층으로 가시면 됩니다.' (마치 매주 보는 사람인 듯 무표정하게 엘리베이터로 안내)",
+                        badEnd: null
+                    }
+                ]
+            },
+            {
+                id: 6,
+                badge: "STAGE 6 • 최종 보스전",
+                location: "3층 복권사업팀 VIP 전용 접견실",
+                title: "지점장님의 금융상품 폭풍 권유 방어전!",
+                icon: "💼",
+                desc: "세금 33%를 공제한 세후 23억 1,150만 원이 찍힌 신규 통장을 확인하는 순간,\n온화한 미소의 지점장님이 두꺼운 브로슈어를 펼치며 자본주의 최종 보스 스킬을 시전합니다:\n'고객님, 보통예금에 두시면 물가상승 손해입니다. 브라질 국채 10억, ELS 특정신탁 8억, 연금보험 5억 묶어두시죠?'",
+                choices: [
+                    {
+                        text: "우물쭈물하다가 '지점장님 말씀이 맞네요... 추천 상품 전부 가입해주세요' 사인한다.",
+                        effect: { mental: -30, suspicion: 0, cash: 5.11 },
+                        log: "📉 [보스전 패배] 23억 중 18억이 10년 만기 고위험 펀드에 묶였습니다! 원금 보장은 아무도 모릅니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "'지점장님... 제가 사채 빚 20억을 오늘 안 갚으면 조폭들에게 위험합니다. 전액 보통예금에 넣어주세요!'",
+                        effect: { mental: 30, suspicion: -20, cash: 23.11 },
+                        log: "🛡️ [치트키 방어 성공!] 지점장님이 깊은 탄식과 연민의 눈빛을 보내며 조용히 전액 보통예금 통장을 건네줍니다.",
+                        badEnd: null
+                    },
+                    {
+                        text: "'전액 인출해서 코인 풀매수하고 1,000억 만들겠습니다' 소리친다.",
+                        effect: { mental: 10, suspicion: 50, cash: 23.11 },
+                        log: "🚀 지점장님이 기절할 뻔하며 얼어붙었습니다. 야수의 심장을 가진 승부사로 낙인찍혔습니다.",
+                        badEnd: null
+                    }
+                ]
+            }
+        ];
+
+        // --- ENDINGS DATA ---
+        const endings = {
+            s_rank: {
+                badge: "👑 S랭크: 완벽한 갓물주",
+                badgeClass: "bg-amber-100 text-amber-800 border border-amber-300 dark:bg-amber-950 dark:text-amber-300",
+                title: "23억 온전 수령 & 완벽한 갓물주 엔딩!",
+                desc: "축하합니다! 다리미의 유혹, 택시기사의 의심 눈빛, 그리고 지점장님의 브라질 국채 권유를 무적의 사채 핑계로 완벽히 방어했습니다.\n서대문 사거리를 빠져나오자 잿빛이던 서울 하늘이 8K 초고화질 슬로모션으로 보입니다.\n곧바로 근처 순대국밥집으로 향해 '이모! 특순대국에 머릿고기 수육 대(大)짜 추가요!'를 외친 후, 조용하고 평화로운 조기 은퇴를 시작합니다.",
+                avatar: "👑",
+                rank: "S"
+            },
+            a_rank: {
+                badge: "🍲 A랭크: 소박한 국밥 부자",
+                badgeClass: "bg-emerald-100 text-emerald-800 border border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300",
+                title: "실속 챙긴 스마트 자산가 엔딩",
+                desc: "약간의 고비와 식은땀이 있었지만 대부분의 당첨금을 안전하게 확보했습니다!\n회사에는 조용히 병가를 낸 뒤, 빚을 청산하고 아파트 한 채와 소박한 국밥 한 그릇을 즐기며 여유로운 제2의 인생 플랜을 수립합니다.",
+                avatar: "🍲",
+                rank: "A"
+            },
+            b_rank: {
+                badge: "📉 B랭크: 펀드 호구 엔딩",
+                badgeClass: "bg-blue-100 text-blue-800 border border-blue-300 dark:bg-blue-950 dark:text-blue-300",
+                title: "지점장님의 우수 VIP 고객 엔딩",
+                desc: "지점장님의 화려한 말솜씨에 매료되어 23억 중 18억을 브라질 국채와 특정신탁에 가입했습니다!\n통장에 당장 남은 돈은 5억 남짓... 3년 뒤 글로벌 금리가 오르기만을 기도하며 매일 경제신문을 정독하는 삶이 시작됩니다.",
+                avatar: "📉",
+                rank: "B"
+            },
+            c_rank: {
+                badge: "🚀 C랭크: 코인 야수 엔딩",
+                badgeClass: "bg-purple-100 text-purple-800 border border-purple-300 dark:bg-purple-950 dark:text-purple-300",
+                title: "1,000억을 노리는 야수의 심장 엔딩",
+                desc: "지점장님을 경악시키며 23억을 확보한 당신! 그러나 '인생은 한 방'이라며 전액 가상화폐 거래소로 송금했습니다.\n이제 1,000억 자산가가 될지, 아니면 다시 로또방으로 돌아갈지는 오직 비트코인 차트에 달렸습니다.",
+                avatar: "🚀",
+                rank: "C"
+            },
+            bad_iron: {
+                badge: "💀 F랭크: 감열지 소각 엔딩",
+                badgeClass: "bg-rose-100 text-rose-800 border border-rose-300 dark:bg-rose-950 dark:text-rose-300",
+                title: "다리미로 태워먹은 34억의 눈물",
+                desc: "구겨진 복권 종이를 다리미로 펴려다 영수증 전체가 새까맣게 타버렸습니다!\n동행복권 본사에 달려가 애원했지만 '훼손된 감열지 복원 불가' 판정을 받았습니다. 전설의 34억은 그렇게 한 줌의 재가 되었습니다.",
+                avatar: "🔥",
+                rank: "F"
+            },
+            bad_lawsuit: {
+                badge: "🚨 F랭크: 사표 고소 엔딩",
+                badgeClass: "bg-rose-100 text-rose-800 border border-rose-300 dark:bg-rose-950 dark:text-rose-300",
+                title: "돈 받기도 전에 고소당한 노빠꾸 엔딩",
+                desc: "통장에 1원도 입금되기 전에 회사 단톡방에 부장 욕을 박고 사표를 던졌습니다!\n서대문 농협에 가기도 전에 경찰 출석 요구서를 받고 합의금으로 전 재산을 날릴 위기에 처했습니다.",
+                avatar: "🚨",
+                rank: "F"
+            }
+        };
+
+        // --- DOM ELEMENTS ---
+        const hud = document.getElementById('game-hud');
+        const hudMental = document.getElementById('hud-mental');
+        const hudSuspicion = document.getElementById('hud-suspicion');
+        const hudCash = document.getElementById('hud-cash');
+        const hudLocation = document.getElementById('hud-location');
+
+        const introView = document.getElementById('game-intro-view');
+        const playView = document.getElementById('game-play-view');
+        const resultView = document.getElementById('game-result-view');
+
+        const stageBadge = document.getElementById('stage-badge');
+        const stepCounter = document.getElementById('step-counter');
+        const scenarioIcon = document.getElementById('scenario-icon');
+        const scenarioTitle = document.getElementById('scenario-title');
+        const scenarioDesc = document.getElementById('scenario-desc');
+        const choicesContainer = document.getElementById('choices-container');
+        const feedbackLog = document.getElementById('feedback-log');
+
+        const startGameBtn = document.getElementById('start-game-btn');
+        const restartGameBtn = document.getElementById('restart-game-btn');
+        const downloadCertBtn = document.getElementById('download-cert-btn');
+        const shareLinkBtn = document.getElementById('share-link-btn');
+
+        // --- AUDIO TRIGGER HELPER ---
+        const playSound = (type) => {
+            if (window.SoundFX) {
+                if (type === 'click') window.SoundFX.playClick();
+                else if (type === 'pop') window.SoundFX.playPop();
+                else if (type === 'win') window.SoundFX.playWin();
+                else if (type === 'hit') window.SoundFX.playHit();
+            }
+        };
+
+        // --- UPDATE HUD ---
+        const updateHud = (loc) => {
+            hudMental.textContent = `${Math.max(0, Math.min(100, gameState.mental))}%`;
+            hudSuspicion.textContent = `${Math.max(0, Math.min(100, gameState.suspicion))}%`;
+            hudCash.textContent = `${gameState.cash.toFixed(2)}억`;
+            if (loc) hudLocation.textContent = loc;
+        };
+
+        // --- START GAME ---
+        startGameBtn.addEventListener('click', () => {
+            playSound('win');
+            gameState.mental = 100;
+            gameState.suspicion = 0;
+            gameState.cash = 23.11;
+            gameState.currentStage = 0;
+            gameState.choicesHistory = [];
+
+            introView.classList.add('hidden');
+            resultView.classList.add('hidden');
+            hud.classList.remove('hidden');
+            playView.classList.remove('hidden');
+
+            renderStage(0);
+        });
+
+        // --- RENDER STAGE ---
+        const renderStage = (index) => {
+            if (index >= stages.length) {
+                concludeGame();
+                return;
+            }
+
+            const data = stages[index];
+            stageBadge.textContent = data.badge;
+            stepCounter.textContent = `${index + 1} / ${stages.length} 단계`;
+            scenarioIcon.textContent = data.icon;
+            scenarioTitle.textContent = data.title;
+            scenarioDesc.textContent = data.desc;
+            updateHud(data.location);
+
+            feedbackLog.classList.add('hidden');
+            choicesContainer.innerHTML = '';
+
+            data.choices.forEach((choice, cIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 md:p-5 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-amber-400 dark:hover:border-amber-500 hover:bg-amber-50/50 dark:hover:bg-slate-700/60 transition-all font-semibold text-sm md:text-base text-slate-800 dark:text-slate-100 flex items-start gap-3 shadow-sm hover:shadow-md cursor-pointer group active:scale-[0.99]';
+                btn.innerHTML = `
+                    <span class="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-black text-xs flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors shrink-0 mt-0.5">${String.fromCharCode(65 + cIdx)}</span>
+                    <span class="leading-snug">${choice.text}</span>
+                `;
+                btn.addEventListener('click', () => handleChoice(choice));
+                choicesContainer.appendChild(btn);
+            });
+        };
+
+        // --- HANDLE CHOICE ---
+        const handleChoice = (choice) => {
+            playSound('pop');
+
+            // Apply stats
+            gameState.mental = Math.max(0, Math.min(100, gameState.mental + choice.effect.mental));
+            gameState.suspicion = Math.max(0, Math.min(100, gameState.suspicion + choice.effect.suspicion));
+            gameState.cash = Math.max(0, choice.effect.cash);
+            gameState.choicesHistory.push(choice);
+            updateHud();
+
+            // Disable buttons during transition
+            const btns = choicesContainer.querySelectorAll('button');
+            btns.forEach(b => b.disabled = true);
+
+            // Show feedback
+            feedbackLog.classList.remove('hidden');
+            feedbackLog.className = choice.badEnd 
+                ? 'p-4 rounded-xl border border-rose-300 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200 mb-6 text-sm font-medium'
+                : 'p-4 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 mb-6 text-sm font-medium';
+            feedbackLog.textContent = choice.log;
+
+            if (choice.badEnd) {
+                playSound('hit');
+                setTimeout(() => {
+                    showEnding(choice.badEnd === "다리미 소각 엔딩" ? endings.bad_iron : endings.bad_lawsuit);
+                }, 2000);
+            } else {
+                setTimeout(() => {
+                    gameState.currentStage++;
+                    renderStage(gameState.currentStage);
+                }, 1500);
+            }
+        };
+
+        // --- CONCLUDE GAME ---
+        const concludeGame = () => {
+            playSound('win');
+            if (window.triggerCelebration) window.triggerCelebration();
+
+            let finalEnding = endings.s_rank;
+            if (gameState.cash < 10) {
+                finalEnding = endings.b_rank;
+            } else if (gameState.suspicion >= 50) {
+                finalEnding = endings.c_rank;
+            } else if (gameState.mental < 60) {
+                finalEnding = endings.a_rank;
+            } else {
+                finalEnding = endings.s_rank;
+            }
+
+            showEnding(finalEnding);
+        };
+
+        // --- SHOW ENDING ---
+        const showEnding = (ending) => {
+            playView.classList.add('hidden');
+            hud.classList.add('hidden');
+            resultView.classList.remove('hidden');
+
+            const rankBadge = document.getElementById('ending-rank-badge');
+            rankBadge.textContent = ending.badge;
+            rankBadge.className = `inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-black mb-4 ${ending.badgeClass}`;
+
+            document.getElementById('ending-title').textContent = ending.title;
+            document.getElementById('ending-desc').textContent = ending.desc;
+
+            document.getElementById('final-mental').textContent = `${gameState.mental}%`;
+            document.getElementById('final-suspicion').textContent = `${gameState.suspicion}%`;
+            document.getElementById('final-cash').textContent = `${gameState.cash.toFixed(2)}억 원`;
+
+            // Prepare Canvas Certificate
+            currentEndingData = ending;
+        };
+
+        let currentEndingData = endings.s_rank;
+
+        // --- RESTART GAME ---
+        restartGameBtn.addEventListener('click', () => {
+            playSound('pop');
+            resultView.classList.add('hidden');
+            introView.classList.remove('hidden');
+        });
+
+        // --- SHARE LINK ---
+        shareLinkBtn.addEventListener('click', () => {
+            playSound('pop');
+            const shareUrl = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: '로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대',
+                    text: `나의 로또 1등 수령 등급은 [${currentEndingData.badge}]! 서대문 농협 본점 VIP룸을 무사히 돌파해보세요.`,
+                    url: shareUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('게임 링크가 클립보드에 복사되었습니다! 카카오톡이나 SNS에 공유해보세요.');
+                });
+            }
+        });
+
+        // --- CANVAS 1080x1350 CARD GENERATOR ---
+        downloadCertBtn.addEventListener('click', () => {
+            playSound('click');
+            const canvas = document.createElement('canvas');
+            canvas.width = 1080;
+            canvas.height = 1350;
+            const ctx = canvas.getContext('2d');
+
+            // Background Gradient
+            const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1350);
+            bgGrad.addColorStop(0, '#0f172a');
+            bgGrad.addColorStop(0.5, '#1e293b');
+            bgGrad.addColorStop(1, '#0f172a');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, 1080, 1350);
+
+            // Ambient Glow Rings
+            ctx.beginPath();
+            ctx.arc(540, 360, 260, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(245, 158, 11, 0.15)';
+            ctx.fill();
+
+            // Border Frame
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 14;
+            ctx.strokeRect(40, 40, 1000, 1270);
+
+            ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(55, 55, 970, 1240);
+
+            // Top Header
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 36px "Noto Sans KR", sans-serif';
+            ctx.fillText('★ 2026 대한민국 로또 1등 생존 행동강령 ★', 540, 130);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '900 52px "Noto Sans KR", sans-serif';
+            ctx.fillText('로또 1등 농협 본점 원정 수령 증명서', 540, 200);
+
+            // Avatar Icon
+            ctx.font = '120px sans-serif';
+            ctx.fillText(currentEndingData.avatar, 540, 370);
+
+            // Badge Box
+            ctx.fillStyle = 'rgba(245, 158, 11, 0.2)';
+            ctx.roundRect(340, 430, 400, 70, 35);
+            ctx.fill();
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.fillStyle = '#fcd34d';
+            ctx.font = 'bold 36px "Noto Sans KR", sans-serif';
+            ctx.fillText(currentEndingData.badge, 540, 478);
+
+            // Ending Title
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 44px "Noto Sans KR", sans-serif';
+            ctx.fillText(`"${currentEndingData.title}"`, 540, 560);
+
+            // Result Stats Card Box
+            ctx.fillStyle = 'rgba(30, 41, 59, 0.85)';
+            ctx.roundRect(100, 620, 880, 280, 24);
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Stats Columns
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = 'bold 28px "Noto Sans KR", sans-serif';
+            ctx.fillText('최종 잔여 멘탈', 260, 690);
+            ctx.fillText('주변 의심도', 540, 690);
+            ctx.fillText('실제 손에 쥔 돈', 820, 690);
+
+            ctx.font = '900 48px "Noto Sans KR", sans-serif';
+            ctx.fillStyle = '#10b981';
+            ctx.fillText(`${gameState.mental}%`, 260, 770);
+
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText(`${gameState.suspicion}%`, 540, 770);
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.fillText(`${gameState.cash.toFixed(1)}억`, 820, 770);
+
+            // Description Paragraph (Wrapped)
+            ctx.fillStyle = '#cbd5e1';
+            ctx.font = 'normal 26px "Noto Sans KR", sans-serif';
+            const lines = [
+                "다리미의 유혹과 택시기사의 룸미러 눈빛 대치를 뚫고,",
+                "서대문 농협 본점 3층 VIP룸에서 23억을 무사히 지켜냈습니다.",
+                "오늘 저녁은 순대국밥 특(特)에 머릿고기 수육 대(大)짜 추가다!"
+            ];
+            lines.forEach((line, i) => {
+                ctx.fillText(line, 540, 960 + (i * 45));
+            });
+
+            // Watermark & Date
+            const today = new Date().toISOString().split('T')[0];
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'normal 24px "Noto Sans KR", sans-serif';
+            ctx.fillText(`발급일자: ${today} | 발행처: TossGPT Online 복권전략국`, 540, 1190);
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 28px "Noto Sans KR", sans-serif';
+            ctx.fillText('tossgpt.online/lotto-simulator', 540, 1235);
+
+            // Download Trigger
+            const link = document.createElement('a');
+            link.download = `Lotto_1st_Survivor_${currentEndingData.rank}_${today}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    });
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대",
+          "operatingSystem": "All",
+          "applicationCategory": "GameApplication",
+          "description": "로또 1등 당첨 후 서대문 농협 본점 VIP룸까지 이동하여 세금을 공제하고 당첨금을 수령하는 텍스트 RPG 생존 시뮬레이션 게임.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+          }
+        },
+        {
+          "@type": "Quiz",
+          "name": "로또 1등 당첨자 행동강령 생존 테스트",
+          "description": "로또 1등 당첨 시 용지 보관, 대중교통 이동, VIP룸 지점장 펀드 권유 방어 딜레마를 선택하는 인터랙티브 시뮬레이션.",
+          "typicalAgeRange": "19+"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "로또 1등 당첨금은 현금 다발로 즉시 들고 나올 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아닙니다. 수십억 원의 현금은 보안상 치명적이며, 농협 본점 복권사업팀에서 당첨자 명의의 신규 통장으로 세후 금액을 계좌 입금 처리해 줍니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "로또 1등 당첨금을 가족에게 나누어주면 증여세가 발생하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네. 복권 당첨금은 당첨자 1인의 고유 자산이므로, 가족에게 무상으로 이전할 경우 상속세 및 증여세법에 따른 증여세가 부과됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "농협 본점에서 금융상품 가입을 강제로 강요하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "강제성은 전혀 없습니다. 직원이 상품을 권유할 수는 있으나 거절 시 전액 보통예금으로 수령 가능합니다."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "홈",
+              "item": "https://tossgpt.online/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "미니 게임",
+              "item": "https://tossgpt.online/#games"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "로또 1등 시뮬레이터",
+              "item": "https://tossgpt.online/lotto-simulator/index.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>
