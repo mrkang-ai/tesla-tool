@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.updateCurrentServiceName = updateCurrentServiceName;
 
     const path = window.location.pathname;
-    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') ? '../' : '';
+    const basePath = path.includes('/lotto/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') || path.includes('/tests/') ? '../' : '';
 
     const setupPortalSearchAndFilters = () => {
         const searchInput = document.getElementById('portal-search-input');
@@ -201,6 +201,21 @@ document.addEventListener("DOMContentLoaded", function() {
                         guidesSection.classList.add('hidden');
                     } else {
                         guidesSection.classList.remove('hidden');
+                    }
+                }
+            }
+
+            // Hide/show tests section heading if in specific filter or empty
+            const testsSection = document.getElementById('tests');
+            if (testsSection) {
+                if (currentCategory !== 'all' && currentCategory !== 'tests') {
+                    testsSection.classList.add('hidden');
+                } else {
+                    const visibleTests = testsSection.querySelectorAll('.portal-card:not(.hidden)');
+                    if (visibleTests.length === 0 && q) {
+                        testsSection.classList.add('hidden');
+                    } else {
+                        testsSection.classList.remove('hidden');
                     }
                 }
             }

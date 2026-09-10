@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탕진 vs 짠테크 머니 캐릭터 테스트 | 소비 성향 심리테스트 - ToolBox</title>
+    <meta name="description" content="배달비 4,500원 앞에서, 월급날 통장을 보며 나의 선택은? 8가지 현실 소비 질문으로 알아보는 나의 머니 페르소나와 환상의 소비 메이트!">
+    <meta name="keywords" content="소비 성향 테스트, 짠테크 테스트, 재테크 성향 테스트, 머니 캐릭터, 탕진 테스트, 돈 성격 테스트, 심리테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="탕진 vs 짠테크 머니 캐릭터 테스트 - ToolBox">
+    <meta property="og:description" content="나의 소비 습관과 재테크 유형은? 8가지 질문으로 알아보는 나의 머니 페르소나!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/money-persona.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">소비 성향 &amp; 머니 캐릭터</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs md:text-sm font-bold mb-5 border border-emerald-200 dark:border-emerald-800">
+                    <span>💰 머니 페르소나 진단</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    탕진 vs 짠테크:<br><span class="text-emerald-600 dark:text-emerald-400">나의 머니 캐릭터 테스트</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    배달비 4,500원 앞에서 나의 반응은? 통장에 월급이 찍힌 찰나의 순간 나는 무엇을 하는가?<br>
+                    8가지 소비 습관 질문으로 알아보는 <strong>나의 진짜 재테크 성향과 지갑 방어력!</strong>
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">💳</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🏷️</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">소비 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">✨</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">참여 비용</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">무료 진단</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-bold shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    머니 캐릭터 확인하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-emerald-600 dark:text-emerald-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-emerald-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-emerald-600 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">💰</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">소비 패턴 분석 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    영수증 데이터와 지갑 방어력을 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-emerald-400 to-teal-700 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-emerald-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        🔒
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 mb-2">
+                        짠테크 레벨 99
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        10원 한 닢 자물쇠
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "새는 돈 10원도 용납할 수 없다. 절약이 곧 최고의 재테크다!"
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 소비 심리 심층 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 재테크 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 주의해야 할 소비 함정
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 머니 캐릭터 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">행동경제학으로 분석하는 현대인의 소비 심리와 머니 스크립트</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                노벨 경제학상 수상자 리처드 탈러(Richard Thaler) 교수는 인간이 언제나 합리적인 계산에 따라 돈을 쓰지 않는다는 <strong>'심적 회계(Mental Accounting)'</strong> 이론을 제시했습니다. 우리는 땀 흘려 번 월급 10만 원은 매우 아끼면서도, 연말 보너스나 뜻밖의 꽁돈 10만 원은 손쉽게 기분파 지출로 탕진하곤 합니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">소비 유형별 재테크 황금 공식</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400 mb-1">💡 짠테크 자물쇠형: '행복 예산' 책정하기</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">무조건적인 억제는 결국 극단적인 보상 소비(탕진 폭식)를 유발합니다. 매달 죄책감 없이 자유롭게 쓸 수 있는 10%의 '도파민 예산'을 공식 배정하세요.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-emerald-600 dark:text-emerald-400 text-sm mb-1">💡 도파민 결제러형: 72시간 쿨링다운 법칙</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">충동구매 욕구가 들 때 결제 버튼을 누르기 전 장바구니에 담고 딱 72시간을 기다리세요. 충동 소비의 80%는 3일이 지나면 뇌의 도파민이 가라앉아 구매 욕구가 사라집니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>이 테스트는 어떤 기준으로 머니 캐릭터를 진단하나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        8가지 일상 소비 시나리오(배달비, 쇼핑 할인, 월급날, 친구 모임 등)에서 나타나는 심적 회계 태도와 미래 지향성 지수를 계산하여 4가지 주요 머니 캐릭터로 분류합니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'money-persona',
+                title: '탕진 vs 짠테크 머니 캐릭터 테스트',
+                subtitle: '8가지 현실 질문으로 알아보는 나의 소비 성향과 지갑 방어력',
+                resultTypes: ['lock-saver', 'flex-hunter', 'ai-calculator', 'future-planner'],
+                questions: [
+                    {
+                        question: '온라인 쇼핑몰 장바구니에 마음에 쏙 드는 옷을 담아두었다. 나의 다음 행동은?',
+                        options: [
+                            { text: '할인 쿠폰, 제휴 카드 혜택, 무료 배송 조건까지 샅샅이 뒤져보고 없으면 닫는다.', type: 'lock-saver' },
+                            { text: '"오늘 고생한 나를 위한 선물!" 고민 없이 즉시 결제 버튼을 누른다.', type: 'flex-hunter' },
+                            { text: '품번을 복사해서 네이버/에누리 최저가 검색 및 중고 시세까지 비교해본다.', type: 'ai-calculator' },
+                            { text: '"이 돈이면 우량 배당주 1주를 살 수 있는데..." 고민하다 장바구니를 비운다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '밤 10시, 너무 배가 고픈데 배달비가 4,500원이다. 나의 반응은?',
+                        options: [
+                            { text: '배달비 4,500원은 도저히 용납 불가! 조용히 라면을 끓이거나 냉장고를 턴다.', type: 'lock-saver' },
+                            { text: '먹고 싶은 건 지금 먹어야 행복하다. 배달비 포함 3만 원 쿨결제!', type: 'flex-hunter' },
+                            { text: '포장 주문으로 변경하고 운동 삼아 10분 걸어서 픽업해온다.', type: 'ai-calculator' },
+                            { text: '배달 앱을 지우고, 식비 예산 초과분을 계산하며 건강한 취침을 선택한다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '월급날 통장에 월급이 띵동 입금된 순간, 내가 가장 먼저 하는 행동은?',
+                        options: [
+                            { text: '미리 설정해 둔 고정 지출 및 적금 통장으로 10원 단위까지 칼같이 자동 이체.', type: 'lock-saver' },
+                            { text: '사고 싶었던 위시리스트를 켜고, 오늘 저녁 맛있는 외식을 예약한다.', type: 'flex-hunter' },
+                            { text: '이번 달 지출 예상 내역과 카드 청구서를 엑셀/가계부 앱에 꼼꼼히 정리한다.', type: 'ai-calculator' },
+                            { text: '주식 계좌와 연금저축 펀드에 목표 금액을 즉시 매수 이체한다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '마트에서 살 생각이 없던 물건인데 "1+1 마감 폭탄 세일" 팻말이 붙어있다.',
+                        options: [
+                            { text: '내 장바구니 메모 목록에 없던 물건이면 아무리 싸도 눈길도 안 준다.', type: 'lock-saver' },
+                            { text: '"1+1이면 안 사는 게 손해잖아!" 당장 카트에 집어넣는다.', type: 'flex-hunter' },
+                            { text: '개당 단가를 암산해보고, 유통기한 내에 다 먹을 수 있는지 계산 후 결정한다.', type: 'ai-calculator' },
+                            { text: '"소비는 100% 지출이지만 안 사면 100% 할인이다" 되뇌며 지나친다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '친구들과의 모임에서 누군가 "오늘 기분이다, 내가 쏠게!"라고 할 때 나의 생각은?',
+                        options: [
+                            { text: '속으로 "오예 오늘 식비 굳었다" 안도하며 다음엔 내가 커피를 산다.', type: 'lock-saver' },
+                            { text: '"대박 멋지다!" 진심으로 환호하며 다음 2차는 내가 쏘겠다고 나선다.', type: 'flex-hunter' },
+                            { text: '대략 인당 얼마씩 나왔는지 머릿속으로 계산하고 적절한 기프티콘 답례를 생각한다.', type: 'ai-calculator' },
+                            { text: '고마운 마음과 함께 사람 간의 신뢰와 관계의 가치에 대해 생각한다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '길 가다 인테리어가 너무 예쁜 카페를 발견했는데, 아메리카노가 8,500원이다.',
+                        options: [
+                            { text: '커피 한 잔에 국밥값이라니... 뒤도 안 돌아보고 컴포즈/메가커피로 향한다.', type: 'lock-saver' },
+                            { text: '"분위기 값이지!" 사진 명당자리를 잡고 디저트까지 풀코스로 시킨다.', type: 'flex-hunter' },
+                            { text: '원두 품질과 뷰(전망)의 퀄리티가 8,500원의 효용을 주는지 빠르게 분석한다.', type: 'ai-calculator' },
+                            { text: '원가 구조(원두 200원, 임대료, 인건비)를 추정하며 카페 비즈니스 모델을 상상한다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '나에게 갑작스러운 1,000만 원의 눈먼 공돈이 생긴다면?',
+                        options: [
+                            { text: '절대 손대지 않고 가장 금리 높은 정기예금이나 파킹통장에 묶어둔다.', type: 'lock-saver' },
+                            { text: '그동안 참아왔던 해외여행 항공권을 끊고 명품 백/전자기기를 플렉스한다.', type: 'flex-hunter' },
+                            { text: '비상금 300, 여행 200, 투자 500 등 철저한 포트폴리오로 쪼갠다.', type: 'ai-calculator' },
+                            { text: 'S&P500 지수 ETF나 저평가된 성장 자산에 분할 매수한다.', type: 'future-planner' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 "돈"의 진정한 의미는?',
+                        options: [
+                            { text: '어려운 상황에서 나를 지켜주는 가장 안전한 방패이자 울타리.', type: 'lock-saver' },
+                            { text: '현재의 내 삶을 풍요롭고 재미있게 만들어주는 교환 수단.', type: 'flex-hunter' },
+                            { text: '최소 투입으로 최대 산출을 뽑아내야 하는 효율의 척도.', type: 'ai-calculator' },
+                            { text: '시간과 공간으로부터 자유로워지는 경제적 자유의 티켓.', type: 'future-planner' }
+                        ]
+                    }
+                ],
+                results: {
+                    'lock-saver': {
+                        title: '10원 한 닢 자물쇠',
+                        emoji: '🔒',
+                        badge: '짠테크 레벨 99 / 가계부 수호신',
+                        tags: ['#짠테크마스터', '#쿠폰수집가', '#티끌모아태산', '#무지출챌린저'],
+                        summary: '새는 돈 10원도 용납할 수 없다. 절약이 곧 최고의 재테크다!',
+                        description: `
+                            <p>당신은 불필요한 누수를 완벽히 틀어막는 <strong>철벽의 재정 수호자</strong>입니다. 충동구매라는 단어는 당신의 사전에 없으며, 은행 이자와 포인트 혜택을 극대화하는 알뜰함의 표본입니다.</p>
+                            <p>어떤 경제적 위기가 닥쳐도 든든한 비상금을 지키고 있어 미래 불안 지수가 낮습니다. 다만 스스로에게 너무 가혹한 통제를 가하지 않도록 가끔은 숨 쉴 틈을 주는 것이 중요합니다.</p>
+                        `,
+                        strengths: [
+                            '남다른 현금 흐름 통제력과 높은 저축률',
+                            '충동구매 유혹에 흔들리지 않는 강철 자제력',
+                            '불필요한 고정 지출을 귀신같이 찾아내는 매의 눈'
+                        ],
+                        cautions: [
+                            '극단적인 아끼기로 주변 사람들에게 인색하다는 인상을 줄 위험',
+                            '자신을 위한 경험과 배움에 투자하는 비용까지 아끼지 말 것'
+                        ],
+                        bestMatch: {
+                            title: '기분파 도파민 결제러',
+                            reason: '가끔 나를 밖으로 끌어내어 새로운 세상의 즐거움을 맛보게 해주는 메이트!'
+                        },
+                        worstMatch: {
+                            title: '미래 배당 플래너',
+                            reason: '절약 방식과 투자 철학을 두고 끝없는 갑론을박이 이어질 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '로또 번호 생성기 & 당첨 통계',
+                            url: '/lotto/',
+                            desc: '1,000원의 건전한 소액으로 주말의 행복한 희망을 시뮬레이션해보세요!',
+                            icon: 'casino'
+                        }
+                    },
+                    'flex-hunter': {
+                        title: '기분파 도파민 결제러',
+                        emoji: '💳',
+                        badge: '행복 추구 100% / 소확행 헌터',
+                        tags: ['#월급은스쳐갈뿐', '#기분파쇼퍼', '#돈으로행복구매', '#스트레스는결제로'],
+                        summary: '스트레스는 결제로 푼다! 오늘 나를 위로하는 건 오직 장바구니뿐.',
+                        description: `
+                            <p>돈을 쥐고 있는 것보다 돈을 통해 얻는 <strong>'경험과 도파민'</strong>의 가치를 가장 높게 치는 낭만주의자입니다. 기분이 울적할 땐 맛있는 음식과 쇼핑으로 스스로를 치유하는 명쾌한 스타일입니다.</p>
+                            <p>삶을 즐길 줄 알며 주변 사람들에게도 아낌없이 베풀어 인기가 많지만, 월말 카드 명세서를 볼 때마다 깜짝 놀라는 패턴을 반복하곤 합니다.</p>
+                        `,
+                        strengths: [
+                            '현재의 행복과 트렌드를 온전히 누리는 풍부한 삶의 만족도',
+                            '주변 사람들에게 기분 좋게 쏠 줄 아는 화끈한 인간관계',
+                            '경험에 아낌없이 투자하여 넓은 시야와 안목을 보유'
+                        ],
+                        cautions: [
+                            '감정적 허기를 물질적 소비로 채우려는 보상 소비 패턴 주의',
+                            '비상 상황에 대비한 최소 3개월 치 안전 자금은 반드시 확보할 것'
+                        ],
+                        bestMatch: {
+                            title: '10원 한 닢 자물쇠',
+                            reason: '지갑이 털리기 직전 침착하게 브레이크를 밟아주는 최고의 지갑 수호신!'
+                        },
+                        worstMatch: {
+                            title: '가성비 계산기 AI',
+                            reason: '내 지출 하나하나에 가성비 분석을 들이대며 스트레스를 줍니다.'
+                        },
+                        recommendTool: {
+                            name: '사다리 게임 (Ghost Leg)',
+                            url: '/ladder/',
+                            desc: '혼자 다 쏘지 말고, 친구들과 공평하게 사다리로 커피값을 내보세요!',
+                            icon: 'alt_route'
+                        }
+                    },
+                    'ai-calculator': {
+                        title: '가성비 계산기 AI',
+                        emoji: '🧮',
+                        badge: '효율 추구 200% / 냉철한 비교 분석가',
+                        tags: ['#최저가검색왕', '#단위당가격계산', '#가성비의화신', '#엑셀가계부'],
+                        summary: '가격 대비 성능비가 0.1이라도 낮다면 절대 지갑을 열지 않는다.',
+                        description: `
+                            <p>감정에 휩쓸리지 않고 오직 <strong>수치와 데이터</strong>로 소비를 결정하는 이성적 분석가입니다. 100g당 단가, 최저가 쿠폰 조합, 카드 청구 할인율을 엑셀처럼 실시간 연산합니다.</p>
+                            <p>호갱이 되는 것을 세상에서 가장 싫어하며, 당신이 산 물건은 언제나 시장에서 가장 합리적인 조건으로 구매한 물건들입니다.</p>
+                        `,
+                        strengths: [
+                            '시장 가격에 대한 해박한 지식과 합리적 소비 의사결정',
+                            '호갱 당하지 않고 실속만 쏙쏙 챙기는 스마트 컨슈머',
+                            '재정 상태를 데이터로 한눈에 파악하는 뛰어난 관리 능력'
+                        ],
+                        cautions: [
+                            '최저가 200원 찾으려 3시간을 검색하며 더 소중한 시간을 낭비할 수 있음',
+                            '효율과 가성비에 너무 집착하다 인생의 소소한 낭만을 잃지 말 것'
+                        ],
+                        bestMatch: {
+                            title: '미래 배당 플래너',
+                            reason: '효율적 소비와 생산적 투자의 가치를 깊이 공감하는 전략적 파트너!'
+                        },
+                        worstMatch: {
+                            title: '기분파 도파민 결제러',
+                            reason: '눈앞에서 계획 없는 충동구매를 목격할 때마다 혈압이 오릅니다.'
+                        },
+                        recommendTool: {
+                            name: '글자 수 세기 & 바이트 분석',
+                            url: '/TextCount/',
+                            desc: '글자 하나, 공백 하나까지 정밀하게 계산하는 완벽한 분석 도구!',
+                            icon: 'format_size'
+                        }
+                    },
+                    'future-planner': {
+                        title: '미래 배당 플래너',
+                        emoji: '📈',
+                        badge: '자산 증식 99% / 조기 은퇴 꿈나무',
+                        tags: ['#복리의마법', '#파이어족꿈나무', '#투자분산러', '#자산빌더'],
+                        summary: '소비 대신 자산을 산다. 돈이 나를 위해 일하게 만드는 시스템 구축!',
+                        description: `
+                            <p>돈을 소비의 수단이 아닌 <strong>'나를 위해 일하는 자본'</strong>으로 바라보는 비전형 전략가입니다. 복리의 마법을 신봉하며 젊은 날의 절제와 투자를 통해 조기 은퇴(FIRE)를 꿈꿉니다.</p>
+                            <p>소비재를 살 때는 무덤덤하지만 우량 주식이나 자산을 매수할 때 가슴이 뛰는 진정한 자산가형 마인드셋을 지니고 있습니다.</p>
+                        `,
+                        strengths: [
+                            '장기적인 안목과 복리 효과를 온전히 활용하는 인내심',
+                            '단기 유혹을 이겨내고 시스템을 구축하는 높은 지능적 자기통제',
+                            '자본주의 시장 구조를 꿰뚫어 보는 통찰력'
+                        ],
+                        cautions: [
+                            '먼 미래의 안락함만을 위해 현재 청춘의 값진 추억을 지나치게 유예할 위험',
+                            '투자에 지나치게 몰입하여 일상의 평정심을 잃지 않도록 마인드 컨트롤 필요'
+                        ],
+                        bestMatch: {
+                            title: '가성비 계산기 AI',
+                            reason: '치밀한 지출 분석과 미래 지향적 자산 배분이 만나 시너지를 폭발시킵니다.'
+                        },
+                        worstMatch: {
+                            title: '기분파 도파민 결제러',
+                            reason: '소비 관점이 너무 달라 장기적인 재정 계획을 공유하기 어렵습니다.'
+                        },
+                        recommendTool: {
+                            name: '로또 수학과 확률 심층 가이드',
+                            url: '/guides/lotto-mathematics.html',
+                            desc: '조합론과 음의 기댓값을 수학적으로 증명한 고품질 재정 분석 아티클!',
+                            icon: 'menu_book'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "탕진 vs 짠테크 머니 캐릭터 테스트",
+          "description": "8가지 소비 질문으로 나의 머니 페르소나와 재테크 유형을 진단하는 무료 바이럴 테스트",
+          "url": "https://tossgpt.online/tests/money-persona.html",
+          "educationalLevel": "Adult",
+          "about": "Behavioral Economics & Personal Finance"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "이 테스트는 어떤 기준으로 머니 캐릭터를 진단하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "8가지 일상 소비 딜레마(배달비, 쇼핑 할인, 월급날 지출 등)에서 나타나는 심적 회계 태도와 미래 지향성 지수를 연산하여 자물쇠형, 도파민형, 가성비형, 배당플래너형으로 분류합니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스트레스 대처 반응 스타일 진단 | 임상 심리학 테스트 - ToolBox</title>
+    <meta name="description" content="라자루스 &amp; 포크먼의 학술적 스트레스 대처 모델을 기반으로 진단하는 나의 위기 반응 스타일! 불도저 파이터 vs 체스판 전략가 vs 닌자 회피가 vs 감성 힐러 중 나의 진짜 대처법은?">
+    <meta name="keywords" content="스트레스 대처 테스트, 스트레스 반응 테스트, 멘탈 회복력 테스트, 라자루스 스트레스, 심리테스트, 번아웃 극복, 위기 대처 능력">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="스트레스 대처 반응 스타일 진단 - ToolBox">
+    <meta property="og:description" content="위기 앞에서 나는 싸우는가, 분석하는가, 피하는가, 치유하는가? 나의 스트레스 대처 메커니즘!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/stress-coping.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">스트레스 대처 반응 진단</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 text-xs md:text-sm font-bold mb-5 border border-blue-200 dark:border-blue-800">
+                    <span>🛡️ 라자루스 &amp; 포크먼 대처 모델</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    스트레스 대처 반응 스타일<br><span class="text-blue-600 dark:text-blue-400">심층 임상 심리 진단</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    압박감과 억울한 비난, 예상치 못한 대형 위기 앞에서 나의 무의식은 어떻게 반응할까요?<br>
+                    8가지 위기 상황 질문을 통해 <strong>나만의 스트레스 극복 무기와 방어 기제</strong>를 확인해보세요.
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">⚔️</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📊</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">대처 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🍵</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">학술 기반</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">인지적 대처론</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-lg shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    대처 스타일 진단하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-blue-600 dark:text-blue-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-blue-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-blue-600 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🛡️</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">스트레스 대처 반응 척도 분석 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    문제 중심 vs 정서 중심 기제의 가중치를 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-800 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-blue-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        🥊
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 mb-2">
+                        멘탈 파워 99%
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        정면돌파 불도저 파이터
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "도망치지 않는다! 원인을 찾아서 뿌리째 뽑아버린다."
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 심리학적 대처 기제 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 위기 대응 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 주의해야 할 심리적 함정
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 스트레스 대처 스타일 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">라자루스 &amp; 포크먼(Lazarus &amp; Folkman)의 상호작용적 스트레스 대처 모델</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                스트레스 심리학의 개척자인 리처드 라자루스(Richard Lazarus)와 수잔 포크먼(Susan Folkman)은 스트레스가 외부 사건 자체가 아니라, <strong>'사건을 인지적으로 어떻게 평가(Cognitive Appraisal)하고 어떤 대처 자원을 동원하는가'</strong>의 상호작용에 의해 결정된다고 설명했습니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">4대 핵심 대처 전략의 균형</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-1">1. 문제 중심 대처 (Problem-Focused)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">스트레스를 유발하는 환경적 요인을 직접 바꾸거나 해결책을 실행하여 근본 원인을 제거합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">2. 정서 중심 대처 (Emotion-Focused)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">바꿀 수 없는 불가항력적 상황에서 발생하는 불안, 분노, 슬픔 등의 감정적 고통을 다스리고 완화합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">3. 인지적 재평가 (Cognitive Reappraisal)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">위기를 '위협'이 아닌 '도전과 성장의 기회'로 프레임을 전환하여 주관적 스트레스 수치를 대폭 낮춥니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">4. 회피 및 쿨다운 (Active Distraction)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">급성 스트레스 상황에서 전두엽이 마비되지 않도록 잠시 거리를 두고 신경계를 진정시키는 일시적 후퇴입니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>회피형 대처는 무조건 나쁜 건가요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        아닙니다. 감정이 격해진 상태에서 섣부른 행동을 하기보다 일시적으로 자리를 피하고 수면이나 휴식을 통해 감정을 식히는 '전략적 쿨다운'은 매우 건강하고 효과적인 방어 기제입니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'stress-coping',
+                title: '스트레스 대처 반응 스타일 진단 테스트',
+                subtitle: '라자루스 & 포크먼의 인지적 대처 모델로 측정하는 나의 위기 극복 메커니즘',
+                resultTypes: ['problem-fighter', 'chess-strategist', 'ninja-avoidant', 'emotion-healer'],
+                questions: [
+                    {
+                        question: '감당하기 힘들 만큼 과도한 업무나 시험 압박이 한꺼번에 몰아쳤을 때 나의 행동은?',
+                        options: [
+                            { text: '당장 책상에 앉아 급한 불부터 하나씩 무서운 속도로 쳐내기 시작한다.', type: 'problem-fighter' },
+                            { text: '전체 목록을 우선순위와 마감일별로 나누고 시간표를 체계적으로 재조정한다.', type: 'chess-strategist' },
+                            { text: '머리가 터질 것 같아서 일단 누워 자거나 좋아하는 게임을 켠다.', type: 'ninja-avoidant' },
+                            { text: '친구나 동료에게 메신저로 "나 진짜 살려줘..." 하소연하며 위로를 구한다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '직장이나 모임에서 누군가 나에게 불합리한 오해나 비난을 씌웠을 때 나의 반응은?',
+                        options: [
+                            { text: '상대방에게 즉각 사실관계를 따지며 "그건 사실이 아닙니다" 정면 반박한다.', type: 'problem-fighter' },
+                            { text: '감정적으로 대응하지 않고 명백한 증거와 기록을 차분하게 수집한다.', type: 'chess-strategist' },
+                            { text: '똥이 무서워서 피하나 더러워서 피하지... 조용히 거리를 두고 무시한다.', type: 'ninja-avoidant' },
+                            { text: '너무 억울하고 가슴이 뛰어 눈물이 왈칵 쏟아지거나 친구에게 전화를 건다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '예상치 못한 큰 금전적 손실이나 대형 사고가 터졌을 때 나의 머릿속 회로는?',
+                        options: [
+                            { text: '"손실 복구할 방법이 뭐지?" 당장 현금 흐름을 재설계하고 추가 수입을 모색한다.', type: 'problem-fighter' },
+                            { text: '왜 이런 사고가 발생했는지 시스템적 결함을 분석하고 재발 방지책을 세운다.', type: 'chess-strategist' },
+                            { text: '"이미 벌어진 일, 생각하면 머리만 아프다" 애써 생각을 지우고 딴짓을 한다.', type: 'ninja-avoidant' },
+                            { text: '속상한 마음을 달래기 위해 나 자신에게 맛있는 음식이나 선물을 사준다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '스트레스가 극에 달해 폭발 직전일 때 내가 본능적으로 찾는 구원책은?',
+                        options: [
+                            { text: '격렬한 운동(웨이트 트레이닝, 러닝, 복싱)으로 땀을 흠뻑 흘린다.', type: 'problem-fighter' },
+                            { text: '문제를 해결할 수 있는 전문가의 책이나 칼럼, 데이터를 찾아 읽는다.', type: 'chess-strategist' },
+                            { text: '암막 커튼을 치고 좋아하는 영화나 넷플릭스를 보며 세상과 단절한다.', type: 'ninja-avoidant' },
+                            { text: '마음이 통하는 사람과 따뜻한 차나 술 한잔을 기울이며 진솔한 대화를 나눈다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '친구나 연인과 심하게 다툰 직후, 나의 감정 수습 방식은?',
+                        options: [
+                            { text: '서로 감정이 가라앉기 전에 당장 만나서 담판을 짓고 끝장을 본다.', type: 'problem-fighter' },
+                            { text: '다툼의 원인과 내 잘못, 상대 잘못을 조목조목 정리하여 장문의 톡을 쓴다.', type: 'chess-strategist' },
+                            { text: '최소 하루 이틀은 연락을 끊고 혼자만의 시간 속에서 쿨다운을 가진다.', type: 'ninja-avoidant' },
+                            { text: '상대방의 마음이 다치지 않았을까 걱정하며 화해의 손길을 먼저 내민다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '내일 아침 중요한 면접이나 프레젠테이션이 있을 때 전날 밤 나의 행동은?',
+                        options: [
+                            { text: '발표 스크립트가 입에 완벽히 붙을 때까지 새벽까지 리허설을 반복한다.', type: 'problem-fighter' },
+                            { text: '예상 질문과 돌발 질문 20개에 대한 모범 답안을 완벽히 정리하고 일찍 잔다.', type: 'chess-strategist' },
+                            { text: '"어차피 내일 일은 내일의 내가 하겠지!" 긴장 풀려고 유튜브 보며 잠을 청한다.', type: 'ninja-avoidant' },
+                            { text: '주변 사람들에게 응원 메시지를 받으며 긍정적인 자기 암시를 건다.', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '극심한 스트레스 상황을 잘 넘기고 난 뒤, 그 경험을 회고할 때 나의 생각은?',
+                        options: [
+                            { text: '"역시 난 어떤 위기도 뚫고 나갈 수 있어!" 강한 효능감을 얻는다.', type: 'problem-fighter' },
+                            { text: '"다음엔 더 효율적으로 리스크를 차단해야지" 교훈을 정리해 시스템화한다.', type: 'chess-strategist' },
+                            { text: '"휴... 다신 이런 일 안 겪었으면 좋겠다" 안도의 한숨을 내쉰다.', type: 'ninja-avoidant' },
+                            { text: '"이 힘든 시간을 버텨준 내 멘탈과 곁에 있어 준 사람들에게 감사해."', type: 'emotion-healer' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 "스트레스"라는 존재에 대한 나만의 정의는?',
+                        options: [
+                            { text: '피할 수 없다면 박살 내야 할 정면의 적수.', type: 'problem-fighter' },
+                            { text: '환경과 나 사이의 불균형을 알리는 데이터 신호.', type: 'chess-strategist' },
+                            { text: '무리하지 말고 조용히 비껴가야 할 소나기.', type: 'ninja-avoidant' },
+                            { text: '스스로를 더 따뜻하게 보살피라는 마음의 알람.', type: 'emotion-healer' }
+                        ]
+                    }
+                ],
+                results: {
+                    'problem-fighter': {
+                        title: '정면돌파 불도저 파이터',
+                        emoji: '🥊',
+                        badge: '멘탈 파워 99% / 위기 분쇄기',
+                        tags: ['#정면돌파', '#문제해결원탑', '#팩트우선', '#행동력만렙'],
+                        summary: '도망치지 않는다! 원인을 찾아서 뿌리째 뽑아버린다.',
+                        description: `
+                            <p>당신은 위기 앞에서 도망치거나 주저앉지 않고 <strong>문제의 근원을 향해 돌진하는 적극적 행동파</strong>입니다. 라자루스의 '문제 중심 대처(Problem-Focused Coping)'의 전형으로, 환경을 직접 바꾸고 통제하려는 효능감이 매우 강합니다.</p>
+                            <p>스트레스 상황일수록 집중력과 아드레날린이 솟구치며, 남들이 패닉에 빠질 때 명쾌한 타개책을 실행해 상황을 역전시킵니다.</p>
+                        `,
+                        strengths: [
+                            '위기 상황을 질질 끌지 않고 단기간에 종결짓는 강력한 실행력',
+                            '어떤 난관 앞에서도 주눅 들지 않는 강인한 멘탈과 주도성',
+                            '스스로 인생의 통제권을 쥐고 문제를 해결하는 높은 자아효능감'
+                        ],
+                        cautions: [
+                            '해결할 수 없는 불가항력적 상황에서도 무리하게 부딪히다 몸과 마음이 상할 위험',
+                            '가끔은 힘을 빼고 상황의 흐름에 몸을 맡기는 유연함도 배울 것'
+                        ],
+                        bestMatch: {
+                            title: '공감 충전 감성 힐러',
+                            reason: '내 날선 긴장과 전투 모드를 따뜻하게 녹여주는 최고의 정서적 쉼터!'
+                        },
+                        worstMatch: {
+                            title: '이불 속 닌자 회피가',
+                            reason: '문제를 해결하지 않고 도망치려는 상대를 보면 복장이 터집니다.'
+                        },
+                        recommendTool: {
+                            name: '당근 피하기 (Carrot Dodger)',
+                            url: '/carrot-dodger/',
+                            desc: '위에서 쏟아지는 방해물들을 초스피드 반사신경으로 돌파해보세요!',
+                            icon: 'directions_run'
+                        }
+                    },
+                    'chess-strategist': {
+                        title: '체스판 설계 전략가',
+                        emoji: '♟️',
+                        badge: '이성 지수 200% / 냉철한 책략가',
+                        tags: ['#냉정한분석', '#경우의수계산', '#감정배제', '#체계적플랜'],
+                        summary: '감정은 배제한다. 한 수 앞을 내다보고 최적의 탈출구를 설계한다.',
+                        description: `
+                            <p>당신은 스트레스 상황에서 감정의 소용돌이에 휘말리지 않고 <strong>상황을 한 발짝 떨어져 관찰하는 메타인지의 달인</strong>입니다. 인지적 재평가(Cognitive Reappraisal)를 통해 위기를 체스 게임처럼 분해하고 최선의 수를 계산합니다.</p>
+                            <p>흥분하지 않고 침착하게 사태를 수습하기 때문에 조직에서 가장 신뢰받는 위기 관리자 역할을 해냅니다.</p>
+                        `,
+                        strengths: [
+                            '패닉 상태에서도 흔들리지 않는 냉철한 논리적 평정심',
+                            '경우의 수(시나리오 A, B, C)를 사전에 준비하는 빈틈없는 전략성',
+                            '위기를 배움과 시스템 개선의 기회로 전환하는 높은 지적 회복력'
+                        ],
+                        cautions: [
+                            '자신의 솔직한 감정(슬픔, 두려움)까지 지나치게 억누르다 마음의 병이 될 위험',
+                            '타인의 감정적 호소에 너무 차가운 논리로만 접근하지 않도록 배려 필요'
+                        ],
+                        bestMatch: {
+                            title: '이불 속 닌자 회피가',
+                            reason: '상대의 쿨다운 시간을 기다려주고 명쾌한 해결 플랜을 선물하는 이상적인 조합!'
+                        },
+                        worstMatch: {
+                            title: '정면돌파 불도저 파이터',
+                            reason: '전략 없이 무작정 들이받는 무모한 행동에 질려버릴 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '게임 이론과 심리학 심층 가이드',
+                            url: '/guides/game-theory-and-psychology.html',
+                            desc: '내쉬 균형과 수학적 확률로 갈등과 의사결정을 푸는 명쾌한 아티클!',
+                            icon: 'menu_book'
+                        }
+                    },
+                    'ninja-avoidant': {
+                        title: '이불 속 닌자 회피가',
+                        emoji: '🥷',
+                        badge: '쿨다운 달인 100% / 안전지대 수호자',
+                        tags: ['#일단후퇴', '#이불밖은위험해', '#뇌식히기', '#잠이보약'],
+                        summary: '불길이 거셀 땐 일단 피하는 게 상책! 푹 자고 내일 생각하자.',
+                        description: `
+                            <p>당신은 폭풍우가 몰아칠 때 무리하게 우산을 펴기보다 <strong>따뜻한 동굴로 들어가 비가 그치기를 기다리는 현명한 안전주의자</strong>입니다. 일시적인 회피와 주의 분산(Distraction)을 통해 과열된 신경계를 안전하게 보호합니다.</p>
+                            <p>격한 감정 상태에서 섣부른 행동으로 2차 참사를 일으키지 않는 뛰어난 쿨다운 능력을 지녔습니다.</p>
+                        `,
+                        strengths: [
+                            '과도한 스트레스로부터 자신의 정신 건강을 지켜내는 본능적 자기방어력',
+                            '수면과 휴식을 통해 감정의 독소를 자연스럽게 정화하는 회복력',
+                            '타인과의 소모적인 충돌을 사전에 회피하는 평화적 태도'
+                        ],
+                        cautions: [
+                            '일시적 후퇴가 만성적 미루기와 도피로 변질되지 않도록 기한 설정 필요',
+                            '시간이 지나도 저절로 해결되지 않는 문제는 결국 용기를 내어 마주해야 함'
+                        ],
+                        bestMatch: {
+                            title: '체스판 설계 전략가',
+                            reason: '내가 마음을 추스르는 동안 든든하게 현실적인 해결책을 마련해 주는 구원투수!'
+                        },
+                        worstMatch: {
+                            title: '정면돌파 불도저 파이터',
+                            reason: '쉬고 있는 나를 억지로 끌고 나가 싸우라고 재촉할 때 극도의 공포를 느낍니다.'
+                        },
+                        recommendTool: {
+                            name: '오늘 뭐 먹지? (Meal Picker)',
+                            url: '/eat/',
+                            desc: '복잡한 고민 다 내려놓고 따뜻하고 맛있는 한 끼로 멘탈을 힐링하세요!',
+                            icon: 'restaurant'
+                        }
+                    },
+                    'emotion-healer': {
+                        title: '공감 충전 감성 힐러',
+                        emoji: '🍵',
+                        badge: '회복 탄력성 95% / 마음의 치유자',
+                        tags: ['#감정표출', '#친구와수다', '#맛있는위로', '#따뜻한공감'],
+                        summary: '마음의 상처를 먼저 안아주자. 따뜻한 위로와 눈물이 최고의 명약!',
+                        description: `
+                            <p>당신은 상처받은 감정을 억누르지 않고 <strong>솔직하게 인정하고 보듬어주는 정서적 치유자</strong>입니다. 라자루스의 '정서 중심 대처(Emotion-Focused Coping)'와 사회적 지지를 탁월하게 활용합니다.</p>
+                            <p>속상한 일을 친한 사람들과 털어놓으며 눈물 흘리고 웃는 과정을 통해 마음의 응어리를 말끔히 씻어내는 뛰어난 정화 능력을 가지고 있습니다.</p>
+                        `,
+                        strengths: [
+                            '자신의 감정을 솔직하게 표현하고 수용하는 높은 정서 지능',
+                            '주변 사람들의 위로와 지지를 이끌어내는 다정하고 진솔한 소통',
+                            '타인의 아픔에도 깊이 공감하고 함께 치유해 주는 따뜻한 연대감'
+                        ],
+                        cautions: [
+                            '감정에 너무 오래 매몰되어 현실의 실질적 문제 해결을 놓치지 않도록 균형 유지',
+                            '나의 스트레스 하소연이 주변 사람들을 감정 쓰레기통으로 만들지 않도록 완급 조절'
+                        ],
+                        bestMatch: {
+                            title: '정면돌파 불도저 파이터',
+                            reason: '내 다친 마음을 위로받고 나면, 상대가 든든하게 현실 문제를 해결해 줍니다!'
+                        },
+                        worstMatch: {
+                            title: '체스판 설계 전략가',
+                            reason: '위로받고 싶은 내 마음에 자꾸만 차가운 해결책과 시시비비를 들이댈 때 서운합니다.'
+                        },
+                        recommendTool: {
+                            name: '키캡 누르기 게임 & 기계식 스위치 가이드',
+                            url: '/keycap/',
+                            desc: '마음을 편안하게 해주는 기계식 타건 소리와 함께 불안한 감정을 토닥여보세요!',
+                            icon: 'keyboard'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "스트레스 대처 반응 스타일 진단 테스트",
+          "description": "라자루스 & 포크먼의 학술적 스트레스 대처 모델을 기반으로 나의 위기 반응 스타일을 진단하는 무료 심리테스트",
+          "url": "https://tossgpt.online/tests/stress-coping.html",
+          "educationalLevel": "Adult",
+          "about": "Clinical Psychology & Stress Coping Mechanisms"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "회피형 대처는 무조건 나쁜 건가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아닙니다. 감정이 격해진 상태에서 섣부른 판단을 피하고 일시적으로 자리를 물려 수면과 휴식을 취하는 전략적 쿨다운은 매우 건강하고 효과적인 방어 기제입니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

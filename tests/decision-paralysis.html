@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결정 장애 극복 지수 &amp; 뇌 성향 테스트 | 무료 심리테스트 - ToolBox</title>
+    <meta name="description" content="메뉴판 앞에서 10분, 넷플릭스 고르다 잠드는 당신! 8가지 선택 상황 질문으로 나의 결정 장애 지수와 인지 스타일을 진단하고, 선택 피로를 극복하는 솔루션을 만나보세요.">
+    <meta name="keywords" content="결정장애 테스트, 햄릿 증후군 테스트, 선택 장애, 결정 피로, 심리테스트, 성향 테스트, 뇌 성향 테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="결정 장애 극복 지수 &amp; 뇌 성향 테스트 - ToolBox">
+    <meta property="og:description" content="메뉴판 앞에서 10분, 넷플릭스 탐색 1시간... 나의 결정 피로도와 뇌 성향은?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/decision-paralysis.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">결정 장애 극복 지수</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs md:text-sm font-bold mb-5 border border-amber-200 dark:border-amber-800">
+                    <span>🧭 인지 의사결정 진단</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    결정 장애 극복 지수 &amp;<br><span class="text-amber-600 dark:text-amber-400">뇌 인지 유형 테스트</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    메뉴판 앞에서 10분, 넷플릭스 썸네일 고르다 잠드는 당신!<br>
+                    8가지 선택 상황을 통해 <strong>나의 결정 피로도와 뇌의 정보 처리 스타일</strong>을 파악해보세요.
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🎯</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📊</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">뇌 성향 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">💡</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">극복 솔루션</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">맞춤 툴 연동</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-lg shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    결정 스타일 진단하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-amber-600 dark:text-amber-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-amber-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-amber-500 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🧭</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">의사결정 알고리즘 매칭 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    선택 피로 지수와 인지 편향을 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-amber-400 to-orange-600 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-amber-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        ⚡
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 mb-2">
+                        결정 속도 99%
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        0.1초 직진 행동파
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "고민할 시간에 일단 실행하고, 수습은 나중에 한다!"
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 의사결정 인지 구조 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 결정 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 주의해야 할 인지 오류
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 결정 스타일 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-amber-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">선택의 역설과 의사결정 피로(Decision Fatigue)의 인지 심리학</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                심리학자 배리 슈워츠(Barry Schwartz)는 저서 <em>'선택의 역설(The Paradox of Choice)'</em>에서 선택지가 많아질수록 인간은 자유를 느끼는 것이 아니라 오히려 마비 상태에 빠지고, 선택 후에도 '더 나은 대안이 있었을지 모른다'는 후회에 시달린다고 밝혔습니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">결정 피로를 줄이는 3가지 과학적 치트키</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-amber-600 dark:text-amber-400 mb-1">1. 만족자(Satisficer) 되기</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">극대화자(Maximizer)는 100점짜리 선택을 위해 무한 탐색하지만, 만족자는 '내 기준 80점'만 넘으면 즉시 결정을 종료합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-amber-600 dark:text-amber-400 text-sm mb-1">2. 인지적 외주화(Offloading)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">점심 메뉴나 커피 쏘기처럼 중요도가 낮은 일상 선택은 룰렛, 사다리타기 같은 외부 도구에 위임하여 전두엽 에너지를 보존하세요.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-amber-600 dark:text-amber-400 text-sm mb-1">3. 동전 던지기 심리학</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">동전이 공중에 떴을 때 마음속으로 은연중에 바라는 면이 바로 당신의 무의식이 원하는 진짜 본심입니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>결정 장애는 왜 생기는 건가요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        손실 회피 편향(Loss Aversion)과 정보 과부하가 결합하여, 잘못된 선택으로 인한 후회를 회피하려는 뇌의 방어 반응 때문입니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'decision-paralysis',
+                title: '결정 장애 극복 지수 & 뇌 성향 테스트',
+                subtitle: '8가지 선택 상황 질문으로 알아보는 나의 의사결정 인지 스타일',
+                resultTypes: ['quick-action', 'excel-brain', 'coin-flipper', 'paralysis-survivor'],
+                questions: [
+                    {
+                        question: '식당에서 메뉴판을 받아 들었을 때 나의 통상적인 행동은?',
+                        options: [
+                            { text: '맨 위에 있는 베스트 메뉴나 가장 먼저 눈에 띈 음식을 3초 만에 픽한다.', type: 'quick-action' },
+                            { text: '모든 페이지를 정독하고, 재료와 가격과 블로그 후기 사진을 비교한다.', type: 'excel-brain' },
+                            { text: '"너 뭐 먹을래? 나도 그거!" 혹은 "룰렛 돌려서 정하자!"라며 위임한다.', type: 'coin-flipper' },
+                            { text: 'A와 B 사이에서 10분째 고민하다 종업원이 오면 식은땀을 흘린다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '넷플릭스나 유튜브를 켰을 때 나의 시청 패턴은?',
+                        options: [
+                            { text: '추천 알고리즘 첫 번째 영상을 누르고 1분 보고 재미없으면 바로 끈다.', type: 'quick-action' },
+                            { text: '평점 사이트(왓챠, IMDB) 평점과 러닝타임을 꼼꼼히 대조해보고 고른다.', type: 'excel-brain' },
+                            { text: '주사위나 랜덤 추천 버튼을 눌러 걸린 것을 군말 없이 본다.', type: 'coin-flipper' },
+                            { text: '썸네일과 예고편만 40분 동안 탐색하다가 결국 피곤해서 그냥 잔다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: 'A와 B 두 가지 선택지 사이에서 도저히 답이 안 나올 때 나의 최종 무기는?',
+                        options: [
+                            { text: '"어차피 해봐야 아는 것!" 그냥 가위바위보나 감으로 즉시 찍는다.', type: 'quick-action' },
+                            { text: '각각의 장단점(Pros & Cons) 리스트를 메모장에 적어 점수를 매긴다.', type: 'excel-brain' },
+                            { text: '동전을 던지거나 원판을 돌려 나오는 결과에 100% 순응한다.', type: 'coin-flipper' },
+                            { text: '주변 친구 5명에게 단톡방 투표를 올려 결과를 기다린다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '친구들과 "이번 주말에 어디 놀러 갈까?" 대화가 오갈 때 나의 포지션은?',
+                        options: [
+                            { text: '"여기 가자! 내가 예약한다!" 총대 메고 목적지를 바로 꽂아버린다.', type: 'quick-action' },
+                            { text: '동선, 교통편, 주차장 여부, 예산 엑셀 시트를 짜서 공유한다.', type: 'excel-brain' },
+                            { text: '"난 어디든 다 좋아! 너희들이 정하면 숟가락만 얹을게~"', type: 'coin-flipper' },
+                            { text: '모두의 취향을 다 만족시키려 고민하다가 날짜가 지나가 버린다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '온라인 쇼핑할 때 리뷰(후기)를 몇 개나 읽어보는가?',
+                        options: [
+                            { text: '별점 4.5 이상이면 리뷰 2개 보고 바로 산다.', type: 'quick-action' },
+                            { text: '최신순, 별점 낮은 순(1점 리뷰)을 집요하게 분석하여 결함을 찾는다.', type: 'excel-brain' },
+                            { text: '판매량 1위 랭킹 1등 상품을 그냥 장바구니에 담는다.', type: 'coin-flipper' },
+                            { text: '좋다는 리뷰와 나쁘다는 리뷰 사이에서 혼란에 빠져 구매를 미룬다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '어렵게 결정을 내렸는데, 나중에 다른 선택지가 더 좋아 보일 때(선택 후 후회)?',
+                        options: [
+                            { text: '"이미 지나간 일! 다음엔 저거 하면 되지~" 1초 만에 잊어버린다.', type: 'quick-action' },
+                            { text: '왜 내가 저 선택지를 놓쳤는지 인과관계를 복기하고 분석한다.', type: 'excel-brain' },
+                            { text: '"운명이지 뭐!" 쿨하게 넘기고 현재 상황에 집중한다.', type: 'coin-flipper' },
+                            { text: '"아... 그거 할걸..." 하루 종일 후회와 미련에 사로잡힌다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '동전을 던져 A가 나왔는데 왠지 마음 한구석이 찝찝하고 서운하다. 이때 나의 진짜 심리는?',
+                        options: [
+                            { text: '내 무의식이 B를 원했던 거다! 즉시 동전 결과를 무시하고 B를 선택한다.', type: 'quick-action' },
+                            { text: '동전 던지기 표본 수가 적어서 그렇다며 10번을 더 던져본다.', type: 'excel-brain' },
+                            { text: '찝찝해도 동전의 신이 정해준 길이니 A를 밀고 나간다.', type: 'coin-flipper' },
+                            { text: 'A도 찝찝하고 B도 불안해서 또다시 원점 멘붕에 빠진다.', type: 'paralysis-survivor' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 "가장 이상적인 결정"이란?',
+                        options: [
+                            { text: '실패하더라도 지체 없이 빠르게 시도하고 수정하는 것.', type: 'quick-action' },
+                            { text: '빈틈없는 데이터와 분석으로 실패 확률을 0%에 수렴시키는 것.', type: 'excel-brain' },
+                            { text: '운과 흐름에 맡기며 내 마음에 스트레스를 주지 않는 것.', type: 'coin-flipper' },
+                            { text: '관련된 모든 사람이 100% 만족하고 행복해하는 것.', type: 'paralysis-survivor' }
+                        ]
+                    }
+                ],
+                results: {
+                    'quick-action': {
+                        title: '0.1초 직진 행동파',
+                        emoji: '⚡',
+                        badge: '결정 속도 99% / 직관의 스프린터',
+                        tags: ['#노빠꾸직진', '#고민은사치', '#직관적선택', '#행동우선'],
+                        summary: '고민할 시간에 일단 실행하고, 수습은 나중에 한다!',
+                        description: `
+                            <p>당신은 전두엽의 인지 에너지를 망설임에 낭비하지 않는 <strong>스피드 의사결정의 달인</strong>입니다. 완벽한 선택이란 존재하지 않는다는 사실을 본능적으로 알고 있어, 선택 후의 빠른 행동력으로 결과를 성공으로 만들어냅니다.</p>
+                            <p>추진력이 뛰어나 답답한 모임에서 해결사 역할을 톡톡히 하지만, 때로는 조금 더 신중한 검토가 필요한 중대한 문제에서도 성급하게 판단할 수 있으니 주의가 필요합니다.</p>
+                        `,
+                        strengths: [
+                            '결정 피로가 전혀 없어 높은 일상의 활력과 에너지 유지',
+                            '망설이지 않는 결단력으로 집단의 리더십 발휘',
+                            '실패를 두려워하지 않고 피드백을 빠르게 수용'
+                        ],
+                        cautions: [
+                            '충동적인 결정으로 인한 예상치 못한 비용이나 후폭풍 주의',
+                            '중요한 계약이나 금전 문제에서는 한 템포 쉬어가는 지혜 필요'
+                        ],
+                        bestMatch: {
+                            title: '선택의 늪 생존자',
+                            reason: '우유부단함에 갇힌 상대를 시원하게 구출해 주는 최고의 흑기사!'
+                        },
+                        worstMatch: {
+                            title: '모든 변수 수집 엑셀 뇌',
+                            reason: '하나하나 따지려는 상대의 꼼꼼함이 답답해 숨이 막힙니다.'
+                        },
+                        recommendTool: {
+                            name: '원판 돌리기 (Spin the Wheel)',
+                            url: '/roulette/',
+                            desc: '직관적인 나의 본능과 룰렛의 속도감으로 운명을 시험해보세요!',
+                            icon: 'track_changes'
+                        }
+                    },
+                    'excel-brain': {
+                        title: '모든 변수 수집 엑셀 뇌',
+                        emoji: '📊',
+                        badge: '신중도 200% / 데이터 기반 완벽주의',
+                        tags: ['#리뷰100개정독', '#비교표작성', '#최적화의신', '#후회방지위원회'],
+                        summary: '모든 변수를 통제하기 전까진 절대 결정하지 않는다.',
+                        description: `
+                            <p>당신은 감정이 아닌 <strong>팩트와 데이터</strong>로 세상을 읽는 치밀한 분석가입니다. 선택 후의 후회를 최소화하기 위해 리뷰, 가격, 스펙을 꼼꼼하게 대조하며 최선의 대안을 찾아냅니다.</p>
+                            <p>당신이 내린 결정은 언제나 객관적 근거가 탄탄하여 주변 사람들에게 깊은 신뢰를 줍니다. 다만 '정보 수집의 늪'에 빠져 적절한 타이밍을 놓치지 않도록 조심하세요.</p>
+                        `,
+                        strengths: [
+                            '실패 확률을 사전에 차단하는 철저한 리스크 관리',
+                            '합리적이고 설득력 있는 선택 근거 보유',
+                            '모임의 여행이나 프로젝트 계획 시 완벽한 가이드 역할'
+                        ],
+                        cautions: [
+                            '지나친 분석으로 인한 전두엽 에너지 방전(결정 피로)',
+                            '사소한 일상 선택까지 완벽하려다 정작 중요한 결정을 미루는 분석 마비'
+                        ],
+                        bestMatch: {
+                            title: '동전 던지기 의존증',
+                            reason: '내가 분석해 준 데이터를 믿고 쿨하게 따라주는 이상적인 조력자!'
+                        },
+                        worstMatch: {
+                            title: '0.1초 직진 행동파',
+                            reason: '내 분석을 들어보지도 않고 멋대로 결정해 버릴 때 혈압이 오릅니다.'
+                        },
+                        recommendTool: {
+                            name: '사다리 게임 (Ghost Leg)',
+                            url: '/ladder/',
+                            desc: '전단사 함수 수학으로 증명된 완벽한 사다리 알고리즘을 체험해보세요!',
+                            icon: 'format_align_justify'
+                        }
+                    },
+                    'coin-flipper': {
+                        title: '동전 던지기 의존증',
+                        emoji: '🎲',
+                        badge: '운명 순응 100% / 심리적 외주화 장인',
+                        tags: ['#복불복환영', '#사다리타기매니아', '#던져보고본심발견', '#평화주의자'],
+                        summary: '어차피 인생은 운! 룰렛과 사다리가 정해주는 길이 진리다.',
+                        description: `
+                            <p>쓸데없는 고민에 머리를 쥐어짜기보다 <strong>우연의 힘과 도구</strong>를 현명하게 활용하는 심리적 외주화의 천재입니다. 동전, 주사위, 사다리를 돌리며 스트레스 없이 가볍게 선택합니다.</p>
+                            <p>결과가 맘에 안 들면 "아, 내가 다른 걸 원했구나!"라며 무의식의 본심을 역이용하는 고도의 메타인지 능력까지 갖추고 있습니다.</p>
+                        `,
+                        strengths: [
+                            '선택의 스트레스를 0으로 만드는 유쾌하고 유연한 태도',
+                            '어떤 결과가 나와도 긍정적으로 수용하는 높은 회복력',
+                            '집단 내에서 불필요한 갈등을 만들지 않는 평화주의 성향'
+                        ],
+                        cautions: [
+                            '중대한 인생의 기로까지 운에만 맡기다 주도성을 잃을 위험',
+                            '자신의 진짜 내면의 목소리에 조금 더 귀 기울일 필요가 있음'
+                        ],
+                        bestMatch: {
+                            title: '모든 변수 수집 엑셀 뇌',
+                            reason: '서로의 선택 방식을 존중하며 가장 편안하게 균형을 맞출 수 있습니다.'
+                        },
+                        worstMatch: {
+                            title: '선택의 늪 생존자',
+                            reason: '서로 결정을 미루다 결국 아무것도 결정하지 못하는 교착 상태에 빠집니다.'
+                        },
+                        recommendTool: {
+                            name: '오늘 뭐 먹지? 메뉴 추천',
+                            url: '/eat/',
+                            desc: '뇌를 비우고 버튼 하나로 오늘의 점심/저녁 메뉴를 운명에 맡겨보세요!',
+                            icon: 'restaurant'
+                        }
+                    },
+                    'paralysis-survivor': {
+                        title: '선택의 늪 생존자',
+                        emoji: '🌀',
+                        badge: '결정 피로도 99% / 선택의 역설 조난자',
+                        tags: ['#메뉴판30분', '#결정장애말기', '#결정피로만성', '#모두가좋았으면'],
+                        summary: '아무거나 다 좋은데... 막상 고르라고 하면 머릿속이 하얘져요.',
+                        description: `
+                            <p>타인을 너무 배려하고, 잘못된 선택으로 혹시 누군가 실망할까 봐 두려워하는 <strong>착한 심성의 조난자</strong>입니다. 선택지가 늘어날수록 전두엽이 과부하에 걸려 "아무거나..."를 외치게 됩니다.</p>
+                            <p>당신에게 필요한 것은 '완벽한 선택'이 아니라 '80점만 넘으면 충분하다'는 허용의 마음입니다. 작은 선택부터 타인의 시선 없이 내 취향대로 결정하는 연습을 해보세요.</p>
+                        `,
+                        strengths: [
+                            '주변 사람들의 취향과 기분을 최우선으로 존중하는 따뜻한 배려심',
+                            '갈등을 피하고 조화를 이루려는 뛰어난 평화 유지력',
+                            '남들의 결정을 흔쾌히 응원하고 지지해 주는 친절함'
+                        ],
+                        cautions: [
+                            '만성적인 결정 피로로 일상생활에서 쉽게 지치고 무기력해질 위험',
+                            '자신의 호불호를 명확히 표현하지 못해 속으로 스트레스가 쌓일 수 있음'
+                        ],
+                        bestMatch: {
+                            title: '0.1초 직진 행동파',
+                            reason: '고민할 틈도 없이 내 손을 잡고 시원하게 길을 이끌어주는 구세주!'
+                        },
+                        worstMatch: {
+                            title: '동전 던지기 의존증',
+                            reason: '서로 "네가 골라"라며 핑퐁 치다 결국 굶게 됩니다.'
+                        },
+                        recommendTool: {
+                            name: '선택의 역설과 의사결정 도구 심층 가이드',
+                            url: '/guides/decision-making-tools.html',
+                            desc: '결정 피로를 극복하고 인지적 외주화를 달성하는 심리학 전문 칼럼!',
+                            icon: 'menu_book'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "결정 장애 극복 지수 & 뇌 성향 테스트",
+          "description": "8가지 선택 질문으로 나의 결정 피로도와 뇌 인지 유형을 진단하는 무료 심리테스트",
+          "url": "https://tossgpt.online/tests/decision-paralysis.html",
+          "educationalLevel": "Adult",
+          "about": "Cognitive Psychology & Decision Fatigue"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "결정 장애는 왜 생기는 건가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "손실 회피 편향과 정보 과부하로 인해, 잘못된 선택으로 인한 후회를 회피하려는 뇌의 본능적 방어 반응 때문입니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

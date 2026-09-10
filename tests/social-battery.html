@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소셜 배터리 잔량 &amp; 인간관계 충전법 진단 | 무료 심리테스트 - ToolBox</title>
+    <meta name="description" content="모임 후 집에 오면 기절하는 당신! 약속 취소 소식에 환호하는 당신! 8가지 사회적 에너지 질문으로 나의 소셜 배터리 용량과 최적의 충전법을 진단해보세요.">
+    <meta name="keywords" content="소셜 배터리 테스트, 기빨림 테스트, 내향성 외향성 테스트, 사회적 에너지, 인간관계 피로, 번아웃 테스트, 심리테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="소셜 배터리 잔량 &amp; 인간관계 충전법 진단 - ToolBox">
+    <meta property="og:description" content="약속 취소에 내심 안도했다면? 나의 소셜 배터리 잔량과 방전 속도를 확인해보세요!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/social-battery.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">소셜 배터리 잔량 진단</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-100 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 text-xs md:text-sm font-bold mb-5 border border-cyan-200 dark:border-cyan-800">
+                    <span>🔋 인간관계 에너지 진단</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    소셜 배터리 잔량 &amp;<br><span class="text-cyan-600 dark:text-cyan-400">인간관계 충전법 진단</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    친구와 약속이 취소되었을 때 환호성을 지른 적이 있나요?<br>
+                    8가지 사회적 상황 질문으로 알아보는 <strong>나의 소셜 배터리 용량과 번아웃 예방 처방전!</strong>
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">⚡</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📊</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">배터리 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🔌</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">처방전</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">맞춤 충전법</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-lg shadow-lg shadow-cyan-600/25 hover:shadow-cyan-600/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    배터리 잔량 측정하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-cyan-600 dark:text-cyan-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-cyan-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-cyan-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-cyan-600 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🔋</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">소셜 에너지 잔여량 계측 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    사회적 각성 지수와 방전 속도를 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-700 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-cyan-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        ⚡
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800 mb-2">
+                        순간 출력 150%
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        급속 방전 고효율 배터리
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "놀 때는 세상 누구보다 신나지만, 현관문 닫는 순간 배터리 1%로 기절!"
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 배터리 메커니즘 심층 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 대인관계 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 방전 방지 주의사항
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 소셜 배터리 결과 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-cyan-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">아이젠크(Eysenck)의 대뇌 각성 이론과 소셜 배터리의 과학</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                심리학자 한스 아이젠크(Hans Eysenck)의 신경생리학 연구에 따르면, 내향형과 외향형의 차이는 대뇌 피질의 <strong>'기본 각성 수준(Baseline Arousal)'</strong> 차이에서 기인합니다. 내향인은 뇌의 기본 각성 수준이 이미 높아 외부의 사회적 자극이 조금만 더해져도 쉽게 과부하(기빨림)를 느끼는 반면, 외향인은 기본 각성 수준이 낮아 사람들과의 상호작용을 통해 자극을 보충해야 활력을 얻습니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">소셜 배터리 방전 방지 3단계 처방전</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-cyan-600 dark:text-cyan-400 mb-1">1. 에너지 사전 예산제</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">한 주에 참여할 사교 모임의 최대 횟수(예: 주 1회)를 정해두고, 그 이상의 약속 제안에는 정중한 유예 기간을 두세요.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-cyan-600 dark:text-cyan-400 text-sm mb-1">2. 모임 중간 5분 미니 쉼표</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">시끄러운 모임 중간에 화장실이나 바깥공기를 쐬며 5분간 스마트폰 없이 심호흡하는 것만으로 급속 방전을 예방할 수 있습니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-cyan-600 dark:text-cyan-400 text-sm mb-1">3. 무음 쿨다운 타임</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">귀가 후 최소 1시간은 모든 알림을 무음으로 끄고, 소음 없는 정적 속에서 대뇌 피질을 안전하게 식혀주세요.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>소셜 배터리 용량은 후천적으로 늘어날 수 있나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        기본 기질은 유전적 요인이 크지만, 불필요한 가면 연기를 줄이고 진실한 소수와의 관계에 에너지를 집중하는 '사회적 스킬'을 통해 방전 속도를 대폭 늦출 수 있습니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'social-battery',
+                title: '소셜 배터리 잔량 & 인간관계 충전법 진단',
+                subtitle: '8가지 사회적 상황 질문으로 측정하는 나의 대인관계 에너지와 방전 속도',
+                resultTypes: ['solar-battery', 'rapid-drain', 'solo-plug', 'power-saving'],
+                questions: [
+                    {
+                        question: '오늘 저녁 예정되어 있던 친구 모임이 상대방 사정으로 갑자기 취소되었다! 나의 속마음은?',
+                        options: [
+                            { text: '"아쉽다! 오늘 재미있게 놀려고 했는데..." 다른 약속을 급하게 잡는다.', type: 'solar-battery' },
+                            { text: '겉으로는 "아쉽네 ㅠㅠ" 하지만 속으로는 기쁨의 어깨춤을 춘다.', type: 'rapid-drain' },
+                            { text: '"신이 주신 최고의 선물!" 편한 잠옷으로 갈아입고 이불 속으로 다이빙한다.', type: 'solo-plug' },
+                            { text: '아낀 에너지와 돈으로 오늘 계획했던 개인 루틴을 묵묵히 수행한다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '사람들과 3~4시간 동안 활발하게 어울린 뒤 집 현관문을 닫고 들어섰을 때 나의 상태는?',
+                        options: [
+                            { text: '아직 에너지가 넘쳐서 단톡방에 오늘 찍은 사진을 올리고 뒷풀이 톡을 이어간다.', type: 'solar-battery' },
+                            { text: '만날 땐 핵인싸처럼 웃고 떠들었지만 현관문 닫자마자 1%로 기절한다.', type: 'rapid-drain' },
+                            { text: '어두운 방에 조용히 앉아 침묵 속에서 바닥난 영혼을 추스른다.', type: 'solo-plug' },
+                            { text: '오늘 소비한 사회적 칼로리를 계산하며 다음 3일간의 약속을 모두 닫는다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '스마트폰 단톡방에 읽지 않은 메시지가 99+개 쌓여있을 때 나의 반응은?',
+                        options: [
+                            { text: '하나하나 다 읽어보고 재미있는 대화에 즉각 참여해 지분을 챙긴다.', type: 'solar-battery' },
+                            { text: '나중에 기운 있을 때 읽으려고 미뤄두다 결국 대화 흐름을 놓친다.', type: 'rapid-drain' },
+                            { text: '알림이 뜨는 것만으로도 가슴이 답답해져서 조용히 읽음 처리만 누른다.', type: 'solo-plug' },
+                            { text: '나와 직접 관련된 멘션(@)이 아니면 애초에 알림을 꺼두고 신경 안 쓴다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '나에게 완벽한 주말 48시간이 생겼다. 다음 주 에너지를 완충하는 나의 일정은?',
+                        options: [
+                            { text: '토요일 동호회 모임, 일요일 지인 약속 등 사람들을 꽉 차게 만난다.', type: 'solar-battery' },
+                            { text: '토요일 하루는 지인들과 불태우고, 일요일 하루는 집에서 방전 회복에 쓴다.', type: 'rapid-drain' },
+                            { text: '주말 내내 한마디도 안 하고 집에서 넷플릭스, 게임, 독서로 완전 충전한다.', type: 'solo-plug' },
+                            { text: '가장 믿을 수 있는 단 한 명의 절친과만 조용한 카페에서 깊은 대화를 나눈다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '카페에 갔는데 만석이고 옆자리 대화 소리가 너무 크게 들릴 때 나의 선택은?',
+                        options: [
+                            { text: '왁자지껄한 활기찬 분위기가 좋아서 아무렇지 않게 자리를 잡는다.', type: 'solar-battery' },
+                            { text: '이어폰 노이즈 캔슬링을 켜고 어떻게든 버티며 내 할 일을 한다.', type: 'rapid-drain' },
+                            { text: '머리가 지끈거려 즉시 테이크아웃해서 조용한 공원이나 집으로 피신한다.', type: 'solo-plug' },
+                            { text: '미리 알아둔 조용하고 테이블 간격이 넓은 숨은 카페로 이동한다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '모임에서 대화의 침묵(정적)이 5초 이상 흐를 때 나의 심리적 압박감은?',
+                        options: [
+                            { text: '어색한 분위기를 참을 수 없어 내가 먼저 새로운 유머나 질문을 던진다.', type: 'solar-battery' },
+                            { text: '"내가 무슨 말을 해야 하나?" 속으로 초긴장하며 식은땀을 흘린다.', type: 'rapid-drain' },
+                            { text: '정적이 오히려 편안하고 반갑다. 계속 조용했으면 좋겠다.', type: 'solo-plug' },
+                            { text: '침묵은 자연스러운 것이라 여기며 음료를 마시며 여유를 즐긴다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '별로 안 친한 지인이 "주말에 차 한잔해요"라고 제안했을 때 나의 뇌내 회로?',
+                        options: [
+                            { text: '"좋아요! 어디서 볼까요?" 새로운 인맥을 넓힐 기회로 반긴다.', type: 'solar-battery' },
+                            { text: '거절할 핑계를 머릿속으로 10가지 떠올리다 타이밍을 놓친다.', type: 'rapid-drain' },
+                            { text: '소름이 돋으며 "그날 선약이 있어서요" 본능적으로 방어벽을 친다.', type: 'solo-plug' },
+                            { text: '이 만남이 내 시간과 에너지 예산에서 어떤 의미가 있는지 계산해본다.', type: 'power-saving' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 "가장 이상적인 인간관계"의 형태는?',
+                        options: [
+                            { text: '언제든 부르면 나올 수 있는 다양하고 넓은 인맥과 활발한 네트워크.', type: 'solar-battery' },
+                            { text: '서로의 개인 시간을 존중하면서 가끔 만나 화끈하게 즐기는 관계.', type: 'rapid-drain' },
+                            { text: '자주 만나지 않아도 1년에 한 번 만나도 어제 만난 것처럼 편한 관계.', type: 'solo-plug' },
+                            { text: '불필요한 감정 소모 없이 상호 성장과 깊은 신뢰를 나누는 소수정예.', type: 'power-saving' }
+                        ]
+                    }
+                ],
+                results: {
+                    'solar-battery': {
+                        title: '태양광 급속충전 배터리',
+                        emoji: '☀️',
+                        badge: '소셜 에너지 200% / 사회적 핵발전소',
+                        tags: ['#사람이곧에너지', '#모임의핵인싸', '#혼자있으면방전', '#파티러버'],
+                        summary: '집에 혼자 있으면 기운이 빠져요! 사람들과 어울려야 200% 완충됩니다.',
+                        description: `
+                            <p>당신은 사람들과의 상호작용 속에서 생명력을 얻는 <strong>천생 외향형 발전소</strong>입니다. 다른 사람들과 유쾌하게 대화하고 공감대를 나눌 때 대뇌 피질의 도파민이 샘솟습니다.</p>
+                            <p>주말에 방에 혼자 가만히 있으면 오히려 무기력해지고 우울해지며, 밖으로 나가 사람들을 만나야 본래의 눈부신 활력을 되찾습니다.</p>
+                        `,
+                        strengths: [
+                            '처음 보는 사람과도 10분 만에 절친이 되는 탁월한 사교력',
+                            '어색한 모임의 분위기를 순식간에 달구는 분위기 메이커',
+                            '폭넓은 인맥과 다양한 정보 네트워크 보유'
+                        ],
+                        cautions: [
+                            '내향적인 친구들의 에너지를 고려하지 않고 무리하게 약속을 강요하지 말 것',
+                            '가끔은 혼자만의 시간을 가지며 내면을 깊이 성찰하는 시간도 필요'
+                        ],
+                        bestMatch: {
+                            title: '급속 방전 고효율 배터리',
+                            reason: '놀 땐 화끈하게 장단을 맞춰주고, 서로의 에너지를 북돋아 주는 찰떡 짝꿍!'
+                        },
+                        worstMatch: {
+                            title: '나홀로 플러그 배터리',
+                            reason: '내 넘치는 에너지를 상대방이 감당하지 못하고 도망칠 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '사다리 게임 (Ghost Leg)',
+                            url: '/ladder/',
+                            desc: '여러 사람과 함께 모였을 때 재미를 200% 끌어올려 주는 단체 내기 게임!',
+                            icon: 'format_align_justify'
+                        }
+                    },
+                    'rapid-drain': {
+                        title: '급속 방전 고효율 배터리',
+                        emoji: '⚡',
+                        badge: '순간 출력 150% / 뒤끝 방전 주의',
+                        tags: ['#나갈땐신나게', '#집오면기절', '#사회적연기장인', '#충전시간필수'],
+                        summary: '놀 때는 세상 누구보다 신나지만, 현관문 닫는 순간 배터리 1%로 기절!',
+                        description: `
+                            <p>당신은 외향성과 내향성을 절묘하게 오가는 <strong>매력적인 앰비버트(Ambivert, 양향형)</strong>입니다. 밖에서는 누구보다 유쾌하고 친절하여 다들 당신을 외향인으로 알지만, 실은 엄청난 대뇌 에너지를 순간 연소하고 있는 것입니다.</p>
+                            <p>현관문을 열고 집에 들어서는 순간 모든 스위치가 OFF되며 기절하듯 침대에 쓰러집니다. 활활 불태운 만큼 다음 날 반드시 온전한 침묵의 충전 시간이 필요합니다.</p>
+                        `,
+                        strengths: [
+                            '상황에 맞춰 사회적 가면(페르소나)을 완벽하게 소화하는 적응력',
+                            '사람들의 기분을 배려하며 최적의 타이밍에 분위기를 띄우는 센스',
+                            '혼자만의 시간과 사람들과의 시간을 모두 풍부하게 즐길 줄 아는 유연성'
+                        ],
+                        cautions: [
+                            '무리해서 연달아 약속을 잡다가는 극심한 번아웃과 잠수를 타게 될 위험',
+                            '방전 조짐이 보이면 눈치 보지 말고 "먼저 들어가 보겠다"고 칼퇴할 것'
+                        ],
+                        bestMatch: {
+                            title: '태양광 급속충전 배터리',
+                            reason: '내가 지쳐서 조용해질 때 알아서 분위기를 이끌어주는 고마운 친구!'
+                        },
+                        worstMatch: {
+                            title: '영구 절전 모드 배터리',
+                            reason: '가끔 나가서 놀고 싶은 내 욕구를 너무 차갑게 잘라버릴 때가 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '키캡 누르기 게임 & 타건 ASMR',
+                            url: '/keycap/',
+                            desc: '기빨린 하루의 끝, 말없이 키보드 타건 소리에 뇌를 식히며 배터리를 충전하세요!',
+                            icon: 'keyboard'
+                        }
+                    },
+                    'solo-plug': {
+                        title: '나홀로 플러그 배터리',
+                        emoji: '🔌',
+                        badge: '내면 밀도 100% / 고요한 사색가',
+                        tags: ['#집순이집돌이', '#약속취소환호', '#침대안이천국', '#정적의치유력'],
+                        summary: '침대 위 이불 속에서 나만의 시간으로 조용히 1%씩 충전합니다.',
+                        description: `
+                            <p>당신은 외부의 소음과 자극으로부터 분리된 <strong>나만의 안식처에서만 비로소 충전되는 순수 내향인</strong>입니다. 약속이 취소되었을 때 느끼는 안도감은 세상 그 어떤 복권 당첨보다 달콤합니다.</p>
+                            <p>말이 적지만 생각이 깊고, 타인의 기분을 세심하게 살피며, 혼자 있을 때 비로소 가장 풍요롭고 창의적인 아이디어를 뿜어냅니다.</p>
+                        `,
+                        strengths: [
+                            '외로움을 타지 않고 혼자서도 완벽하게 행복을 누리는 자족 능력',
+                            '사려 깊은 경청과 상대방의 감정을 있는 그대로 존중하는 태도',
+                            '깊은 사색과 관찰을 통해 사물의 본질을 꿰뚫어 보는 통찰력'
+                        ],
+                        cautions: [
+                            '너무 방 안에만 갇혀 지내다 소중한 사회적 기회를 놓치지 않도록 주의',
+                            '친한 친구들에게는 가끔 먼저 안부를 물어보는 다정한 용기를 낼 것'
+                        ],
+                        bestMatch: {
+                            title: '영구 절전 모드 배터리',
+                            reason: '서로 말없이 같은 공간에 있어도 전혀 어색하지 않은 영혼의 단짝!'
+                        },
+                        worstMatch: {
+                            title: '태양광 급속충전 배터리',
+                            reason: '쉴 새 없이 말을 걸고 나를 끌고 나가려 할 때 공포를 느낍니다.'
+                        },
+                        recommendTool: {
+                            name: '글자 수 세기 (Character Counter)',
+                            url: '/TextCount/',
+                            desc: '조용히 나만의 글과 생각을 정리하며 내면을 가다듬는 차분한 도구!',
+                            icon: 'description'
+                        }
+                    },
+                    'power-saving': {
+                        title: '영구 절전 모드 배터리',
+                        emoji: '🔋',
+                        badge: '에너지 절약 99% / 선택과 집중 마스터',
+                        tags: ['#에너지선택과집중', '#절전모드상시가동', '#소수정예인맥', '#효율적관계'],
+                        summary: '불필요한 사회적 소모전은 차단! 내 진짜 소중한 소수에게만 올인합니다.',
+                        description: `
+                            <p>당신은 자신의 에너지 한계를 정확하게 파악하고 있는 <strong>인간관계 미니멀리스트</strong>입니다. 의미 없는 사교 모임이나 영양가 없는 스몰토크에 쓸 에너지는 1g도 남겨두지 않습니다.</p>
+                            <p>겉으로는 차가워 보일 수 있지만, 내 울타리 안에 들어온 진짜 내 사람에게는 그 누구보다 깊은 헌신과 진심을 쏟아붓는 의리파입니다.</p>
+                        `,
+                        strengths: [
+                            '불필요한 인간관계 스트레스로부터 완벽하게 자유로운 멘탈',
+                            '소수의 진정한 인연과 맺는 깊고 단단한 신뢰와 유대감',
+                            '자기 계발과 목표에 에너지를 집중하는 높은 효율성'
+                        ],
+                        cautions: [
+                            '새로운 사람이나 환경에 지나치게 철벽을 쳐서 편협해질 위험',
+                            '가끔은 가벼운 만남 속에서도 뜻밖의 배움과 즐거움이 있음을 열어둘 것'
+                        ],
+                        bestMatch: {
+                            title: '나홀로 플러그 배터리',
+                            reason: '서로의 사적인 영역을 완벽하게 존중해 주는 가장 편안한 소울메이트!'
+                        },
+                        worstMatch: {
+                            title: '태양광 급속충전 배터리',
+                            reason: '서로의 에너지 철학이 정반대라 오랜 시간 함께하기 힘듭니다.'
+                        },
+                        recommendTool: {
+                            name: '의사결정 피로 극복 심층 가이드',
+                            url: '/guides/decision-making-tools.html',
+                            desc: '에너지 낭비를 줄이고 인지적 여유를 확보하는 심리학 전문 아티클!',
+                            icon: 'menu_book'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "소셜 배터리 잔량 & 인간관계 충전법 진단",
+          "description": "8가지 사회적 에너지 질문으로 나의 대인관계 배터리 용량과 방전 속도를 측정하는 무료 심리테스트",
+          "url": "https://tossgpt.online/tests/social-battery.html",
+          "educationalLevel": "Adult",
+          "about": "Personality Psychology & Social Energy Management"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "소셜 배터리 용량은 후천적으로 늘어날 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "기본 기질은 유전적 요인이 크지만, 불필요한 가면 연기를 줄이고 진실한 소수와의 관계에 에너지를 집중하는 사회적 스킬을 통해 방전 속도를 대폭 늦출 수 있습니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

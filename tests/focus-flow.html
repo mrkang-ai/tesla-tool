@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집중력 &amp; 몰입(Flow) 스타일 진단 | 인지 과학 심리테스트 - ToolBox</title>
+    <meta name="description" content="칙센트미하이의 몰입(Flow) 이론 기반! 벼락치기 데드라인 러너 vs 무소음 딥워커 vs 탭 30개 멀티플레이어 vs 환경세팅 장인! 8가지 문항으로 나의 집중력 유형을 진단해보세요.">
+    <meta name="keywords" content="집중력 테스트, 몰입 테스트, 딥워크, 벼락치기 테스트, ADHD 성향 테스트, 멀티태스킹, 공부 스타일 테스트, 심리테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="집중력 &amp; 몰입(Flow) 스타일 진단 - ToolBox">
+    <meta property="og:description" content="벼락치기 폭발형 vs 무소음 딥워커! 나의 뇌가 가장 완벽하게 몰입하는 환경과 집중 스타일은?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/focus-flow.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">집중력 &amp; 몰입 스타일 진단</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 text-xs md:text-sm font-bold mb-5 border border-indigo-200 dark:border-indigo-800">
+                    <span>💡 칙센트미하이 몰입(Flow) 과학</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    집중력 &amp; 몰입(Flow)<br><span class="text-indigo-600 dark:text-indigo-400">스타일 인지 진단 테스트</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    마감 3시간 전 벼락치기 초인 vs 무소음 딥워커 vs 탭 30개 동시 플레이어!<br>
+                    8가지 작업 패턴 질문으로 알아보는 <strong>나의 뇌 최적화 몰입 공식과 생산성 치트키!</strong>
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🎯</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📊</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">몰입 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">⚡</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">처방전</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">생산성 팁</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-lg shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    몰입 스타일 알아보기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-indigo-600 dark:text-indigo-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-indigo-400 to-indigo-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-indigo-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-indigo-600 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🎯</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">뇌 인지 집중 모드 분석 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    전두엽 주의 집중력과 환경 자극 반응을 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-800 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-indigo-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        🏃
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-2">
+                        순간 폭발력 200%
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        초단기 버닝 데드라인 러너
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "마감 3시간 전, 나의 뇌는 평소의 500% 속도로 가속된다!"
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 집중력 및 몰입 구조 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 생산성 슈퍼파워
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 주의해야 할 집중력 누수
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 몰입 스타일 결과 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">미하이 칙센트미하이의 몰입(Flow) 이론과 생산성의 인지 과학</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                긍정 심리학의 대가 미하이 칙센트미하이(Mihaly Csikszentmihalyi) 교수는 인간이 자신의 역량을 완전히 쏟아부어 시간의 흐름조차 잊어버리는 최적의 심리적 상태를 <strong>'몰입(Flow)'</strong>이라 정의했습니다. 과제의 난이도와 자신의 숙련도가 절묘한 균형을 이룰 때, 뇌는 자의식을 내려놓고 극강의 창의성과 효율을 뿜어냅니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">최상의 몰입을 유도하는 3가지 황금 트리거</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-indigo-600 dark:text-indigo-400 mb-1">1. 명확한 목표 &amp; 즉각적 피드백</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">지금 당장 무엇을 해야 하는지 명확하고, 내가 잘하고 있는지 실시간으로 확인할 수 있을 때 뇌는 딴생각을 멈춥니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400 text-sm mb-1">2. 주의 분산 요인 원천 차단</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">한 번 끊긴 집중력을 원래대로 회복하는 데 평균 23분이 걸립니다. 스마트폰을 멀리 치우고 작업 환경을 단일화하세요.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400 text-sm mb-1">3. 나만의 작업 돌입 의식 (Ritual)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">특정 음악을 틀거나 책상을 정돈하는 일관된 사전 루틴은 뇌에 '이제 몰입할 시간'이라는 강력한 조건 반사 신호를 보냅니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>벼락치기 습관을 고칠 수 있을까요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        데드라인 러너형은 아드레날린 각성이 있어야 뇌가 깨어나는 성향입니다. 큰 마감 하나만 두지 말고, 매일매일 스스로 작은 마감(Micro-Deadline)을 설정하여 건강하게 순간 몰입을 유도하는 것이 효과적입니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'focus-flow',
+                title: '집중력 & 몰입(Flow) 스타일 인지 진단 테스트',
+                subtitle: '칙센트미하이의 몰입 이론으로 측정하는 나의 최적 작업 스타일과 생산성 공식',
+                resultTypes: ['deadline-runner', 'deep-worker', 'multi-creator', 'ritual-master'],
+                questions: [
+                    {
+                        question: '중요한 공부나 프로젝트 작업을 시작하기 직전, 나의 책상과 환경은?',
+                        options: [
+                            { text: '책상이 어질러져 있든 말든 발등에 불 떨어지면 상관없이 바로 시작한다.', type: 'deadline-runner' },
+                            { text: '스마트폰을 비행기 모드로 바꾸고 불필요한 물건은 시야에서 완전히 치운다.', type: 'deep-worker' },
+                            { text: '노트북 화면에 자료 5개 띄우고 스마트폰도 옆에 둔 채로 동시에 켠다.', type: 'multi-creator' },
+                            { text: '책상을 완벽하게 닦고, 음료와 조명을 세팅하는 나만의 시작 의식을 거친다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '작업 중 메신저 알림이나 누군가의 질문 등 외부 방해가 들어왔을 때 나의 반응은?',
+                        options: [
+                            { text: '마감이 닥치기 전까진 대화하고 답장하며 여유를 부린다.', type: 'deadline-runner' },
+                            { text: '극심한 분노와 스트레스를 느끼며 집중의 흐름이 깨져버린다.', type: 'deep-worker' },
+                            { text: '자연스럽게 답장해주고 다시 작업으로 돌아와도 흐름이 끊기지 않는다.', type: 'multi-creator' },
+                            { text: '미리 정해둔 타이머(예: 25분)가 울릴 때까지는 알림을 확인하지 않는다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '마감 시한이 3일 남았을 때 vs 마감 3시간 남았을 때 나의 집중력 변화는?',
+                        options: [
+                            { text: '3일 전엔 뇌가 멈춰있다가, 3시간 전에 초사이언급 초인적 집중력이 폭발한다.', type: 'deadline-runner' },
+                            { text: '마감 시간에 쫓기면 실수가 잦아져서 미리미리 차분하게 끝내두는 게 편하다.', type: 'deep-worker' },
+                            { text: '시간과 상관없이 내 호기심과 영감이 불붙는 순간에만 폭발적으로 작업한다.', type: 'multi-creator' },
+                            { text: '계획표에 따라 정해진 하루 목표량을 일정하게 달성하며 마감일을 맞춘다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '작업이나 공부를 할 때 나의 귀(사운드 환경) 상태는?',
+                        options: [
+                            { text: '마감 직전엔 주변에서 무슨 소리가 나든 아무 소리도 안 들린다.', type: 'deadline-runner' },
+                            { text: '노이즈 캔슬링 헤드폰을 끼거나 완전한 무소음 정적이어야 집중된다.', type: 'deep-worker' },
+                            { text: '신나는 비트의 노동요나 팝 음악을 틀어놓고 리듬 타며 작업한다.', type: 'multi-creator' },
+                            { text: '백색소음(빗소리, 카페 소음)이나 익숙한 로파이(Lo-Fi) 음악을 고정 재생한다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '컴퓨터 브라우저를 켜고 작업할 때 열려있는 인터넷 탭의 개수는?',
+                        options: [
+                            { text: '작업 제출 직전엔 탭 20개가 정신없이 열려있다.', type: 'deadline-runner' },
+                            { text: '오직 지금 보고 있는 작업 탭 1~2개만 깔끔하게 유지한다.', type: 'deep-worker' },
+                            { text: '참고자료, 유튜브, 쇼핑, 뉴스 등 탭 30~50개가 상시 열려있다.', type: 'multi-creator' },
+                            { text: '필요한 탭만 북마크 폴더별로 깔끔하게 정리해 두고 작업한다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '시간 가는 줄 모르고 완전히 몰입하는 "무아지경(Flow)"을 경험하는 순간은?',
+                        options: [
+                            { text: '오늘 밤 자정까지 무조건 끝내야 한다는 극도의 긴박감에 휩싸였을 때.', type: 'deadline-runner' },
+                            { text: '아무런 방해 없이 복잡한 문제를 끝까지 파고들어 마침내 해결했을 때.', type: 'deep-worker' },
+                            { text: '전혀 상관없던 두 가지 아이디어가 번뜩이며 하나의 작품으로 연결될 때.', type: 'multi-creator' },
+                            { text: '정해진 시간표대로 오차 없이 하루 목표를 완벽하게 정복해 나갈 때.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '집중력이 흐트러지기 시작할 때 내가 취하는 환기 방법은?',
+                        options: [
+                            { text: '"시간 없다!" 얼굴에 찬물을 끼얹거나 에너지 음료를 들이켠다.', type: 'deadline-runner' },
+                            { text: '혼자 밖으로 나가 15분간 조용히 산책하며 뇌를 비운다.', type: 'deep-worker' },
+                            { text: '전혀 다른 흥미로운 주제의 영상이나 SNS를 보며 다른 자극을 준다.', type: 'multi-creator' },
+                            { text: '스트레칭을 하고 따뜻한 차나 커피를 한 잔 타 온다.', type: 'ritual-master' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 "가장 생산적인 최고의 하루"란?',
+                        options: [
+                            { text: '벼랑 끝에 몰렸던 거대한 과제를 마감 1분 전에 완벽히 털어낸 날.', type: 'deadline-runner' },
+                            { text: '누구의 방해도 받지 않고 온전히 나만의 깊은 생각에 몰입한 날.', type: 'deep-worker' },
+                            { text: '다양한 새로운 영감과 아이디어가 쏟아져 나와 창작열을 불태운 날.', type: 'multi-creator' },
+                            { text: '세워둔 루틴과 계획대로 하루를 100% 통제하며 성취감을 맛본 날.', type: 'ritual-master' }
+                        ]
+                    }
+                ],
+                results: {
+                    'deadline-runner': {
+                        title: '초단기 버닝 데드라인 러너',
+                        emoji: '🏃',
+                        badge: '순간 폭발력 200% / 벼락치기의 신',
+                        tags: ['#마감직전초인', '#벼락치기장인', '#아드레날린몰입', '#발등에불떨어져야'],
+                        summary: '마감 3시간 전, 나의 뇌는 평소의 500% 속도로 가속된다!',
+                        description: `
+                            <p>당신은 위기감과 마감 압박이 턱밑까지 차올랐을 때 <strong>전두엽의 잠재력이 200% 폭발하는 스프린터</strong>입니다. 느긋할 때는 영 집중이 안 되다가도 '더 이상 물러설 곳이 없다'는 신호가 떨어지면 초인적인 속도로 과제를 정복합니다.</p>
+                            <p>순간 집중력과 판단력은 최고지만, 매번 벼락치기로 인한 극심한 심장 쫄림과 수면 부족, 번아웃 리스크를 겪게 됩니다.</p>
+                        `,
+                        strengths: [
+                            '촉박한 시간 내에 핵심만 쏙쏙 뽑아내는 놀라운 압축 실행력',
+                            '압박감이 극에 달했을 때 잡념이 완전히 사라지는 강력한 레이저 몰입',
+                            '결과물을 어떻게든 기한 내에 완성해 내는 불굴의 서바이벌 본능'
+                        ],
+                        cautions: [
+                            '매번 마감 직전까지 미루다 생기는 만성 스트레스와 건강 악화 주의',
+                            '큰 마감 대신 매일 스스로 정하는 작은 마감(Micro-Deadline)을 설계할 것'
+                        ],
+                        bestMatch: {
+                            title: '의식 세팅 장인',
+                            reason: '나의 폭주하는 마감 질주를 미리 차분하게 페이스메이커처럼 잡아주는 멘토!'
+                        },
+                        worstMatch: {
+                            title: '무소음 딥워커',
+                            reason: '미리미리 안 끝내고 벼락치기하는 내 방식을 도저히 이해하지 못합니다.'
+                        },
+                        recommendTool: {
+                            name: '무한의 계단 (Infinite Stairs)',
+                            url: '/stairs/',
+                            desc: '게이지가 닳기 전에 초인적인 스피드로 계단을 정복하는 스릴 아케이드!',
+                            icon: 'stairs'
+                        }
+                    },
+                    'deep-worker': {
+                        title: '무소음 딥워커',
+                        emoji: '🎧',
+                        badge: '몰입 밀도 99% / 고요한 연구자',
+                        tags: ['#단일작업몰입', '#방해금지모드', '#깊은사색', '#장시간집중'],
+                        summary: '외부 자극을 차단하고 오직 한 가지 본질에만 끝까지 파고든다.',
+                        description: `
+                            <p>당신은 얕고 산만한 멀티태스킹을 거부하고 <strong>오직 한 가지 본질적인 과제에 깊숙이 잠수하는 딥워크(Deep Work)의 장인</strong>입니다. 노이즈 캔슬링과 정적 속에서 복잡한 문제를 끝까지 파고들어 아무도 흉내 낼 수 없는 고품질의 결과물을 빚어냅니다.</p>
+                            <p>한번 흐름을 타면 몇 시간이고 무아지경에 빠져들며, 지적 깊이와 완성도가 남다른 탁월한 전문가형 인재입니다.</p>
+                        `,
+                        strengths: [
+                            '복잡하고 어려운 문제를 끈기 있게 풀어내는 높은 인지 지구력',
+                            '외부의 잡음과 유행에 흔들리지 않고 본질에 집중하는 통찰력',
+                            '오차와 결함이 없는 완벽에 가까운 결과물 산출'
+                        ],
+                        cautions: [
+                            '집중 도중 방해를 받았을 때 받는 스트레스 수치가 매우 높음',
+                            '지나치게 고립되어 협업이나 빠른 피드백 타이밍을 놓치지 않도록 주의'
+                        ],
+                        bestMatch: {
+                            title: '의식 세팅 장인',
+                            reason: '고요한 환경과 정돈된 루틴을 함께 공유할 수 있는 최고의 지적 동반자!'
+                        },
+                        worstMatch: {
+                            title: '탭 30개 멀티 크리에이터',
+                            reason: '이것저것 동시에 건드리며 산만하게 구는 모습을 보면 머리가 지끈거립니다.'
+                        },
+                        recommendTool: {
+                            name: '글자 수 세기 & 바이트 정밀 분석',
+                            url: '/TextCount/',
+                            desc: '공백과 자모 하나까지 깊이 있게 분석하는 지적 완벽주의자를 위한 도구!',
+                            icon: 'description'
+                        }
+                    },
+                    'multi-creator': {
+                        title: '탭 30개 멀티 크리에이터',
+                        emoji: '🌐',
+                        badge: '창의성 150% / 아이디어 하이퍼링크',
+                        tags: ['#탭30개는기본', '#융합사고', '#아이디어화수분', '#산만한천재'],
+                        summary: '이것저것 동시에 연결할 때 번뜩이는 영감이 폭발합니다!',
+                        description: `
+                            <p>당신은 하나의 틀에 갇히지 않고 <strong>수많은 자극과 아이디어를 하이퍼링크처럼 연결하는 창의적 탐험가</strong>입니다. 브라우저 창에 탭이 수십 개 열려있고 음악을 들으며 작업할 때 오히려 뇌가 활성화됩니다.</p>
+                            <p>남들이 보지 못하는 분야 간의 연결고리를 찾아내어 혁신적인 영감을 만들어내는 유쾌한 크리에이티브 마인드를 가졌습니다.</p>
+                        `,
+                        strengths: [
+                            '서로 다른 정보를 유연하게 융합하는 탁월한 창의력과 발산적 사고',
+                            '급변하는 트렌드와 새로운 도구를 빠르게 습득하는 기민함',
+                            '지루함 없이 다양한 프로젝트를 동시에 추진하는 활력'
+                        ],
+                        cautions: [
+                            '벌려놓은 일은 많은데 마무리를 짓지 못하고 용두사미가 될 위험',
+                            '한 가지 프로젝트가 완성될 때까지는 새 탭을 열지 않는 마무리 규율 필요'
+                        ],
+                        bestMatch: {
+                            title: '초단기 버닝 데드라인 러너',
+                            reason: '아이디어 폭발과 빠른 마감 실행력이 만나 최상의 시너지를 발휘합니다!'
+                        },
+                        worstMatch: {
+                            title: '무소음 딥워커',
+                            reason: '조용히 혼자 있고 싶어 하는 상대의 에너지를 산만하게 분산시킬 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '밈 생성기 (Meme Maker)',
+                            url: '/meme-generator/',
+                            desc: '머릿속에 쏟아지는 수많은 번뜩이는 아이디어를 즉석 짤방으로 창작해보세요!',
+                            icon: 'photo_library'
+                        }
+                    },
+                    'ritual-master': {
+                        title: '의식 세팅 장인',
+                        emoji: '🕯️',
+                        badge: '지속 가능성 100% / 루틴의 페이스메이커',
+                        tags: ['#책상정리필수', '#커피세팅', '#뽀모도로루틴', '#환경이실력'],
+                        summary: '완벽한 환경과 루틴이 갖춰졌을 때 비로소 최상의 몰입이 열린다.',
+                        description: `
+                            <p>당신은 감정이나 컨디션의 기복에 휘둘리지 않고 <strong>견고한 환경과 시스템으로 몰입을 구축하는 루틴의 지배자</strong>입니다. 깨끗하게 정돈된 책상, 일정한 백색소음, 시간표에 기반한 뽀모도로 인터벌을 통해 안정적으로 성과를 냅니다.</p>
+                            <p>환경 프라이밍(Priming)을 영리하게 활용하여 뇌가 저항 없이 공부와 작업 모드로 돌입하게 만드는 시스템적 천재입니다.</p>
+                        `,
+                        strengths: [
+                            '기복 없이 매일 일정한 높은 생산성을 유지하는 강력한 자기 관리',
+                            '효율적인 작업 환경과 시간표를 설계하는 탁월한 시스템 구축력',
+                            '번아웃 없이 장기적인 마라톤 프로젝트를 완주하는 페이스 조절 능력'
+                        ],
+                        cautions: [
+                            '환경이 완벽하게 갖춰지지 않으면 아예 작업을 시작하지 못하는 결벽 주의',
+                            '때로는 불완전하고 어수선한 환경 속에서도 일단 시작하는 유연함도 기를 것'
+                        ],
+                        bestMatch: {
+                            title: '무소음 딥워커',
+                            reason: '서로의 집중 리추얼과 정적을 가장 품격 있게 존중해 주는 최고의 파트너!'
+                        },
+                        worstMatch: {
+                            title: '초단기 버닝 데드라인 러너',
+                            reason: '계획 없이 벼락치기로 살아가는 상대를 보면 답답해서 한숨이 나옵니다.'
+                        },
+                        recommendTool: {
+                            name: '기계식 키보드 스위치 & 타건 과학 가이드',
+                            url: '/guides/mechanical-keyboard-guide.html',
+                            desc: '완벽한 데스크테리어와 작업 리추얼을 완성해 주는 키보드 사운드 과학 아티클!',
+                            icon: 'menu_book'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "집중력 & 몰입(Flow) 스타일 인지 진단 테스트",
+          "description": "칙센트미하이의 몰입 이론을 기반으로 나의 작업 스타일과 생산성 공식을 진단하는 무료 심리테스트",
+          "url": "https://tossgpt.online/tests/focus-flow.html",
+          "educationalLevel": "Adult",
+          "about": "Flow State & Cognitive Focus Styles"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "벼락치기 습관을 고칠 수 있을까요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "데드라인 러너형은 아드레날린 각성이 필요한 성향입니다. 큰 마감 하나 대신 매일 스스로 작은 마감(Micro-Deadline)을 설정하여 건강하게 순간 몰입을 유도하는 방식이 효과적입니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

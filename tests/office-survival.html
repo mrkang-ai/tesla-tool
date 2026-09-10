@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직장인 생존 유형 &amp; 멘탈 방어력 테스트 | 무료 바이럴 심리테스트 - ToolBox</title>
+    <meta name="description" content="출근길, 회의 소집, 야근 지시 앞에서의 나의 반응은? 8가지 상황 질문을 통해 나의 직장인 생존 유형과 멘탈 방어력을 진단하고, 환상의 오피스 짝꿍과 인스타 공유 카드를 확인해보세요.">
+    <meta name="keywords" content="직장인 테스트, 멘탈 방어력 테스트, 직장인 생존 유형, 번아웃 테스트, 직장인 심리테스트, 칼퇴 테스트, 심리테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="직장인 생존 유형 &amp; 멘탈 방어력 테스트 - ToolBox">
+    <meta property="og:description" content="나의 직장 내 생존력과 멘탈 방어력은 몇 점? 8가지 현실 공감 질문으로 알아보는 나의 오피스 캐릭터!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/office-survival.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">직장인 생존 유형</span>
+        </nav>
+
+        <!-- Test Interactive Container -->
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs md:text-sm font-bold mb-5 border border-sky-200 dark:border-sky-800">
+                    <span>💼 오피스 생존력 진단</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    직장인 생존 유형 &amp;<br><span class="text-primary">멘탈 방어력 테스트</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    월요일 아침 출근길, 5시 50분의 긴급 회의 소집, 쏟아지는 보고서 피드백...<br>
+                    8가지 극현실주의 상황 속에서 나의 <strong>진짜 오피스 캐릭터</strong>와 멘탈 방어 지수를 확인해보세요!
+                </p>
+
+                <!-- Badges feature row -->
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📊</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🎨</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">인스타 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">⚡</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">참여 비용</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">100% 무료</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-primary hover:bg-primary-dark text-white text-lg font-bold shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    테스트 시작하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <!-- Progress Header -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-primary text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-sky-400 to-primary transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <!-- Question Header -->
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용이 여기에 표시됩니다.
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <!-- Options -->
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200">
+                    <!-- Dynamic option buttons rendered by test-engine.js -->
+                </div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-sky-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">💼</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">당신의 답변을 분석 중입니다</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    답변 패턴을 분석하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <!-- Result Badge & Title -->
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-sky-400 to-indigo-600 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-sky-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        ⚡
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 mb-2">
+                        생존력 99% / 정시퇴근 수호자
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        강철의 칼퇴 연금술사
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                        <!-- tags -->
+                    </div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "내 업무는 칼같이 끝내고, 6시 정각 셔터 내립니다."
+                    </blockquote>
+                </div>
+
+                <!-- Detailed Description -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 성향 심층 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3">
+                        <!-- Description -->
+                    </div>
+                </div>
+
+                <!-- Strengths & Cautions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 오피스 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 주의해야 할 멘탈 함정
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <!-- Match Pairs (Best / Worst) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <!-- Tool Recommendation -->
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <!-- Share & Actions Bar -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 결과를 친구와 동료들에게 자랑하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Long-Form Educational & Psychological Guide Section (Anti-Thin Content for AdSense) -->
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">현대 직장인의 멘탈 방어력과 번아웃 예방의 과학</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                세계보건기구(WHO)는 제11차 국제질병분류(ICD-11)에서 번아웃 증후군(Burnout Syndrome)을 <strong>'성공적으로 관리되지 않은 만성적인 직장 스트레스로 인한 직업적 현상'</strong>으로 공식 정의했습니다. 현대 오피스 환경은 항시 켜져 있는 업무 메신저, 불확실한 피드백 루프, 모호한 역할 분담으로 인해 뇌의 전두엽에 만성적인 인지 과부하를 초래합니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">1. 직장 내 멘탈 붕괴의 3대 메커니즘</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-primary mb-1">① 통제감 상실 (Learned Helplessness)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">내 노력과 무관하게 갑작스러운 야근 지시나 일정 변경이 반복될 때, 뇌는 스트레스에 대한 방어 기제를 포기하고 무기력 상태에 빠집니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-primary text-sm mb-1">② 감정 노동과 가면성 증후군</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">자신의 본래 감정과 회사에서 요구되는 페르소나 사이의 괴리가 커질수록 '내가 언제 무능함을 들킬지 모른다'는 만성 불안이 형성됩니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-primary text-sm mb-1">③ 디지털 알림 피로 (Hyper-Connected)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">퇴근 후에도 울리는 메신저 알림은 투쟁-도피(Fight or Flight) 반응을 지속 유발하여 교감신경의 정상적인 야간 이완을 방해합니다.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">2. 오피스 유형별 맞춤 회복 전략</h3>
+            <div class="space-y-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-sky-50/50 dark:bg-sky-950/20 border-l-4 border-primary">
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">⚡ 칼퇴 연금술사를 위한 조언: 유연한 소통의 윤활유</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">업무 경계선이 명확한 것은 훌륭한 자산이지만, 사내 동료들과의 가벼운 스몰토크는 예상치 못한 위기 상황에서 강력한 지지대가 되어줍니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 border-l-4 border-indigo-500">
+                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">🛡️ 유리멘탈 프로텍터를 위한 조언: 피드백의 대상 분리하기</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">'문서에 대한 비판'과 '나의 존재 가치'를 분리하세요. 보고서의 붉은 펜은 결과물을 다듬는 도구일 뿐, 당신의 인격이나 역량을 부정하는 것이 아닙니다.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>직장인 생존 유형 테스트 결과는 어떻게 도출되나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        8가지의 복합 오피스 딜레마 상황에서 사용자가 선택한 방어 기제(효율 지향, 공감 완벽주의, 돌파형 멘탈, 사교형 소통)의 가중치를 종합 계산하여 가장 지배적인 오피스 페르소나로 매핑됩니다.
+                    </p>
+                </details>
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>인스타그램 공유 카드는 어떻게 생성되나요?</span>
+                        <summary class="hidden"></summary>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        '인스타 카드 저장' 버튼을 누르면 서버 전송 없이 사용자의 웹 브라우저 내 HTML5 Canvas 엔진이 4:5 고해상도(1080x1350) 그래픽 카드를 즉시 렌더링하여 PNG 이미지로 다운로드해 드립니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <!-- Test Data & Launcher -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'office-survival',
+                title: '직장인 생존 유형 & 멘탈 방어력 테스트',
+                subtitle: '8가지 현실 공감 질문으로 알아보는 나의 오피스 캐릭터와 멘탈 방어력',
+                resultTypes: ['alchemist', 'glass-shield', 'straight-bull', 'human-vitamin'],
+                questions: [
+                    {
+                        question: '월요일 아침 8시 40분, 지하철에서 내리며 머릿속에 드는 가장 첫 번째 생각은?',
+                        options: [
+                            { text: '오늘 해야 할 핵심 태스크 3가지를 정리하고 퇴근 카운트다운을 시작한다.', type: 'alchemist' },
+                            { text: '주말 동안 밀린 메일이나 메신저에 혹시 문제 생긴 건 없을지 조마조마하다.', type: 'glass-shield' },
+                            { text: '그냥 아무 생각 없다. 몸이 알아서 회사 문 앞까지 걸어갈 뿐이다.', type: 'straight-bull' },
+                            { text: '회사 앞 카페에서 마실 달달한 커피 생각과 동료들과 나눌 주말 썰을 떠올린다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '퇴근 10분 전(5시 50분), 팀장님이 "다들 오늘 바빠? 잠깐 모여봐"라고 할 때 나의 행동은?',
+                        options: [
+                            { text: '가방을 이미 챙긴 상태로 침착하게 "오늘 정해진 선약이 있어 먼저 정리해야 합니다"라고 말한다.', type: 'alchemist' },
+                            { text: '심장이 쿵 내려앉으며 자리로 돌아가 야근할 마음의 준비를 한다.', type: 'glass-shield' },
+                            { text: '"네, 무슨 급한 안건 있으신가요?"라며 쟁점만 파악하고 회의를 초스피드로 끝내려 한다.', type: 'straight-bull' },
+                            { text: '"팀장님 오늘 야근각인가요~?"라며 분위기를 부드럽게 풀며 동태를 살핀다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '사내 메신저 알림음(슬랙/카톡/잔디) "까톡!" 소리가 크게 울릴 때 나의 심리 반응은?',
+                        options: [
+                            { text: '업무 집중 시간엔 알림을 무음으로 꺼두었기 때문에 전혀 동요하지 않는다.', type: 'alchemist' },
+                            { text: '알림이 뜨자마자 내가 친 사고인가 싶어 0.1초 만에 식은땀이 흐른다.', type: 'glass-shield' },
+                            { text: '확인하고 바로 답장 1줄(확인했습니다 / 진행하겠습니다) 쏘고 끝낸다.', type: 'straight-bull' },
+                            { text: '친한 동료들과의 잡담방인가 싶어 살짝 입꼬리가 올라간다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '정성 들여 작성한 보고서에 붉은 펜으로 무차별 피드백 폭탄이 날아왔다. 나의 대처는?',
+                        options: [
+                            { text: '수정 요구사항을 체크리스트로 바꾸고 업무 시간 내 기계처럼 수정해 치워버린다.', type: 'alchemist' },
+                            { text: '회의실 구석이나 화장실에서 한숨 쉬며 "내가 능력이 부족한가" 깊은 자책에 빠진다.', type: 'glass-shield' },
+                            { text: '팀장 자리로 바로 찾아가 "어떤 방향을 원하시는지 명확히 짚어달라"고 단도직입적으로 묻는다.', type: 'straight-bull' },
+                            { text: '동료에게 보고서 캡처를 보여주며 "오늘 점심 마라탕 각입니다..." 하소연으로 푼다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '점심시간 1시간, 팀원들과 식당에 갈 때 나의 속마음은?',
+                        options: [
+                            { text: '빨리 먹고 남은 30분 동안 혼자 산책하거나 낮잠 자고 싶다.', type: 'alchemist' },
+                            { text: '내가 고른 메뉴가 다들 입에 안 맞으면 어쩌지 혼자 고민한다.', type: 'glass-shield' },
+                            { text: '가장 줄 짧고 빨리 나오는 식당으로 전광석화처럼 인도한다.', type: 'straight-bull' },
+                            { text: '다 같이 맛있는 거 먹으며 사내 루머와 재미난 썰을 나누는 힐링 타임이다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '동료가 "이것 좀 도와주실 수 있어요?"라며 본인 업무를 슬그머니 넘기려 할 때 나의 방어술은?',
+                        options: [
+                            { text: '"제 금주 스프린트 업무 우선순위가 꽉 차 있어서 지원이 어렵습니다" 정중히 칼차단한다.', type: 'alchemist' },
+                            { text: '거절하면 어색해질까 봐 거절 못 하고 "네.. 제가 해볼게요" 받아들인다.', type: 'glass-shield' },
+                            { text: '"어디까지 진행하셨는데요? 제가 어디만 봐드리면 되나요?" 정확히 선 긋는다.', type: 'straight-bull' },
+                            { text: '"와 진짜 바쁘시죠 ㅠㅠ 근데 저도 지금 팀장님 건 때문에 죽겠어요!" 능청스럽게 넘긴다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '하루 종일 멘탈 털리는 대형 이슈가 터진 날, 퇴근 후 나의 힐링 의식은?',
+                        options: [
+                            { text: '집 문 닫자마자 오피스 폰 전원을 끄고 완전한 나만의 시간으로 잠적한다.', type: 'alchemist' },
+                            { text: '침대에 누워 이불 킥을 하며 낮에 있었던 대화를 100번쯤 리플레이한다.', type: 'glass-shield' },
+                            { text: '헬스장에서 고중량 쇠질을 하거나 격렬한 러닝으로 잡념을 땀과 함께 배출한다.', type: 'straight-bull' },
+                            { text: '친구에게 전화 걸어 1시간 동안 분노의 통화를 하거나 치맥 파티를 연다.', type: 'human-vitamin' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 직장 생활의 가장 이상적인 모토(좌우명)는?',
+                        options: [
+                            { text: '일은 돈 번 만큼만 확실하게, 내 진짜 인생은 퇴근 후 6시부터다.', type: 'alchemist' },
+                            { text: '욕먹지 않고 아무 문제 없이 평온하고 무탈하게만 흘러가기를.', type: 'glass-shield' },
+                            { text: '어차피 부딪힐 일이라면 내가 주도권을 쥐고 박살 낸다.', type: 'straight-bull' },
+                            { text: '이왕 하는 회사 생활, 좋은 사람들과 재밌게 웃으며 버티자!', type: 'human-vitamin' }
+                        ]
+                    }
+                ],
+                results: {
+                    alchemist: {
+                        title: '강철의 칼퇴 연금술사',
+                        emoji: '⚡',
+                        badge: '생존력 99% / 정시퇴근 수호자',
+                        tags: ['#칼퇴마스터', '#효율의극치', '#내시간사수', '#알림끄기달인'],
+                        summary: '내 업무는 근무 시간 내 칼같이 끝내고, 6시 정각에 셔터 내립니다.',
+                        description: `
+                            <p>당신은 오피스 정글에서 감정에 휘둘리지 않고 극도의 업무 효율을 발휘하는 <strong>냉철한 시간의 연금술사</strong>입니다. 사적인 삶과 회사의 경계선이 철옹성처럼 단단하여 번아웃 위험이 가장 낮습니다.</p>
+                            <p>업무 우선순위를 분별하는 능력이 탁월하며, 불필요한 사내 정치나 감정 소모전에 일절 에너지를 낭비하지 않습니다. 맡은 바 책임을 칼같이 완수하기 때문에 칼퇴를 해도 아무도 당신을 비난할 수 없습니다.</p>
+                        `,
+                        strengths: [
+                            '초인적인 집중력과 높은 시간 대비 산출물',
+                            '공과 사의 완벽한 분리로 인한 탄탄한 번아웃 방어력',
+                            '불필요한 야근과 회의를 원천 차단하는 거절 능력'
+                        ],
+                        cautions: [
+                            '지나친 칼퇴 본능으로 사내 네트워킹에서 겉돌 수 있음',
+                            '동료들에게 다소 차갑거나 정이 없다는 오해를 사기 쉬움'
+                        ],
+                        bestMatch: {
+                            title: '사내 인간 비타민',
+                            reason: '삭막한 오피스 라이프에 유일하게 웃음을 주는 든든한 소통 파트너!'
+                        },
+                        worstMatch: {
+                            title: '유리멘탈 프로텍터',
+                            reason: '당신의 명확하고 칼 같은 소통에 상대방이 상처받을 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '키캡 누르기 게임 & 타건 ASMR',
+                            url: '/keycap/',
+                            desc: '퇴근 전 남아있는 1%의 업무 피로까지 청축/갈축 사운드로 완벽 분해!',
+                            icon: 'keyboard'
+                        }
+                    },
+                    'glass-shield': {
+                        title: '유리멘탈 프로텍터',
+                        emoji: '🛡️',
+                        badge: '공감도 200% / 완벽주의 외유내강',
+                        tags: ['#마음은쿠쿠다스', '#일은완벽주의', '#프로걱정러', '#배려의아이콘'],
+                        summary: '마음은 쉽게 상처받지만, 내 손을 거친 일엔 오점 하나 허락할 수 없다.',
+                        description: `
+                            <p>겉으로는 조용하고 배려심 넘치지만, 내면에서는 끊임없이 주변의 시선과 피드백을 신경 쓰는 <strong>세심한 완벽주의자</strong>입니다. 실수를 극도로 두려워하기 때문에 오히려 당신의 보고서와 업무 결과물은 사내에서 가장 꼼꼼하기로 정평이 나 있습니다.</p>
+                            <p>하지만 작은 피드백 하나에도 "내가 무능한가" 자책하며 며칠 밤을 지새우는 취약성을 지니고 있습니다. 당신의 멘탈은 깨지기 쉬운 유리지만, 그 유리를 갈고 닦아 눈부신 다이아몬드 같은 결과물을 만들어냅니다.</p>
+                        `,
+                        strengths: [
+                            '오차 없는 꼼꼼한 디테일 감각과 완성도 높은 결과물',
+                            '동료들의 기분과 사내 분위기를 기민하게 감지하는 높은 공감력',
+                            '팀의 빈틈을 묵묵히 메워주는 든든한 신뢰감'
+                        ],
+                        cautions: [
+                            '거절을 못 해 남의 일까지 떠안다 번아웃에 직면할 위험',
+                            '업무적 비판을 개인적 거절로 받아들여 자존감이 흔들리기 쉬움'
+                        ],
+                        bestMatch: {
+                            title: '무소의 뿔 직진러',
+                            reason: '갈팡질팡할 때 단호하게 방향을 정해주고 외풍을 막아주는 든든한 방패!'
+                        },
+                        worstMatch: {
+                            title: '강철의 칼퇴 연금술사',
+                            reason: '너무 칼 같은 단호함에 혼자 상처받고 밤새 곱씹게 됩니다.'
+                        },
+                        recommendTool: {
+                            name: '오늘 뭐 먹지? 메뉴 추천',
+                            url: '/eat/',
+                            desc: '선택 장애와 멘탈 피로를 한 방에 해결하는 오늘 저녁 소울푸드 추천!',
+                            icon: 'restaurant'
+                        }
+                    },
+                    'straight-bull': {
+                        title: '무소의 뿔 직진러',
+                        emoji: '🦏',
+                        badge: '멘탈 타격 0% / 뚝심의 실행가',
+                        tags: ['#강철멘탈', '#알빠임', '#문제해결원탑', '#노빠꾸직진'],
+                        summary: '비난은 스쳐 지나갈 뿐, 해야 할 일은 결국 내가 해낸다.',
+                        description: `
+                            <p>상사의 잔소리나 동료들의 불평불만 따위는 귓등으로 흘려보내는 <strong>티타늄 멘탈의 소유자</strong>입니다. 복잡한 생각이나 감정 소모보다는 '그래서 당장 뭘 해결해야 하는가?'에 집중하는 탁월한 문제 해결사입니다.</p>
+                            <p>위기 상황에서도 당황하지 않고 덤덤하게 제 갈 길을 가기 때문에 프로젝트가 위기에 처했을 때 팀원들이 가장 의지하게 되는 버팀목입니다.</p>
+                        `,
+                        strengths: [
+                            '어떤 비난과 압박에도 흔들리지 않는 극강의 회복 탄력성',
+                            '복잡한 문제를 단순화하고 즉각 실행에 옮기는 결단력',
+                            '상사 앞에서도 주눅 들지 않고 할 말은 하는 당당함'
+                        ],
+                        cautions: [
+                            '주변 동료들의 섬세한 감정 상태를 눈치채지 못해 무신경해 보일 수 있음',
+                            '협업 과정에서 독단적이라는 평가를 들을 수 있으니 완급 조절 필요'
+                        ],
+                        bestMatch: {
+                            title: '유리멘탈 프로텍터',
+                            reason: '내가 앞장서서 길을 뚫어주고, 상대방이 꼼꼼하게 뒤를 챙겨주는 환상의 듀오!'
+                        },
+                        worstMatch: {
+                            title: '사내 인간 비타민',
+                            reason: '영양가 없는 수다와 스몰토크가 시간 낭비처럼 느껴질 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '무한의 계단 오르기',
+                            url: '/stairs/',
+                            desc: '거침없이 직진하는 나의 본능으로 계단 최고 기록을 갈아치워 보세요!',
+                            icon: 'stairs'
+                        }
+                    },
+                    'human-vitamin': {
+                        title: '사내 인간 비타민',
+                        emoji: '🍊',
+                        badge: '친화력 만렙 / 오피스 분위기 메이커',
+                        tags: ['#분위기메이커', '#커피타임요정', '#스몰토크장인', '#친화력만렙'],
+                        summary: '일도 사람이 하는 것! 유쾌한 소통이 최고의 업무 효율이다.',
+                        description: `
+                            <p>삭막하고 건조한 사무실에 생기와 웃음을 불어넣는 <strong>오피스의 산소호흡기</strong>입니다. 타 부서와의 협업도 당신의 커피 한 잔과 유쾌한 스몰토크 하나면 술술 풀리는 마법을 발휘합니다.</p>
+                            <p>업무 스트레스를 동료들과의 맛있는 점심 식사나 유쾌한 대화로 즉시 승화시키는 천부적인 소통 감각을 가졌습니다.</p>
+                        `,
+                        strengths: [
+                            '부서 간 장벽을 허물고 협업을 이끌어내는 탁월한 라포 형성력',
+                            '경직된 회의 분위기를 부드럽게 전환하는 뛰어난 유머 감각',
+                            '동료들의 고충을 경청하고 사기를 북돋아 주는 오피스 치유력'
+                        ],
+                        cautions: [
+                            '남들의 고민을 다 들어주다 정작 본인의 감정 에너지가 방전될 위험',
+                            '사적인 관계와 공적인 피드백 사이에서 중심을 잃지 않도록 주의'
+                        ],
+                        bestMatch: {
+                            title: '강철의 칼퇴 연금술사',
+                            reason: '서로의 부족한 점(친화력 vs 시간 관리)을 가장 이상적으로 보완해 주는 짝꿍!'
+                        },
+                        worstMatch: {
+                            title: '무소의 뿔 직진러',
+                            reason: '당신의 따뜻한 농담과 배려를 차갑게 쳐내 상처를 줄 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '밈 생성기 (Meme Maker)',
+                            url: '/meme-generator/',
+                            desc: '재치 있는 짤방을 즉석에서 제작하여 동료들에게 큰 웃음을 선물하세요!',
+                            icon: 'photo_library'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <!-- Schema.org Quiz & FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "직장인 생존 유형 & 멘탈 방어력 테스트",
+          "description": "8가지 상황 질문으로 나의 오피스 캐릭터와 멘탈 방어력을 진단하는 무료 바이럴 심리테스트",
+          "url": "https://tossgpt.online/tests/office-survival.html",
+          "educationalLevel": "Adult",
+          "about": "Workplace Psychology & Resilience"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "직장인 생존 유형 테스트 결과는 어떻게 도출되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "8가지 복합 오피스 딜레마 상황에서 사용자가 선택한 방어 기제(칼퇴 효율, 공감 완벽주의, 돌파형 멘탈, 사교형 소통)의 가중치를 종합 계산하여 가장 일치율이 높은 오피스 페르소나로 도출됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "인스타그램 공유 카드는 어떻게 생성되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "인스타 카드 저장 버튼을 누르면 서버 전송 없이 사용자의 브라우저 내 HTML5 Canvas 엔진이 4:5 고해상도 그래픽 카드를 즉시 렌더링하여 PNG 이미지로 다운로드합니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

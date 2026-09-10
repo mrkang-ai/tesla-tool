@@ -94,6 +94,9 @@
                                     <span class="text-amber-500 text-sm">🎮</span> <span data-lang-ko="7종 미니 게임" data-lang-en="7 Mini Games">7종 미니 게임</span>
                                 </span>
                                 <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
+                                    <span class="text-purple-500 text-sm">🧠</span> <span data-lang-ko="10종 심리&바이럴 테스트" data-lang-en="10 Psychology Tests">10종 심리&바이럴 테스트</span>
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
                                     <span class="text-emerald-500 text-sm">⚡</span> <span data-lang-ko="무설치 100% 무료" data-lang-en="100% Free / No Install">무설치 100% 무료</span>
                                 </span>
                             </div>
@@ -158,6 +161,9 @@
                         </button>
                         <button data-filter="games" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
                             🕹️ <span data-lang-ko="게임" data-lang-en="Games">게임</span>
+                        </button>
+                        <button data-filter="tests" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🧠 <span data-lang-ko="심리·바이럴 테스트" data-lang-en="Psychology Tests">심리·바이럴 테스트</span>
                         </button>
                         <button data-filter="guides" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
                             📚 <span data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</span>
@@ -344,6 +350,193 @@
                             </div>
                         </div>
                     </a>
+                </div>
+
+                <!-- Viral & Psychological Diagnosis Tests Section -->
+                <div class="mt-14 px-4" id="tests">
+                    <div class="flex items-center justify-between pb-6">
+                        <div>
+                            <h3 class="text-text-main dark:text-white text-2xl font-black tracking-tight flex items-center gap-2">
+                                <span>🧠</span>
+                                <span data-lang-ko="인기 심리 & 바이럴 테스트 컬렉션" data-lang-en="Popular Psychology & Viral Tests">인기 심리 & 바이럴 테스트 컬렉션</span>
+                            </h3>
+                            <p class="text-text-muted dark:text-slate-400 text-xs sm:text-sm mt-1" data-lang-ko="10~12문항으로 나의 숨겨진 성향, 직장 생존력, 소셜 배터리, 애착 스타일을 진단하고 인스타/카톡 카드를 공유해보세요." data-lang-en="Discover your hidden archetypes, workplace survival skills, and social battery in 10 questions.">10~12문항으로 나의 숨겨진 성향, 직장 생존력, 소셜 배터리, 애착 스타일을 진단하고 인스타/카톡 카드를 공유해보세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="tests-cards-grid">
+                        
+                        <!-- Test 1: Office Survival -->
+                        <a href="/tests/office-survival.html" data-category="tests" data-keywords="직장인 생존 유형 멘탈 방어력 직장 스트레스 퇴사 이직 사회생활 office survival mental test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">badge</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 border border-blue-200 dark:border-blue-800">소셜 바이럴</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="직장인 생존 유형 & 멘탈 방어력 테스트" data-lang-en="Workplace Survival & Mental Shield Test">직장인 생존 유형 & 멘탈 방어력 테스트</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="월요병부터 빌런 대처까지! 직장 속 나의 생존 전술과 멘탈 방어율을 분석합니다." data-lang-en="Analyze your workplace defense rate and survival archetype under pressure.">월요병부터 빌런 대처까지! 직장 속 나의 생존 전술과 멘탈 방어율을 분석합니다.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 2: Money Persona -->
+                        <a href="/tests/money-persona.html" data-category="tests" data-keywords="소비 성향 머니 캐릭터 탕진 짠테크 영끌 플렉스 절약 소비유형 money persona finance test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">payments</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">소셜 바이럴</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="소비 성향 & 머니 캐릭터 진단" data-lang-en="Spending Persona & Money Archetype">소비 성향 & 머니 캐릭터 진단</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="나의 통장은 왜 텅장이 될까? 소비 심리와 자산 관리 스타일을 명쾌하게 파헤쳐드립니다." data-lang-en="Find out why your wallet empties and decode your spending psychology.">나의 통장은 왜 텅장이 될까? 소비 심리와 자산 관리 스타일을 명쾌하게 파헤쳐드립니다.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 3: Decision Paralysis -->
+                        <a href="/tests/decision-paralysis.html" data-category="tests" data-keywords="결정 장애 선택 장애 극복 지수 뇌 성향 메뉴 고민 우유부단 decision paralysis choice test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">alt_route</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 border border-amber-200 dark:border-amber-800">소셜 바이럴</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="결정 장애 극복 지수 & 뇌 성향 진단" data-lang-en="Decision Paralysis Quotient Test">결정 장애 극복 지수 & 뇌 성향 진단</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="점심 메뉴부터 인생 중대 결정까지, 나의 선택 속도와 뇌의 의사결정 알고리즘을 측정합니다." data-lang-en="Evaluate your cognitive decision-making speed and choice heuristics.">점심 메뉴부터 인생 중대 결정까지, 나의 선택 속도와 뇌의 의사결정 알고리즘을 측정합니다.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 4: Dopamine Burnout -->
+                        <a href="/tests/dopamine-burnout.html" data-category="tests" data-keywords="디지털 도파민 숏폼 중독 릴스 틱톡 유튜브 쇼츠 뇌피로 번아웃 dopamine burnout addiction test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/40 flex items-center justify-center text-rose-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">bolt</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 text-rose-600 border border-rose-200 dark:border-rose-800">소셜 바이럴</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="디지털 도파민 중독 & 번아웃 레벨 테스트" data-lang-en="Digital Dopamine & Burnout Level Test">디지털 도파민 중독 & 번아웃 레벨 테스트</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="끝없는 스크롤에 지친 현대인을 위한 숏폼·도파민 의존도 및 뇌 피로도 자가 진단." data-lang-en="Assess your short-form addiction, cognitive fatigue, and digital overload.">끝없는 스크롤에 지친 현대인을 위한 숏폼·도파민 의존도 및 뇌 피로도 자가 진단.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 5: Meme Level -->
+                        <a href="/tests/meme-level.html" data-category="tests" data-keywords="밈 인터넷 트렌드 밈력 덕력고사 유행어 신조어 챌린지 meme trend quiz level test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(217,70,239,0.08)] hover:shadow-[0_12px_32px_rgba(217,70,239,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-fuchsia-100 dark:bg-fuchsia-900/40 flex items-center justify-center text-fuchsia-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">local_fire_department</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-fuchsia-50 dark:bg-fuchsia-950/60 text-fuchsia-600 border border-fuchsia-200 dark:border-fuchsia-800">소셜 바이럴</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="2026 밈 & 인터넷 트렌드 덕력 고사" data-lang-en="2026 Meme & Internet Trend IQ Quiz">2026 밈 & 인터넷 트렌드 덕력 고사</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="최신 유행어와 인터넷 밈 감각 테스트! 나는 트렌드 리더일까, 아니면 디지털 고대인일까?" data-lang-en="Test your current internet culture fluency and trending meme knowledge.">최신 유행어와 인터넷 밈 감각 테스트! 나는 트렌드 리더일까, 아니면 디지털 고대인일까?</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 6: Animal Archetype -->
+                        <a href="/tests/animal-archetype.html" data-category="tests" data-keywords="숨은 동물 성향 진단 칼 융 빅파이브 성격 동물 페르소나 animal archetype personality test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">pets</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 border border-indigo-200 dark:border-indigo-800">심리 유형 진단</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="나의 숨은 동물 성향 진단 (융 & Big 5)" data-lang-en="Hidden Animal Archetype Diagnosis">나의 숨은 동물 성향 진단 (융 & Big 5)</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="심리학 이론 기반! 무의식 속에 숨어 있는 나의 영혼 동물 아키타입과 사회적 행동 양식." data-lang-en="Identify your inner animal persona rooted in Jungian psychology and Big 5.">심리학 이론 기반! 무의식 속에 숨어 있는 나의 영혼 동물 아키타입과 사회적 행동 양식.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 7: Social Battery -->
+                        <a href="/tests/social-battery.html" data-category="tests" data-keywords="소셜 배터리 잔량 인간관계 에너지 내향 외향 기빨림 방전 충전 social battery energy test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(20,184,166,0.08)] hover:shadow-[0_12px_32px_rgba(20,184,166,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-teal-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">battery_charging_full</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-600 border border-teal-200 dark:border-teal-800">심리 유형 진단</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="소셜 배터리 잔량 & 인간관계 에너지 진단" data-lang-en="Social Battery & Interaction Energy">소셜 배터리 잔량 & 인간관계 에너지 진단</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="사람을 만나면 충전될까, 방전될까? 내 대인관계 에너지 용량과 맞춤 충전 루틴 발견." data-lang-en="Check your social energy drain rate and discover personalized recharge routines.">사람을 만나면 충전될까, 방전될까? 내 대인관계 에너지 용량과 맞춤 충전 루틴 발견.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 8: Stress Coping -->
+                        <a href="/tests/stress-coping.html" data-category="tests" data-keywords="스트레스 대처 반응 스타일 라자루스 멘탈 회복탄력성 번아웃 힐링 stress coping mental resilience test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">spa</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">심리 유형 진단</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="스트레스 대처 반응 스타일 진단" data-lang-en="Stress Coping Response Style Test">스트레스 대처 반응 스타일 진단</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="위기와 스트레스 상황에서 발동하는 나의 방어기제와 심리적 회복탄력성(Resilience) 분석." data-lang-en="Explore your coping mechanisms and psychological resilience under crisis.">위기와 스트레스 상황에서 발동하는 나의 방어기제와 심리적 회복탄력성(Resilience) 분석.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 9: Attachment Style -->
+                        <a href="/tests/attachment-style.html" data-category="tests" data-keywords="성인 애착 유형 연애 심리 볼비 안정형 불안형 회피형 혼란형 attachment style relationship test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/40 flex items-center justify-center text-rose-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">favorite</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 text-rose-600 border border-rose-200 dark:border-rose-800">심리 유형 진단</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="성인 애착 유형 & 연애 심리 진단" data-lang-en="Adult Attachment Style & Love Psychology">성인 애착 유형 & 연애 심리 진단</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="존 볼비 애착 이론 기반! 연인·인간관계에서 드러나는 안정·불안·회피 심리 패턴 정밀 진단." data-lang-en="Diagnose secure, anxious, and avoidant attachment patterns in romantic relationships.">존 볼비 애착 이론 기반! 연인·인간관계에서 드러나는 안정·불안·회피 심리 패턴 정밀 진단.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Test 10: Focus Flow -->
+                        <a href="/tests/focus-flow.html" data-category="tests" data-keywords="집중력 몰입 스타일 칙센트미하이 딥워크 뽀모도로 ADHD 생산성 focus flow deep work test" class="portal-card tilt-card group flex flex-col sm:flex-row items-stretch justify-between gap-4 rounded-2xl bg-white dark:bg-slate-800/95 p-6 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.18)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm">
+                            <div class="tilt-card-inner flex flex-[2_2_0px] flex-col justify-between gap-4">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center text-violet-600 mb-1 shadow-inner group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-2xl">psychology</span></div>
+                                        <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 border border-violet-200 dark:border-violet-800">심리 유형 진단</span>
+                                    </div>
+                                    <p class="text-text-main dark:text-white text-lg font-bold leading-tight" data-lang-ko="집중력 & 몰입 스타일 진단 (Flow Test)" data-lang-en="Focus & Flow State Style Test">집중력 & 몰입 스타일 진단 (Flow Test)</p>
+                                    <p class="text-text-muted dark:text-slate-400 text-sm font-normal leading-normal" data-lang-ko="칙센트미하이 몰입 이론 기반! 나의 주의집중 트리거와 업무·공부 생산성 극대화 솔루션." data-lang-en="Discover your optimal flow triggers and productivity hacks based on Flow theory.">칙센트미하이 몰입 이론 기반! 나의 주의집중 트리거와 업무·공부 생산성 극대화 솔루션.</p>
+                                </div>
+                                <div class="btn-tactile flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-accent-light dark:bg-slate-700 group-hover:bg-primary text-primary-hover dark:text-sky-200 group-hover:text-white text-sm font-bold leading-normal transition-colors shadow-sm">
+                                    <span class="truncate" data-lang-ko="진단하기" data-lang-en="Start Test">진단하기</span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
                 </div>
 
                 <!-- Knowledge Guides Section (SEO & Content Anchor) -->

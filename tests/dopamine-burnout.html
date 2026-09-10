@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 도파민 &amp; 숏폼 중독 레벨 테스트 | 무료 심리테스트 - ToolBox</title>
+    <meta name="description" content="침대 누워 릴스 2시간, 화장실 갈 때 스마트폰 필수인 당신! 8가지 현실 질문으로 나의 디지털 도파민 중독 지수와 스크린 타임 건강도를 진단해보세요.">
+    <meta name="keywords" content="도파민 테스트, 숏폼 중독 테스트, 스마트폰 중독 테스트, 디지털 디톡스, 팝콘 브레인, 심리테스트, 뇌 피로도 테스트">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="디지털 도파민 &amp; 숏폼 중독 레벨 테스트 - ToolBox">
+    <meta property="og:description" content="딱 하나만 더 보려다 새벽 3시? 나의 도파민 중독 지수와 뇌 건강 레벨은?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tossgpt.online/tests/dopamine-burnout.html">
+    <meta property="og:image" content="https://tossgpt.online/mysite.png">
+
+    <!-- Stylesheets & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        'primary-dark': '#0369a1',
+                        'card-bg-light': '#ffffff',
+                        'card-bg-dark': '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <a href="/" class="hover:text-primary transition-colors">홈</a>
+            <span>/</span>
+            <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
+            <span>/</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">디지털 도파민 &amp; 숏폼 중독</span>
+        </nav>
+
+        <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
+            <!-- 1. INTRO VIEW -->
+            <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 text-xs md:text-sm font-bold mb-5 border border-rose-200 dark:border-rose-800">
+                    <span>🧠 팝콘 브레인 &amp; 도파민 진단</span>
+                    <span>•</span>
+                    <span>소요 시간 1분 30초</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    디지털 도파민 &amp;<br><span class="text-rose-600 dark:text-rose-400">숏폼 중독 레벨 테스트</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    릴스·쇼츠 무한 스크롤, 환청처럼 들리는 알림 진동, 15초의 자극에 길들여진 뇌!<br>
+                    8가지 스마트폰 사용 패턴을 통해 <strong>나의 도파민 중독 지수와 뇌 피로도</strong>를 확인해보세요.
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 mb-8 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">📱</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">⚡</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">중독 진단 카드</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
+                        <span class="text-2xl mb-1 block">🌿</span>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">처방전</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-slate-200">디톡스 가이드</div>
+                    </div>
+                </div>
+
+                <button id="start-test-btn" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-lg shadow-lg shadow-rose-600/25 hover:shadow-rose-600/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer">
+                    도파민 수치 측정하기 👉
+                </button>
+            </div>
+
+            <!-- 2. QUIZ VIEW -->
+            <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                        <span id="quiz-question-number" class="text-rose-600 dark:text-rose-400 text-sm">Q1.</span>
+                        <span id="quiz-progress-text">1 / 8</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-rose-400 to-rose-600 transition-all duration-300" style="width: 12%;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                        질문 내용
+                    </h2>
+                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                </div>
+
+                <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
+            </div>
+
+            <!-- 3. LOADING VIEW -->
+            <div id="test-loading-section" class="hidden text-center py-16 max-w-md mx-auto">
+                <div class="relative size-20 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-full border-4 border-rose-100 dark:border-slate-800"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-rose-600 border-t-transparent animate-spin"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🧠</div>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">뇌파 도파민 농도 측정 중...</h3>
+                <p id="loading-status-msg" class="text-sm text-slate-500 dark:text-slate-400 animate-pulse">
+                    스크린 타임 자극 반응도를 계산하고 있습니다...
+                </p>
+            </div>
+
+            <!-- 4. RESULT VIEW -->
+            <div id="test-result-section" class="hidden max-w-2xl mx-auto py-2">
+                <div class="text-center mb-8">
+                    <div class="size-24 rounded-3xl bg-gradient-to-br from-rose-500 to-red-700 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-rose-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
+                        📱
+                    </div>
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 mb-2">
+                        도파민 중독 99%
+                    </span>
+                    <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                        숏폼 알고리즘 포로
+                    </h2>
+                    <div id="result-tags" class="flex flex-wrap items-center justify-center gap-2 mb-4"></div>
+                    <blockquote id="result-summary" class="text-sm md:text-base font-medium italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                        "딱 한 개만 더 보고 자야지... 어라 벌써 새벽 3시?"
+                    </blockquote>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-6">
+                    <h3 class="text-sm font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">🔍 뇌 인지 및 도파민 상태 분석</h3>
+                    <div id="result-description" class="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed space-y-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>✨</span> 나의 디지털 강점
+                        </h4>
+                        <ul id="result-strengths" class="space-y-2"></ul>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
+                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                            <span>⚠️</span> 뇌 건강 경고 신호
+                        </h4>
+                        <ul id="result-cautions" class="space-y-2"></ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div id="result-best-match"></div>
+                    <div id="result-worst-match"></div>
+                </div>
+
+                <div id="result-tool-recommend" class="mb-8"></div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-center">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4">📢 내 도파민 레벨 공유하기</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                        <button id="download-card-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 text-white font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span>인스타 카드 저장</span>
+                        </button>
+                        <button id="share-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">share</span>
+                            <span>카톡 / SNS 공유</span>
+                        </button>
+                        <button id="copy-result-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-600 active:scale-95 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">content_copy</span>
+                            <span>링크 복사</span>
+                        </button>
+                    </div>
+                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-rose-600 transition-colors underline cursor-pointer">
+                        처음부터 다시 테스트하기 ↺
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">뇌신경과학이 밝혀낸 도파민 보상 회로와 팝콘 브레인(Popcorn Brain) 현상</h2>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                도파민(Dopamine)은 성취와 기쁨을 느끼게 하는 신경전달물질이지만, 틱톡·릴스·쇼츠 같은 알고리즘 기반 미디어는 예측 불가능한 간헐적 보상(Intermittent Reinforcement)을 통해 슬롯머신과 똑같은 중독 회로를 활성화합니다. 현실의 완만한 자극에는 뇌가 반응하지 않고 오직 팝콘 터지듯 강렬한 자극에만 반응하는 이른바 <strong>'팝콘 브레인'</strong> 상태가 발생합니다.
+            </p>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">도파민 단식(Dopamine Fasting) 3대 실천 수칙</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-sm text-rose-600 dark:text-rose-400 mb-1">1. 침실 스마트폰 추방</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">잠들기 전 1시간, 기상 후 30분은 뇌가 가장 취약한 시간입니다. 알람시계를 따로 구비하고 스마트폰은 거실에서 충전하세요.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-rose-600 dark:text-rose-400 text-sm mb-1">2. 화면 흑백 모드 설정</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">스마트폰 화면을 '흑백(Grayscale)' 모드로 변경하면 화려한 시각적 자극이 사라져 스크린 타임이 평균 38% 감소합니다.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-rose-600 dark:text-rose-400 text-sm mb-1">3. 마찰력(Friction) 높이기</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">SNS 앱을 첫 화면 폴더 깊숙한 곳에 숨겨두거나 웹 브라우저로만 접속하게 만들어 무의식적인 탭 실행을 차단하세요.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-3 not-prose mb-6">
+                <details class="group border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-slate-50 dark:bg-slate-800/50 open:bg-white dark:open:bg-slate-800 transition-colors">
+                    <summary class="font-semibold text-sm cursor-pointer flex justify-between items-center text-slate-800 dark:text-slate-200">
+                        <span>숏폼 중독에서 벗어나는 데 얼마나 걸리나요?</span>
+                        <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        신경가소성(Neuroplasticity) 연구에 따르면, 스크린 타임을 의도적으로 절반으로 줄이고 독서나 걷기 같은 아날로그 활동을 병행할 경우 2주~3주 이내에 도파민 수용체 밀도가 정상 수준으로 회복됩니다.
+                    </p>
+                </details>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/sound.js" defer></script>
+    <script src="../scripts/particles.js" defer></script>
+    <script src="../scripts/test-engine.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testConfig = {
+                id: 'dopamine-burnout',
+                title: '디지털 도파민 & 숏폼 중독 레벨 테스트',
+                subtitle: '8가지 사용 패턴 질문으로 측정하는 나의 도파민 중독 지수와 뇌 피로도',
+                resultTypes: ['detox-monk', 'shortform-prisoner', 'fomo-radar', 'balanced-surfer'],
+                questions: [
+                    {
+                        question: '밤에 침대에 누워 불을 끄고 난 뒤 나의 통상적인 루틴은?',
+                        options: [
+                            { text: '스마트폰을 손에 닿지 않는 멀리 두고 바로 눈을 감고 잔다.', type: 'detox-monk' },
+                            { text: '릴스·쇼츠를 보며 1시간 넘게 엄지손가락을 넘기다 새벽 2시에 기절한다.', type: 'shortform-prisoner' },
+                            { text: 'SNS, 뉴스, 메신저를 순회하며 오늘 놓친 이슈가 없나 다 체크한다.', type: 'fomo-radar' },
+                            { text: '잔잔한 수면 ASMR이나 팟캐스트를 20분 타이머 맞춰두고 눕는다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '화장실 갈 때 스마트폰을 깜빡하고 방에 두고 왔다면 나의 행동은?',
+                        options: [
+                            { text: '오히려 좋다. 잠시 뇌를 비우고 생각에 잠긴다.', type: 'detox-monk' },
+                            { text: '도저히 불가능! 바지 올리고 방까지 달려가 폰을 가져온다.', type: 'shortform-prisoner' },
+                            { text: '화장실 벽에 붙은 샴푸 성분표나 타일 무늬를 멍하니 읽는다.', type: 'fomo-radar' },
+                            { text: '스마트폰 없이도 아무렇지 않게 볼일을 보고 나온다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '주머니 속에서 진동이 울린 것 같아 꺼내봤는데 아무 알림도 없던 적(유령 진동)이 있는가?',
+                        options: [
+                            { text: '거의 없다. 폰은 항상 무음 모드에 주머니에 잘 안 넣는다.', type: 'detox-monk' },
+                            { text: '하루에도 서너 번씩 폰을 꺼내보며 착각한다.', type: 'shortform-prisoner' },
+                            { text: '혹시 단톡방에 중요한 멘션이 왔을까 봐 수시로 확인한다.', type: 'fomo-radar' },
+                            { text: '가끔 그렇지만 대수롭지 않게 다시 집어넣는다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '10분 이상의 긴 유튜브 영상이나 넷플릭스 영화를 볼 때 나의 재생 행동은?',
+                        options: [
+                            { text: '1.0배속 정속도로 영화의 연출과 호흡을 온전히 음미한다.', type: 'detox-monk' },
+                            { text: '1.5배속~2.0배속으로 보거나 10초 스킵을 50번 누르며 결말만 본다.', type: 'shortform-prisoner' },
+                            { text: '댓글창을 먼저 열어 타임스탬프와 요약 댓글부터 찾아 읽는다.', type: 'fomo-radar' },
+                            { text: '중요한 내용은 1.25배속 정도로 효율적으로 집중해서 본다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '신호등을 기다리거나 엘리베이터를 탄 20초의 찰나, 나의 손은 어디에 있는가?',
+                        options: [
+                            { text: '주변 풍경을 보거나 멍하니 하늘을 바라보며 호흡한다.', type: 'detox-monk' },
+                            { text: '0.1초 만에 스마트폰을 잠금 해제하여 SNS나 쇼츠를 켠다.', type: 'shortform-prisoner' },
+                            { text: '포털 실시간 뉴스나 주식/코인 시세 앱을 새로고침한다.', type: 'fomo-radar' },
+                            { text: '그냥 편안하게 서서 다음 목적지 동선을 생각한다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '친구와 카페에서 마주 앉아 대화할 때 나의 스마트폰 위치는?',
+                        options: [
+                            { text: '가방 깊숙이 넣어두고 대화에 100% 집중한다.', type: 'detox-monk' },
+                            { text: '테이블 위에 올려두고 친구가 말할 때도 무의식적으로 화면을 만지작거린다.', type: 'shortform-prisoner' },
+                            { text: '화면을 뒤집어 두지만 진동이 울리면 0.5초 만에 확인한다.', type: 'fomo-radar' },
+                            { text: '테이블에 올려두되, 사진 찍을 때나 필요한 정보를 찾을 때만 켠다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '스마트폰 없이 자연 속에서 24시간 동안 디지털 디톡스를 해야 한다면?',
+                        options: [
+                            { text: '"꿈같은 힐링 타임!" 기쁜 마음으로 짐을 싼다.', type: 'detox-monk' },
+                            { text: '3시간 만에 금단현상과 불안감으로 손이 떨릴 것 같다.', type: 'shortform-prisoner' },
+                            { text: '내가 없는 동안 세상에 무슨 일이 생길까 봐 전전긍긍한다.', type: 'fomo-radar' },
+                            { text: '처음엔 조금 허전하겠지만 책 읽고 산책하며 유익하게 보낸다.', type: 'balanced-surfer' }
+                        ]
+                    },
+                    {
+                        question: '내가 생각하는 스마트폰 화면 너머 "현실 세계"의 매력은?',
+                        options: [
+                            { text: '바람, 햇살, 사람의 온기 등 화면이 절대 흉내 낼 수 없는 진짜 감각.', type: 'detox-monk' },
+                            { text: '너무 자극이 약하고 지루해서 솔직히 쇼츠보다 재미없다.', type: 'shortform-prisoner' },
+                            { text: '정보를 얻고 소통할 수 있는 인맥과 기회의 장.', type: 'fomo-radar' },
+                            { text: '스마트 도구의 도움을 받아 더 풍요롭게 누릴 수 있는 무대.', type: 'balanced-surfer' }
+                        ]
+                    }
+                ],
+                results: {
+                    'detox-monk': {
+                        title: '도파민 디톡스 도인',
+                        emoji: '🧘',
+                        badge: '도파민 수치 10% / 청정 뇌수 소유자',
+                        tags: ['#디지털디톡스', '#현생집중러', '#알림무음장인', '#뇌청정구역'],
+                        summary: '스마트폰은 도구일 뿐, 내 삶의 주도권은 내가 쥔다.',
+                        description: `
+                            <p>당신은 현대 문명의 무차별적인 알고리즘 공세 속에서도 <strong>맑은 정신과 깊은 주의 집중력</strong>을 지켜낸 현대판 도인입니다. 스마트폰의 굴레에 얽매이지 않고 현실 세계의 감각을 풍부하게 음미합니다.</p>
+                            <p>뇌의 전두엽이 피로하지 않아 창의적인 생각과 긴 호흡의 독서, 딥워크(Deep Work)에 최적화된 뛰어난 멘탈 자산을 보유하고 있습니다.</p>
+                        `,
+                        strengths: [
+                            '알고리즘 중독에 휩쓸리지 않는 강력한 자기 통제력',
+                            '긴 시간 동안 한 가지 일에 집중할 수 있는 높은 뇌 지구력',
+                            '타인의 SNS에 흔들리지 않는 단단한 자존감과 평온함'
+                        ],
+                        cautions: [
+                            '너무 연락이 안 되어 친구나 업무 동료들을 애태울 수 있음',
+                            '유행하는 밈이나 급변하는 트렌드 소식에 다소 어두울 수 있음'
+                        ],
+                        bestMatch: {
+                            title: '스마트 온오프 서퍼',
+                            reason: '현실의 여유와 디지털의 유용성을 서로 균형 있게 공유하는 최고의 파트너!'
+                        },
+                        worstMatch: {
+                            title: '숏폼 알고리즘 포로',
+                            reason: '눈앞에서 쉼 없이 릴스를 넘기는 상대를 보면 뇌가 대신 아파옵니다.'
+                        },
+                        recommendTool: {
+                            name: '키캡 누르기 게임 (ASMR 타건)',
+                            url: '/keycap/',
+                            desc: '자극적인 알고리즘 대신 청각적 힐링을 선사하는 무해한 기계식 타건 ASMR!',
+                            icon: 'keyboard'
+                        }
+                    },
+                    'shortform-prisoner': {
+                        title: '숏폼 알고리즘 포로',
+                        emoji: '📱',
+                        badge: '도파민 중독 99% / 15초 쾌락의 노예',
+                        tags: ['#릴스3시간순삭', '#쇼츠무한스크롤', '#집중력3초', '#도파민중독'],
+                        summary: '딱 한 개만 더 보고 자야지... 어라 벌써 새벽 3시?',
+                        description: `
+                            <p>당신의 뇌는 현재 거대 테크 기업들의 알고리즘이 뿜어내는 <strong>강력한 도파민 폭풍에 완전 포획</strong>된 상태입니다. 15초 단위의 즉각적 쾌락에 길들여져 10분짜리 긴 영상이나 글을 읽는 데 극심한 지루함을 느낍니다.</p>
+                            <p>휴식을 취한다고 스마트폰을 보지만, 사실은 뇌를 극단적으로 혹사시키고 있습니다. 지금 당장 스크린 타임에 브레이크를 걸어야 할 골든타임입니다!</p>
+                        `,
+                        strengths: [
+                            '최신 밈과 전 세계 유행 트렌드를 실시간으로 섭렵하는 민첩함',
+                            '시각적 정보 처리 속도가 매우 빠르고 직관적 감각 발달',
+                            '다양하고 흥미로운 짤방과 소셜 콘텐츠 큐레이션 능력'
+                        ],
+                        cautions: [
+                            '만성 뇌 피로, 수면의 질 저하, 기억력 감퇴(팝콘 브레인)',
+                            '현실의 느리고 잔잔한 일상에서 무기력증과 우울감을 느낄 위험'
+                        ],
+                        bestMatch: {
+                            title: '도파민 디톡스 도인',
+                            reason: '내 손에서 스마트폰을 빼앗아 자연의 바람을 쐬어줄 구원자!'
+                        },
+                        worstMatch: {
+                            title: '숏폼 알고리즘 포로',
+                            reason: '서로 재미있는 릴스 링크를 100개씩 공유하다가 둘 다 뇌가 녹아버립니다.'
+                        },
+                        recommendTool: {
+                            name: '당근 피하기 (Carrot Dodger)',
+                            url: '/carrot-dodger/',
+                            desc: '숏폼을 끄고 순수 반사신경만으로 스트레스를 날려버리는 캐주얼 아케이드!',
+                            icon: 'directions_run'
+                        }
+                    },
+                    'fomo-radar': {
+                        title: '트렌드 레이더 FOMO형',
+                        emoji: '📡',
+                        badge: '정보 민감도 200% / 고립 공포 극복러',
+                        tags: ['#트렌드놓치면불안', '#알림확인강박', '#단톡방칼답', '#실시간이슈헌터'],
+                        summary: '세상의 모든 핫이슈는 내가 가장 먼저 알아야 직성이 풀린다.',
+                        description: `
+                            <p>당신은 세상의 흐름에서 소외되는 것을 두려워하는 <strong>FOMO(Fear of Missing Out) 레이더</strong>를 장착하고 있습니다. 단톡방 알림, 실시간 검색어, 주식/가상자산 시세, 연예 뉴스까지 한순간도 놓치지 않고 모니터링합니다.</p>
+                            <p>정보 수집력은 최고지만, 뇌의 레이더가 24시간 풀가동되어 있어 정신적 방전(Burnout)에 취약합니다. '알지 않아도 내 인생에 아무 지장 없는 정보'를 솎아내는 필터가 필요합니다.</p>
+                        `,
+                        strengths: [
+                            '누구보다 빠른 정보력과 트렌드 감지 안테나',
+                            '모임에서 대화 주제를 끊이지 않게 이끄는 풍부한 화젯거리',
+                            '빠른 피드백과 소통으로 사내외 네트워크에서 활약'
+                        ],
+                        cautions: [
+                            '끊임없는 알림 확인으로 인한 주의 집중력 분절(Attention Residue)',
+                            '타인의 성공이나 화려한 SNS를 보며 생기는 상대적 박탈감 주의'
+                        ],
+                        bestMatch: {
+                            title: '스마트 온오프 서퍼',
+                            reason: '어떤 정보가 진짜 유익한지 선별하는 필터링 혜안을 전수해 줍니다.'
+                        },
+                        worstMatch: {
+                            title: '도파민 디톡스 도인',
+                            reason: '세상 돌아가는 이야기에 너무 무관심해 대화 코드가 안 맞을 수 있습니다.'
+                        },
+                        recommendTool: {
+                            name: '글자 수 세기 & 단어 분석기',
+                            url: '/TextCount/',
+                            desc: '방대한 텍스트의 공백, 바이트, 단어 수를 정밀하게 분석하는 지적 도구!',
+                            icon: 'description'
+                        }
+                    },
+                    'balanced-surfer': {
+                        title: '스마트 온오프 서퍼',
+                        emoji: '🏄',
+                        badge: '밸런스 유지 95% / 유연한 디지털 활용가',
+                        tags: ['#필요할때만ON', '#스마트폰조련사', '#현생과디지털조화', '#선택적집중'],
+                        summary: '디지털의 편리함은 쏙 빼먹고, 과몰입 직전에 쿨하게 OFF!',
+                        description: `
+                            <p>당신은 기술의 노예가 되지 않고 기술을 완벽하게 부리는 <strong>현명한 디지털 서퍼</strong>입니다. 숏폼의 유혹과 재미를 알지만 필요할 때 스스로 앱을 끌 줄 아는 절제력을 갖추고 있습니다.</p>
+                            <p>현실의 인간관계와 업무 생산성, 그리고 디지털 엔터테인먼트 사이에서 가장 이상적인 황금비율을 유지하는 현대인의 롤모델입니다.</p>
+                        `,
+                        strengths: [
+                            '디지털 도구를 생산성에 스마트하게 활용하는 응용력',
+                            '스크린 타임을 자율적으로 제어하는 뛰어난 메타인지',
+                            '온라인과 오프라인 어디서든 균형 잡힌 행복감 유지'
+                        ],
+                        cautions: [
+                            '바쁜 시기에는 방심하다가 일시적으로 숏폼 중독에 빠질 수 있으니 경계 필요',
+                            '주변의 중독된 지인들을 교화하려다 잔소리꾼이 되지 않도록 유의'
+                        ],
+                        bestMatch: {
+                            title: '도파민 디톡스 도인',
+                            reason: '아날로그 라이프의 깊이와 디지털의 효율성을 서로 나누는 환상의 궁합!'
+                        },
+                        worstMatch: {
+                            title: '숏폼 알고리즘 포로',
+                            reason: '아무리 조언을 해줘도 폰만 쳐다보는 모습에 한숨이 나옵니다.'
+                        },
+                        recommendTool: {
+                            name: '무한의 계단 (Infinite Stairs)',
+                            url: '/stairs/',
+                            desc: '짧은 시간 동안 짜릿한 몰입과 리듬감을 즐기고 쿨하게 일상으로 복귀하세요!',
+                            icon: 'stairs'
+                        }
+                    }
+                }
+            };
+
+            new ViralTestEngine(testConfig);
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Quiz",
+          "name": "디지털 도파민 & 숏폼 중독 레벨 테스트",
+          "description": "8가지 스마트폰 사용 패턴 질문으로 나의 도파민 중독 지수와 뇌 피로도를 측정하는 무료 심리테스트",
+          "url": "https://tossgpt.online/tests/dopamine-burnout.html",
+          "educationalLevel": "Adult",
+          "about": "Neuroscience & Digital Well-being"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "숏폼 중독에서 벗어나는 데 얼마나 걸리나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "신경가소성 연구에 따르면 의도적으로 스크린 타임을 절반으로 줄이고 아날로그 휴식을 병행할 경우 2주~3주 이내에 도파민 수용체 밀도가 정상 수준으로 회복됩니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</body>
+</html>
