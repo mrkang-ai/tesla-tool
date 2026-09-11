@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="가짜 AI 환각(Hallucination) 백과사전 - TeslaTool" data-lang-en="AI Hallucination Encyclopedia - TeslaTool">가짜 AI 환각(Hallucination) 백과사전 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#a855f7' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-purple-500/20">
+          <i class="fa-solid fa-brain"></i> CAT-06 / No.52
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🔮 가짜 AI 환각(Hallucination) 백과사전" data-lang-en="🔮 AI Hallucination Encyclopedia">🔮 가짜 AI 환각(Hallucination) 백과사전</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="'세종대왕 맥북 던짐 사건', '이순신 장군의 비트코인 채굴선' 등 뻔뻔하고 진지한 가짜 역사 생성기" data-lang-en="Generate hilariously plausible yet totally fabricated AI hallucinations and fake history articles">
+          '세종대왕 맥북 던짐 사건', '이순신 장군의 비트코인 채굴선' 등 뻔뻔하고 진지한 가짜 역사 생성기
+        </p>
+      </div>
+      <div>
+        <button id="randomHallucinateBtn" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-2 shadow-lg">
+          <i class="fa-solid fa-dice"></i> 다른 환각 사건 보기 🎲
+        </button>
+      </div>
+    </div>
+
+    <!-- Wiki article style box -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl space-y-4">
+      <div class="flex items-center gap-3 border-b border-slate-700 pb-4">
+        <span class="text-3xl">📜</span>
+        <div>
+          <h2 id="entryTitle" class="text-xl sm:text-2xl font-bold text-purple-300 font-serif">
+            세종실록 15년: 훈민정음 맥북 투척 사건
+          </h2>
+          <span class="text-[11px] text-slate-500 font-mono">신뢰도 판정: AI 환각률 99.9%</span>
+        </div>
+      </div>
+
+      <div id="entryBody" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-serif space-y-3 whitespace-pre-wrap">
+<!-- populated by JS -->
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="hallucination.js"></script>
+</body>
+</html>

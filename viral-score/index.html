@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="SNS 어그로 & 논란 유발 지수 테스터 - TeslaTool" data-lang-en="Viral Potential & Ragebait Score - TeslaTool">SNS 어그로 & 논란 유발 지수 테스터 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#f43f5e' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-volcano"></i> CAT-05 / No.48
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🔥 SNS 어그로 & 논란 유발 지수 테스터" data-lang-en="🔥 Viral Potential & Ragebait Tester">🔥 SNS 어그로 & 논란 유발 지수 테스터</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="글의 도파민 자극도, 반박 본능 자극 키워드, 댓글 전쟁(키배) 유발 확률 0~100점 판정기" data-lang-en="Measure dopamine trigger rates, controversy levels, and comment section ragebait potential">
+          글의 도파민 자극도, 반박 본능 자극 키워드, 댓글 전쟁(키배) 유발 확률 0~100점 판정기
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <label class="text-xs font-bold text-slate-300">작성한 SNS 글 본문 입력</label>
+        <textarea id="viralIn" class="flex-1 min-h-[220px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-rose-500" placeholder="예: 솔직히 월 300도 못 버는 사람들은 노력 안 한 거 아닌가요? 반박 시 님 말이 맞음"></textarea>
+        <button id="testViralBtn" class="w-full py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg text-xs transition">
+          어그로 지수 분석하기 📊
+        </button>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-6 border border-slate-700 text-center flex flex-col justify-between">
+        <div>
+          <span class="text-xs text-slate-400 uppercase font-bold">어그로 & 논란 지수</span>
+          <div id="rageScore" class="text-5xl sm:text-6xl font-black font-mono text-rose-400 my-3">
+            85 pt
+          </div>
+          <span id="rageBadge" class="inline-block px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono">
+            위험: 댓글창 난투극 확정
+          </span>
+        </div>
+
+        <p id="rageDesc" class="text-xs text-slate-300 bg-slate-900/60 p-3 rounded-lg border border-slate-700/60 leading-relaxed text-left mt-4">
+          • 극단적 일반화와 도발 문구("반박 시 님 말이 맞음")가 탑재되어 네티즌들의 반박 본능을 200% 자극합니다. 알고리즘 폭발은 보장되나 멘탈 터짐에 주의하세요.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="viral.js"></script>
+</body>
+</html>

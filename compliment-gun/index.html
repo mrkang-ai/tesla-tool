@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세상 모든 칭찬 머신건 & Confetti | Compliment Machine Gun - TossGPT</title>
+  <meta name="description" content="클릭할 때마다 폭풍 칭찬과 색종이 가루(Confetti)가 쏟아져 나오는 자존감 충전 머신건입니다.">
+  <link rel="canonical" href="https://tossgpt.online/compliment-gun/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    @keyframes bounceGun {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.95) rotate(-3deg); }
+      100% { transform: scale(1); }
+    }
+    .fire-anim {
+      animation: bounceGun 0.15s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-rose-50/50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-heart"></i>
+        <span data-lang-ko="자존감 폭발 비타민 머신" data-lang-en="Self-Esteem Booster Gun">자존감 폭발 비타민 머신</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2" data-lang-ko="세상 모든 칭찬 머신건" data-lang-en="Infinite Compliment Machine Gun">세상 모든 칭찬 머신건</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm" data-lang-ko="누를 때마다 색종이가 터지며 100% 진심 어린 극찬이 쏟아집니다!" data-lang-en="Fire high-velocity compliments & confetti bursts to recharge your confidence!">누를 때마다 색종이가 터지며 100% 진심 어린 극찬이 쏟아집니다!</p>
+    </div>
+
+    <!-- Gun Container -->
+    <div class="w-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-rose-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center min-h-[360px] relative text-center">
+      <div class="text-xs text-rose-500 font-bold mb-2">
+        <i class="fa-solid fa-crosshairs mr-1"></i> <span data-lang-ko="발사된 칭찬 탄환" data-lang-en="Compliments Fired">발사된 칭찬 탄환</span>: <span id="fireCount" class="font-mono text-lg font-black">0</span>발
+      </div>
+
+      <div id="complimentCard" class="my-6 min-h-[90px] flex items-center justify-center px-4">
+        <p id="complimentText" class="text-2xl sm:text-3xl font-black text-rose-600 dark:text-rose-400 transition-all leading-tight">
+          “버튼을 눌러 칭찬을 쏘세요!”
+        </p>
+      </div>
+
+      <button id="fireBtn" class="px-8 py-4 bg-gradient-to-r from-rose-500 via-pink-500 to-red-500 hover:from-rose-600 hover:to-red-600 text-white font-extrabold rounded-2xl shadow-xl hover:shadow-2xl transition-all text-xl flex items-center gap-3 transform active:scale-95 cursor-pointer">
+        <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+        <span data-lang-ko="칭찬 난사하기 (빵야!)" data-lang-en="Fire Compliment (Bang!)">칭찬 난사하기 (빵야!)</span>
+      </button>
+
+      <p class="text-xs text-slate-400 mt-4">스페이스바를 꾹 눌러도 연사가 가능합니다.</p>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="gun.js"></script>
+</body>
+</html>

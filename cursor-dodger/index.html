@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>약올리는 도망자 마우스 버튼 게임 | Cursor Dodger Game - TossGPT</title>
+  <meta name="description" content="마우스 커서가 다가오면 빛의 속도로 도망치는 얄미운 버튼을 클릭해보는 인내심 테스트 게임입니다.">
+  <link rel="canonical" href="https://tossgpt.online/cursor-dodger/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col select-none overflow-hidden">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-gamepad"></i>
+        <span>순발력 & 인내심 테스트</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">약올리는 도망자 버튼 게임</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">“절대로 나를 누를 수 없을 걸요? 약오르지롱~”</p>
+    </div>
+
+    <!-- Arena -->
+    <div id="gameArena" class="w-full h-[450px] bg-white dark:bg-slate-800 rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 shadow-xl relative overflow-hidden flex items-center justify-center">
+      <button id="dodgerBtn" class="absolute px-6 py-3 bg-rose-500 hover:bg-rose-600 text-white font-black rounded-2xl shadow-lg transition-all duration-150 cursor-pointer">
+        날 잡아봐라! 😜
+      </button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="dodger.js"></script>
+</body>
+</html>

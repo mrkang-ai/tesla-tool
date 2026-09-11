@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="인간 vs AI 블라인드 튜링 테스트 - TeslaTool" data-lang-en="Human vs AI Blind Turing Test - TeslaTool">인간 vs AI 블라인드 튜링 테스트 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-blue-500/20">
+          <i class="fa-solid fa-robot"></i> CAT-06 / No.53
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🤖 인간 vs AI 블라인드 튜링 테스트" data-lang-en="🤖 Human vs AI Blind Turing Test">🤖 인간 vs AI 블라인드 튜링 테스트</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="두 개의 답변 중 어느 쪽이 실제 인간이고 어느 쪽이 AI일까요? 당신의 인공지능 감별력 측정" data-lang-en="Read two texts and guess which one was written by a real human and which by AI">
+          두 개의 답변 중 어느 쪽이 실제 인간이고 어느 쪽이 AI일까요? 당신의 인공지능 감별력 측정
+        </p>
+      </div>
+      <div>
+        <span id="scoreTracker" class="text-xs font-bold text-blue-400 font-mono">정답률: 0 / 0 (0%)</span>
+      </div>
+    </div>
+
+    <!-- Question Context -->
+    <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 mb-6 text-center">
+      <span class="text-xs text-slate-400 uppercase font-bold">주어진 질문</span>
+      <h2 id="quizQuestion" class="text-base sm:text-lg font-bold text-slate-100 mt-1">
+        "비 오는 월요일 아침, 출근길에 대한 솔직한 심정은?"
+      </h2>
+    </div>
+
+    <!-- Choice Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div id="cardA" class="choice-card bg-slate-800/80 hover:bg-slate-800 rounded-2xl p-6 border-2 border-slate-700 cursor-pointer transition flex flex-col justify-between space-y-4">
+        <div>
+          <span class="text-xs font-bold text-blue-400 block mb-2 font-mono">[ 텍스트 A ]</span>
+          <p id="textA" class="text-xs sm:text-sm leading-relaxed text-slate-200">
+            <!-- text A -->
+          </p>
+        </div>
+        <button class="w-full py-2 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white font-bold text-xs rounded-xl transition">
+          이 글이 AI가 쓴 글이다!
+        </button>
+      </div>
+
+      <div id="cardB" class="choice-card bg-slate-800/80 hover:bg-slate-800 rounded-2xl p-6 border-2 border-slate-700 cursor-pointer transition flex flex-col justify-between space-y-4">
+        <div>
+          <span class="text-xs font-bold text-blue-400 block mb-2 font-mono">[ 텍스트 B ]</span>
+          <p id="textB" class="text-xs sm:text-sm leading-relaxed text-slate-200">
+            <!-- text B -->
+          </p>
+        </div>
+        <button class="w-full py-2 bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white font-bold text-xs rounded-xl transition">
+          이 글이 AI가 쓴 글이다!
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="turing.js"></script>
+</body>
+</html>

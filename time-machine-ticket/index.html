@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타임머신 탑승권 발권기 | Time Machine Boarding Pass - TossGPT</title>
+  <meta name="description" content="과거(비트코인 피자데이)나 미래를 선택하면 할아버지 역설 경고가 포함된 타임머신 탑승권을 발권합니다.">
+  <link rel="canonical" href="https://tossgpt.online/time-machine-ticket/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>TIME DISPLACEMENT TRANSPORT</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-cyan-400">타임머신 탑승권 발권 시스템</h1>
+      <p class="text-slate-400 text-sm">목적지 시간대를 선택하고 시공간 왜곡 탑승 티켓을 발권받으세요.</p>
+    </div>
+
+    <!-- Ticket Form -->
+    <div class="w-full bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-xs font-bold text-cyan-400 mb-1">여행자 성명</label>
+          <input type="text" id="travelerName" value="시간 여행자" class="w-full p-2.5 bg-slate-950 border border-slate-700 rounded-lg text-white font-bold text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-cyan-400 mb-1">도착 목표 시간대</label>
+          <select id="timeTarget" class="w-full p-2.5 bg-slate-950 border border-slate-700 rounded-lg text-white font-bold text-sm">
+            <option value="btc">2010년 5월 22일 (비트코인 1만개 피자데이)</option>
+            <option value="dino">기원전 6,500만년 (티라노사우루스 서식기)</option>
+            <option value="rome">서기 44년 (율리우스 카이사르 시대)</option>
+            <option value="future">서기 2999년 (신인류 은하연합 창설기)</option>
+          </select>
+        </div>
+      </div>
+      <button id="issueBtn" class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black rounded-xl text-sm transition-all shadow-md">
+        탑승권 즉시 발권 (PRINT TICKET)
+      </button>
+    </div>
+
+    <!-- Printed Boarding Pass -->
+    <div id="boardingPass" class="w-full max-w-xl bg-gradient-to-r from-cyan-950 via-slate-900 to-cyan-950 border-2 border-dashed border-cyan-400 rounded-2xl p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center border-b border-cyan-800 pb-3 mb-4">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shuttle-space text-cyan-400 text-xl"></i>
+          <span class="font-mono text-sm font-black text-cyan-300">CHRONO-AIRWAYS // PASS</span>
+        </div>
+        <span class="font-mono text-xs bg-cyan-900 text-cyan-200 px-2 py-0.5 rounded">CLASS: FIRST TIME</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 text-xs font-mono mb-4">
+        <div>
+          <span class="text-slate-400 block">TRAVELER:</span>
+          <span id="passName" class="text-base font-bold text-white">시간 여행자</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block">GATE / SEAT:</span>
+          <span class="text-base font-bold text-cyan-400">GATE T-42 / SEAT 01A</span>
+        </div>
+        <div class="col-span-2">
+          <span class="text-slate-400 block">DESTINATION TIME:</span>
+          <span id="passDest" class="text-sm font-bold text-amber-300">2010-05-22 비트코인 피자데이</span>
+        </div>
+      </div>
+
+      <div class="p-3 bg-slate-950/80 rounded-lg border border-red-500/40 text-[11px] text-red-300 leading-relaxed font-sans">
+        ⚠️ <strong>할아버지 역설 경고:</strong> 과거 도착 후 친인척과의 접촉 및 복권 번호 유출은 시간선 붕괴를 초래할 수 있으니 주의하십시오.
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="timeticket.js"></script>
+</body>
+</html>

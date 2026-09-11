@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대용량 파일 다운로드 시간 체감 계산기 | Download Time Calculator - TossGPT</title>
+  <meta name="description" content="파일 크기와 내 인터넷 속도(100M, 기가 인터넷)로 실제 다운로드 소요 시간과 비유를 계산합니다.">
+  <link rel="canonical" href="https://tossgpt.online/download-time/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-download"></i>
+        <span>네트워크 속도 계산기</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">대용량 파일 다운로드 체감 계산기</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">100GB 대작 게임이나 4K 영상 다운로드가 언제 끝날지 정확히 알려드립니다.</p>
+    </div>
+
+    <!-- Inputs -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-6 space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">파일 용량 (GB)</label>
+          <input type="number" id="fileGb" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold text-base">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">인터넷 상품 속도</label>
+          <select id="netSpeed" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold text-sm">
+            <option value="100">100 Mbps (광랜 일반 가정)</option>
+            <option value="500" selected>500 Mbps (기가 라이트)</option>
+            <option value="1000">1 Gbps (1기가 인터넷)</option>
+            <option value="10000">10 Gbps (10기가 프리미엄)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 text-center">
+      <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">예상 다운로드 완료 시간</div>
+      <div id="etaTime" class="text-4xl font-mono font-black text-blue-600 dark:text-blue-400 my-2">17분 20초</div>
+      <p id="etaMetaphor" class="text-xs text-slate-500 mt-2">☕ 커피 한 잔 내리고 화장실 다녀오면 완료되어 있습니다.</p>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="download.js"></script>
+</body>
+</html>

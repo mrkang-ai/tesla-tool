@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슈뢰딩거의 고양이 상자 열기 | Schrödinger's Cat Box - TossGPT</title>
+  <meta name="description" content="상자를 열기 전까지는 살아있으면서 동시에 죽어있는 양자 중첩 고양이를 관측해 파동함수를 붕괴시킵니다.">
+  <link rel="canonical" href="https://tossgpt.online/schrodinger-box/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-box-open"></i>
+        <span>QUANTUM SUPERPOSITION LAB</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-indigo-300">슈뢰딩거의 고양이 상자</h1>
+      <p class="text-slate-400 text-sm">상자를 여는 순간 당신의 관측으로 인해 양자 파동함수가 단 하나의 현실로 붕괴합니다.</p>
+    </div>
+
+    <!-- Quantum Box Container -->
+    <div class="w-full bg-slate-900 border-2 border-indigo-500/40 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[380px] shadow-2xl relative">
+      <div id="boxVisual" class="text-8xl cursor-pointer transform active:scale-95 hover:scale-105 transition-transform mb-4">
+        📦
+      </div>
+      <h2 id="catState" class="text-2xl font-black text-indigo-300 mb-2">상태: 양자 중첩 (살아있음 + 죽어있음)</h2>
+      <p id="catDesc" class="text-xs text-slate-400 mb-6">상자 안의 방사성 원소가 붕괴했는지 여부는 관측되기 전까지 확정되지 않습니다.</p>
+
+      <button id="openBoxBtn" class="px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-xl text-base shadow-lg transition-all">
+        상자 열어서 관측하기 (관측자 효과)
+      </button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="schrodinger.js"></script>
+</body>
+</html>

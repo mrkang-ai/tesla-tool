@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="벼락치기 카페인 치사량 계산기 - TeslaTool" data-lang-en="Caffeine Safety Limit Calculator - TeslaTool">벼락치기 카페인 치사량 계산기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#eab308' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-yellow-500/20">
+          <i class="fa-solid fa-mug-hot"></i> CAT-03 / No.25
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="☕ 시험기간 벼락치기 카페인 치사량 계산기" data-lang-en="☕ Cramming Caffeine Limit Calculator">☕ 시험기간 벼락치기 카페인 치사량 계산기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="스누피 우유, 몬스터, 아메리카노 등 섭취 시 혈중 카페인 농도 및 손떨림·심장 두근거림 한계 예측" data-lang-en="Calculate blood caffeine levels, half-life decay, and tachycardia danger zones for all-nighters">
+          스누피 우유, 몬스터, 아메리카노 등 섭취 시 혈중 카페인 농도 및 손떨림·심장 두근거림 한계 예측
+        </p>
+      </div>
+      <div>
+        <span id="dangerZoneBadge" class="px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold">
+          상태: 안전 각성존
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Drink Selector Left -->
+      <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-yellow-400 uppercase tracking-wider flex items-center justify-between">
+          <span><i class="fa-solid fa-list-check mr-1.5"></i> 오늘 마신 음료 카운트</span>
+          <button id="resetDrinkBtn" class="text-[11px] text-slate-400 hover:text-slate-200">초기화</button>
+        </h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">체중 입력 (kg)</label>
+          <input type="number" id="userWeight" value="65" min="40" max="120" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs font-bold text-yellow-300">
+        </div>
+
+        <!-- Drinks list -->
+        <div class="space-y-2.5" id="drinkList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Graph & Stats Right -->
+      <div class="lg:col-span-7 space-y-4">
+        <!-- Big Number -->
+        <div class="bg-slate-800/80 rounded-xl p-6 border border-slate-700 text-center">
+          <span class="text-xs text-slate-400 uppercase font-bold">총 섭취 카페인량</span>
+          <div id="totalCaffeineDisplay" class="text-5xl sm:text-6xl font-black font-mono text-yellow-400 my-2">
+            260 mg
+          </div>
+          <div class="text-xs text-slate-300 font-medium">
+            일일 권장 최대치: <b>400 mg</b> (체중 65kg 기준 390mg 권장)
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-900 rounded-full h-3 mt-4 border border-slate-700 overflow-hidden">
+            <div id="caffeineBar" class="bg-yellow-500 h-full w-[65%] transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <!-- Symptoms Matrix -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-3">
+          <h3 class="text-xs font-bold text-yellow-300 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-heart-pulse"></i> 예상 신체 반응 및 반감기 시간표
+          </h3>
+          
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-900 rounded-lg border border-slate-700 space-y-1">
+              <span class="text-slate-400 block text-[10px]">최대 각성 지속 시간</span>
+              <span id="peakHours" class="text-base font-mono font-bold text-yellow-400">약 4~5 시간</span>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-lg border border-slate-700 space-y-1">
+              <span class="text-slate-400 block text-[10px]">체내 50% 배출 예상 시각</span>
+              <span id="decayTime" class="text-base font-mono font-bold text-cyan-400">05:30 AM</span>
+            </div>
+          </div>
+
+          <p id="symptomText" class="text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded border border-slate-700/60">
+            • 현재 상태: 집중력 증가, 졸음 억제. 아직 손떨림이나 부정맥 위험 없는 쾌적한 벼락치기 각성 상태입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="caffeine.js"></script>
+</body>
+</html>

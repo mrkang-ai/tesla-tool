@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 카메라 바코드 & QR 즉석 스캐너 | Barcode & QR Web Scanner - TossGPT</title>
+  <meta name="description" content="카메라 또는 이미지 파일 업로드로 QR코드와 바코드를 0.1초 만에 즉시 디코딩합니다.">
+  <link rel="canonical" href="https://tossgpt.online/barcode-qr-scanner/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>실시간 웹 디코더</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">QR 코드 & 바코드 즉석 스캐너</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">이미지 파일을 드래그하거나 업로드하여 QR 코드 속 URL 및 텍스트를 디코딩하세요.</p>
+    </div>
+
+    <!-- Upload Box -->
+    <div class="w-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center text-center min-h-[320px]">
+      <input type="file" id="qrFileInput" accept="image/*" class="hidden">
+      <button id="uploadBtn" class="w-24 h-24 rounded-full bg-blue-50 dark:bg-blue-950/40 border-2 border-dashed border-blue-400 flex items-center justify-center text-blue-600 dark:text-blue-300 text-3xl mb-4 hover:scale-105 transition-transform cursor-pointer">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+      </button>
+      <h2 class="text-lg font-bold mb-1">QR 코드 이미지 업로드</h2>
+      <p class="text-xs text-slate-400 mb-6">JPG, PNG 파일 선택 또는 캡처 이미지</p>
+
+      <!-- Decoded Result -->
+      <div id="resultBox" class="hidden w-full max-w-lg bg-slate-50 dark:bg-slate-900 border border-emerald-500/40 rounded-2xl p-4 text-left">
+        <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-check"></i> <span>스캔 완료 (DECODED RESULT)</span>
+        </div>
+        <div id="qrContent" class="text-sm font-mono font-bold break-all text-slate-800 dark:text-slate-100 my-2"></div>
+        <button id="copyScanBtn" class="px-3 py-1 bg-emerald-600 text-white rounded text-xs font-bold transition-colors">내용 복사</button>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="scanner.js"></script>
+</body>
+</html>

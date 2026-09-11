@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="글로벌 비즈니스 영문 메일 톤 조절기 - 온라인 도구모음" data-lang-en="Cold Email Diplomat - Online Toolkit">글로벌 비즈니스 영문 메일 톤 조절기 - 온라인 도구모음</title>
+    <meta name="description" content="외국계 및 해외 바이어 소통용 영문 이메일 생성기. 온화한 안부부터 'Per my last email (좋은 말로 할 때 봐라)'까지 5단계 분노/격식 레벨 조절.">
+    <link rel="canonical" href="https://tossgpt.online/cold-email-diplomat/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/70 border border-blue-300 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-bold">
+                <span>💼 K-직장인 생존 키트</span>
+                <span>•</span>
+                <span>CAT-01 No.08</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                글로벌 비즈니스 영문 메일 톤 조절기
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                외국계 파트너나 해외 바이어에게 보낼 메일을 손쉽게 작성하세요. 정중한 안부부터 "Per my last email (좋은 말로 할 때 답장해라)"까지 완벽 구현.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left: Settings & Placeholders -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-4">
+                <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-primary text-base">tune</span>
+                    <span>메일 기본 정보 설정</span>
+                </h3>
+
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500">목적 (Scenario)</label>
+                    <select id="scenario-select" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                        <option value="followup">Follow-up (답장 재촉 및 리마인드)</option>
+                        <option value="rejection">Rejection (제안 정중 거절)</option>
+                        <option value="delay">Rescheduling (납기/일정 연기 요청)</option>
+                        <option value="intro">Partnership Pitch (신규 제휴/콜드메일)</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500">수신자 이름 (Recipient Name)</label>
+                    <input type="text" id="recipient-name" value="Alex" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500">프로젝트/안건명 (Project Name)</label>
+                    <input type="text" id="project-name" value="Q3 Integration API" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                </div>
+
+                <div class="flex flex-col gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span>분노 / 단호함 레벨:</span>
+                        <span id="level-display" class="text-primary">Lv 2: Standard</span>
+                    </div>
+                    <input type="range" id="tone-slider" min="1" max="4" value="2" step="1" class="w-full accent-primary cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-slate-400 font-semibold">
+                        <span>Lv 1. Polite</span>
+                        <span>Lv 2. Business</span>
+                        <span>Lv 3. Firm</span>
+                        <span>Lv 4. Per My Last</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Generated Email Preview -->
+            <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4 font-mono">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+                    <div class="text-xs text-slate-500 font-bold">
+                        Subject: <span id="email-subject" class="text-slate-900 dark:text-white">Quick follow-up on Q3 Integration API</span>
+                    </div>
+                    <button id="copy-email-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold flex items-center gap-1 cursor-pointer font-sans">
+                        <span class="material-symbols-outlined text-sm">content_copy</span>
+                        <span id="copy-email-text">메일 복사</span>
+                    </button>
+                </div>
+
+                <textarea id="email-body" rows="11" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs leading-relaxed text-slate-800 dark:text-slate-200 focus:outline-none" readonly></textarea>
+
+                <div id="email-tip" class="text-xs text-slate-500 font-sans p-3 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900/60">
+                    💡 <strong>비즈니스 팁:</strong> "Per my last email"은 영미권 오피스에서 '내가 지난 메일에 다 써놨는데 너 안 읽었지?'라는 뜻의 품격 있는 분노 표현입니다.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="email.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="법카 한도 맞춤형 식대 조합기 - 온라인 도구모음" data-lang-en="Company Card Budget Optimizer - Online Toolkit">법카 한도 맞춤형 식대 조합기 - 온라인 도구모음</title>
+    <meta name="description" content="법인카드 점심 식대 한도에서 남는 잔돈을 0원에 가깝게 터는 최적의 메뉴 조합기. 배낭 알고리즘 기반 단품/세트 최적화.">
+    <link rel="canonical" href="https://tossgpt.online/card-budget/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/70 border border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                <span>💼 K-직장인 생존 키트</span>
+                <span>•</span>
+                <span>CAT-01 No.05</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                법카 한도 맞춤형 식대 조합기
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                법인카드 1인 한도 내에서 단 1원도 아깝게 남기지 마세요. 배낭 알고리즘(Knapsack)이 한도 턱밑까지 꽉 채우는 최적의 메뉴 조합을 찾아냅니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left: Settings & Menu Pool (1 Column) -->
+            <div class="lg:col-span-1 flex flex-col gap-5">
+                <!-- Limit Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-4">
+                    <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-lg">credit_card</span>
+                        <span>법카 예산 한도 설정</span>
+                    </h3>
+                    <div class="relative">
+                        <input type="number" id="budget-limit" value="12000" step="500" class="w-full pl-4 pr-12 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-lg font-black font-mono focus:ring-2 focus:ring-primary focus:outline-none">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">원</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="10000">10,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="12000">12,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="15000">15,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="25000">25,000원</button>
+                    </div>
+                </div>
+
+                <!-- Theme Presets -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
+                    <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-amber-500 text-lg">restaurant_menu</span>
+                        <span>식당 카테고리 프리셋</span>
+                    </h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                        <button class="menu-theme-btn active p-2.5 rounded-xl bg-primary text-white text-center cursor-pointer" data-theme="chinese">🍜 중식당</button>
+                        <button class="menu-theme-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center cursor-pointer" data-theme="japanese">🍱 일식/돈까스</button>
+                        <button class="menu-theme-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center cursor-pointer" data-theme="snack">🍙 분식/김밥</button>
+                        <button class="menu-theme-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center cursor-pointer" data-theme="cafe">☕ 카페/디저트</button>
+                    </div>
+                </div>
+
+                <!-- Custom Item Add -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
+                    <span class="text-xs font-bold text-slate-600 dark:text-slate-300">내 식당 메뉴 추가</span>
+                    <div class="flex gap-2">
+                        <input type="text" id="custom-name" placeholder="메뉴명" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
+                        <input type="number" id="custom-price" placeholder="가격(원)" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
+                    </div>
+                    <button id="add-item-btn" class="py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer transition-all">메뉴 추가</button>
+                </div>
+            </div>
+
+            <!-- Right: Available Menu Pool & Calculated Best Combos (2 Columns) -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                <!-- Menu Items Pool Chips -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">후보 메뉴 목록 (클릭하여 제외/포함 가능)</span>
+                        <span id="pool-count" class="text-xs font-mono text-primary font-bold">6개 메뉴</span>
+                    </div>
+                    <div id="menu-pool-container" class="flex flex-wrap gap-2">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Best Combos Display -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-500 text-xl">recommend</span>
+                            <span>알고리즘 추천 최적 메뉴 조합</span>
+                        </h3>
+                        <button id="calc-btn" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-black shadow-md shadow-emerald-500/20 cursor-pointer flex items-center gap-1 transition-all">
+                            <span class="material-symbols-outlined text-sm">calculate</span>
+                            <span>최적 조합 계산</span>
+                        </button>
+                    </div>
+
+                    <div id="combos-container" class="flex flex-col gap-4">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="budget.js"></script>
+</body>
+</html>

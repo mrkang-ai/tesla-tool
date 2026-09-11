@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무한 사운드 뽁뽁이 터뜨리기 | Infinite Bubble Wrap Pop - TossGPT</title>
+  <meta name="description" content="손가락으로 톡톡 터뜨리는 중독성 강한 에어캡 뽁뽁이와 찰진 사운드 쾌감 토이입니다.">
+  <link rel="canonical" href="https://tossgpt.online/bubble-wrap/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .bubble-popped {
+      transform: scale(0.88);
+      opacity: 0.35;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.4) !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 text-xs font-semibold mb-3 border border-cyan-800">
+        <i class="fa-solid fa-circle-dot"></i>
+        <span>스트레스 해소 ASMR 토이</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-cyan-400">무한 사운드 뽁뽁이 터뜨리기</h1>
+      <p class="text-slate-400 text-sm">에어캡을 톡톡 터뜨릴 때마다 손끝과 귀가 짜릿해집니다.</p>
+    </div>
+
+    <!-- Status & Reset -->
+    <div class="w-full flex justify-between items-center mb-4 px-2">
+      <div class="text-xs font-bold text-cyan-300">
+        터뜨린 뽁뽁이: <span id="popCounter" class="text-lg font-mono font-black text-white">0</span>개
+      </div>
+      <button id="resetBubblesBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-bold transition-colors">
+        <i class="fa-solid fa-rotate-right mr-1"></i> 새 뽁뽁이 채우기
+      </button>
+    </div>
+
+    <!-- Bubble Grid -->
+    <div class="w-full bg-slate-800/80 rounded-3xl p-6 border-2 border-slate-700 shadow-2xl">
+      <div id="bubbleGrid" class="grid grid-cols-6 sm:grid-cols-8 gap-3 sm:gap-4 justify-items-center"></div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="bubble.js"></script>
+</body>
+</html>

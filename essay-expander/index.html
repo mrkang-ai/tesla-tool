@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="대학 레포트 만연체 단어 뻥튀기기 - TeslaTool" data-lang-en="Academic Essay Expander - TeslaTool">대학 레포트 만연체 단어 뻥튀기기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#14b8a6' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-teal-500/20">
+          <i class="fa-solid fa-file-word"></i> CAT-03 / No.27
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="팽 대학 레포트 만연체 분량 뻥튀기기" data-lang-en="Academic Essay Expander">팽 대학 레포트 만연체 분량 뻥튀기기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="5장 레포트 채우기 고통 해소! 빈약한 단문 문장을 고품격 학술적 만연체와 접속사로 3배 증폭" data-lang-en="Transform short blunt sentences into grandiose academic paragraphs to hit page requirements">
+          5장 레포트 채우기 고통 해소! 빈약한 단문 문장을 고품격 학술적 만연체와 접속사로 3배 증폭
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="rateTag" class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs font-bold border border-teal-500/30">
+          분량 250% 팽창 목표
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center">
+          <label class="text-xs font-bold text-slate-300">내 빈약한 원본 문장 입력</label>
+          <span id="inCount" class="text-[11px] text-slate-500 font-mono">0자</span>
+        </div>
+        <textarea id="inEssay" class="flex-1 min-h-[280px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs leading-relaxed text-slate-200 focus:outline-none focus:ring-1 focus:ring-teal-500" placeholder="예: 인공지능은 매우 유용하다. 하지만 부작용도 있다. 그러므로 우리는 잘 감시해야 한다."></textarea>
+        
+        <button id="expandEssayBtn" class="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-slate-950 font-bold rounded-lg text-xs transition shadow-lg shadow-teal-500/20">
+          학술적 만연체로 뻥튀기기 ✨
+        </button>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center">
+          <label class="text-xs font-bold text-teal-400">뻥튀기된 학술 레포트 문장</label>
+          <span id="outCount" class="text-[11px] text-teal-300 font-mono">0자</span>
+        </div>
+        <div id="outEssay" class="flex-1 min-h-[280px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs font-serif leading-relaxed text-slate-200 overflow-y-auto whitespace-pre-wrap">
+결과가 여기에 표시됩니다.
+        </div>
+
+        <button id="copyExpandedBtn" class="w-full py-2 bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold rounded-lg transition">
+          <i class="fa-regular fa-copy mr-1"></i> 복사하기
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="expander.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="내 직업의 AI 대체 확률 & 수명 계산기 - TeslaTool" data-lang-en="AI Job Replacement Risk Meter - TeslaTool">내 직업의 AI 대체 확률 & 수명 계산기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#ef4444' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-briefcase"></i> CAT-06 / No.54
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="⚠️ 내 직업의 AI 대체 확률 & 수명 계산기" data-lang-en="⚠️ AI Job Replacement Risk Meter">⚠️ 내 직업의 AI 대체 확률 & 수명 계산기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="옥스퍼드대 및 최신 LLM 자동화 연구 기반, 내 직무의 AI 대체 위험도(%) 및 인간 생존 전략" data-lang-en="Calculate your career replacement risk by generative AI and discover human-first survival strategies">
+          옥스퍼드대 및 최신 LLM 자동화 연구 기반, 내 직무의 AI 대체 위험도(%) 및 인간 생존 전략
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6">
+      <div class="sm:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-rose-400 uppercase tracking-wider">직무 선택</h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">내 현재 직무</label>
+          <select id="jobSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="data_entry">데이터 단순 입력 / 행정 사무 (위험 최고)</option>
+            <option value="translator">외국어 번역가 / 통역사</option>
+            <option value="coder">웹 개발자 / 프로그래머 (중간 위험)</option>
+            <option value="lawyer">변호사 / 회계사 / 세무사</option>
+            <option value="doctor">의사 / 간호사 / 임상 전문직</option>
+            <option value="plumber">배관공 / 현장 전기 기사 (안전 최상)</option>
+            <option value="artist">순수 행위 예술가 / 창작 무용가</option>
+          </select>
+        </div>
+
+        <button id="calcJobBtn" class="w-full py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-rose-600/20">
+          대체 위험도 진단 📊
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div class="sm:col-span-7 bg-slate-800/80 rounded-xl p-6 border border-slate-700 text-center flex flex-col justify-between">
+        <div>
+          <span class="text-xs text-slate-400 uppercase font-bold">AI 대체 위험 지수</span>
+          <div id="jobRiskScore" class="text-5xl sm:text-6xl font-black font-mono text-rose-400 my-2">
+            92%
+          </div>
+          <span id="jobRiskBadge" class="inline-block px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono">
+            위험 등급: 멸종 위기종
+          </span>
+        </div>
+
+        <div class="p-4 bg-slate-900 rounded-xl border border-slate-700 text-xs text-left space-y-1.5 mt-4">
+          <span class="font-bold text-amber-400 block">💡 생존 가이드</span>
+          <p id="jobAdvice" class="text-slate-300 leading-relaxed">
+            단순 반복 작업은 이미 LLM과 RPA에 의해 90% 이상 자동화 중입니다. AI 툴을 능숙하게 지휘하는 'AI 디렉터'로 역할을 전환하십시오.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="jobrisk.js"></script>
+</body>
+</html>

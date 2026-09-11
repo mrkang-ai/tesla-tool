@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="쇼츠·릴스 30초 숏폼 대본 압축기 - TeslaTool" data-lang-en="Shorts 30s Script Condenser - TeslaTool">쇼츠·릴스 30초 숏폼 대본 압축기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#f43f5e' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-film"></i> CAT-05 / No.45
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🎬 쇼츠·릴스 30초 숏폼 대본 압축기" data-lang-en="🎬 Shorts 30s Script Condenser">🎬 쇼츠·릴스 30초 숏폼 대본 압축기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="후킹(0~3초) ➔ 3대 핵심 요약 ➔ 댓글 유도(CTA)로 어떤 주제든 딱 30초 숏폼 스크립트로 압축" data-lang-en="Condense any long idea into high-retention 30-second YouTube Shorts and Instagram Reels scripts">
+          후킹(0~3초) ➔ 3대 핵심 요약 ➔ 댓글 유도(CTA)로 어떤 주제든 딱 30초 숏폼 스크립트로 압축
+        </p>
+      </div>
+      <div>
+        <span class="px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono">
+          예상 낭독 시간: 28~32초
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Input Left -->
+      <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-rose-400 uppercase tracking-wider">주제 및 원문 입력</h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">핵심 주제 / 후킹 대상</label>
+          <input type="text" id="shortTopic" value="스마트폰 배터리 수명 늘리는 법" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">전달할 핵심 내용 (줄바꿈 구분)</label>
+          <textarea id="shortPoints" rows="5" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-rose-500">1. 80%까지만 충전하기
+2. 배터리 20% 밑으로 떨어뜨리지 않기
+3. 충전하면서 무거운 3D 게임 돌리지 않기</textarea>
+        </div>
+
+        <button id="buildShortBtn" class="w-full py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-rose-600/20">
+          30초 숏폼 대본 생성하기 🎬
+        </button>
+      </div>
+
+      <!-- Result Right -->
+      <div class="lg:col-span-7 bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+          <span class="text-xs font-bold text-slate-300">숏폼 최적화 스크립트</span>
+          <button id="copyScriptBtn" class="text-xs px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded">대본 복사</button>
+        </div>
+
+        <div id="scriptContent" class="flex-1 min-h-[300px] bg-slate-900 rounded-lg p-4 text-xs font-mono leading-relaxed text-slate-200 overflow-y-auto whitespace-pre-wrap border border-slate-700/80 space-y-3">
+          <!-- script output -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="shorts.js"></script>
+</body>
+</html>

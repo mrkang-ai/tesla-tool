@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="인스타그램 황금비 해시태그 최적화기 - TeslaTool" data-lang-en="Instagram Hashtag Optimizer - TeslaTool">인스타그램 황금비 해시태그 최적화기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#ec4899' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-pink-500/20">
+          <i class="fa-solid fa-hashtag"></i> CAT-05 / No.46
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🏷️ 인스타그램 황금비 해시태그 최적화기" data-lang-en="🏷️ Instagram Hashtag Optimizer">🏷️ 인스타그램 황금비 해시태그 최적화기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="대형(100만+) · 중형(10만+) · 틈새(1만+) 3:5:4 황금 비율로 섀도우밴 위험 없는 클린 태그 추출" data-lang-en="Extract the optimal 3:5:4 ratio of mega, medium, and niche hashtags without shadowban risks">
+          대형(100만+) · 중형(10만+) · 틈새(1만+) 3:5:4 황금 비율로 섀도우밴 위험 없는 클린 태그 추출
+        </p>
+      </div>
+      <div>
+        <button id="copyTagsBtn" class="px-4 py-2 bg-pink-600 hover:bg-pink-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-2 shadow-lg">
+          <i class="fa-regular fa-copy"></i> 해시태그 12종 일괄 복사
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-pink-400 uppercase tracking-wider">포스팅 주제 입력</h2>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">핵심 카테고리</label>
+          <select id="nicheCategory" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="cafe">카페 & 디저트 & 커피</option>
+            <option value="fashion">데일리룩 & OOTD 패션</option>
+            <option value="fitness">오운완 & 헬스 & 피트니스</option>
+            <option value="travel">여행 & 주말 나들이</option>
+            <option value="dev">개발자 & IT & 직장인</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">상세 서브 키워드</label>
+          <input type="text" id="subKeyword" value="성수동 드립커피" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+        </div>
+
+        <button id="optimizeBtn" class="w-full py-2.5 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-lg text-xs transition">
+          황금 비율 추출하기 🏷️
+        </button>
+      </div>
+
+      <div class="lg:col-span-7 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+          <span>최적화된 해시태그 (12개)</span>
+          <span class="text-[10px] text-emerald-400 font-bold">섀도우밴 위험 0%</span>
+        </h2>
+
+        <!-- Tags Grid -->
+        <div id="tagsList" class="flex flex-wrap gap-2">
+          <!-- populated by JS -->
+        </div>
+
+        <div class="pt-3 border-t border-slate-700 text-[11px] text-slate-400 space-y-1">
+          <p class="font-bold text-slate-300">💡 왜 3:5:4 황금 비율인가요?</p>
+          <p>• <b>대형 태그 3개</b>: 단기 노출 및 탐색 탭 순간 도달</p>
+          <p>• <b>중형 태그 5개</b>: 24시간 인기 게시물 상단 랭크 타겟</p>
+          <p>• <b>틈새 태그 4개</b>: 찐팬 팔로워 유입 및 롱테일 검색 독점</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="hashtag.js"></script>
+</body>
+</html>

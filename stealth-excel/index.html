@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="가짜 엑셀 몰컴 뷰어 - 온라인 도구모음" data-lang-en="Stealth Excel Viewer - Online Toolkit">가짜 엑셀 몰컴 뷰어 - 온라인 도구모음</title>
+    <meta name="description" content="상사 몰래 웹서핑과 텍스트를 읽을 수 있는 완벽한 MS 엑셀 위장 화면. 스페이스바를 누르면 0.05초 만에 긴급 재무제표로 즉시 전환됩니다.">
+    <link rel="canonical" href="https://tossgpt.online/stealth-excel/index.html">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1400px] w-full mx-auto p-3 sm:p-6 flex flex-col gap-4">
+        <!-- Top Control Bar -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black shadow-md shadow-emerald-500/20">
+                    <span class="material-symbols-outlined text-2xl">table_view</span>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <span>가짜 엑셀 몰컴 뷰어</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">CAT-01 No.01</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">상사가 다가오면 <kbd class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 rounded font-mono text-slate-800 dark:text-slate-200 font-bold border border-slate-300 dark:border-slate-700">Spacebar</kbd> 또는 <kbd class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 rounded font-mono text-slate-800 dark:text-slate-200 font-bold border border-slate-300 dark:border-slate-700">Esc</kbd>를 누르세요!</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <button id="panic-toggle-btn" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 active:scale-95 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md shadow-rose-500/20 flex items-center gap-1.5 transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-lg animate-pulse">warning</span>
+                    <span id="panic-btn-text">🚨 패닉 모드 (위장)</span>
+                </button>
+                <button id="mode-switch-btn" class="px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold rounded-xl text-xs sm:text-sm border border-slate-300 dark:border-slate-700 flex items-center gap-1 transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-base">edit_note</span>
+                    <span>딴짓 글 읽기 모드</span>
+                </button>
+                <button id="fullscreen-btn" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl border border-slate-300 dark:border-slate-700 transition-all cursor-pointer" title="전체화면">
+                    <span class="material-symbols-outlined text-lg">fullscreen</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stealth Reader Text Paste Drawer -->
+        <div id="reader-drawer" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm transition-all">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-primary">feed</span>
+                    엑셀 셀 안에 위장하여 읽을 텍스트 (소설, 블로그, 뉴스 등)
+                </span>
+                <span class="text-[11px] text-slate-400">텍스트를 입력하면 셀 안에 자연스럽게 배치됩니다</span>
+            </div>
+            <textarea id="custom-stealth-text" rows="3" class="w-full p-3 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-1 focus:ring-emerald-500 focus:outline-none" placeholder="여기에 읽고 싶은 글이나 메모를 붙여넣으세요...">[오늘의 웹소설 1화] 퇴근 10분 전, 기획팀 김대리는 마우스 휠을 굴리며 시계를 보았다. "오늘 저녁은 치킨에 맥주다." 바로 그 순간, 등 뒤에서 등골이 서늘해지는 발소리가 들려왔다. 팀장님의 나지막한 목소리... "김대리, 내년도 사업계획서 어떻게 돼가?" 김대리는 침착하게 스페이스바를 눌렀다.</textarea>
+            <div class="flex justify-end gap-2 mt-2">
+                <button id="apply-text-btn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all cursor-pointer">시트에 반영하기</button>
+            </div>
+        </div>
+
+        <!-- Excel Main Mock Container -->
+        <div id="excel-frame" class="bg-white text-slate-800 border border-slate-300 shadow-xl rounded-xl overflow-hidden select-none transition-all">
+            <!-- Excel Title Bar -->
+            <div class="bg-emerald-700 text-white px-3 py-1.5 flex items-center justify-between text-xs font-medium">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">grid_on</span>
+                    <span id="excel-filename" class="font-bold font-mono">2026_Q3_경영실적_및_원가분석_최종보고서_v4.2.xlsx - Excel</span>
+                </div>
+                <div class="flex items-center gap-3 text-emerald-100 text-[11px]">
+                    <span>자동 저장 켜짐</span>
+                    <span class="material-symbols-outlined text-sm">cloud_done</span>
+                </div>
+            </div>
+
+            <!-- Excel Ribbon Menu Tabs -->
+            <div class="bg-slate-100 border-b border-slate-300 px-2 pt-1 flex items-center gap-1 text-xs">
+                <button class="px-3 py-1 text-emerald-800 font-bold border-b-2 border-emerald-600 bg-white rounded-t cursor-pointer">홈</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">삽입</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">페이지 레이아웃</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">수식</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">데이터</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">검토</button>
+                <button class="px-3 py-1 text-slate-600 hover:text-slate-900 cursor-pointer">보기</button>
+            </div>
+
+            <!-- Excel Quick Toolstrip -->
+            <div class="bg-slate-50 border-b border-slate-300 px-3 py-1.5 flex items-center gap-4 text-xs overflow-x-auto">
+                <div class="flex items-center gap-1 border-r border-slate-300 pr-3">
+                    <span class="font-mono font-bold bg-white px-2 py-0.5 border border-slate-300 rounded text-[11px]">맑은 고딕</span>
+                    <span class="font-mono font-bold bg-white px-1.5 py-0.5 border border-slate-300 rounded text-[11px]">11</span>
+                </div>
+                <div class="flex items-center gap-1 border-r border-slate-300 pr-3">
+                    <button class="p-1 font-bold hover:bg-slate-200 rounded">B</button>
+                    <button class="p-1 italic hover:bg-slate-200 rounded font-serif">I</button>
+                    <button class="p-1 underline hover:bg-slate-200 rounded">U</button>
+                    <button class="p-1 hover:bg-slate-200 rounded material-symbols-outlined text-sm">border_all</button>
+                    <button class="p-1 hover:bg-slate-200 rounded material-symbols-outlined text-sm">format_color_fill</button>
+                </div>
+                <div class="flex items-center gap-2 text-slate-500">
+                    <span class="material-symbols-outlined text-sm">functions</span>
+                    <span>자동합계</span>
+                </div>
+            </div>
+
+            <!-- Formula Bar -->
+            <div class="bg-white border-b border-slate-300 px-3 py-1 flex items-center gap-2 text-xs font-mono">
+                <span id="active-cell-id" class="font-bold w-12 text-slate-600 text-center border-r border-slate-300">D4</span>
+                <span class="text-slate-400 font-serif italic text-sm font-bold">fx</span>
+                <input id="formula-input" type="text" readonly value="=SUM(D5:D24)*1.1" class="flex-1 bg-transparent border-none p-0 text-slate-800 text-xs focus:ring-0 focus:outline-none font-mono font-medium"/>
+            </div>
+
+            <!-- Spreadsheet Grid -->
+            <div class="overflow-x-auto max-h-[600px] overflow-y-auto bg-slate-200 border-b border-slate-300 relative">
+                <table id="sheet-table" class="border-collapse w-full text-xs font-mono bg-white">
+                    <!-- Dynamic Grid generated by stealth.js -->
+                </table>
+            </div>
+
+            <!-- Sheet Tab & Status Footer -->
+            <div class="bg-slate-100 px-3 py-1.5 flex items-center justify-between text-xs text-slate-600">
+                <div class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-slate-400">add</span>
+                    <button class="px-3 py-0.5 bg-white border-t-2 border-emerald-600 font-bold text-emerald-800 text-[11px] shadow-sm">분기별원가집계</button>
+                    <button class="px-3 py-0.5 hover:bg-slate-200 text-slate-600 text-[11px]">부서별경비상세</button>
+                    <button class="px-3 py-0.5 hover:bg-slate-200 text-slate-600 text-[11px]">투자수익률(ROI)</button>
+                </div>
+                <div class="flex items-center gap-4 text-[11px] text-slate-500">
+                    <span>준비 | 셀: 1,420개</span>
+                    <span>평균: 4,821,900</span>
+                    <span>합계: 192,876,000</span>
+                    <span>100%</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="stealth.js"></script>
+</body>
+</html>

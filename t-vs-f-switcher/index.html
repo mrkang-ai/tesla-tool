@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팩트폭력 T vs 무한공감 F 대사 변환기 | T vs F Empathy Switcher - TossGPT</title>
+  <meta name="description" content="일상 대화나 고민을 극단적인 T(이성·해결책) 말투와 극단적인 F(감정·우쭈쭈) 말투로 즉시 번역합니다.">
+  <link rel="canonical" href="https://tossgpt.online/t-vs-f-switcher/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-arrows-split-up-and-left"></i>
+        <span data-lang-ko="성향별 화법 변환기" data-lang-en="Personality Speech Switcher">성향별 화법 변환기</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2" data-lang-ko="팩트폭력 T vs 무한공감 F 대사 변환기" data-lang-en="Extreme T vs F Empathy Switcher">팩트폭력 T vs 무한공감 F 대사 변환기</h1>
+      <p class="text-slate-600 dark:text-slate-400" data-lang-ko="고민이나 하소연을 입력해보세요. 소시오패스급 극T 답변과 눈물바다 극F 답변으로 자동 번역됩니다." data-lang-en="Convert any daily struggle into cold robotic T solutions or emotional tearful F responses.">고민이나 하소연을 입력해보세요. 소시오패스급 극T 답변과 눈물바다 극F 답변으로 자동 번역됩니다.</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-8">
+      <label class="block text-sm font-bold mb-2 flex items-center justify-between">
+        <span><i class="fa-solid fa-comment-dots text-indigo-500 mr-1"></i> <span data-lang-ko="친구에게 털어놓을 고민/상황" data-lang-en="Your Situation / Worry">친구에게 털어놓을 고민/상황</span></span>
+        <div class="flex gap-2">
+          <button class="sample-btn text-xs bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 py-1 px-2.5 rounded text-slate-600 dark:text-slate-300" data-text="나 오늘 감기 걸려서 열나고 아파...">감기 몸살</button>
+          <button class="sample-btn text-xs bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 py-1 px-2.5 rounded text-slate-600 dark:text-slate-300" data-text="우울해서 기분 전환하려고 미용실 가서 머리 잘랐어">미용실 머리</button>
+          <button class="sample-btn text-xs bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 py-1 px-2.5 rounded text-slate-600 dark:text-slate-300" data-text="나 오늘 차 사고 났어...">교통사고</button>
+        </div>
+      </label>
+      <textarea id="situationInput" rows="3" class="w-full p-4 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="예: 오늘 회사 부장님한테 아무 이유 없이 깨져서 너무 서러워..."></textarea>
+      <button id="convertBtn" class="w-full mt-4 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span data-lang-ko="T모드 & F모드 답변 생성하기" data-lang-en="Generate T & F Responses">T모드 & F모드 답변 생성하기</span>
+      </button>
+    </div>
+
+    <!-- Comparison Output -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Extreme T -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border-2 border-blue-400 dark:border-blue-700 p-6 flex flex-col">
+        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+          <div class="w-9 h-9 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 flex items-center justify-center font-black">T</div>
+          <div>
+            <h2 class="text-base font-bold text-blue-600 dark:text-blue-400">극단적 T (이성·해결책 폭격)</h2>
+            <p class="text-xs text-slate-400">“팩트만 말할게. 울어서 해결될 일 없음.”</p>
+          </div>
+        </div>
+        <div id="tResponse" class="flex-grow p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 text-slate-800 dark:text-slate-200 text-sm leading-relaxed whitespace-pre-line">
+          상황을 입력하고 버튼을 눌러보세요.
+        </div>
+      </div>
+
+      <!-- Extreme F -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border-2 border-pink-400 dark:border-pink-700 p-6 flex flex-col">
+        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+          <div class="w-9 h-9 rounded-lg bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-300 flex items-center justify-center font-black">F</div>
+          <div>
+            <h2 class="text-base font-bold text-pink-600 dark:text-pink-400">극단적 F (눈물샘 자극 공감)</h2>
+            <p class="text-xs text-slate-400">“세상이 널 억까해도 난 네 편이야 ㅠㅠ”</p>
+          </div>
+        </div>
+        <div id="fResponse" class="flex-grow p-4 rounded-xl bg-pink-50/50 dark:bg-pink-950/20 text-slate-800 dark:text-slate-200 text-sm leading-relaxed whitespace-pre-line">
+          상황을 입력하고 버튼을 눌러보세요.
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="switcher.js"></script>
+</body>
+</html>

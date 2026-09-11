@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="사내 메신저 상태메시지 생성기 - 온라인 도구모음" data-lang-en="Presence Status Generator - Online Toolkit">사내 메신저 상태메시지 생성기 - 온라인 도구모음</title>
+    <meta name="description" content="슬랙, 잔디, 팀즈 등 사내 메신저에서 자리 비움 중에도 열일하고 있는 것처럼 신뢰도를 200% 높여주는 가짜 상태메시지 프리셋 생성기.">
+    <link rel="canonical" href="https://tossgpt.online/presence-status/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
+                <span>💼 K-직장인 생존 키트</span>
+                <span>•</span>
+                <span>CAT-01 No.10</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                슬랙/잔디 일하는 척 상태메시지 생성기
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                커피 마시러 가거나 낮잠 잘 때도 프로페셔널한 신뢰도를 유지하세요. 아무도 감히 DM을 보내지 못하게 만드는 결계 문구를 원클릭 생성합니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left: Presets Categories -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-4">
+                <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-primary text-base">category</span>
+                    <span>상황 카테고리 선택</span>
+                </h3>
+
+                <div class="flex flex-col gap-2 text-xs font-bold" id="cat-btn-group">
+                    <button class="status-cat-btn active p-3 rounded-2xl bg-primary text-white text-left flex items-center gap-3 cursor-pointer" data-cat="focus">
+                        <span class="text-xl">🎧</span>
+                        <div>
+                            <div>초집중 스프린트 (방해 금지)</div>
+                            <div class="text-[11px] opacity-80 font-normal">기획서 작성, 코드 리뷰 등 딥워크</div>
+                        </div>
+                    </button>
+                    <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="data">
+                        <span class="text-xl">📊</span>
+                        <div>
+                            <div>대용량 데이터 / 배치 작업</div>
+                            <div class="text-[11px] opacity-80 font-normal">인프라 모니터링, 쿼리 러닝 중</div>
+                        </div>
+                    </button>
+                    <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="client">
+                        <span class="text-xl">🤝</span>
+                        <div>
+                            <div>고객사 긴급 콜 / 실사 외근</div>
+                            <div class="text-[11px] opacity-80 font-normal">외부 미팅으로 답장 지연 정당화</div>
+                        </div>
+                    </button>
+                    <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="health">
+                        <span class="text-xl">💊</span>
+                        <div>
+                            <div>합법적 건강 사유 / 리프레시</div>
+                            <div class="text-[11px] opacity-80 font-normal">안과 진료, 백신 접종 등 터치 불가</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Status Preview Cards -->
+            <div class="lg:col-span-2 flex flex-col gap-4">
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-500">복귀 예정 시각 맞춤:</span>
+                    <input type="time" id="return-time" value="16:00" class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold font-mono">
+                </div>
+
+                <div id="status-cards-container" class="flex flex-col gap-3">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="status.js"></script>
+</body>
+</html>

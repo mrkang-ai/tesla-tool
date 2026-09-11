@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8비트 레트로 신디사이저 칩튠 메이커 | 8-Bit Chiptune Sound Maker - TossGPT</title>
+  <meta name="description" content="고전 패미컴 스타일 8비트 점프, 레이저 총, 코인 획득, 폭발 사운드를 즉석 합성하고 청취하는 레트로 사운드 신스입니다.">
+  <link rel="canonical" href="https://tossgpt.online/chiptune-maker/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-mono select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-gamepad"></i>
+        <span>NES 8-BIT SOUND SYNTH</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-emerald-400">8비트 레트로 사운드 칩튠 메이커</h1>
+      <p class="text-slate-400 text-sm font-sans">고전 게임의 향수를 자극하는 사각파(Square)와 노이즈 음원을 실시간 합성하세요.</p>
+    </div>
+
+    <!-- Sound Board Buttons -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-xl mb-8">
+      <button class="synth-btn p-5 bg-slate-900 border-2 border-emerald-500/40 hover:border-emerald-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="coin">
+        <span class="text-3xl">🪙</span>
+        <span class="text-xs font-bold text-emerald-300">코인 획득</span>
+      </button>
+      <button class="synth-btn p-5 bg-slate-900 border-2 border-cyan-500/40 hover:border-cyan-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="jump">
+        <span class="text-3xl">🍄</span>
+        <span class="text-xs font-bold text-cyan-300">점프 사운드</span>
+      </button>
+      <button class="synth-btn p-5 bg-slate-900 border-2 border-purple-500/40 hover:border-purple-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="laser">
+        <span class="text-3xl">🔫</span>
+        <span class="text-xs font-bold text-purple-300">레이저 발사</span>
+      </button>
+      <button class="synth-btn p-5 bg-slate-900 border-2 border-rose-500/40 hover:border-rose-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="boom">
+        <span class="text-3xl">💥</span>
+        <span class="text-xs font-bold text-rose-300">폭발 사운드</span>
+      </button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="chiptune.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>순간이동 좌표 오차 계산기 | Teleportation Drift Calculator - TossGPT</title>
+  <meta name="description" content="10m 앞 공간으로 텔레포트할 때 지구 자전과 공전 오차로 땅바닥에 박히거나 우주로 튕겨 나갈 확률을 계산합니다.">
+  <link rel="canonical" href="https://tossgpt.online/teleport-drift/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-atom"></i>
+        <span>QUANTUM TELEPORTATION SAFETY</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-cyan-300">순간이동 좌표 오차 계산기</h1>
+      <p class="text-slate-400 text-sm">텔레포트 시 지구 자전 관성과 고도 곡률 오차로 벽에 박힐 확률 시뮬레이션</p>
+    </div>
+
+    <!-- Inputs -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">점프하려는 순간이동 거리</label>
+          <select id="jumpDistance" class="w-full p-2.5 bg-slate-950 border border-slate-700 rounded-lg text-white font-bold text-sm">
+            <option value="10">10m 앞 (옆 방)</option>
+            <option value="1000">1km 앞 (옆 동네 마트)</option>
+            <option value="400000">400km (서울에서 부산)</option>
+            <option value="12000000">12,000km (지구 반대편 뉴욕)</option>
+          </select>
+        </div>
+        <button id="calcDriftBtn" class="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black rounded-xl text-sm transition-all">
+          좌표 오차 및 생존율 시뮬레이션
+        </button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="bg-slate-900 border-2 border-cyan-500/50 rounded-2xl p-6 text-center shadow-xl">
+      <div class="text-xs text-cyan-400 font-bold uppercase tracking-wider">LANDING SAFETY STATUS</div>
+      <div id="landingStatus" class="text-2xl font-black text-rose-400 my-2">⚠️ 벽에 50cm 파묻힘 (위험)</div>
+      <p id="driftDetail" class="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto">
+        지구 표면의 곡률과 각속도 차이로 인해 도착 지점의 지면과 1.2도의 각도 오차가 발생합니다.
+      </p>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="teleport.js"></script>
+</body>
+</html>

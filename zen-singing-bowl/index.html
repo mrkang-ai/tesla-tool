@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마인드풀니스 432Hz 싱잉볼 & 빗소리 백색소음 믹서 | Zen Singing Bowl - TossGPT</title>
+  <meta name="description" content="명상과 이완을 위한 432Hz 티베트 싱잉볼 공명음과 빗소리, 장작불 백색소음 믹서입니다.">
+  <link rel="canonical" href="https://tossgpt.online/zen-singing-bowl/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+      50% { box-shadow: 0 0 50px rgba(245, 158, 11, 0.6); }
+    }
+    .singing-bowl {
+      animation: pulseGlow 4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl flex flex-col items-center">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-900/30 text-amber-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-bell"></i>
+        <span data-lang-ko="마인드풀니스 & 힐링 사운드" data-lang-en="Mindfulness & Healing Sound">마인드풀니스 & 힐링 사운드</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2" data-lang-ko="432Hz 싱잉볼 & 앰비언트 믹서" data-lang-en="432Hz Zen Singing Bowl & White Noise">432Hz 싱잉볼 & 앰비언트 믹서</h1>
+      <p class="text-slate-400 text-sm" data-lang-ko="맑고 깊은 놋쇠 싱잉볼 타종음과 자연의 백색소음으로 지친 뇌를 편안하게 비워내세요." data-lang-en="Cleanse your mind with pure 432Hz Tibetan singing bowl resonance and ambient sounds.">맑고 깊은 놋쇠 싱잉볼 타종음과 자연의 백색소음으로 지친 뇌를 편안하게 비워내세요.</p>
+    </div>
+
+    <!-- Main Singing Bowl Interactive -->
+    <div class="w-full bg-slate-900/80 rounded-3xl border border-slate-800 p-8 flex flex-col items-center justify-center mb-8 shadow-2xl relative overflow-hidden">
+      <!-- Glow background -->
+      <div class="absolute inset-0 bg-radial from-amber-500/10 to-transparent pointer-events-none"></div>
+
+      <div id="bowlBtn" class="singing-bowl w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-amber-300 via-amber-600 to-amber-900 border-4 border-amber-300/60 flex items-center justify-center cursor-pointer transform active:scale-95 transition-all select-none shadow-2xl group">
+        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-amber-950/70 border-2 border-amber-400/40 flex flex-col items-center justify-center text-center p-3">
+          <i class="fa-solid fa-om text-3xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+          <span class="text-xs font-bold text-amber-200 mt-2" data-lang-ko="싱잉볼 치기 (클릭)" data-lang-en="Strike Bowl (Tap)">싱잉볼 치기 (클릭)</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500 mt-5 italic" data-lang-ko="울림이 8초 이상 잔잔하게 퍼져나갑니다." data-lang-en="Pure harmonic resonance sustains over 8 seconds.">울림이 8초 이상 잔잔하게 퍼져나갑니다.</p>
+    </div>
+
+    <!-- Ambient Sound Controls -->
+    <div class="w-full bg-slate-900/60 rounded-2xl border border-slate-800 p-6">
+      <h3 class="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-sliders text-amber-400"></i>
+        <span data-lang-ko="배경 백색소음 믹싱" data-lang-en="Ambient Background Noise Mixer">배경 백색소음 믹싱</span>
+      </h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Rain sound -->
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-bold flex items-center gap-2 text-cyan-300">
+              <i class="fa-solid fa-cloud-showers-heavy"></i> <span data-lang-ko="차분한 빗소리" data-lang-en="Gentle Rain">차분한 빗소리</span>
+            </span>
+            <button id="rainToggle" class="px-3 py-1 text-xs rounded-full bg-slate-700 text-slate-300 font-bold hover:bg-cyan-600 transition-colors">OFF</button>
+          </div>
+          <input type="range" id="rainVol" min="0" max="1" step="0.05" value="0.5" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Fireplace sound -->
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-bold flex items-center gap-2 text-orange-400">
+              <i class="fa-solid fa-fire-burner"></i> <span data-lang-ko="타닥타닥 장작불" data-lang-en="Campfire Crackle">타닥타닥 장작불</span>
+            </span>
+            <button id="fireToggle" class="px-3 py-1 text-xs rounded-full bg-slate-700 text-slate-300 font-bold hover:bg-orange-600 transition-colors">OFF</button>
+          </div>
+          <input type="range" id="fireVol" min="0" max="1" step="0.05" value="0.5" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-orange-500">
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="zen.js"></script>
+</body>
+</html>

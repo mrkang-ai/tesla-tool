@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무한 피젯스피너 RPM 측정기 | Infinite Fidget Spinner - TossGPT</title>
+  <meta name="description" content="마우스나 손가락으로 힘차게 튕기면 관성에 따라 무한 회전하며 실시간 최고 RPM을 기록하는 피젯 토이입니다.">
+  <link rel="canonical" href="https://tossgpt.online/fidget-spinner/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-900/40 text-indigo-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-spinner"></i>
+        <span>손끝 힐링 토이</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-indigo-400">무한 피젯스피너 & 최고 RPM</h1>
+      <p class="text-slate-400 text-sm">스피너를 잡고 빠르게 드래그하거나 연타하여 최고 회전 속도에 도전하세요!</p>
+    </div>
+
+    <!-- RPM Dashboard -->
+    <div class="grid grid-cols-2 gap-4 w-full max-w-md mb-8 text-center">
+      <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700">
+        <div class="text-xs text-slate-400">현재 회전수 (Current)</div>
+        <div id="currentRpm" class="text-3xl font-mono font-black text-indigo-400 mt-1">0 RPM</div>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700">
+        <div class="text-xs text-slate-400">최고 기록 (Peak)</div>
+        <div id="peakRpm" class="text-3xl font-mono font-black text-amber-400 mt-1">0 RPM</div>
+      </div>
+    </div>
+
+    <!-- Spinner Visual -->
+    <div class="w-full max-w-md bg-slate-800/80 rounded-3xl border border-slate-700 p-12 flex items-center justify-center min-h-[380px] shadow-2xl">
+      <div id="spinnerBody" class="w-48 h-48 rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing transition-transform">
+        <!-- 3-blade SVG Spinner -->
+        <svg viewBox="0 0 100 100" class="w-full h-full filter drop-shadow-[0_10px_20px_rgba(99,102,241,0.5)]">
+          <circle cx="50" cy="50" r="14" fill="#312e81" stroke="#6366f1" stroke-width="3" />
+          <circle cx="50" cy="20" r="16" fill="#4f46e5" />
+          <circle cx="50" cy="20" r="8" fill="#1e1b4b" />
+          <circle cx="24" cy="65" r="16" fill="#4f46e5" />
+          <circle cx="24" cy="65" r="8" fill="#1e1b4b" />
+          <circle cx="76" cy="65" r="16" fill="#4f46e5" />
+          <circle cx="76" cy="65" r="8" fill="#1e1b4b" />
+        </svg>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="spinner.js"></script>
+</body>
+</html>

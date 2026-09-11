@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>분노의 스트레스 모니터 부수기 펀치 | Stress Screen Smasher - TossGPT</title>
+  <meta name="description" content="마우스 클릭으로 모니터 화면 유리를 쩍쩍 깨부수며 사운드와 함께 스트레스를 통쾌하게 날려버리세요!">
+  <link rel="canonical" href="https://tossgpt.online/screen-smasher/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    #glassCanvas {
+      cursor: crosshair;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-6 max-w-5xl flex flex-col items-center">
+    <div class="text-center mb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-900/40 text-red-300 text-sm font-medium mb-2">
+        <i class="fa-solid fa-hammer"></i>
+        <span data-lang-ko="분노 조절 & 스트레스 해소 토이" data-lang-en="Rage Control & Stress Relief Toy">분노 조절 & 스트레스 해소 토이</span>
+      </div>
+      <h1 class="text-3xl font-black text-white" data-lang-ko="분노의 모니터 부수기 펀치" data-lang-en="Stress Screen Smasher">분노의 모니터 부수기 펀치</h1>
+      <p class="text-slate-400 text-sm mt-1" data-lang-ko="화면 안쪽을 클릭하거나 연타하세요! 유리가 쩍쩍 깨지며 타격음과 함께 스트레스가 폭발합니다." data-lang-en="Click or mash anywhere on the screen below to shatter the glass with crunch sounds!">화면 안쪽을 클릭하거나 연타하세요! 유리가 쩍쩍 깨지며 타격음과 함께 스트레스가 폭발합니다.</p>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="w-full flex items-center justify-between mb-3 px-2">
+      <div class="flex items-center gap-4 text-sm font-bold">
+        <span class="text-rose-400"><i class="fa-solid fa-burst mr-1"></i> <span data-lang-ko="타격 수" data-lang-en="Smash Count">타격 수</span>: <span id="smashCount" class="text-white text-lg font-mono">0</span></span>
+        <span class="text-amber-400"><i class="fa-solid fa-heart-pulse mr-1"></i> <span data-lang-ko="화면 내구도" data-lang-en="Screen HP">화면 내구도</span>: <span id="screenHp" class="text-white text-lg font-mono">100%</span></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="repairBtn" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors">
+          <i class="fa-solid fa-wrench mr-1"></i> <span data-lang-ko="새 액정으로 교체 (수리)" data-lang-en="Repair Screen">새 액정으로 교체 (수리)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen Canvas Container (Looks like a realistic desktop monitor) -->
+    <div class="w-full bg-slate-800 p-3 rounded-2xl shadow-2xl border-4 border-slate-700 relative flex flex-col items-center">
+      <canvas id="glassCanvas" class="w-full h-[450px] sm:h-[520px] rounded-xl bg-slate-950 border border-slate-800 shadow-inner"></canvas>
+      <div class="w-24 h-4 bg-slate-700 mt-2 rounded-t"></div>
+      <div class="w-48 h-2.5 bg-slate-600 rounded-full"></div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="smasher.js"></script>
+</body>
+</html>

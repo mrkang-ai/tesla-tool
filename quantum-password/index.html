@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="양자컴퓨터 비밀번호 해킹 시간 측정기 - TeslaTool" data-lang-en="Quantum Password Cracker Time - TeslaTool">양자컴퓨터 비밀번호 해킹 시간 측정기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-blue-500/20">
+          <i class="fa-solid fa-atom"></i> CAT-06 / No.58
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="⚛️ 양자컴퓨터 비밀번호 해킹 시간 측정기" data-lang-en="⚛️ Quantum Password Cracker Time">⚛️ 양자컴퓨터 비밀번호 해킹 시간 측정기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="현재의 슈퍼컴퓨터 vs 미래의 그로버(Grover) 알고리즘 양자컴퓨터가 내 패스워드를 푸는 시간 비교" data-lang-en="Compare brute force cracking times between standard classical clusters and quantum computers">
+          현재의 슈퍼컴퓨터 vs 미래의 그로버(Grover) 알고리즘 양자컴퓨터가 내 패스워드를 푸는 시간 비교
+        </p>
+      </div>
+    </div>
+
+    <!-- Password Input -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700 space-y-4 mb-6">
+      <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+        테스트할 비밀번호 입력 (서버로 전송되지 않음)
+      </label>
+      <div class="relative">
+        <input type="password" id="pwInput" value="Apple1234!" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-base text-blue-300 font-mono focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button id="togglePwBtn" class="absolute right-3 top-3 text-slate-400 hover:text-white text-sm">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Comparison Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-mono text-center">
+      <!-- Classical PC -->
+      <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-3">
+        <div class="flex justify-center items-center gap-1.5 text-xs text-slate-400">
+          <i class="fa-solid fa-desktop"></i>
+          <span>일반 슈퍼컴퓨터 (고전 컴퓨팅)</span>
+        </div>
+        <div id="classicalTime" class="text-3xl sm:text-4xl font-black text-emerald-400">
+          약 3년 소요
+        </div>
+        <p class="text-[11px] text-slate-400 font-sans">초당 100억 번 무차별 대입(Brute-force)</p>
+      </div>
+
+      <!-- Quantum PC -->
+      <div class="p-6 rounded-2xl bg-blue-950/40 border border-blue-500/50 space-y-3">
+        <div class="flex justify-center items-center gap-1.5 text-xs text-blue-300 font-bold">
+          <i class="fa-solid fa-atom animate-spin"></i>
+          <span>그로버 양자컴퓨터 (Qubit)</span>
+        </div>
+        <div id="quantumTime" class="text-3xl sm:text-4xl font-black text-rose-400">
+          약 0.04초 (순식간 해킹)
+        </div>
+        <p class="text-[11px] text-slate-400 font-sans">양자 중첩 탐색으로 공간 복잡도 O(√N) 축소</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="quantum.js"></script>
+</body>
+</html>

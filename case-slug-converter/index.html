@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개발자 텍스트 케이스 & URL 슬러그 변환기 | Case Converter & Slugger - TossGPT</title>
+  <meta name="description" content="camelCase, snake_case, kebab-case, PascalCase 및 URL 슬러그를 한 번에 즉시 변환하고 복사합니다.">
+  <link rel="canonical" href="https://tossgpt.online/case-slug-converter/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-code"></i>
+        <span>개발자 문자열 유틸리티</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">텍스트 케이스 & URL 슬러그 변환기</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">변수명, API 필드, 블로그 URL 슬러그를 손쉽게 일괄 변환하세요.</p>
+    </div>
+
+    <!-- Input Box -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-6">
+      <label class="block text-xs font-bold text-slate-500 mb-1">변환할 원본 문자열 입력</label>
+      <input type="text" id="sourceText" value="hello world toss gpt developer tool" class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+    </div>
+
+    <!-- Outputs -->
+    <div class="space-y-3 font-mono text-sm">
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div>
+          <span class="text-xs text-indigo-500 block font-bold">camelCase</span>
+          <span id="resCamel" class="font-bold">helloWorldTossGptDeveloperTool</span>
+        </div>
+        <button class="copy-btn px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-indigo-500 hover:text-white rounded text-xs transition-colors" data-target="resCamel">복사</button>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div>
+          <span class="text-xs text-emerald-500 block font-bold">snake_case</span>
+          <span id="resSnake" class="font-bold">hello_world_toss_gpt_developer_tool</span>
+        </div>
+        <button class="copy-btn px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-emerald-500 hover:text-white rounded text-xs transition-colors" data-target="resSnake">복사</button>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div>
+          <span class="text-xs text-rose-500 block font-bold">kebab-case (URL slug)</span>
+          <span id="resKebab" class="font-bold">hello-world-toss-gpt-developer-tool</span>
+        </div>
+        <button class="copy-btn px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-rose-500 hover:text-white rounded text-xs transition-colors" data-target="resKebab">복사</button>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="caseslug.js"></script>
+</body>
+</html>

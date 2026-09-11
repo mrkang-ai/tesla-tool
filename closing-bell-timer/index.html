@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="17:59 칼퇴 수호 & 포커페이스 타이머 - TeslaTool" data-lang-en="17:59 Closing Bell Defense Timer - TeslaTool">17:59 칼퇴 수호 & 포커페이스 타이머 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.4); opacity: 1; }
+    }
+    .breathe-circle {
+      animation: breathe 8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
+          <i class="fa-solid fa-bell"></i> CAT-02 / No.20
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🛎️ 17:59 칼퇴 수호 & 포커페이스 타이머" data-lang-en="🛎️ 17:59 Closing Bell Defense Timer">🛎️ 17:59 칼퇴 수호 & 포커페이스 타이머</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="18:00 마감 직전 난입 민원인 방어 멘트 매뉴얼, 평정심 심호흡 서클 & 퇴근 팡파레" data-lang-en="Last-minute complaints shield manual, emotional stability breathing guide & 18:00 celebratory fanfare">
+          18:00 마감 직전 난입 민원인 방어 멘트 매뉴얼, 평정심 심호흡 서클 & 퇴근 팡파레
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="testBellBtn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition">
+          <i class="fa-solid fa-music mr-1"></i> 퇴근 팡파레 미리듣기
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Timer & Breathing Display -->
+      <div class="lg:col-span-6 bg-slate-800/80 rounded-2xl p-6 border border-slate-700 flex flex-col items-center justify-between text-center min-h-[420px]">
+        <div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">현재 시각 / 마감 카운트다운</span>
+          <div id="currentTimeDisplay" class="text-3xl sm:text-4xl font-mono font-black text-emerald-400 mt-1">
+            17:58:30
+          </div>
+          <span id="countdownBadge" class="inline-block mt-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+            마감 1분 30초 전 (긴장 최고조)
+          </span>
+        </div>
+
+        <!-- Breathing Visualization Circle -->
+        <div class="relative w-44 h-44 my-6 flex items-center justify-center">
+          <div class="breathe-circle absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/20 to-teal-500/40 border border-emerald-400/40"></div>
+          <div class="relative z-10 text-center">
+            <span id="breatheText" class="text-sm font-bold text-emerald-300 block">들숨 (Inhale)</span>
+            <span class="text-[10px] text-slate-400 block mt-0.5">평정심 유지</span>
+          </div>
+        </div>
+
+        <!-- Quick 60-second test simulator -->
+        <div class="w-full pt-4 border-t border-slate-700">
+          <button id="simBtn" class="w-full py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-forward-step text-emerald-400"></i> 10초 뒤 18:00 시뮬레이션
+          </button>
+        </div>
+      </div>
+
+      <!-- Defense Dialogue Cards -->
+      <div class="lg:col-span-6 space-y-4">
+        <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700 space-y-3">
+          <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved"></i> 17:59 긴급 난입 방어 멘트 매뉴얼
+          </h2>
+          <p class="text-[11px] text-slate-400">클릭 시 텍스트 복사 및 음성(TTS) 읽기 지원</p>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="선생님, 정부 행정 전산 시스템이 18시 정각에 서버 유지보수로 자동 로그아웃 및 전면 셧다운됩니다. 지금 접수하시면 중간에 전송 실패로 서류가 유실될 위험이 크니 내일 아침 9시 정각에 1등으로 신속히 처리해 드리겠습니다!">
+              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+                <span class="text-emerald-400 font-bold">1단계: 시스템 서버 셧다운 핑계형</span>
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+              <p class="text-slate-200">"선생님, 18시 정각에 서버가 자동 셧다운됩니다. 내일 9시 1등으로 처리해 드리겠습니다!"</p>
+            </div>
+
+            <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="선생님, 담당 공결재권자 및 부서장님께서 관내 긴급 현장 안전 점검으로 부재중이셔서 오늘 날짜로는 최종 결재 인장이 발급되지 않습니다.">
+              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+                <span class="text-amber-400 font-bold">2단계: 최종 결재권자 부재형</span>
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+              <p class="text-slate-200">"결재권자님께서 현장 점검 출장 중이셔서 오늘 최종 인장 날인이 불가합니다."</p>
+            </div>
+
+            <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="정부24(gov.kr) 모바일 앱이나 관내 24시간 무인민원발급기를 이용하시면 수수료 50% 감면 및 즉시 출력이 가능하십니다. 위치 약도를 안내해 드릴까요?">
+              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+                <span class="text-blue-400 font-bold">3단계: 무인민원기/온라인 우회형</span>
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+              <p class="text-slate-200">"정부24 앱이나 청사 앞 24시간 무인발급기 이용 시 수수료가 반값입니다!"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copied Toast -->
+        <div id="toast" class="hidden p-3 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs text-center font-bold">
+          대화 멘트가 클립보드에 복사되었습니다!
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="bell.js"></script>
+</body>
+</html>

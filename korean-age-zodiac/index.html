@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대한민국 만 나이 & 띠 & D-Day 종합 계산기 | Korean Age & Zodiac - TossGPT</title>
+  <meta name="description" content="개정된 대한민국 만 나이, 연 나이, 12간지 띠, 별자리 및 살아온 일수를 종합 계산합니다.">
+  <link rel="canonical" href="https://tossgpt.online/korean-age-zodiac/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-cake-candles"></i>
+        <span>만 나이 통일법 적용</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">대한민국 만 나이 & 띠 & D-Day 계산기</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">생년월일을 입력하면 법적 만 나이, 띠, 태어난 지 며칠째인지 한 번에 확인합니다.</p>
+    </div>
+
+    <!-- Date Input -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-6">
+      <label class="block text-xs font-bold text-slate-500 mb-1">생년월일 선택</label>
+      <input type="date" id="birthDate" value="1998-05-15" class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-mono text-base font-bold">
+    </div>
+
+    <!-- Grid Results -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">만 나이 (법적)</div>
+        <div id="resManAge" class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1">28세</div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">12간지 띠</div>
+        <div id="resZodiac" class="text-2xl font-black text-indigo-600 dark:text-indigo-400 mt-1">호랑이띠</div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">별자리</div>
+        <div id="resConstell" class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-1">황소자리</div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">살아온 날수</div>
+        <div id="resLivedDays" class="text-2xl font-mono font-black text-rose-500 mt-1">10,230일</div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="age.js"></script>
+</body>
+</html>

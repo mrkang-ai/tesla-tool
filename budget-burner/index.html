@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="연말 불용액 털기 장바구니 - TeslaTool" data-lang-en="Year-end Budget Burner - TeslaTool">연말 불용액 털기 장바구니 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#f59e0b' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-amber-500/20">
+          <i class="fa-solid fa-coins"></i> CAT-02 / No.15
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🛒 연말 불용액 털기 장바구니" data-lang-en="🛒 Year-End Budget Burner & Cart">🛒 연말 불용액 털기 장바구니</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="12월 말 남은 예산 깎이지 않게 0원 맞춰 구매 품목 조합 & 품의 사유서 자동 생성" data-lang-en="Knapsack optimizer to burn remaining surplus budget down to 0 KRW with legit justification">
+          12월 말 남은 예산 깎이지 않게 0원 맞춰 구매 품목 조합 & 품의 사유서 자동 생성
+        </p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs text-slate-400 block">목표 잔액</span>
+        <span class="text-lg font-black text-emerald-400">0 원</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Config -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+          <h2 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-won-sign"></i> 잔여 예산 입력
+          </h2>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">소진해야 할 잔여 예산 (원)</label>
+            <div class="relative">
+              <input type="number" id="budgetInput" value="3850000" step="10000" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2.5 text-base font-mono font-bold text-amber-300 focus:outline-none focus:ring-1 focus:ring-amber-500">
+              <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">KRW</span>
+            </div>
+            <div class="flex gap-2 mt-2">
+              <button class="quick-b px-2 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-300" data-val="1250000">125만</button>
+              <button class="quick-b px-2 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-300" data-val="3850000">385만</button>
+              <button class="quick-b px-2 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-300" data-val="8500000">850만</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">추천 품목 성향</label>
+            <select id="itemCategory" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+              <option value="all">전체 (오피스+IT+소모품 골고루)</option>
+              <option value="hardware">IT/전자기기 중심 (모니터, 나스, 외장SSD)</option>
+              <option value="office">사무 가구/비품 중심 (에르고 의자, 데스크)</option>
+              <option value="consumables">소모품 폭격 (A4용지 50박스, 라벨지)</option>
+            </select>
+          </div>
+
+          <button id="calcBtn" class="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-sm transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-calculator"></i> 최적 조합 산출하기
+          </button>
+        </div>
+
+        <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 text-xs text-slate-400 space-y-2">
+          <p class="font-bold text-slate-300 flex items-center gap-1.5">
+            <i class="fa-solid fa-lightbulb text-amber-400"></i> 예산 털기 꿀팁
+          </p>
+          <p>• 남은 예산이 불용 처리되면 차년도 예산 심사 때 삭감 1순위가 됩니다.</p>
+          <p>• 복사용지, 토너는 유통기한이 사실상 무한하여 잔액 털기의 영원한 스테디셀러입니다.</p>
+        </div>
+      </div>
+
+      <!-- Right Result -->
+      <div class="lg:col-span-8 space-y-4">
+        <!-- Results Card -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700">
+          <div class="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-slate-700">
+            <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-cart-shopping text-emerald-400"></i> 추천 구매 목록 (Knapsack 최적해)
+            </h2>
+            <div class="text-xs font-mono">
+              합계: <span id="totalCost" class="font-bold text-amber-300 text-sm">0 원</span>
+              <span class="mx-1 text-slate-500">/</span>
+              잔여: <span id="diffCost" class="font-bold text-emerald-400 text-sm">0 원</span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/50 text-slate-400 border-b border-slate-700">
+                <tr>
+                  <th class="py-2.5 px-3">품목명</th>
+                  <th class="py-2.5 px-3">단가</th>
+                  <th class="py-2.5 px-3">수량</th>
+                  <th class="py-2.5 px-3 text-right">금액</th>
+                </tr>
+              </thead>
+              <tbody id="cartTable" class="divide-y divide-slate-700/50">
+                <!-- Cart items -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Justification Document -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700">
+          <div class="flex justify-between items-center mb-3">
+            <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-file-contract text-blue-400"></i> 품의서 사유 자동 생성문
+            </h3>
+            <button id="copyMemoBtn" class="px-3 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-200 transition">
+              <i class="fa-regular fa-copy mr-1"></i> 사유서 복사
+            </button>
+          </div>
+          <div id="memoContent" class="bg-slate-900 rounded-lg p-3 text-xs leading-relaxed text-slate-300 font-mono whitespace-pre-wrap border border-slate-700/70">
+            <!-- Dynamic Reason -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="burner.js"></script>
+</body>
+</html>

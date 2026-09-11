@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인생 잔여 시간 메멘토 모리 모래시계 | Memento Mori Life Clock - TossGPT</title>
+  <meta name="description" content="기대수명 기준 당신이 살아온 날과 남은 날, 앞으로 사랑하는 사람과 먹을 수 있는 남은 식사 횟수를 시각화합니다.">
+  <link rel="canonical" href="https://tossgpt.online/memento-mori/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-sm font-medium mb-3 border border-slate-700">
+        <i class="fa-solid fa-hourglass-half text-amber-400"></i>
+        <span>Memento Mori (너의 죽음을 기억하라)</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 tracking-tight" data-lang-ko="인생 잔여 시간 메멘토 모리 시계" data-lang-en="Memento Mori: Life Time Remaining">인생 잔여 시간 메멘토 모리 시계</h1>
+      <p class="text-slate-400 text-sm" data-lang-ko="시간은 무한하지 않습니다. 살아온 날과 남은 날을 마주하고 오늘 하루를 더 소중히 살아가세요." data-lang-en="Life is finite. Visualize your passed days, remaining days, and left dinners.">시간은 무한하지 않습니다. 살아온 날과 남은 날을 마주하고 오늘 하루를 더 소중히 살아가세요.</p>
+    </div>
+
+    <!-- Input Card -->
+    <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 mb-8 max-w-xl mx-auto shadow-xl">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1" data-lang-ko="태어난 생년월일" data-lang-en="Birth Date">태어난 생년월일</label>
+          <input type="date" id="birthDate" value="1998-05-15" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-amber-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1" data-lang-ko="목표 기대수명 (세)" data-lang-en="Life Expectancy (Age)">목표 기대수명 (세)</label>
+          <input type="number" id="targetAge" value="85" min="50" max="110" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-amber-400">
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Numbers -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 text-center">
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="살아온 날" data-lang-en="Days Lived">살아온 날</div>
+        <div id="livedDays" class="text-3xl sm:text-4xl font-mono font-black text-amber-400 mt-2">10,230일</div>
+        <div class="text-xs text-slate-500 mt-1" id="livedPercent">인생의 32.8% 경과</div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 인생 날수" data-lang-en="Days Left">남은 인생 날수</div>
+        <div id="leftDays" class="text-3xl sm:text-4xl font-mono font-black text-emerald-400 mt-2">20,810일</div>
+        <div class="text-xs text-slate-500 mt-1" id="leftWeeks">약 2,972번의 주말</div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 맛있는 식사 횟수" data-lang-en="Meals Remaining">남은 맛있는 식사 횟수</div>
+        <div id="mealsLeft" class="text-3xl sm:text-4xl font-mono font-black text-indigo-400 mt-2">62,430끼</div>
+        <div class="text-xs text-slate-500 mt-1">하루 3끼 기준</div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+      <div class="flex justify-between text-xs font-semibold text-slate-400 mb-2">
+        <span>0세 (탄생)</span>
+        <span id="currentAgeText">현재 나이 28세</span>
+        <span id="targetAgeText">85세 (목표)</span>
+      </div>
+      <div class="w-full bg-slate-800 rounded-full h-4 overflow-hidden p-0.5">
+        <div id="lifeBar" class="bg-gradient-to-r from-amber-500 to-emerald-500 h-full rounded-full transition-all duration-700" style="width: 32%;"></div>
+      </div>
+      <p class="text-center text-xs text-slate-500 mt-4 italic">
+        “오늘이 내 인생의 가장 젊은 날이며, 동시에 결코 다시 돌아오지 않는 단 하루입니다.”
+      </p>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="mori.js"></script>
+</body>
+</html>

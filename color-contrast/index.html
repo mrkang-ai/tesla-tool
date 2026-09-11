@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹접근성 색상 명도 대비(WCAG) 판정기 | Color Contrast WCAG Checker - TossGPT</title>
+  <meta name="description" content="텍스트와 배경색의 명도 대비율을 실시간으로 계산하고 WCAG AA/AAA 기준 통과 여부를 즉시 판정합니다.">
+  <link rel="canonical" href="https://tossgpt.online/color-contrast/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-eye"></i>
+        <span>WCAG 웹접근성 가이드라인</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">색상 명도 대비(WCAG) 판정기</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">텍스트와 배경색의 가독성 비율을 측정해 AA(4.5:1), AAA(7:1) 합격 여부를 확인하세요.</p>
+    </div>
+
+    <!-- Color Pickers -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">글자색 (Foreground)</label>
+          <div class="flex items-center gap-3">
+            <input type="color" id="fgColor" value="#0f172a" class="w-12 h-12 rounded cursor-pointer border border-slate-300">
+            <input type="text" id="fgHex" value="#0f172a" class="font-mono text-sm p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">배경색 (Background)</label>
+          <div class="flex items-center gap-3">
+            <input type="color" id="bgColor" value="#ffffff" class="w-12 h-12 rounded cursor-pointer border border-slate-300">
+            <input type="text" id="bgHex" value="#ffffff" class="font-mono text-sm p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Preview Box -->
+    <div id="previewCard" class="rounded-2xl p-8 shadow-xl border border-slate-300 flex flex-col items-center justify-center text-center mb-6 transition-colors" style="background-color: #ffffff; color: #0f172a;">
+      <h2 class="text-2xl font-black mb-2">가독성 테스트 샘플 텍스트</h2>
+      <p class="text-sm">사람의 눈은 충분한 명도 대비가 있어야 피로감 없이 글을 읽을 수 있습니다.</p>
+    </div>
+
+    <!-- WCAG Result Score -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">대비율 (Contrast Ratio)</div>
+        <div id="contrastRatio" class="text-3xl font-mono font-black text-purple-600 dark:text-purple-400 mt-1">16.1:1</div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+        <div class="text-xs text-slate-400">일반 텍스트 (AA 기준)</div>
+        <div id="passAA" class="text-xl font-black text-emerald-500 mt-2">PASS (통과)</div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 col-span-2 sm:col-span-1">
+        <div class="text-xs text-slate-400">고대비 (AAA 기준)</div>
+        <div id="passAAA" class="text-xl font-black text-emerald-500 mt-2">PASS (통과)</div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="contrast.js"></script>
+</body>
+</html>

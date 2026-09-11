@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="행정용어 순화 사전 & 쉬운 우리말 검색기 - 온라인 도구모음" data-lang-en="Plain Admin Language Finder - Online Toolkit">행정용어 순화 사전 - 온라인 도구모음</title>
+    <meta name="description" content="난해한 일본식 한자어나 관훈식 공문서 용어를 알기 쉬운 표준 우리말로 상호 검색 및 일괄 치환합니다.">
+    <link rel="canonical" href="https://tossgpt.online/admin-vocabulary/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
+                <span>🏛️ 공무원 & 행정 & 민원 마스터</span>
+                <span>•</span>
+                <span>CAT-02 No.13</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                행정용어 순화 사전 & 쉬운 우리말 검색기
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                '명기하다', '시달하다', '불입하다' 등 딱딱한 한자식 관공서 용어를 시민 친화적인 고운 우리말로 검색하고 변환하세요.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6">
+            <!-- Search Bar -->
+            <div class="relative w-full max-w-xl mx-auto">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input type="text" id="vocab-search" placeholder="행정용어나 쉬운 우리말을 검색하세요 (예: 명기, 시달, 양지)..." class="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold focus:ring-2 focus:ring-primary focus:outline-none">
+            </div>
+
+            <!-- Vocabulary Cards Grid -->
+            <div id="vocab-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Bulk Text Replacer -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4">
+            <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">find_replace</span>
+                <span>문장 전체 일괄 순화기 (행정어 ➔ 쉬운 우리말)</span>
+            </h3>
+            <textarea id="bulk-input" rows="3" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs" placeholder="순화하고 싶은 문장을 입력하세요...">상기 사항을 관련 지침에 명기하여 각 과에 조속히 시달하시고, 미불입된 과태료는 즉시 납부토록 공람 바랍니다.</textarea>
+            <div class="flex justify-end">
+                <button id="bulk-replace-btn" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl cursor-pointer transition-all">쉬운 우리말로 일괄 치환</button>
+            </div>
+            <div id="bulk-output" class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-emerald-700 dark:text-emerald-300">
+                치환 결과가 여기에 표시됩니다.
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="vocab.js"></script>
+</body>
+</html>

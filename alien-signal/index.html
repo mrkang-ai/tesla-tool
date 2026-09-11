@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>외계인 교신 신호 발생기 & SETI 사운더 | Alien Signal Generator - TossGPT</title>
+  <meta name="description" content="1420MHz 수소선 주파수와 와우 신호(Wow! Signal) 스펙트로그램 파형을 합성해 우주로 송출하는 사운더입니다.">
+  <link rel="canonical" href="https://tossgpt.online/alien-signal/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-black text-emerald-400 min-h-screen flex flex-col font-mono">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-satellite-dish"></i>
+        <span>SETI PROJECT // RADIO TELESCOPE ARRAY</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-white">외계 심우주 교신 신호 발생기</h1>
+      <p class="text-emerald-500/80 text-sm font-sans">외계 지성체가 사용하는 1420.405MHz 중성 수소선 대역 '와우! 신호(6EQUJ5)' 파형 합성기</p>
+    </div>
+
+    <!-- Visualizer & Transmitter -->
+    <div class="bg-slate-950 border border-emerald-500/40 rounded-3xl p-6 shadow-[0_0_40px_rgba(16,185,129,0.15)] mb-8 flex flex-col items-center">
+      <canvas id="setiCanvas" class="w-full h-48 bg-black rounded-xl border border-emerald-900 mb-6"></canvas>
+
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold text-emerald-500 mb-1">신호 모드 선택</label>
+          <select id="signalMode" class="w-full p-2.5 bg-black border border-emerald-600 rounded-lg text-emerald-300 text-sm font-mono">
+            <option value="wow">1977 Wow! Signal (6EQUJ5 신호음)</option>
+            <option value="pulsar">B0329+54 외계 펄서 비트 (Pulsar)</option>
+            <option value="morse">우주 평화 메시지 비콘 (Beacon)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-emerald-500 mb-1">송출 안테나 이득 (Power)</label>
+          <input type="range" id="txPower" min="10" max="100" value="80" class="w-full h-2 bg-slate-800 rounded accent-emerald-500 cursor-pointer mt-3">
+        </div>
+      </div>
+
+      <button id="transmitBtn" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black rounded-xl text-lg flex items-center justify-center gap-2 shadow-lg transition-all">
+        <i class="fa-solid fa-tower-broadcast"></i>
+        <span>심우주로 신호 송출 시작 (Web Audio)</span>
+      </button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="alien.js"></script>
+</body>
+</html>

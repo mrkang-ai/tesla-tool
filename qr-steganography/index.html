@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="예술적 QR & 비밀 텍스트 은닉기 - TeslaTool" data-lang-en="Artistic QR & Steganography - TeslaTool">예술적 QR & 비밀 텍스트 은닉기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0ea5e9' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-sky-500/20">
+          <i class="fa-solid fa-qrcode"></i> CAT-06 / No.56
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🔲 예술적 QR & 비밀 텍스트 은닉기" data-lang-en="🔲 Artistic QR & Secret Steganography">🔲 예술적 QR & 비밀 텍스트 은닉기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="커스텀 컬러 QR 코드 생성 및 이미지 픽셀 속에 비밀 암호 텍스트를 숨기는 스테가노그래피 툴" data-lang-en="Generate stylish custom QR codes and encode secret hidden messages into image pixels">
+          커스텀 컬러 QR 코드 생성 및 이미지 픽셀 속에 비밀 암호 텍스트를 숨기는 스테가노그래피 툴
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Input Left -->
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">QR 인코딩 URL / 비밀 텍스트</label>
+          <input type="text" id="qrText" value="https://tossgpt.online" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">QR 전경 색상</label>
+            <input type="color" id="qrColor" value="#0ea5e9" class="w-full h-8 bg-slate-900 border border-slate-700 rounded cursor-pointer p-1">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">배경 색상</label>
+            <input type="color" id="qrBgColor" value="#0f172a" class="w-full h-8 bg-slate-900 border border-slate-700 rounded cursor-pointer p-1">
+          </div>
+        </div>
+
+        <button id="genQrBtn" class="w-full py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-sky-600/20">
+          QR 코드 즉시 렌더링 ✨
+        </button>
+      </div>
+
+      <!-- Result Right -->
+      <div class="bg-slate-800/80 rounded-xl p-6 border border-slate-700 flex flex-col items-center justify-center text-center space-y-4">
+        <div id="qrcode" class="p-4 bg-slate-900 rounded-2xl border border-slate-700 shadow-xl flex items-center justify-center"></div>
+        <p class="text-[11px] text-slate-400">스마트폰 카메라로 즉시 스캔 가능합니다.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="qr.js"></script>
+</body>
+</html>

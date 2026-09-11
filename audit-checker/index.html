@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="자체 감사 사전 점검 & 지적사항 방어 12계명 - TeslaTool" data-lang-en="Self-Audit Checklist & Defense - TeslaTool">자체 감사 사전 점검 & 지적사항 방어 12계명 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#ef4444' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-shield-halved"></i> CAT-02 / No.16
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🛡️ 자체 감사 사전 점검 & 방어 12계명" data-lang-en="🛡️ Pre-Audit 12 Checklist & Defense">🛡️ 자체 감사 사전 점검 & 방어 12계명</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="법카 주말 결제, 출장비 중복 청구, 쪼개기 수의계약 등 공공 감사 빈출 12대 지적 위험도 진단 및 소명서 빌더" data-lang-en="Audit vulnerability score meter & defense explanation statement builder for public institutions">
+          법카 주말 결제, 출장비 중복 청구, 쪼개기 수의계약 등 공공 감사 빈출 12대 지적 위험도 진단 및 소명서 빌더
+        </p>
+      </div>
+      <div class="text-right">
+        <span class="text-xs text-slate-400 block">감사 리스크 진단</span>
+        <span id="riskBadge" class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-xs font-bold">
+          안전 (청렴 지대)
+        </span>
+      </div>
+    </div>
+
+    <!-- Gauge Score Bar -->
+    <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 mb-6">
+      <div class="flex justify-between items-center text-xs font-bold mb-2">
+        <span class="text-slate-300">감사 적발 위험 지수</span>
+        <span id="riskScore" class="text-emerald-400 text-base font-mono">0 / 100 pt</span>
+      </div>
+      <div class="w-full bg-slate-900 rounded-full h-3.5 overflow-hidden border border-slate-700">
+        <div id="riskBar" class="bg-emerald-500 h-full w-0 transition-all duration-500"></div>
+      </div>
+      <p id="riskDesc" class="text-xs text-slate-400 mt-2">체크리스트를 작성하여 감사원/상급기관 감사 대비 취약점을 사전 보강하세요.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- 12 Checklist -->
+      <div class="lg:col-span-7 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-3">
+        <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider mb-2 flex items-center justify-between">
+          <span><i class="fa-solid fa-list-check text-rose-400 mr-1.5"></i> 공공 감사 12대 핵심 항목</span>
+          <button id="checkAllBtn" class="text-[11px] font-normal text-slate-400 hover:text-slate-200">모두 체크</button>
+        </h2>
+
+        <div id="checklistContainer" class="space-y-2 text-xs">
+          <!-- 12 Items dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Explanation Builder -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-3">
+          <h2 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-feather"></i> 지적사항 소명서 자동 작성기
+          </h2>
+          <p class="text-[11px] text-slate-400">지적된 의심 항목에 대해 불가피했던 행정상 사유를 정중한 감사 소명서 어조로 즉시 변환합니다.</p>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">소명 대상 항목 선택</label>
+            <select id="defenseCategory" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+              <option value="card_weekend">법인카드 주말/공휴일 심야 집행 건</option>
+              <option value="travel_overlap">관내 출장비 지급과 식대 중복 처리 건</option>
+              <option value="contract_split">물품 구매 쪼개기(분할 수의계약) 의혹 건</option>
+              <option value="work_overtime">초과근무 시간 중 사적 외출 의심 건</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">상세 정황 (선택 사항)</label>
+            <input type="text" id="defenseDetails" placeholder="예: 재난안전대책본부 비상소집으로 야간 현장 지원" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          </div>
+
+          <button id="buildDefenseBtn" class="w-full py-2 bg-rose-600 hover:bg-rose-500 text-white font-semibold rounded-lg text-xs transition">
+            소명서(문답서) 초안 생성
+          </button>
+
+          <div class="relative mt-2">
+            <textarea id="defenseOutput" rows="8" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs leading-relaxed font-mono text-slate-200 focus:outline-none" readonly></textarea>
+            <button id="copyDefenseBtn" class="absolute right-2 top-2 px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-[10px] rounded text-slate-200">
+              복사
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="audit.js"></script>
+</body>
+</html>

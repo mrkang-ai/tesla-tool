@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="인플루언서 4K 사과문 공식 생성기 - TeslaTool" data-lang-en="Influencer 4K Official Apology Generator - TeslaTool">인플루언서 4K 사과문 공식 생성기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#64748b' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-slate-500/20">
+          <i class="fa-solid fa-person-praying"></i> CAT-05 / No.47
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🙇‍♂️ 인플루언서 4K 공식 사과문 생성기" data-lang-en="🙇‍♂️ Influencer 4K Official Apology Generator">🙇‍♂️ 인플루언서 4K 공식 사과문 생성기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="검은 화면, 진지한 명조체, '수익 창출 중지 및 자숙' 등 법적 리스크를 회피하는 교과서적 사과문 빌더" data-lang-en="Generate classic black-screen textbook influencer apology statements with legal evasion phrasing">
+          검은 화면, 진지한 명조체, '수익 창출 중지 및 자숙' 등 법적 리스크를 회피하는 교과서적 사과문 빌더
+        </p>
+      </div>
+      <div>
+        <button id="copyApologyBtn" class="px-3.5 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs rounded-lg transition">
+          사과문 복사
+        </button>
+      </div>
+    </div>
+
+    <!-- 4K Black Screen Box -->
+    <div class="bg-black text-slate-300 rounded-2xl p-8 sm:p-12 border border-slate-800 shadow-2xl font-serif space-y-6 text-center">
+      <h2 class="text-xl sm:text-2xl font-black text-white tracking-widest uppercase">
+        죄송합니다.
+      </h2>
+      <div id="apologyBody" class="text-xs sm:text-sm leading-relaxed text-slate-400 max-w-2xl mx-auto space-y-4 text-left whitespace-pre-wrap">
+<!-- Dynamic apology text -->
+      </div>
+      <div class="pt-6 border-t border-slate-900 text-[11px] text-slate-600 font-sans">
+        * 본 영상(게시물)은 광고 및 수익 창출을 일체 하지 않습니다.
+      </div>
+    </div>
+
+    <!-- Customizer -->
+    <div class="mt-6 bg-slate-800/80 rounded-xl p-5 border border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans">
+      <div>
+        <label class="block text-slate-300 mb-1">채널명 / 크리에이터 닉네임</label>
+        <input type="text" id="creatorName" value="유튜버 아무개" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+      </div>
+      <div>
+        <label class="block text-slate-300 mb-1">논란 발생 사안</label>
+        <input type="text" id="incidentType" value="뒷광고 및 허위 과장 광고 표기 누락" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="apology.js"></script>
+</body>
+</html>

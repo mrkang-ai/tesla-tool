@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>빈티지 기계식 타자기 ASMR 타이퍼 | Vintage Typewriter ASMR - TossGPT</title>
+  <meta name="description" content="1920년대 묵직한 기계식 타자기의 찰칵거림과 줄 바꿈 '땡!' 종소리를 재현한 아날로그 힐링 타이퍼입니다.">
+  <link rel="canonical" href="https://tossgpt.online/vintage-typewriter/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    .typewriter-font {
+      font-family: 'Special Elite', monospace;
+    }
+  </style>
+</head>
+<body class="bg-amber-50/50 dark:bg-stone-900 text-stone-800 dark:text-stone-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-stone-800 text-amber-800 dark:text-amber-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-keyboard"></i>
+        <span>아날로그 ASMR 타이핑</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">빈티지 기계식 타자기 ASMR</h1>
+      <p class="text-stone-600 dark:text-stone-400 text-sm">키보드를 누르면 묵직한 금속 타자기 소리가 울리고, 엔터를 치면 '땡!' 종소리가 납니다.</p>
+    </div>
+
+    <!-- Paper Container -->
+    <div class="w-full bg-[#fcf8ed] dark:bg-stone-800/90 border-4 border-[#e2d5bd] dark:border-stone-700 rounded-2xl shadow-2xl p-8 min-h-[420px] flex flex-col">
+      <textarea id="typewriterArea" class="typewriter-font w-full flex-grow bg-transparent text-lg text-stone-900 dark:text-stone-100 resize-none focus:outline-none leading-relaxed" placeholder="Click here and start typing... (키보드를 눌러보세요)"></textarea>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="typewriter.js"></script>
+</body>
+</html>

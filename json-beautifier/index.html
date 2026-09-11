@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="인스턴트 JSON 뷰어 & 비주얼 포맷터 - TeslaTool" data-lang-en="Instant JSON Beautifier & Tree - TeslaTool">인스턴트 JSON 뷰어 & 비주얼 포맷터 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
+          <i class="fa-solid fa-code"></i> CAT-06 / No.57
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="📦 인스턴트 JSON 뷰어 & 포맷터" data-lang-en="📦 Instant JSON Beautifier & Tree">📦 인스턴트 JSON 뷰어 & 포맷터</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="복잡하고 긴 1줄 JSON을 0.01초 만에 깔끔한 들여쓰기 포맷팅 및 구문 오류 실시간 검증" data-lang-en="Beautify, validate, and inspect JSON payloads with real-time error detection">
+          복잡하고 긴 1줄 JSON을 0.01초 만에 깔끔한 들여쓰기 포맷팅 및 구문 오류 실시간 검증
+        </p>
+      </div>
+      <div>
+        <button id="copyJsonBtn" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition">
+          정리된 JSON 복사
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center">
+          <label class="text-xs font-bold text-slate-300">Raw JSON 입력</label>
+          <button id="sampleJsonBtn" class="text-[11px] text-emerald-400 hover:underline">예제 넣기</button>
+        </div>
+        <textarea id="rawJsonIn" class="flex-1 min-h-[320px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs font-mono text-slate-200 focus:outline-none focus:ring-1 focus:ring-emerald-500" placeholder='{"status":"ok","items":[1,2,3]}'></textarea>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+          <span class="text-xs font-bold text-emerald-400 font-mono">Formatted JSON</span>
+          <span id="jsonStatus" class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold font-mono">VALID JSON ✅</span>
+        </div>
+        <pre id="jsonOut" class="flex-1 min-h-[320px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs font-mono text-emerald-300 overflow-y-auto whitespace-pre-wrap leading-relaxed">
+        </pre>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="beautifier.js"></script>
+</body>
+</html>

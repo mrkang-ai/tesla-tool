@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글로벌 시차 & 화상회의 골든타임 플래너 | Global Timezone Meeting - TossGPT</title>
+  <meta name="description" content="서울, 샌프란시스코, 런던, 싱가포르 등 여러 도시의 시차와 겹치는 골든타임 업무 시간을 시각화합니다.">
+  <link rel="canonical" href="https://tossgpt.online/global-timezone/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-earth-americas"></i>
+        <span>글로벌 협업 유틸리티</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">글로벌 시차 & 회의 골든타임 플래너</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">서울(KST) 시간을 기준으로 전 세계 주요 도시의 실시간 업무 가능 시간을 한눈에 비교하세요.</p>
+    </div>
+
+    <!-- Time Slider -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-bold text-slate-700 dark:text-slate-300">서울 기준 회의 예정 시각</span>
+        <span id="sliderDisplay" class="text-xl font-mono font-black text-blue-600 dark:text-blue-400">오후 03:00</span>
+      </div>
+      <input type="range" id="hourSlider" min="0" max="23" value="15" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg accent-blue-600 cursor-pointer">
+      <div class="flex justify-between text-xs text-slate-400 mt-1">
+        <span>00:00 (자정)</span>
+        <span>06:00</span>
+        <span>12:00 (정오)</span>
+        <span>18:00</span>
+        <span>23:00</span>
+      </div>
+    </div>
+
+    <!-- City Clock Rows -->
+    <div class="space-y-4">
+      <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇰🇷</span>
+          <div>
+            <div class="font-bold text-base">서울 (Seoul, UTC+9)</div>
+            <div class="text-xs text-slate-400">기준 도시</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div id="timeSeoul" class="text-xl font-mono font-black text-blue-600 dark:text-blue-400">15:00</div>
+          <span id="badgeSeoul" class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">업무시간</span>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇺🇸</span>
+          <div>
+            <div class="font-bold text-base">샌프란시스코 / 실리콘밸리 (PDT, UTC-7)</div>
+            <div class="text-xs text-slate-400">서울 대비 -16시간</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div id="timeSF" class="text-xl font-mono font-black text-slate-700 dark:text-slate-200">23:00 (전날)</div>
+          <span id="badgeSF" class="text-[11px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300">취침/심야</span>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇬🇧</span>
+          <div>
+            <div class="font-bold text-base">런던 (BST, UTC+1)</div>
+            <div class="text-xs text-slate-400">서울 대비 -8시간</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div id="timeLondon" class="text-xl font-mono font-black text-slate-700 dark:text-slate-200">07:00</div>
+          <span id="badgeLondon" class="text-[11px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">출근 준비</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="timezone.js"></script>
+</body>
+</html>

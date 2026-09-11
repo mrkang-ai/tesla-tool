@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="전투식량 발열팩 보글보글 대기 타이머 - TeslaTool" data-lang-en="MRE Heat Pack Cooking Timer - TeslaTool">전투식량 발열팩 보글보글 대기 타이머 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#ea580c' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes steam {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+      100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+    }
+    .steam-bubble {
+      animation: steam 2s infinite ease-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-orange-600/20">
+          <i class="fa-solid fa-fire-burner"></i> CAT-04 / No.39
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🍲 전투식량 발열팩 보글보글 대기 타이머" data-lang-en="🍲 MRE Heat Pack Cooking Timer">🍲 전투식량 발열팩 보글보글 대기 타이머</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="발열끈을 당기는 순간 터져 나오는 수증기와 보글보글 끓는 소리! 10분 골든타임 완성 시뮬레이터" data-lang-en="Pull the cord and listen to authentic boiling steam sound while waiting 10 minutes for piping hot rations">
+          발열끈을 당기는 순간 터져 나오는 수증기와 보글보글 끓는 소리! 10분 골든타임 완성 시뮬레이터
+        </p>
+      </div>
+    </div>
+
+    <!-- MRE Pack Card -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-700 text-center space-y-6 shadow-2xl relative overflow-hidden">
+      <!-- Steam visuals -->
+      <div id="steamContainer" class="hidden absolute top-8 left-1/2 -translate-x-1/2 flex gap-4 pointer-events-none">
+        <span class="steam-bubble text-3xl">💨</span>
+        <span class="steam-bubble text-4xl" style="animation-delay: 0.5s">💨</span>
+        <span class="steam-bubble text-3xl" style="animation-delay: 1.0s">💨</span>
+      </div>
+
+      <div class="text-xs font-bold text-orange-400 uppercase tracking-wider">
+        즉각취식형 전투식량 제1식단 (쇠고기볶음밥 + 파운드케이크)
+      </div>
+
+      <!-- Timer clock -->
+      <div id="mreClock" class="text-5xl sm:text-7xl font-mono font-black text-orange-400">
+        10:00
+      </div>
+
+      <!-- Pull string button -->
+      <div class="flex justify-center">
+        <button id="pullCordBtn" class="px-8 py-3.5 bg-orange-600 hover:bg-orange-500 text-slate-950 font-black rounded-xl text-sm transition shadow-lg shadow-orange-600/30 flex items-center gap-2">
+          <i class="fa-solid fa-hands-holding-child"></i> 발열끈 힘차게 당기기 (치이익-!)
+        </button>
+      </div>
+
+      <p id="mreStatus" class="text-xs text-slate-400">
+        발열끈을 당기면 화학 반응으로 발열팩이 90도까지 가열되며 끓는 소리가 납니다.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="mre.js"></script>
+</body>
+</html>

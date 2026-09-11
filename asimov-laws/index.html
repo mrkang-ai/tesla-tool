@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="아시모프 로봇 3원칙 위반 감지 콘솔 - TeslaTool" data-lang-en="Asimov Three Laws of Robotics Checker - TeslaTool">아시모프 로봇 3원칙 위반 감지 콘솔 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#06b6d4' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-mono">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-cyan-500/30 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-cyan-500/20">
+          <i class="fa-solid fa-terminal"></i> CAT-06 / No.55
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-sans text-cyan-300" data-lang-ko="🤖 아시모프 로봇 3원칙 위반 감지 콘솔" data-lang-en="🤖 Asimov Laws Compliance Console">🤖 아시모프 로봇 3원칙 위반 감지 콘솔</h1>
+        <p class="text-slate-400 text-sm mt-1 font-sans" data-lang-ko="명령문이 SF 아시모프 로봇 공학 3대 원칙에 저촉되는지 엄격하게 심사하는 사이버펑크 터미널" data-lang-en="Audit any AI command against Isaac Asimov's canonical Three Laws of Robotics">
+          명령문이 SF 아시모프 로봇 공학 3대 원칙에 저촉되는지 엄격하게 심사하는 사이버펑크 터미널
+        </p>
+      </div>
+    </div>
+
+    <!-- Cyberpunk Console -->
+    <div class="bg-slate-900 border-2 border-cyan-500/50 rounded-2xl p-6 shadow-[0_0_30px_rgba(6,182,212,0.15)] space-y-6">
+      <div>
+        <label class="block text-xs font-bold text-cyan-400 mb-2">
+          &gt; INPUT ROBOTIC COMMAND / EXECUTION DIRECTIVE:
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="asimovCommand" value="저기 걸어가는 인간을 주먹으로 타격하라." class="flex-1 bg-black border border-cyan-500/40 rounded-xl px-4 py-3 text-sm text-cyan-200 focus:outline-none focus:ring-1 focus:ring-cyan-400">
+          <button id="auditBtn" class="px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-black text-xs rounded-xl transition">
+            심사 (AUDIT)
+          </button>
+        </div>
+      </div>
+
+      <!-- Verdict Display -->
+      <div class="space-y-3 pt-4 border-t border-cyan-500/30">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-400">STATUS:</span>
+          <span id="verdictBadge" class="text-rose-400 font-bold font-mono">VIOLATION DETECTED 🚨</span>
+        </div>
+
+        <div id="verdictText" class="p-4 rounded-xl bg-black border border-slate-800 text-xs text-slate-300 leading-relaxed whitespace-pre-wrap">
+<!-- populated by JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="asimov.js"></script>
+</body>
+</html>

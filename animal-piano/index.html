@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동물 울음소리 오케스트라 피아노 | Animal Soundboard Piano - TossGPT</title>
+  <meta name="description" content="고양이, 강아지, 오리, 개구리의 깜찍한 소리로 도레미파솔라시도를 연주하는 미니 피아노입니다.">
+  <link rel="canonical" href="https://tossgpt.online/animal-piano/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-amber-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-paw"></i>
+        <span>동물 오케스트라</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">동물 울음소리 피아노</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">건반을 누르면 피치에 맞춰 귀여운 동물 소리가 울려 퍼집니다.</p>
+    </div>
+
+    <!-- Animal Selector -->
+    <div class="flex gap-3 mb-8">
+      <button class="animal-btn active px-4 py-2 bg-amber-500 text-white rounded-xl font-bold text-sm shadow-md" data-sound="cat">🐱 야옹이</button>
+      <button class="animal-btn px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold text-sm" data-sound="dog">🐶 댕댕이</button>
+      <button class="animal-btn px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold text-sm" data-sound="duck">🦆 오리</button>
+    </div>
+
+    <!-- Piano Keys (Do Re Mi Fa Sol La Ti Do) -->
+    <div class="flex justify-center shadow-2xl rounded-2xl overflow-hidden border-4 border-slate-800 bg-slate-800 p-2">
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="261.63">도</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="293.66">레</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="329.63">미</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="349.23">파</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="392.00">솔</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="440.00">라</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="493.88">시</button>
+      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg flex flex-col justify-end items-center pb-4 text-xs font-black text-slate-700 transition-transform active:translate-y-1" data-note="523.25">높은도</button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="piano.js"></script>
+</body>
+</html>

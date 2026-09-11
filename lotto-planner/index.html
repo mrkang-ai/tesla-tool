@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가상 로또 1등 당첨금 20억 행복회로 분배기 | Lotto Jackpot Planner - TossGPT</title>
+  <meta name="description" content="세금 공제 후 실수령액 14억 원으로 아파트, 슈퍼카, 부모님 용돈을 배분하며 즐기는 행복회로 계산기입니다.">
+  <link rel="canonical" href="https://tossgpt.online/lotto-planner/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-amber-50/50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+        <span data-lang-ko="행복회로 풀가동 시뮬레이터" data-lang-en="Happy Delusion Simulator">행복회로 풀가동 시뮬레이터</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-2" data-lang-ko="가상 로또 1등 20억 분배 플래너" data-lang-en="Virtual Lotto Jackpot 2B Spending Planner">가상 로또 1등 20억 분배 플래너</h1>
+      <p class="text-slate-600 dark:text-slate-400" data-lang-ko="당첨금 20억 원 (세후 실수령 약 14.1억 원)으로 꿈꿔왔던 인생 계획을 직접 짜보세요!" data-lang-en="Plan your dreams with 2 Billion KRW (Net ~1.41 Billion KRW after tax)!">당첨금 20억 원 (세후 실수령 약 14.1억 원)으로 꿈꿔왔던 인생 계획을 직접 짜보세요!</p>
+    </div>
+
+    <!-- Summary Board -->
+    <div class="bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl shadow-xl p-6 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="text-xs text-amber-100 uppercase tracking-wider font-semibold" data-lang-ko="당첨 총액" data-lang-en="Gross Jackpot">당첨 총액</div>
+          <div class="text-2xl font-black mt-1">20억 원</div>
+        </div>
+        <div>
+          <div class="text-xs text-amber-100 uppercase tracking-wider font-semibold" data-lang-ko="세금 공제 (33%)" data-lang-en="Tax (33%)">세금 공제 (33%)</div>
+          <div class="text-2xl font-black mt-1 text-amber-200">-5.9억 원</div>
+        </div>
+        <div>
+          <div class="text-xs text-amber-100 uppercase tracking-wider font-semibold" data-lang-ko="내 통장 실수령액" data-lang-en="Net Cash in Bank">내 통장 실수령액</div>
+          <div class="text-3xl font-black mt-1 text-yellow-200">14억 1,000만 원</div>
+        </div>
+      </div>
+      <div class="mt-4 pt-4 border-t border-amber-400/40 flex justify-between items-center text-sm">
+        <span data-lang-ko="배분 후 잔여 금액" data-lang-en="Remaining Budget">배분 후 잔여 금액:</span>
+        <span id="remainingBudget" class="text-xl font-mono font-black text-white">14억 1,000만 원</span>
+      </div>
+    </div>
+
+    <!-- Allocation Sliders -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 space-y-6">
+      <!-- Item 1: Real Estate -->
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="text-sm font-bold flex items-center gap-2">
+            <i class="fa-solid fa-house-chimney text-blue-500"></i>
+            <span data-lang-ko="내 집 마련 (아파트/단독주택 매매)" data-lang-en="Real Estate (Apartment/Home)">내 집 마련 (아파트/단독주택 매매)</span>
+          </label>
+          <span id="realEstateVal" class="text-sm font-mono font-bold text-blue-600 dark:text-blue-400">8억 원</span>
+        </div>
+        <input type="range" id="realEstate" min="0" max="14" step="0.5" value="8" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg accent-blue-600 cursor-pointer">
+      </div>
+
+      <!-- Item 2: Parents Gift -->
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="text-sm font-bold flex items-center gap-2">
+            <i class="fa-solid fa-gift text-rose-500"></i>
+            <span data-lang-ko="부모님 & 가족 용돈 / 효도 선물" data-lang-en="Parents & Family Gift">부모님 & 가족 용돈 / 효도 선물</span>
+          </label>
+          <span id="familyVal" class="text-sm font-mono font-bold text-rose-600 dark:text-rose-400">2억 원</span>
+        </div>
+        <input type="range" id="family" min="0" max="5" step="0.2" value="2" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg accent-rose-500 cursor-pointer">
+      </div>
+
+      <!-- Item 3: Dream Car -->
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="text-sm font-bold flex items-center gap-2">
+            <i class="fa-solid fa-car-sport text-emerald-500"></i>
+            <span data-lang-ko="드림카 (포르쉐 / 테슬라 등)" data-lang-en="Dream Car (Porsche / Tesla)">드림카 (포르쉐 / 테슬라 등)</span>
+          </label>
+          <span id="carVal" class="text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400">1.5억 원</span>
+        </div>
+        <input type="range" id="car" min="0" max="4" step="0.1" value="1.5" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg accent-emerald-500 cursor-pointer">
+      </div>
+
+      <!-- Item 4: Travel & Shopping -->
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="text-sm font-bold flex items-center gap-2">
+            <i class="fa-solid fa-plane text-purple-500"></i>
+            <span data-lang-ko="세계일주 & 명품 플렉스 쇼핑" data-lang-en="World Tour & Luxury Shopping">세계일주 & 명품 플렉스 쇼핑</span>
+          </label>
+          <span id="travelVal" class="text-sm font-mono font-bold text-purple-600 dark:text-purple-400">0.6억 원</span>
+        </div>
+        <input type="range" id="travel" min="0" max="2" step="0.1" value="0.6" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg accent-purple-500 cursor-pointer">
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="planner.js"></script>
+</body>
+</html>

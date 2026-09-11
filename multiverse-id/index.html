@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>평행세계의 나 신분증 발급기 | Multiverse ID Card - TossGPT</title>
+  <meta name="description" content="지구 #7402 차원에서 당신이 살고 있는 엉뚱한 평행세계 직업 신분증을 즉시 발급합니다.">
+  <link rel="canonical" href="https://tossgpt.online/multiverse-id/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/40 text-purple-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-id-card"></i>
+        <span>MULTIVERSE CITIZENSHIP BUREAU</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-purple-300">평행세계 차원 이동 신분증 발급기</h1>
+      <p class="text-slate-400 text-sm">다른 차원의 지구에서 당신은 대체 무엇을 하며 살고 있을까요?</p>
+    </div>
+
+    <!-- Generator Input -->
+    <div class="w-full bg-slate-800 rounded-2xl border border-purple-500/30 p-6 mb-8">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input type="text" id="userName" placeholder="이름을 입력하세요 (예: 홍길동)" class="flex-grow px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white font-bold text-sm focus:outline-none focus:border-purple-500">
+        <button id="generateBtn" class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-black rounded-xl text-sm transition-all whitespace-nowrap">
+          <i class="fa-solid fa-sparkles mr-1"></i> 신분증 발급
+        </button>
+      </div>
+    </div>
+
+    <!-- ID Card Container -->
+    <div id="idCard" class="w-full max-w-md bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 border-2 border-purple-500 rounded-3xl p-6 shadow-[0_0_40px_rgba(168,85,247,0.25)] relative overflow-hidden">
+      <!-- Watermark stamp -->
+      <div class="absolute right-4 top-4 text-purple-500/20 font-black text-6xl select-none pointer-events-none">#7402</div>
+
+      <div class="flex items-center justify-between border-b border-purple-800/60 pb-3 mb-4">
+        <div class="text-xs font-bold text-purple-400 tracking-wider">MULTIVERSE PASSPORT</div>
+        <div id="universeTag" class="text-xs font-mono font-bold bg-purple-900/60 text-purple-300 px-2 py-0.5 rounded">지구-8941 차원</div>
+      </div>
+
+      <div class="flex gap-4 items-center mb-4">
+        <div id="avatarBox" class="w-24 h-28 bg-purple-900/40 border border-purple-600 rounded-xl flex items-center justify-center text-4xl shadow-inner">
+          👽
+        </div>
+        <div class="space-y-1">
+          <div class="text-xs text-purple-400">성명 / Name</div>
+          <div id="cardName" class="text-xl font-black text-white">여행자</div>
+          <div class="text-xs text-purple-400 mt-2">직업 / Universe Occupation</div>
+          <div id="cardJob" class="text-sm font-bold text-purple-200">은하계 솜사탕 엔지니어</div>
+        </div>
+      </div>
+
+      <div class="bg-black/40 rounded-xl p-3 border border-purple-900/60 text-xs text-slate-300 space-y-1 font-sans">
+        <div><strong class="text-purple-400">특이사항:</strong> <span id="cardTrait">카페인을 섭취하면 투명해지는 특이 체질.</span></div>
+        <div><strong class="text-purple-400">연봉:</strong> <span id="cardSalary">월 400만 은하 크레딧</span></div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="multiverse.js"></script>
+</body>
+</html>

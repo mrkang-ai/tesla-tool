@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="악성 민원 방어 멘탈 쉴드 - 온라인 도구모음" data-lang-en="Civil Complaint Calmer & Shield - Online Toolkit">악성 민원 방어 멘탈 쉴드 - 온라인 도구모음</title>
+    <meta name="description" content="폭언, 억지반복, 감사협박 등 악성 민원인 유형별 법적 표준 대응 매뉴얼 스크립트와 4-7-8 심호흡 멘탈 케어 가이드.">
+    <link rel="canonical" href="https://tossgpt.online/civil-defense/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/70 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs font-bold">
+                <span>🏛️ 공무원 & 행정 & 민원 마스터</span>
+                <span>•</span>
+                <span>CAT-02 No.12</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                악성 민원 방어 멘탈 쉴드 & 스크립트
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                산업안전보건법 및 공무원 보호 지침 기반! 폭언·협박 민원인 앞에서도 흔들리지 않는 법적 무결점 표준 대응 스크립트와 심호흡 페이서를 제공합니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left: Complaint Types (1 col) -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
+                <span class="text-xs font-bold text-slate-500">민원인 유형 선택:</span>
+                <div class="flex flex-col gap-2" id="complaint-types">
+                    <button class="type-btn active p-3 rounded-2xl bg-primary text-white text-left font-bold text-xs flex items-center gap-2 cursor-pointer transition-all" data-type="verbal">
+                        <span>🤬</span>
+                        <div>
+                            <div>폭언 / 욕설 / 고성방가형</div>
+                            <div class="text-[10px] opacity-80 font-normal">"내가 낸 세금으로 월급 받으면서!"</div>
+                        </div>
+                    </button>
+                    <button class="type-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left font-bold text-xs flex items-center gap-2 cursor-pointer transition-all" data-type="repeat">
+                        <span>🔄</span>
+                        <div>
+                            <div>억지 반복 / 업무방해형</div>
+                            <div class="text-[10px] opacity-80 font-normal">동일 사안 연속 30회 이상 전화</div>
+                        </div>
+                    </button>
+                    <button class="type-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left font-bold text-xs flex items-center gap-2 cursor-pointer transition-all" data-type="threat">
+                        <span>⚖️</span>
+                        <div>
+                            <div>감사청구 / 고소 협박형</div>
+                            <div class="text-[10px] opacity-80 font-normal">"너 직권남용으로 감사실에 찌른다"</div>
+                        </div>
+                    </button>
+                    <button class="type-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left font-bold text-xs flex items-center gap-2 cursor-pointer transition-all" data-type="privacy">
+                        <span>🕵️</span>
+                        <div>
+                            <div>사적 정보 요구 / 스토킹형</div>
+                            <div class="text-[10px] opacity-80 font-normal">"너 퇴근 어디로 해? 주민번호 대!"</div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Emergency Beeper Sound Button -->
+                <button id="beep-btn" class="mt-4 py-3 rounded-2xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-all">
+                    <span class="material-symbols-outlined text-base text-rose-400">mic</span>
+                    <span>통화 녹음 경고 비프음 재생</span>
+                </button>
+            </div>
+
+            <!-- Right: Scripts & 4-7-8 Breathing (2 cols) -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                <!-- Script Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-rose-500 text-lg">verified_user</span>
+                            <span id="script-title">폭언 대응 3단계 표준 스크립트</span>
+                        </h3>
+                        <button id="copy-script-btn" class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white text-xs font-bold transition-all flex items-center gap-1 cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">content_copy</span>
+                            <span id="copy-script-text">스크립트 복사</span>
+                        </button>
+                    </div>
+
+                    <div id="script-container" class="space-y-3">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- 4-7-8 Breathing Pacer (Mental Recovery) -->
+                <div class="bg-gradient-to-br from-teal-50 to-sky-50 dark:from-slate-900 dark:to-teal-950/30 border border-teal-200 dark:border-teal-900/50 rounded-3xl p-6 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <!-- Animated Breathing Circle -->
+                        <div id="breathe-circle" class="w-16 h-16 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-xs transition-all duration-1000 shadow-lg shadow-teal-500/20">
+                            들숨
+                        </div>
+                        <div>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">4-7-8 심호흡 멘탈 회복기</div>
+                            <div id="breathe-instruction" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">4초 들이마시고, 7초 멈추고, 8초 내쉬세요.</div>
+                        </div>
+                    </div>
+                    <button id="breathe-toggle-btn" class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold cursor-pointer transition-all">
+                        호흡 가이드 시작
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="defense.js"></script>
+</body>
+</html>

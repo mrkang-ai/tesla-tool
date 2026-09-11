@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="군대 관등성명 초음속 반사속도 측정기 - TeslaTool" data-lang-en="Military Reaction Speed Test - TeslaTool">군대 관등성명 초음속 반사속도 측정기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#eab308' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-yellow-500/20">
+          <i class="fa-solid fa-bolt"></i> CAT-04 / No.32
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="⚡ 군대 관등성명 초음속 반사속도 측정기" data-lang-en="⚡ Rank & Name Reaction Speed Test">⚡ 군대 관등성명 초음속 반사속도 측정기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="선임의 불시 '야!' 부름에 0.1초 만에 관등성명 복창! 당신의 군기 레벨(ms) 측정" data-lang-en="Test your reaction time responding to a surprise call from senior officers">
+          선임의 불시 '야!' 부름에 0.1초 만에 관등성명 복창! 당신의 군기 레벨(ms) 측정
+        </p>
+      </div>
+    </div>
+
+    <!-- Big Interactive Arena -->
+    <div id="testArena" class="w-full h-80 rounded-2xl bg-slate-800 border-2 border-slate-700 flex flex-col items-center justify-center p-6 text-center cursor-pointer select-none transition-colors shadow-2xl relative">
+      <div id="arenaIcon" class="text-5xl mb-3 text-slate-500">
+        🪖
+      </div>
+      <h2 id="arenaTitle" class="text-xl sm:text-2xl font-black text-slate-200">
+        화면을 클릭하여 훈련을 시작하세요
+      </h2>
+      <p id="arenaDesc" class="text-xs text-slate-400 mt-2">
+        화면이 <b class="text-yellow-400">노란색</b>으로 바뀌고 "야!" 소리가 나는 순간 즉시 클릭하세요!
+      </p>
+    </div>
+
+    <!-- Result & Rank History -->
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-center">
+      <div class="p-4 bg-slate-800/80 rounded-xl border border-slate-700">
+        <span class="text-slate-400 block text-[10px]">최근 반응 속도</span>
+        <span id="recentScore" class="text-2xl font-black font-mono text-yellow-400 mt-1 block">--- ms</span>
+      </div>
+      <div class="p-4 bg-slate-800/80 rounded-xl border border-slate-700">
+        <span class="text-slate-400 block text-[10px]">판정 군기 등급</span>
+        <span id="gradeDisplay" class="text-sm font-bold text-slate-300 mt-2 block">측정 대기 중</span>
+      </div>
+      <div class="p-4 bg-slate-800/80 rounded-xl border border-slate-700">
+        <span class="text-slate-400 block text-[10px]">최고 기록</span>
+        <span id="bestScore" class="text-2xl font-black font-mono text-emerald-400 mt-1 block">--- ms</span>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="reaction.js"></script>
+</body>
+</html>

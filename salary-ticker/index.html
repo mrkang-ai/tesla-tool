@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="실시간 연봉 시급화 & 응가 머니 계산기 - 온라인 도구모음" data-lang-en="Realtime Salary Ticker & Poop Pay - Online Toolkit">실시간 연봉 시급화 & 응가 머니 계산기 - 온라인 도구모음</title>
+    <meta name="description" content="1초마다 내 계좌에 쌓이는 급여를 실시간으로 확인하세요. 화장실에 앉아있는 동안 번 돈(응가 머니) 측정기 탑재.">
+    <link rel="canonical" href="https://tossgpt.online/salary-ticker/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
+                <span>💼 K-직장인 생존 키트</span>
+                <span>•</span>
+                <span>CAT-01 No.03</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                실시간 연봉 시급화 & 응가 머니 계산기
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                내가 멍때리고 숨만 쉬어도 1초마다 통장에 돈이 꽂힙니다. 노동의 고통을 실시간 금융 치료 숫자로 치유해 드립니다.
+            </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-700/60 relative overflow-hidden flex flex-col items-center text-center gap-4">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">
+                ⚡ 오늘 출근 이후 실시간 획득 급여
+            </span>
+
+            <div class="flex items-baseline gap-2 font-mono my-2">
+                <span class="text-2xl sm:text-4xl text-emerald-400 font-bold">₩</span>
+                <span id="earned-today" class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white drop-shadow-[0_4px_25px_rgba(16,185,129,0.35)]">
+                    0.00
+                </span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl pt-4 border-t border-slate-700/80 text-xs">
+                <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
+                    <div class="text-slate-400 mb-1">초당 급여</div>
+                    <div id="rate-sec" class="text-emerald-400 font-bold font-mono text-sm">₩ 0.00 / 초</div>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
+                    <div class="text-slate-400 mb-1">분당 급여</div>
+                    <div id="rate-min" class="text-emerald-400 font-bold font-mono text-sm">₩ 0 / 분</div>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
+                    <div class="text-slate-400 mb-1">시급 (통상 기준)</div>
+                    <div id="rate-hour" class="text-emerald-400 font-bold font-mono text-sm">₩ 0 / 시</div>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
+                    <div class="text-slate-400 mb-1">일급 (8시간)</div>
+                    <div id="rate-day" class="text-emerald-400 font-bold font-mono text-sm">₩ 0 / 일</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6">
+            <h3 class="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">tune</span>
+                <span>급여 및 근무 조건 설정</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-400">연봉 (세전, 원 단위)</label>
+                    <div class="relative">
+                        <input type="number" id="salary-input" value="42000000" step="1000000" class="w-full pl-4 pr-12 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono focus:ring-1 focus:ring-primary">
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-slate-400">원</span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-400">출근 시간</label>
+                    <input type="time" id="work-start" value="09:00" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono focus:ring-1 focus:ring-primary">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-400">퇴근 시간</label>
+                    <input type="time" id="work-end" value="18:00" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono focus:ring-1 focus:ring-primary">
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-xs text-slate-400 font-semibold">연봉 프리셋:</span>
+                <button class="salary-chip px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer" data-sal="32000000">3,200만</button>
+                <button class="salary-chip px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer" data-sal="42000000">4,200만</button>
+                <button class="salary-chip px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer" data-sal="55000000">5,500만</button>
+                <button class="salary-chip px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer" data-sal="70000000">7,000만</button>
+                <button class="salary-chip px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer" data-sal="100000000">1억</button>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-900 dark:to-amber-950/30 border border-amber-200 dark:border-amber-900/50 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-4xl shadow-inner">
+                    💩
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <span>합법적 화장실 타임 (응가 머니 계산기)</span>
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                        화장실 갈 때 시작 버튼을 누르세요. 볼일을 보는 동안 회사가 나에게 준 합법적 수익을 측정합니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+                <div class="text-center sm:text-right">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">이번 화장실 수익</div>
+                    <div id="poop-money" class="text-2xl sm:text-3xl font-black font-mono text-amber-600 dark:text-amber-400">
+                        ₩ 0
+                    </div>
+                    <div id="poop-timer" class="text-xs font-mono text-slate-400">00:00</div>
+                </div>
+
+                <button id="poop-btn" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-extrabold text-sm shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 cursor-pointer transition-all">
+                    <span class="material-symbols-outlined text-lg">timer</span>
+                    <span id="poop-btn-text">화장실 출발!</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="ticker.js"></script>
+</body>
+</html>

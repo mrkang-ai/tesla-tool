@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>보이지 않는 숨은 소 찾기 | Find The Invisible Cow - TossGPT</title>
+  <meta name="description" content="화면 어딘가에 투명하게 숨겨진 소를 소리의 음량과 빈도에만 의존해 찾아내는 중독성 오디오 게임입니다.">
+  <link rel="canonical" href="https://tossgpt.online/invisible-cow/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-headphones"></i>
+        <span>소리 기반 탐색 게임</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-emerald-400">보이지 않는 숨은 소 찾기</h1>
+      <p class="text-slate-400 text-sm">마우스를 움직여보세요! 소에게 가까워질수록 "음메~" 소리가 급박하고 커집니다!</p>
+    </div>
+
+    <!-- Game Arena -->
+    <div id="cowArena" class="w-full h-[420px] bg-slate-900 rounded-3xl border-2 border-slate-800 shadow-2xl relative cursor-crosshair flex items-center justify-center overflow-hidden">
+      <div id="soundRadar" class="text-xs font-mono text-slate-500">마우스를 화면 위에서 움직이세요...</div>
+      <div id="foundCow" class="hidden absolute text-7xl animate-bounce">
+        🐮
+      </div>
+    </div>
+
+    <button id="startCowBtn" class="mt-6 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black rounded-xl text-base shadow-lg transition-all">
+      게임 시작 (오디오 활성화)
+    </button>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="cow.js"></script>
+</body>
+</html>

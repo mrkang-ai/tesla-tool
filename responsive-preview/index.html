@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 뷰포트 프리뷰어 | Responsive Viewport Tester - TossGPT</title>
+  <meta name="description" content="iPhone, Galaxy, iPad 태블릿 크기로 반응형 웹사이트를 실시간 테스트하고 화면 비율을 확인합니다.">
+  <link rel="canonical" href="https://tossgpt.online/responsive-preview/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <span>반응형 웹 UI 테스트</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">반응형 뷰포트 프리뷰어</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">다양한 기기 규격으로 뷰포트를 실시간 전환해 레이아웃을 검증하세요.</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="w-full bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <button class="device-btn active px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold text-xs" data-w="390" data-h="650">iPhone 15 (390px)</button>
+        <button class="device-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 font-bold text-xs" data-w="412" data-h="650">Galaxy S24 (412px)</button>
+        <button class="device-btn px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 font-bold text-xs" data-w="768" data-h="650">iPad Mini (768px)</button>
+      </div>
+      <span class="text-xs font-mono text-slate-400">현재 너비: <strong id="currWidth" class="text-blue-500">390px</strong></span>
+    </div>
+
+    <!-- Preview Frame Container -->
+    <div class="w-full flex justify-center overflow-x-auto pb-6">
+      <div id="previewFrame" class="bg-white dark:bg-slate-950 border-4 border-slate-800 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 flex flex-col" style="width: 390px; height: 580px;">
+        <!-- Mock Status Bar -->
+        <div class="h-6 bg-slate-900 text-white flex justify-between items-center px-4 text-[10px] font-mono select-none">
+          <span>09:41</span>
+          <div class="flex items-center gap-1">
+            <i class="fa-solid fa-wifi"></i>
+            <i class="fa-solid fa-battery-full"></i>
+          </div>
+        </div>
+        <!-- Mock Browser Content -->
+        <div class="flex-grow p-4 overflow-y-auto space-y-4">
+          <div class="h-32 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 p-4 text-white flex flex-col justify-end">
+            <div class="font-black text-lg">모바일 반응형 테스트</div>
+            <div class="text-xs opacity-80">다양한 화면 크기에서 카드가 적응합니다.</div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="h-20 bg-slate-100 dark:bg-slate-800 rounded-lg p-3 text-xs font-bold">콘텐츠 블록 1</div>
+            <div class="h-20 bg-slate-100 dark:bg-slate-800 rounded-lg p-3 text-xs font-bold">콘텐츠 블록 2</div>
+          </div>
+          <div class="h-28 bg-slate-100 dark:bg-slate-800 rounded-lg p-3 text-xs font-bold">와이드 피드 카드</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="viewport.js"></script>
+</body>
+</html>

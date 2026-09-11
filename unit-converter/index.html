@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>만능 단위 & 한국형 체감 환산기 | Universal Unit Converter - TossGPT</title>
+  <meta name="description" content="표준 단위(평, m², kg, lb)와 함께 '축구장 몇 개', '코끼리 몇 마리' 등 직관적인 체감 단위를 제공합니다.">
+  <link rel="canonical" href="https://tossgpt.online/unit-converter/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-ruler-combined"></i>
+        <span>생활 밀착형 환산기</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">만능 단위 & 한국형 체감 환산기</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">평(坪) ↔ 제곱미터(㎡) 및 한국 뉴스 단골 멘트 '축구장 몇 개 크기' 즉시 계산</p>
+    </div>
+
+    <!-- Converter Card -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 space-y-6">
+      <!-- Area: Pyung vs m2 -->
+      <div>
+        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">면적 (아파트 / 토지)</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold mb-1">평수 (坪)</label>
+            <input type="number" id="areaPyung" value="34" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold text-base">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold mb-1">제곱미터 (㎡)</label>
+            <input type="number" id="areaM2" value="112.4" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 font-bold text-base">
+          </div>
+        </div>
+        <div id="footballText" class="mt-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+          ⚽ 국제 축구장(7,140㎡)의 약 0.016배 크기입니다.
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="converter.js"></script>
+</body>
+</html>

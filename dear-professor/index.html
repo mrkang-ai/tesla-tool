@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="교수님 심기 경호 이메일 빌더 - TeslaTool" data-lang-en="Dear Professor Email Builder - TeslaTool">교수님 심기 경호 이메일 빌더 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-indigo-500/20">
+          <i class="fa-solid fa-envelope-circle-check"></i> CAT-03 / No.26
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="✉️ 교수님 심기 경호 이메일 빌더" data-lang-en="✉️ Dear Professor Email Builder">✉️ 교수님 심기 경호 이메일 빌더</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="성적 정정, 공결 신청, 면담 요청 등 답장률 100%를 보장하는 극존칭 맞춤 메일 양식기" data-lang-en="Craft respectful, well-structured emails to professors for grade disputes, excused absences, and office hours">
+          성적 정정, 공결 신청, 면담 요청 등 답장률 100%를 보장하는 극존칭 맞춤 메일 양식기
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Input Left -->
+      <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-pen-nib"></i> 기본 신원 및 용건 설정
+        </h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">용건 선택</label>
+          <select id="emailPurpose" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="grade">성적 문의 및 피드백 요청 (성적 정정)</option>
+            <option value="absence">질병/경조사 공결 증빙 제출</option>
+            <option value="meeting">연구실 면담 및 진로 상담 요청</option>
+            <option value="late">과제 제출 지연 양해 및 제출</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">교수님 존함</label>
+            <input type="text" id="profName" value="김교수" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">수강 과목명</label>
+            <input type="text" id="courseName" value="데이터구조 (화/목 2분반)" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">내 학과/학번</label>
+            <input type="text" id="myDept" value="컴퓨터공학과 20241234" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">내 이름</label>
+            <input type="text" id="myName" value="홍길동" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">교수님 성향 톤앤매너</label>
+          <select id="toneType" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="fm">FM 원칙주의형 (군더더기 없이 두괄식 핵심 보고)</option>
+            <option value="warm">자상한 멘토형 (감사와 수업 배움 강조)</option>
+            <option value="busy">초특급 바쁜 연구형 (초단문 불릿 3줄)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">추가 상세 사유</label>
+          <input type="text" id="detailReason" value="기말고사 3번 알고리즘 문항 채점 부분 점수 관련" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+        </div>
+
+        <button id="genEmailBtn" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-indigo-500/20">
+          메일 완벽 생성하기 📨
+        </button>
+      </div>
+
+      <!-- Result Right -->
+      <div class="lg:col-span-7 bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+          <span class="text-xs font-bold text-slate-400">제목: <span id="emailSubject" class="text-indigo-300 font-mono">[데이터구조] 컴퓨터공학과 20241234 홍길동 기말고사 성적 확인 문의의 건</span></span>
+          <button id="copyEmailBtn" class="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-xs transition">
+            전체 복사
+          </button>
+        </div>
+
+        <div id="emailBody" class="flex-1 min-h-[360px] bg-slate-900 rounded-lg p-4 text-xs font-serif leading-relaxed text-slate-200 overflow-y-auto whitespace-pre-wrap border border-slate-700/80">
+          <!-- Dynamic generated email body -->
+        </div>
+
+        <p class="text-[11px] text-slate-400">
+          💡 Tip: 메일 제목에 <b>[과목명/학번/이름/용건]</b>을 명시하지 않으면 교수님 스팸함으로 직행할 확률이 80%입니다.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="professor.js"></script>
+</body>
+</html>

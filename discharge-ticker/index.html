@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="초정밀 전역일 & 복무율 실시간 소수점 티커 - TeslaTool" data-lang-en="Military Discharge Percent Ticker - TeslaTool">초정밀 전역일 & 복무율 실시간 소수점 티커 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#22c55e' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
+          <i class="fa-solid fa-person-military-rifle"></i> CAT-04 / No.31
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🎖️ 초정밀 전역일 & 복무율 실시간 소수점 티커" data-lang-en="🎖️ Military Discharge Realtime Ticker">🎖️ 초정밀 전역일 & 복무율 실시간 소수점 티커</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="소수점 7자리까지 실시간 1초 단위로 올라가는 복무 진행률 HUD & 남은 짬밥 그릇 수 계산기" data-lang-en="Track military service progress down to 7 decimal places in real-time with remaining barracks meal counters">
+          소수점 7자리까지 실시간 1초 단위로 올라가는 복무 진행률 HUD & 남은 짬밥 그릇 수 계산기
+        </p>
+      </div>
+      <div>
+        <span id="rankBadge" class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold font-mono">
+          계급: 상병 4호봉
+        </span>
+      </div>
+    </div>
+
+    <!-- Main HUD Card -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-700 text-center space-y-6 shadow-2xl">
+      <div class="flex justify-center items-center gap-2 text-xs font-bold text-slate-400">
+        <i class="fa-solid fa-clock-rotate-left text-emerald-400"></i>
+        <span>실시간 복무 달성률 (Military Progress)</span>
+      </div>
+
+      <!-- Mega Decimal Counter -->
+      <div id="percentDisplay" class="text-4xl sm:text-6xl font-mono font-black text-emerald-400 tracking-wider">
+        68.4918234%
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-full bg-slate-900 rounded-full h-4 overflow-hidden border border-slate-700">
+        <div id="progressBar" class="bg-emerald-500 h-full w-[68%] transition-all duration-300"></div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-700">
+          <span class="text-slate-400 block text-[10px]">남은 복무 일수</span>
+          <span id="daysLeft" class="text-lg font-mono font-bold text-slate-100">172 일</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-700">
+          <span class="text-slate-400 block text-[10px]">남은 짬밥 끼니 수</span>
+          <span id="mealsLeft" class="text-lg font-mono font-bold text-amber-400">516 끼</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-700">
+          <span class="text-slate-400 block text-[10px]">남은 불침번/당직 횟수</span>
+          <span id="guardLeft" class="text-lg font-mono font-bold text-indigo-400">약 42 회</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-700">
+          <span class="text-slate-400 block text-[10px]">국방부 시계 속도</span>
+          <span class="text-lg font-mono font-bold text-emerald-400">1.00x 정상</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="mt-6 bg-slate-800/80 rounded-xl p-5 border border-slate-700">
+      <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">입대 및 전역일 설정</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div>
+          <label class="block text-slate-300 mb-1">군종 선택</label>
+          <select id="branchType" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="18">육군 / 해병대 (18개월)</option>
+            <option value="20">해군 (20개월)</option>
+            <option value="21">공군 / 사회복무요원 (21개월)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-slate-300 mb-1">입대일</label>
+          <input type="date" id="enlistDate" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+        </div>
+        <div>
+          <label class="block text-slate-300 mb-1">전역 예정일</label>
+          <input type="date" id="dischargeDate" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="ticker.js"></script>
+</body>
+</html>

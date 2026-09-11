@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="영수증 N빵 & 정중한 송금 독촉장 - 온라인 도구모음" data-lang-en="Dutch Pay & Polite Chaser - Online Toolkit">영수증 N빵 & 정중한 송금 독촉장 - 온라인 도구모음</title>
+    <meta name="description" content="회식/모임 1/N 분할 계산과 단위 절사, 술 안 마신 사람 차등 정산. 돈 안 보내는 사람을 위한 정중하지만 뼈 때리는 카톡 송금 독촉장 생성.">
+    <link rel="canonical" href="https://tossgpt.online/dutch-pay-chaser/index.html">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 max-w-[1100px] w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-xs font-bold">
+                <span>💼 K-직장인 생존 키트</span>
+                <span>•</span>
+                <span>CAT-01 No.06</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                영수증 N빵 분할 & 정중한 송금 독촉장
+            </h1>
+            <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
+                총대 메고 계산한 총무님들을 위한 구원투수! 절사 단위 맞춤 N빵과 돈 안 보내는 사람을 위한 정중하지만 뼈 때리는 카카오톡 독촉 멘트를 생성합니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Left: Settings Form -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-5">
+                <h3 class="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">receipt_long</span>
+                    <span>정산 기본 정보 입력</span>
+                </h3>
+
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-600 dark:text-slate-400">총 결제 금액 (원)</label>
+                    <input type="number" id="total-amount" value="84000" step="1000" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-lg font-black font-mono focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-600 dark:text-slate-400">총 참석 인원 (명)</label>
+                        <input type="number" id="people-count" value="4" min="1" max="50" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono">
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-600 dark:text-slate-400">단위 절사 옵션</label>
+                        <select id="round-option" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                            <option value="1">1원 단위 그대로 (원 단위 정확)</option>
+                            <option value="100" selected>100원 단위 올림</option>
+                            <option value="1000">1,000원 단위 올림</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex flex-col gap-3">
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">특수 정산 조건</span>
+                    <div class="flex items-center justify-between text-xs">
+                        <span>술 안 마신 사람 (주류비 ₩24,000 제외)</span>
+                        <input type="number" id="non-drinkers" value="1" min="0" max="10" class="w-16 px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 font-mono text-center">
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span>총무 계좌번호 (입금처)</span>
+                        <input type="text" id="account-info" value="카카오뱅크 3333-XX-XXXXXX (홍길동)" class="w-56 px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-xs">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Receipt & Chaser Messages -->
+            <div class="flex flex-col gap-6">
+                <!-- Receipt Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4 font-mono">
+                    <div class="text-center pb-3 border-b border-dashed border-slate-300 dark:border-slate-700">
+                        <div class="text-sm font-black tracking-wider text-slate-900 dark:text-white">=== 깔끔 정산 영수증 ===</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">정산 일시: 2026-09-12</div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">총 결제액:</span>
+                            <span id="disp-total" class="font-bold">₩ 84,000</span>
+                        </div>
+                        <div class="flex justify-between text-emerald-600 dark:text-emerald-400 font-bold text-sm pt-1 border-t border-slate-200 dark:border-slate-700">
+                            <span>일반 참석자 (1인당):</span>
+                            <span id="disp-normal-per">₩ 23,000</span>
+                        </div>
+                        <div class="flex justify-between text-sky-600 dark:text-sky-400 font-bold text-xs">
+                            <span>술 안 마신 사람 (1인당):</span>
+                            <span id="disp-non-drinker-per">₩ 15,000</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-dashed border-slate-300 dark:border-slate-700 text-center text-xs text-slate-500">
+                        입금 계좌: <span id="disp-account" class="font-bold text-slate-800 dark:text-slate-200"></span>
+                    </div>
+                </div>
+
+                <!-- Chaser Message Generator -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">카톡 송금 독촉 톤앤매너:</span>
+                        <button id="copy-chaser-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold flex items-center gap-1 cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">content_copy</span>
+                            <span id="copy-chaser-text">메시지 복사</span>
+                        </button>
+                    </div>
+
+                    <div class="flex gap-2 text-xs font-bold" id="tone-btns">
+                        <button class="tone-btn active px-3 py-1.5 rounded-xl bg-primary text-white cursor-pointer" data-tone="polite">천사표 정중형</button>
+                        <button class="tone-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 cursor-pointer" data-tone="firm">칼같은 팩트형</button>
+                        <button class="tone-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 cursor-pointer" data-tone="funny">유쾌 애교형</button>
+                    </div>
+
+                    <textarea id="chaser-output" rows="5" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-sans leading-relaxed focus:outline-none" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../scripts/app.js" defer></script>
+    <script src="../language.js" defer></script>
+    <script src="dutch.js"></script>
+</body>
+</html>

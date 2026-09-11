@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투명인간 시뮬레이터 | Invisibility Simulator - TossGPT</title>
+  <meta name="description" content="카메라 앞에 서 있어도 아무도 당신을 보지 못하는 허무주의 투명인간 시뮬레이터입니다.">
+  <link rel="canonical" href="https://tossgpt.online/invisibility-sim/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold mb-3 border border-slate-700">
+        <i class="fa-solid fa-ghost"></i>
+        <span>완전 투명화 클로킹 시스템</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-cyan-300">투명인간 시뮬레이터</h1>
+      <p class="text-slate-400 text-sm">투명화 망토를 두르고 세상의 모든 시선에서 벗어나 보세요.</p>
+    </div>
+
+    <!-- Cloak Device -->
+    <div class="w-full bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col items-center justify-center min-h-[380px] shadow-2xl relative overflow-hidden text-center">
+      <div id="statusDot" class="w-4 h-4 rounded-full bg-slate-600 mb-4 transition-colors"></div>
+      <div id="cloakingField" class="text-8xl my-6 transition-all duration-700 filter drop-shadow">
+        👤
+      </div>
+      <h2 id="cloakStatus" class="text-2xl font-black text-slate-300 mb-2">투명화 모드 OFF (보통 인간)</h2>
+      <p id="cloakDesc" class="text-xs text-slate-500 max-w-md">지금은 모든 사람이 당신을 볼 수 있으며, 부장님의 눈빛을 피할 수 없습니다.</p>
+
+      <button id="toggleCloakBtn" class="mt-8 px-8 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-black rounded-xl text-base transition-all shadow-lg">
+        투명화 망토 켜기 (INVISIBILITY ON)
+      </button>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="invisible.js"></script>
+</body>
+</html>

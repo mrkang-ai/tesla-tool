@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>침대 속 5분 더 자기 양심 계산기 | 5 More Minutes in Bed Calculator - TossGPT</title>
+  <meta name="description" content="알람을 끄고 침대에서 5분, 10분 더 잘 때 발생하는 지각 확률과 택시비 지출액을 시뮬레이션합니다.">
+  <link rel="canonical" href="https://tossgpt.online/five-more-minutes/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-indigo-50/50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-10 max-w-3xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-bed"></i>
+        <span data-lang-ko="모닝 생존 & 지각 방지 계산기" data-lang-en="Morning Survival & Late Warning">모닝 생존 & 지각 방지 계산기</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2" data-lang-ko="침대 속 5분 더 자기 양심 계산기" data-lang-en="5 More Minutes in Bed Sickness Calculator">침대 속 5분 더 자기 양심 계산기</h1>
+      <p class="text-slate-600 dark:text-slate-400" data-lang-ko="'딱 5분만 더 잘까...?' 그 달콤한 유혹이 불러올 택시비 폭탄과 시말서 확률" data-lang-en="'Just 5 more minutes...?' Calculate the taxi bill & apology letter probability.">'딱 5분만 더 잘까...?' 그 달콤한 유혹이 불러올 택시비 폭탄과 시말서 확률</p>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-indigo-100 dark:border-slate-700 p-6 sm:p-8 mb-6">
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <i class="fa-regular fa-clock mr-1 text-indigo-500"></i> <span data-lang-ko="알람 끈 후 침대에서 비빈 시간 (분)" data-lang-en="Extra Minutes in Bed">알람 끈 후 침대에서 비빈 시간 (분)</span>: <span id="snoozeDisplay" class="text-indigo-600 font-extrabold text-lg">15분</span>
+          </label>
+          <input type="range" id="snoozeMinutes" min="0" max="60" step="5" value="15" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+          <div class="flex justify-between text-xs text-slate-400 mt-1">
+            <span>칼기상 (0분)</span>
+            <span>15분</span>
+            <span>30분</span>
+            <span>45분</span>
+            <span>지각 확정 (60분)</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1" data-lang-ko="출근/등교 정상 소요시간" data-lang-en="Standard Commute Time">출근/등교 정상 소요시간</label>
+            <select id="normalCommute" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm font-medium">
+              <option value="30">30분 이내 (가까움)</option>
+              <option value="50" selected>50분 (수도권 평균)</option>
+              <option value="80">80분 이상 (장거리 통근러)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1" data-lang-ko="비상 탈출 수단 (택시 가능 여부)" data-lang-en="Emergency Transit Mode">비상 탈출 수단 (택시 가능 여부)</label>
+            <select id="transport" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm font-medium">
+              <option value="taxi">카카오택시 호출 (돈으로 시간 사기)</option>
+              <option value="subway">대중교통 전력질주 (뜀박질)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Simulation Result -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+        <span data-lang-ko="침대 속 대가 시뮬레이션 결과" data-lang-en="Consequences of Your Sleep">침대 속 대가 시뮬레이션 결과</span>
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 text-center">
+        <div class="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/40">
+          <div class="text-xs text-rose-700 dark:text-rose-400 font-semibold" data-lang-ko="지각 확률" data-lang-en="Late Probability">지각 확률</div>
+          <div id="lateProb" class="text-3xl font-black text-rose-600 dark:text-rose-400 mt-1">68%</div>
+        </div>
+        <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40">
+          <div class="text-xs text-amber-700 dark:text-amber-400 font-semibold" data-lang-ko="예상 택시비 지출" data-lang-en="Estimated Taxi Cost">예상 택시비 지출</div>
+          <div id="costLoss" class="text-3xl font-black text-amber-600 dark:text-amber-400 mt-1">18,500원</div>
+        </div>
+        <div class="p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/40">
+          <div class="text-xs text-indigo-700 dark:text-indigo-400 font-semibold" data-lang-ko="생존 전략 단계" data-lang-en="Survival Tier">생존 전략 단계</div>
+          <div id="survivalTier" class="text-2xl font-black text-indigo-600 dark:text-indigo-400 mt-1">물세수 3초컷</div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 space-y-2">
+        <div class="font-bold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+          <i class="fa-solid fa-bullhorn text-indigo-500"></i>
+          <span data-lang-ko="양심의 소리 & 비상 행동 강령" data-lang-en="Voice of Conscience & Action Order">양심의 소리 & 비상 행동 강령</span>
+        </div>
+        <p id="actionGuide" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed"></p>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="minutes.js"></script>
+</body>
+</html>

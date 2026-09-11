@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>휘발성 자동저장 미니멀 메모장 | Ephemeral Scratchpad - TossGPT</title>
+  <meta name="description" content="브라우저 로컬 스토리지에 실시간 자동 보존되며 .txt 다운로드를 지원하는 초경량 미니멀 메모장입니다.">
+  <link rel="canonical" href="https://tossgpt.online/ephemeral-notepad/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl flex flex-col">
+    <!-- Toolbar -->
+    <div class="flex justify-between items-center mb-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span id="saveStatus" class="text-xs font-semibold text-slate-400">자동 저장됨</span>
+      </div>
+      <div class="flex gap-2">
+        <button id="downloadBtn" class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 text-xs font-bold hover:bg-slate-300 transition-colors">
+          <i class="fa-solid fa-file-arrow-down mr-1"></i> .txt 다운로드
+        </button>
+        <button id="clearBtn" class="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300 text-xs font-bold hover:bg-rose-200 transition-colors">
+          <i class="fa-solid fa-trash mr-1"></i> 전체 비우기
+        </button>
+      </div>
+    </div>
+
+    <!-- Minimal Editor Canvas -->
+    <div class="flex-grow bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col min-h-[450px]">
+      <textarea id="noteContent" class="w-full flex-grow bg-transparent font-mono text-base resize-none focus:outline-none leading-relaxed" placeholder="여기에 자유롭게 메모하세요. 입력하는 즉시 브라우저에 자동 저장됩니다..."></textarea>
+      <div class="text-right text-xs text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-700">
+        글자 수: <span id="textLength" class="font-bold">0</span>자
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="notepad.js"></script>
+</body>
+</html>

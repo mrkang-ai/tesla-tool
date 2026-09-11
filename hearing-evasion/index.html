@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="국회 청문회 답변 회피술 생성기 - TeslaTool" data-lang-en="Hearing Evasion Generator - TeslaTool">국회 청문회 답변 회피술 생성기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#e11d48' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-gavel"></i> CAT-02 / No.19
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🏛️ 국정감사·청문회 답변 회피술 생성기" data-lang-en="🏛️ Hearing Evasion & Defense Generator">🏛️ 국정감사·청문회 답변 회피술 생성기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="수사 중 회피, 기억 상실, 서면 보고, 종합 검토 등 4대 공직 철벽 방어 매뉴얼 & 의사봉 사운드" data-lang-en="Ironclad defense response generator for congressional hearings with authentic wooden gavel sounds">
+          수사 중 회피, 기억 상실, 서면 보고, 종합 검토 등 4대 공직 철벽 방어 매뉴얼 & 의사봉 사운드
+        </p>
+      </div>
+      <div>
+        <button id="gavelBtn" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold text-xs rounded-xl shadow-lg transition flex items-center gap-2">
+          <i class="fa-solid fa-gavel"></i> 의사봉 3타 (쾅! 쾅! 쾅!)
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Simulator Box -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl space-y-6">
+      <div>
+        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1"></i> 국회의원/위원장의 송곳 같은 질의 입력
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="questionInput" value="증인, 2024년도 특별활동비 5억 원을 영수증 없이 집행한 의혹에 대해 국민 앞에 소명하십시오!" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          <button id="presetQBtn" class="px-3 bg-slate-700 hover:bg-slate-600 text-xs rounded-xl text-slate-300 transition">
+            질의 예시
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Defensive Styles Selector -->
+      <div>
+        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">회피 기제 (Defense Strategy)</label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button class="strat-btn p-3 rounded-xl border border-rose-500 bg-rose-500/20 text-rose-300 text-xs font-bold transition flex flex-col items-center gap-1.5" data-strat="investigation">
+            <i class="fa-solid fa-scale-balanced text-base"></i>
+            <span>수사 중 회피형</span>
+          </button>
+          <button class="strat-btn p-3 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-400 hover:text-slate-200 text-xs font-bold transition flex flex-col items-center gap-1.5" data-strat="amnesia">
+            <i class="fa-solid fa-brain text-base"></i>
+            <span>기억 부재형</span>
+          </button>
+          <button class="strat-btn p-3 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-400 hover:text-slate-200 text-xs font-bold transition flex flex-col items-center gap-1.5" data-strat="written">
+            <i class="fa-solid fa-envelope-open-text text-base"></i>
+            <span>서면 보고형</span>
+          </button>
+          <button class="strat-btn p-3 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-400 hover:text-slate-200 text-xs font-bold transition flex flex-col items-center gap-1.5" data-strat="review">
+            <i class="fa-solid fa-arrows-spin text-base"></i>
+            <span>종합 검토형</span>
+          </button>
+        </div>
+      </div>
+
+      <button id="evadeBtn" class="w-full py-3.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-rose-600/30 flex items-center justify-center gap-2">
+        <i class="fa-solid fa-shield-virus"></i> 철벽 회피 답변 생성 & 발언
+      </button>
+
+      <!-- Answer Output -->
+      <div class="bg-slate-900 rounded-xl p-5 border border-slate-700 relative">
+        <div class="flex justify-between items-center mb-3">
+          <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-microphone-lines"></i> 증인(기관장) 증언대 발언문
+          </span>
+          <button id="copyAnswerBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded border border-slate-700 transition">
+            <i class="fa-regular fa-copy mr-1"></i> 답변 복사
+          </button>
+        </div>
+        <div id="evasionText" class="text-sm sm:text-base leading-relaxed text-slate-100 font-serif whitespace-pre-wrap">
+존경하는 의원님의 질의에 답변드리겠습니다. 현재 해당 사안은 사법 당국에서 법과 원칙에 따라 엄중한 조사가 진행 중인 것으로 알고 있습니다. 제가 이 자리에서 개별적인 사실관계를 구체적으로 언급하는 것은 향후 수사와 재판에 예단을 줄 우려가 있어 말씀드리기 극히 곤란함을 혜량하여 주시기 바랍니다.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="evasion.js"></script>
+</body>
+</html>

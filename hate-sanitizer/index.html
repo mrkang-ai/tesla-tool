@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="악플 정화 마법 필터 - TeslaTool" data-lang-en="Hate Comment Sanitizer Filter - TeslaTool">악플 정화 마법 필터 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#a855f7' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-purple-500/20">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> CAT-05 / No.49
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🌸 악플 정화 마법 필터 (멘탈 케어)" data-lang-en="🌸 Hate Comment Sanitizer Filter">🌸 악플 정화 마법 필터 (멘탈 케어)</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="상처 주는 악플과 비난을 '츤데레 애정 공세' 및 '꽃밭 문장'으로 실시간 정화 변환" data-lang-en="Instantly transform toxic internet hate comments into tsundere love declarations and flowers">
+          상처 주는 악플과 비난을 '츤데레 애정 공세' 및 '꽃밭 문장'으로 실시간 정화 변환
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <label class="text-xs font-bold text-slate-300">보기 싫은 거친 악플 입력</label>
+        <textarea id="hateIn" class="flex-1 min-h-[220px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-purple-500" placeholder="예: 이딴 걸 영상이라고 올렸냐? 개노잼이니까 때려쳐라 ㅉㅉ"></textarea>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center">
+          <label class="text-xs font-bold text-purple-400">정화된 힐링 꽃밭 문장 🌸</label>
+        </div>
+        <div id="sanitizedOut" class="flex-1 min-h-[220px] bg-purple-950/20 border border-purple-500/40 rounded-lg p-4 text-sm text-purple-200 font-serif leading-relaxed overflow-y-auto whitespace-pre-wrap flex items-center justify-center text-center">
+"당신의 다음 작품이 너무나도 기대되어 밤잠을 설친 나머지, 츤데레처럼 서툴게 사랑을 표현하고 갑니다! 언제나 응원해요 💖"
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="sanitize.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="프롬프트 인셉션 강화기 - TeslaTool" data-lang-en="Prompt Inception Supercharger - TeslaTool">프롬프트 인셉션 강화기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#6366f1' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-indigo-500/20">
+          <i class="fa-solid fa-microchip"></i> CAT-06 / No.51
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🧠 프롬프트 인셉션 강화기" data-lang-en="🧠 Prompt Inception Supercharger">🧠 프롬프트 인셉션 강화기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="단순 1줄 요청을 전문가 페르소나, 사고의 사슬(CoT), Few-shot이 장착된 마스터 프롬프트로 확장" data-lang-en="Supercharge simple 1-line requests into expert-grade prompts with Chain-of-Thought and persona framing">
+          단순 1줄 요청을 전문가 페르소나, 사고의 사슬(CoT), Few-shot이 장착된 마스터 프롬프트로 확장
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <label class="text-xs font-bold text-slate-300">단순 프롬프트 입력 (1줄)</label>
+        <textarea id="simpleIn" class="flex-1 min-h-[220px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="예: 파이썬으로 크롤러 만드는 법 알려줘"></textarea>
+        
+        <div class="space-y-2">
+          <label class="text-xs text-slate-400">페르소나 전문 영역</label>
+          <select id="personaType" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="tech">시니어 소프트웨어 아키텍트 (코드 최적화 & 베스트 프랙티스)</option>
+            <option value="marketing">글로벌 그로스 마케터 (전환율 & 바이럴 전략)</option>
+            <option value="academic">아이비리그 석학 교수 (논리적 정밀성 & 다각도 분석)</option>
+          </select>
+        </div>
+
+        <button id="enhanceBtn" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-indigo-500/20">
+          마스터 프롬프트로 강화하기 🚀
+        </button>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+          <span class="text-xs font-bold text-indigo-300 font-mono">강화된 프롬프트 (ChatGPT / Claude 즉시 투입)</span>
+          <button id="copyPromptBtn" class="text-xs px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded">복사</button>
+        </div>
+        <div id="enhancedOut" class="flex-1 min-h-[280px] bg-slate-900 rounded-lg p-4 text-xs font-mono leading-relaxed text-slate-200 overflow-y-auto whitespace-pre-wrap border border-slate-700/80">
+결과가 여기에 표시됩니다.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="enhancer.js"></script>
+</body>
+</html>

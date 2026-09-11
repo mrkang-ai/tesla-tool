@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="군대 계급별 멘탈 상태 시뮬레이터 - TeslaTool" data-lang-en="Military Rank Mindset Simulator - TeslaTool">군대 계급별 멘탈 상태 시뮬레이터 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#15803d' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-600/10 text-green-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-green-600/20">
+          <i class="fa-solid fa-ranking-star"></i> CAT-04 / No.36
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🪖 군대 계급별 멘탈 상태 인터랙티브 토이" data-lang-en="🪖 Military Rank Mindset Simulator">🪖 군대 계급별 멘탈 상태 인터랙티브 토이</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="이병(군기 100%)부터 병장(누워서 숨만 쉼), 전문하사의 유혹까지 계급별 심리 & 명대사 탐험" data-lang-en="Explore the psychological progression from stressed recruit to invincible lazy sergeant">
+          이병(군기 100%)부터 병장(누워서 숨만 쉼), 전문하사의 유혹까지 계급별 심리 & 명대사 탐험
+        </p>
+      </div>
+    </div>
+
+    <!-- Rank Selector Buttons -->
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-6">
+      <button class="rank-btn p-3 rounded-xl border border-green-500 bg-green-600/20 text-green-300 text-xs font-bold transition flex flex-col items-center gap-1" data-rank="private">
+        <span class="text-lg">🥉</span>
+        <span>이등병 (1호봉)</span>
+      </button>
+      <button class="rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex flex-col items-center gap-1" data-rank="corporal1">
+        <span class="text-lg">🥈</span>
+        <span>일등병 (실세 직전)</span>
+      </button>
+      <button class="rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex flex-col items-center gap-1" data-rank="corporal2">
+        <span class="text-lg">🥇</span>
+        <span>상등병 (중대 실세)</span>
+      </button>
+      <button class="rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex flex-col items-center gap-1" data-rank="sergeant">
+        <span class="text-lg">👑</span>
+        <span>병장 (말년 신선)</span>
+      </button>
+      <button class="rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex flex-col items-center gap-1" data-rank="nco">
+        <span class="text-lg">⚡</span>
+        <span>전문하사 (파국의 길)</span>
+      </button>
+    </div>
+
+    <!-- Interactive Character Card -->
+    <div class="bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl space-y-6">
+      <div class="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-700">
+        <div id="rankAvatar" class="w-28 h-28 rounded-2xl bg-gradient-to-tr from-green-900 to-slate-900 border-2 border-green-500/50 flex items-center justify-center text-5xl shadow-lg">
+          😳
+        </div>
+        <div class="flex-1 text-center sm:text-left space-y-2">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <h2 id="rankTitle" class="text-xl sm:text-2xl font-black text-slate-100">이등병 (Private)</h2>
+            <span id="rankBadge" class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold">긴장도 100%</span>
+          </div>
+          <p id="rankCatchphrase" class="text-sm font-bold text-amber-300 font-serif">
+            "이병! 홍! 길! 동! 잘못 들었습니다?!"
+          </p>
+          <p id="rankDesc" class="text-xs text-slate-400 leading-relaxed">
+            숨 쉬는 것조차 선임의 눈치를 봄. 걸을 때 직각보행, 관등성명 자동 발사. 국방부 시계가 영원히 멈춘 것 같은 착각에 빠짐.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gauges -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 bg-slate-900 rounded-xl border border-slate-700 space-y-2">
+          <div class="flex justify-between font-bold">
+            <span class="text-slate-400">군기 (Strictness)</span>
+            <span id="statStrict" class="text-rose-400 font-mono">100%</span>
+          </div>
+          <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+            <div id="barStrict" class="bg-rose-500 h-full w-full transition-all duration-500"></div>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-900 rounded-xl border border-slate-700 space-y-2">
+          <div class="flex justify-between font-bold">
+            <span class="text-slate-400">짬바 & 노하우 (Savvy)</span>
+            <span id="statSavvy" class="text-amber-400 font-mono">5%</span>
+          </div>
+          <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+            <div id="barSavvy" class="bg-amber-500 h-full w-[5%] transition-all duration-500"></div>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-900 rounded-xl border border-slate-700 space-y-2">
+          <div class="flex justify-between font-bold">
+            <span class="text-slate-400">신체 자유도 (Freedom)</span>
+            <span id="statFreedom" class="text-emerald-400 font-mono">2%</span>
+          </div>
+          <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+            <div id="barFreedom" class="bg-emerald-500 h-full w-[2%] transition-all duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="rankmind.js"></script>
+</body>
+</html>

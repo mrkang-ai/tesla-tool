@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>은하 제국 세무서 가상 세금 계산기 | Galactic Tax Assessor - TossGPT</title>
+  <meta name="description" content="산소 소비세, 지구 중력 이용료, 태양광 광자 독점세를 은하 크레딧으로 청구하는 영수증 발급기입니다.">
+  <link rel="canonical" href="https://tossgpt.online/galactic-tax/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-mono">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-receipt"></i>
+        <span>GALACTIC EMPIRE REVENUE SERVICE</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-amber-400">은하 제국 국세청 고지서 발급기</h1>
+      <p class="text-slate-400 text-sm font-sans">당신이 지구에서 숨 쉬고 살아가는 동안 체납된 은하 제국 세금을 정산합니다.</p>
+    </div>
+
+    <!-- Receipt Card -->
+    <div class="w-full max-w-md bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-6 shadow-2xl relative">
+      <div class="text-center border-b border-dashed border-slate-700 pb-3 mb-4">
+        <div class="text-base font-black text-amber-300">은하 제국 제7외곽구역 세금 고지서</div>
+        <div class="text-xs text-slate-400">납세자: 행성 지구(Sol-3) 거주 생명체</div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="flex justify-between">
+          <span>대기 산소 무단 흡입세 (28년치)</span>
+          <span class="font-bold text-amber-400">42,000 GC</span>
+        </div>
+        <div class="flex justify-between">
+          <span>지구 중력 가속도(9.8m/s²) 사용료</span>
+          <span class="font-bold text-amber-400">18,500 GC</span>
+        </div>
+        <div class="flex justify-between">
+          <span>태양 광자(Photon) 비인가 수신세</span>
+          <span class="font-bold text-amber-400">31,000 GC</span>
+        </div>
+        <div class="flex justify-between border-t border-slate-700 pt-2 font-bold text-sm">
+          <span>총 체납액 합계:</span>
+          <span class="text-rose-400 text-base">91,500 은하 크레딧</span>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-dashed border-slate-700 text-[11px] text-slate-400 text-center font-sans">
+        미납 시 다음 달부터 지구의 자전이 5분간 정지될 수 있습니다.
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="tax.js"></script>
+</body>
+</html>

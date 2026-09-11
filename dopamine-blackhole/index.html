@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="디지털 도파민 디톡스 블랙홀 - TeslaTool" data-lang-en="Dopamine Detox Black Hole - TeslaTool">디지털 도파민 디톡스 블랙홀 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0f172a' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-black text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-800 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-slate-700">
+          <i class="fa-solid fa-circle"></i> CAT-06 / No.60 (AI & 테크 피날레)
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🕳️ 디지털 도파민 디톡스 블랙홀" data-lang-en="🕳️ Dopamine Detox Black Hole">🕳️ 디지털 도파민 디톡스 블랙홀</h1>
+        <p class="text-slate-500 text-sm mt-1" data-lang-ko="마우스와 화면을 단 1mm도 건드리지 않고 칠흑 같은 어둠 속에서 뇌를 비우는 침묵 타이머" data-lang-en="Do nothing and touch nothing in total darkness to reset your overstimulated brain">
+          마우스와 화면을 단 1mm도 건드리지 않고 칠흑 같은 어둠 속에서 뇌를 비우는 침묵 타이머
+        </p>
+      </div>
+    </div>
+
+    <!-- Blackhole Arena -->
+    <div id="blackholeArena" class="w-full h-96 rounded-3xl bg-black border border-slate-900 flex flex-col items-center justify-center text-center p-8 transition-colors select-none shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+      <div id="holeDot" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 transition-all duration-1000 mb-4"></div>
+      <h2 id="holeStatus" class="text-xl font-mono text-slate-600">준비: 아래 버튼을 누르면 시작됩니다</h2>
+      <p id="timerSec" class="text-4xl font-mono font-black text-slate-500 mt-2">00:00</p>
+    </div>
+
+    <div class="flex justify-center mt-6">
+      <button id="startHoleBtn" class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl border border-slate-700 transition">
+        디톡스 블랙홀 진입 (5분 침묵)
+      </button>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="blackhole.js"></script>
+</body>
+</html>

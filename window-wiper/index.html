@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김 서린 유리창 닦기 클리너 | Foggy Window Wiper - TossGPT</title>
+  <meta name="description" content="겨울철 버스나 카페 창문처럼 김이 서린 뿌연 유리창을 손가락으로 닦아내면 숨겨진 풍경이 드러나는 감성 토이입니다.">
+  <link rel="canonical" href="https://tossgpt.online/window-wiper/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col select-none">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950 text-sky-300 border border-sky-800 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-droplet"></i>
+        <span>겨울 감성 힐링 토이</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-sky-300">김 서린 유리창 닦기 클리너</h1>
+      <p class="text-slate-400 text-sm">마우스나 손가락으로 뽀얗게 서린 김을 슥슥 문질러 닦아보세요.</p>
+    </div>
+
+    <div class="w-full flex justify-end mb-2">
+      <button id="refogBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-bold transition-colors">
+        <i class="fa-solid fa-wind mr-1"></i> 다시 입김 불기 (김 서리기)
+      </button>
+    </div>
+
+    <!-- Window Canvas Container -->
+    <div class="w-full h-[450px] relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800 flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517849845537-4d257902454a?w=1000&auto=format&fit=crop');">
+      <canvas id="fogCanvas" class="absolute inset-0 w-full h-full cursor-pointer"></canvas>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="wiper.js"></script>
+</body>
+</html>

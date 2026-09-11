@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="인스타그램 감성 줄글 캡션 생성기 - TeslaTool" data-lang-en="Instagram Aesthetic Caption Generator - TeslaTool">인스타그램 감성 줄글 캡션 생성기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#ec4899' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-pink-500/20">
+          <i class="fa-brands fa-instagram"></i> CAT-05 / No.41
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="☕ 인스타그램 감성 카페 줄글 캡션 생성기" data-lang-en="☕ Instagram Aesthetic Caption Generator">☕ 인스타그램 감성 카페 줄글 캡션 생성기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="무채색 이모지, 성수·을지로 감성 시적 줄바꿈, 찰나의 순간을 담아내는 무드 캡션 빌더" data-lang-en="Generate moody, poetic aesthetic Instagram captions with minimalist monochrome emojis">
+          무채색 이모지, 성수·을지로 감성 시적 줄바꿈, 찰나의 순간을 담아내는 무드 캡션 빌더
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Options Left -->
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-pink-400 uppercase tracking-wider">감성 톤앤매너 설정</h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">오늘의 감성 무드</label>
+          <select id="moodSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+            <option value="rainy">비 오는 날의 온기 (LP판, 빗소리, 드립커피)</option>
+            <option value="hip">성수동 힙스터 (무채색 콘크리트, 에스프레소)</option>
+            <option value="dawn">새벽 세 시의 몽환 (고독, 푸른 밤, 헤드폰)</option>
+            <option value="weekend">느긋한 주말 오후 (햇살 한 조각, 식물)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">장소 / 오브젝트 키워드</label>
+          <input type="text" id="placeInput" value="성수 어느 골목, 필터 커피" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+        </div>
+
+        <button id="genCaptionBtn" class="w-full py-2.5 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-pink-600/20">
+          감성 캡션 추출하기 ✨
+        </button>
+      </div>
+
+      <!-- Preview Right -->
+      <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+          <span class="text-xs font-bold text-pink-300 font-mono">인스타 피드 캡션 미리보기</span>
+          <button id="copyCaptionBtn" class="text-xs px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded">
+            복사
+          </button>
+        </div>
+
+        <div id="captionOutput" class="flex-1 min-h-[220px] bg-slate-900 rounded-lg p-3 text-xs leading-relaxed text-slate-200 font-serif overflow-y-auto whitespace-pre-wrap border border-slate-700/80">
+비 내리는 소리가 조용히 골목을 채우던 오후.
+유리창에 맺힌 온기와 쌉싸름한 드립 커피 한 잔.
+
+우리가 지나쳐온 수많은 계절 속에서
+가장 다정했던 어떤 찰나.
+
+☕️ 🕯️ 🌫️
+#mood #daily #성수어느골목 #filtercoffee
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="caption.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모기 박멸 가상 초음파 퇴치기 | Anti-Mosquito Frequency Toy - TossGPT</title>
+  <meta name="description" content="16kHz~20kHz 초음파 주파수와 분노의 전기 파리채 사운드로 여름철 모기를 박멸하는 사운드 토이입니다.">
+  <link rel="canonical" href="https://tossgpt.online/mosquito-frequency/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex flex-col items-center">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-900/40 text-red-300 text-xs font-semibold mb-3">
+        <i class="fa-solid fa-mosquito"></i>
+        <span>여름철 해충 박멸 사운드 랩</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-red-400">모기 퇴치 초음파 & 전기 파리채</h1>
+      <p class="text-slate-400 text-sm">17.4kHz 고주파 사운드와 통쾌한 전기 감전 '치지직!' 사운드 토이</p>
+    </div>
+
+    <!-- Swatter Arena -->
+    <div class="w-full bg-slate-800 rounded-3xl border border-red-500/30 p-8 flex flex-col items-center justify-center min-h-[360px] shadow-2xl relative mb-6">
+      <div id="buzzingMosquito" class="text-6xl cursor-pointer select-none transition-transform hover:scale-125 mb-6">
+        🦟
+      </div>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button id="zapBtn" class="px-6 py-3.5 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-black rounded-xl text-base shadow-lg transition-all flex items-center gap-2">
+          <i class="fa-solid fa-bolt"></i> 전기 파리채 스윙 (치직!)
+        </button>
+        <button id="ultraBtn" class="px-6 py-3.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-base transition-all flex items-center gap-2">
+          <i class="fa-solid fa-wave-square"></i> 17.4kHz 초음파 재생
+        </button>
+      </div>
+
+      <div class="mt-6 text-xs text-slate-400 font-mono">
+        퇴치한 모기 수: <span id="zapCount" class="text-red-400 font-bold text-lg">0</span>마리
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="mosquito.js"></script>
+</body>
+</html>

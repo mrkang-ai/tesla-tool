@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="팀플 무임승차 빌런 판독기 - TeslaTool" data-lang-en="Free-Rider Villain Detector - TeslaTool">팀플 무임승차 빌런 판독기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#f43f5e' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-rose-500/20">
+          <i class="fa-solid fa-bus-simple"></i> CAT-03 / No.22
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🚌 대학 팀플 무임승차 빌런 판독기" data-lang-en="🚌 Free-Rider Villain Detector">🚌 대학 팀플 무임승차 빌런 판독기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="카톡 읽씹, 나무위키 복붙, 발표 전날 잠수 등 10대 빌런 행태 판독 & 교수님 제출용 기여도 산출표" data-lang-en="Detect team project parasites & generate objective contribution reports for professor submission">
+          카톡 읽씹, 나무위키 복붙, 발표 전날 잠수 등 10대 빌런 행태 판독 & 교수님 제출용 기여도 산출표
+        </p>
+      </div>
+      <div>
+        <span id="villainBadge" class="px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold">
+          빌런 지수: 분석 대기
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Config -->
+      <div class="lg:col-span-6 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-user-secret"></i> 의심 팀원 정보 및 행태 체크
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">의심 팀원 이름/별칭</label>
+            <input type="text" id="targetName" value="김버스" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs font-bold text-slate-200">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">담당 파트</label>
+            <input type="text" id="targetRole" value="자료 조사 및 PPT 초안" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+          </div>
+        </div>
+
+        <div class="space-y-2" id="villainBehaviors">
+          <!-- 10 checkboxes -->
+        </div>
+
+        <button id="diagnoseBtn" class="w-full py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-rose-600/20">
+          빌런 심판 및 리포트 발행 ⚖️
+        </button>
+      </div>
+
+      <!-- Right Output -->
+      <div class="lg:col-span-6 space-y-4">
+        <!-- Result summary box -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 text-center">
+          <span class="text-xs text-slate-400 uppercase font-bold">기여도 판정 결과</span>
+          <div id="contribScore" class="text-4xl sm:text-5xl font-black font-mono text-rose-400 my-2">
+            기여도 5% (무임승차 확정)
+          </div>
+          <p id="villainType" class="text-xs font-bold text-amber-300">
+            [보스급 버스 승객] "숨만 쉬고 이름만 올리는 기생충형"
+          </p>
+        </div>
+
+        <!-- Professor Submit Report -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <i class="fa-solid fa-file-invoice text-cyan-400"></i> 교수님 제출용 기여도 산출 소명서
+            </h3>
+            <button id="copyProfBtn" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-200 transition">
+              복사
+            </button>
+          </div>
+          <textarea id="profReport" rows="8" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs leading-relaxed font-mono text-slate-300 focus:outline-none" readonly></textarea>
+        </div>
+
+        <!-- Groupchat Notice -->
+        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <i class="fa-solid fa-comment-dots text-emerald-400"></i> 단톡방 정중한 손절 통보문
+            </h3>
+            <button id="copyChatBtn" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-[11px] rounded text-slate-200 transition">
+              복사
+            </button>
+          </div>
+          <div id="chatNotice" class="bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs text-slate-300 font-mono">
+            <!-- notice text -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="rider.js"></script>
+</body>
+</html>

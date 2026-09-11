@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="밀리터리 24시간제 & 줄루 타임(Zulu) 변환기 - TeslaTool" data-lang-en="Military Zulu Time Converter - TeslaTool">밀리터리 24시간제 & 줄루 타임(Zulu) 변환기 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#22c55e' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
+          <i class="fa-solid fa-compass"></i> CAT-04 / No.37
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🧭 밀리터리 24시간제 & 줄루 타임(Zulu) 변환기" data-lang-en="🧭 Military 24h & Zulu Time Converter">🧭 밀리터리 24시간제 & 줄루 타임(Zulu) 변환기</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="작전 표준시 Zulu(UTC 0), 한국군 KST(Item 타임), 24시간제 군용 레이더 컴파스 시계" data-lang-en="Convert standard time to Military 24-hour format and NATO phonetic Zulu/India timezones">
+          작전 표준시 Zulu(UTC 0), 한국군 KST(Item 타임), 24시간제 군용 레이더 컴파스 시계
+        </p>
+      </div>
+    </div>
+
+    <!-- Green Radar Style Clock Display -->
+    <div class="bg-slate-950 rounded-2xl p-6 sm:p-8 border border-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.15)] text-center space-y-6">
+      <div class="flex justify-center items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>TACTICAL RADAR CLOCK (GRID ACTIVE)</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left font-mono">
+        <!-- Zulu UTC -->
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30 space-y-1">
+          <span class="text-[11px] text-emerald-400 font-bold block">ZULU TIME (UTC +0 / Z)</span>
+          <div id="zuluClock" class="text-3xl sm:text-4xl font-black text-emerald-300">
+            1547Z HRS
+          </div>
+          <span class="text-[10px] text-slate-400 block">국제 연합작전 표준 작전시</span>
+        </div>
+
+        <!-- Local KST / India -->
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30 space-y-1">
+          <span class="text-[11px] text-emerald-400 font-bold block">LOCAL KST (UTC +9 / INDIA)</span>
+          <div id="kstClock" class="text-3xl sm:text-4xl font-black text-emerald-300">
+            0047I HRS
+          </div>
+          <span class="text-[10px] text-slate-400 block">대한민국 표준 군용 24시간제</span>
+        </div>
+      </div>
+
+      <!-- NATO Phonetic Callout -->
+      <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-300 font-mono">
+        <span class="text-emerald-400 font-bold">음성 교신 발음법:</span> <span id="phoneticReadout">Zero-Zero-Four-Seven Hours India</span>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="zulu.js"></script>
+</body>
+</html>

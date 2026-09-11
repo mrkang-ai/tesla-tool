@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MBTI 극단 궁합 & 파국 시뮬레이터 | MBTI Clash & Chem Simulator - TossGPT</title>
+  <meta name="description" content="두 MBTI가 함께 여행을 가거나 프로젝트를 할 때 30분 만에 싸우는 이유와 생존 팁을 시뮬레이션합니다.">
+  <link rel="canonical" href="https://tossgpt.online/mbti-clash/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 text-sm font-medium mb-3">
+        <i class="fa-solid fa-heart-crack"></i>
+        <span data-lang-ko="MBTI 극단 궁합 & 파국 시뮬레이터" data-lang-en="MBTI Clash & Chem Simulator">MBTI 극단 궁합 & 파국 시뮬레이터</span>
+      </div>
+      <h1 class="text-3xl font-extrabold mb-2" data-lang-ko="두 성격의 운명적 충돌과 생존 팁" data-lang-en="Destructive Clashes & Survival Tips of 2 MBTIs">두 성격의 운명적 충돌과 생존 팁</h1>
+      <p class="text-slate-600 dark:text-slate-400" data-lang-ko="여행, 조별과제, 동거 시 30분 만에 멱살 잡는 이유와 화해 치트키" data-lang-en="Why you fight within 30 minutes on trips/team projects, and reconciliation cheat codes.">여행, 조별과제, 동거 시 30분 만에 멱살 잡는 이유와 화해 치트키</p>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <!-- Person A -->
+        <div class="bg-pink-50 dark:bg-pink-950/30 p-5 rounded-xl border border-pink-200 dark:border-pink-800/40 text-center">
+          <label class="block text-sm font-bold text-pink-700 dark:text-pink-300 mb-2">
+            <i class="fa-solid fa-user"></i> <span data-lang-ko="인물 A (나)" data-lang-en="Person A (You)">인물 A (나)</span>
+          </label>
+          <select id="mbtiA" class="w-full text-center text-xl font-bold bg-white dark:bg-slate-800 border border-pink-300 dark:border-pink-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+            <option value="INTJ">INTJ (용의주도한 전략가)</option>
+            <option value="INTP">INTP (논리적인 사색가)</option>
+            <option value="ENTJ">ENTJ (대담한 통솔자)</option>
+            <option value="ENTP">ENTP (뜨거운 논쟁가)</option>
+            <option value="INFJ">INFJ (선의의 옹호자)</option>
+            <option value="INFP" selected>INFP (열정적인 중재자)</option>
+            <option value="ENFJ">ENFJ (정의로운 사회운동가)</option>
+            <option value="ENFP">ENFP (재기발랄한 활동가)</option>
+            <option value="ISTJ">ISTJ (청렴결백한 논리주의자)</option>
+            <option value="ISFJ">ISFJ (용감한 수호자)</option>
+            <option value="ESTJ">ESTJ (엄격한 관리자)</option>
+            <option value="ESFJ">ESFJ (사교적인 외교관)</option>
+            <option value="ISTP">ISTP (만능 재주꾼)</option>
+            <option value="ISFP">ISFP (호기심 많은 예술가)</option>
+            <option value="ESTP">ESTP (모험을 즐기는 사업가)</option>
+            <option value="ESFP">ESFP (자유로운 영혼의 연예인)</option>
+          </select>
+        </div>
+
+        <!-- Person B -->
+        <div class="bg-indigo-50 dark:bg-indigo-950/30 p-5 rounded-xl border border-indigo-200 dark:border-indigo-800/40 text-center">
+          <label class="block text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2">
+            <i class="fa-solid fa-user-group"></i> <span data-lang-ko="인물 B (상대방)" data-lang-en="Person B (Partner)">인물 B (상대방)</span>
+          </label>
+          <select id="mbtiB" class="w-full text-center text-xl font-bold bg-white dark:bg-slate-800 border border-indigo-300 dark:border-indigo-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="INTJ">INTJ (용의주도한 전략가)</option>
+            <option value="INTP">INTP (논리적인 사색가)</option>
+            <option value="ENTJ">ENTJ (대담한 통솔자)</option>
+            <option value="ENTP">ENTP (뜨거운 논쟁가)</option>
+            <option value="INFJ">INFJ (선의의 옹호자)</option>
+            <option value="INFP">INFP (열정적인 중재자)</option>
+            <option value="ENFJ">ENFJ (정의로운 사회운동가)</option>
+            <option value="ENFP">ENFP (재기발랄한 활동가)</option>
+            <option value="ISTJ" selected>ISTJ (청렴결백한 논리주의자)</option>
+            <option value="ISFJ">ISFJ (용감한 수호자)</option>
+            <option value="ESTJ">ESTJ (엄격한 관리자)</option>
+            <option value="ESFJ">ESFJ (사교적인 외교관)</option>
+            <option value="ISTP">ISTP (만능 재주꾼)</option>
+            <option value="ISFP">ISFP (호기심 많은 예술가)</option>
+            <option value="ESTP">ESTP (모험을 즐기는 사업가)</option>
+            <option value="ESFP">ESFP (자유로운 영혼의 연예인)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Situation Choice -->
+      <div class="mt-5">
+        <label class="block text-sm font-semibold mb-2" data-lang-ko="시뮬레이션 상황 선택" data-lang-en="Simulation Scenario">시뮬레이션 상황 선택</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button class="scene-btn active py-2.5 px-3 rounded-lg border border-pink-500 bg-pink-50 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 font-bold text-sm" data-scene="trip">
+            <i class="fa-solid fa-plane-departure mr-1"></i> <span data-lang-ko="3박4일 해외여행" data-lang-en="Overseas Trip">3박4일 해외여행</span>
+          </button>
+          <button class="scene-btn py-2.5 px-3 rounded-lg border border-slate-300 dark:border-slate-600 font-medium text-sm hover:border-pink-400" data-scene="team">
+            <i class="fa-solid fa-laptop-code mr-1"></i> <span data-lang-ko="대학 조별과제 / 업무" data-lang-en="Team Project">대학 조별과제 / 업무</span>
+          </button>
+          <button class="scene-btn py-2.5 px-3 rounded-lg border border-slate-300 dark:border-slate-600 font-medium text-sm hover:border-pink-400" data-scene="cohabit">
+            <i class="fa-solid fa-house-user mr-1"></i> <span data-lang-ko="룸메이트 & 동거" data-lang-en="Roommates / Living">룸메이트 & 동거</span>
+          </button>
+        </div>
+      </div>
+
+      <button id="simulateBtn" class="w-full mt-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-lg">
+        <i class="fa-solid fa-bolt"></i> <span data-lang-ko="파국 지수 & 충돌 원인 시뮬레이션" data-lang-en="Simulate Clash & Disaster Index">파국 지수 & 충돌 원인 시뮬레이션</span>
+      </button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultCard" class="hidden bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
+      <div class="flex flex-col md:flex-row items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-5 mb-5 gap-4">
+        <div>
+          <div class="text-sm font-semibold text-slate-500" data-lang-ko="두 성격의 충돌 관계도" data-lang-en="Relationship Dynamics">두 성격의 충돌 관계도</div>
+          <h2 id="relTitle" class="text-2xl font-black text-rose-600 dark:text-rose-400 mt-1">극단적 상극: 기름과 물</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <div class="text-xs text-slate-500 font-medium" data-lang-ko="파국 확률" data-lang-en="Disaster Rate">파국 확률</div>
+            <div id="dangerScore" class="text-3xl font-black text-rose-500">89%</div>
+          </div>
+          <div class="w-16 h-16 rounded-full border-4 border-rose-500 flex items-center justify-center text-xl font-black text-rose-500 bg-rose-50 dark:bg-rose-950/40">
+            ⚠️
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+          <h3 class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-fire text-amber-500"></i>
+            <span data-lang-ko="싸움이 터지는 결정적 순간 (30분 컷)" data-lang-en="The Boiling Point (Within 30 Mins)">싸움이 터지는 결정적 순간 (30분 컷)</span>
+          </h3>
+          <p id="fightReason" class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm"></p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-pink-50 dark:bg-pink-950/30 border border-pink-200 dark:border-pink-800/40">
+            <h4 class="font-bold text-pink-700 dark:text-pink-300 text-sm mb-1">
+              <span id="nameA">A</span> 입장의 속마음
+            </h4>
+            <p id="innerA" class="text-slate-700 dark:text-slate-300 text-xs leading-relaxed italic"></p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/40">
+            <h4 class="font-bold text-indigo-700 dark:text-indigo-300 text-sm mb-1">
+              <span id="nameB">B</span> 입장의 속마음
+            </h4>
+            <p id="innerB" class="text-slate-700 dark:text-slate-300 text-xs leading-relaxed italic"></p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40">
+          <h3 class="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-2 mb-1.5 text-sm">
+            <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+            <span data-lang-ko="화해 & 생존 치트키 가이드" data-lang-en="Reconciliation & Survival Cheat Code">화해 & 생존 치트키 가이드</span>
+          </h3>
+          <p id="cheatCode" class="text-slate-700 dark:text-slate-300 text-xs leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="clash.js"></script>
+</body>
+</html>

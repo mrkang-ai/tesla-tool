@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네온 파티클 분수 캔버스 | Neon Particle Fountain - TossGPT</title>
+  <meta name="description" content="마우스 궤적을 따라 화면 가득 화려하게 쏟아져 내리는 물리 엔진 인터랙티브 네온 파티클 아트입니다.">
+  <link rel="canonical" href="https://tossgpt.online/neon-particle/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-black text-slate-100 min-h-screen flex flex-col select-none overflow-hidden">
+  <div id="header"></div>
+  <main class="flex-grow flex flex-col relative">
+    <div class="absolute top-4 left-0 right-0 text-center pointer-events-none z-10">
+      <h1 class="text-2xl font-black text-white drop-shadow">네온 파티클 분수 캔버스</h1>
+      <p class="text-xs text-slate-400">마우스를 움직이거나 터치하여 네온 분수를 뿜어보세요.</p>
+    </div>
+    <canvas id="particleCanvas" class="w-full h-full flex-grow cursor-crosshair"></canvas>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="particle.js"></script>
+</body>
+</html>

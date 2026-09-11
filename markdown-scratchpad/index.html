@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>라이브 마크다운 스크래치패드 | Live Markdown Scratchpad - TossGPT</title>
+  <meta name="description" content="실시간 마크다운 렌더링, GitHub 스타일 서식, HTML 미리보기 및 다운로드를 지원하는 스크래치패드입니다.">
+  <link rel="canonical" href="https://tossgpt.online/markdown-scratchpad/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+  <div id="header"></div>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium mb-3">
+        <i class="fa-brands fa-markdown"></i>
+        <span>문서 작성 & 렌더링 도구</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2">라이브 마크다운(Markdown) 스크래치패드</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm">왼쪽에 마크다운을 입력하면 오른쪽에 실시간 렌더링 결과가 표시됩니다.</p>
+    </div>
+
+    <!-- Dual Pane -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-[550px]">
+      <!-- Editor -->
+      <div class="flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div class="bg-slate-100 dark:bg-slate-750 px-4 py-2 text-xs font-bold text-slate-500 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+          <span>MARKDOWN INPUT</span>
+          <span id="charCount">0자</span>
+        </div>
+        <textarea id="mdInput" class="flex-grow p-4 bg-transparent font-mono text-sm resize-none focus:outline-none" placeholder="# 제목을 입력하세요&#10;&#10;**굵은 글씨** 및 *기울임*, [링크](https://tossgpt.online) 지원!"></textarea>
+      </div>
+
+      <!-- Preview -->
+      <div class="flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div class="bg-slate-100 dark:bg-slate-750 px-4 py-2 text-xs font-bold text-slate-500 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+          <span>LIVE HTML PREVIEW</span>
+          <i class="fa-solid fa-eye text-emerald-500"></i>
+        </div>
+        <div id="mdPreview" class="flex-grow p-5 overflow-y-auto prose dark:prose-invert max-w-none text-sm leading-relaxed"></div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="scratchpad.js"></script>
+</body>
+</html>

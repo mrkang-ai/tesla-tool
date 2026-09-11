@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-ko="가짜 X(트위터) 실시간 트렌드 1위 렌더러 - TeslaTool" data-lang-en="Fake X Trending Topic Generator - TeslaTool">가짜 X(트위터) 실시간 트렌드 1위 렌더러 - TeslaTool</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#1d9bf0' } } } }
+  </script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-sky-500/20">
+          <i class="fa-brands fa-x-twitter"></i> CAT-05 / No.44
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🐦 가짜 X(트위터) 실시간 트렌드 1위 렌더러" data-lang-en="🐦 Fake X Realtime Trending Generator">🐦 가짜 X(트위터) 실시간 트렌드 1위 렌더러</h1>
+        <p class="text-slate-400 text-sm mt-1" data-lang-ko="내 이름, 최애, 반려동물을 대한민국 X(구 트위터) 실시간 트렌드 1위 화면으로 완벽 합성" data-lang-en="Render your name or favorite topic as #1 trending topic on Twitter/X in South Korea">
+          내 이름, 최애, 반려동물을 대한민국 X(구 트위터) 실시간 트렌드 1위 화면으로 완벽 합성
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Input Left -->
+      <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
+        <h2 class="text-xs font-bold text-sky-400 uppercase tracking-wider">실트 정보 입력</h2>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">실시간 트렌드 1위 키워드</label>
+          <input type="text" id="trendKeyword" value="우리집 고양이 츄르" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm font-bold text-sky-300">
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">가상 트윗 수 (예: 1.4M)</label>
+          <input type="text" id="tweetCount" value="1.8M Tweets" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 font-mono">
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">카테고리 분류</label>
+          <input type="text" id="trendCategory" value="대한민국에서 트렌드 중" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+        </div>
+      </div>
+
+      <!-- X Trending Box (Right) -->
+      <div class="lg:col-span-7 bg-black rounded-2xl p-5 border border-slate-800 shadow-2xl space-y-4 font-sans text-white">
+        <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+          <span class="text-base font-bold">나를 위한 트렌드</span>
+          <i class="fa-solid fa-gear text-slate-500"></i>
+        </div>
+
+        <!-- Trend Item #1 (Custom) -->
+        <div class="py-2 hover:bg-slate-900/50 rounded-lg transition px-2 cursor-pointer">
+          <div class="flex justify-between text-xs text-slate-500">
+            <span id="cardCategory">1 · 대한민국에서 트렌드 중</span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div id="cardKeyword" class="text-base font-bold text-white mt-0.5">
+            우리집 고양이 츄르
+          </div>
+          <div id="cardCount" class="text-xs text-slate-500 mt-0.5">
+            1.8M Tweets
+          </div>
+        </div>
+
+        <!-- Dummy Item 2 -->
+        <div class="py-2 hover:bg-slate-900/50 rounded-lg transition px-2">
+          <div class="flex justify-between text-xs text-slate-500">
+            <span>2 · 엔터테인먼트 · 트렌드</span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="text-base font-bold text-white mt-0.5">
+            #월요병_극복
+          </div>
+          <div class="text-xs text-slate-500 mt-0.5">
+            248K Tweets
+          </div>
+        </div>
+
+        <!-- Dummy Item 3 -->
+        <div class="py-2 hover:bg-slate-900/50 rounded-lg transition px-2">
+          <div class="flex justify-between text-xs text-slate-500">
+            <span>3 · 음악 · 트렌드</span>
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="text-base font-bold text-white mt-0.5">
+            신곡 티저 공개
+          </div>
+          <div class="text-xs text-slate-500 mt-0.5">
+            129K Tweets
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="trending.js"></script>
+</body>
+</html>

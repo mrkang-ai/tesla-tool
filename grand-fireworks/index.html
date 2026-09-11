@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대망의 100번째 도구: 피날레 3D 불꽃놀이 쇼 | Grand 100th Celebration Fireworks - TossGPT</title>
+  <meta name="description" content="100개 도구 대장정 완주를 기념하는 축하 3D 파티클 불꽃놀이 쇼와 승리의 팡파레입니다.">
+  <link rel="canonical" href="https://tossgpt.online/grand-fireworks/index.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col select-none overflow-hidden font-sans">
+  <div id="header"></div>
+  <main class="flex-grow flex flex-col relative items-center justify-center">
+    <canvas id="fireworksCanvas" class="absolute inset-0 w-full h-full cursor-pointer"></canvas>
+
+    <!-- Celebration Banner -->
+    <div class="relative z-10 text-center px-4 pointer-events-none">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-500 text-white font-extrabold text-sm mb-4 shadow-xl animate-pulse">
+        🏆 PROJECT 100 TOOLS COMPLETE 🏆
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black bg-gradient-to-r from-yellow-300 via-amber-400 to-rose-400 bg-clip-text text-transparent drop-shadow-[0_10px_30px_rgba(245,158,11,0.5)] mb-3">
+        100개 도구 대장정 100% 완주!
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto drop-shadow leading-relaxed mb-6">
+        직장인 생존부터 공공행정, Z세대, 밀리터리, SNS, AI테크, 심리, SF, 유틸, 킬링타임까지!<br>
+        화면을 자유롭게 클릭하여 축하 불꽃을 쏘아 올려보세요! 🎆
+      </p>
+      <div class="pointer-events-auto">
+        <a href="/" class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black rounded-2xl text-base shadow-2xl transition-all">
+          <i class="fa-solid fa-house"></i> 100개 도구 메인 포털 홈으로 가기
+        </a>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script src="../scripts/app.js"></script>
+  <script src="../language.js"></script>
+  <script src="fireworks.js"></script>
+</body>
+</html>
