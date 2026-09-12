@@ -148,30 +148,49 @@
                         </button>
                     </div>
 
-                    <!-- Category Filter Buttons -->
-                    <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="category-filter-bar">
+                    <!-- Category Filter Buttons: All 10 Groups + Games + Tests + Guides -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto w-full pb-1 scrollbar-thin" id="category-filter-bar">
                         <button data-filter="all" class="category-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-primary text-white shadow-sm cursor-pointer whitespace-nowrap">
-                            <span data-lang-ko="전체 (All)" data-lang-en="All">전체</span>
+                            <span data-lang-ko="🚀 전체 (100+ All)" data-lang-en="All 100+">🚀 전체 (100+ All)</span>
                         </button>
-                        <button data-filter="100tools" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-sky-50 to-indigo-50 dark:from-sky-950/60 dark:to-indigo-950/60 text-primary border border-sky-300 dark:border-sky-800 hover:bg-primary hover:text-white cursor-pointer whitespace-nowrap flex items-center gap-1.5 shadow-sm">
-                            <span>🚀</span>
-                            <span data-lang-ko="100대 도구" data-lang-en="100 Tools">100대 도구</span>
-                            <span class="px-1.5 py-0.2 rounded-full bg-emerald-500 text-white text-[10px] font-mono">10</span>
+                        <button data-filter="cat01" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            💼 <span>01. K-직장인</span>
                         </button>
-                        <button data-filter="productivity" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
-                            🛠️ <span data-lang-ko="생산성" data-lang-en="Productivity">생산성</span>
+                        <button data-filter="cat02" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🏛️ <span>02. 공직·행정</span>
                         </button>
-                        <button data-filter="decision" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
-                            🎲 <span data-lang-ko="결정·추첨" data-lang-en="Decision">결정·추첨</span>
+                        <button data-filter="cat03" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🎓 <span>03. 캠퍼스·Z</span>
                         </button>
-                        <button data-filter="games" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
-                            🕹️ <span data-lang-ko="게임" data-lang-en="Games">게임</span>
+                        <button data-filter="cat04" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🪖 <span>04. 밀리터리</span>
                         </button>
-                        <button data-filter="tests" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
-                            🧠 <span data-lang-ko="심리·바이럴 테스트" data-lang-en="Psychology Tests">심리·바이럴 테스트</span>
+                        <button data-filter="cat05" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            📱 <span>05. SNS·인플루언서</span>
                         </button>
-                        <button data-filter="guides" class="category-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
-                            📚 <span data-lang-ko="지식 가이드" data-lang-en="Guides">지식 가이드</span>
+                        <button data-filter="cat06" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🤖 <span>06. AI·테크</span>
+                        </button>
+                        <button data-filter="cat07" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🔮 <span>07. 심리·운명</span>
+                        </button>
+                        <button data-filter="cat08" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🛸 <span>08. SF·우주</span>
+                        </button>
+                        <button data-filter="cat09" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🛠️ <span>09. 생활 유틸</span>
+                        </button>
+                        <button data-filter="cat10" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🎮 <span>10. 긱·토이</span>
+                        </button>
+                        <button data-filter="games" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🎲 <span>미니 게임</span>
+                        </button>
+                        <button data-filter="tests" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            🧠 <span>심리 테스트</span>
+                        </button>
+                        <button data-filter="guides" class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 cursor-pointer whitespace-nowrap">
+                            📚 <span>지식 가이드</span>
                         </button>
                     </div>
                 </div>
@@ -331,10 +350,32 @@
                     </div>
                 </section>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4" id="tools-cards-grid">
+<div id="tools-groups-container" class="space-y-16 mt-8">
 
-                    <!-- [CAT-01 No.01] Stealth Excel Tab -->
-                    <a href="/stealth-excel/" data-category="100tools productivity" data-keywords="가짜 엑셀 몰컴 뷰어 직장인 딴짓 위장 패닉 스페이스바 stealth excel" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,124,65,0.1)] hover:shadow-[0_12px_32px_rgba(16,124,65,0.25)] transition-all duration-300 border border-emerald-100 dark:border-emerald-950/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-01: K-직장인 생존 키트 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat01" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat01">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">💼</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-01</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">K-직장인 생존 키트</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">눈치 빠른 칼퇴, 몰컴, 넵병 쿠션어, 법카 안분 등 대한민국 직장인의 생존을 위한 스마트 무기</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(0);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/stealth-excel/" data-category="100tools productivity cat01" data-keywords="가짜 엑셀 몰컴 뷰어 직장인 딴짓 위장 패닉 스페이스바 stealth excel" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,124,65,0.1)] hover:shadow-[0_12px_32px_rgba(16,124,65,0.25)] transition-all duration-300 border border-emerald-100 dark:border-emerald-950/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-400">table_view</span>
@@ -358,9 +399,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.02] Corporate Cushion Converter -->
-                    <a href="/corporate-cushion/" data-category="100tools productivity" data-keywords="넵병 탈출기 사회생활 쿠션어 번역기 직장인 속마음 정중함 corporate politeness" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/corporate-cushion/" data-category="100tools productivity cat01" data-keywords="넵병 탈출기 사회생활 쿠션어 번역기 직장인 속마음 정중함 corporate politeness" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-sky-600 to-indigo-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-sky-300">shield</span>
@@ -381,9 +420,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.03] Salary Ticker & Poop Pay -->
-                    <a href="/salary-ticker/" data-category="100tools productivity" data-keywords="실시간 연봉 시급화 응가 머니 계산기 화장실 타이머 salary ticker poop pay" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/salary-ticker/" data-category="100tools productivity cat01" data-keywords="실시간 연봉 시급화 응가 머니 계산기 화장실 타이머 salary ticker poop pay" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="text-4xl">💩 💸</span>
@@ -404,9 +441,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.04] Escape Office Clock -->
-                    <a href="/escape-office/" data-category="100tools productivity" data-keywords="칼퇴 카운트다운 비상 탈출 핑계 생성기 가짜 수신전화 벨소리 야근 방어 escape office" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/escape-office/" data-category="100tools productivity cat01" data-keywords="칼퇴 카운트다운 비상 탈출 핑계 생성기 가짜 수신전화 벨소리 야근 방어 escape office" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">alarm</span>
@@ -427,9 +462,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.05] Company Card Budget Optimizer -->
-                    <a href="/card-budget/" data-category="100tools productivity" data-keywords="법카 한도 맞춤형 식대 조합기 배낭 알고리즘 잔액 0원 점심 메뉴 company card budget" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/card-budget/" data-category="100tools productivity cat01" data-keywords="법카 한도 맞춤형 식대 조합기 배낭 알고리즘 잔액 0원 점심 메뉴 company card budget" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">credit_card</span>
@@ -450,9 +483,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.06] Dutch Pay & Polite Chaser -->
-                    <a href="/dutch-pay-chaser/" data-category="100tools productivity" data-keywords="영수증 N빵 분할 정중한 송금 독촉장 카톡 독촉 절사 dutch pay chaser" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/dutch-pay-chaser/" data-category="100tools productivity cat01" data-keywords="영수증 N빵 분할 정중한 송금 독촉장 카톡 독촉 절사 dutch pay chaser" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">receipt_long</span>
@@ -473,9 +504,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.07] Meeting Buzzword Extractor -->
-                    <a href="/meeting-buzzword/" data-category="100tools productivity" data-keywords="회의록 버즈워드 추출기 회의 불필요도 판독기 싱크 얼라인 캐치업 헛소리 meeting buzzword" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/meeting-buzzword/" data-category="100tools productivity cat01" data-keywords="회의록 버즈워드 추출기 회의 불필요도 판독기 싱크 얼라인 캐치업 헛소리 meeting buzzword" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">insights</span>
@@ -496,9 +525,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.08] Cold Email Diplomat -->
-                    <a href="/cold-email-diplomat/" data-category="100tools productivity" data-keywords="글로벌 비즈니스 영문 메일 톤 조절기 per my last email 독촉 거절 cold email diplomat" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/cold-email-diplomat/" data-category="100tools productivity cat01" data-keywords="글로벌 비즈니스 영문 메일 톤 조절기 per my last email 독촉 거절 cold email diplomat" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">mail</span>
@@ -519,9 +546,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.09] Fake OS Update Screen -->
-                    <a href="/fake-update/" data-category="100tools productivity" data-keywords="월급루팡 가짜 윈도우 맥 업데이트 화면 풀스크린 F11 fake update screen" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(2,132,199,0.08)] hover:shadow-[0_12px_32px_rgba(2,132,199,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/fake-update/" data-category="100tools productivity cat01" data-keywords="월급루팡 가짜 윈도우 맥 업데이트 화면 풀스크린 F11 fake update screen" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(2,132,199,0.08)] hover:shadow-[0_12px_32px_rgba(2,132,199,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-900 to-sky-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="material-symbols-outlined text-4xl text-sky-400 animate-spin">progress_activity</span>
@@ -542,9 +567,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-01 No.10] Presence Status Generator -->
-                    <a href="/presence-status/" data-category="100tools productivity" data-keywords="슬랙 잔디 일하는 척 상태메시지 생성기 메신저 presence status" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/presence-status/" data-category="100tools productivity cat01" data-keywords="슬랙 잔디 일하는 척 상태메시지 생성기 메신저 presence status" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-indigo-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1 z-10">
                                 <span class="text-3xl">🎧 📊 🤝</span>
@@ -565,9 +588,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-02 No.11] Official Document Converter -->
-                    <a href="/official-converter/" data-category="100tools productivity" data-keywords="공공기관 공문서 말투 변환기 기안문 개조식 한글 HWP official converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-02: 공직 & 행정 생존기 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat02" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat02">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🏛️</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-02</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">공직 & 행정 생존기</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">공공기관 기안문체, 민방위 연차, 보도자료, 의전 좌석 배치, 감사 대비 등 공직자 필수 도구</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(1);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/official-converter/" data-category="100tools productivity cat02" data-keywords="공공기관 공문서 말투 변환기 기안문 개조식 한글 HWP official converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">description</span>
@@ -588,9 +635,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.12] Civil Defense Calculator -->
-                    <a href="/civil-defense/" data-category="100tools productivity" data-keywords="민방위 예비군 연차 훈련 시간 자동 계산기 군대 civil defense" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/civil-defense/" data-category="100tools productivity cat02" data-keywords="민방위 예비군 연차 훈련 시간 자동 계산기 군대 civil defense" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">shield</span>
@@ -611,9 +656,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.13] Admin Vocabulary -->
-                    <a href="/admin-vocabulary/" data-category="100tools productivity" data-keywords="행정 용어 한자어 순화 퀴즈 사전 지양 조치 결재 직무 vocabulary" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/admin-vocabulary/" data-category="100tools productivity cat02" data-keywords="행정 용어 한자어 순화 퀴즈 사전 지양 조치 결재 직무 vocabulary" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">menu_book</span>
@@ -634,9 +677,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.14] Press Release Generator -->
-                    <a href="/press-release-gen/" data-category="100tools productivity" data-keywords="공식 보도자료 생성기 엠바고 공공기관 정부 배포 press release" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/press-release-gen/" data-category="100tools productivity cat02" data-keywords="공식 보도자료 생성기 엠바고 공공기관 정부 배포 press release" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-900 to-indigo-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-400">newspaper</span>
@@ -657,9 +698,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.15] Year-End Budget Burner -->
-                    <a href="/budget-burner/" data-category="100tools productivity" data-keywords="연말 불용액 털기 장바구니 예산 소진 배낭 알고리즘 품의서 사유서 budget burner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/budget-burner/" data-category="100tools productivity cat02" data-keywords="연말 불용액 털기 장바구니 예산 소진 배낭 알고리즘 품의서 사유서 budget burner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">shopping_cart</span>
@@ -680,9 +719,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.16] Pre-Audit Checklist -->
-                    <a href="/audit-checker/" data-category="100tools productivity" data-keywords="자체 감사 사전 점검 방어 12계명 법카 출장비 감사원 audit checker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/audit-checker/" data-category="100tools productivity cat02" data-keywords="자체 감사 사전 점검 방어 12계명 법카 출장비 감사원 audit checker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">verified_user</span>
@@ -703,9 +740,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.17] Report Page Adjuster -->
-                    <a href="/doc-page-adjuster/" data-category="100tools productivity" data-keywords="보고서 쪽수 마술사 분량 증폭 압축기 HWP 자간 장평 doc adjuster" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/doc-page-adjuster/" data-category="100tools productivity cat02" data-keywords="보고서 쪽수 마술사 분량 증폭 압축기 HWP 자간 장평 doc adjuster" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">auto_fix_high</span>
@@ -726,9 +761,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.18] Protocol Seating -->
-                    <a href="/protocol-seating/" data-category="100tools productivity" data-keywords="공공 의전 서열 좌석 배치도 시뮬레이터 1호차 헤드테이블 protocol seating" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/protocol-seating/" data-category="100tools productivity cat02" data-keywords="공공 의전 서열 좌석 배치도 시뮬레이터 1호차 헤드테이블 protocol seating" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">chair</span>
@@ -749,9 +782,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.19] Hearing Evasion -->
-                    <a href="/hearing-evasion/" data-category="100tools productivity" data-keywords="국정감사 청문회 답변 회피술 생성기 의사봉 사운드 hearing evasion" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(225,29,72,0.08)] hover:shadow-[0_12px_32px_rgba(225,29,72,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/hearing-evasion/" data-category="100tools productivity cat02" data-keywords="국정감사 청문회 답변 회피술 생성기 의사봉 사운드 hearing evasion" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(225,29,72,0.08)] hover:shadow-[0_12px_32px_rgba(225,29,72,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-900 to-slate-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-400">gavel</span>
@@ -772,9 +803,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-02 No.20] Closing Bell Timer -->
-                    <a href="/closing-bell-timer/" data-category="100tools productivity" data-keywords="17:59 악성 민원 방어 칼퇴 포커페이스 타이머 퇴근 팡파레 closing bell" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/closing-bell-timer/" data-category="100tools productivity cat02" data-keywords="17:59 악성 민원 방어 칼퇴 포커페이스 타이머 퇴근 팡파레 closing bell" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-700 to-teal-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">notifications_active</span>
@@ -795,9 +824,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-03 No.21] GPA Recovery -->
-                    <a href="/gpa-recovery/" data-category="100tools productivity" data-keywords="학점 세탁 재수강 계산기 졸업 평점 역산 대기업 장학금 gpa recovery" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-03: 캠퍼스 & Z/알파 세대 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat03" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat03">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🎓</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-03</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">캠퍼스 & Z/알파 세대</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">학점 복구, 조별과제 빌런 감지, 과제 분량 확장, 마감 패닉 HUD, 밈 번역기 등 대학생 생존 툴</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(2);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/gpa-recovery/" data-category="100tools productivity cat03" data-keywords="학점 세탁 재수강 계산기 졸업 평점 역산 대기업 장학금 gpa recovery" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">school</span>
@@ -818,9 +871,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.22] Free Rider Detector -->
-                    <a href="/free-rider-detector/" data-category="100tools productivity" data-keywords="대학 팀플 무임승차 빌런 판독기 기여도 보고서 조별과제 free rider" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/free-rider-detector/" data-category="100tools productivity cat03" data-keywords="대학 팀플 무임승차 빌런 판독기 기여도 보고서 조별과제 free rider" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">directions_bus</span>
@@ -841,9 +892,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.23] Deadline Panic HUD -->
-                    <a href="/deadline-panic/" data-category="100tools productivity" data-keywords="과제 마감 카운트다운 패닉 버튼 LMS 제출 지연 핑계 deadline panic" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/deadline-panic/" data-category="100tools productivity cat03" data-keywords="과제 마감 카운트다운 패닉 버튼 LMS 제출 지연 핑계 deadline panic" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-orange-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-orange-300">alarm_on</span>
@@ -864,9 +913,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.24] Gen Z & Alpha Slang -->
-                    <a href="/genz-slang/" data-category="100tools productivity" data-keywords="Z세대 알파세대 슬랭 밈 번역기 Skibidi Rizz 중꺾마 폼미쳤다 slang" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/genz-slang/" data-category="100tools productivity cat03" data-keywords="Z세대 알파세대 슬랭 밈 번역기 Skibidi Rizz 중꺾마 폼미쳤다 slang" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-pink-300">mood</span>
@@ -887,9 +934,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.25] Caffeine Limit -->
-                    <a href="/caffeine-limit/" data-category="100tools productivity" data-keywords="벼락치기 카페인 치사량 계산기 스누피 몬스터 아메리카노 손떨림 caffeine" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/caffeine-limit/" data-category="100tools productivity cat03" data-keywords="벼락치기 카페인 치사량 계산기 스누피 몬스터 아메리카노 손떨림 caffeine" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-yellow-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-yellow-300">coffee</span>
@@ -910,9 +955,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.26] Dear Professor Email -->
-                    <a href="/dear-professor/" data-category="100tools productivity" data-keywords="교수님 심기 경호 이메일 빌더 성적 정정 공결 신청 면담 dear professor" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/dear-professor/" data-category="100tools productivity cat03" data-keywords="교수님 심기 경호 이메일 빌더 성적 정정 공결 신청 면담 dear professor" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">mail</span>
@@ -933,9 +976,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.27] Academic Essay Expander -->
-                    <a href="/essay-expander/" data-category="100tools productivity" data-keywords="대학 레포트 만연체 단어 뻥튀기기 과제 분량 늘리기 essay expander" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(20,184,166,0.08)] hover:shadow-[0_12px_32px_rgba(20,184,166,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/essay-expander/" data-category="100tools productivity cat03" data-keywords="대학 레포트 만연체 단어 뻥튀기기 과제 분량 늘리기 essay expander" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(20,184,166,0.08)] hover:shadow-[0_12px_32px_rgba(20,184,166,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-teal-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-teal-300">article</span>
@@ -956,9 +997,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.28] Campus Lunch Roulette -->
-                    <a href="/campus-lunch/" data-category="100tools productivity" data-keywords="캠퍼스 지갑 잔고 연동 점심 룰렛 학식 편의점 마라탕 campus lunch" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/campus-lunch/" data-category="100tools productivity cat03" data-keywords="캠퍼스 지갑 잔고 연동 점심 룰렛 학식 편의점 마라탕 campus lunch" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-orange-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-orange-300">lunch_dining</span>
@@ -979,9 +1018,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.29] Commute Misery Index -->
-                    <a href="/commute-misery/" data-category="100tools productivity" data-keywords="대학생 통학 고통 지수 계산기 지옥철 왕복 버린 시간 commute misery" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/commute-misery/" data-category="100tools productivity cat03" data-keywords="대학생 통학 고통 지수 계산기 지옥철 왕복 버린 시간 commute misery" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-300">subway</span>
@@ -1002,9 +1039,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-03 No.30] Exam Ambience HUD -->
-                    <a href="/exam-hud/" data-category="100tools productivity" data-keywords="수능 공시 시험장 멘탈 훈련 백색소음 HUD 초침 소리 OMR timer exam hud" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/exam-hud/" data-category="100tools productivity cat03" data-keywords="수능 공시 시험장 멘탈 훈련 백색소음 HUD 초침 소리 OMR timer exam hud" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-800 to-indigo-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">headphones</span>
@@ -1025,9 +1060,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-04 No.31] Discharge Ticker -->
-                    <a href="/discharge-ticker/" data-category="100tools military" data-keywords="초정밀 전역일 복무율 실시간 소수점 티커 국방부 시계 짬밥 military ticker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-04: 밀리터리 & 국방 생존기 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat04" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat04">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🪖</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-04</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">밀리터리 & 국방 생존기</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">전역일 소수점 티커, 관등성명 반사속도, 군대 짬밥 탈주율, 불침번 추첨기, 모스 부호 등</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(3);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/discharge-ticker/" data-category="100tools military cat04" data-keywords="초정밀 전역일 복무율 실시간 소수점 티커 국방부 시계 짬밥 military ticker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-green-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-green-300">military_tech</span>
@@ -1048,9 +1107,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.32] Military Reaction -->
-                    <a href="/military-reaction/" data-category="100tools military" data-keywords="군대 관등성명 초음속 반사속도 측정기 야 군기 특급전사 military reaction" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/military-reaction/" data-category="100tools military cat04" data-keywords="군대 관등성명 초음속 반사속도 측정기 야 군기 특급전사 military reaction" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-yellow-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-yellow-300">bolt</span>
@@ -1071,9 +1128,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.33] Barracks Meal Predictor -->
-                    <a href="/barracks-meal/" data-category="100tools military" data-keywords="군대 짬밥 탈주율 PX 냉동 폭풍 지수 조순튀 해빔소 똥국 슈넬치킨 meal" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/barracks-meal/" data-category="100tools military cat04" data-keywords="군대 짬밥 탈주율 PX 냉동 폭풍 지수 조순튀 해빔소 똥국 슈넬치킨 meal" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_12px_32px_rgba(249,115,22,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-orange-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-orange-300">soup_kitchen</span>
@@ -1094,9 +1149,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.34] Night Guard Shift -->
-                    <a href="/night-guard/" data-category="100tools military" data-keywords="불침번 당직 공평무사 난수 추첨기 새벽 2시 4시 헬타임 night guard" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/night-guard/" data-category="100tools military cat04" data-keywords="불침번 당직 공평무사 난수 추첨기 새벽 2시 4시 헬타임 night guard" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">bedtime</span>
@@ -1117,9 +1170,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.35] Morse Beeper -->
-                    <a href="/morse-beeper/" data-category="100tools military" data-keywords="군용 모스 부호 번역기 오디오 비퍼 SOS 800Hz 플래시 morse code" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/morse-beeper/" data-category="100tools military cat04" data-keywords="군용 모스 부호 번역기 오디오 비퍼 SOS 800Hz 플래시 morse code" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">radio</span>
@@ -1140,9 +1191,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.36] Rank Mindset Simulator -->
-                    <a href="/military-rank-mind/" data-category="100tools military" data-keywords="군대 계급별 멘탈 상태 시뮬레이터 이병 상병 병장 전문하사 rank mindset" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(21,128,61,0.08)] hover:shadow-[0_12px_32px_rgba(21,128,61,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/military-rank-mind/" data-category="100tools military cat04" data-keywords="군대 계급별 멘탈 상태 시뮬레이터 이병 상병 병장 전문하사 rank mindset" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(21,128,61,0.08)] hover:shadow-[0_12px_32px_rgba(21,128,61,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-green-900 to-slate-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-green-400">psychology</span>
@@ -1163,9 +1212,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.37] Zulu Time Converter -->
-                    <a href="/zulu-time/" data-category="100tools military" data-keywords="밀리터리 24시간제 줄루 타임 Zulu UTC 변환기 레이더 시계 zulu time" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/zulu-time/" data-category="100tools military cat04" data-keywords="밀리터리 24시간제 줄루 타임 Zulu UTC 변환기 레이더 시계 zulu time" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(34,197,94,0.08)] hover:shadow-[0_12px_32px_rgba(34,197,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-950 to-green-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-400">radar</span>
@@ -1186,9 +1233,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.38] Tactical Camo Generator -->
-                    <a href="/camo-pattern/" data-category="100tools military" data-keywords="전술 위장 Camo 패턴 캔버스 생성기 화강암 픽셀 우드랜드 멀티캠 camo generator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(21,128,61,0.08)] hover:shadow-[0_12px_32px_rgba(21,128,61,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/camo-pattern/" data-category="100tools military cat04" data-keywords="전술 위장 Camo 패턴 캔버스 생성기 화강암 픽셀 우드랜드 멀티캠 camo generator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(21,128,61,0.08)] hover:shadow-[0_12px_32px_rgba(21,128,61,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-green-950 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-green-400">texture</span>
@@ -1209,9 +1254,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.39] MRE Heat Pack Timer -->
-                    <a href="/mre-timer/" data-category="100tools military" data-keywords="전투식량 발열팩 보글보글 대기 타이머 즉각취식형 10분 골든타임 mre timer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,88,12,0.08)] hover:shadow-[0_12px_32px_rgba(234,88,12,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/mre-timer/" data-category="100tools military cat04" data-keywords="전투식량 발열팩 보글보글 대기 타이머 즉각취식형 10분 골든타임 mre timer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,88,12,0.08)] hover:shadow-[0_12px_32px_rgba(234,88,12,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-orange-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-orange-400">skillet</span>
@@ -1232,9 +1275,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-04 No.40] Reserve Calendar -->
-                    <a href="/reserve-calendar/" data-category="100tools military" data-keywords="예비군 민방위 40세 종신 면제 캘린더 타임라인 동원 훈련 reserve calendar" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/reserve-calendar/" data-category="100tools military cat04" data-keywords="예비군 민방위 40세 종신 면제 캘린더 타임라인 동원 훈련 reserve calendar" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">event_available</span>
@@ -1255,9 +1296,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-05 No.41] Insta Caption Generator -->
-                    <a href="/insta-caption/" data-category="100tools sns" data-keywords="인스타그램 감성 카페 줄글 캡션 생성기 무채색 이모지 성수동 을지로 피드 insta caption" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-05: SNS & 인플루언서 랩 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat05" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat05">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">📱</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-05</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">SNS & 인플루언서 랩</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">인스타 캡션, 유튜브 어그로 제목, 스레드 스토리텔러, 가짜 실트 1위, 100만 팔로워 시뮬레이터</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(4);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/insta-caption/" data-category="100tools sns cat05" data-keywords="인스타그램 감성 카페 줄글 캡션 생성기 무채색 이모지 성수동 을지로 피드 insta caption" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-pink-300">local_cafe</span>
@@ -1278,9 +1343,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.42] YouTube Clickbait -->
-                    <a href="/youtube-clickbait/" data-category="100tools sns" data-keywords="유튜브 알고리즘 폭격 어그로 제목 썸네일 생성기 충격 결국 터졌습니다 clickbait" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/youtube-clickbait/" data-category="100tools sns cat05" data-keywords="유튜브 알고리즘 폭격 어그로 제목 썸네일 생성기 충격 결국 터졌습니다 clickbait" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">smart_display</span>
@@ -1301,9 +1364,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.43] Threads Story -->
-                    <a href="/threads-story/" data-category="100tools sns" data-keywords="스레드 바이럴 스토리텔러 하소연 줄글 엔터 공감 바이럴 threads story" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/threads-story/" data-category="100tools sns cat05" data-keywords="스레드 바이럴 스토리텔러 하소연 줄글 엔터 공감 바이럴 threads story" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-300">format_quote</span>
@@ -1324,9 +1385,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.44] Fake X Trending -->
-                    <a href="/fake-trending/" data-category="100tools sns" data-keywords="가짜 X 트위터 실시간 트렌드 1위 렌더러 합성기 fake twitter trending" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(29,155,240,0.08)] hover:shadow-[0_12px_32px_rgba(29,155,240,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/fake-trending/" data-category="100tools sns cat05" data-keywords="가짜 X 트위터 실시간 트렌드 1위 렌더러 합성기 fake twitter trending" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(29,155,240,0.08)] hover:shadow-[0_12px_32px_rgba(29,155,240,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-sky-700 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-sky-400">tag</span>
@@ -1347,9 +1406,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.45] Shorts Script Condenser -->
-                    <a href="/shorts-script/" data-category="100tools sns" data-keywords="쇼츠 릴스 30초 숏폼 대본 압축기 후킹 CTA 틱톡 shorts script" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/shorts-script/" data-category="100tools sns cat05" data-keywords="쇼츠 릴스 30초 숏폼 대본 압축기 후킹 CTA 틱톡 shorts script" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">movie_edit</span>
@@ -1370,9 +1427,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.46] Hashtag Optimizer -->
-                    <a href="/hashtag-optimizer/" data-category="100tools sns" data-keywords="인스타그램 황금비 해시태그 최적화기 3:5:4 대형 중형 틈새 섀도우밴 hashtag" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/hashtag-optimizer/" data-category="100tools sns cat05" data-keywords="인스타그램 황금비 해시태그 최적화기 3:5:4 대형 중형 틈새 섀도우밴 hashtag" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-pink-300">tag</span>
@@ -1393,9 +1448,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.47] Influencer Apology -->
-                    <a href="/influencer-apology/" data-category="100tools sns" data-keywords="인플루언서 4K 공식 사과문 생성기 검은 화면 명조체 자숙 influencer apology" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/influencer-apology/" data-category="100tools sns cat05" data-keywords="인플루언서 4K 공식 사과문 생성기 검은 화면 명조체 자숙 influencer apology" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(100,116,139,0.08)] hover:shadow-[0_12px_32px_rgba(100,116,139,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-950 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-400">front_hand</span>
@@ -1416,9 +1469,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.48] Viral Potential Score -->
-                    <a href="/viral-score/" data-category="100tools sns" data-keywords="SNS 어그로 논란 유발 지수 테스터 도파민 댓글 전쟁 ragebait viral score" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/viral-score/" data-category="100tools sns cat05" data-keywords="SNS 어그로 논란 유발 지수 테스터 도파민 댓글 전쟁 ragebait viral score" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-900 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-400">whatshot</span>
@@ -1439,9 +1490,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.49] Hate Comment Sanitizer -->
-                    <a href="/hate-sanitizer/" data-category="100tools sns" data-keywords="악플 정화 마법 필터 멘탈 케어 츤데레 꽃밭 문장 변환 hate sanitizer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/hate-sanitizer/" data-category="100tools sns cat05" data-keywords="악플 정화 마법 필터 멘탈 케어 츤데레 꽃밭 문장 변환 hate sanitizer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">spa</span>
@@ -1462,9 +1511,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-05 No.50] Fake 1M Followers -->
-                    <a href="/fake-followers/" data-category="100tools sns" data-keywords="팔로워 100만 가상 도파민 인플루언서 시뮬레이터 알림 폭포수 fake followers" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/fake-followers/" data-category="100tools sns cat05" data-keywords="팔로워 100만 가상 도파민 인플루언서 시뮬레이터 알림 폭포수 fake followers" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-600 to-amber-600 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-200">celebration</span>
@@ -1485,9 +1532,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-06 No.51] Prompt Enhancer -->
-                    <a href="/prompt-enhancer/" data-category="100tools aitech" data-keywords="AI 프롬프트 마법 강화기 챗GPT 미드저니 프롬프트 인핸서 prompt enhancer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-06: AI & 미래 테크 샌드박스 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat06" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat06">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🤖</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-06</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">AI & 미래 테크 샌드박스</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">프롬프트 강화기, 할루시네이션 생성기, 블라인드 튜링 테스트, QR 스테가노그래피, 정규식 샌드박스</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(5);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/prompt-enhancer/" data-category="100tools aitech cat06" data-keywords="AI 프롬프트 마법 강화기 챗GPT 미드저니 프롬프트 인핸서 prompt enhancer" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-violet-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-violet-300">auto_fix_high</span>
@@ -1508,9 +1579,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.52] AI Hallucination -->
-                    <a href="/ai-hallucination/" data-category="100tools aitech" data-keywords="세종대왕 맥북던짐 사건 훈민정음 챗GPT 할루시네이션 가짜뉴스 ai hallucination" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/ai-hallucination/" data-category="100tools aitech cat06" data-keywords="세종대왕 맥북던짐 사건 훈민정음 챗GPT 할루시네이션 가짜뉴스 ai hallucination" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">psychology_alt</span>
@@ -1531,9 +1600,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.53] Turing Test -->
-                    <a href="/turing-test/" data-category="100tools aitech" data-keywords="블라인드 튜링 테스트 챗봇 인간 퀴즈 AI 구별 turing test" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/turing-test/" data-category="100tools aitech cat06" data-keywords="블라인드 튜링 테스트 챗봇 인간 퀴즈 AI 구별 turing test" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">smart_toy</span>
@@ -1554,9 +1621,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.54] AI Job Loss -->
-                    <a href="/ai-job-loss/" data-category="100tools aitech" data-keywords="인공지능 직업 대체 소멸 위험도 생존 연수 계산기 ai job loss" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/ai-job-loss/" data-category="100tools aitech cat06" data-keywords="인공지능 직업 대체 소멸 위험도 생존 연수 계산기 ai job loss" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">work_history</span>
@@ -1577,9 +1642,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.55] Asimov Laws -->
-                    <a href="/asimov-laws/" data-category="100tools aitech" data-keywords="아시모프 로봇 3원칙 딜레마 시뮬레이터 ai ethics asimov laws" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/asimov-laws/" data-category="100tools aitech cat06" data-keywords="아시모프 로봇 3원칙 딜레마 시뮬레이터 ai ethics asimov laws" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(139,92,246,0.08)] hover:shadow-[0_12px_32px_rgba(139,92,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">gavel</span>
@@ -1600,9 +1663,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.56] QR Steganography -->
-                    <a href="/qr-steganography/" data-category="100tools aitech" data-keywords="QR코드 비밀 메시지 스테가노그래피 암호화 qr steganography" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/qr-steganography/" data-category="100tools aitech cat06" data-keywords="QR코드 비밀 메시지 스테가노그래피 암호화 qr steganography" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">qr_code_2</span>
@@ -1623,9 +1684,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.57] JSON Beautifier -->
-                    <a href="/json-beautifier/" data-category="100tools aitech" data-keywords="인스턴트 JSON 뷰어 트리 정리기 구문 검사 json beautifier" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/json-beautifier/" data-category="100tools aitech cat06" data-keywords="인스턴트 JSON 뷰어 트리 정리기 구문 검사 json beautifier" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">data_object</span>
@@ -1646,9 +1705,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.58] Quantum Password -->
-                    <a href="/quantum-password/" data-category="100tools aitech" data-keywords="양자컴퓨터 비밀번호 해킹 시간 측정기 보안 검사 quantum password" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/quantum-password/" data-category="100tools aitech cat06" data-keywords="양자컴퓨터 비밀번호 해킹 시간 측정기 보안 검사 quantum password" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">lock_reset</span>
@@ -1669,9 +1726,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.59] Visual Regex -->
-                    <a href="/visual-regex/" data-category="100tools aitech" data-keywords="비주얼 정규표현식 샌드박스 regex 매칭 visual regex" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/visual-regex/" data-category="100tools aitech cat06" data-keywords="비주얼 정규표현식 샌드박스 regex 매칭 visual regex" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">regular_expression</span>
@@ -1692,9 +1747,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-06 No.60] Dopamine Blackhole -->
-                    <a href="/dopamine-blackhole/" data-category="100tools aitech" data-keywords="디지털 도파민 디톡스 블랙홀 침묵 단식 타이머 dopamine detox blackhole" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.3)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/dopamine-blackhole/" data-category="100tools aitech cat06" data-keywords="디지털 도파민 디톡스 블랙홀 침묵 단식 타이머 dopamine detox blackhole" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.3)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-black to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-400">blur_on</span>
@@ -1715,9 +1768,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-07 No.61] MBTI Clash -->
-                    <a href="/mbti-clash/" data-category="100tools mind" data-keywords="MBTI 극단 궁합 파국 시뮬레이터 성격 충돌 여행 조별과제 mbti clash" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-07: 심리 & 멘탈 & 운명 도파민 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat07" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat07">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🔮</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-07</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">심리 & 멘탈 & 운명 도파민</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">MBTI 파국 시뮬레이터, 디지털 포춘쿠키, 모니터 부수기 펀치, 싱잉볼 믹서, 칭찬 머신건</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(6);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/mbti-clash/" data-category="100tools mind cat07" data-keywords="MBTI 극단 궁합 파국 시뮬레이터 성격 충돌 여행 조별과제 mbti clash" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-pink-300">heart_broken</span>
@@ -1738,9 +1815,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.62] Fortune Cookie -->
-                    <a href="/fortune-cookie/" data-category="100tools mind" data-keywords="바삭한 디지털 포춘쿠키 현실 조언기 행운의 숫자 fortune cookie" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/fortune-cookie/" data-category="100tools mind cat07" data-keywords="바삭한 디지털 포춘쿠키 현실 조언기 행운의 숫자 fortune cookie" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">cookie</span>
@@ -1761,9 +1836,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.63] Screen Smasher -->
-                    <a href="/screen-smasher/" data-category="100tools mind" data-keywords="분노의 스트레스 모니터 부수기 펀치 사운드 액정 파괴 screen smasher" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/screen-smasher/" data-category="100tools mind cat07" data-keywords="분노의 스트레스 모니터 부수기 펀치 사운드 액정 파괴 screen smasher" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-red-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-red-300">hardware</span>
@@ -1784,9 +1857,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.64] Five More Minutes -->
-                    <a href="/five-more-minutes/" data-category="100tools mind" data-keywords="침대 속 5분 더 자기 양심 계산기 지각 확률 택시비 five more minutes" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/five-more-minutes/" data-category="100tools mind cat07" data-keywords="침대 속 5분 더 자기 양심 계산기 지각 확률 택시비 five more minutes" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">bed</span>
@@ -1807,9 +1878,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.65] Indecision Terminator -->
-                    <a href="/indecision-terminator/" data-category="100tools mind" data-keywords="결정장애 종결자 3초 동전 던지기 진심 깨닫기 indecision terminator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/indecision-terminator/" data-category="100tools mind cat07" data-keywords="결정장애 종결자 3초 동전 던지기 진심 깨닫기 indecision terminator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-500 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">paid</span>
@@ -1830,9 +1899,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.66] Zen Singing Bowl -->
-                    <a href="/zen-singing-bowl/" data-category="100tools mind" data-keywords="마인드풀니스 432Hz 싱잉볼 빗소리 백색소음 믹서 힐링 zen singing bowl" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(217,119,6,0.08)] hover:shadow-[0_12px_32px_rgba(217,119,6,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/zen-singing-bowl/" data-category="100tools mind cat07" data-keywords="마인드풀니스 432Hz 싱잉볼 빗소리 백색소음 믹서 힐링 zen singing bowl" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(217,119,6,0.08)] hover:shadow-[0_12px_32px_rgba(217,119,6,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">notifications_active</span>
@@ -1853,9 +1920,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.67] Lotto Planner -->
-                    <a href="/lotto-planner/" data-category="100tools mind" data-keywords="가상 로또 1등 20억 당첨금 행복회로 분배 플래너 lotto jackpot planner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/lotto-planner/" data-category="100tools mind cat07" data-keywords="가상 로또 1등 20억 당첨금 행복회로 분배 플래너 lotto jackpot planner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(234,179,8,0.08)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-yellow-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-yellow-300">account_balance_wallet</span>
@@ -1876,9 +1941,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.68] T vs F Switcher -->
-                    <a href="/t-vs-f-switcher/" data-category="100tools mind" data-keywords="팩트폭력 T vs 무한공감 F 대사 변환기 성향 비교 t vs f switcher" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/t-vs-f-switcher/" data-category="100tools mind cat07" data-keywords="팩트폭력 T vs 무한공감 F 대사 변환기 성향 비교 t vs f switcher" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-600 to-pink-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">chat</span>
@@ -1899,9 +1962,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.69] Memento Mori -->
-                    <a href="/memento-mori/" data-category="100tools mind" data-keywords="인생 잔여 시간 메멘토 모리 시계 기대수명 남은 식사 모래시계 memento mori" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.3)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/memento-mori/" data-category="100tools mind cat07" data-keywords="인생 잔여 시간 메멘토 모리 시계 기대수명 남은 식사 모래시계 memento mori" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.3)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-900 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-400">hourglass_bottom</span>
@@ -1922,9 +1983,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-07 No.70] Compliment Gun -->
-                    <a href="/compliment-gun/" data-category="100tools mind" data-keywords="세상 모든 칭찬 머신건 자존감 비타민 꽃가루 폭풍칭찬 compliment gun" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/compliment-gun/" data-category="100tools mind cat07" data-keywords="세상 모든 칭찬 머신건 자존감 비타민 꽃가루 폭풍칭찬 compliment gun" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-600 to-pink-800 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-200">celebration</span>
@@ -1945,9 +2004,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-08 No.71] Horizon Anchor -->
-                    <a href="/horizon-anchor/" data-category="100tools sf" data-keywords="지평좌표계 고정기 귀신 궤도 역학 우주 절대 좌표 horizon anchor" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-08: 기상천외 SF & 우주 도구 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat08" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat08">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🛸</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-08</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">기상천외 SF & 우주 도구</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">지평좌표계 고정기, 외계인 교신 신호, 평행세계 신분증, 타임머신 티켓, 슈뢰딩거 상자</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(7);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/horizon-anchor/" data-category="100tools sf cat08" data-keywords="지평좌표계 고정기 귀신 궤도 역학 우주 절대 좌표 horizon anchor" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-900 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">explore</span>
@@ -1968,9 +2051,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.72] Alien Signal -->
-                    <a href="/alien-signal/" data-category="100tools sf" data-keywords="외계인 교신 신호 발생기 SETI 사운더 와우 신호 alien signal" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/alien-signal/" data-category="100tools sf cat08" data-keywords="외계인 교신 신호 발생기 SETI 사운더 와우 신호 alien signal" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-950 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">settings_input_antenna</span>
@@ -1991,9 +2072,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.73] Multiverse ID -->
-                    <a href="/multiverse-id/" data-category="100tools sf" data-keywords="평행세계의 나 신분증 발급기 다른 차원 multiverse id" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/multiverse-id/" data-category="100tools sf cat08" data-keywords="평행세계의 나 신분증 발급기 다른 차원 multiverse id" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-900 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">badge</span>
@@ -2014,9 +2093,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.74] Invisibility Sim -->
-                    <a href="/invisibility-sim/" data-category="100tools sf" data-keywords="투명인간 시뮬레이터 클로킹 허무주의 invisibility simulator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/invisibility-sim/" data-category="100tools sf cat08" data-keywords="투명인간 시뮬레이터 클로킹 허무주의 invisibility simulator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-900 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">visibility_off</span>
@@ -2037,9 +2114,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.75] Mosquito Frequency -->
-                    <a href="/mosquito-frequency/" data-category="100tools sf" data-keywords="모기 박멸 가상 초음파 퇴치기 전기 파리채 사운드 mosquito frequency" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/mosquito-frequency/" data-category="100tools sf cat08" data-keywords="모기 박멸 가상 초음파 퇴치기 전기 파리채 사운드 mosquito frequency" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(239,68,68,0.08)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-red-950 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-red-400">pest_control</span>
@@ -2060,9 +2135,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.76] Time Machine Ticket -->
-                    <a href="/time-machine-ticket/" data-category="100tools sf" data-keywords="타임머신 탑승권 발권기 비트코인 피자데이 time machine ticket" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/time-machine-ticket/" data-category="100tools sf cat08" data-keywords="타임머신 탑승권 발권기 비트코인 피자데이 time machine ticket" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-900 to-slate-950 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">confirmation_number</span>
@@ -2083,9 +2156,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.77] Apocalypse Calc -->
-                    <a href="/apocalypse-calc/" data-category="100tools sf" data-keywords="인류 멸망 아포칼립스 생존 확률 좀비 사태 계산기 apocalypse survival" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/apocalypse-calc/" data-category="100tools sf cat08" data-keywords="인류 멸망 아포칼립스 생존 확률 좀비 사태 계산기 apocalypse survival" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-950 to-stone-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-400">warning</span>
@@ -2106,9 +2177,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.78] Teleport Drift -->
-                    <a href="/teleport-drift/" data-category="100tools sf" data-keywords="순간이동 좌표 오차 계산기 텔레포트 지구 자전 teleport drift" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/teleport-drift/" data-category="100tools sf cat08" data-keywords="순간이동 좌표 오차 계산기 텔레포트 지구 자전 teleport drift" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-950 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">scatter_plot</span>
@@ -2129,9 +2198,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.79] Galactic Tax -->
-                    <a href="/galactic-tax/" data-category="100tools sf" data-keywords="은하 제국 세무서 가상 세금 산소 소비세 galactic tax" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/galactic-tax/" data-category="100tools sf cat08" data-keywords="은하 제국 세무서 가상 세금 산소 소비세 galactic tax" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-950 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">receipt_long</span>
@@ -2152,9 +2219,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-08 No.80] Schrodinger Box -->
-                    <a href="/schrodinger-box/" data-category="100tools sf" data-keywords="슈뢰딩거의 고양이 상자 열기 양자 중첩 파동함수 schrodinger cat" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/schrodinger-box/" data-category="100tools sf cat08" data-keywords="슈뢰딩거의 고양이 상자 열기 양자 중첩 파동함수 schrodinger cat" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-950 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">inventory_2</span>
@@ -2175,9 +2240,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-09 No.81] Global Timezone -->
-                    <a href="/global-timezone/" data-category="100tools utility" data-keywords="글로벌 시차 화상회의 골든타임 플래너 global timezone meeting" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-09: 초경량 실전 일상 유틸리티 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat09" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat09">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🛠️</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-09</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">초경량 실전 일상 유틸리티</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">글로벌 시차 플래너, 반응형 뷰포트, 만능 단위 환산기, 텍스트 케이스, 미니 메모장</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(8);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/global-timezone/" data-category="100tools utility cat09" data-keywords="글로벌 시차 화상회의 골든타임 플래너 global timezone meeting" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">schedule</span>
@@ -2198,9 +2287,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.82] Responsive Preview -->
-                    <a href="/responsive-preview/" data-category="100tools utility" data-keywords="반응형 뷰포트 프리뷰어 모바일 태블릿 웹 UI responsive viewport" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/responsive-preview/" data-category="100tools utility cat09" data-keywords="반응형 뷰포트 프리뷰어 모바일 태블릿 웹 UI responsive viewport" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">devices</span>
@@ -2221,9 +2308,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.83] Unit Converter -->
-                    <a href="/unit-converter/" data-category="100tools utility" data-keywords="만능 단위 한국형 체감 환산기 평수 제곱미터 축구장 크기 unit converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/unit-converter/" data-category="100tools utility cat09" data-keywords="만능 단위 한국형 체감 환산기 평수 제곱미터 축구장 크기 unit converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-teal-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-teal-300">straighten</span>
@@ -2244,9 +2329,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.84] Case Slug Converter -->
-                    <a href="/case-slug-converter/" data-category="100tools utility" data-keywords="텍스트 케이스 URL 슬러그 변환기 camelCase snake_case case converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/case-slug-converter/" data-category="100tools utility cat09" data-keywords="텍스트 케이스 URL 슬러그 변환기 camelCase snake_case case converter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">code</span>
@@ -2267,9 +2350,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.85] Color Contrast -->
-                    <a href="/color-contrast/" data-category="100tools utility" data-keywords="웹접근성 색상 명도 대비 WCAG AA AAA 판정기 color contrast" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/color-contrast/" data-category="100tools utility cat09" data-keywords="웹접근성 색상 명도 대비 WCAG AA AAA 판정기 color contrast" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(168,85,247,0.08)] hover:shadow-[0_12px_32px_rgba(168,85,247,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-purple-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-purple-300">contrast</span>
@@ -2290,9 +2371,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.86] Markdown Scratchpad -->
-                    <a href="/markdown-scratchpad/" data-category="100tools utility" data-keywords="라이브 마크다운 스크래치패드 실시간 렌더링 markdown scratchpad" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(71,85,105,0.08)] hover:shadow-[0_12px_32px_rgba(71,85,105,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/markdown-scratchpad/" data-category="100tools utility cat09" data-keywords="라이브 마크다운 스크래치패드 실시간 렌더링 markdown scratchpad" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(71,85,105,0.08)] hover:shadow-[0_12px_32px_rgba(71,85,105,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-300">edit_note</span>
@@ -2313,9 +2392,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.87] Barcode QR Scanner -->
-                    <a href="/barcode-qr-scanner/" data-category="100tools utility" data-keywords="웹 카메라 바코드 QR 즉석 스캐너 이미지 디코딩 qr scanner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/barcode-qr-scanner/" data-category="100tools utility cat09" data-keywords="웹 카메라 바코드 QR 즉석 스캐너 이미지 디코딩 qr scanner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-blue-300">qr_code_scanner</span>
@@ -2336,9 +2413,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.88] Download Time -->
-                    <a href="/download-time/" data-category="100tools utility" data-keywords="대용량 파일 다운로드 시간 체감 계산기 인터넷 속도 download time" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/download-time/" data-category="100tools utility cat09" data-keywords="대용량 파일 다운로드 시간 체감 계산기 인터넷 속도 download time" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-sky-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-sky-300">downloading</span>
@@ -2359,9 +2434,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.89] Korean Age Zodiac -->
-                    <a href="/korean-age-zodiac/" data-category="100tools utility" data-keywords="대한민국 만 나이 띠 별자리 D-Day 종합 계산기 korean age zodiac" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/korean-age-zodiac/" data-category="100tools utility cat09" data-keywords="대한민국 만 나이 띠 별자리 D-Day 종합 계산기 korean age zodiac" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">cake</span>
@@ -2382,9 +2455,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-09 No.90] Ephemeral Notepad -->
-                    <a href="/ephemeral-notepad/" data-category="100tools utility" data-keywords="휘발성 자동저장 미니멀 메모장 로컬스토리지 ephemeral notepad" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(71,85,105,0.08)] hover:shadow-[0_12px_32px_rgba(71,85,105,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/ephemeral-notepad/" data-category="100tools utility cat09" data-keywords="휘발성 자동저장 미니멀 메모장 로컬스토리지 ephemeral notepad" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(71,85,105,0.08)] hover:shadow-[0_12px_32px_rgba(71,85,105,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-slate-800 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-slate-300">note_alt</span>
@@ -2405,9 +2476,33 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- [CAT-10 No.91] Bubble Wrap -->
-                    <a href="/bubble-wrap/" data-category="100tools toy" data-keywords="무한 사운드 뽁뽁이 터뜨리기 ASMR 에어캡 bubble wrap pop" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎯 CAT-10: 킬링타임 & 감각 인터랙티브 토이 (10 TOOLS) -->
+    <!-- ========================================== -->
+    <section id="group-cat10" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="cat10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl sm:text-4xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">🎮</span>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary border border-sky-200 dark:border-sky-800">CAT-10</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">킬링타임 & 감각 인터랙티브 토이</h3>
+                        <span class="text-[11px] font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 border border-emerald-200 dark:border-emerald-800">10개 도구 완비</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">무한 뽁뽁이, 네온 파티클, 동물 피아노, 타자기 ASMR, 피젯스피너, 3D 불꽃놀이 쇼</p>
+                </div>
+            </div>
+            <a href="#arcade-showcase" onclick="if(window.selectArcadeCategory) window.selectArcadeCategory(9);" class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-all flex items-center gap-1.5 shadow-sm">
+                <span>🎮 아케이드로 보기</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/bubble-wrap/" data-category="100tools toy cat10" data-keywords="무한 사운드 뽁뽁이 터뜨리기 ASMR 에어캡 bubble wrap pop" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(6,182,212,0.08)] hover:shadow-[0_12px_32px_rgba(6,182,212,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-cyan-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-cyan-300">lens</span>
@@ -2428,9 +2523,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.92] Neon Particle -->
-                    <a href="/neon-particle/" data-category="100tools toy" data-keywords="네온 파티클 분수 캔버스 물리 인터랙티브 아트 neon particle" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/neon-particle/" data-category="100tools toy cat10" data-keywords="네온 파티클 분수 캔버스 물리 인터랙티브 아트 neon particle" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(236,72,153,0.08)] hover:shadow-[0_12px_32px_rgba(236,72,153,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-pink-700 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-pink-300">flare</span>
@@ -2451,9 +2544,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.93] Animal Piano -->
-                    <a href="/animal-piano/" data-category="100tools toy" data-keywords="동물 울음소리 오케스트라 피아노 고양이 강아지 animal piano" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/animal-piano/" data-category="100tools toy cat10" data-keywords="동물 울음소리 오케스트라 피아노 고양이 강아지 animal piano" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.08)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">piano</span>
@@ -2474,9 +2565,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.94] Cursor Dodger -->
-                    <a href="/cursor-dodger/" data-category="100tools toy" data-keywords="약올리는 도망자 마우스 버튼 게임 순발력 cursor dodger" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/cursor-dodger/" data-category="100tools toy cat10" data-keywords="약올리는 도망자 마우스 버튼 게임 순발력 cursor dodger" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(244,63,94,0.08)] hover:shadow-[0_12px_32px_rgba(244,63,94,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-rose-600 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-rose-300">touch_app</span>
@@ -2497,9 +2586,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.95] Vintage Typewriter -->
-                    <a href="/vintage-typewriter/" data-category="100tools toy" data-keywords="빈티지 기계식 타자기 ASMR 종소리 vintage typewriter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(217,119,6,0.08)] hover:shadow-[0_12px_32px_rgba(217,119,6,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/vintage-typewriter/" data-category="100tools toy cat10" data-keywords="빈티지 기계식 타자기 ASMR 종소리 vintage typewriter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(217,119,6,0.08)] hover:shadow-[0_12px_32px_rgba(217,119,6,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-700 to-stone-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-amber-300">keyboard</span>
@@ -2520,9 +2607,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.96] Invisible Cow -->
-                    <a href="/invisible-cow/" data-category="100tools toy" data-keywords="보이지 않는 숨은 소 찾기 사운드 탐색 게임 invisible cow" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/invisible-cow/" data-category="100tools toy cat10" data-keywords="보이지 않는 숨은 소 찾기 사운드 탐색 게임 invisible cow" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">hearing</span>
@@ -2543,9 +2628,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.97] Fidget Spinner -->
-                    <a href="/fidget-spinner/" data-category="100tools toy" data-keywords="무한 피젯스피너 최고 RPM 측정기 피젯 토이 fidget spinner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/fidget-spinner/" data-category="100tools toy cat10" data-keywords="무한 피젯스피너 최고 RPM 측정기 피젯 토이 fidget spinner" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(99,102,241,0.08)] hover:shadow-[0_12px_32px_rgba(99,102,241,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-indigo-800 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-indigo-300">sync</span>
@@ -2566,9 +2649,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.98] Chiptune Maker -->
-                    <a href="/chiptune-maker/" data-category="100tools toy" data-keywords="8비트 레트로 신디사이저 칩튠 메이커 고전 게임 사운드 chiptune maker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/chiptune-maker/" data-category="100tools toy cat10" data-keywords="8비트 레트로 신디사이저 칩튠 메이커 고전 게임 사운드 chiptune maker" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(16,185,129,0.08)] hover:shadow-[0_12px_32px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-emerald-800 to-black flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-emerald-300">sports_esports</span>
@@ -2589,9 +2670,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.99] Window Wiper -->
-                    <a href="/window-wiper/" data-category="100tools toy" data-keywords="김 서린 유리창 닦기 클리너 겨울 감성 토이 window wiper" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(56,189,248,0.08)] hover:shadow-[0_12px_32px_rgba(56,189,248,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
+            <a href="/window-wiper/" data-category="100tools toy cat10" data-keywords="김 서린 유리창 닦기 클리너 겨울 감성 토이 window wiper" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(56,189,248,0.08)] hover:shadow-[0_12px_32px_rgba(56,189,248,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-sky-700 to-slate-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-4xl text-sky-300">water_drop</span>
@@ -2612,9 +2691,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- [CAT-10 No.100] Grand Fireworks -->
-                    <a href="/grand-fireworks/" data-category="100tools toy" data-keywords="대망의 100번째 도구 피날레 축하 3D 불꽃놀이 쇼 팡파레 grand celebration fireworks" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.15)] hover:shadow-[0_16px_40px_rgba(245,158,11,0.4)] transition-all duration-300 border-2 border-amber-400 dark:border-amber-500 overflow-hidden ring-2 ring-amber-400/50">
+            <a href="/grand-fireworks/" data-category="100tools toy cat10" data-keywords="대망의 100번째 도구 피날레 축하 3D 불꽃놀이 쇼 팡파레 grand celebration fireworks" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.15)] hover:shadow-[0_16px_40px_rgba(245,158,11,0.4)] transition-all duration-300 border-2 border-amber-400 dark:border-amber-500 overflow-hidden ring-2 ring-amber-400/50">
                         <div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-600 via-rose-600 to-indigo-900 flex items-center justify-center p-6 text-white overflow-hidden">
                             <div class="text-center flex flex-col items-center gap-1.5 z-10">
                                 <span class="material-symbols-outlined text-5xl text-yellow-300 animate-bounce">celebration</span>
@@ -2635,14 +2712,24 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-
-
-
-
-                    
-                    <!-- Lotto Generator -->
-                    <a href="/lotto/" data-category="productivity" data-keywords="로또 로또번호 645 복권 번호 생성기 통계 확률 lotto generator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+    <!-- ========================================== -->
+    <!-- ⚙️ 클래식 웹 유틸리티 & 생산성 도구 -->
+    <!-- ========================================== -->
+    <section id="group-classic" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="classic">
+        <div class="flex items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">⚙️</span>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">클래식 실용 유틸리티</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">일상에서 가장 자주 찾는 검증된 필수 유틸리티 모음</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/lotto/" data-category="productivity" data-keywords="로또 로또번호 645 복권 번호 생성기 통계 확률 lotto generator" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/lotto.jpg" alt="로또 번호 생성기 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2661,9 +2748,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Character Counter -->
-                    <a href="/TextCount/" data-category="productivity" data-keywords="글자수 글자수세기 바이트 byte utf8 euckr 단어 자소서 자기소개서 text counter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/TextCount/" data-category="productivity" data-keywords="글자수 글자수세기 바이트 byte utf8 euckr 단어 자소서 자기소개서 text counter" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/textcount.jpg" alt="글자 수 세기 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2682,9 +2767,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Meme Generator -->
-                    <a href="/meme-generator/" data-category="productivity" data-keywords="밈 짤방 짤 짤생성기 meme generator 밈제작 템플릿" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/meme-generator/" data-category="productivity" data-keywords="밈 짤방 짤 짤생성기 meme generator 밈제작 템플릿" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/meme.jpg" alt="밈 생성기 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2703,9 +2786,24 @@
                             </div>
                         </div>
                     </a>
+        </div>
+    </section>
 
-                    <!-- What to Eat Today? -->
-                    <a href="/eat/" data-category="decision" data-keywords="오늘뭐먹지 점심 메뉴 추천 식단 음식 eat lunch food 결정장애" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+    <!-- ========================================== -->
+    <!-- 🎲 미니 아케이드 게임 컬렉션 -->
+    <!-- ========================================== -->
+    <section id="group-games" class="tool-group-section p-6 sm:p-8 rounded-3xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm" data-group="games">
+        <div class="flex items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">🎲</span>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">미니 아케이드 게임</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">심심풀이와 재미, 내기용으로 완벽한 웹 브라우저 게임 모음</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="/eat/" data-category="decision" data-keywords="오늘뭐먹지 점심 메뉴 추천 식단 음식 eat lunch food 결정장애" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/eat.jpg" alt="오늘 뭐 먹지? 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2724,9 +2822,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Spin the Wheel (Roulette) -->
-                    <a href="/roulette/" data-category="decision" data-keywords="원판돌리기 룰렛 룰렛게임 추첨 roulette spin wheel 벌칙 랜덤" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/roulette/" data-category="decision" data-keywords="원판돌리기 룰렛 룰렛게임 추첨 roulette spin wheel 벌칙 랜덤" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/roulette.jpg" alt="원판 돌리기 (룰렛) 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2745,9 +2841,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Ladder Game -->
-                    <a href="/ladder/" data-category="decision" data-keywords="사다리 사다리타기 내기 amidakuji ladder game 대칭군 순서정하기" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/ladder/" data-category="decision" data-keywords="사다리 사다리타기 내기 amidakuji ladder game 대칭군 순서정하기" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-900 overflow-hidden">
                             <img src="images/previews/ladder.jpg" alt="사다리 게임 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2766,30 +2860,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Lotto 1st Prize Simulator -->
-                    <a href="/lotto-simulator/index.html" data-category="games" data-keywords="로또 로또1등 시뮬레이터 시뮬레이션 행동강령 서대문 농협 텍스트rpg 생존 lotto simulator 갓물주 vip" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(245,158,11,0.12)] hover:shadow-[0_12px_32px_rgba(245,158,11,0.25)] dark:hover:shadow-[0_12px_32px_rgba(251,191,36,0.18)] transition-all duration-300 border border-amber-200/80 dark:border-amber-700/80 backdrop-blur-sm overflow-hidden ring-1 ring-amber-400/30">
-                        <div class="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
-                            <img src="images/previews/lotto_sim.jpg" alt="로또 1등 당첨 시뮬레이터 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15 pointer-events-none"></div>
-                            <span class="absolute top-3 left-3 text-[11px] font-black px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 border border-amber-300 shadow-sm backdrop-blur-md flex items-center gap-1">
-                                <span>🔥</span> <span>인터랙티브 RPG</span>
-                            </span>
-                        </div>
-                        <div class="tilt-card-inner flex flex-1 flex-col justify-between p-5 gap-4">
-                            <div class="flex flex-col gap-1.5">
-                                <h3 class="text-text-main dark:text-white text-lg font-bold leading-snug group-hover:text-amber-500 transition-colors" data-lang-ko="로또 1등 당첨 시뮬레이터" data-lang-en="Lotto 1st Prize Simulator">로또 1등 당첨 시뮬레이터</h3>
-                                <p class="text-text-muted dark:text-slate-400 text-xs sm:text-sm font-normal leading-relaxed line-clamp-2" data-lang-ko="34억 당첨! 다리미 소각, 택시기사 눈빛, 지점장 펀드 권유를 뚫고 23억을 온전히 수령하세요." data-lang-en="Survive the journey to Nonghyup HQ VIP room to claim your 3.4B jackpot!">34억 당첨! 다리미 소각, 택시기사 눈빛, 지점장 펀드 권유를 뚫고 23억을 온전히 수령하세요.</p>
-                            </div>
-                            <div class="btn-tactile flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-4 bg-amber-100 dark:bg-amber-950/60 group-hover:bg-amber-500 text-amber-800 dark:text-amber-200 group-hover:text-slate-950 text-xs sm:text-sm font-black leading-normal transition-colors shadow-sm">
-                                <span class="truncate" data-lang-ko="원정 떠나기" data-lang-en="Launch">원정 떠나기</span>
-                                <span class="material-symbols-outlined text-base ml-1 transition-transform group-hover:translate-x-1">arrow_forward</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Keycap Clicker -->
-                    <a href="/keycap/" data-category="games" data-keywords="키캡 키보드 asmr 기계식 타건 청축 갈축 적축 keycap clicking 소리" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/keycap/" data-category="games" data-keywords="키캡 키보드 asmr 기계식 타건 청축 갈축 적축 keycap clicking 소리" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
                             <img src="images/previews/keycap.jpg" alt="기계식 키캡 누르기 ASMR 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2808,9 +2879,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Infinite Stairs -->
-                    <a href="/stairs/" data-category="games" data-keywords="무한의계단 계단오르기 stairs infinite timing reaction 타이밍 리듬" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/stairs/" data-category="games" data-keywords="무한의계단 계단오르기 stairs infinite timing reaction 타이밍 리듬" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
                             <img src="images/previews/stairs.jpg" alt="무한의 계단 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2829,9 +2898,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Carrot Dodger -->
-                    <a href="/carrot-dodger/" data-category="games" data-keywords="당근피하기 당근 회피 게임 carrot dodger arcade 아케이드 반응속도" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/carrot-dodger/" data-category="games" data-keywords="당근피하기 당근 회피 게임 carrot dodger arcade 아케이드 반응속도" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
                             <img src="images/previews/carrot.jpg" alt="당근 피하기 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2850,9 +2917,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Rock-Paper-Scissors -->
-                    <a href="/Rock-paper-scissors/" data-category="games" data-keywords="가위바위보 rps rock paper scissors 승률 게임이론 심리전" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
+            <a href="/Rock-paper-scissors/" data-category="games" data-keywords="가위바위보 rps rock paper scissors 승률 게임이론 심리전" class="portal-card tilt-card group flex flex-col rounded-2xl bg-white dark:bg-slate-800/95 shadow-[0_4px_20px_rgba(14,165,233,0.08)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)] dark:hover:shadow-[0_12px_32px_rgba(56,189,248,0.15)] transition-all duration-300 border border-slate-100 dark:border-slate-700/80 backdrop-blur-sm overflow-hidden">
                         <div class="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden">
                             <img src="images/previews/rps.jpg" alt="가위바위보 승률 대결 실행 화면" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none"></div>
@@ -2871,8 +2936,9 @@
                             </div>
                         </div>
                     </a>
-
-                </div>
+        </div>
+    </section>
+</div>
 
                 <!-- Viral & Psychological Diagnosis Tests Section -->
                 <div class="mt-14 px-4" id="tests">
@@ -3148,7 +3214,7 @@
     <div id="footer-placeholder"></div>
     
     <script src="scripts/hero-3d.js" defer></script>
-    <script src="scripts/app.js" defer></script>
+    <script src="scripts/app.js?v=101" defer></script>
     <script src="language.js" defer></script>
     <script type="application/ld+json">
     {
@@ -3275,6 +3341,7 @@
             }
         });
 
+        window.selectArcadeCategory = selectCategory;
         renderActiveTool();
     });
     </script>

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const loadHTML = (url, elementId, callback) => {
-        fetch(url)
+        fetch(url, { cache: 'no-cache' })
             .then(response => response.text())
             .then(data => {
                 const element = document.getElementById(elementId);
@@ -174,13 +174,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const filterItems = () => {
             let visibleCount = 0;
             const q = currentQuery.trim().toLowerCase();
+            const arcadeShowcase = document.getElementById('arcade-showcase');
 
             cards.forEach(card => {
                 const category = card.getAttribute('data-category') || '';
                 const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
                 const textContent = card.innerText.toLowerCase();
 
-                const matchesCategory = (currentCategory === 'all') || (category.split(' ').includes(currentCategory));
+                let matchesCategory = false;
+                if (currentCategory === 'all') {
+                    matchesCategory = true;
+                } else if (currentCategory.startsWith('cat')) {
+                    matchesCategory = category.split(' ').includes(currentCategory) || card.closest(`#group-${currentCategory}`) !== null;
+                } else {
+                    matchesCategory = category.split(' ').includes(currentCategory);
+                }
+
                 const matchesQuery = !q || keywords.includes(q) || textContent.includes(q);
 
                 if (matchesCategory && matchesQuery) {
@@ -190,6 +199,45 @@ document.addEventListener("DOMContentLoaded", function() {
                     card.classList.add('hidden');
                 }
             });
+
+            // Hide/show each tool group section based on active filter and search query
+            const groupSections = document.querySelectorAll('.tool-group-section');
+            groupSections.forEach(section => {
+                const groupAttr = section.getAttribute('data-group') || '';
+                const visibleInGroup = section.querySelectorAll('.portal-card:not(.hidden)');
+                
+                let shouldShowSection = false;
+                if (currentCategory === 'all') {
+                    shouldShowSection = visibleInGroup.length > 0;
+                } else if (currentCategory.startsWith('cat')) {
+                    shouldShowSection = (groupAttr === currentCategory) && visibleInGroup.length > 0;
+                } else if (currentCategory === 'games') {
+                    shouldShowSection = (groupAttr === 'games') && visibleInGroup.length > 0;
+                } else {
+                    shouldShowSection = false;
+                }
+
+                if (shouldShowSection) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+
+            // Synchronize Arcade Showcase if category is selected
+            if (arcadeShowcase) {
+                if (currentCategory.startsWith('cat')) {
+                    const catIndex = parseInt(currentCategory.replace('cat', ''), 10) - 1;
+                    if (window.selectArcadeCategory && catIndex >= 0 && catIndex < 10) {
+                        window.selectArcadeCategory(catIndex);
+                    }
+                    arcadeShowcase.classList.remove('hidden');
+                } else if (currentCategory === 'all' && !q) {
+                    arcadeShowcase.classList.remove('hidden');
+                } else if (q || currentCategory === 'tests' || currentCategory === 'guides') {
+                    arcadeShowcase.classList.add('hidden');
+                }
+            }
 
             // Hide/show guide section heading if in specific filter or empty
             const guidesSection = document.getElementById('guides');
@@ -291,8 +339,42 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    loadHTML(`${basePath}header.html`, 'header-placeholder', () => {
+    const setupMegaMenuTabs = () => {
+        const tabs = document.querySelectorAll('.mega-cat-tab');
+        const panels = document.querySelectorAll('.mega-cat-panel');
+
+        if (!tabs.length || !panels.length) return;
+
+        const switchTab = (targetTab) => {
+            tabs.forEach(t => {
+                t.classList.remove('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
+                t.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+            targetTab.classList.add('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
+            targetTab.classList.remove('text-slate-600', 'dark:text-slate-400');
+
+            const targetId = targetTab.dataset.target;
+            panels.forEach(p => {
+                if (p.id === targetId) {
+                    p.classList.remove('hidden');
+                } else {
+                    p.classList.add('hidden');
+                }
+            });
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('mouseenter', () => switchTab(tab));
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchTab(tab);
+            });
+        });
+    };
+
+    loadHTML(`${basePath}header.html?v=100`, 'header-placeholder', () => {
         initializeDropdowns();
+        setupMegaMenuTabs();
         setupShareButtons();
         setupMobileMenu();
         setupSoundToggle();
@@ -304,7 +386,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    loadHTML(`${basePath}footer.html`, 'footer-placeholder');
+    loadHTML(`${basePath}footer.html?v=100`, 'footer-placeholder');
 
     // Dynamic Script Loader for Particles and SoundFX if not already loaded
     const loadScriptIfNotPresent = (src) => {
