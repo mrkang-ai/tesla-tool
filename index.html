@@ -66,58 +66,82 @@
     <div id="header-placeholder"></div>
 
     <main class="layout-container flex h-full grow flex-col w-full min-w-0 overflow-x-hidden">
-        <!-- Hero Section with 3D Interactive Canvas -->
-        <div class="px-3 sm:px-6 lg:px-8 flex flex-1 justify-center py-4 md:py-10 w-full min-w-0">
+        <!-- 🎮 Game-Style Hero Banner with Sunburst & 3D Toy Puzzle Theme -->
+        <div class="px-3 sm:px-6 lg:px-8 flex flex-1 justify-center py-4 md:py-8 w-full min-w-0">
             <div class="layout-content-container flex flex-col w-full max-w-[1200px] min-w-0 flex-1">
-                <div class="@container">
-                    <div class="flex flex-col gap-8 px-4 py-6 @[480px]:gap-10 @[864px]:flex-row items-center">
-                        <div class="w-full @[864px]:w-1/2 flex flex-col gap-6 justify-center">
-                            <!-- Glowing 3D Badge -->
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/70 border border-sky-200 dark:border-sky-800 text-primary text-xs font-bold shadow-sm backdrop-blur-sm w-fit">
-                                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                <span data-lang-ko="✨ 인터랙티브 디지털 툴킷 2.0" data-lang-en="✨ Interactive Digital Toolkit 2.0">✨ 인터랙티브 디지털 툴킷 2.0</span>
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 dark:from-slate-900 dark:via-sky-950 dark:to-slate-950 text-white p-6 sm:p-10 shadow-[0_20px_50px_rgba(2,132,199,0.25)] border-4 border-white dark:border-sky-500/40">
+                    
+                    <!-- Sunburst Background Rays Pattern -->
+                    <div class="absolute inset-0 sunburst-pattern opacity-30 pointer-events-none"></div>
+                    <!-- Bottom Cheerful Orange Curve -->
+                    <div class="absolute -bottom-10 -left-10 -right-10 h-24 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 rounded-[100%] opacity-35 blur-md pointer-events-none"></div>
+                    
+                    <!-- Floating Toy Screws & Stars Decoration -->
+                    <div class="absolute top-4 right-1/2 text-2xl animate-game-bob select-none pointer-events-none opacity-80">⭐</div>
+                    <div class="absolute bottom-16 left-6 text-xl animate-bounce select-none pointer-events-none opacity-75">✨</div>
+                    <div class="absolute top-6 left-1/3 text-lg select-none pointer-events-none opacity-60">🔩</div>
+
+                    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
+                        <!-- Left: Punchy Game World Intro & CTA -->
+                        <div class="w-full lg:w-7/12 flex flex-col gap-5 text-left">
+                            <!-- Bubbly Game Badge -->
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 text-sky-700 text-xs font-black shadow-md w-fit border-2 border-amber-300">
+                                <span class="animate-spin text-sm">⭐</span>
+                                <span data-lang-ko="100+ 퍼즐 &amp; 유틸리티 캐주얼 게임 파크" data-lang-en="100+ Casual Puzzle &amp; Utility Game Park">100+ 퍼즐 &amp; 유틸리티 캐주얼 게임 파크</span>
+                                <span class="bg-rose-500 text-white text-[10px] px-2 py-0.5 rounded-full font-extrabold uppercase">ALL FREE</span>
                             </div>
 
-                            <div class="flex flex-col gap-3 text-left">
-                                <h1 class="text-text-main dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl" data-lang-ko="당신의 일상을 위한 스마트 툴 & 게임" data-lang-en="Smart Tools & Games for Your Everyday Life">
-                                    Smart Tools & Games for Your Everyday Life
+                            <div>
+                                <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight drop-shadow-md game-title-3d" data-lang-ko="ToolBox Game World" data-lang-en="ToolBox Game World">
+                                    ToolBox Game World
                                 </h1>
-                                <h2 class="text-text-muted dark:text-slate-400 text-sm font-normal leading-relaxed @[480px]:text-base" data-lang-ko="작은 일상 업무를 위한 큰 도구들. 복잡한 설치 없이 브라우저에서 바로 즐기는 10가지 유용하고 재미있는 도구와 미니 게임 컬렉션을 탐색해 보세요." data-lang-en="Small tools for big tasks. Explore our collection of 10 fun and functional widgets and mini-games designed to make your day easier without any installation.">
-                                    Small tools for big tasks. Explore our collection of 10 fun and functional widgets and mini-games designed to make your day easier without any installation.
-                                </h2>
+                                <p class="text-amber-200 dark:text-sky-300 text-lg sm:text-xl font-extrabold mt-1 tracking-tight" data-lang-ko="당신의 일상을 깨우는 100대 스마트 툴 &amp; 미니 게임" data-lang-en="100 Smart Tools &amp; Interactive Mini Games">
+                                    당신의 일상을 깨우는 100대 스마트 툴 &amp; 미니 게임
+                                </p>
                             </div>
 
-                            <!-- Feature Tags -->
-                            <div class="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-semibold text-text-muted dark:text-slate-400">
-                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
-                                    <span class="text-primary text-sm">🛠️</span> <span data-lang-ko="3종 유틸리티 도구" data-lang-en="3 Pro Tools">3종 유틸리티 도구</span>
+                            <p class="text-white/90 text-sm sm:text-base leading-relaxed max-w-xl font-medium drop-shadow-sm" data-lang-ko="장난감 퍼즐 상자를 열듯 유쾌하고 기발한 10대 테마의 100가지 도구들! 복잡한 설치 없이 브라우저에서 바로 클릭하여 플레이하세요." data-lang-en="Like opening a toy puzzle box, explore 100 delightful tools across 10 playful themes! Play instantly in your browser with zero installation.">
+                                장난감 퍼즐 상자를 열듯 유쾌하고 기발한 10대 테마의 100가지 도구들! 복잡한 설치 없이 브라우저에서 바로 클릭하여 플레이하세요.
+                            </p>
+
+                            <!-- Big 3D Tactile Action Buttons -->
+                            <div class="flex flex-wrap items-center gap-3 pt-2">
+                                <a href="#arcade-showcase" class="game-btn-primary px-6 py-3.5 text-sm sm:text-base flex items-center gap-2">
+                                    <span class="text-lg">🕹️</span>
+                                    <span data-lang-ko="게임 스테이지 선택하기" data-lang-en="Choose Stage (Selector)">게임 스테이지 선택하기</span>
+                                </a>
+                                <button id="hero-random-pick-btn" class="game-btn-secondary px-6 py-3.5 text-sm sm:text-base flex items-center gap-2">
+                                    <span class="text-lg">🎲</span>
+                                    <span data-lang-ko="랜덤 뽑기!" data-lang-en="Random Pick!">랜덤 뽑기!</span>
+                                </button>
+                                <a href="#tools-100" class="px-4 py-3 rounded-2xl bg-white/20 hover:bg-white/30 text-white font-bold text-xs sm:text-sm border border-white/30 backdrop-blur-sm transition-all flex items-center gap-1.5">
+                                    <span>🏆</span> <span data-lang-ko="100대 도구 목록" data-lang-en="100 Tools Master List">100대 도구 목록</span>
+                                </a>
+                            </div>
+
+                            <!-- Feature Tags / Chips -->
+                            <div class="flex flex-wrap items-center gap-2 pt-2 text-xs font-extrabold text-white/95">
+                                <span class="px-3 py-1 rounded-xl bg-black/20 backdrop-blur-sm border border-white/20 flex items-center gap-1.5">
+                                    <span>💼</span> 10대 테마 월드
                                 </span>
-                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
-                                    <span class="text-amber-500 text-sm">🎮</span> <span data-lang-ko="8종 미니 게임" data-lang-en="8 Mini Games">8종 미니 게임</span>
+                                <span class="px-3 py-1 rounded-xl bg-black/20 backdrop-blur-sm border border-white/20 flex items-center gap-1.5">
+                                    <span>🎮</span> 100가지 스테이지
                                 </span>
-                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
-                                    <span class="text-purple-500 text-sm">🧠</span> <span data-lang-ko="10종 심리&바이럴 테스트" data-lang-en="10 Psychology Tests">10종 심리&바이럴 테스트</span>
+                                <span class="px-3 py-1 rounded-xl bg-black/20 backdrop-blur-sm border border-white/20 flex items-center gap-1.5">
+                                    <span>⚡</span> 60FPS 랙없는 반응성
                                 </span>
-                                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center gap-1.5">
-                                    <span class="text-emerald-500 text-sm">⚡</span> <span data-lang-ko="무설치 100% 무료" data-lang-en="100% Free / No Install">무설치 100% 무료</span>
+                                <span class="px-3 py-1 rounded-xl bg-black/20 backdrop-blur-sm border border-white/20 flex items-center gap-1.5">
+                                    <span>🔒</span> 클라이언트 100% 안전
                                 </span>
                             </div>
                         </div>
 
-                        <!-- 3D Interactive Canvas Showcase -->
-                        <div class="w-full @[864px]:w-1/2 flex justify-center @[864px]:justify-end">
-                            <div class="relative w-full aspect-square max-w-[400px] rounded-3xl bg-gradient-to-br from-white/95 via-sky-50/60 to-indigo-50/40 dark:from-slate-800/90 dark:via-slate-900/80 dark:to-slate-950/95 border border-slate-200/80 dark:border-slate-700/80 shadow-[0_20px_45px_rgba(14,165,233,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center p-2 group transition-all duration-300">
-                                <!-- Ambient Lighting Glow -->
-                                <div class="absolute -top-10 -right-10 w-44 h-44 bg-sky-400/20 dark:bg-sky-500/15 rounded-full blur-2xl pointer-events-none"></div>
-                                <div class="absolute -bottom-10 -left-10 w-44 h-44 bg-indigo-500/20 dark:bg-purple-500/15 rounded-full blur-2xl pointer-events-none"></div>
-
-                                <!-- 3D Canvas -->
-                                <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing z-10 block"></canvas>
-
-                                <!-- Interactive Hint Overlay -->
-                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-md text-[11px] font-semibold text-text-muted dark:text-slate-400 shadow-sm z-20 pointer-events-none flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-xs text-primary">touch_app</span>
-                                    <span data-lang-ko="마우스/터치로 3D 공간을 회전해보세요" data-lang-en="Hover/Drag to explore in 3D">마우스/터치로 3D 공간을 회전해보세요</span>
+                        <!-- Right: 3D Game Poster Card -->
+                        <div class="w-full lg:w-5/12 flex flex-col items-center">
+                            <div class="relative w-full max-w-[420px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white/10 backdrop-blur-md group game-card-3d">
+                                <img src="/images/hero_game_main.jpg" alt="ToolBox Game World" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="eager">
+                                <div class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-[11px] font-bold text-white border border-white/30 flex items-center gap-1">
+                                    <span>✨</span> <span>ToolBox Game World</span>
                                 </div>
                             </div>
                         </div>
@@ -248,32 +272,29 @@
 
 
                 <!-- 🎮 100 TOOLS ARCADE STAGE & CAROUSEL SELECTOR -->
-                <section id="arcade-showcase" class="mx-2 sm:mx-4 mb-10 rounded-2xl sm:rounded-3xl bg-slate-900 border-2 border-sky-500/40 shadow-[0_15px_50px_rgba(14,165,233,0.15)] overflow-hidden text-white w-auto min-w-0">
+                <section id="arcade-showcase" class="mx-2 sm:mx-4 mb-10 rounded-2xl sm:rounded-3xl bg-slate-900 border-4 border-amber-300 dark:border-sky-500/50 shadow-[0_20px_60px_rgba(2,132,199,0.3)] overflow-hidden text-white w-auto min-w-0 relative">
                     <!-- Top Title Bar -->
-                    <div class="px-6 py-4 bg-slate-950/80 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <div class="px-6 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-slate-950 border-b border-amber-400/50 flex flex-wrap items-center justify-between gap-3 shadow-md">
                         <div class="flex items-center gap-3">
-                            <span class="flex h-3 w-3 relative">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                            </span>
-                            <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
-                                <span>🎮</span> <span>100대 도구 인터랙티브 아케이드</span>
+                            <span class="text-2xl animate-bounce">🕹️</span>
+                            <h2 class="text-lg sm:text-xl font-black text-slate-950 tracking-tight flex items-center gap-2">
+                                <span>STAGE SELECTOR</span> • <span>100대 도구 인터랙티브 아케이드</span>
                             </h2>
-                            <span class="text-xs px-2.5 py-0.5 rounded-full bg-sky-950 text-sky-300 border border-sky-800 font-mono font-bold hidden sm:inline-block">
-                                STAGE SELECTOR
+                            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-white/90 text-amber-900 font-extrabold uppercase hidden sm:inline-block shadow-sm">
+                                10 STAGES READY
                             </span>
                         </div>
-                        <div class="text-xs text-slate-400 flex items-center gap-2">
-                            <span>키보드 <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-[10px]">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-[10px]">▶</kbd> 방향키로 이동 가능</span>
+                        <div class="text-xs font-bold text-slate-900/90 flex items-center gap-2">
+                            <span>방향키 <kbd class="px-1.5 py-0.5 rounded bg-white text-slate-900 border border-amber-300 font-mono text-[10px] font-bold shadow-sm">◀</kbd> <kbd class="px-1.5 py-0.5 rounded bg-white text-slate-900 border border-amber-300 font-mono text-[10px] font-bold shadow-sm">▶</kbd> 로 도구 넘기기</span>
                         </div>
                     </div>
 
                     <!-- Main Arcade Split Layout -->
-                    <div class="flex flex-col lg:flex-row min-h-[480px] w-full min-w-0">
+                    <div class="flex flex-col lg:flex-row min-h-[500px] w-full min-w-0">
                         <!-- Left: Vertical Category Selector (10 Groups) -->
-                        <div class="w-full lg:w-1/3 xl:w-1/4 bg-slate-950/60 border-b lg:border-b-0 lg:border-r border-slate-800 p-2.5 sm:p-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-y-auto max-h-[600px] min-w-0 max-w-full scrollbar-thin scrollbar-thumb-slate-700">
-                            <div class="text-[11px] font-bold text-slate-400 px-2 py-1 uppercase tracking-wider hidden lg:block">
-                                10대 테마 카테고리 선택
+                        <div class="w-full lg:w-1/3 xl:w-1/4 bg-slate-950/75 border-b lg:border-b-0 lg:border-r border-slate-800 p-2.5 sm:p-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-y-auto max-h-[620px] min-w-0 max-w-full scrollbar-thin scrollbar-thumb-slate-700">
+                            <div class="text-[11px] font-black text-amber-300 px-2 py-1 uppercase tracking-wider hidden lg:flex items-center gap-1.5">
+                                <span>⭐</span> <span>스테이지 01~10 선택</span>
                             </div>
                             <div id="category-cards-list" class="flex flex-row lg:flex-col gap-2 w-full">
                                 <!-- Generated dynamically via JS -->
@@ -281,20 +302,25 @@
                         </div>
 
                         <!-- Center/Right: Game-like Stage / Tool Carousel -->
-                        <div class="flex-1 p-3.5 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 relative overflow-hidden min-w-0 max-w-full">
-                            <!-- Background Ambient Glow -->
-                            <div id="carousel-glow" class="absolute -right-20 -top-20 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none transition-all duration-700 bg-emerald-500"></div>
+                        <div class="flex-1 p-3.5 sm:p-8 flex flex-col justify-between bg-slate-900 relative overflow-hidden min-w-0 max-w-full">
+                            <!-- Background Themed Game Art Backdrop with Smooth Transition -->
+                            <div id="stage-bg-backdrop" class="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-screen pointer-events-none transition-all duration-500" style="background-image: url('/images/bg_cat01_work.jpg');"></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-950/95 pointer-events-none"></div>
 
                             <!-- Stage Header Info -->
-                            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6 z-10">
+                            <div class="flex flex-wrap items-center justify-between border-b border-slate-800/80 pb-4 mb-6 z-10 gap-3">
                                 <div>
-                                    <div id="stage-cat-badge" class="text-xs font-bold font-mono text-emerald-400 mb-1 flex items-center gap-1.5">
-                                        <span>CAT-01</span> • <span>10 TOOLS</span>
+                                    <div id="stage-cat-badge" class="text-xs font-black font-mono text-amber-300 mb-1 flex items-center gap-1.5">
+                                        <span>STAGE 01</span> • <span>10 TOOLS</span>
                                     </div>
                                     <h3 id="stage-cat-name" class="text-xl sm:text-2xl font-black text-white">K-직장인 생존 키트</h3>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span id="current-tool-index" class="text-sm font-mono font-bold px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-sky-400">
+                                <div class="flex items-center gap-3">
+                                    <a id="stage-hub-link" href="/category/cat01-work/" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-400/40 text-xs font-bold transition-all shadow-sm">
+                                        <span>🚀</span>
+                                        <span id="stage-hub-text">테마 서브랜딩 허브 보기 →</span>
+                                    </a>
+                                    <span id="current-tool-index" class="text-sm font-mono font-black px-3 py-1 rounded-xl bg-slate-800 border border-slate-700 text-amber-300 shadow-inner">
                                         01 / 10
                                     </span>
                                 </div>
@@ -303,44 +329,44 @@
                             <!-- Central Game Card Display -->
                             <div class="flex-1 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 z-10 my-auto py-2 sm:py-4 w-full min-w-0">
                                 <!-- Desktop Prev Arrow Button -->
-                                <button id="arcade-prev-btn" class="hidden md:flex w-12 h-12 rounded-2xl bg-slate-800/80 hover:bg-sky-600 text-white items-center justify-center border border-slate-700 transition-all hover:scale-110 active:scale-95 shadow-lg group cursor-pointer shrink-0">
-                                    <span class="material-symbols-outlined text-2xl group-hover:-translate-x-0.5 transition-transform">arrow_back_ios_new</span>
+                                <button id="arcade-prev-btn" class="hidden md:flex w-14 h-14 rounded-2xl game-btn-primary items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl group cursor-pointer shrink-0" title="이전 도구 (Arrow Left)">
+                                    <span class="material-symbols-outlined text-2xl group-hover:-translate-x-1 transition-transform">arrow_back_ios_new</span>
                                 </button>
 
                                 <!-- Active Tool Big Showcase Card -->
-                                <div id="active-tool-card" class="flex-1 max-w-xl w-full bg-slate-800/90 rounded-2xl sm:rounded-3xl border-2 border-slate-700 p-4 sm:p-8 shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[260px] sm:min-h-[300px] hover:border-sky-500/80 min-w-0">
+                                <div id="active-tool-card" class="flex-1 max-w-xl w-full bg-slate-800/95 rounded-3xl border-3 border-slate-700 p-5 sm:p-8 shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] hover:border-sky-400 min-w-0 game-card-3d">
                                     <div>
                                         <div class="flex items-center justify-between mb-4">
-                                            <div class="flex items-center gap-3">
-                                                <span id="tool-hero-icon" class="text-4xl sm:text-5xl filter drop-shadow">📊</span>
+                                            <div class="flex items-center gap-3.5">
+                                                <span id="tool-hero-icon" class="text-4xl sm:text-5xl filter drop-shadow animate-game-bob">📊</span>
                                                 <div>
-                                                    <span id="tool-hero-num" class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest block">TOOL #01</span>
+                                                    <span id="tool-hero-num" class="text-xs font-mono font-extrabold text-amber-300 uppercase tracking-widest block">TOOL #01 // STAGE 01</span>
                                                     <h4 id="tool-hero-title" class="text-2xl sm:text-3xl font-black text-white mt-0.5 leading-tight">가짜 엑셀 몰컴 뷰어</h4>
                                                 </div>
                                             </div>
-                                            <span id="tool-hero-badge" class="px-3 py-1 rounded-full bg-rose-950 text-rose-300 border border-rose-800 text-xs font-bold">인기 TOP</span>
+                                            <span id="tool-hero-badge" class="px-3.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-400/40 text-xs font-extrabold shadow-sm">인기 TOP</span>
                                         </div>
 
-                                        <p id="tool-hero-desc" class="text-slate-300 text-sm sm:text-base leading-relaxed my-4">
+                                        <p id="tool-hero-desc" class="text-slate-200 text-sm sm:text-base leading-relaxed my-4 font-normal">
                                             사무실에서 상사 눈치를 피하며 몰래 웹서핑/유튜브를 즐기는 엑셀 위장 화면. F2키나 스페이스바로 즉시 화면이 전환됩니다.
                                         </p>
                                     </div>
 
                                     <div class="pt-4 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
-                                        <div class="flex items-center gap-2 text-xs text-slate-400">
-                                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <div class="flex items-center gap-2 text-xs text-slate-300 font-semibold">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                                             <span>무설치 웹 앱 • 100% 무료</span>
                                         </div>
-                                        <a id="tool-hero-link" href="/stealth-excel/" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-105 active:scale-95">
-                                            <span>도구 즉시 실행하기</span>
-                                            <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                        <a id="tool-hero-link" href="/stealth-excel/" class="w-full sm:w-auto game-btn-secondary px-6 py-3 text-sm flex items-center justify-center gap-2">
+                                            <span>PLAY</span>
+                                            <span class="material-symbols-outlined text-base font-bold">play_arrow</span>
                                         </a>
                                     </div>
                                 </div>
 
                                 <!-- Desktop Next Arrow Button -->
-                                <button id="arcade-next-btn" class="hidden md:flex w-12 h-12 rounded-2xl bg-slate-800/80 hover:bg-sky-600 text-white items-center justify-center border border-slate-700 transition-all hover:scale-110 active:scale-95 shadow-lg group cursor-pointer shrink-0">
-                                    <span class="material-symbols-outlined text-2xl group-hover:translate-x-0.5 transition-transform">arrow_forward_ios</span>
+                                <button id="arcade-next-btn" class="hidden md:flex w-14 h-14 rounded-2xl game-btn-primary items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl group cursor-pointer shrink-0" title="다음 도구 (Arrow Right)">
+                                    <span class="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
                                 </button>
                             </div>
 
@@ -3296,26 +3322,56 @@
         const prevBtn = document.getElementById('arcade-prev-btn');
         const nextBtn = document.getElementById('arcade-next-btn');
         const glowEl = document.getElementById('carousel-glow');
+        const stageBgBackdrop = document.getElementById('stage-bg-backdrop');
+        const stageHubLink = document.getElementById('stage-hub-link');
+        const stageHubText = document.getElementById('stage-hub-text');
+
+        const CAT_SLUGS = {
+            'cat01': 'cat01-work',
+            'cat02': 'cat02-public',
+            'cat03': 'cat03-campus',
+            'cat04': 'cat04-military',
+            'cat05': 'cat05-sns',
+            'cat06': 'cat06-tech',
+            'cat07': 'cat07-mind',
+            'cat08': 'cat08-sf',
+            'cat09': 'cat09-life',
+            'cat10': 'cat10-toy'
+        };
+
+        const CAT_BG_IMAGES = {
+            'cat01': '/images/bg_cat01_work.jpg',
+            'cat02': '/images/bg_cat02_public.jpg',
+            'cat03': '/images/bg_cat03_campus.jpg',
+            'cat04': '/images/bg_cat04_military.jpg',
+            'cat05': '/images/bg_cat05_sns.jpg',
+            'cat06': '/images/bg_cat06_tech.jpg',
+            'cat07': '/images/bg_cat07_mind.jpg',
+            'cat08': '/images/bg_cat08_sf.jpg',
+            'cat09': '/images/bg_cat09_life.jpg',
+            'cat10': '/images/bg_cat10_toy.jpg'
+        };
 
         // Render Left Category Cards
         TOOLS_100_DATA.forEach((cat, idx) => {
             const btn = document.createElement('button');
             btn.className = `cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border ${
                 idx === 0 
-                ? 'bg-slate-800 border-sky-500 text-white shadow-md' 
-                : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:text-white'
+                ? 'bg-gradient-to-r from-sky-600 to-blue-600 border-amber-300 text-white shadow-lg scale-[1.02]' 
+                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-800/90 hover:text-white'
             } whitespace-nowrap min-w-[160px] lg:min-w-0 w-full`;
 
             btn.innerHTML = `
                 <span class="text-2xl">${cat.icon}</span>
                 <div class="flex-1 min-w-0">
-                    <div class="text-[10px] font-mono font-bold text-sky-400">CAT-${cat.num}</div>
+                    <div class="text-[10px] font-mono font-black text-amber-300">STAGE ${cat.num}</div>
                     <div class="text-xs sm:text-sm font-bold truncate">${cat.name}</div>
                 </div>
-                <span class="text-[10px] font-mono text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded-full hidden sm:inline-block">10</span>
+                <span class="text-[10px] font-mono font-bold text-slate-300 bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-700 hidden sm:inline-block">10</span>
             `;
 
             btn.addEventListener('click', () => {
+                if (window.SoundFX) window.SoundFX.playPop();
                 selectCategory(idx);
             });
             catListEl.appendChild(btn);
@@ -3329,9 +3385,10 @@
             const btns = catListEl.querySelectorAll('.cat-item-card');
             btns.forEach((b, i) => {
                 if (i === catIdx) {
-                    b.className = 'cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border bg-slate-800 border-sky-500 text-white shadow-md whitespace-nowrap min-w-[160px] lg:min-w-0 w-full';
+                    b.className = 'cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border bg-gradient-to-r from-sky-600 to-blue-600 border-amber-300 text-white shadow-lg scale-[1.02] whitespace-nowrap min-w-[160px] lg:min-w-0 w-full';
+                    b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                 } else {
-                    b.className = 'cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:text-white whitespace-nowrap min-w-[160px] lg:min-w-0 w-full';
+                    b.className = 'cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-800/90 hover:text-white whitespace-nowrap min-w-[160px] lg:min-w-0 w-full';
                 }
             });
 
@@ -3342,39 +3399,55 @@
             const cat = TOOLS_100_DATA[activeCatIndex];
             const tool = cat.tools[activeToolIndex];
 
-            stageCatBadge.innerHTML = `<span>CAT-${cat.num}</span> • <span>${cat.name}</span>`;
+            stageCatBadge.innerHTML = `<span>STAGE ${cat.num}</span> • <span>${cat.name}</span>`;
             stageCatName.innerText = cat.desc;
             currentToolIdxEl.innerText = `${(activeToolIndex + 1).toString().padStart(2, '0')} / 10`;
 
+            // Update Stage Background Image
+            if (stageBgBackdrop && CAT_BG_IMAGES[cat.id]) {
+                stageBgBackdrop.style.backgroundImage = `url('${CAT_BG_IMAGES[cat.id]}')`;
+            }
+
+            // Update Stage Sublanding Link
+            if (stageHubLink && stageHubText && CAT_SLUGS[cat.id]) {
+                stageHubLink.href = `/category/${CAT_SLUGS[cat.id]}/`;
+                stageHubText.innerText = `${cat.name} 테마 허브 보기 →`;
+            }
+
             toolHeroIcon.innerText = tool.icon;
-            toolHeroNum.innerText = `TOOL #${tool.num.toString().padStart(2, '0')} // CAT-${cat.num}`;
+            toolHeroNum.innerText = `TOOL #${tool.num.toString().padStart(2, '0')} // STAGE ${cat.num}`;
             toolHeroTitle.innerText = tool.name;
             toolHeroBadge.innerText = tool.badge;
             toolHeroDesc.innerText = tool.desc;
             toolHeroLink.href = `/${tool.slug}/`;
 
             // Mini dots
-            miniDotsEl.innerHTML = '';
-            cat.tools.forEach((_, tIdx) => {
-                const dot = document.createElement('button');
-                dot.className = `h-2 rounded-full transition-all cursor-pointer ${
-                    tIdx === activeToolIndex ? 'w-8 bg-sky-400' : 'w-2 bg-slate-700 hover:bg-slate-600'
-                }`;
-                dot.addEventListener('click', () => {
-                    activeToolIndex = tIdx;
-                    renderActiveTool();
+            if (miniDotsEl) {
+                miniDotsEl.innerHTML = '';
+                cat.tools.forEach((_, tIdx) => {
+                    const dot = document.createElement('button');
+                    dot.className = `h-2 rounded-full transition-all cursor-pointer ${
+                        tIdx === activeToolIndex ? 'w-8 bg-amber-400' : 'w-2 bg-slate-700 hover:bg-slate-600'
+                    }`;
+                    dot.addEventListener('click', () => {
+                        if (window.SoundFX) window.SoundFX.playPop();
+                        activeToolIndex = tIdx;
+                        renderActiveTool();
+                    });
+                    miniDotsEl.appendChild(dot);
                 });
-                miniDotsEl.appendChild(dot);
-            });
+            }
         }
 
         prevBtn.addEventListener('click', () => {
+            if (window.SoundFX) window.SoundFX.playPop();
             const cat = TOOLS_100_DATA[activeCatIndex];
             activeToolIndex = (activeToolIndex - 1 + cat.tools.length) % cat.tools.length;
             renderActiveTool();
         });
 
         nextBtn.addEventListener('click', () => {
+            if (window.SoundFX) window.SoundFX.playPop();
             const cat = TOOLS_100_DATA[activeCatIndex];
             activeToolIndex = (activeToolIndex + 1) % cat.tools.length;
             renderActiveTool();
@@ -3383,15 +3456,39 @@
         const mPrevBtn = document.getElementById('arcade-mobile-prev-btn');
         const mNextBtn = document.getElementById('arcade-mobile-next-btn');
         if (mPrevBtn) mPrevBtn.addEventListener('click', () => {
+            if (window.SoundFX) window.SoundFX.playPop();
             const cat = TOOLS_100_DATA[activeCatIndex];
             activeToolIndex = (activeToolIndex - 1 + cat.tools.length) % cat.tools.length;
             renderActiveTool();
         });
         if (mNextBtn) mNextBtn.addEventListener('click', () => {
+            if (window.SoundFX) window.SoundFX.playPop();
             const cat = TOOLS_100_DATA[activeCatIndex];
             activeToolIndex = (activeToolIndex + 1) % cat.tools.length;
             renderActiveTool();
         });
+
+        // Random Tool Picker button
+        const randomBtn = document.getElementById('hero-random-pick-btn');
+        if (randomBtn) {
+            randomBtn.addEventListener('click', () => {
+                const randCatIdx = Math.floor(Math.random() * TOOLS_100_DATA.length);
+                const randCat = TOOLS_100_DATA[randCatIdx];
+                const randToolIdx = Math.floor(Math.random() * randCat.tools.length);
+                
+                selectCategory(randCatIdx);
+                activeToolIndex = randToolIdx;
+                renderActiveTool();
+
+                if (window.SoundFX) window.SoundFX.playWin();
+                if (window.triggerConfetti) window.triggerConfetti({ count: 50 });
+
+                const showcase = document.getElementById('arcade-showcase');
+                if (showcase) {
+                    showcase.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
 
         window.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;

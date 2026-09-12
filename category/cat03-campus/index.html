@@ -36,14 +36,14 @@
   <meta property="og:title" content="🎓 캠퍼스 & Z/알파 세대 | 10대 테마별 도구 허브 - ToolBox">
   <meta property="og:description" content="학점 복구, 조별과제 빌런 감지, 과제 분량 확장, 마감 패닉 HUD, 밈 번역기 등 대학생 생존 툴. 10종의 필수 스마트 도구를 한곳에서 무료로 이용하세요.">
   <meta property="og:url" content="https://tossgpt.online/category/cat03-campus/">
-  <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
+  <meta property="og:image" content="https://tossgpt.online/images/bg_cat03_campus.jpg">
   <meta property="og:site_name" content="ToolBox - 100+ 온라인 스마트 도구모음">
   <meta property="og:locale" content="ko_KR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🎓 캠퍼스 & Z/알파 세대 | 10대 테마별 도구 허브 - ToolBox">
   <meta name="twitter:description" content="학점 복구, 조별과제 빌런 감지, 과제 분량 확장, 마감 패닉 HUD, 밈 번역기 등 대학생 생존 툴. 10종의 필수 스마트 도구를 한곳에서 무료로 이용하세요.">
-  <meta name="twitter:image" content="https://tossgpt.online/images/og_main.jpg">
+  <meta name="twitter:image" content="https://tossgpt.online/images/bg_cat03_campus.jpg">
 
 
   <!-- Structured Data for Google Search & AI Answer Engines (SEO/AEO) -->
@@ -83,13 +83,17 @@
   </script>
 
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col relative">
+
+  <!-- Fixed Semi-transparent Themed Game Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-15 dark:opacity-10 bg-cover bg-center bg-no-repeat transition-opacity" style="background-image: url('/images/bg_cat03_campus.jpg');"></div>
+
 
   <!-- Header Placeholder -->
   <div id="header-placeholder"></div>
 
   <!-- Main Container -->
-  <main class="flex-grow fw-container py-8">
+  <main class="relative z-10 flex-grow fw-container py-8">
 
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-6">
@@ -101,7 +105,9 @@
     </nav>
 
     <!-- Hero Banner -->
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950 text-white p-6 sm:p-10 mb-10 shadow-2xl border border-slate-700">
+    <div class="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-6 sm:p-10 mb-10 shadow-2xl border border-sky-500/30">
+      <div class="absolute inset-0 bg-cover bg-center opacity-35 mix-blend-screen pointer-events-none" style="background-image: url('/images/bg_cat03_campus.jpg');"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-transparent pointer-events-none"></div>
       <div class="relative z-10 max-w-3xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold mb-4 border border-sky-400/30">
           <span>🎓</span>
