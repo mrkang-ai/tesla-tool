@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🤖 AI & 미래 테크 샌드박스 | 10대 테마별 도구 허브 - ToolBox</title>
+  <meta name="description" content="프롬프트 강화기, 할루시네이션 생성기, 블라인드 튜링 테스트, QR 스테가노그래피, 정규식 샌드박스. 10종의 필수 스마트 도구를 한곳에서 무료로 이용하세요.">
+  <link rel="canonical" href="https://tossgpt.online/category/cat06-tech/">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5e9',
+            'primary-hover': '#0284c7',
+            'bg-light': '#f8fafc',
+            'bg-dark': '#0f172a',
+            'card-light': '#ffffff',
+            'card-dark': '#1e293b'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Framework Core CSS -->
+  <link rel="stylesheet" href="/framework/core.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Container -->
+  <main class="flex-grow fw-container py-8">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-6">
+      <a href="/" class="hover:text-primary transition-colors">홈</a>
+      <span>/</span>
+      <a href="/#tools-100" class="hover:text-primary transition-colors">10대 테마 허브</a>
+      <span>/</span>
+      <span class="text-slate-800 dark:text-slate-200 font-bold">AI & 미래 테크 샌드박스</span>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950 text-white p-6 sm:p-10 mb-10 shadow-2xl border border-slate-700">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold mb-4 border border-sky-400/30">
+          <span>🤖</span>
+          <span>THEME 06 SPECIAL HUB</span>
+          <span class="bg-emerald-500 text-white text-[10px] px-1.5 py-0.2 rounded font-mono">10 TOOLS READY</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-3">
+          AI & 미래 테크 샌드박스
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+          프롬프트 강화기, 할루시네이션 생성기, 블라인드 튜링 테스트, QR 스테가노그래피, 정규식 샌드박스
+        </p>
+        <div class="flex flex-wrap items-center gap-3 text-xs">
+          <a href="#tool-list" class="fw-btn-primary py-2 px-4 text-xs">
+            <span>도구 10종 전체보기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="/#arcade-showcase" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors flex items-center gap-1.5 border border-white/20">
+            <span>🎮 아케이드 모드로 전환</span>
+          </a>
+        </div>
+      </div>
+      <div class="absolute right-4 -bottom-6 text-9xl opacity-10 select-none pointer-events-none">
+        🤖
+      </div>
+    </div>
+
+    <!-- Category Quick Switcher -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-3 text-xs">
+        <span class="font-bold text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
+          <span>🎯</span> 다른 테마 허브 바로가기
+        </span>
+        <a href="/#tools-100" class="text-primary hover:underline font-bold">100대 도구 전체목록 →</a>
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
+        
+        <a href="/category/cat01-work/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>💼</span>
+          <span>K-직장인 생존 키트</span>
+        </a>
+        
+        <a href="/category/cat02-public/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🏛️</span>
+          <span>공직 & 행정 생존기</span>
+        </a>
+        
+        <a href="/category/cat03-campus/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🎓</span>
+          <span>캠퍼스 & Z/알파 세대</span>
+        </a>
+        
+        <a href="/category/cat04-military/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🪖</span>
+          <span>밀리터리 & 국방 생존기</span>
+        </a>
+        
+        <a href="/category/cat05-sns/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>📱</span>
+          <span>SNS & 인플루언서 랩</span>
+        </a>
+        
+        <a href="/category/cat06-tech/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-primary text-white font-bold">
+          <span>🤖</span>
+          <span>AI & 미래 테크 샌드박스</span>
+        </a>
+        
+        <a href="/category/cat07-mind/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🔮</span>
+          <span>심리 & 멘탈 & 운명 도파민</span>
+        </a>
+        
+        <a href="/category/cat08-sf/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🛸</span>
+          <span>기상천외 SF & 우주 도구</span>
+        </a>
+        
+        <a href="/category/cat09-life/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🛠️</span>
+          <span>초경량 실전 일상 유틸리티</span>
+        </a>
+        
+        <a href="/category/cat10-toy/" class="px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 whitespace-nowrap transition-colors border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+          <span>🎮</span>
+          <span>킬링타임 & 감각 인터랙티브 토이</span>
+        </a>
+        
+      </div>
+    </div>
+
+    <!-- Tools Grid (10 Tools) -->
+    <div id="tool-list" class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <span>🤖</span> AI & 미래 테크 샌드박스 전용 도구 10종
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">클릭 한 번으로 별도 설치 없이 브라우저에서 즉시 실행됩니다.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                ✨
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                ChatGPT 필수
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              AI 프롬프트 마법 강화기
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              엉성한 한 줄 질문을 역할/제약/출력형식이 완비된 전문 엔지니어링 프롬프트로 변환
+            </p>
+          </div>
+          <a href="/prompt-enhancer/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🤖
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                꿀잼 패러디
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              AI 할루시네이션 생성기
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              세종대왕 맥북 던짐 사건처럼 세상 당당하게 역사와 과학을 날조하는 유머 챗봇
+            </p>
+          </div>
+          <a href="/ai-hallucination/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🧪
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                인간 vs AI
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              블라인드 튜링 테스트 퀴즈
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              화면 속 대화 상대가 사람인지 최신 AI 모델인지 3초 안에 맞히는 퀴즈
+            </p>
+          </div>
+          <a href="/turing-test/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                📉
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                미래 생존
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              AI 직업 대체 소멸 위험도
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              내 직무가 인공지능에 의해 사라질 확률과 살아남기 위한 행동 강령 안내
+            </p>
+          </div>
+          <a href="/ai-job-loss/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                ⚖️
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                SF 윤리
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              아시모프 로봇 3원칙 윤리 판정
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              인간의 명령이 로봇 3원칙에 위배되는지 판정하고 회로 폭주를 감지
+            </p>
+          </div>
+          <a href="/asimov-laws/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🔐
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                비밀 암호
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              QR 비밀 메시지 스테가노그래피
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              비밀번호를 입력해야만 본래의 비밀 텍스트가 해독되어 나타나는 암호 QR
+            </p>
+          </div>
+          <a href="/qr-steganography/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🌲
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                개발자 필수
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              인스턴트 JSON 뷰어 & 트리
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              한 줄로 깨진 복잡한 JSON 데이터를 0.1초 만에 비주얼 인터랙티브 트리로 정리
+            </p>
+          </div>
+          <a href="/json-beautifier/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                ⚛️
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                보안 진단
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              양자컴퓨터 비밀번호 해킹 시간
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              내 비밀번호가 일반 슈퍼컴퓨터와 양자컴퓨터 쇼어 알고리즘에 털리는 시간 비교
+            </p>
+          </div>
+          <a href="/quantum-password/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🔍
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                정규식 마스터
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              비주얼 정규표현식(Regex) 샌드박스
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              어려운 정규식 문법을 실시간 컬러 매칭과 그룹 캡처로 친절하게 시각화
+            </p>
+          </div>
+          <a href="/visual-regex/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+        <div class="fw-card fw-card-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 group-hover:scale-110 transition-transform">
+                🕳️
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary">
+                디지털 단식
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+              디지털 도파민 디톡스 블랙홀
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              화면과 마우스를 전혀 건드리지 않고 칠흑 같은 암흑 속에서 뇌를 쉬게 하는 단식기
+            </p>
+          </div>
+          <a href="/dopamine-blackhole/" class="fw-btn-primary w-full text-xs py-2.5">
+            <span>도구 실행하기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Category Guide & Tips (1000+ chars) -->
+    <section class="fw-guide-section">
+      <div class="fw-guide-content max-w-4xl mx-auto">
+        <h2>📚 AI & 미래 테크 샌드박스 완벽 활용 가이드 & 실무 노하우</h2>
+        <p>
+          AI 프롬프트 마법 강화기, 환각(Hallucination) 실험실, 아시모프 로봇 3원칙 딜레마 시뮬레이터, 양자컴퓨터 암호 해독 측정기 등 차세대 인공지능과 첨단 테크 기술을 손쉽게 체험할 수 있는 웹 샌드박스입니다. 최신 IT 트렌드를 가장 쉽고 재미있게 학습해 보세요.
+        </p>
+
+        <h3>01. 이 테마의 도구들이 특별한 이유</h3>
+        <p>
+          본 카테고리에 수록된 10종의 도구들은 실제 사용자들의 일상과 직무에서 발생하는 미세한 불편함(Pain Points)을 포착하여 개발되었습니다. 불필요하게 무겁고 복잡한 앱을 다운로드할 필요 없이, 웹 표준 브라우저 환경에서 1초 만에 즉각 구동되는 초경량 구조를 채택했습니다. 모든 데이터 처리는 클라이언트 로컬 환경에서 이루어지므로 프라이버시가 철저히 보호됩니다.
+        </p>
+
+        <h3>02. 10개 도구 시너지 200% 극대화 활용법</h3>
+        <p>
+          단일 도구만 사용하는 것보다 상황에 따라 여러 도구를 조합하여 사용할 때 생산성이 극대화됩니다. 자주 사용하는 도구들은 웹 브라우저 북마크바(Ctrl+D)에 폴더 형태로 저장해 두시면 필요할 때마다 원클릭으로 호출할 수 있습니다. 모바일 환경에서도 홈 화면에 바로가기를 추가하여 네이티브 앱처럼 편리하게 활용할 수 있습니다.
+        </p>
+
+        <h3>03. 자주 묻는 질문 (FAQ)</h3>
+        <div class="space-y-3 mt-4">
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q. 본 테마의 도구들은 영구 무료로 제공되나요?</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">네, ToolBox의 모든 테마 도구는 회원가입이나 과금 없이 100% 무료로 자유롭게 이용하실 수 있습니다.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q. 모바일 스마트폰에서도 모든 기능이 정상 작동하나요?</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">네, 스마트폰 및 태블릿 해상도에 맞추어 레이아웃과 터치 컨트롤이 최적화되어 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Framework Core Script -->
+  <script src="/framework/core.js"></script>
+</body>
+</html>

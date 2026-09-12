@@ -1,1562 +1,319 @@
-<header class="border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 transition-colors">
-    <div class="flex items-center justify-between whitespace-nowrap px-4 md:px-10 py-3">
-        <!-- Logo & Desktop Navigation -->
-        <div class="flex items-center gap-4 md:gap-8">
-            <a href="/" class="flex items-center gap-3 text-text-main dark:text-white cursor-pointer group">
-                <div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white shadow-md shadow-sky-200 dark:shadow-none group-hover:scale-105 transition-transform">
-                    <span class="material-symbols-outlined text-xl">construction</span>
+﻿<header class="border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 transition-colors w-full">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2.5">
+        
+        <!-- Left: Brand Logo & Desktop Nav -->
+        <div class="flex items-center gap-6 lg:gap-8">
+            <!-- Brand Logo -->
+            <a href="/" class="flex items-center gap-2.5 text-slate-900 dark:text-white cursor-pointer group select-none">
+                <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-xl text-white shadow-md shadow-sky-200 dark:shadow-none group-hover:scale-105 transition-transform">
+                    <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
                 </div>
-                <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ToolBox</h2>
+                <div class="flex flex-col">
+                    <span class="text-base font-extrabold leading-none tracking-tight">ToolBox</span>
+                    <span class="text-[9px] font-bold text-primary leading-none mt-0.5 tracking-wider">100+ UTILS</span>
+                </div>
             </a>
 
-            <!-- Desktop Nav Links (Hidden on Mobile) -->
-            <nav class="hidden md:flex items-center gap-6">
-                <!-- Tools Dropdown -->
-                <div class="dropdown nav-dropdown">
-                    <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1">
-                        <span data-lang-ko="도구" data-lang-en="Tools">도구</span>
-                        <span class="material-symbols-outlined text-base">expand_more</span>
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center gap-2 lg:gap-3 text-sm font-semibold">
+                
+                <!-- 1. 도구 허브 (10대 테마 + 클래식) 통합 드롭다운 -->
+                <div class="dropdown fw-dropdown relative">
+                    <button type="button" class="dropbtn flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span>🛠️</span>
+                        <span>도구 허브</span>
+                        <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold">100</span>
+                        <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
                     </button>
-                    <div class="dropdown-content rounded-xl p-2 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
-                        <a href="/lotto/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">casino</span>
-                            <span data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</span>
-                        </a>
-                        <a href="/TextCount/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">format_size</span>
-                            <span data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</span>
-                        </a>
-                        <a href="/meme-generator/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">imagesmode</span>
-                            <span data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</span>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Games Dropdown -->
-                <div class="dropdown nav-dropdown">
-                    <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1">
-                        <span data-lang-ko="게임" data-lang-en="Games">게임</span>
-                        <span class="material-symbols-outlined text-base">expand_more</span>
-                    </button>
-                    <div class="dropdown-content rounded-xl p-2 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 min-w-[200px]">
-                        <a href="/carrot-dodger/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="text-base">🥕</span>
-                            <span data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</span>
-                        </a>
-                        <a href="/stairs/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">stairs</span>
-                            <span data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</span>
-                        </a>
-                        <a href="/keycap/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">keyboard</span>
-                            <span data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</span>
-                        </a>
-                        <a href="/eat/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">restaurant</span>
-                            <span data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</span>
-                        </a>
-                        <a href="/roulette/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">motion_photos_on</span>
-                            <span data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">원판 돌리기</span>
-                        </a>
-                        <a href="/ladder/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">alt_route</span>
-                            <span data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</span>
-                        </a>
-                        <a href="/Rock-paper-scissors/" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">sports_handball</span>
-                            <span data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</span>
-                        </a>
-                        <a href="/lotto-simulator/index.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-amber-500 text-lg">sentiment_very_satisfied</span>
-                            <span data-lang-ko="로또 1등 시뮬레이터" data-lang-en="Lotto 1st Simulator">로또 1등 시뮬레이터</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tests Dropdown -->
-                <div class="dropdown nav-dropdown">
-                    <button class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1">
-                        <span data-lang-ko="테스트" data-lang-en="Tests">테스트</span>
-                        <span class="material-symbols-outlined text-base">expand_more</span>
-                    </button>
-                    <div class="dropdown-content rounded-xl p-2 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 min-w-[220px]">
-                        <a href="/tests/office-survival.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-primary text-lg">badge</span>
-                            <span data-lang-ko="직장인 생존 유형" data-lang-en="Office Survival">직장인 생존 유형</span>
-                        </a>
-                        <a href="/tests/money-persona.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">payments</span>
-                            <span data-lang-ko="소비 성향 머니 캐릭터" data-lang-en="Money Persona">소비 성향 머니 캐릭터</span>
-                        </a>
-                        <a href="/tests/decision-paralysis.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-amber-500 text-lg">explore</span>
-                            <span data-lang-ko="결정 장애 극복 지수" data-lang-en="Decision Paralysis">결정 장애 극복 지수</span>
-                        </a>
-                        <a href="/tests/dopamine-burnout.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-rose-500 text-lg">phone_android</span>
-                            <span data-lang-ko="디지털 도파민 중독" data-lang-en="Dopamine & Screen">디지털 도파민 중독</span>
-                        </a>
-                        <a href="/tests/meme-level.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-purple-500 text-lg">mood</span>
-                            <span data-lang-ko="밈 & 트렌드 덕력" data-lang-en="Meme IQ Level">밈 & 트렌드 덕력</span>
-                        </a>
-                        <a href="/tests/animal-archetype.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-teal-500 text-lg">pets</span>
-                            <span data-lang-ko="숨은 동물 성향 진단" data-lang-en="Animal Archetype">숨은 동물 성향 진단</span>
-                        </a>
-                        <a href="/tests/social-battery.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-cyan-500 text-lg">battery_charging_full</span>
-                            <span data-lang-ko="소셜 배터리 잔량" data-lang-en="Social Battery">소셜 배터리 잔량</span>
-                        </a>
-                        <a href="/tests/stress-coping.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-blue-500 text-lg">shield</span>
-                            <span data-lang-ko="스트레스 대처 스타일" data-lang-en="Stress Coping">스트레스 대처 스타일</span>
-                        </a>
-                        <a href="/tests/attachment-style.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-pink-500 text-lg">favorite</span>
-                            <span data-lang-ko="애착 유형 & 연애 심리" data-lang-en="Attachment Style">애착 유형 & 연애 심리</span>
-                        </a>
-                        <a href="/tests/focus-flow.html" class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-indigo-500 text-lg">psychology</span>
-                            <span data-lang-ko="집중력 & 몰입 스타일" data-lang-en="Focus & Flow">집중력 & 몰입 스타일</span>
-                        </a>
-                        <a href="/#tests" class="flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-primary bg-sky-50 dark:bg-sky-950/40 hover:bg-sky-100 dark:hover:bg-sky-900/60 transition-colors mt-1">
-                            <span data-lang-ko="10개 전체 테스트 보기" data-lang-en="View All 10 Tests">10개 전체 테스트 보기</span>
-                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-
-                                <!-- 100 Tools Grouped Mega-Menu -->
-                <div class="dropdown nav-dropdown relative">
-                    <button class="text-text-main dark:text-slate-300 text-sm font-bold leading-normal hover:text-primary transition-colors dropbtn flex items-center gap-1.5 py-1">
-                        <span class="text-primary text-base">🚀</span>
-                        <span data-lang-ko="100대 도구" data-lang-en="100 Tools">100대 도구</span>
-                        <span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-mono">100</span>
-                        <span class="material-symbols-outlined text-base">expand_more</span>
-                    </button>
-                    <div class="dropdown-content rounded-2xl p-4 shadow-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl w-[720px] max-h-[85vh] overflow-hidden flex flex-col">
-                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-slate-800 text-xs">
-                            <div class="font-black text-text-main dark:text-white flex items-center gap-2">
-                                <span>🎯</span> <span>10대 테마별 도구 바로가기</span>
+                    <!-- Dropdown Panel (Unified 10 Category Hubs + Classics) -->
+                    <div class="dropdown-content fw-dropdown-menu w-[640px] max-w-[90vw] p-4 -left-12 lg:left-0 shadow-2xl">
+                        <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-100 dark:border-slate-800 text-xs">
+                            <span class="font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                <span>🎯</span> 10대 테마별 도구 허브 바로가기
+                            </span>
+                            <div class="flex items-center gap-3">
+                                <a href="/#tools-100" class="text-[11px] text-primary hover:underline font-bold">전체 100대 도구 보기 →</a>
+                                <button type="button" class="dropdown-close-btn p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </div>
-                            <span class="text-[11px] font-mono text-emerald-500 font-bold">100 / 100 ALL READY</span>
                         </div>
 
-                        <!-- 2-Column Split: Left Category Tabs (w-48), Right 10 Tools (flex-1) -->
-                        <div class="flex flex-1 overflow-hidden min-h-[360px]">
-                            <!-- Left: 10 Group Selectors -->
-                            <div class="w-56 border-r border-slate-100 dark:border-slate-800 pr-2 space-y-1 overflow-y-auto scrollbar-thin">
-                                <button class="mega-cat-tab active bg-sky-50 dark:bg-sky-950/40 text-primary font-bold w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat01">
-                                    <span class="flex items-center gap-2">
-                                        <span>💼</span>
-                                        <span class="truncate">K-직장인 생존 키트</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat02">
-                                    <span class="flex items-center gap-2">
-                                        <span>🏛️</span>
-                                        <span class="truncate">공직 & 행정 생존기</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat03">
-                                    <span class="flex items-center gap-2">
-                                        <span>🎓</span>
-                                        <span class="truncate">캠퍼스 & Z/알파 세대</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat04">
-                                    <span class="flex items-center gap-2">
-                                        <span>🪖</span>
-                                        <span class="truncate">밀리터리 & 국방 생존</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat05">
-                                    <span class="flex items-center gap-2">
-                                        <span>📱</span>
-                                        <span class="truncate">SNS & 인플루언서 랩</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat06">
-                                    <span class="flex items-center gap-2">
-                                        <span>🤖</span>
-                                        <span class="truncate">AI & 미래 테크 샌드박스</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat07">
-                                    <span class="flex items-center gap-2">
-                                        <span>🔮</span>
-                                        <span class="truncate">심리 & 멘탈 & 운명</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat08">
-                                    <span class="flex items-center gap-2">
-                                        <span>🛸</span>
-                                        <span class="truncate">기상천외 SF & 우주</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat09">
-                                    <span class="flex items-center gap-2">
-                                        <span>🛠️</span>
-                                        <span class="truncate">초경량 실전 일상 유틸</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                                <button class="mega-cat-tab text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors" data-target="menu-cat10">
-                                    <span class="flex items-center gap-2">
-                                        <span>🎮</span>
-                                        <span class="truncate">킬링타임 & 감각 토이</span>
-                                    </span>
-                                    <span class="text-[10px] font-mono text-slate-400">10</span>
-                                </button>
-                            </div>
+                        <!-- 10 Theme Hub Grid -->
+                        <div class="grid grid-cols-2 gap-2 text-xs mb-3">
+                            <a href="/category/cat01-work/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/50">💼</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">01. K-직장인 생존 키트</div>
+                                    <div class="text-[10px] text-slate-400 truncate">스텔스 엑셀, 쿠션어, 연봉시계 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat02-public/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-blue-50 dark:bg-blue-950/50">🏛️</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">02. 공직 & 행정 생존기</div>
+                                    <div class="text-[10px] text-slate-400 truncate">기안문체, 민방위, 감사 대비 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat03-campus/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-amber-50 dark:bg-amber-950/50">🎓</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">03. 캠퍼스 & Z/알파 세대</div>
+                                    <div class="text-[10px] text-slate-400 truncate">과제마감, 조별과제, 학점복구 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat04-military/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-green-50 dark:bg-green-950/50">🪖</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">04. 밀리터리 & 국방 생존</div>
+                                    <div class="text-[10px] text-slate-400 truncate">전역일, 모스부호, 불침번 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat05-sns/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-pink-50 dark:bg-pink-950/50">📱</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">05. SNS & 인플루언서 랩</div>
+                                    <div class="text-[10px] text-slate-400 truncate">쇼츠대본, 썸네일 제목, 바이럴 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat06-tech/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/50">🤖</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">06. AI & 미래 테크 샌드박스</div>
+                                    <div class="text-[10px] text-slate-400 truncate">프롬프트 강화, 튜링테스트 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat07-mind/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-purple-50 dark:bg-purple-950/50">🔮</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">07. 심리 & 멘탈 & 운명</div>
+                                    <div class="text-[10px] text-slate-400 truncate">MBTI 상극, 결정장애, 싱잉볼 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat08-sf/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-cyan-50 dark:bg-cyan-950/50">🛸</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">08. 기상천외 SF & 우주</div>
+                                    <div class="text-[10px] text-slate-400 truncate">외계신호, 타임머신 티켓 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat09-life/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-teal-50 dark:bg-teal-950/50">🛠️</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">09. 초경량 실전 일상 유틸</div>
+                                    <div class="text-[10px] text-slate-400 truncate">단위변환, 시차, 명도대비 등</div>
+                                </div>
+                            </a>
+                            <a href="/category/cat10-toy/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                                <span class="text-lg p-1 rounded-lg bg-rose-50 dark:bg-rose-950/50">🎮</span>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">10. 킬링타임 & 감각 토이</div>
+                                    <div class="text-[10px] text-slate-400 truncate">뽁뽁이, 빈티지 타자기, 파티클 등</div>
+                                </div>
+                            </a>
+                        </div>
 
-                            <!-- Right: Category Tools Panels -->
-                            <div class="flex-1 pl-4 overflow-y-auto">
-                                <div id="menu-cat01" class="mega-cat-panel  space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>💼</span>
-                                        <span>CAT-01: K-직장인 생존 키트</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/stealth-excel/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📊</span>
-                                            <span class="truncate">가짜 엑셀 몰컴 뷰어</span>
-                                        </a>
-                                        <a href="/corporate-cushion/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🛡️</span>
-                                            <span class="truncate">넵병 쿠션어 번역기</span>
-                                        </a>
-                                        <a href="/salary-ticker/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💸</span>
-                                            <span class="truncate">실시간 연봉 초시계</span>
-                                        </a>
-                                        <a href="/escape-office/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🏃</span>
-                                            <span class="truncate">칼퇴 핑계 & 알리바이</span>
-                                        </a>
-                                        <a href="/card-budget/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💳</span>
-                                            <span class="truncate">법카 0원 안분 조합기</span>
-                                        </a>
-                                        <a href="/dutch-pay-chaser/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧾</span>
-                                            <span class="truncate">더치페이 정중한 독촉장</span>
-                                        </a>
-                                        <a href="/meeting-buzzword/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🗣️</span>
-                                            <span class="truncate">회의록 버즈워드기</span>
-                                        </a>
-                                        <a href="/cold-email-diplomat/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>✉️</span>
-                                            <span class="truncate">글로벌 콜드메일 외교관</span>
-                                        </a>
-                                        <a href="/fake-update/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💻</span>
-                                            <span class="truncate">가짜 OS 업데이트 대기</span>
-                                        </a>
-                                        <a href="/presence-status/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🟢</span>
-                                            <span class="truncate">슬랙/팀즈 자리비움 방지</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat02" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🏛️</span>
-                                        <span>CAT-02: 공직 & 행정 생존기</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/official-converter/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📜</span>
-                                            <span class="truncate">공공기관 기안문체 변환</span>
-                                        </a>
-                                        <a href="/civil-defense/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎖️</span>
-                                            <span class="truncate">민방위·예비군 연차 판별</span>
-                                        </a>
-                                        <a href="/admin-vocabulary/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📖</span>
-                                            <span class="truncate">공직 행정용어 만능사전</span>
-                                        </a>
-                                        <a href="/press-release-gen/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📰</span>
-                                            <span class="truncate">보도자료 표준 양식 생성</span>
-                                        </a>
-                                        <a href="/budget-burner/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔥</span>
-                                            <span class="truncate">연말 잔여 예산 소진기</span>
-                                        </a>
-                                        <a href="/audit-checker/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔍</span>
-                                            <span class="truncate">감사 대비 보안 자가진단</span>
-                                        </a>
-                                        <a href="/doc-page-adjuster/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📑</span>
-                                            <span class="truncate">보고서 1페이지 압축기</span>
-                                        </a>
-                                        <a href="/protocol-seating/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🪑</span>
-                                            <span class="truncate">공식 의전 좌석 배치 시뮬</span>
-                                        </a>
-                                        <a href="/hearing-evasion/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎤</span>
-                                            <span class="truncate">국정감사 질의 회피기</span>
-                                        </a>
-                                        <a href="/closing-bell-timer/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔔</span>
-                                            <span class="truncate">퇴근 10분 전 시보 타이머</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat03" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🎓</span>
-                                        <span>CAT-03: 캠퍼스 & Z/알파 세대</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/gpa-recovery/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📈</span>
-                                            <span class="truncate">학점 복구 & 졸업 계산기</span>
-                                        </a>
-                                        <a href="/free-rider-detector/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🕵️</span>
-                                            <span class="truncate">조별과제 무임승차 감지</span>
-                                        </a>
-                                        <a href="/deadline-panic/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🚨</span>
-                                            <span class="truncate">과제 마감 카운트다운 HUD</span>
-                                        </a>
-                                        <a href="/genz-slang/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💬</span>
-                                            <span class="truncate">Z세대 밈 & 신조어 번역</span>
-                                        </a>
-                                        <a href="/caffeine-limit/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>☕</span>
-                                            <span class="truncate">카페인 안전 섭취 한도</span>
-                                        </a>
-                                        <a href="/dear-professor/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>👨‍🏫</span>
-                                            <span class="truncate">교수님 성적 면담 메일</span>
-                                        </a>
-                                        <a href="/essay-expander/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📝</span>
-                                            <span class="truncate">과제 분량 문장 확장기</span>
-                                        </a>
-                                        <a href="/campus-lunch/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🍱</span>
-                                            <span class="truncate">학식 vs 배달 메뉴 룰렛</span>
-                                        </a>
-                                        <a href="/commute-misery/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🚇</span>
-                                            <span class="truncate">통학러 고통 지수 계산기</span>
-                                        </a>
-                                        <a href="/exam-hud/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⏱️</span>
-                                            <span class="truncate">시험장 실전 카운트다운</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat04" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🪖</span>
-                                        <span>CAT-04: 밀리터리 & 국방 생존</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/discharge-ticker/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎖️</span>
-                                            <span class="truncate">초정밀 전역일 소수점 티커</span>
-                                        </a>
-                                        <a href="/military-reaction/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⚡</span>
-                                            <span class="truncate">관등성명 반사속도 측정</span>
-                                        </a>
-                                        <a href="/barracks-meal/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🍲</span>
-                                            <span class="truncate">군대 짬밥 탈주 & PX 지수</span>
-                                        </a>
-                                        <a href="/night-guard/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🌙</span>
-                                            <span class="truncate">불침번·당직 공평 난수 추첨</span>
-                                        </a>
-                                        <a href="/morse-beeper/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📻</span>
-                                            <span class="truncate">군용 모스 부호 번역 비퍼</span>
-                                        </a>
-                                        <a href="/military-rank-mind/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🪖</span>
-                                            <span class="truncate">계급별 멘탈 상태 토이</span>
-                                        </a>
-                                        <a href="/zulu-time/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧭</span>
-                                            <span class="truncate">밀리터리 줄루(Zulu) 시계</span>
-                                        </a>
-                                        <a href="/camo-pattern/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎨</span>
-                                            <span class="truncate">전술 위장 패턴 캔버스</span>
-                                        </a>
-                                        <a href="/mre-timer/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🍲</span>
-                                            <span class="truncate">전투식량 발열팩 타이머</span>
-                                        </a>
-                                        <a href="/reserve-calendar/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📅</span>
-                                            <span class="truncate">예비군·민방위 40세 만료</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat05" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>📱</span>
-                                        <span>CAT-05: SNS & 인플루언서 랩</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/insta-caption/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>☕</span>
-                                            <span class="truncate">인스타 감성 카페 줄글 캡션</span>
-                                        </a>
-                                        <a href="/youtube-clickbait/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💥</span>
-                                            <span class="truncate">유튜브 어그로 썸네일 제목</span>
-                                        </a>
-                                        <a href="/threads-story/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧵</span>
-                                            <span class="truncate">스레드 바이럴 스토리텔러</span>
-                                        </a>
-                                        <a href="/fake-trending/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🐦</span>
-                                            <span class="truncate">가짜 X 실시간 트렌드 1위</span>
-                                        </a>
-                                        <a href="/shorts-script/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎬</span>
-                                            <span class="truncate">쇼츠·릴스 30초 대본 압축</span>
-                                        </a>
-                                        <a href="/hashtag-optimizer/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🏷️</span>
-                                            <span class="truncate">황금비 해시태그 최적화</span>
-                                        </a>
-                                        <a href="/influencer-apology/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🙇‍♂️</span>
-                                            <span class="truncate">인플루언서 4K 공식 사과문</span>
-                                        </a>
-                                        <a href="/viral-score/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔥</span>
-                                            <span class="truncate">SNS 어그로·논란 유발 지수</span>
-                                        </a>
-                                        <a href="/hate-sanitizer/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🌸</span>
-                                            <span class="truncate">악플 정화 마법 필터</span>
-                                        </a>
-                                        <a href="/fake-followers/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>👑</span>
-                                            <span class="truncate">100만 가상 도파민 시뮬</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat06" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🤖</span>
-                                        <span>CAT-06: AI & 미래 테크 샌드박스</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/prompt-enhancer/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>✨</span>
-                                            <span class="truncate">AI 프롬프트 마법 강화기</span>
-                                        </a>
-                                        <a href="/ai-hallucination/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🤖</span>
-                                            <span class="truncate">AI 할루시네이션 생성기</span>
-                                        </a>
-                                        <a href="/turing-test/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧪</span>
-                                            <span class="truncate">블라인드 튜링 테스트 퀴즈</span>
-                                        </a>
-                                        <a href="/ai-job-loss/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📉</span>
-                                            <span class="truncate">AI 직업 대체 소멸 위험도</span>
-                                        </a>
-                                        <a href="/asimov-laws/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⚖️</span>
-                                            <span class="truncate">아시모프 로봇 3원칙 윤리</span>
-                                        </a>
-                                        <a href="/qr-steganography/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔐</span>
-                                            <span class="truncate">QR 비밀 메시지 암호화</span>
-                                        </a>
-                                        <a href="/json-beautifier/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🌲</span>
-                                            <span class="truncate">인스턴트 JSON 뷰어 & 트리</span>
-                                        </a>
-                                        <a href="/quantum-password/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⚛️</span>
-                                            <span class="truncate">양자컴퓨터 암호 해킹 측정</span>
-                                        </a>
-                                        <a href="/visual-regex/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔍</span>
-                                            <span class="truncate">비주얼 정규표현식 샌드박스</span>
-                                        </a>
-                                        <a href="/dopamine-blackhole/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🕳️</span>
-                                            <span class="truncate">도파민 디톡스 블랙홀</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat07" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🔮</span>
-                                        <span>CAT-07: 심리 & 멘탈 & 운명</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/mbti-clash/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💔</span>
-                                            <span class="truncate">MBTI 극단 궁합 시뮬레이터</span>
-                                        </a>
-                                        <a href="/fortune-cookie/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🥠</span>
-                                            <span class="truncate">바삭한 디지털 포춘쿠키</span>
-                                        </a>
-                                        <a href="/screen-smasher/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔨</span>
-                                            <span class="truncate">분노의 모니터 부수기 펀치</span>
-                                        </a>
-                                        <a href="/five-more-minutes/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⏰</span>
-                                            <span class="truncate">침대 속 5분 더 자기 양심</span>
-                                        </a>
-                                        <a href="/indecision-terminator/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🪙</span>
-                                            <span class="truncate">결정장애 종결 3초 동전</span>
-                                        </a>
-                                        <a href="/zen-singing-bowl/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔔</span>
-                                            <span class="truncate">432Hz 싱잉볼 & 빗소리</span>
-                                        </a>
-                                        <a href="/lotto-planner/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>💰</span>
-                                            <span class="truncate">로또 1등 20억 행복회로</span>
-                                        </a>
-                                        <a href="/t-vs-f-switcher/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎭</span>
-                                            <span class="truncate">팩트폭력 T vs 공감 F 변환</span>
-                                        </a>
-                                        <a href="/memento-mori/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⏳</span>
-                                            <span class="truncate">인생 잔여 메멘토 모리 시계</span>
-                                        </a>
-                                        <a href="/compliment-gun/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔫</span>
-                                            <span class="truncate">세상 모든 칭찬 머신건</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat08" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🛸</span>
-                                        <span>CAT-08: 기상천외 SF & 우주</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/horizon-anchor/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧭</span>
-                                            <span class="truncate">지평좌표계 고정기</span>
-                                        </a>
-                                        <a href="/alien-signal/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📡</span>
-                                            <span class="truncate">외계인 교신 신호 발생기</span>
-                                        </a>
-                                        <a href="/multiverse-id/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🪐</span>
-                                            <span class="truncate">평행세계 신분증 발급기</span>
-                                        </a>
-                                        <a href="/invisibility-sim/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>👻</span>
-                                            <span class="truncate">투명인간 시뮬레이터</span>
-                                        </a>
-                                        <a href="/mosquito-frequency/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🦟</span>
-                                            <span class="truncate">모기 퇴치 초음파 & 파리채</span>
-                                        </a>
-                                        <a href="/time-machine-ticket/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎫</span>
-                                            <span class="truncate">타임머신 탑승권 발권기</span>
-                                        </a>
-                                        <a href="/apocalypse-calc/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>☣️</span>
-                                            <span class="truncate">아포칼립스 생존 확률 계산</span>
-                                        </a>
-                                        <a href="/teleport-drift/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⚛️</span>
-                                            <span class="truncate">순간이동 좌표 오차 계산기</span>
-                                        </a>
-                                        <a href="/galactic-tax/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🧾</span>
-                                            <span class="truncate">은하 제국 세금 고지서</span>
-                                        </a>
-                                        <a href="/schrodinger-box/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📦</span>
-                                            <span class="truncate">슈뢰딩거의 고양이 상자</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat09" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🛠️</span>
-                                        <span>CAT-09: 초경량 실전 일상 유틸</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/global-timezone/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🌐</span>
-                                            <span class="truncate">글로벌 시차 & 회의 플래너</span>
-                                        </a>
-                                        <a href="/responsive-preview/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📱</span>
-                                            <span class="truncate">반응형 뷰포트 프리뷰어</span>
-                                        </a>
-                                        <a href="/unit-converter/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📐</span>
-                                            <span class="truncate">만능 단위 & 체감 환산기</span>
-                                        </a>
-                                        <a href="/case-slug-converter/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🔤</span>
-                                            <span class="truncate">텍스트 케이스 & URL 슬러그</span>
-                                        </a>
-                                        <a href="/color-contrast/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>👁️</span>
-                                            <span class="truncate">색상 명도 대비(WCAG) 판정</span>
-                                        </a>
-                                        <a href="/markdown-scratchpad/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📝</span>
-                                            <span class="truncate">라이브 마크다운 패드</span>
-                                        </a>
-                                        <a href="/barcode-qr-scanner/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📷</span>
-                                            <span class="truncate">QR 코드 & 바코드 스캐너</span>
-                                        </a>
-                                        <a href="/download-time/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>⏳</span>
-                                            <span class="truncate">대용량 파일 다운로드 계산</span>
-                                        </a>
-                                        <a href="/korean-age-zodiac/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎂</span>
-                                            <span class="truncate">대한민국 만 나이 & 띠</span>
-                                        </a>
-                                        <a href="/ephemeral-notepad/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🗒️</span>
-                                            <span class="truncate">휘발성 자동저장 메모장</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="menu-cat10" class="mega-cat-panel hidden space-y-1">
-                                    <div class="text-xs font-bold text-slate-400 mb-2 px-1 flex items-center gap-1.5">
-                                        <span>🎮</span>
-                                        <span>CAT-10: 킬링타임 & 감각 토이</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-1.5">
-                                        <a href="/bubble-wrap/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🫧</span>
-                                            <span class="truncate">무한 사운드 뽁뽁이 터뜨리기</span>
-                                        </a>
-                                        <a href="/neon-particle/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>✨</span>
-                                            <span class="truncate">네온 파티클 분수 캔버스</span>
-                                        </a>
-                                        <a href="/animal-piano/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎹</span>
-                                            <span class="truncate">동물 울음소리 피아노</span>
-                                        </a>
-                                        <a href="/cursor-dodger/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🏃</span>
-                                            <span class="truncate">약올리는 도망자 마우스 버튼</span>
-                                        </a>
-                                        <a href="/vintage-typewriter/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>📜</span>
-                                            <span class="truncate">빈티지 기계식 타자기 ASMR</span>
-                                        </a>
-                                        <a href="/invisible-cow/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🐮</span>
-                                            <span class="truncate">보이지 않는 숨은 소 찾기</span>
-                                        </a>
-                                        <a href="/fidget-spinner/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🌀</span>
-                                            <span class="truncate">무한 피젯스피너 & 최고 RPM</span>
-                                        </a>
-                                        <a href="/chiptune-maker/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>👾</span>
-                                            <span class="truncate">8비트 레트로 칩튠 메이커</span>
-                                        </a>
-                                        <a href="/window-wiper/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🪟</span>
-                                            <span class="truncate">김 서린 유리창 닦기 클리너</span>
-                                        </a>
-                                        <a href="/grand-fireworks/" class="flex items-center gap-2 rounded-lg p-2 text-xs text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                            <span>🎆</span>
-                                            <span class="truncate">100번째 피날레 축하 불꽃놀이</span>
-                                        </a>
-                                    </div>
-                                </div>
+                        <!-- Classic Tools Footer Strip -->
+                        <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+                            <span class="font-semibold text-slate-400">클래식 인기 유틸:</span>
+                            <div class="flex items-center gap-3">
+                                <a href="/lotto/" class="hover:text-primary transition-colors">🎰 로또 번호</a>
+                                <a href="/TextCount/" class="hover:text-primary transition-colors">📝 글자수 세기</a>
+                                <a href="/meme-generator/" class="hover:text-primary transition-colors">🖼️ 밈 생성기</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- About Link -->
-                <a class="text-text-main dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="/about.html">
-                    <span data-lang-ko="소개" data-lang-en="About">소개</span>
+                <!-- 2. 게임 컬렉션 드롭다운 -->
+                <div class="dropdown fw-dropdown relative">
+                    <button type="button" class="dropbtn flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span>🎲</span>
+                        <span>게임</span>
+                        <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-content fw-dropdown-menu w-56 p-2 shadow-xl">
+                        <a href="/carrot-dodger/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🥕</span> <span>당근 피하기</span>
+                        </a>
+                        <a href="/stairs/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🪜</span> <span>무한의 계단</span>
+                        </a>
+                        <a href="/keycap/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>⌨️</span> <span>키캡 누르기 게임</span>
+                        </a>
+                        <a href="/eat/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🍽️</span> <span>오늘 뭐 먹지?</span>
+                        </a>
+                        <a href="/roulette/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🎡</span> <span>원판 돌리기</span>
+                        </a>
+                        <a href="/ladder/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🪜</span> <span>사다리 타기</span>
+                        </a>
+                        <a href="/Rock-paper-scissors/" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>✊</span> <span>가위바위보 게임</span>
+                        </a>
+                        <a href="/lotto-simulator/index.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>💰</span> <span>로또 1등 시뮬레이터</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. 심리 테스트 드롭다운 -->
+                <div class="dropdown fw-dropdown relative">
+                    <button type="button" class="dropbtn flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span>🧠</span>
+                        <span>테스트</span>
+                        <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-content fw-dropdown-menu w-60 p-2 shadow-xl">
+                        <a href="/tests/office-survival.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>💼</span> <span>직장인 생존 유형 진단</span>
+                        </a>
+                        <a href="/tests/money-persona.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>💳</span> <span>소비 성향 머니 캐릭터</span>
+                        </a>
+                        <a href="/tests/decision-paralysis.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🧭</span> <span>결정 장애 극복 지수</span>
+                        </a>
+                        <a href="/tests/dopamine-burnout.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>📱</span> <span>디지털 도파민 중독 진단</span>
+                        </a>
+                        <a href="/tests/meme-level.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-white">
+                            <span>🕶️</span> <span>밈 & 트렌드 덕력 테스트</span>
+                        </a>
+                        <a href="/#tests" class="block text-center mt-1 p-1.5 rounded-lg bg-sky-50 dark:bg-sky-950/50 text-primary text-[11px] font-bold hover:underline">
+                            10개 전체 테스트 보기 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. 아케이드 바로가기 -->
+                <a href="/#arcade-showcase" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5">
+                    <span>🎮</span>
+                    <span>아케이드</span>
+                </a>
+
+                <!-- 5. 소개 -->
+                <a href="/about.html" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span>소개</span>
                 </a>
             </nav>
         </div>
 
-        <!-- Right Side: Share, Language, and Mobile Hamburger Button -->
-        <div class="flex items-center gap-2 sm:gap-4 md:gap-6">
-            <!-- Share Buttons (Visible on Desktop / Tablet) -->
-            <div class="share-buttons hidden sm:flex items-center gap-2">
-                <button id="copy-link-btn" class="flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="Copy Link">
-                    <span class="material-symbols-outlined text-xl">link</span>
-                    <span class="hidden sm:inline" data-lang-ko="링크 복사" data-lang-en="Copy Link">링크 복사</span>
-                </button>
-                <button id="sns-share-btn" class="flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="Share">
-                    <span class="material-symbols-outlined text-xl">share</span>
-                    <span class="hidden sm:inline" data-lang-ko="공유" data-lang-en="Share">공유</span>
-                </button>
-            </div>
-
-            <!-- Sound FX Toggle Button -->
-            <button id="sound-toggle-btn" class="sound-toggle-btn flex items-center gap-1.5 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer" title="효과음 켜기/끄기" aria-label="사운드 토글">
-                <span class="material-symbols-outlined text-xl">volume_off</span>
-                <span class="hidden sm:inline text-xs font-semibold" data-lang-ko="효과음" data-lang-en="Sound">효과음</span>
+        <!-- Right: Actions & Tools -->
+        <div class="flex items-center gap-1.5 sm:gap-2">
+            
+            <!-- Quick Link Copy (Desktop) -->
+            <button type="button" id="copy-link-btn" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="현재 페이지 링크 복사">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+                <span>복사</span>
             </button>
 
-            <!-- Language Switcher Dropdown -->
-            <div class="dropdown language-switcher">
-                <button class="dropbtn flex items-center gap-1 text-text-muted dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
-                    <span class="material-symbols-outlined text-xl">language</span>
-                    <span id="current-language-text" class="hidden sm:inline">한국어</span>
-                </button>
-                <div class="dropdown-content rounded-xl p-1.5 shadow-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 right-0 left-auto">
-                    <a href="#" id="lang-ko" class="rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">한국어</a>
-                    <a href="#" id="lang-en" class="rounded-lg px-3 py-2 text-sm text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">English</a>
-                </div>
-            </div>
+            <!-- Dark / Light Mode Toggle -->
+            <button type="button" class="theme-toggle-btn p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="다크 모드 / 라이트 모드 전환">
+                <span class="theme-toggle-icon text-sm">🌙</span>
+            </button>
 
-            <!-- Mobile Hamburger Toggle Button (md:hidden) -->
-            <button id="mobile-menu-btn" class="flex md:hidden items-center justify-center p-2 rounded-xl text-text-main dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer select-none" aria-label="메뉴 열기/닫기" aria-expanded="false">
-                <span id="mobile-menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+            <!-- Sound FX Toggle -->
+            <button type="button" class="sound-toggle-btn p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="효과음 On/Off">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+            </button>
+
+            <!-- Mobile Hamburger Button -->
+            <button type="button" id="mobile-menu-button" class="md:hidden p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="메뉴 열기">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
         </div>
     </div>
 
-    <!-- Mobile Slide-Down Navigation Menu (md:hidden) -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl px-4 py-5 shadow-2xl transition-all max-h-[82vh] overflow-y-auto">
-        <div class="flex flex-col gap-5">
-                        <!-- Section 0: 100 Tools Project Master Hub (10 Groups Accordion) -->
-            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-sky-500/10 via-indigo-500/10 to-emerald-500/10 border border-sky-200 dark:border-sky-800">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center gap-1.5 font-black text-xs text-primary">
-                        <span>🚀</span>
-                        <span data-lang-ko="100대 도구 대기획 프로젝트 (10개 그룹)" data-lang-en="Project 100 Tools (10 Groups)">100대 도구 대기획 프로젝트</span>
-                    </div>
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500 text-white font-mono">100/100 ALL</span>
-                </div>
-                
-                <div class="space-y-1.5 max-h-[48vh] overflow-y-auto pr-1 scrollbar-thin">
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>💼</span>
-                                <span>CAT-01 K-직장인 생존 키트</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/stealth-excel/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📊</span>
-                                <span class="truncate">가짜 엑셀 몰컴 뷰어</span>
-                            </a>
-                            <a href="/corporate-cushion/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🛡️</span>
-                                <span class="truncate">넵병 퇴치 쿠션어 번역기</span>
-                            </a>
-                            <a href="/salary-ticker/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💸</span>
-                                <span class="truncate">초정밀 실시간 연봉 초시계</span>
-                            </a>
-                            <a href="/escape-office/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🏃</span>
-                                <span class="truncate">칼퇴 핑계 & 가짜전화기</span>
-                            </a>
-                            <a href="/card-budget/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💳</span>
-                                <span class="truncate">법인카드 잔여 0원 조합기</span>
-                            </a>
-                            <a href="/dutch-pay-chaser/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧾</span>
-                                <span class="truncate">더치페이 정중한 추심 독촉장</span>
-                            </a>
-                            <a href="/meeting-buzzword/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🗣️</span>
-                                <span class="truncate">회의록 비즈니스 버즈워드기</span>
-                            </a>
-                            <a href="/cold-email-diplomat/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>✉️</span>
-                                <span class="truncate">글로벌 콜드메일 외교관</span>
-                            </a>
-                            <a href="/fake-update/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💻</span>
-                                <span class="truncate">가짜 OS 업데이트 대기 화면</span>
-                            </a>
-                            <a href="/presence-status/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🟢</span>
-                                <span class="truncate">슬랙/팀즈 자리비움 방지기</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🏛️</span>
-                                <span>CAT-02 공직 & 행정 생존기</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/official-converter/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📜</span>
-                                <span class="truncate">공공기관 기안문체 변환기</span>
-                            </a>
-                            <a href="/civil-defense/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎖️</span>
-                                <span class="truncate">민방위 & 예비군 연차 판별기</span>
-                            </a>
-                            <a href="/admin-vocabulary/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📖</span>
-                                <span class="truncate">공직 행정용어 만능사전</span>
-                            </a>
-                            <a href="/press-release-gen/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📰</span>
-                                <span class="truncate">보도자료 표준 양식 생성기</span>
-                            </a>
-                            <a href="/budget-burner/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔥</span>
-                                <span class="truncate">연말 잔여 예산 소진 플래너</span>
-                            </a>
-                            <a href="/audit-checker/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔍</span>
-                                <span class="truncate">감사 대비 보안 자가진단표</span>
-                            </a>
-                            <a href="/doc-page-adjuster/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📑</span>
-                                <span class="truncate">보고서 1페이지 여백 조절기</span>
-                            </a>
-                            <a href="/protocol-seating/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🪑</span>
-                                <span class="truncate">공식 의전 좌석 배치 시뮬레이터</span>
-                            </a>
-                            <a href="/hearing-evasion/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎤</span>
-                                <span class="truncate">국정감사 질의 회피 답변기</span>
-                            </a>
-                            <a href="/closing-bell-timer/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔔</span>
-                                <span class="truncate">퇴근 10분 전 시보 알림 타이머</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🎓</span>
-                                <span>CAT-03 캠퍼스 & Z/알파 세대</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/gpa-recovery/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📈</span>
-                                <span class="truncate">학점 복구 & 졸업 계산기</span>
-                            </a>
-                            <a href="/free-rider-detector/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🕵️</span>
-                                <span class="truncate">조별과제 무임승차 감지기</span>
-                            </a>
-                            <a href="/deadline-panic/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🚨</span>
-                                <span class="truncate">과제 제출 마감 패닉 HUD</span>
-                            </a>
-                            <a href="/genz-slang/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💬</span>
-                                <span class="truncate">Z세대 밈 & 신조어 번역기</span>
-                            </a>
-                            <a href="/caffeine-limit/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>☕</span>
-                                <span class="truncate">카페인 안전 섭취 한도 계산기</span>
-                            </a>
-                            <a href="/dear-professor/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>👨‍🏫</span>
-                                <span class="truncate">교수님 성적정정 면담 메일기</span>
-                            </a>
-                            <a href="/essay-expander/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📝</span>
-                                <span class="truncate">과제 분량 뻥튀기 문장 확장기</span>
-                            </a>
-                            <a href="/campus-lunch/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🍱</span>
-                                <span class="truncate">오늘의 학식 vs 배달 룰렛</span>
-                            </a>
-                            <a href="/commute-misery/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🚇</span>
-                                <span class="truncate">통학러 고통 지수 계산기</span>
-                            </a>
-                            <a href="/exam-hud/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⏱️</span>
-                                <span class="truncate">시험장 실전 카운트다운 HUD</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🪖</span>
-                                <span>CAT-04 밀리터리 & 국방 생존기</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/discharge-ticker/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎖️</span>
-                                <span class="truncate">초정밀 전역일 소수점 티커</span>
-                            </a>
-                            <a href="/military-reaction/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⚡</span>
-                                <span class="truncate">관등성명 초음속 반사속도</span>
-                            </a>
-                            <a href="/barracks-meal/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🍲</span>
-                                <span class="truncate">군대 짬밥 탈주 & PX 폭풍 지수</span>
-                            </a>
-                            <a href="/night-guard/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🌙</span>
-                                <span class="truncate">불침번 & 당직 공평 난수 추첨</span>
-                            </a>
-                            <a href="/morse-beeper/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📻</span>
-                                <span class="truncate">군용 모스 부호 번역 & 오디오</span>
-                            </a>
-                            <a href="/military-rank-mind/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🪖</span>
-                                <span class="truncate">계급별 멘탈 상태 토이</span>
-                            </a>
-                            <a href="/zulu-time/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧭</span>
-                                <span class="truncate">밀리터리 줄루(Zulu) 시계</span>
-                            </a>
-                            <a href="/camo-pattern/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎨</span>
-                                <span class="truncate">전술 위장(Camo) 패턴 생성기</span>
-                            </a>
-                            <a href="/mre-timer/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🍲</span>
-                                <span class="truncate">전투식량 발열팩 보글보글 타이머</span>
-                            </a>
-                            <a href="/reserve-calendar/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📅</span>
-                                <span class="truncate">예비군·민방위 40세 만료 캘린더</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>📱</span>
-                                <span>CAT-05 SNS & 인플루언서 랩</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/insta-caption/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>☕</span>
-                                <span class="truncate">인스타 감성 카페 줄글 캡션기</span>
-                            </a>
-                            <a href="/youtube-clickbait/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💥</span>
-                                <span class="truncate">유튜브 어그로 썸네일 제목기</span>
-                            </a>
-                            <a href="/threads-story/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧵</span>
-                                <span class="truncate">스레드(Threads) 바이럴 스토리</span>
-                            </a>
-                            <a href="/fake-trending/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🐦</span>
-                                <span class="truncate">가짜 X(트위터) 실트 1위 렌더러</span>
-                            </a>
-                            <a href="/shorts-script/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎬</span>
-                                <span class="truncate">쇼츠·릴스 30초 대본 압축기</span>
-                            </a>
-                            <a href="/hashtag-optimizer/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🏷️</span>
-                                <span class="truncate">황금비 해시태그 최적화기</span>
-                            </a>
-                            <a href="/influencer-apology/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🙇‍♂️</span>
-                                <span class="truncate">인플루언서 4K 공식 사과문</span>
-                            </a>
-                            <a href="/viral-score/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔥</span>
-                                <span class="truncate">SNS 어그로·논란 유발 지수</span>
-                            </a>
-                            <a href="/hate-sanitizer/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🌸</span>
-                                <span class="truncate">악플 정화 마법 필터 (멘탈케어)</span>
-                            </a>
-                            <a href="/fake-followers/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>👑</span>
-                                <span class="truncate">100만 가상 도파민 시뮬레이터</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🤖</span>
-                                <span>CAT-06 AI & 미래 테크 샌드박스</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/prompt-enhancer/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>✨</span>
-                                <span class="truncate">AI 프롬프트 마법 강화기</span>
-                            </a>
-                            <a href="/ai-hallucination/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🤖</span>
-                                <span class="truncate">AI 할루시네이션 생성기</span>
-                            </a>
-                            <a href="/turing-test/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧪</span>
-                                <span class="truncate">블라인드 튜링 테스트 퀴즈</span>
-                            </a>
-                            <a href="/ai-job-loss/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📉</span>
-                                <span class="truncate">AI 직업 대체 소멸 위험도</span>
-                            </a>
-                            <a href="/asimov-laws/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⚖️</span>
-                                <span class="truncate">아시모프 로봇 3원칙 윤리 판정</span>
-                            </a>
-                            <a href="/qr-steganography/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔐</span>
-                                <span class="truncate">QR 비밀 메시지 스테가노그래피</span>
-                            </a>
-                            <a href="/json-beautifier/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🌲</span>
-                                <span class="truncate">인스턴트 JSON 뷰어 & 트리</span>
-                            </a>
-                            <a href="/quantum-password/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⚛️</span>
-                                <span class="truncate">양자컴퓨터 비밀번호 해킹 시간</span>
-                            </a>
-                            <a href="/visual-regex/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔍</span>
-                                <span class="truncate">비주얼 정규표현식(Regex) 샌드박스</span>
-                            </a>
-                            <a href="/dopamine-blackhole/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🕳️</span>
-                                <span class="truncate">디지털 도파민 디톡스 블랙홀</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🔮</span>
-                                <span>CAT-07 심리 & 멘탈 & 운명 도파민</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/mbti-clash/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💔</span>
-                                <span class="truncate">MBTI 극단 궁합 & 파국 시뮬레이터</span>
-                            </a>
-                            <a href="/fortune-cookie/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🥠</span>
-                                <span class="truncate">바삭한 디지털 포춘쿠키 & 조언</span>
-                            </a>
-                            <a href="/screen-smasher/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔨</span>
-                                <span class="truncate">분노의 모니터 부수기 펀치</span>
-                            </a>
-                            <a href="/five-more-minutes/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⏰</span>
-                                <span class="truncate">침대 속 5분 더 자기 양심 계산기</span>
-                            </a>
-                            <a href="/indecision-terminator/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🪙</span>
-                                <span class="truncate">결정장애 종결자: 3초 동전 던지기</span>
-                            </a>
-                            <a href="/zen-singing-bowl/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔔</span>
-                                <span class="truncate">432Hz 싱잉볼 & 앰비언트 믹서</span>
-                            </a>
-                            <a href="/lotto-planner/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>💰</span>
-                                <span class="truncate">가상 로또 1등 20억 분배 플래너</span>
-                            </a>
-                            <a href="/t-vs-f-switcher/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎭</span>
-                                <span class="truncate">팩트폭력 T vs 무한공감 F 변환기</span>
-                            </a>
-                            <a href="/memento-mori/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⏳</span>
-                                <span class="truncate">인생 잔여 시간 메멘토 모리 시계</span>
-                            </a>
-                            <a href="/compliment-gun/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔫</span>
-                                <span class="truncate">세상 모든 칭찬 머신건</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🛸</span>
-                                <span>CAT-08 기상천외 SF & 우주 도구</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/horizon-anchor/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧭</span>
-                                <span class="truncate">지평좌표계 고정기</span>
-                            </a>
-                            <a href="/alien-signal/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📡</span>
-                                <span class="truncate">외계인 교신 신호 발생기</span>
-                            </a>
-                            <a href="/multiverse-id/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🪐</span>
-                                <span class="truncate">평행세계 신분증 발급기</span>
-                            </a>
-                            <a href="/invisibility-sim/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>👻</span>
-                                <span class="truncate">투명인간 시뮬레이터</span>
-                            </a>
-                            <a href="/mosquito-frequency/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🦟</span>
-                                <span class="truncate">모기 퇴치 초음파 & 전기 파리채</span>
-                            </a>
-                            <a href="/time-machine-ticket/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎫</span>
-                                <span class="truncate">타임머신 탑승권 발권기</span>
-                            </a>
-                            <a href="/apocalypse-calc/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>☣️</span>
-                                <span class="truncate">아포칼립스 생존 확률 계산기</span>
-                            </a>
-                            <a href="/teleport-drift/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⚛️</span>
-                                <span class="truncate">순간이동 좌표 오차 계산기</span>
-                            </a>
-                            <a href="/galactic-tax/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🧾</span>
-                                <span class="truncate">은하 제국 세금 고지서</span>
-                            </a>
-                            <a href="/schrodinger-box/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📦</span>
-                                <span class="truncate">슈뢰딩거의 고양이 상자</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🛠️</span>
-                                <span>CAT-09 초경량 실전 일상 유틸리티</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/global-timezone/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🌐</span>
-                                <span class="truncate">글로벌 시차 & 회의 플래너</span>
-                            </a>
-                            <a href="/responsive-preview/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📱</span>
-                                <span class="truncate">반응형 뷰포트 프리뷰어</span>
-                            </a>
-                            <a href="/unit-converter/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📐</span>
-                                <span class="truncate">만능 단위 & 체감 환산기</span>
-                            </a>
-                            <a href="/case-slug-converter/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🔤</span>
-                                <span class="truncate">텍스트 케이스 & URL 슬러그</span>
-                            </a>
-                            <a href="/color-contrast/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>👁️</span>
-                                <span class="truncate">색상 명도 대비(WCAG) 판정기</span>
-                            </a>
-                            <a href="/markdown-scratchpad/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📝</span>
-                                <span class="truncate">라이브 마크다운 스크래치패드</span>
-                            </a>
-                            <a href="/barcode-qr-scanner/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📷</span>
-                                <span class="truncate">QR 코드 & 바코드 즉석 스캐너</span>
-                            </a>
-                            <a href="/download-time/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>⏳</span>
-                                <span class="truncate">대용량 파일 다운로드 계산기</span>
-                            </a>
-                            <a href="/korean-age-zodiac/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎂</span>
-                                <span class="truncate">대한민국 만 나이 & 띠 계산기</span>
-                            </a>
-                            <a href="/ephemeral-notepad/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🗒️</span>
-                                <span class="truncate">휘발성 자동저장 미니멀 메모장</span>
-                            </a>
-                        </div>
-                    </details>
-                    <details class="group rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white/90 dark:bg-slate-800/90 overflow-hidden shadow-xs">
-                        <summary class="flex items-center justify-between px-3 py-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 select-none">
-                            <span class="flex items-center gap-2">
-                                <span>🎮</span>
-                                <span>CAT-10 킬링타임 & 감각 인터랙티브 토이</span>
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">10</span>
-                                <span class="material-symbols-outlined text-sm text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
-                            </div>
-                        </summary>
-                        <div class="p-2 border-t border-slate-100 dark:border-slate-700/60 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-slate-50/50 dark:bg-slate-900/40 text-xs">
-                            <a href="/bubble-wrap/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🫧</span>
-                                <span class="truncate">무한 사운드 뽁뽁이 터뜨리기</span>
-                            </a>
-                            <a href="/neon-particle/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>✨</span>
-                                <span class="truncate">네온 파티클 분수 캔버스</span>
-                            </a>
-                            <a href="/animal-piano/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎹</span>
-                                <span class="truncate">동물 울음소리 오케스트라 피아노</span>
-                            </a>
-                            <a href="/cursor-dodger/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🏃</span>
-                                <span class="truncate">약올리는 도망자 마우스 버튼</span>
-                            </a>
-                            <a href="/vintage-typewriter/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>📜</span>
-                                <span class="truncate">빈티지 기계식 타자기 ASMR</span>
-                            </a>
-                            <a href="/invisible-cow/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🐮</span>
-                                <span class="truncate">보이지 않는 숨은 소 찾기</span>
-                            </a>
-                            <a href="/fidget-spinner/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🌀</span>
-                                <span class="truncate">무한 피젯스피너 & 최고 RPM</span>
-                            </a>
-                            <a href="/chiptune-maker/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>👾</span>
-                                <span class="truncate">8비트 레트로 칩튠 메이커</span>
-                            </a>
-                            <a href="/window-wiper/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🪟</span>
-                                <span class="truncate">김 서린 유리창 닦기 클리너</span>
-                            </a>
-                            <a href="/grand-fireworks/" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 flex items-center gap-1.5 truncate border border-slate-100 dark:border-slate-700/40">
-                                <span>🎆</span>
-                                <span class="truncate">100번째 피날레 축하 불꽃놀이</span>
-                            </a>
-                        </div>
-                    </details>
-                </div>
-                <a href="/#tools-100" class="mt-2.5 flex items-center justify-center gap-1 text-[11px] font-extrabold text-primary hover:underline">
-                    <span>100대 도구 아케이드 허브 바로가기</span>
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
+    <!-- Mobile Menu Drawer (Slide Down) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-4 max-h-[80vh] overflow-y-auto">
+        
+        <!-- Mobile 10 Category Hubs Accordion -->
+        <details class="group rounded-xl border border-slate-200 dark:border-slate-800 p-3 bg-slate-50 dark:bg-slate-800/50">
+            <summary class="flex items-center justify-between font-bold text-sm cursor-pointer list-none text-slate-800 dark:text-white">
+                <span class="flex items-center gap-2">
+                    <span>🛠️</span> <span>10대 테마 도구 허브 (100종)</span>
+                </span>
+                <svg class="w-4 h-4 group-open:rotate-180 transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="mt-3 space-y-1 pt-2 border-t border-slate-200 dark:border-slate-700 text-xs">
+                <a href="/category/cat01-work/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">💼 01. K-직장인 생존 키트 (10종)</a>
+                <a href="/category/cat02-public/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🏛️ 02. 공직 & 행정 생존기 (10종)</a>
+                <a href="/category/cat03-campus/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🎓 03. 캠퍼스 & Z/알파 세대 (10종)</a>
+                <a href="/category/cat04-military/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🪖 04. 밀리터리 & 국방 생존 (10종)</a>
+                <a href="/category/cat05-sns/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">📱 05. SNS & 인플루언서 랩 (10종)</a>
+                <a href="/category/cat06-tech/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🤖 06. AI & 미래 테크 샌드박스 (10종)</a>
+                <a href="/category/cat07-mind/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🔮 07. 심리 & 멘탈 & 운명 (10종)</a>
+                <a href="/category/cat08-sf/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🛸 08. 기상천외 SF & 우주 (10종)</a>
+                <a href="/category/cat09-life/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🛠️ 09. 초경량 실전 일상 유틸 (10종)</a>
+                <a href="/category/cat10-toy/" class="block p-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-700 font-medium">🎮 10. 킬링타임 & 감각 토이 (10종)</a>
+                <a href="/#tools-100" class="block p-2 rounded-lg bg-sky-100 dark:bg-sky-950 text-primary font-bold text-center mt-2">전체 100대 도구 목록 보기 →</a>
             </div>
+        </details>
 
-            <!-- Section 1: Tools -->
-            <div>
-                <div class="flex items-center gap-1.5 mb-2.5 px-1">
-                    <span class="material-symbols-outlined text-primary text-base">build</span>
-                    <h3 class="text-xs font-black uppercase tracking-wider text-text-muted dark:text-slate-400" data-lang-ko="도구 모음" data-lang-en="Productivity Tools">도구 모음</h3>
-                </div>
-                <div class="grid grid-cols-1 gap-1.5">
-                    <a href="/lotto/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-orange-100 dark:bg-orange-950/40 text-orange-500 flex items-center justify-center material-symbols-outlined text-lg">casino</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="로또 번호 생성기" data-lang-en="Lotto Number Generator">로또 번호 생성기</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="행운의 로또 6/45 추천" data-lang-en="AI & lucky lotto picker">행운의 로또 6/45 추천</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/TextCount/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-primary flex items-center justify-center material-symbols-outlined text-lg">format_size</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">글자 수 세기</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="공백 포함/제외, 바이트 계산" data-lang-en="Characters, words, bytes">공백 포함/제외, 바이트 계산</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/meme-generator/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-purple-100 dark:bg-purple-950/40 text-purple-500 flex items-center justify-center material-symbols-outlined text-lg">imagesmode</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="밈 생성기" data-lang-en="Meme Generator">밈 생성기</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="인기 짤방 텍스트 합성" data-lang-en="Instant meme creator">인기 짤방 텍스트 합성</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                </div>
+        <!-- Mobile Games -->
+        <details class="group rounded-xl border border-slate-200 dark:border-slate-800 p-3 bg-slate-50 dark:bg-slate-800/50">
+            <summary class="flex items-center justify-between font-bold text-sm cursor-pointer list-none text-slate-800 dark:text-white">
+                <span class="flex items-center gap-2">
+                    <span>🎲</span> <span>미니 아케이드 게임</span>
+                </span>
+                <svg class="w-4 h-4 group-open:rotate-180 transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="mt-3 grid grid-cols-2 gap-1 pt-2 border-t border-slate-200 dark:border-slate-700 text-xs">
+                <a href="/carrot-dodger/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🥕 당근 피하기</a>
+                <a href="/stairs/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🪜 무한의 계단</a>
+                <a href="/keycap/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">⌨️ 키캡 누르기</a>
+                <a href="/eat/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🍽️ 오늘 뭐 먹지?</a>
+                <a href="/roulette/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🎡 원판 돌리기</a>
+                <a href="/ladder/" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🪜 사다리 타기</a>
             </div>
+        </details>
 
-            <!-- Section 2: Games -->
-            <div>
-                <div class="flex items-center gap-1.5 mb-2.5 px-1">
-                    <span class="material-symbols-outlined text-primary text-base">sports_esports</span>
-                    <h3 class="text-xs font-black uppercase tracking-wider text-text-muted dark:text-slate-400" data-lang-ko="미니 게임" data-lang-en="Mini Games">미니 게임</h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                    <a href="/carrot-dodger/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-orange-100 dark:bg-orange-950/40 flex items-center justify-center text-base">🥕</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="당근 피하기" data-lang-en="Carrot Dodger">당근 피하기</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="낙하물 회피 아케이드" data-lang-en="Arcade dodger">낙하물 회피 아케이드</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/stairs/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center material-symbols-outlined text-lg">stairs</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="무한의 계단" data-lang-en="Infinite Stairs">무한의 계단</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="무한 스텝 스피드런" data-lang-en="Speedrun staircase">무한 스텝 스피드런</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/keycap/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-pink-100 dark:bg-pink-950/40 text-pink-500 flex items-center justify-center material-symbols-outlined text-lg">keyboard</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="키보드 타건 ASMR" data-lang-en="Typing ASMR clicker">키보드 타건 ASMR</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/eat/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-amber-100 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center material-symbols-outlined text-lg">restaurant</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">오늘 뭐 먹지?</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="랜덤 메뉴 추천 추첨기" data-lang-en="Random food picker">랜덤 메뉴 추천 추첨기</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/roulette/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-cyan-100 dark:bg-cyan-950/40 text-cyan-500 flex items-center justify-center material-symbols-outlined text-lg">motion_photos_on</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="원판 돌리기" data-lang-en="Spin the Wheel">원판 돌리기</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="내기/결정 맞춤 룰렛" data-lang-en="Custom decision wheel">내기/결정 맞춤 룰렛</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/ladder/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-indigo-100 dark:bg-indigo-950/40 text-indigo-500 flex items-center justify-center material-symbols-outlined text-lg">alt_route</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">사다리 게임</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="공정한 당번 정하기" data-lang-en="Fair ladder matching">공정한 당번 정하기</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/Rock-paper-scissors/" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-teal-100 dark:bg-teal-950/40 text-teal-500 flex items-center justify-center material-symbols-outlined text-lg">sports_handball</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="가위바위보 게임" data-lang-en="Rock-Paper-Scissors Game">가위바위보 게임</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="컴퓨터와 승률 대결" data-lang-en="Classic RPS duel">컴퓨터와 승률 대결</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-
-                    <a href="/lotto-simulator/index.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-amber-100 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center material-symbols-outlined text-lg">sentiment_very_satisfied</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="로또 1등 시뮬레이터" data-lang-en="Lotto 1st Simulator">로또 1등 시뮬레이터</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="서대문 농협 본점 원정대" data-lang-en="Nonghyup VIP survivor">서대문 농협 본점 원정대</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                </div>
+        <!-- Mobile Tests -->
+        <details class="group rounded-xl border border-slate-200 dark:border-slate-800 p-3 bg-slate-50 dark:bg-slate-800/50">
+            <summary class="flex items-center justify-between font-bold text-sm cursor-pointer list-none text-slate-800 dark:text-white">
+                <span class="flex items-center gap-2">
+                    <span>🧠</span> <span>심리 & 성향 테스트</span>
+                </span>
+                <svg class="w-4 h-4 group-open:rotate-180 transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="mt-3 space-y-1 pt-2 border-t border-slate-200 dark:border-slate-700 text-xs">
+                <a href="/tests/office-survival.html" class="block p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">💼 직장인 생존 유형</a>
+                <a href="/tests/money-persona.html" class="block p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">💳 소비 성향 머니 캐릭터</a>
+                <a href="/tests/decision-paralysis.html" class="block p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">🧭 결정 장애 극복 지수</a>
+                <a href="/tests/dopamine-burnout.html" class="block p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">📱 디지털 도파민 중독</a>
             </div>
+        </details>
 
-            <!-- Section 3: Viral & Psychological Tests -->
-            <div>
-                <div class="flex items-center gap-1.5 mb-2.5 px-1">
-                    <span class="material-symbols-outlined text-primary text-base">psychology</span>
-                    <h3 class="text-xs font-black uppercase tracking-wider text-text-muted dark:text-slate-400" data-lang-ko="심리 &amp; 바이럴 테스트" data-lang-en="Tests &amp; Diagnosis">심리 &amp; 바이럴 테스트</h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                    <a href="/tests/office-survival.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-primary flex items-center justify-center text-base">💼</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="직장인 생존 유형" data-lang-en="Office Survival">직장인 생존 유형</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="멘탈 방어력 &amp; 오피스 캐릭터" data-lang-en="Resilience &amp; traits">멘탈 방어력 &amp; 오피스 캐릭터</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                    <a href="/tests/money-persona.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center text-base">💰</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="소비 성향 머니 캐릭터" data-lang-en="Money Persona">소비 성향 머니 캐릭터</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="탕진 vs 짠테크 성향" data-lang-en="Flex vs Frugal">탕진 vs 짠테크 성향</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                    <a href="/tests/decision-paralysis.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-amber-100 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center text-base">🧭</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="결정 장애 극복 지수" data-lang-en="Decision Paralysis">결정 장애 극복 지수</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="선택 피로 &amp; 인지 유형" data-lang-en="Choice fatigue index">선택 피로 &amp; 인지 유형</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                    <a href="/tests/animal-archetype.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-teal-100 dark:bg-teal-950/40 text-teal-500 flex items-center justify-center text-base">🐾</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="숨은 동물 성향 진단" data-lang-en="Animal Archetype">숨은 동물 성향 진단</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="Big 5 성격 동물 페르소나" data-lang-en="Big 5 personality animals">Big 5 성격 동물 페르소나</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                    <a href="/tests/social-battery.html" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700 group">
-                        <div class="flex items-center gap-3">
-                            <span class="size-8 rounded-lg bg-cyan-100 dark:bg-cyan-950/40 text-cyan-500 flex items-center justify-center text-base">🔋</span>
-                            <div>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="소셜 배터리 잔량" data-lang-en="Social Battery">소셜 배터리 잔량</p>
-                                <p class="text-[11px] text-text-muted dark:text-slate-400" data-lang-ko="사회적 기빨림 &amp; 충전법" data-lang-en="Energy &amp; recharging">사회적 기빨림 &amp; 충전법</p>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform text-base">chevron_right</span>
-                    </a>
-                    <a href="/#tests" class="flex items-center justify-center gap-1.5 p-2 rounded-xl bg-sky-50 dark:bg-sky-950/40 text-primary font-bold text-xs hover:underline col-span-full">
-                        <span data-lang-ko="10개 전체 심리/바이럴 테스트 보기" data-lang-en="View All 10 Tests">10개 전체 심리/바이럴 테스트 보기</span>
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Section 4: Info & Links -->
-            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <button class="sound-toggle-btn flex items-center gap-1.5 text-xs font-bold text-text-main dark:text-white hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-base">volume_off</span>
-                    <span data-lang-ko="효과음 켜기/끄기" data-lang-en="Toggle Sound">효과음 켜기/끄기</span>
-                </button>
-                <a href="/" class="flex items-center gap-1 text-xs font-extrabold text-primary hover:underline">
-                    <span data-lang-ko="홈으로 이동" data-lang-en="Go Home">홈으로 이동</span>
-                    <span class="material-symbols-outlined text-sm">home</span>
-                </a>
-            </div>
+        <!-- Mobile Info Links -->
+        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+            <a href="/about.html" class="p-2 hover:text-primary">서비스 소개</a>
+            <a href="/privacy.html" class="p-2 hover:text-primary">개인정보처리방침</a>
+            <a href="/terms.html" class="p-2 hover:text-primary">이용약관</a>
         </div>
     </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.mega-cat-tab');
-    const panels = document.querySelectorAll('.mega-cat-panel');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('mouseenter', () => {
-            tabs.forEach(t => {
-                t.classList.remove('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
-                t.classList.add('text-slate-600', 'dark:text-slate-400');
-            });
-            tab.classList.add('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
-            tab.classList.remove('text-slate-600', 'dark:text-slate-400');
-
-            const targetId = tab.dataset.target;
-            panels.forEach(p => {
-                if (p.id === targetId) {
-                    p.classList.remove('hidden');
-                } else {
-                    p.classList.add('hidden');
-                }
-            });
-        });
-    });
-});
-</script>
-
 </header>

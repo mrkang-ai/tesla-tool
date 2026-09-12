@@ -3,7 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(url, { cache: 'no-cache' })
             .then(response => response.text())
             .then(data => {
-                const element = document.getElementById(elementId);
+                let element = document.getElementById(elementId);
+                if (!element) {
+                    // Fallback to alternative IDs
+                    if (elementId === 'header-placeholder') element = document.getElementById('header');
+                    if (elementId === 'footer-placeholder') element = document.getElementById('footer');
+                    if (elementId === 'header') element = document.getElementById('header-placeholder');
+                    if (elementId === 'footer') element = document.getElementById('footer-placeholder');
+                }
                 if (element) {
                     element.innerHTML = data;
                 }
@@ -15,34 +22,60 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const initializeDropdowns = () => {
-        const dropdowns = document.querySelectorAll('.dropdown');
+        const dropdowns = document.querySelectorAll('.dropdown, .fw-dropdown');
         dropdowns.forEach(dropdown => {
             const button = dropdown.querySelector('.dropbtn');
-            const content = dropdown.querySelector('.dropdown-content');
+            const content = dropdown.querySelector('.dropdown-content, .fw-dropdown-menu');
 
             if (button && content) {
                 button.addEventListener('click', (event) => {
                     event.stopPropagation();
-                    const isAlreadyOpen = content.classList.contains('show');
+                    const isAlreadyOpen = content.classList.contains('show') || content.classList.contains('is-active');
                     // Close all dropdowns first
-                    document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
-                        openDropdown.classList.remove('show');
+                    document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openDropdown => {
+                        openDropdown.classList.remove('show', 'is-active');
                     });
                     // If it wasn't already open, show it
                     if (!isAlreadyOpen) {
-                        content.classList.add('show');
+                        content.classList.add('show', 'is-active');
                     }
+                });
+
+                // Close on link click
+                content.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        content.classList.remove('show', 'is-active');
+                    });
+                });
+
+                // Close button inside dropdown
+                const closeBtn = content.querySelector('.dropdown-close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        content.classList.remove('show', 'is-active');
+                    });
+                }
+            }
+        });
+
+        // Close when clicking outside
+        window.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown, .fw-dropdown')) {
+                document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openDropdown => {
+                    openDropdown.classList.remove('show', 'is-active');
                 });
             }
         });
 
-        window.onclick = (event) => {
-            if (!event.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
-                    openDropdown.classList.remove('show');
+        // Close on ESC key
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openDropdown => {
+                    openDropdown.classList.remove('show', 'is-active');
                 });
             }
-        };
+        });
     };
 
     const setupShareButtons = () => {

@@ -50,8 +50,22 @@ body {
     background-color: #f0f9ff;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-content.show {
     display: block;
+}
+
+html.dark .dropdown-content {
+    background-color: #1e293b;
+    border-color: #334155;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+html.dark .dropdown-content a {
+    color: #f8fafc;
+}
+
+html.dark .dropdown-content a:hover {
+    background-color: #334155;
 }
 
 .dropbtn {

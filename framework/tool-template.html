@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TOOL_NAME}} | {{TOOL_CATEGORY}} - ToolBox</title>
+  <meta name="description" content="{{TOOL_DESCRIPTION}}">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5e9',
+            'primary-hover': '#0284c7',
+            'bg-light': '#f8fafc',
+            'bg-dark': '#0f172a',
+            'card-light': '#ffffff',
+            'card-dark': '#1e293b'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Framework Core CSS -->
+  <link rel="stylesheet" href="/framework/core.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header Placeholder (Automatically mounted by framework) -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content Container -->
+  <main class="flex-grow fw-container py-8">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-6">
+      <a href="/" class="hover:text-primary transition-colors">홈</a>
+      <span>/</span>
+      <a href="{{CATEGORY_URL}}" class="hover:text-primary transition-colors">{{TOOL_CATEGORY}}</a>
+      <span>/</span>
+      <span class="text-slate-800 dark:text-slate-200 font-bold">{{TOOL_NAME}}</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="text-center mb-8">
+      <div class="fw-badge mb-3">
+        <span>{{CATEGORY_ICON}}</span>
+        <span>{{TOOL_CATEGORY}}</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+        {{TOOL_NAME}}
+      </h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        {{TOOL_DESCRIPTION}}
+      </p>
+    </div>
+
+    <!-- Interactive Tool Card (Custom Logic Container) -->
+    <div class="fw-card max-w-3xl mx-auto mb-8">
+      <div id="tool-interactive-area">
+        <!-- Service controls, inputs, interactive buttons go here -->
+        <div class="text-center py-12 text-slate-400">
+          서비스 인터랙티브 인터페이스 영역
+        </div>
+      </div>
+    </div>
+
+    <!-- 1000+ Character Guide Section -->
+    <section class="fw-guide-section max-w-3xl mx-auto">
+      <div class="fw-guide-content">
+        <h2>💡 {{TOOL_NAME}} 완벽 활용 가이드 & 상세 매뉴얼</h2>
+        <p>
+          본 도구는 현대 웹 표준 기술을 바탕으로 개발되어 별도의 프로그램 설치 없이 브라우저에서 즉시 실행 가능한 고성능 웹 애플리케이션입니다. 직관적인 인터페이스와 즉각적인 연산 반응 속도를 제공하여 일상생활 및 전문 업무 현장에서 최적의 생산성을 발휘할 수 있도록 설계되었습니다.
+        </p>
+
+        <h3>01. 주요 기능 및 핵심 특징</h3>
+        <p>
+          복잡한 절차 없이 클릭 한 번으로 모든 기능을 수행할 수 있으며, 연산된 데이터는 브라우저 내부 메모리에서만 안전하게 처리됩니다. 서버로 일체의 개인정보가 전송되지 않아 높은 보안성과 빠른 반응 속도를 보장합니다.
+        </p>
+
+        <h3>02. 실전 활용 꿀팁</h3>
+        <p>
+          자주 사용하는 옵션을 미리 확인하고, 생성된 결과는 클립보드 복사 버튼을 통해 메신저나 문서에 손쉽게 붙여넣어 활용할 수 있습니다. 키보드 엔터키를 지원하여 작업의 연속성을 높였습니다.
+        </p>
+
+        <h3>03. 자주 묻는 질문 (FAQ)</h3>
+        <div class="space-y-3 mt-4">
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q. 모바일 환경에서도 동일하게 작동하나요?</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">네, 스마트폰 및 태블릿 뷰포트에 맞춘 완벽한 반응형 레이아웃을 지원합니다.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q. 상업적 용도로 결과물을 사용해도 되나요?</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">본 도구로 도출된 모든 결과물은 개인 및 기업 업무에서 자유롭게 활용하실 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Framework Core Scripts -->
+  <script src="/framework/core.js"></script>
+</body>
+</html>

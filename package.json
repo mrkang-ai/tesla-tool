@@ -1,0 +1,17 @@
+﻿{
+  "name": "toolbox-suite",
+  "version": "1.0.0",
+  "description": "ToolBox 100+ Multi-tool Suite & Arcade Hub",
+  "scripts": {
+    "start": "npx serve -p 3000",
+    "dev": "npx serve -p 3000"
+  },
+  "keywords": [
+    "tools",
+    "utilities",
+    "games",
+    "tests"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="/framework/core.css">
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col select-none overflow-hidden font-sans">
-  <div id="header"></div>
+  <div id="header-placeholder"></div>
   <main class="flex-grow flex flex-col relative items-center justify-center">
     <canvas id="fireworksCanvas" class="absolute inset-0 w-full h-full cursor-pointer"></canvas>
 
@@ -105,10 +106,11 @@
         </div>
     </section>
     
-  <div id="footer"></div>
+  <div id="footer-placeholder"></div>
 
   <script src="../scripts/app.js"></script>
   <script src="../language.js"></script>
   <script src="fireworks.js"></script>
+  <script src="/framework/core.js"></script>
 </body>
 </html>
