@@ -27,8 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (element.tagName === 'META') {
                     element.setAttribute('content', text);
                 } else if (element.id !== 'current-service-name' && element.id !== 'current-language-text') {
-                    // Avoid directly setting text for elements controlled by other functions
-                    element.textContent = text;
+                    // If translation string contains HTML tags, use innerHTML so tags render formatted elements instead of raw text
+                    if (/<[a-z][\s\S]*>/i.test(text)) {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text;
+                    }
                 }
             }
         });
