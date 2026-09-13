@@ -262,8 +262,17 @@
                                 10 STAGES READY
                             </span>
 </div>
-<div class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-2">
-<span>방향키 <kbd class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[11px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">◀</kbd> <kbd class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[11px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">▶</kbd> 로 도구 넘기기</span>
+<div class="flex items-center gap-2 flex-wrap">
+<button type="button" id="arcade-random-btn" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white text-xs font-black flex items-center gap-1.5 shadow-md active:scale-95 transition-all cursor-pointer" title="100개 도구 중 무작위 추첨">
+<span class="text-sm">🎲</span>
+<span>랜덤 도구 뽑기</span>
+</button>
+<button type="button" id="arcade-random-stage-btn" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 text-xs font-black flex items-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer" title="10개 스테이지 무작위 이동">
+<span>🔄 스테이지 셔플</span>
+</button>
+<span class="hidden md:inline-block text-xs font-semibold text-slate-500 dark:text-slate-400 ml-1">
+방향키 <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">◀</kbd> <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">▶</kbd>
+</span>
 </div>
 </div>
 <!-- Main Arcade Split Layout -->
@@ -289,14 +298,17 @@
 </div>
 <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white" id="stage-cat-name">K-직장인 생존 키트</h3>
 </div>
-<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 flex-wrap">
+<button type="button" id="stage-shuffle-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/60 dark:hover:bg-amber-900/80 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer" title="현재 스테이지 안에서 다른 도구 랜덤 추천">
+<span>✨ 다른 도구 셔플</span>
+</button>
 <a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-sky-700 dark:text-sky-300 border border-slate-200 dark:border-slate-700 text-xs font-bold transition-all shadow-sm" href="/category/cat01-work/" id="stage-hub-link">
 <span>🚀</span>
 <span id="stage-hub-text">테마 서브랜딩 허브 보기 →</span>
 </a>
 <span class="text-sm font-mono font-black px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 shadow-sm" id="current-tool-index">
-                                        01 / 10
-                                    </span>
+01 / 10
+</span>
 </div>
 </div>
 <!-- Central Game Card Display -->
@@ -3075,8 +3087,12 @@
     document.addEventListener('DOMContentLoaded', () => {
         if (typeof TOOLS_100_DATA === 'undefined') return;
 
-        let activeCatIndex = 0;
-        let activeToolIndex = 0;
+        // 1. Initial State: RANDOM category and RANDOM tool on every visit!
+        const randInitCat = Math.floor(Math.random() * TOOLS_100_DATA.length);
+        const randInitTool = Math.floor(Math.random() * TOOLS_100_DATA[randInitCat].tools.length);
+
+        let activeCatIndex = randInitCat;
+        let activeToolIndex = randInitTool;
 
         const catListEl = document.getElementById('category-cards-list');
         const stageCatBadge = document.getElementById('stage-cat-badge');
@@ -3091,7 +3107,6 @@
         const miniDotsEl = document.getElementById('tool-mini-dots');
         const prevBtn = document.getElementById('arcade-prev-btn');
         const nextBtn = document.getElementById('arcade-next-btn');
-        const glowEl = document.getElementById('carousel-glow');
         const stageBgBackdrop = document.getElementById('stage-bg-backdrop');
         const stageHubLink = document.getElementById('stage-hub-link');
         const stageHubText = document.getElementById('stage-hub-text');
@@ -3125,8 +3140,9 @@
         // Render Left Category Cards
         TOOLS_100_DATA.forEach((cat, idx) => {
             const btn = document.createElement('button');
+            const isInitial = idx === randInitCat;
             btn.className = `cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border ${
-                idx === 0 
+                isInitial 
                 ? 'bg-gradient-to-r from-sky-500 to-blue-600 border-2 border-amber-300 text-white shadow-[0_6px_20px_rgba(14,165,233,0.35)] scale-[1.02] font-bold' 
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:border-sky-300 hover:text-sky-700 shadow-sm'
             } whitespace-nowrap min-w-[160px] lg:min-w-0 w-full`;
@@ -3134,22 +3150,26 @@
             btn.innerHTML = `
                 <span class="text-2xl">${cat.icon}</span>
                 <div class="flex-1 min-w-0">
-                    <div class="text-[10px] font-mono font-bold ${idx === 0 ? 'text-amber-200' : 'text-sky-600 dark:text-sky-400'}">STAGE ${cat.num}</div>
+                    <div class="text-[10px] font-mono font-bold ${isInitial ? 'text-amber-200' : 'text-sky-600 dark:text-sky-400'}">STAGE ${cat.num}</div>
                     <div class="text-xs sm:text-sm font-bold truncate">${cat.name}</div>
                 </div>
-                <span class="text-[10px] font-mono font-bold ${idx === 0 ? 'text-white bg-white/20 border-white/30' : 'text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600'} px-2 py-0.5 rounded-full border hidden sm:inline-block">10</span>
+                <span class="text-[10px] font-mono font-bold ${isInitial ? 'text-white bg-white/20 border-white/30' : 'text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600'} px-2 py-0.5 rounded-full border hidden sm:inline-block">10</span>
             `;
 
             btn.addEventListener('click', () => {
                 if (window.SoundFX) window.SoundFX.playPop();
-                selectCategory(idx);
+                selectCategory(idx, 0);
             });
             catListEl.appendChild(btn);
         });
 
-        function selectCategory(catIdx) {
+        function selectCategory(catIdx, toolIdx = null) {
             activeCatIndex = catIdx;
-            activeToolIndex = 0; // reset to first tool of category
+            if (typeof toolIdx === 'number') {
+                activeToolIndex = toolIdx;
+            } else {
+                activeToolIndex = 0;
+            }
 
             // Update category buttons UI
             const btns = catListEl.querySelectorAll('.cat-item-card');
@@ -3165,7 +3185,7 @@
                         </div>
                         <span class="text-[10px] font-mono font-bold text-white bg-white/20 border border-white/30 px-2 py-0.5 rounded-full hidden sm:inline-block">10</span>
                     `;
-                    b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                    b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     b.className = 'cat-item-card flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl transition-all cursor-pointer text-left border bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:border-sky-300 hover:text-sky-700 whitespace-nowrap min-w-[160px] lg:min-w-0 w-full shadow-sm';
                     b.innerHTML = `
@@ -3226,6 +3246,58 @@
             }
         }
 
+        function pickRandomToolGlobal() {
+            const randCatIdx = Math.floor(Math.random() * TOOLS_100_DATA.length);
+            const randCat = TOOLS_100_DATA[randCatIdx];
+            const randToolIdx = Math.floor(Math.random() * randCat.tools.length);
+
+            selectCategory(randCatIdx, randToolIdx);
+
+            if (window.SoundFX) window.SoundFX.playWin();
+            if (window.triggerConfetti) window.triggerConfetti({ count: 40 });
+
+            const card = document.getElementById('active-tool-card');
+            if (card) {
+                card.classList.add('scale-[1.02]', 'ring-4', 'ring-amber-400');
+                setTimeout(() => card.classList.remove('scale-[1.02]', 'ring-4', 'ring-amber-400'), 500);
+            }
+        }
+
+        function pickRandomStage() {
+            let nextCatIdx = Math.floor(Math.random() * TOOLS_100_DATA.length);
+            if (nextCatIdx === activeCatIndex) {
+                nextCatIdx = (nextCatIdx + 1) % TOOLS_100_DATA.length;
+            }
+            const randToolIdx = Math.floor(Math.random() * TOOLS_100_DATA[nextCatIdx].tools.length);
+            selectCategory(nextCatIdx, randToolIdx);
+
+            if (window.SoundFX) window.SoundFX.playPop();
+
+            const card = document.getElementById('active-tool-card');
+            if (card) {
+                card.classList.add('scale-[1.02]', 'ring-4', 'ring-sky-400');
+                setTimeout(() => card.classList.remove('scale-[1.02]', 'ring-4', 'ring-sky-400'), 500);
+            }
+        }
+
+        function pickRandomToolInStage() {
+            const cat = TOOLS_100_DATA[activeCatIndex];
+            let nextToolIdx = Math.floor(Math.random() * cat.tools.length);
+            if (cat.tools.length > 1 && nextToolIdx === activeToolIndex) {
+                nextToolIdx = (nextToolIdx + 1) % cat.tools.length;
+            }
+            activeToolIndex = nextToolIdx;
+            renderActiveTool();
+
+            if (window.SoundFX) window.SoundFX.playPop();
+
+            const card = document.getElementById('active-tool-card');
+            if (card) {
+                card.classList.add('scale-[1.02]');
+                setTimeout(() => card.classList.remove('scale-[1.02]'), 400);
+            }
+        }
+
         prevBtn.addEventListener('click', () => {
             if (window.SoundFX) window.SoundFX.playPop();
             const cat = TOOLS_100_DATA[activeCatIndex];
@@ -3255,21 +3327,21 @@
             renderActiveTool();
         });
 
-        // Random Tool Picker button
+        // Top bar random buttons
+        const arcadeRandomBtn = document.getElementById('arcade-random-btn');
+        if (arcadeRandomBtn) arcadeRandomBtn.addEventListener('click', pickRandomToolGlobal);
+
+        const arcadeRandomStageBtn = document.getElementById('arcade-random-stage-btn');
+        if (arcadeRandomStageBtn) arcadeRandomStageBtn.addEventListener('click', pickRandomStage);
+
+        const stageShuffleBtn = document.getElementById('stage-shuffle-btn');
+        if (stageShuffleBtn) stageShuffleBtn.addEventListener('click', pickRandomToolInStage);
+
+        // Hero banner random button
         const randomBtn = document.getElementById('hero-random-pick-btn');
         if (randomBtn) {
             randomBtn.addEventListener('click', () => {
-                const randCatIdx = Math.floor(Math.random() * TOOLS_100_DATA.length);
-                const randCat = TOOLS_100_DATA[randCatIdx];
-                const randToolIdx = Math.floor(Math.random() * randCat.tools.length);
-                
-                selectCategory(randCatIdx);
-                activeToolIndex = randToolIdx;
-                renderActiveTool();
-
-                if (window.SoundFX) window.SoundFX.playWin();
-                if (window.triggerConfetti) window.triggerConfetti({ count: 50 });
-
+                pickRandomToolGlobal();
                 const showcase = document.getElementById('arcade-showcase');
                 if (showcase) {
                     showcase.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -3286,8 +3358,41 @@
             }
         });
 
+        // Auto Demo Carousel (Gracefully advances if user is idle)
+        let autoPlayTimer = null;
+        let isHovered = false;
+
+        const startAutoPlay = () => {
+            if (autoPlayTimer) clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(() => {
+                if (isHovered) return;
+                const cat = TOOLS_100_DATA[activeCatIndex];
+                if (activeToolIndex + 1 < cat.tools.length) {
+                    activeToolIndex++;
+                    renderActiveTool();
+                } else {
+                    const nextCatIdx = (activeCatIndex + 1) % TOOLS_100_DATA.length;
+                    selectCategory(nextCatIdx, 0);
+                }
+            }, 12000);
+        };
+
+        const showcaseEl = document.getElementById('arcade-showcase');
+        if (showcaseEl) {
+            showcaseEl.addEventListener('mouseenter', () => { isHovered = true; });
+            showcaseEl.addEventListener('mouseleave', () => { isHovered = false; });
+            showcaseEl.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
+        }
+
+        startAutoPlay();
+
+        // Expose functions globally
         window.selectArcadeCategory = selectCategory;
-        renderActiveTool();
+        window.pickRandomToolGlobal = pickRandomToolGlobal;
+        window.pickRandomStage = pickRandomStage;
+
+        // Initialize with random stage & tool
+        selectCategory(randInitCat, randInitTool);
     });
     </script>
 </body>
