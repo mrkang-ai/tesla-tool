@@ -22,6 +22,11 @@
         localStorage.setItem('language', queryLang);
     }
 
+    // Expose functions to window immediately so they are NEVER undefined
+    window.applyLanguage = applyLanguage;
+    window.getLanguage = () => currentLang;
+    window.getTranslationBundle = (lang) => translations[lang || currentLang] || {};
+
     // 2. Fetch modular translations for a specific language
     async function loadLocaleBundle(lang) {
         if (translations[lang] && Object.keys(translations[lang]).length >= 3) {
@@ -33,7 +38,7 @@
 
         await Promise.all(modules.map(async (mod) => {
             try {
-                const res = await fetch(`/locales/${lang}/${mod}.json?v=306`, { cache: 'no-cache' });
+                const res = await fetch(`/locales/${lang}/${mod}.json?v=320`, { cache: 'no-cache' });
                 if (res.ok) {
                     const data = await res.json();
                     translations[lang][mod] = data;
@@ -167,11 +172,6 @@
         // 3h. Dispatch custom event for arcade console, framework dock & side drawer
         window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang, bundle } }));
     }
-
-    // Expose to window immediately
-    window.applyLanguage = applyLanguage;
-    window.getLanguage = () => currentLang;
-    window.getTranslationBundle = (lang) => translations[lang || currentLang];
 
     // Initial load on DOM ready
     if (document.readyState !== 'loading') {

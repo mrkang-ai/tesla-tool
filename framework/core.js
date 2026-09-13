@@ -34,6 +34,13 @@
         return audioCtx;
     }
 
+    // 0c. Global Language Helper
+    function getActiveLang() {
+        return (window.getLanguage && window.getLanguage()) ||
+               (new URLSearchParams(window.location.search).get('lang')) ||
+               localStorage.getItem('language') || 'ko';
+    }
+
     const SoundFX = {
         isEnabled() { return isSoundEnabled; },
         toggle() {
@@ -52,10 +59,13 @@
             this.updateUI();
         },
         updateUI() {
+            const lang = getActiveLang();
+            const soundOn = lang === 'en' ? 'Sound Enabled' : '사운드 켜짐';
+            const soundOff = lang === 'en' ? 'Sound Muted' : '사운드 꺼짐';
             document.querySelectorAll('.sound-toggle-btn').forEach(btn => {
                 const icon = btn.querySelector('.material-symbols-outlined') || btn.querySelector('span');
                 if (icon) icon.textContent = isSoundEnabled ? 'volume_up' : 'volume_off';
-                btn.setAttribute('aria-label', isSoundEnabled ? '사운드 켜짐' : '사운드 꺼짐');
+                btn.setAttribute('aria-label', isSoundEnabled ? soundOn : soundOff);
                 if (isSoundEnabled) {
                     btn.classList.add('text-primary');
                     btn.classList.remove('text-text-muted', 'dark:text-slate-400');
@@ -215,15 +225,15 @@
                 </div>
             </a>
             <nav class="hidden md:flex items-center gap-2 text-sm font-semibold">
-                <a href="/" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors">홈</a>
-                <a href="/#tools-100" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors">100대 도구모음</a>
+                <a href="/" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors" data-lang-ko="홈" data-lang-en="Home">홈</a>
+                <a href="/#tools-100" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors" data-lang-ko="100대 도구모음" data-lang-en="100 Tools">100대 도구모음</a>
             </nav>
         </div>
         <div class="flex items-center gap-2">
-            <button type="button" class="sound-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="효과음 켜기/끄기">
+            <button type="button" class="sound-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Sound FX">
                 <span class="material-symbols-outlined text-[20px]">volume_up</span>
             </button>
-            <button type="button" class="theme-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="다크/라이트 모드 전환">
+            <button type="button" class="theme-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Theme">
                 <span class="theme-toggle-icon">🌙</span>
             </button>
         </div>
@@ -234,10 +244,10 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>© 2026 ToolBox. All rights reserved. 100+ Productivity Web Apps.</div>
         <div class="flex items-center gap-4">
-            <a href="/privacy.html" class="hover:underline">개인정보처리방침</a>
-            <a href="/terms.html" class="hover:underline">이용약관</a>
-            <a href="/sitemap.html" class="hover:underline">사이트맵</a>
-            <a href="/" class="hover:underline font-bold text-primary">홈으로</a>
+            <a href="/privacy.html" class="hover:underline" data-lang-ko="개인정보처리방침" data-lang-en="Privacy Policy">개인정보처리방침</a>
+            <a href="/terms.html" class="hover:underline" data-lang-ko="이용약관" data-lang-en="Terms of Service">이용약관</a>
+            <a href="/sitemap.html" class="hover:underline" data-lang-ko="사이트맵" data-lang-en="Sitemap">사이트맵</a>
+            <a href="/" class="hover:underline font-bold text-primary" data-lang-ko="홈으로" data-lang-en="Home">홈으로</a>
         </div>
     </div>
 </footer>`
@@ -291,7 +301,7 @@
 
         for (const ep of endpoints) {
             try {
-                const res = await fetch(ep + '?v=305', { cache: 'no-cache' });
+                const res = await fetch(ep + '?v=320', { cache: 'no-cache' });
                 if (!res.ok) continue;
                 const text = await res.text();
                 if (!isInvalidPartialHtml(text)) {
@@ -439,9 +449,12 @@
         const copyBtn = headerEl.querySelector('#copy-link-btn, .action-copy-link');
         if (copyBtn) {
             copyBtn.addEventListener('click', () => {
+                const lang = getActiveLang();
+                const copySuccess = lang === 'en' ? 'Page URL copied to clipboard!' : '현재 페이지 URL이 클립보드에 복사되었습니다.';
+                const copyPrompt = lang === 'en' ? 'Copy the URL below:' : '아래 URL을 복사하세요:';
                 navigator.clipboard.writeText(window.location.href)
-                    .then(() => alert('현재 페이지 URL이 클립보드에 복사되었습니다.'))
-                    .catch(() => prompt('아래 URL을 복사하세요:', window.location.href));
+                    .then(() => alert(copySuccess))
+                    .catch(() => prompt(copyPrompt, window.location.href));
             });
         }
 
@@ -525,7 +538,7 @@
         }
 
         function renderDockContent(lang) {
-            lang = lang || localStorage.getItem('language') || 'ko';
+            lang = lang || getActiveLang();
             const homeLabel = lang === 'en' ? 'Home' : '홈';
             const menuLabel = lang === 'en' ? 'Menu' : '메뉴';
             const topLabel = lang === 'en' ? 'Top' : '맨위로';
@@ -587,7 +600,7 @@
             attachDockEvents();
         }
 
-        renderDockContent(localStorage.getItem('language') || 'ko');
+        renderDockContent(getActiveLang());
 
         document.body.appendChild(dockEl);
         document.body.appendChild(popoverEl);
@@ -631,7 +644,7 @@
 
         // Listen for language changes
         window.addEventListener('languagechange', (e) => {
-            renderDockContent(e.detail.lang);
+            renderDockContent(e.detail && e.detail.lang ? e.detail.lang : getActiveLang());
         });
     }
 
@@ -651,14 +664,16 @@
         const currentToolSlug = match[2];
 
         // Find Category Meta
-        const catMeta = CATEGORIES_DATA.find(c => c.slug === currentCatSlug) || {
-            id: currentCatSlug,
-            slug: currentCatSlug,
-            icon: '🛠️',
-            name_ko: currentCatSlug,
-            name_en: currentCatSlug,
-            count: 10
-        };
+        let catMeta = CATEGORIES_DATA.find(c => c.slug === currentCatSlug);
+        if (!catMeta) {
+            if (currentCatSlug === 'games') {
+                catMeta = { id: 'games', slug: 'games', icon: '🎮', name_ko: '미니 게임', name_en: 'Mini Games', count: 7 };
+            } else if (currentCatSlug === 'classic') {
+                catMeta = { id: 'classic', slug: 'classic', icon: '⚙️', name_ko: '클래식 유틸', name_en: 'Classic Tools', count: 8 };
+            } else {
+                catMeta = { id: currentCatSlug, slug: currentCatSlug, icon: '🛠️', name_ko: currentCatSlug, name_en: currentCatSlug, count: 10 };
+            }
+        }
 
         // Create container elements once
         let stripEl = document.getElementById('fw-related-strip');
@@ -714,12 +729,12 @@
         });
 
         async function renderSwitcher(lang) {
-            lang = lang || localStorage.getItem('language') || 'ko';
+            lang = lang || getActiveLang();
 
             // Fetch tools dictionary
             let toolsData = {};
             try {
-                const res = await fetch(`/locales/${lang}/tools.json?v=306`);
+                const res = await fetch(`/locales/${lang}/tools.json?v=320`);
                 if (res.ok) {
                     toolsData = await res.json();
                 }
@@ -867,11 +882,11 @@
         }
 
         // Initial render
-        await renderSwitcher(localStorage.getItem('language') || 'ko');
+        await renderSwitcher(getActiveLang());
 
         // Real-time language switch listener
         window.addEventListener('languagechange', (e) => {
-            renderSwitcher(e.detail.lang);
+            renderSwitcher(e.detail && e.detail.lang ? e.detail.lang : getActiveLang());
         });
     }
 
@@ -889,7 +904,7 @@
 
             setupMegaMenuTabs(headerEl);
             if (window.applyLanguage) {
-                window.applyLanguage(localStorage.getItem('language') || 'ko', true);
+                window.applyLanguage(getActiveLang(), true);
             }
         });
 

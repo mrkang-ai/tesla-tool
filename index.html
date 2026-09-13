@@ -34,7 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="/style.css?v=303" rel="stylesheet">
-<link href="/framework/core.css?v=303" rel="stylesheet"/>
+<link href="/framework/core.css?v=320" rel="stylesheet"/>
 <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -258,7 +258,7 @@
 <h2 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
 <span>STAGE SELECTOR</span> • <span data-lang-en="100 Tools Interactive Arcade" data-lang-ko="100대 도구 인터랙티브 아케이드">100대 도구 인터랙티브 아케이드</span>
 </h2>
-<span class="text-[11px] px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700/80 font-black uppercase shadow-sm">
+<span class="text-[11px] px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700/80 font-black uppercase shadow-sm" data-lang-en="10 STAGES READY" data-lang-ko="10개 스테이지">
                                 10 STAGES READY
                             </span>
 </div>
@@ -267,11 +267,11 @@
 <span class="text-sm">🎲</span>
 <span data-lang-en="Random Tool" data-lang-ko="랜덤 도구 뽑기">랜덤 도구 뽑기</span>
 </button>
-<button class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 text-xs font-black flex items-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer" id="arcade-random-stage-btn" title="10개 스테이지 무작위 이동" type="button">
+<button class="px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 text-xs font-black flex items-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer" id="arcade-random-stage-btn" title="10개 스테이지 무작위 이동" type="button">
 <span data-lang-en="🔄 Stage Shuffle" data-lang-ko="🔄 스테이지 셔플">🔄 스테이지 셔플</span>
 </button>
 <span class="hidden md:inline-block text-xs font-semibold text-slate-500 dark:text-slate-400 ml-1">
-방향키 <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">◀</kbd> <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">▶</kbd>
+<span data-lang-en="Arrow Keys" data-lang-ko="방향키">방향키</span> <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">◀</kbd> <kbd class="px-1.5 py-0.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 font-mono text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-sm">▶</kbd>
 </span>
 </div>
 </div>
@@ -3037,8 +3037,8 @@
 <div id="footer-placeholder"></div>
 <script defer="" src="scripts/hero-3d.js"></script>
 <script defer="" src="scripts/app.js?v=103"></script>
-<script defer="" src="/framework/core.js?v=303"></script>
-<script defer="" src="/language.js?v=303"></script>
+<script defer="" src="/framework/core.js?v=320"></script>
+<script defer="" src="/language.js?v=320"></script>
 <script type="application/ld+json">
     [
       {
@@ -3142,23 +3142,26 @@
         let localeCategories = {};
 
         async function loadArcadeLocales(lang) {
-            currentLang = lang || 'ko';
+            currentLang = lang || getActiveLang();
             try {
-                const resTools = await fetch(`/locales/${currentLang}/tools.json?v=306`);
+                const resTools = await fetch(`/locales/${currentLang}/tools.json?v=320`);
                 if (resTools.ok) localeTools = await resTools.json();
-                const resCats = await fetch(`/locales/${currentLang}/categories.json?v=306`);
+                const resCats = await fetch(`/locales/${currentLang}/categories.json?v=320`);
                 if (resCats.ok) localeCategories = await resCats.json();
             } catch (e) {}
         }
 
         function getActiveLang() {
-            return (window.getLanguage && window.getLanguage()) || localStorage.getItem('language') || 'ko';
+            return (window.getLanguage && window.getLanguage()) || 
+                   (new URLSearchParams(window.location.search).get('lang')) || 
+                   localStorage.getItem('language') || 'ko';
         }
 
         function getCatInfo(cat) {
             const lang = getActiveLang();
             const bundle = window.getTranslationBundle ? window.getTranslationBundle(lang) : null;
-            const catDict = bundle && bundle.categories && bundle.categories[cat.id];
+            const catDict = (bundle && bundle.categories && bundle.categories[cat.id]) ||
+                            (localeCategories && localeCategories[cat.id]);
             if (catDict) {
                 return {
                     name: catDict.name || cat.name,
@@ -3171,7 +3174,8 @@
         function getToolInfo(tool) {
             const lang = getActiveLang();
             const bundle = window.getTranslationBundle ? window.getTranslationBundle(lang) : null;
-            const toolDict = bundle && bundle.tools && bundle.tools[tool.slug];
+            const toolDict = (bundle && bundle.tools && bundle.tools[tool.slug]) ||
+                             (localeTools && localeTools[tool.slug]);
             if (toolDict) {
                 return {
                     name: toolDict.name || tool.name,
@@ -3443,17 +3447,18 @@
         window.pickRandomStage = pickRandomStage;
 
         // Reactive language change listener
-        window.addEventListener('languagechange', (e) => {
-            currentLang = e.detail.lang || 'ko';
+        window.addEventListener('languagechange', async (e) => {
+            currentLang = (e.detail && e.detail.lang) ? e.detail.lang : getActiveLang();
             if (e.detail && e.detail.bundle) {
                 if (e.detail.bundle.tools) localeTools = e.detail.bundle.tools;
                 if (e.detail.bundle.categories) localeCategories = e.detail.bundle.categories;
             }
+            await loadArcadeLocales(currentLang);
             selectCategory(activeCatIndex, activeToolIndex);
         });
 
         // Initialize with random stage & tool
-        loadArcadeLocales(localStorage.getItem('language') || 'ko').then(() => {
+        loadArcadeLocales(getActiveLang()).then(() => {
             selectCategory(randInitCat, randInitTool);
         });
     });
