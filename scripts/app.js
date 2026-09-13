@@ -257,6 +257,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
+            // Handle cat-extra-cards visibility based on search and category selection
+            const extraContainers = document.querySelectorAll('.cat-extra-cards');
+            extraContainers.forEach(container => {
+                const section = container.closest('.tool-group-section');
+                const groupAttr = section ? section.getAttribute('data-group') : '';
+                const toggleBtn = section ? section.querySelector(`.btn-toggle-extra[data-target="${container.id}"]`) : null;
+                const icon = toggleBtn ? toggleBtn.querySelector('.material-symbols-outlined') : null;
+                const label = toggleBtn ? toggleBtn.querySelector('.toggle-label') : null;
+
+                if (q) {
+                    const visibleInside = container.querySelectorAll('.portal-card:not(.hidden)');
+                    if (visibleInside.length > 0) {
+                        container.classList.remove('hidden');
+                    }
+                } else if (currentCategory.startsWith('cat') && groupAttr === currentCategory) {
+                    container.classList.remove('hidden');
+                    if (toggleBtn) {
+                        toggleBtn.setAttribute('aria-expanded', 'true');
+                        if (icon) icon.textContent = 'expand_less';
+                        if (label) label.textContent = '도구 접기';
+                    }
+                } else if (currentCategory === 'all') {
+                    if (!q) {
+                        container.classList.add('hidden');
+                        if (toggleBtn) {
+                            toggleBtn.setAttribute('aria-expanded', 'false');
+                            if (icon) icon.textContent = 'expand_more';
+                            if (label) label.textContent = '나머지 7개 도구 펼쳐보기 (더보기)';
+                        }
+                    }
+                }
+            });
+
             // Synchronize Arcade Showcase if category is selected
             if (arcadeShowcase) {
                 if (currentCategory.startsWith('cat')) {
@@ -353,6 +386,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             });
         }
+
+        // Setup accordion toggle buttons for extra cards in each category
+        const toggleButtons = document.querySelectorAll('.btn-toggle-extra');
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (!targetEl) return;
+
+                const isHidden = targetEl.classList.contains('hidden');
+                const icon = btn.querySelector('.material-symbols-outlined');
+                const label = btn.querySelector('.toggle-label');
+
+                if (isHidden) {
+                    targetEl.classList.remove('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                    if (icon) icon.textContent = 'expand_less';
+                    if (label) label.textContent = '도구 접기';
+                } else {
+                    targetEl.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                    if (icon) icon.textContent = 'expand_more';
+                    if (label) label.textContent = '나머지 7개 도구 펼쳐보기 (더보기)';
+                }
+            });
+        });
     };
 
     setupPortalSearchAndFilters();
