@@ -698,5 +698,180 @@
     "badge": "대망의 100호",
     "category": "cat10",
     "url": "/tools/cat10-toy/grand-fireworks/"
+  },
+  "lotto": {
+    "name": "로또 번호 생성기",
+    "desc": "행운의 번호를 생성하고 최신 당첨 통계와 수학적 확률 분석을 확인하세요.",
+    "badge": "인기 로또",
+    "category": "classic",
+    "url": "/tools/classic/lotto/"
+  },
+  "TextCount": {
+    "name": "글자 수 세기",
+    "desc": "문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 측정합니다.",
+    "badge": "필수 유틸",
+    "category": "classic",
+    "url": "/tools/classic/TextCount/"
+  },
+  "meme-generator": {
+    "name": "밈 생성기",
+    "desc": "인기 밈 템플릿에 나만의 텍스트를 더하고 자유롭게 편집해 고화질로 저장하세요.",
+    "badge": "바이럴 짤",
+    "category": "classic",
+    "url": "/tools/classic/meme-generator/"
+  },
+  "eat": {
+    "name": "오늘 뭐 먹지?",
+    "desc": "점심 결정 장애를 단 3초 만에 해결해 주는 카테고리별 맞춤 메뉴 추천기.",
+    "badge": "점심 해결",
+    "category": "games",
+    "url": "/tools/games/eat/"
+  },
+  "roulette": {
+    "name": "원판 돌리기 (룰렛)",
+    "desc": "원하는 옵션을 직접 입력하고 원판을 돌려 공정하고 투명한 결정을 내리세요.",
+    "badge": "공정 추첨",
+    "category": "games",
+    "url": "/tools/games/roulette/"
+  },
+  "ladder": {
+    "name": "사다리 게임",
+    "desc": "동료들과 함께 즐기는 공정한 1:1 매칭 무작위 사다리타기 게임.",
+    "badge": "내기 필수",
+    "category": "games",
+    "url": "/tools/games/ladder/"
+  },
+  "keycap": {
+    "name": "기계식 키캡 누르기 ASMR",
+    "desc": "청축, 갈축, 적축 기계식 타건 사운드 ASMR과 감성적인 타자 연습을 즐기세요.",
+    "badge": "키보드 힐링",
+    "category": "games",
+    "url": "/tools/games/keycap/"
+  },
+  "stairs": {
+    "name": "무한의 계단",
+    "desc": "순발력과 타이밍에 맞춰 끝없이 계단을 오르며 글로벌 최고기록에 도전하세요.",
+    "badge": "반응속도",
+    "category": "games",
+    "url": "/tools/games/stairs/"
+  },
+  "carrot-dodger": {
+    "name": "당근 피하기",
+    "desc": "하늘에서 떨어지는 당근을 피하고 맛있는 음식을 획득하는 동체시력 아케이드.",
+    "badge": "동체시력",
+    "category": "games",
+    "url": "/tools/games/carrot-dodger/"
+  },
+  "Rock-paper-scissors": {
+    "name": "가위바위보 승률 대결",
+    "desc": "컴퓨터의 무작위 인공지능을 상대로 게임이론 심리전 대결을 펼쳐보세요.",
+    "badge": "심리 대결",
+    "category": "games",
+    "url": "/tools/games/Rock-paper-scissors/"
+  },
+  "office-survival": {
+    "name": "직장인 생존력 테스트",
+    "desc": "직장인 생존 유형 & 멘탈 방어력 테스트.",
+    "badge": "직장인 심리",
+    "category": "tests",
+    "url": "/tests/office-survival.html"
+  },
+  "money-persona": {
+    "name": "소비 성향 & 머니 캐릭터 진단",
+    "desc": "소비 성향 분석 및 금융 성격 유형 테스트.",
+    "badge": "소셜 바이럴",
+    "category": "tests",
+    "url": "/tests/money-persona.html"
+  },
+  "decision-paralysis": {
+    "name": "결정 장애 극복 지수",
+    "desc": "결정 장애 극복 지수 & 뇌 성향 진단.",
+    "badge": "소셜 바이럴",
+    "category": "tests",
+    "url": "/tests/decision-paralysis.html"
+  },
+  "dopamine-burnout": {
+    "name": "디지털 도파민 & 번아웃 테스트",
+    "desc": "디지털 도파민 중독 & 번아웃 레벨 테스트.",
+    "badge": "소셜 바이럴",
+    "category": "tests",
+    "url": "/tests/dopamine-burnout.html"
+  },
+  "meme-level": {
+    "name": "2026 밈 & 트렌드 덕력 고사",
+    "desc": "2026 밈 & 인터넷 트렌드 덕력 고사.",
+    "badge": "트렌드 퀴즈",
+    "category": "tests",
+    "url": "/tests/meme-level.html"
+  },
+  "animal-archetype": {
+    "name": "숨은 동물 성향 진단",
+    "desc": "나의 숨은 동물 성향 진단 (융 & Big 5).",
+    "badge": "성격 진단",
+    "category": "tests",
+    "url": "/tests/animal-archetype.html"
+  },
+  "social-battery": {
+    "name": "소셜 배터리 잔량 진단",
+    "desc": "소셜 배터리 잔량 & 인간관계 에너지 진단.",
+    "badge": "에너지 진단",
+    "category": "tests",
+    "url": "/tests/social-battery.html"
+  },
+  "stress-coping": {
+    "name": "스트레스 대처 반응 스타일",
+    "desc": "스트레스 대처 반응 스타일 진단.",
+    "badge": "심리 유형",
+    "category": "tests",
+    "url": "/tests/stress-coping.html"
+  },
+  "attachment-style": {
+    "name": "성인 애착 유형 진단",
+    "desc": "성인 애착 유형 & 연애 심리 진단.",
+    "badge": "심리 유형",
+    "category": "tests",
+    "url": "/tests/attachment-style.html"
+  },
+  "focus-flow": {
+    "name": "집중력 & 몰입 스타일 진단",
+    "desc": "집중력 & 몰입 스타일 진단 (Flow Test).",
+    "badge": "집중력 분석",
+    "category": "tests",
+    "url": "/tests/focus-flow.html"
+  },
+  "lotto-mathematics": {
+    "name": "로또 확률의 수학적 증명",
+    "desc": "로또 6/45 당첨 확률 814만 분의 1의 수학적 증명과 통계학적 진실.",
+    "badge": "수학 & 확률",
+    "category": "guides",
+    "url": "/guides/lotto-mathematics.html"
+  },
+  "korean-byte-character-guide": {
+    "name": "한글 바이트 & 글자 수 가이드",
+    "desc": "한글 바이트(Byte)와 글자 수 계산의 완벽 가이드: UTF-8 vs EUC-KR.",
+    "badge": "인코딩 지식",
+    "category": "guides",
+    "url": "/guides/korean-byte-character-guide.html"
+  },
+  "game-theory-and-psychology": {
+    "name": "게임 이론과 사다리타기",
+    "desc": "가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군.",
+    "badge": "게임 이론",
+    "category": "guides",
+    "url": "/guides/game-theory-and-psychology.html"
+  },
+  "mechanical-keyboard-guide": {
+    "name": "기계식 키보드 스위치 비교",
+    "desc": "기계식 키보드 스위치 비교: 청축, 갈축, 적축의 물리적 차이와 ASMR.",
+    "badge": "하드웨어",
+    "category": "guides",
+    "url": "/guides/mechanical-keyboard-guide.html"
+  },
+  "decision-making-tools": {
+    "name": "결정 피로를 줄이는 심리학",
+    "desc": "결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학.",
+    "badge": "의사결정",
+    "category": "guides",
+    "url": "/guides/decision-making-tools.html"
   }
 }

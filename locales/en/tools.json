@@ -1,702 +1,877 @@
 {
   "stealth-excel": {
-    "name": "가짜 엑셀 몰컴 뷰어",
-    "desc": "사무실에서 상사 눈치를 피하며 몰래 웹서핑/유튜브를 즐기는 엑셀 위장 화면",
-    "badge": "인기 TOP",
+    "name": "Fake Excel Sneak Viewer",
+    "desc": "Disguised spreadsheet overlay to browse the web and videos in the office unnoticed",
+    "badge": "Popular TOP",
     "category": "cat01",
     "url": "/tools/cat01-work/stealth-excel/"
   },
   "corporate-cushion": {
-    "name": "넵병 퇴치 쿠션어 번역기",
-    "desc": "단답형 거절이나 껄끄러운 부탁을 정중하고 부드러운 비즈니스 완곡어로 자동 변환",
-    "badge": "실전 업무",
+    "name": "Corporate Cushion Translator",
+    "desc": "Instantly softens blunt rejections and awkward requests into polite business etiquette",
+    "badge": "Business Essential",
     "category": "cat01",
     "url": "/tools/cat01-work/corporate-cushion/"
   },
   "salary-ticker": {
-    "name": "초정밀 실시간 연봉 초시계",
-    "desc": "숨만 쉬어도 0.1원 단위로 실시간 올라가는 내 급여와 화장실 응가 머니 계산기",
-    "badge": "도파민",
+    "name": "Live Salary Micro-Ticker",
+    "desc": "Watch your live earnings tick up down to the penny every second—even during bathroom breaks",
+    "badge": "Dopamine",
     "category": "cat01",
     "url": "/tools/cat01-work/salary-ticker/"
   },
   "escape-office": {
-    "name": "칼퇴 핑계 & 가짜전화기",
-    "desc": "야근의 늪에서 자연스럽게 빠져나올 수 있는 100% 자연스러운 칼퇴 핑계 생성",
-    "badge": "칼퇴 필수",
+    "name": "Office Escape & Fake Call Generator",
+    "desc": "Generate 100% natural, guilt-free excuses and simulated emergency phone calls to leave on time",
+    "badge": "Leave on Time",
     "category": "cat01",
     "url": "/tools/cat01-work/escape-office/"
   },
   "card-budget": {
-    "name": "법인카드 잔여 0원 조합기",
-    "desc": "김영란법 한도(3만원) 및 팀 회식비 잔액을 딱 0원으로 맞추는 메뉴 최적화기",
-    "badge": "총무 필수",
+    "name": "Corporate Card Zero-Balance Optimizer",
+    "desc": "Knapsack meal-combo optimizer to burn team dinner allowances exactly down to 0 remaining",
+    "badge": "Admin Essential",
     "category": "cat01",
     "url": "/tools/cat01-work/card-budget/"
   },
   "dutch-pay-chaser": {
-    "name": "더치페이 정중한 추심 독촉장",
-    "desc": "카카오페이 송금 링크와 함께 껄끄럽지 않게 식사비를 회수하는 센스 만점 독촉장",
-    "badge": "회수율 100%",
+    "name": "Polite Bill Split & Collection Notice",
+    "desc": "Generate polite yet assertive debt collection reminders with instant payment links",
+    "badge": "100% Recovery",
     "category": "cat01",
     "url": "/tools/cat01-work/dutch-pay-chaser/"
   },
   "meeting-buzzword": {
-    "name": "회의록 비즈니스 버즈워드기",
-    "desc": "시너지, 피봇팅, 애자일 등 있어빌리티 넘치는 기획서 및 회의 요약 문장 생성",
-    "badge": "기획 특화",
+    "name": "Business Buzzword Generator",
+    "desc": "Generate impressive corporate jargon like synergy, pivoting, and agile for proposals and minutes",
+    "badge": "Planning Special",
     "category": "cat01",
     "url": "/tools/cat01-work/meeting-buzzword/"
   },
   "cold-email-diplomat": {
-    "name": "글로벌 콜드메일 외교관",
-    "desc": "해외 바이어 및 파트너사에게 답장을 부르는 프로페셔널 영문 제휴 이메일",
-    "badge": "글로벌",
+    "name": "Global Cold Email Diplomat",
+    "desc": "Craft high-response English outreach and partnership pitches for overseas clients",
+    "badge": "Global",
     "category": "cat01",
     "url": "/tools/cat01-work/cold-email-diplomat/"
   },
   "fake-update": {
-    "name": "가짜 OS 업데이트 대기 화면",
-    "desc": "합법적으로 멍때릴 수 있는 Windows/macOS 99% 무한 멈춤 화면 시뮬레이터",
-    "badge": "농땡이",
+    "name": "Fake OS Infinite Update Screen",
+    "desc": "Legitimize slacking off with an authentic, full-screen Windows/macOS 99% stuck update screen",
+    "badge": "Slack Off",
     "category": "cat01",
     "url": "/tools/cat01-work/fake-update/"
   },
   "presence-status": {
-    "name": "슬랙/팀즈 자리비움 방지기",
-    "desc": "마우스 포인터를 미세하게 움직여 사내 메신저 온라인 녹색불을 영구 유지",
-    "badge": "재택 필수",
+    "name": "Slack & Teams Online Keeper",
+    "desc": "Subtly simulates mouse pointer micro-movements to keep your company messenger green forever",
+    "badge": "Remote Work",
     "category": "cat01",
     "url": "/tools/cat01-work/presence-status/"
   },
   "official-converter": {
-    "name": "공공기관 기안문체 변환기",
-    "desc": "구어체 문장을 '~에 의거하여 ~하고자 함' 정통 행정 공문체로 완벽 변환",
-    "badge": "공문 필수",
+    "name": "Official Public Memo Style Converter",
+    "desc": "Converts casual draft sentences into formal civil service document syntax with standard administrative phrasing",
+    "badge": "Official Memo",
     "category": "cat02",
     "url": "/tools/cat02-public/official-converter/"
   },
   "civil-defense": {
-    "name": "민방위 & 예비군 연차 판별기",
-    "desc": "나이와 군번으로 내 훈련 소집 유형과 면제 D-Day를 초정밀 판별",
-    "badge": "군필 필수",
+    "name": "Civil Defense & Reserve Duty Checker",
+    "desc": "Calculate your exact annual military reserve/civil defense training tier and statutory exemption D-day",
+    "badge": "Veteran Service",
     "category": "cat02",
     "url": "/tools/cat02-public/civil-defense/"
   },
   "admin-vocabulary": {
-    "name": "공직 행정용어 만능사전",
-    "desc": "부의, 갈음, 결재, 계류 등 난해한 관공서 행정 한자어를 알기 쉽게 풀이",
-    "badge": "용어 완벽",
+    "name": "Civil Service Bureaucracy Glossary",
+    "desc": "Plain-language explanations for obscure administrative terms like deferral, resolution, pending, and substitution",
+    "badge": "Term Master",
     "category": "cat02",
     "url": "/tools/cat02-public/admin-vocabulary/"
   },
   "press-release-gen": {
-    "name": "보도자료 표준 양식 생성기",
-    "desc": "공공기관 규격에 맞춘 엠바고, 헤드라인, 본문 6하원칙 표준 보도자료 생성",
-    "badge": "홍보팀",
+    "name": "Standard Public Press Release Generator",
+    "desc": "Formats press releases following official government standards with 5W1H structure and embargo tags",
+    "badge": "PR & Comms",
     "category": "cat02",
     "url": "/tools/cat02-public/press-release-gen/"
   },
   "budget-burner": {
-    "name": "연말 잔여 예산 소진 플래너",
-    "desc": "불용 처리 위험에 처한 남은 예산을 사무용품과 비품으로 칼같이 소진",
-    "badge": "예산 집행",
+    "name": "Year-End Surplus Budget Burner & Cart",
+    "desc": "Knapsack optimizer to burn remaining surplus budget down to zero with legit justification memos",
+    "badge": "Budget Execution",
     "category": "cat02",
     "url": "/tools/cat02-public/budget-burner/"
   },
   "audit-checker": {
-    "name": "감사 대비 보안 자가진단표",
-    "desc": "클린데스크, USB 반출 등 불시 감사에서 지적받기 쉬운 체크리스트 점검",
-    "badge": "감사 대비",
+    "name": "Audit Defense & Security Self-Checklist",
+    "desc": "Self-audit checklist covering clean desks, USB permits, and sensitive file handling to survive surprise inspections",
+    "badge": "Audit Defense",
     "category": "cat02",
     "url": "/tools/cat02-public/audit-checker/"
   },
   "doc-page-adjuster": {
-    "name": "보고서 1페이지 여백 조절기",
-    "desc": "애매하게 2페이지로 넘어간 문장을 자간과 행간 조절로 1장에 쏙 압축",
-    "badge": "보고서",
+    "name": "1-Page Report Margin & Kerning Adjuster",
+    "desc": "Condense overflowing 2-page reports into a single crisp page by fine-tuning line spacing and tracking",
+    "badge": "Report Master",
     "category": "cat02",
     "url": "/tools/cat02-public/doc-page-adjuster/"
   },
   "protocol-seating": {
-    "name": "공식 의전 좌석 배치 시뮬레이터",
-    "desc": "서열 1위부터 6위까지 차량 상석 및 회의실 VIP 좌석을 완벽 배치",
-    "badge": "의전 특화",
+    "name": "Official Protocol Seating Simulator",
+    "desc": "Accurately places VIP seats in vehicles and conference tables according to official protocol rank 1 through 6",
+    "badge": "VIP Protocol",
     "category": "cat02",
     "url": "/tools/cat02-public/protocol-seating/"
   },
   "hearing-evasion": {
-    "name": "국정감사 질의 회피 답변기",
-    "desc": "곤란한 질문에 '엄중히 생각하며 종합적으로 검토하겠음' 매직 답변 생성",
-    "badge": "국감 방어",
+    "name": "Parliamentary Hearing Question Evader",
+    "desc": "Generates diplomatic non-answers like 'We take this matter gravely and will comprehensively review it'",
+    "badge": "Hearing Defense",
     "category": "cat02",
     "url": "/tools/cat02-public/hearing-evasion/"
   },
   "closing-bell-timer": {
-    "name": "퇴근 10분 전 시보 알림 타이머",
-    "desc": "18시 정각 정년퇴임 및 퇴근 종소리와 함께 칼퇴 카운트다운 울림",
-    "badge": "퇴근 알림",
+    "name": "Quitting Time 10-Minute Bell Chime",
+    "desc": "Plays classic closing chimes and sounds a countdown to pack your bags 10 minutes before departure",
+    "badge": "Punch Out",
     "category": "cat02",
     "url": "/tools/cat02-public/closing-bell-timer/"
   },
   "gpa-recovery": {
-    "name": "학점 복구 & 졸업 계산기",
-    "desc": "남은 학기 올A+ 맞았을 때 역전 가능한 내 최고 학점과 재수강 플래너",
-    "badge": "학점 구제",
+    "name": "GPA Recovery & Retake Planner",
+    "desc": "Calculate your maximum achievable GPA with straight A's and plan strategic course retakes",
+    "badge": "GPA Rescue",
     "category": "cat03",
     "url": "/tools/cat03-campus/gpa-recovery/"
   },
   "free-rider-detector": {
-    "name": "조별과제 무임승차 감지기",
-    "desc": "톡방 읽씹, 잠수, '몸이 아파서' 등 프리라이더 빌런 지수를 과학적으로 산출",
-    "badge": "조별과제",
+    "name": "Group Project Free-Rider Detector",
+    "desc": "Scientifically quantifies free-rider risk based on ghosting, read-without-reply, and last-minute sick excuses",
+    "badge": "Team Project",
     "category": "cat03",
     "url": "/tools/cat03-campus/free-rider-detector/"
   },
   "deadline-panic": {
-    "name": "과제 제출 마감 패닉 HUD",
-    "desc": "마감 1시간 전 긴박한 사운드와 함께 초단위로 줄어드는 제출 경고 화면",
-    "badge": "패닉 모드",
+    "name": "Assignment Submission Panic HUD",
+    "desc": "High-adrenaline submission countdown HUD with ticking audio effects during the final 60 minutes",
+    "badge": "Panic Mode",
     "category": "cat03",
     "url": "/tools/cat03-campus/deadline-panic/"
   },
   "genz-slang": {
-    "name": "Z세대 밈 & 신조어 번역기",
-    "desc": "최신 유행어, 알파세대 은어를 기성세대도 바로 이해할 수 있게 번역",
-    "badge": "트렌드",
+    "name": "Gen Z & Alpha Slang Translator",
+    "desc": "Translates trending teen slang, internet memes, and Gen Alpha vernacular into plain everyday language",
+    "badge": "Trending",
     "category": "cat03",
     "url": "/tools/cat03-campus/genz-slang/"
   },
   "caffeine-limit": {
-    "name": "카페인 안전 섭취 한도 계산기",
-    "desc": "몬스터, 핫식스, 아메리카노 등 시험기간 누적 카페인 위험도 측정",
-    "badge": "밤샘 필수",
+    "name": "Safe Caffeine Daily Limit Calculator",
+    "desc": "Track cumulative caffeine intake from energy drinks and coffee to prevent dangerous all-nighter overdoses",
+    "badge": "All-Nighter",
     "category": "cat03",
     "url": "/tools/cat03-campus/caffeine-limit/"
   },
   "dear-professor": {
-    "name": "교수님 성적정정 면담 메일기",
-    "desc": "F학점 위기 학생을 위한 공손하고 설득력 있는 교수님 면담 요청 메일",
-    "badge": "성적 정정",
+    "name": "Dear Professor Grade Appeal Drafter",
+    "desc": "Drafts respectful, persuasive grade inquiry and office-hour request emails for students facing academic crisis",
+    "badge": "Grade Appeal",
     "category": "cat03",
     "url": "/tools/cat03-campus/dear-professor/"
   },
   "essay-expander": {
-    "name": "과제 분량 뻥튀기 문장 확장기",
-    "desc": "단 한 줄의 생각도 고품격 학술 미사여구로 3배 이상 풍성하게 확장",
-    "badge": "레포트",
+    "name": "Essay Word Count & Sentence Inflator",
+    "desc": "Expands short one-line thoughts into eloquent, multi-paragraph academic prose to hit length minimums",
+    "badge": "Essay Buffer",
     "category": "cat03",
     "url": "/tools/cat03-campus/essay-expander/"
   },
   "campus-lunch": {
-    "name": "오늘의 학식 vs 배달 룰렛",
-    "desc": "학생 식당과 캠퍼스 앞 배달 맛집 사이의 결정장애를 단 1초 만에 해결",
-    "badge": "메뉴 고민",
+    "name": "Cafeteria vs. Delivery Lunch Decider",
+    "desc": "Resolves lunch decision paralysis between campus dining halls and nearby takeout spots in 1 second",
+    "badge": "Lunch Picker",
     "category": "cat03",
     "url": "/tools/cat03-campus/campus-lunch/"
   },
   "commute-misery": {
-    "name": "통학러 고통 지수 계산기",
-    "desc": "지옥철 환승, 콩나물 시루 만원 버스로 깎여나가는 나의 하루 수명 측정",
-    "badge": "통학러",
+    "name": "Student Commute Misery Calculator",
+    "desc": "Calculates lost lifespan and stress levels caused by packed rush-hour subways and transit transfers",
+    "badge": "Commuter",
     "category": "cat03",
     "url": "/tools/cat03-campus/commute-misery/"
   },
   "exam-hud": {
-    "name": "시험장 실전 카운트다운 HUD",
-    "desc": "문제당 남은 시간 안내 및 OMR 카드 마킹 5분 전 비프 경고음 타이머",
-    "badge": "시험 필수",
+    "name": "Exam Room Real-Time Timer & HUD",
+    "desc": "Real-time pace keeper with per-question time breakdown and a 5-minute answer-sheet warning chime",
+    "badge": "Exam Essential",
     "category": "cat03",
     "url": "/tools/cat03-campus/exam-hud/"
   },
   "discharge-ticker": {
-    "name": "초정밀 전역일 소수점 티커",
-    "desc": "소수점 7자리 실시간 복무율 HUD 및 남은 짬밥 그릇 수 카운트다운",
-    "badge": "국방부 시계",
+    "name": "Discharge Countdown & Service Ticker",
+    "desc": "Precision HUD displaying service completion percentage to 7 decimals and remaining mess-hall meals",
+    "badge": "Service Clock",
     "category": "cat04",
     "url": "/tools/cat04-military/discharge-ticker/"
   },
   "military-reaction": {
-    "name": "관등성명 초음속 반사속도",
-    "desc": "'김 병장님!' 부름에 0.1초 만에 '이병 홍길동!' 클릭하는 순발력 테스트",
-    "badge": "군기 테스트",
+    "name": "Rank & Name Reflex Reaction Test",
+    "desc": "Tests how fast you can snap into military attention when your commanding officer barks your name",
+    "badge": "Discipline",
     "category": "cat04",
     "url": "/tools/cat04-military/military-reaction/"
   },
   "barracks-meal": {
-    "name": "군대 짬밥 탈주 & PX 폭풍 지수",
-    "desc": "해빔소, 조기튀김 등 기피 메뉴 등장 시 PX 냉동식품 털러 갈 확률",
-    "badge": "PX 런",
+    "name": "Mess Hall Escape & PX Run Index",
+    "desc": "Predicts likelihood of fleeing to the PX for frozen snacks when unappealing mess-hall dishes are served",
+    "badge": "PX Run",
     "category": "cat04",
     "url": "/tools/cat04-military/barracks-meal/"
   },
   "night-guard": {
-    "name": "불침번 & 당직 공평 난수 추첨",
-    "desc": "퐁당퐁당 당직 시비를 없애는 암호학적 난수 기반 공평 근무표 배정기",
-    "badge": "공평 근무",
+    "name": "Night Watch Duty Cryptographic Draw",
+    "desc": "Cryptographically fair random roster generator to eliminate arguments over undesirable shifts",
+    "badge": "Fair Duty",
     "category": "cat04",
     "url": "/tools/cat04-military/night-guard/"
   },
   "morse-beeper": {
-    "name": "군용 모스 부호 번역 & 오디오",
-    "desc": "SOS, 점/선 모스부호를 700Hz 표준 군용 정현파 오디오 톤으로 재생",
-    "badge": "통신병",
+    "name": "Military Morse Code Translator & Synth",
+    "desc": "Encodes text into dot-dash Morse code and synthesizes authentic 700Hz sine-wave radio beeps",
+    "badge": "Signals Corps",
     "category": "cat04",
     "url": "/tools/cat04-military/morse-beeper/"
   },
   "military-rank-mind": {
-    "name": "계급별 멘탈 상태 토이",
-    "desc": "이등병(초긴장 각잡기)부터 병장(침대 일체화)까지 계급별 심리 인터랙티브",
-    "badge": "공감 100%",
+    "name": "Barracks Rank Psychology Interactive",
+    "desc": "Interactive toy illustrating psychological shifts from nervous raw recruits to unbothered senior sergeants",
+    "badge": "100% Relatable",
     "category": "cat04",
     "url": "/tools/cat04-military/military-rank-mind/"
   },
   "zulu-time": {
-    "name": "밀리터리 줄루(Zulu) 시계",
-    "desc": "KST 기준 시간과 전 세계 연합군 군용 작전 시간(UTC+0 Zulu) 실시간 변환",
-    "badge": "작전 시계",
+    "name": "Military Zulu Time Clock",
+    "desc": "Real-time dual clock synchronizing local time with universal military operational coordinates (UTC Zulu)",
+    "badge": "Ops Clock",
     "category": "cat04",
     "url": "/tools/cat04-military/zulu-time/"
   },
   "camo-pattern": {
-    "name": "전술 위장(Camo) 패턴 생성기",
-    "desc": "우드랜드, 사막, 디지털 픽셀 등 밀리터리 전술 위장 패턴 캔버스 렌더러",
-    "badge": "위장 패턴",
+    "name": "Tactical Camo Pattern Generator",
+    "desc": "Interactive HTML5 canvas renderer synthesizing woodland, desert, and digital pixel military camo prints",
+    "badge": "Camo Pattern",
     "category": "cat04",
     "url": "/tools/cat04-military/camo-pattern/"
   },
   "mre-timer": {
-    "name": "전투식량 발열팩 보글보글 타이머",
-    "desc": "15분 발열팩 조리 대기 시간 동안 실제 보글보글 끓는 ASMR 사운드 재생",
-    "badge": "전투식량",
+    "name": "MRE Flameless Heater Simmer Timer",
+    "desc": "Simulates bubbling hydrothermal pouch ASMR during the 15-minute wait for ready-to-eat ration meals",
+    "badge": "Combat Rations",
     "category": "cat04",
     "url": "/tools/cat04-military/mre-timer/"
   },
   "reserve-calendar": {
-    "name": "예비군·민방위 40세 만료 캘린더",
-    "desc": "대한민국 남성의 국방 의무가 법적으로 완전히 소멸되는 날까지의 타임라인",
-    "badge": "국방 해방",
+    "name": "Civil Defense Age-40 Exemption Clock",
+    "desc": "Countdown timeline charting every milestone until statutory military duty expires on your 40th birthday",
+    "badge": "Total Freedom",
     "category": "cat04",
     "url": "/tools/cat04-military/reserve-calendar/"
   },
   "insta-caption": {
-    "name": "인스타 감성 카페 줄글 캡션기",
-    "desc": "여백의 미와 은은한 허세가 깃든 힙스터 카페 사진용 감성 문구 자동 생성",
-    "badge": "감성 뿜뿜",
+    "name": "Moody Cafe Aesthetic Caption Generator",
+    "desc": "Generates minimalist, poetic captions with understated pretentious charm for cafe lifestyle photography",
+    "badge": "Aesthetic",
     "category": "cat05",
     "url": "/tools/cat05-sns/insta-caption/"
   },
   "youtube-clickbait": {
-    "name": "유튜브 어그로 썸네일 제목기",
-    "desc": "'결국 터졌습니다', '이 영상은 곧 삭제' 등 알고리즘 폭격 제목 메이커",
-    "badge": "조회수 폭발",
+    "name": "Viral YouTube Clickbait Title Generator",
+    "desc": "Generates high-CTR video titles engineered to exploit recommendation algorithms and viewer curiosity",
+    "badge": "Viral Views",
     "category": "cat05",
     "url": "/tools/cat05-sns/youtube-clickbait/"
   },
   "threads-story": {
-    "name": "스레드(Threads) 바이럴 스토리",
-    "desc": "'오늘 충격적인 광경을 봄... 타래로' 특유의 흡입력 넘치는 줄글 포맷팅",
-    "badge": "스레드 감성",
+    "name": "Threads Viral Thread & Story Formatter",
+    "desc": "Formats gripping multi-part story hooks optimized for the viral typography of Meta's Threads",
+    "badge": "Threads Style",
     "category": "cat05",
     "url": "/tools/cat05-sns/threads-story/"
   },
   "fake-trending": {
-    "name": "가짜 X(트위터) 실트 1위 렌더러",
-    "desc": "내 이름이나 엉뚱한 키워드가 실시간 트렌드 1위에 오른 화면 즉시 합성",
-    "badge": "인증샷",
+    "name": "Fake Twitter/X #1 Trending Renderer",
+    "desc": "Composites instant screenshots showing your name or custom topic trending #1 worldwide",
+    "badge": "Bragging Rights",
     "category": "cat05",
     "url": "/tools/cat05-sns/fake-trending/"
   },
   "shorts-script": {
-    "name": "쇼츠·릴스 30초 대본 압축기",
-    "desc": "0~3초 후킹과 빠른 전개로 시청 지속 시간을 극대화하는 숏폼 스크립터",
-    "badge": "숏폼 필수",
+    "name": "30-Second Shorts & Reels Script Condenser",
+    "desc": "Structures 30-second scripts with high-retention 3-second hooks and rapid-fire visual cues",
+    "badge": "Short-Form",
     "category": "cat05",
     "url": "/tools/cat05-sns/shorts-script/"
   },
   "hashtag-optimizer": {
-    "name": "황금비 해시태그 최적화기",
-    "desc": "대형·중형·소형 키워드를 완벽한 비율로 조합해 검색 노출을 극대화",
-    "badge": "노출 최적화",
+    "name": "Golden-Ratio Hashtag Optimizer",
+    "desc": "Combines mega, mid, and niche tag tiers in optimal proportions to maximize algorithmic reach",
+    "badge": "Reach Booster",
     "category": "cat05",
     "url": "/tools/cat05-sns/hashtag-optimizer/"
   },
   "influencer-apology": {
-    "name": "인플루언서 4K 공식 사과문",
-    "desc": "검은 옷, 90도 인사, 노메이크업 클리셰가 완벽하게 적용된 사과문 생성",
-    "badge": "사과문",
+    "name": "Influencer 4K Formal Apology Generator",
+    "desc": "Generates dramatic public apology statements incorporating all classic apology tropes",
+    "badge": "Apology Script",
     "category": "cat05",
     "url": "/tools/cat05-sns/influencer-apology/"
   },
   "viral-score": {
-    "name": "SNS 어그로·논란 유발 지수",
-    "desc": "내가 쓴 글이 온라인 커뮤니티에서 불타오를지 불판 지수 실시간 측정",
-    "badge": "논란 테스터",
+    "name": "Controversy & Flame-War Score Meter",
+    "desc": "Analyzes social posts to predict whether they will go viral or trigger explosive comment section drama",
+    "badge": "Drama Meter",
     "category": "cat05",
     "url": "/tools/cat05-sns/viral-score/"
   },
   "hate-sanitizer": {
-    "name": "악플 정화 마법 필터 (멘탈케어)",
-    "desc": "가시 돋친 악플을 천사 같은 응원과 꽃가루 칭찬으로 순화해 멘탈 보호",
-    "badge": "멘탈 케어",
+    "name": "Hate Comment Sanitizer & Shield",
+    "desc": "Transforms toxic internet hate comments into wholesome compliments and confetti to protect your mental sanity",
+    "badge": "Mental Shield",
     "category": "cat05",
     "url": "/tools/cat05-sns/hate-sanitizer/"
   },
   "fake-followers": {
-    "name": "100만 가상 도파민 시뮬레이터",
-    "desc": "초당 30개씩 터지는 하트와 알림 폭포수로 인플루언서 기분을 만끽하는 토이",
-    "badge": "도파민 파티",
+    "name": "1M Dopamine Follower Simulator",
+    "desc": "Satisfying toy simulating 30 hearts per second and endless push notifications for instant influencer dopamine",
+    "badge": "Dopamine Rush",
     "category": "cat05",
     "url": "/tools/cat05-sns/fake-followers/"
   },
   "prompt-enhancer": {
-    "name": "AI 프롬프트 마법 강화기",
-    "desc": "엉성한 한 줄 질문을 역할/제약/출력형식이 완비된 전문 엔지니어링 프롬프트로 변환",
-    "badge": "ChatGPT 필수",
+    "name": "AI Prompt Engineering Magic Enhancer",
+    "desc": "Transforms sloppy one-line requests into structured prompts with roles, constraints, and formats",
+    "badge": "Prompt Magic",
     "category": "cat06",
     "url": "/tools/cat06-tech/prompt-enhancer/"
   },
   "ai-hallucination": {
-    "name": "AI 할루시네이션 생성기",
-    "desc": "세종대왕 맥북 던짐 사건처럼 세상 당당하게 역사와 과학을 날조하는 유머 챗봇",
-    "badge": "꿀잼 패러디",
+    "name": "AI Hallucination Comedy Generator",
+    "desc": "Humorous chatbot confidently fabricating hilarious alternate history and nonsensical scientific facts",
+    "badge": "Comedy AI",
     "category": "cat06",
     "url": "/tools/cat06-tech/ai-hallucination/"
   },
   "turing-test": {
-    "name": "블라인드 튜링 테스트 퀴즈",
-    "desc": "화면 속 대화 상대가 사람인지 최신 AI 모델인지 3초 안에 맞히는 퀴즈",
-    "badge": "인간 vs AI",
+    "name": "Blind Turing Test 3-Second Quiz",
+    "desc": "Guess whether you are conversing with a real human or an advanced language model within 3 seconds",
+    "badge": "Human vs. AI",
     "category": "cat06",
     "url": "/tools/cat06-tech/turing-test/"
   },
   "ai-job-loss": {
-    "name": "AI 직업 대체 소멸 위험도",
-    "desc": "내 직무가 인공지능에 의해 사라질 확률과 살아남기 위한 행동 강령 안내",
-    "badge": "미래 생존",
+    "name": "AI Job Replacement Risk Assessor",
+    "desc": "Calculates automation risk for your profession and provides practical survival action plans",
+    "badge": "Future Proof",
     "category": "cat06",
     "url": "/tools/cat06-tech/ai-job-loss/"
   },
   "asimov-laws": {
-    "name": "아시모프 로봇 3원칙 윤리 판정",
-    "desc": "인간의 명령이 로봇 3원칙에 위배되는지 판정하고 회로 폭주를 감지",
-    "badge": "SF 윤리",
+    "name": "Asimov's Three Laws Ethics Checker",
+    "desc": "Evaluates whether user commands violate Isaac Asimov's Three Laws of Robotics and flags circuit overloads",
+    "badge": "Sci-Fi Ethics",
     "category": "cat06",
     "url": "/tools/cat06-tech/asimov-laws/"
   },
   "qr-steganography": {
-    "name": "QR 비밀 메시지 스테가노그래피",
-    "desc": "비밀번호를 입력해야만 본래의 비밀 텍스트가 해독되어 나타나는 암호 QR",
-    "badge": "비밀 암호",
+    "name": "QR Secret Steganography Encoder",
+    "desc": "Generates encrypted QR codes that reveal hidden text payloads only upon entering the correct PIN",
+    "badge": "Secret Code",
     "category": "cat06",
     "url": "/tools/cat06-tech/qr-steganography/"
   },
   "json-beautifier": {
-    "name": "인스턴트 JSON 뷰어 & 트리",
-    "desc": "한 줄로 깨진 복잡한 JSON 데이터를 0.1초 만에 비주얼 인터랙티브 트리로 정리",
-    "badge": "개발자 필수",
+    "name": "Instant JSON Tree Viewer & Formatter",
+    "desc": "Cleans minified or broken JSON into an interactive, collapsible tree hierarchy in milliseconds",
+    "badge": "Dev Utility",
     "category": "cat06",
     "url": "/tools/cat06-tech/json-beautifier/"
   },
   "quantum-password": {
-    "name": "양자컴퓨터 비밀번호 해킹 시간",
-    "desc": "내 비밀번호가 일반 슈퍼컴퓨터와 양자컴퓨터 쇼어 알고리즘에 털리는 시간 비교",
-    "badge": "보안 진단",
+    "name": "Quantum Shor's Algorithm Password Cracker",
+    "desc": "Compares how long your password takes to crack on classic supercomputers versus quantum Shor algorithms",
+    "badge": "Security Check",
     "category": "cat06",
     "url": "/tools/cat06-tech/quantum-password/"
   },
   "visual-regex": {
-    "name": "비주얼 정규표현식(Regex) 샌드박스",
-    "desc": "어려운 정규식 문법을 실시간 컬러 매칭과 그룹 캡처로 친절하게 시각화",
-    "badge": "정규식 마스터",
+    "name": "Visual Regex Playground & Sandbox",
+    "desc": "Visualizes complex regular expressions with real-time color matching and group capture breakdowns",
+    "badge": "Regex Master",
     "category": "cat06",
     "url": "/tools/cat06-tech/visual-regex/"
   },
   "dopamine-blackhole": {
-    "name": "디지털 도파민 디톡스 블랙홀",
-    "desc": "화면과 마우스를 전혀 건드리지 않고 칠흑 같은 암흑 속에서 뇌를 쉬게 하는 단식기",
-    "badge": "디지털 단식",
+    "name": "Digital Dopamine Detox Black Hole",
+    "desc": "Pure pitch-black interactive sensory-deprivation void that encourages resting your eyes and brain",
+    "badge": "Digital Detox",
     "category": "cat06",
     "url": "/tools/cat06-tech/dopamine-blackhole/"
   },
   "mbti-clash": {
-    "name": "MBTI 극단 궁합 & 파국 시뮬레이터",
-    "desc": "두 성격이 여행을 가거나 조별과제를 할 때 30분 만에 싸우는 원인과 화해 치트키",
-    "badge": "MBTI 파국",
+    "name": "MBTI Personality Clash Simulator",
+    "desc": "Simulates why two personality types argue during group projects or travel, with instant cheat codes for peace",
+    "badge": "MBTI Clash",
     "category": "cat07",
     "url": "/tools/cat07-mind/mbti-clash/"
   },
   "fortune-cookie": {
-    "name": "바삭한 디지털 포춘쿠키 & 조언",
-    "desc": "쿠키를 톡 쪼개면 바삭 소리와 함께 뼈 때리는 현실 조언과 행운의 숫자 출력",
-    "badge": "현실 팩폭",
+    "name": "Crispy Digital Fortune Cookie & Advice",
+    "desc": "Crack open a fortune cookie with crisp ASMR audio to reveal blunt life advice and lucky numbers",
+    "badge": "Real Talk",
     "category": "cat07",
     "url": "/tools/cat07-mind/fortune-cookie/"
   },
   "screen-smasher": {
-    "name": "분노의 모니터 부수기 펀치",
-    "desc": "마우스 클릭으로 모니터 화면 유리를 쩍쩍 깨부수며 사운드와 함께 스트레스 해소",
-    "badge": "타격 쾌감",
+    "name": "Screen Smasher & Glass Shatter Punch",
+    "desc": "Click anywhere on your screen to smash realistic spiderweb glass cracks with punchy sound effects",
+    "badge": "Stress Relief",
     "category": "cat07",
     "url": "/tools/cat07-mind/screen-smasher/"
   },
   "five-more-minutes": {
-    "name": "침대 속 5분 더 자기 양심 계산기",
-    "desc": "알람 끄고 침대에서 비빈 시간대별 지각 확률과 출혈 택시비 시뮬레이션",
-    "badge": "모닝 생존",
+    "name": "Snooze Button '5 More Minutes' Guilt Calc",
+    "desc": "Simulates probability of being late and rising taxi costs for every 5-minute snooze interval in bed",
+    "badge": "Morning Survival",
     "category": "cat07",
     "url": "/tools/cat07-mind/five-more-minutes/"
   },
   "indecision-terminator": {
-    "name": "결정장애 종결자: 3초 동전 던지기",
-    "desc": "동전이 공중에 떴을 때 마음속으로 간절히 바라던 바로 그 답을 깨닫는 도구",
-    "badge": "선택 장애",
+    "name": "Indecision Terminator: 3s Coin Flip",
+    "desc": "Flip a virtual coin in 3 seconds to reveal the decision your subconscious mind secretly hoped for all along",
+    "badge": "Quick Decision",
     "category": "cat07",
     "url": "/tools/cat07-mind/indecision-terminator/"
   },
   "zen-singing-bowl": {
-    "name": "432Hz 싱잉볼 & 앰비언트 믹서",
-    "desc": "맑고 깊은 놋쇠 싱잉볼 공명음과 차분한 빗소리, 타닥타닥 장작불 백색소음 플레이어",
-    "badge": "힐링 명상",
+    "name": "432Hz Tibetan Singing Bowl & Ambient Mixer",
+    "desc": "Deep brass singing bowl resonant tones paired with ambient rain and crackling fireplace white noise",
+    "badge": "Zen Meditation",
     "category": "cat07",
     "url": "/tools/cat07-mind/zen-singing-bowl/"
   },
   "lotto-planner": {
-    "name": "가상 로또 1등 20억 분배 플래너",
-    "desc": "세후 실수령 14.1억 원으로 아파트, 슈퍼카, 부모님 용돈을 배분하는 행복회로기",
-    "badge": "행복회로",
+    "name": "Virtual $1.5M Lottery Allocation Planner",
+    "desc": "Delightful day-dreaming tool to allocate after-tax jackpot cash across homes, supercars, and family gifts",
+    "badge": "Daydream",
     "category": "cat07",
     "url": "/tools/cat07-mind/lotto-planner/"
   },
   "t-vs-f-switcher": {
-    "name": "팩트폭력 T vs 무한공감 F 변환기",
-    "desc": "모든 고민을 냉정한 T모드 해결책과 눈물바다 F모드 우쭈쭈 공감으로 비교 변환",
-    "badge": "화법 대결",
+    "name": "Cold Logic (T) vs. Warm Empathy (F) Converter",
+    "desc": "Converts everyday problems into either cold analytical action steps or warm emotional empathy hugs",
+    "badge": "T vs F Mode",
     "category": "cat07",
     "url": "/tools/cat07-mind/t-vs-f-switcher/"
   },
   "memento-mori": {
-    "name": "인생 잔여 시간 메멘토 모리 시계",
-    "desc": "기대수명 기준 살아온 날과 남은 날, 앞으로 남은 주말과 식사 횟수 시각화",
-    "badge": "인생 성찰",
+    "name": "Memento Mori Life Expectancy Clock",
+    "desc": "Visually plots days lived versus estimated days remaining, counting remaining weekend adventures and meals",
+    "badge": "Life Reflection",
     "category": "cat07",
     "url": "/tools/cat07-mind/memento-mori/"
   },
   "compliment-gun": {
-    "name": "세상 모든 칭찬 머신건",
-    "desc": "클릭할 때마다 폭풍 칭찬과 꽃가루(Confetti)가 쏟아져 나오는 자존감 충전기",
-    "badge": "자존감 충전",
+    "name": "Machine-Gun Compliment & Self-Esteem Booster",
+    "desc": "Spam clicks to shower your screen in uplifting praises, colorful confetti, and positive vibes",
+    "badge": "Self-Esteem",
     "category": "cat07",
     "url": "/tools/cat07-mind/compliment-gun/"
   },
   "horizon-anchor": {
-    "name": "지평좌표계 고정기",
-    "desc": "우주 절대 좌표에 몸을 고정했을 때 지구가 나를 두고 날아가는 궤적 실시간 계산",
-    "badge": "귀신 물리학",
+    "name": "Universal Horizon Absolute Anchor",
+    "desc": "Calculates the trajectory of Earth hurtling away from you if your body were anchored to absolute cosmic coordinates",
+    "badge": "Ghost Physics",
     "category": "cat08",
     "url": "/tools/cat08-sf/horizon-anchor/"
   },
   "alien-signal": {
-    "name": "외계인 교신 신호 발생기",
-    "desc": "1420MHz 수소선 대역 '와우! 신호' 파형을 합성해 심우주로 송출하는 사운더",
-    "badge": "SETI 프로젝트",
+    "name": "Extraterrestrial 'Wow!' Signal Synthesizer",
+    "desc": "Synthesizes 1420MHz hydrogen line radio pulses inspired by the famous 1977 Wow! signal into deep space",
+    "badge": "SETI Signal",
     "category": "cat08",
     "url": "/tools/cat08-sf/alien-signal/"
   },
   "multiverse-id": {
-    "name": "평행세계 신분증 발급기",
-    "desc": "다른 차원(#7402번 지구)에서 나의 기상천외한 직업과 특이 체질 신분증 발급",
-    "badge": "차원 여행",
+    "name": "Parallel Universe Identity Card Issuer",
+    "desc": "Generates an ID card detailing your bizarre profession, mutations, and status in alternate dimension Earth #7402",
+    "badge": "Multiverse ID",
     "category": "cat08",
     "url": "/tools/cat08-sf/multiverse-id/"
   },
   "invisibility-sim": {
-    "name": "투명인간 시뮬레이터",
-    "desc": "투명화 망토를 켜고 '세상 아무도 당신을 보지 못합니다' 알리는 허무주의 토이",
-    "badge": "클로킹",
+    "name": "Invisibility Cloak Nihilism Simulator",
+    "desc": "Toggle an invisibility cloak to experience the existential realization that nobody on Earth can see you",
+    "badge": "Cloaking",
     "category": "cat08",
     "url": "/tools/cat08-sf/invisibility-sim/"
   },
   "mosquito-frequency": {
-    "name": "모기 퇴치 초음파 & 전기 파리채",
-    "desc": "17.4kHz 초음파 사운드와 분노의 전기 파리채 감전 타격음 시뮬레이터",
-    "badge": "해충 박멸",
+    "name": "Mosquito Repellent Ultrasound & Electric Zapper",
+    "desc": "Emits 17.4kHz high-frequency audio and simulates satisfying electric swatter high-voltage zaps",
+    "badge": "Pest Defense",
     "category": "cat08",
     "url": "/tools/cat08-sf/mosquito-frequency/"
   },
   "time-machine-ticket": {
-    "name": "타임머신 탑승권 발권기",
-    "desc": "비트코인 피자데이, 공룡 시대로 향하는 할아버지 역설 경고 티켓 발권",
-    "badge": "시간 여행",
+    "name": "Time Machine Boarding Pass Issuer",
+    "desc": "Book tickets to the Jurassic dinosaur era or Bitcoin Pizza Day with humorous grandfather-paradox warnings",
+    "badge": "Time Travel",
     "category": "cat08",
     "url": "/tools/cat08-sf/time-machine-ticket/"
   },
   "apocalypse-calc": {
-    "name": "아포칼립스 생존 확률 계산기",
-    "desc": "좀비 사태나 AI 반란 시 내 달리기 기록과 식량으로 버틸 수 있는 생존 일수",
-    "badge": "아포칼립스",
+    "name": "Zombie Apocalypse Survival Probability",
+    "desc": "Calculates survival days during zombie outbreaks or AI revolts based on your sprint speed and rations",
+    "badge": "Apocalypse",
     "category": "cat08",
     "url": "/tools/cat08-sf/apocalypse-calc/"
   },
   "teleport-drift": {
-    "name": "순간이동 좌표 오차 계산기",
-    "desc": "텔레포트할 때 지구 곡률과 자전 속도 오차로 바닥에 박힐 위험도 계산",
-    "badge": "양자 도약",
+    "name": "Quantum Teleportation Coordinate Drift Calculator",
+    "desc": "Computes risks of materializing inside solid bedrock due to planetary curvature and rotational velocity drift",
+    "badge": "Quantum Leap",
     "category": "cat08",
     "url": "/tools/cat08-sf/teleport-drift/"
   },
   "galactic-tax": {
-    "name": "은하 제국 세금 고지서",
-    "desc": "대기 산소 흡입세와 지구 중력 이용료를 은하 크레딧으로 청구하는 영수증",
-    "badge": "은하 국세청",
+    "name": "Galactic Empire Universal Tax Bill",
+    "desc": "Humorous invoice billing you in Galactic Credits for atmospheric oxygen consumption and planetary gravity usage",
+    "badge": "Galactic IRS",
     "category": "cat08",
     "url": "/tools/cat08-sf/galactic-tax/"
   },
   "schrodinger-box": {
-    "name": "슈뢰딩거의 고양이 상자",
-    "desc": "상자를 여는 순간 관측자 효과로 양자 파동함수가 붕괴되어 생사가 결정되는 토이",
-    "badge": "양자 역학",
+    "name": "Schrodinger's Quantum Cat Box",
+    "desc": "Opening the interactive quantum box collapses the wave function to determine the cat's fate in real time",
+    "badge": "Quantum Toy",
     "category": "cat08",
     "url": "/tools/cat08-sf/schrodinger-box/"
   },
   "global-timezone": {
-    "name": "글로벌 시차 & 회의 플래너",
-    "desc": "서울, 샌프란시스코, 런던 등 전 세계 주요 도시의 겹치는 골든타임 업무 시간 시각화",
-    "badge": "시차 계산",
+    "name": "Global Timezone & Overlap Meeting Planner",
+    "desc": "Visually maps overlapping golden-hour business windows across Seoul, San Francisco, London, and Tokyo",
+    "badge": "Timezones",
     "category": "cat09",
     "url": "/tools/cat09-life/global-timezone/"
   },
   "responsive-preview": {
-    "name": "반응형 뷰포트 프리뷰어",
-    "desc": "iPhone, Galaxy, iPad 프레임으로 모바일/태블릿 반응형 레이아웃 실시간 테스트",
-    "badge": "웹 테스팅",
+    "name": "Responsive Viewport Device Frame Previewer",
+    "desc": "Test mobile and tablet responsive layouts across iPhone, Galaxy, and iPad device mockups",
+    "badge": "Web Testing",
     "category": "cat09",
     "url": "/tools/cat09-life/responsive-preview/"
   },
   "unit-converter": {
-    "name": "만능 단위 & 체감 환산기",
-    "desc": "평(坪) ↔ 제곱미터(㎡) 및 한국 뉴스 단골 멘트 '축구장 몇 배 크기' 즉시 계산",
-    "badge": "단위 환산",
+    "name": "Universal Unit & Real-World Analogy Converter",
+    "desc": "Converts Pyung to square meters, plus humorous real-world scale comparisons like 'how many football pitches'",
+    "badge": "Unit Converter",
     "category": "cat09",
     "url": "/tools/cat09-life/unit-converter/"
   },
   "case-slug-converter": {
-    "name": "텍스트 케이스 & URL 슬러그",
-    "desc": "camelCase, snake_case, kebab-case 및 영문 URL 슬러그 원클릭 변환",
-    "badge": "개발자 도구",
+    "name": "Text Case & URL Slug Clean Converter",
+    "desc": "One-click conversion between camelCase, snake_case, kebab-case, PascalCase, and clean URL slugs",
+    "badge": "Dev Utility",
     "category": "cat09",
     "url": "/tools/cat09-life/case-slug-converter/"
   },
   "color-contrast": {
-    "name": "색상 명도 대비(WCAG) 판정기",
-    "desc": "텍스트와 배경색의 명도 대비율을 측정해 AA(4.5:1), AAA(7:1) 합격 여부 판정",
-    "badge": "웹접근성",
+    "name": "WCAG Color Contrast Ratio Checker",
+    "desc": "Evaluates foreground and background color contrast for Web Content Accessibility Guidelines (AA/AAA pass/fail)",
+    "badge": "Accessibility",
     "category": "cat09",
     "url": "/tools/cat09-life/color-contrast/"
   },
   "markdown-scratchpad": {
-    "name": "라이브 마크다운 스크래치패드",
-    "desc": "실시간 GFM 마크다운 서식 렌더링 및 글자 수 카운팅 경량 에디터",
-    "badge": "마크다운",
+    "name": "Live Markdown Scratchpad & Character Counter",
+    "desc": "Instant GitHub-Flavored Markdown preview with real-time character, word, and reading time metrics",
+    "badge": "Markdown",
     "category": "cat09",
     "url": "/tools/cat09-life/markdown-scratchpad/"
   },
   "barcode-qr-scanner": {
-    "name": "QR 코드 & 바코드 즉석 스캐너",
-    "desc": "이미지 파일 업로드로 0.1초 만에 QR 코드 속 URL 및 텍스트 디코딩",
-    "badge": "QR 스캔",
+    "name": "Instant QR Code & Barcode Image Decoder",
+    "desc": "Drag-and-drop any image to instantly decode encoded QR links and barcode numbers in 0.1 seconds",
+    "badge": "QR Scanner",
     "category": "cat09",
     "url": "/tools/cat09-life/barcode-qr-scanner/"
   },
   "download-time": {
-    "name": "대용량 파일 다운로드 계산기",
-    "desc": "파일 용량과 인터넷 상품 속도로 실제 완료 소요 시간과 행동 비유 안내",
-    "badge": "속도 계산",
+    "name": "File Download Time & Speed Estimator",
+    "desc": "Estimates real-world download durations based on file size and connection speeds with everyday analogies",
+    "badge": "Speed Calc",
     "category": "cat09",
     "url": "/tools/cat09-life/download-time/"
   },
   "korean-age-zodiac": {
-    "name": "대한민국 만 나이 & 띠 계산기",
-    "desc": "만 나이 통일법 기준 법적 나이, 12간지 띠, 별자리, 태어난 일수 일괄 산출",
-    "badge": "만 나이",
+    "name": "International Age & Chinese Zodiac Calculator",
+    "desc": "Computes international legal age, Korean traditional age, birthstone, zodiac animal, and days lived",
+    "badge": "Age & Zodiac",
     "category": "cat09",
     "url": "/tools/cat09-life/korean-age-zodiac/"
   },
   "ephemeral-notepad": {
-    "name": "휘발성 자동저장 미니멀 메모장",
-    "desc": "LocalStorage 자동 보존, 글자 수 카운트, .txt 즉시 다운로드 지원",
-    "badge": "메모장",
+    "name": "Ephemeral Minimalist Auto-Save Notepad",
+    "desc": "Distraction-free scratchpad with instant local persistence, word counter, and one-click .txt export",
+    "badge": "Scratchpad",
     "category": "cat09",
     "url": "/tools/cat09-life/ephemeral-notepad/"
   },
   "bubble-wrap": {
-    "name": "무한 사운드 뽁뽁이 터뜨리기",
-    "desc": "손가락으로 톡톡 터뜨리는 찰진 사운드 쾌감과 스트레스 해소 에어캡 토이",
-    "badge": "ASMR 쾌감",
+    "name": "Infinite Bubble Wrap Popping ASMR",
+    "desc": "Satisfying bubble wrap simulator with crisp acoustic pop sounds and infinite sheet resets for stress relief",
+    "badge": "ASMR Relief",
     "category": "cat10",
     "url": "/tools/cat10-toy/bubble-wrap/"
   },
   "neon-particle": {
-    "name": "네온 파티클 분수 캔버스",
-    "desc": "마우스 궤적을 따라 화면 가득 쏟아져 내리는 중력 파티클 인터랙티브 아트",
-    "badge": "비주얼 아트",
+    "name": "Neon Gravity Particle Fountain",
+    "desc": "Interactive fluid art canvas spewing physics-based glowing particles following your mouse pointer",
+    "badge": "Visual Art",
     "category": "cat10",
     "url": "/tools/cat10-toy/neon-particle/"
   },
   "animal-piano": {
-    "name": "동물 울음소리 오케스트라 피아노",
-    "desc": "고양이, 강아지, 오리 울음소리로 도레미파솔라시도를 연주하는 미니 건반",
-    "badge": "귀여운 연주",
+    "name": "Animal Chorus Orchestra Mini-Piano",
+    "desc": "Play full musical scales voiced entirely by meows, barks, quacks, and adorable animal cries",
+    "badge": "Cute Synth",
     "category": "cat10",
     "url": "/tools/cat10-toy/animal-piano/"
   },
   "cursor-dodger": {
-    "name": "약올리는 도망자 마우스 버튼",
-    "desc": "마우스가 다가오면 빛의 속도로 도망치는 얄미운 버튼 클릭 인내심 테스트",
-    "badge": "순발력 게임",
+    "name": "Elusive Mischief Button: Cursor Dodger",
+    "desc": "Patience and hand-eye coordination test trying to click a cheeky button that flees from your cursor",
+    "badge": "Agility Test",
     "category": "cat10",
     "url": "/tools/cat10-toy/cursor-dodger/"
   },
   "vintage-typewriter": {
-    "name": "빈티지 기계식 타자기 ASMR",
-    "desc": "1920년대 묵직한 기계식 타자기 찰칵거림과 줄 바꿈 '땡!' 종소리 재현",
-    "badge": "아날로그 감성",
+    "name": "Vintage Mechanical Typewriter ASMR",
+    "desc": "Authentic 1920s typewriter simulator featuring heavy mechanical clacks and nostalgic margin-bell dings",
+    "badge": "Vintage ASMR",
     "category": "cat10",
     "url": "/tools/cat10-toy/vintage-typewriter/"
   },
   "invisible-cow": {
-    "name": "보이지 않는 숨은 소 찾기",
-    "desc": "가까워질수록 커지고 다급해지는 '음메~' 소리만 듣고 투명한 소를 찾는 게임",
-    "badge": "사운드 탐색",
+    "name": "Blind Audio Game: Find the Invisible Cow",
+    "desc": "Listen carefully as the moo sounds get louder and more urgent to find the hidden invisible cow on your screen",
+    "badge": "Audio Hunt",
     "category": "cat10",
     "url": "/tools/cat10-toy/invisible-cow/"
   },
   "fidget-spinner": {
-    "name": "무한 피젯스피너 & 최고 RPM",
-    "desc": "관성에 따라 맹렬하게 회전하며 실시간 최고 회전 속도(RPM)를 기록하는 토이",
-    "badge": "피젯 스핀",
+    "name": "Infinite Fidget Spinner & Top RPM Tracker",
+    "desc": "Flick to spin virtual bearings with realistic angular friction and compete for the highest peak RPM",
+    "badge": "Fidget Spin",
     "category": "cat10",
     "url": "/tools/cat10-toy/fidget-spinner/"
   },
   "chiptune-maker": {
-    "name": "8비트 레트로 칩튠 메이커",
-    "desc": "고전 패미컴 스타일의 점프, 레이저 총, 폭발 사운드를 즉석 합성하고 감상",
-    "badge": "레트로 신스",
+    "name": "8-Bit Retro Chiptune Sound Synthesizer",
+    "desc": "Synthesizes vintage NES-style 8-bit sound effects: jumps, laser blasters, coin chimes, and retro explosions",
+    "badge": "8-Bit Synth",
     "category": "cat10",
     "url": "/tools/cat10-toy/chiptune-maker/"
   },
   "window-wiper": {
-    "name": "김 서린 유리창 닦기 클리너",
-    "desc": "겨울철 김 서린 뿌연 유리창을 손가락으로 닦아내면 풍경이 드러나는 감성 토이",
-    "badge": "겨울 감성",
+    "name": "Steamy Window Wiper & Foggy Glass Canvas",
+    "desc": "Wipe away condensation on a chilled winter window pane with your finger to reveal scenic backdrops",
+    "badge": "Winter ASMR",
     "category": "cat10",
     "url": "/tools/cat10-toy/window-wiper/"
   },
   "grand-fireworks": {
-    "name": "100번째 피날레 축하 불꽃놀이",
-    "desc": "100개 도구 완주를 축하하며 화면 가득 터지는 3D 불꽃놀이 쇼와 팡파레",
-    "badge": "대망의 100호",
+    "name": "Grand 100th Tool Fireworks Finale Show",
+    "desc": "Celebratory interactive 3D fireworks spectacle and triumphant fanfare honoring your completion of all 100 tools",
+    "badge": "100th Finale",
     "category": "cat10",
     "url": "/tools/cat10-toy/grand-fireworks/"
+  },
+  "lotto": {
+    "name": "Lotto Number Generator",
+    "desc": "Generate lucky numbers and explore probability formulas, statistics, and simulation.",
+    "badge": "Popular",
+    "category": "classic",
+    "url": "/tools/classic/lotto/"
+  },
+  "TextCount": {
+    "name": "Character & Byte Counter",
+    "desc": "Accurately count characters, words, spaces, and UTF-8 / EUC-KR bytes in real time.",
+    "badge": "Essential",
+    "category": "classic",
+    "url": "/tools/classic/TextCount/"
+  },
+  "meme-generator": {
+    "name": "Meme Generator Studio",
+    "desc": "Add custom text to viral meme templates, customize captions, and download in high resolution.",
+    "badge": "Viral Meme",
+    "category": "classic",
+    "url": "/tools/classic/meme-generator/"
+  },
+  "eat": {
+    "name": "What to Eat Today?",
+    "desc": "Cure lunch decision paralysis in 3 seconds with smart cuisine and menu picks.",
+    "badge": "Quick Pick",
+    "category": "games",
+    "url": "/tools/games/eat/"
+  },
+  "roulette": {
+    "name": "Custom Decision Wheel",
+    "desc": "Input your options, spin the wheel, and make fair and transparent decisions instantly.",
+    "badge": "Fair Decision",
+    "category": "games",
+    "url": "/tools/games/roulette/"
+  },
+  "ladder": {
+    "name": "Classic Ladder Game",
+    "desc": "Enjoy fair 1:1 random outcome matching with friends and colleagues.",
+    "badge": "Betting Fun",
+    "category": "games",
+    "url": "/tools/games/ladder/"
+  },
+  "keycap": {
+    "name": "Mechanical Keyboard ASMR",
+    "desc": "Experience Blue, Brown, and Red switch tactile sounds and satisfying typing ASMR.",
+    "badge": "Typing ASMR",
+    "category": "games",
+    "url": "/tools/games/keycap/"
+  },
+  "stairs": {
+    "name": "Infinite Stairs Climb",
+    "desc": "Test your reflexes and timing to climb endless stairs for high scores.",
+    "badge": "Reflex Arcade",
+    "category": "games",
+    "url": "/tools/games/stairs/"
+  },
+  "carrot-dodger": {
+    "name": "Carrot Dodger Arcade",
+    "desc": "Dodge falling carrots and collect yummy snacks in this fast-paced mini arcade.",
+    "badge": "Fast Reflex",
+    "category": "games",
+    "url": "/tools/games/carrot-dodger/"
+  },
+  "Rock-paper-scissors": {
+    "name": "Rock Paper Scissors AI",
+    "desc": "Battle smart AI prediction patterns using psychology and game theory.",
+    "badge": "Psychology",
+    "category": "games",
+    "url": "/tools/games/Rock-paper-scissors/"
+  },
+  "office-survival": {
+    "name": "Workplace Survival Test",
+    "desc": "Assess your office resilience, mental defense, and work style persona.",
+    "badge": "Office Persona",
+    "category": "tests",
+    "url": "/tests/office-survival.html"
+  },
+  "money-persona": {
+    "name": "Money & Spending Persona",
+    "desc": "Analyze your financial habits and spending psychology archetype.",
+    "badge": "Social Viral",
+    "category": "tests",
+    "url": "/tests/money-persona.html"
+  },
+  "decision-paralysis": {
+    "name": "Decision Paralysis Index",
+    "desc": "Diagnose your choice fatigue level and cognitive decision profile.",
+    "badge": "Social Viral",
+    "category": "tests",
+    "url": "/tests/decision-paralysis.html"
+  },
+  "dopamine-burnout": {
+    "name": "Digital Dopamine & Burnout",
+    "desc": "Check your screen dopamine fatigue, distraction level, and burnout risk.",
+    "badge": "Social Viral",
+    "category": "tests",
+    "url": "/tests/dopamine-burnout.html"
+  },
+  "meme-level": {
+    "name": "2026 Meme & Trend Quiz",
+    "desc": "Test your internet culture, viral meme knowledge, and trend literacy.",
+    "badge": "Trend Quiz",
+    "category": "tests",
+    "url": "/tests/meme-level.html"
+  },
+  "animal-archetype": {
+    "name": "Hidden Animal Archetype",
+    "desc": "Discover your inner spirit animal personality based on Jungian archetypes.",
+    "badge": "Personality",
+    "category": "tests",
+    "url": "/tests/animal-archetype.html"
+  },
+  "social-battery": {
+    "name": "Social Battery Level Check",
+    "desc": "Measure your introversion energy reserves and social recharge pace.",
+    "badge": "Energy Check",
+    "category": "tests",
+    "url": "/tests/social-battery.html"
+  },
+  "stress-coping": {
+    "name": "Stress Coping Response Style",
+    "desc": "Identify how your nervous system and emotions respond under pressure.",
+    "badge": "Psychology",
+    "category": "tests",
+    "url": "/tests/stress-coping.html"
+  },
+  "attachment-style": {
+    "name": "Adult Attachment Style",
+    "desc": "Understand your relationship dynamics, attachment comfort, and dating mindset.",
+    "badge": "Psychology",
+    "category": "tests",
+    "url": "/tests/attachment-style.html"
+  },
+  "focus-flow": {
+    "name": "Focus & Deep Flow Profile",
+    "desc": "Identify your optimal concentration triggers and deep work peak hours.",
+    "badge": "Focus Profile",
+    "category": "tests",
+    "url": "/tests/focus-flow.html"
+  },
+  "lotto-mathematics": {
+    "name": "Lotto 6/45 Probability Proof",
+    "desc": "Mathematical proof and statistical reality of 1 in 8.14 million lottery odds.",
+    "badge": "Math & Stats",
+    "category": "guides",
+    "url": "/guides/lotto-mathematics.html"
+  },
+  "korean-byte-character-guide": {
+    "name": "Korean Byte & Character Guide",
+    "desc": "Complete reference to Korean byte encodings: UTF-8 vs EUC-KR and limits.",
+    "badge": "Encoding Guide",
+    "category": "guides",
+    "url": "/guides/korean-byte-character-guide.html"
+  },
+  "game-theory-and-psychology": {
+    "name": "Game Theory & Ladder Logic",
+    "desc": "Nash equilibrium, permutation groups, and psychology in casual games.",
+    "badge": "Game Theory",
+    "category": "guides",
+    "url": "/guides/game-theory-and-psychology.html"
+  },
+  "mechanical-keyboard-guide": {
+    "name": "Mechanical Keyboard Switches",
+    "desc": "Blue, Brown, and Red switch mechanics, tactile curves, and acoustics.",
+    "badge": "Hardware",
+    "category": "guides",
+    "url": "/guides/mechanical-keyboard-guide.html"
+  },
+  "decision-making-tools": {
+    "name": "Psychology of Decision Fatigue",
+    "desc": "How randomized choice tools help overcome mental depletion and choice overload.",
+    "badge": "Psychology",
+    "category": "guides",
+    "url": "/guides/decision-making-tools.html"
   }
 }

@@ -10,7 +10,8 @@
     "games": "게임",
     "tests": "테스트",
     "guides": "가이드",
-    "arcade": "아케이드 콘솔",
+    "arcade": "아케이드",
+    "about": "소개",
     "theme": "테마 전환",
     "sound": "효과음",
     "lang": "한국어"
@@ -21,14 +22,36 @@
     "more_tools": "나머지 7개 도구 펼쳐보기 (더보기)",
     "collapse_tools": "도구 접기",
     "search_placeholder": "100대 도구 및 미니 게임 즉시 검색 (예: 엑셀, 로또, 연봉, 전역일...)",
-    "copy_link": "링크 복사",
+    "copy_link": "복사",
     "share": "공유하기"
+  },
+  "dock": {
+    "home": "홈",
+    "menu": "메뉴",
+    "top": "맨위로"
+  },
+  "switcher": {
+    "related_tools": "관련 도구",
+    "prev": "이전",
+    "next": "다음",
+    "all_list": "도구 목록",
+    "other_themes": "다른 테마로 바로가기",
+    "view_hub": "테마 허브 보기"
+  },
+  "stage": {
+    "select_stage": "게임 스테이지 선택하기",
+    "random_pick": "랜덤 뽑기!",
+    "master_list": "100대 도구 목록",
+    "stage_shuffle": "스테이지 셔플",
+    "tool_shuffle": "다른 도구 셔플"
   },
   "footer": {
     "copyright": "© 2026 ToolBox. All rights reserved.",
     "operated_by": "운영사: leadmeta.xyz",
     "contact": "문의: contact@leadmeta.xyz",
-    "privacy": "개인정보: privacy@leadmeta.xyz",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "sitemap": "사이트맵",
     "disclaimer": "본 사이트의 모든 도구는 사용자 브라우저 내에서 안전하게 구동됩니다."
   }
 }

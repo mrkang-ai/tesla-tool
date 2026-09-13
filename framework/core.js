@@ -143,6 +143,13 @@
                     osc.stop(startTime + 0.36);
                 });
             } catch(e) {}
+        },
+        play(type) {
+            if (type === 'click') return this.playClick();
+            if (type === 'pop') return this.playPop();
+            if (type === 'tick') return this.playTick();
+            if (type === 'win') return this.playWin();
+            this.playClick();
         }
     };
     window.SoundFX = SoundFX;
@@ -456,17 +463,23 @@
     // 7. Global Floating Quick Nav Dock (Home / 10 Hubs Launcher / Scroll Top)
     // ===================================================================
     const CATEGORIES_DATA = [
-        { id: 'cat01', slug: 'cat01-work', icon: '💼', name: 'K-직장인 생존 키트', count: 10 },
-        { id: 'cat02', slug: 'cat02-public', icon: '🏛️', name: '공직 & 행정 생존기', count: 10 },
-        { id: 'cat03', slug: 'cat03-campus', icon: '🎓', name: '캠퍼스 & Z/알파 세대', count: 10 },
-        { id: 'cat04', slug: 'cat04-military', icon: '🪖', name: '밀리터리 & 국방 생존기', count: 10 },
-        { id: 'cat05', slug: 'cat05-sns', icon: '📱', name: 'SNS & 인플루언서 랩', count: 10 },
-        { id: 'cat06', slug: 'cat06-tech', icon: '🤖', name: 'AI & 미래 테크 샌드박스', count: 10 },
-        { id: 'cat07', slug: 'cat07-mind', icon: '🔮', name: '심리 & 멘탈 & 운명', count: 10 },
-        { id: 'cat08', slug: 'cat08-sf', icon: '🛸', name: '기상천외 SF & 우주', count: 10 },
-        { id: 'cat09', slug: 'cat09-life', icon: '🛠️', name: '초경량 실전 일상 유틸', count: 10 },
-        { id: 'cat10', slug: 'cat10-toy', icon: '🎮', name: '킬링타임 & 감각 토이', count: 10 }
+        { id: 'cat01', slug: 'cat01-work', icon: '💼', name_ko: 'K-직장인 생존 키트', name_en: 'K-Workplace Survival Kit', count: 10 },
+        { id: 'cat02', slug: 'cat02-public', icon: '🏛️', name_ko: '공직 & 행정 생존기', name_en: 'Public & Civil Service', count: 10 },
+        { id: 'cat03', slug: 'cat03-campus', icon: '🎓', name_ko: '캠퍼스 & Z/알파 세대', name_en: 'Campus & Gen Z Life Hacks', count: 10 },
+        { id: 'cat04', slug: 'cat04-military', icon: '🪖', name_ko: '밀리터리 & 국방 생존기', name_en: 'Military & Defense', count: 10 },
+        { id: 'cat05', slug: 'cat05-sns', icon: '📱', name_ko: 'SNS & 인플루언서 랩', name_en: 'Social Media & Creator Lab', count: 10 },
+        { id: 'cat06', slug: 'cat06-tech', icon: '🤖', name_ko: 'AI & 미래 테크 샌드박스', name_en: 'AI & Future Tech Sandbox', count: 10 },
+        { id: 'cat07', slug: 'cat07-mind', icon: '🔮', name_ko: '심리 & 멘탈 & 운명', name_en: 'Psychology & Mental Care', count: 10 },
+        { id: 'cat08', slug: 'cat08-sf', icon: '🛸', name_ko: '기상천외 SF & 우주', name_en: 'Outrageous SF & Space', count: 10 },
+        { id: 'cat09', slug: 'cat09-life', icon: '🛠️', name_ko: '초경량 실전 일상 유틸', name_en: 'Essential Daily Utilities', count: 10 },
+        { id: 'cat10', slug: 'cat10-toy', icon: '🎮', name_ko: '킬링타임 & 감각 토이', name_en: 'Dopamine & Arcade Toys', count: 10 }
     ];
+
+    function getCategoryName(c, lang) {
+        if (!c) return '';
+        if (lang === 'en') return c.name_en || c.name || '';
+        return c.name_ko || c.name || '';
+    }
 
     function setupGlobalFloatingDock() {
         if (document.getElementById('fw-floating-dock')) return;
@@ -475,56 +488,106 @@
         const dockEl = document.createElement('div');
         dockEl.id = 'fw-floating-dock';
         dockEl.className = 'fw-floating-dock';
-        dockEl.innerHTML = `
-            <a href="/" class="fw-dock-btn" title="메인 홈으로 이동">
-                <span>🏠</span>
-                <span class="dock-label">홈</span>
-            </a>
-            <div class="fw-dock-divider"></div>
-            <button type="button" id="fw-dock-menu-btn" class="fw-dock-btn" title="10대 테마 및 퀵 메뉴">
-                <span>🎯</span>
-                <span class="dock-label">메뉴</span>
-            </button>
-            <div class="fw-dock-divider"></div>
-            <button type="button" id="fw-dock-top-btn" class="fw-dock-btn" title="맨 위로 스크롤">
-                <span>⬆️</span>
-                <span class="dock-label">맨위로</span>
-            </button>
-        `;
 
         // 7b. Quick Launcher Popover HTML
         const popoverEl = document.createElement('div');
         popoverEl.id = 'fw-quick-launcher-popover';
         popoverEl.className = 'fw-quick-launcher-popover';
 
-        const catItemsHtml = CATEGORIES_DATA.map(c => `
-            <a href="/category/${c.slug}/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
-                <span class="text-base p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">${c.icon}</span>
-                <div class="overflow-hidden">
-                    <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">${c.name}</div>
-                    <div class="text-[10px] text-slate-400 font-mono">${c.count}개 도구</div>
-                </div>
-            </a>
-        `).join('');
+        function attachDockEvents() {
+            const topBtn = document.getElementById('fw-dock-top-btn');
+            if (topBtn) {
+                topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
-        popoverEl.innerHTML = `
-            <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-200/80 dark:border-slate-800">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <span>🎯</span> <span>10대 테마 도구 허브 바로가기</span>
+            const menuBtn = document.getElementById('fw-dock-menu-btn');
+            if (menuBtn) {
+                menuBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    const isOpen = popoverEl.classList.contains('is-open');
+                    if (isOpen) {
+                        popoverEl.classList.remove('is-open');
+                        menuBtn.classList.remove('is-active');
+                    } else {
+                        popoverEl.classList.add('is-open');
+                        menuBtn.classList.add('is-active');
+                    }
+                };
+            }
+
+            const popoverClose = document.getElementById('fw-popover-close');
+            if (popoverClose) {
+                popoverClose.onclick = () => {
+                    popoverEl.classList.remove('is-open');
+                    if (menuBtn) menuBtn.classList.remove('is-active');
+                };
+            }
+        }
+
+        function renderDockContent(lang) {
+            lang = lang || localStorage.getItem('language') || 'ko';
+            const homeLabel = lang === 'en' ? 'Home' : '홈';
+            const menuLabel = lang === 'en' ? 'Menu' : '메뉴';
+            const topLabel = lang === 'en' ? 'Top' : '맨위로';
+            const homeTitle = lang === 'en' ? 'Go to Main Home' : '메인 홈으로 이동';
+            const menuTitle = lang === 'en' ? '10 Themed Hubs & Quick Menu' : '10대 테마 및 퀵 메뉴';
+            const topTitle = lang === 'en' ? 'Scroll to Top' : '맨 위로 스크롤';
+            const popoverTitle = lang === 'en' ? '10 Themed Tool Hubs' : '10대 테마 도구 허브 바로가기';
+            const countLabel = lang === 'en' ? '10 Tools' : '10개 도구';
+            const all100Label = lang === 'en' ? '🚀 View All 100 Tools' : '🚀 전체 100대 도구 보기';
+            const gamesLabel = lang === 'en' ? '🎲 Games' : '🎲 게임';
+            const classicLabel = lang === 'en' ? '⚙️ Classic' : '⚙️ 클래식';
+
+            dockEl.innerHTML = `
+                <a href="/" class="fw-dock-btn" title="${homeTitle}">
+                    <span>🏠</span>
+                    <span class="dock-label">${homeLabel}</span>
+                </a>
+                <div class="fw-dock-divider"></div>
+                <button type="button" id="fw-dock-menu-btn" class="fw-dock-btn" title="${menuTitle}">
+                    <span>🎯</span>
+                    <span class="dock-label">${menuLabel}</span>
+                </button>
+                <div class="fw-dock-divider"></div>
+                <button type="button" id="fw-dock-top-btn" class="fw-dock-btn" title="${topTitle}">
+                    <span>⬆️</span>
+                    <span class="dock-label">${topLabel}</span>
+                </button>
+            `;
+
+            const catItemsHtml = CATEGORIES_DATA.map(c => `
+                <a href="/category/${c.slug}/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                    <span class="text-base p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">${c.icon}</span>
+                    <div class="overflow-hidden">
+                        <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">${getCategoryName(c, lang)}</div>
+                        <div class="text-[10px] text-slate-400 font-mono">${countLabel}</div>
+                    </div>
+                </a>
+            `).join('');
+
+            popoverEl.innerHTML = `
+                <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-200/80 dark:border-slate-800">
+                    <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                        <span>🎯</span> <span>${popoverTitle}</span>
+                    </div>
+                    <button type="button" id="fw-popover-close" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-1 rounded-lg">✕</button>
                 </div>
-                <button type="button" id="fw-popover-close" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-1 rounded-lg">✕</button>
-            </div>
-            <div class="grid grid-cols-2 gap-1.5 mb-3">
-                ${catItemsHtml}
-            </div>
-            <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <a href="/#tools-100" class="text-primary font-bold hover:underline">🚀 전체 100대 도구 보기</a>
-                <div class="flex items-center gap-2">
-                    <a href="/#group-games" class="text-slate-500 hover:text-primary">🎲 게임</a>
-                    <a href="/#group-classic" class="text-slate-500 hover:text-primary">⚙️ 클래식</a>
+                <div class="grid grid-cols-2 gap-1.5 mb-3">
+                    ${catItemsHtml}
                 </div>
-            </div>
-        `;
+                <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                    <a href="/#tools-100" class="text-primary font-bold hover:underline">${all100Label}</a>
+                    <div class="flex items-center gap-2">
+                        <a href="/#group-games" class="text-slate-500 hover:text-primary">${gamesLabel}</a>
+                        <a href="/#group-classic" class="text-slate-500 hover:text-primary">${classicLabel}</a>
+                    </div>
+                </div>
+            `;
+
+            attachDockEvents();
+        }
+
+        renderDockContent(localStorage.getItem('language') || 'ko');
 
         document.body.appendChild(dockEl);
         document.body.appendChild(popoverEl);
@@ -549,43 +612,11 @@
             }
         });
 
-        // Top button click
-        const topBtn = document.getElementById('fw-dock-top-btn');
-        if (topBtn) {
-            topBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-
-        // Menu button click
-        const menuBtn = document.getElementById('fw-dock-menu-btn');
-        if (menuBtn) {
-            menuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = popoverEl.classList.contains('is-open');
-                if (isOpen) {
-                    popoverEl.classList.remove('is-open');
-                    menuBtn.classList.remove('is-active');
-                } else {
-                    popoverEl.classList.add('is-open');
-                    menuBtn.classList.add('is-active');
-                }
-            });
-        }
-
-        // Popover close button
-        const popoverClose = document.getElementById('fw-popover-close');
-        if (popoverClose) {
-            popoverClose.addEventListener('click', () => {
-                popoverEl.classList.remove('is-open');
-                if (menuBtn) menuBtn.classList.remove('is-active');
-            });
-        }
-
         // Global dismiss for popover
         document.addEventListener('click', (e) => {
             if (!e.target.closest('#fw-quick-launcher-popover') && !e.target.closest('#fw-dock-menu-btn')) {
                 popoverEl.classList.remove('is-open');
+                const menuBtn = document.getElementById('fw-dock-menu-btn');
                 if (menuBtn) menuBtn.classList.remove('is-active');
             }
         });
@@ -593,8 +624,14 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 popoverEl.classList.remove('is-open');
+                const menuBtn = document.getElementById('fw-dock-menu-btn');
                 if (menuBtn) menuBtn.classList.remove('is-active');
             }
+        });
+
+        // Listen for language changes
+        window.addEventListener('languagechange', (e) => {
+            renderDockContent(e.detail.lang);
         });
     }
 
@@ -618,168 +655,46 @@
             id: currentCatSlug,
             slug: currentCatSlug,
             icon: '🛠️',
-            name: currentCatSlug,
+            name_ko: currentCatSlug,
+            name_en: currentCatSlug,
             count: 10
         };
 
-        // Fetch tools dictionary
-        let toolsData = {};
-        try {
-            const lang = localStorage.getItem('language') || 'ko';
-            const res = await fetch(`/locales/${lang}/tools.json?v=305`);
-            if (res.ok) {
-                toolsData = await res.json();
-            }
-        } catch (e) {
-            console.warn('[ToolBox Framework] Unable to load tools.json:', e);
-        }
-
-        // Filter tools belonging to this category
-        const catTools = [];
-        for (const [slug, info] of Object.entries(toolsData)) {
-            if (info.category === catMeta.id || (info.url && info.url.includes(currentCatSlug))) {
-                catTools.push({
-                    slug,
-                    name: info.name,
-                    desc: info.desc,
-                    badge: info.badge || '',
-                    url: info.url || `/tools/${currentCatSlug}/${slug}/`
-                });
+        // Create container elements once
+        let stripEl = document.getElementById('fw-related-strip');
+        if (!stripEl) {
+            stripEl = document.createElement('div');
+            stripEl.id = 'fw-related-strip';
+            stripEl.className = 'fw-related-strip';
+            const headerPlaceholder = document.getElementById('header-placeholder') || document.querySelector('header');
+            if (headerPlaceholder && headerPlaceholder.parentNode) {
+                headerPlaceholder.parentNode.insertBefore(stripEl, headerPlaceholder.nextSibling);
             }
         }
 
-        if (catTools.length === 0) return;
-
-        // Calculate prev / next tools
-        const currentIdx = catTools.findIndex(t => t.slug === currentToolSlug);
-        const prevTool = catTools[(currentIdx - 1 + catTools.length) % catTools.length];
-        const nextTool = catTools[(currentIdx + 1) % catTools.length];
-
-        // 8a. Top Related Tools Strip
-        const stripEl = document.createElement('div');
-        stripEl.id = 'fw-related-strip';
-        stripEl.className = 'fw-related-strip';
-
-        const chipsHtml = catTools.map((t, idx) => {
-            const isCurr = t.slug === currentToolSlug;
-            return `
-                <a href="${t.url}" class="fw-tool-chip ${isCurr ? 'is-current' : ''}" title="${t.name}: ${t.desc}">
-                    <span>#${(idx + 1).toString().padStart(2, '0')}</span>
-                    <span>${t.name}</span>
-                </a>
-            `;
-        }).join('');
-
-        stripEl.innerHTML = `
-            <div class="flex items-center gap-2 shrink-0">
-                <a href="/category/${catMeta.slug}/" class="text-xs font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
-                    <span class="text-base">${catMeta.icon}</span>
-                    <span class="hidden md:inline font-extrabold">${catMeta.name}</span>
-                </a>
-                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${catTools.length}종</span>
-            </div>
-
-            <div class="fw-chips-scroll flex-1 mx-1 sm:mx-3">
-                ${chipsHtml}
-            </div>
-
-            <div class="flex items-center gap-1 shrink-0">
-                <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="이전 도구: ${prevTool.name}">
-                    <span>◀</span><span class="hidden lg:inline text-[11px]">이전</span>
-                </a>
-                <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="다음 도구: ${nextTool.name}">
-                    <span class="hidden lg:inline text-[11px]">다음</span><span>▶</span>
-                </a>
-                <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
-                    <span>⚡ 도구 목록</span>
-                </button>
-            </div>
-        `;
-
-        // Mount strip right after header
-        const headerPlaceholder = document.getElementById('header-placeholder') || document.querySelector('header');
-        if (headerPlaceholder && headerPlaceholder.parentNode) {
-            headerPlaceholder.parentNode.insertBefore(stripEl, headerPlaceholder.nextSibling);
+        let triggerBtn = document.getElementById('fw-floating-trigger');
+        if (!triggerBtn) {
+            triggerBtn = document.createElement('button');
+            triggerBtn.id = 'fw-floating-trigger';
+            triggerBtn.className = 'fw-floating-trigger';
+            document.body.appendChild(triggerBtn);
         }
 
-        // Scroll current chip into view
-        setTimeout(() => {
-            const currentChip = stripEl.querySelector('.fw-tool-chip.is-current');
-            if (currentChip) {
-                currentChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-        }, 150);
+        let backdropEl = document.getElementById('fw-drawer-backdrop');
+        if (!backdropEl) {
+            backdropEl = document.createElement('div');
+            backdropEl.id = 'fw-drawer-backdrop';
+            backdropEl.className = 'fw-drawer-backdrop';
+            document.body.appendChild(backdropEl);
+        }
 
-        // 8b. Floating Trigger Button & Side Drawer
-        const triggerBtn = document.createElement('button');
-        triggerBtn.id = 'fw-floating-trigger';
-        triggerBtn.className = 'fw-floating-trigger';
-        triggerBtn.innerHTML = `
-            <span>⚡</span>
-            <span>관련 도구 (${catTools.length})</span>
-        `;
-
-        const backdropEl = document.createElement('div');
-        backdropEl.id = 'fw-drawer-backdrop';
-        backdropEl.className = 'fw-drawer-backdrop';
-
-        const drawerEl = document.createElement('div');
-        drawerEl.id = 'fw-side-drawer';
-        drawerEl.className = 'fw-side-drawer';
-
-        const drawerItemsHtml = catTools.map((t, idx) => {
-            const isCurr = t.slug === currentToolSlug;
-            return `
-                <a href="${t.url}" class="p-3 rounded-xl flex items-start gap-3 transition-colors ${isCurr ? 'bg-sky-50 dark:bg-sky-950/70 border border-sky-300 dark:border-sky-700' : 'hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent'}">
-                    <span class="text-xs font-mono font-bold px-2 py-1 rounded-md ${isCurr ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} shrink-0">#${(idx + 1).toString().padStart(2, '0')}</span>
-                    <div class="overflow-hidden flex-1">
-                        <div class="flex items-center gap-1.5 mb-0.5">
-                            <span class="text-xs font-bold text-slate-900 dark:text-white truncate">${t.name}</span>
-                            ${t.badge ? `<span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 border border-rose-100 shrink-0">${t.badge}</span>` : ''}
-                        </div>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${t.desc}</p>
-                    </div>
-                </a>
-            `;
-        }).join('');
-
-        const catShortcutsHtml = CATEGORIES_DATA.map(c => `
-            <a href="/category/${c.slug}/" class="p-1.5 rounded-lg text-center bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-xs transition-colors" title="${c.name}">
-                <span>${c.icon}</span>
-            </a>
-        `).join('');
-
-        drawerEl.innerHTML = `
-            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800">${catMeta.icon}</span>
-                    <div>
-                        <div class="text-xs font-mono text-primary font-bold">${catMeta.id.toUpperCase()} • ${catTools.length}개 도구</div>
-                        <h3 class="text-sm font-black text-slate-900 dark:text-white">${catMeta.name}</h3>
-                    </div>
-                </div>
-                <button type="button" id="fw-drawer-close-btn" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 text-sm">✕</button>
-            </div>
-
-            <div class="flex-1 overflow-y-auto p-3 space-y-1.5">
-                ${drawerItemsHtml}
-            </div>
-
-            <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-                <div class="text-[11px] font-bold text-slate-400 mb-2">다른 테마로 바로가기:</div>
-                <div class="grid grid-cols-5 gap-1.5">
-                    ${catShortcutsHtml}
-                </div>
-                <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs">
-                    <a href="/category/${catMeta.slug}/" class="text-primary font-bold hover:underline">테마 허브 보기 →</a>
-                    <a href="/" class="text-slate-500 hover:underline">메인 홈으로</a>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(triggerBtn);
-        document.body.appendChild(backdropEl);
-        document.body.appendChild(drawerEl);
+        let drawerEl = document.getElementById('fw-side-drawer');
+        if (!drawerEl) {
+            drawerEl = document.createElement('div');
+            drawerEl.id = 'fw-side-drawer';
+            drawerEl.className = 'fw-side-drawer';
+            document.body.appendChild(drawerEl);
+        }
 
         const openDrawer = () => {
             drawerEl.classList.add('is-open');
@@ -791,16 +706,172 @@
             backdropEl.classList.remove('is-open');
         };
 
-        triggerBtn.addEventListener('click', openDrawer);
-        const stripDrawerBtn = document.getElementById('fw-open-drawer-btn');
-        if (stripDrawerBtn) stripDrawerBtn.addEventListener('click', openDrawer);
-
-        const closeBtn = document.getElementById('fw-drawer-close-btn');
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-        backdropEl.addEventListener('click', closeDrawer);
+        triggerBtn.onclick = openDrawer;
+        backdropEl.onclick = closeDrawer;
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeDrawer();
+        });
+
+        async function renderSwitcher(lang) {
+            lang = lang || localStorage.getItem('language') || 'ko';
+
+            // Fetch tools dictionary
+            let toolsData = {};
+            try {
+                const res = await fetch(`/locales/${lang}/tools.json?v=306`);
+                if (res.ok) {
+                    toolsData = await res.json();
+                }
+            } catch (e) {
+                console.warn('[ToolBox Framework] Unable to load tools.json:', e);
+            }
+
+            // Filter tools belonging to this category
+            const catTools = [];
+            for (const [slug, info] of Object.entries(toolsData)) {
+                if (info.category === catMeta.id || (info.url && info.url.includes(currentCatSlug))) {
+                    catTools.push({
+                        slug,
+                        name: info.name,
+                        desc: info.desc,
+                        badge: info.badge || '',
+                        url: info.url || `/tools/${currentCatSlug}/${slug}/`
+                    });
+                }
+            }
+
+            if (catTools.length === 0) return;
+
+            // Calculate prev / next tools
+            const currentIdx = catTools.findIndex(t => t.slug === currentToolSlug);
+            const prevTool = catTools[(currentIdx - 1 + catTools.length) % catTools.length];
+            const nextTool = catTools[(currentIdx + 1) % catTools.length];
+
+            const localizedCatName = getCategoryName(catMeta, lang);
+            const countLabel = lang === 'en' ? `${catTools.length} Tools` : `${catTools.length}종`;
+            const prevLabel = lang === 'en' ? 'Prev' : '이전';
+            const nextLabel = lang === 'en' ? 'Next' : '다음';
+            const listBtnLabel = lang === 'en' ? '⚡ Tool List' : '⚡ 도구 목록';
+            const relatedTriggerLabel = lang === 'en' ? `⚡ Related (${catTools.length})` : `⚡ 관련 도구 (${catTools.length})`;
+            const otherThemesLabel = lang === 'en' ? 'Jump to Other Themes:' : '다른 테마로 바로가기:';
+            const hubLinkLabel = lang === 'en' ? 'View Theme Hub →' : '테마 허브 보기 →';
+            const homeLinkLabel = lang === 'en' ? 'Back to Home' : '메인 홈으로';
+
+            triggerBtn.innerHTML = `
+                <span>⚡</span>
+                <span>${relatedTriggerLabel}</span>
+            `;
+
+            // 8a. Top Related Tools Strip
+            const chipsHtml = catTools.map((t, idx) => {
+                const isCurr = t.slug === currentToolSlug;
+                return `
+                    <a href="${t.url}" class="fw-tool-chip ${isCurr ? 'is-current' : ''}" title="${t.name}: ${t.desc}">
+                        <span>#${(idx + 1).toString().padStart(2, '0')}</span>
+                        <span>${t.name}</span>
+                    </a>
+                `;
+            }).join('');
+
+            stripEl.innerHTML = `
+                <div class="flex items-center gap-2 shrink-0">
+                    <a href="/category/${catMeta.slug}/" class="text-xs font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
+                        <span class="text-base">${catMeta.icon}</span>
+                        <span class="hidden md:inline font-extrabold">${localizedCatName}</span>
+                    </a>
+                    <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
+                </div>
+
+                <div class="fw-chips-scroll flex-1 mx-1 sm:mx-3">
+                    ${chipsHtml}
+                </div>
+
+                <div class="flex items-center gap-1 shrink-0">
+                    <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="${prevLabel}: ${prevTool.name}">
+                        <span>◀</span><span class="hidden lg:inline text-[11px]">${prevLabel}</span>
+                    </a>
+                    <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="${nextLabel}: ${nextTool.name}">
+                        <span class="hidden lg:inline text-[11px]">${nextLabel}</span><span>▶</span>
+                    </a>
+                    <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
+                        <span>${listBtnLabel}</span>
+                    </button>
+                </div>
+            `;
+
+            const stripDrawerBtn = document.getElementById('fw-open-drawer-btn');
+            if (stripDrawerBtn) stripDrawerBtn.onclick = openDrawer;
+
+            // 8b. Side Drawer Content
+            const drawerItemsHtml = catTools.map((t, idx) => {
+                const isCurr = t.slug === currentToolSlug;
+                return `
+                    <a href="${t.url}" class="p-3 rounded-xl flex items-start gap-3 transition-colors ${isCurr ? 'bg-sky-50 dark:bg-sky-950/70 border border-sky-300 dark:border-sky-700' : 'hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent'}">
+                        <span class="text-xs font-mono font-bold px-2 py-1 rounded-md ${isCurr ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} shrink-0">#${(idx + 1).toString().padStart(2, '0')}</span>
+                        <div class="overflow-hidden flex-1">
+                            <div class="flex items-center gap-1.5 mb-0.5">
+                                <span class="text-xs font-bold text-slate-900 dark:text-white truncate">${t.name}</span>
+                                ${t.badge ? `<span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 border border-rose-100 shrink-0">${t.badge}</span>` : ''}
+                            </div>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${t.desc}</p>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+
+            const catShortcutsHtml = CATEGORIES_DATA.map(c => `
+                <a href="/category/${c.slug}/" class="p-1.5 rounded-lg text-center bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-xs transition-colors" title="${getCategoryName(c, lang)}">
+                    <span>${c.icon}</span>
+                </a>
+            `).join('');
+
+            drawerEl.innerHTML = `
+                <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800">${catMeta.icon}</span>
+                        <div>
+                            <div class="text-xs font-mono text-primary font-bold">${catMeta.id.toUpperCase()} • ${countLabel}</div>
+                            <h3 class="text-sm font-black text-slate-900 dark:text-white">${localizedCatName}</h3>
+                        </div>
+                    </div>
+                    <button type="button" id="fw-drawer-close-btn" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 text-sm">✕</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto p-3 space-y-1.5">
+                    ${drawerItemsHtml}
+                </div>
+
+                <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                    <div class="text-[11px] font-bold text-slate-400 mb-2">${otherThemesLabel}</div>
+                    <div class="grid grid-cols-5 gap-1.5">
+                        ${catShortcutsHtml}
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs">
+                        <a href="/category/${catMeta.slug}/" class="text-primary font-bold hover:underline">${hubLinkLabel}</a>
+                        <a href="/" class="text-slate-500 hover:underline">${homeLinkLabel}</a>
+                    </div>
+                </div>
+            `;
+
+            const closeBtn = document.getElementById('fw-drawer-close-btn');
+            if (closeBtn) closeBtn.onclick = closeDrawer;
+
+            // Scroll current chip into view
+            setTimeout(() => {
+                const currentChip = stripEl.querySelector('.fw-tool-chip.is-current');
+                if (currentChip) {
+                    currentChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }, 100);
+        }
+
+        // Initial render
+        await renderSwitcher(localStorage.getItem('language') || 'ko');
+
+        // Real-time language switch listener
+        window.addEventListener('languagechange', (e) => {
+            renderSwitcher(e.detail.lang);
         });
     }
 

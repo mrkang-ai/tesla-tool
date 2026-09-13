@@ -397,16 +397,30 @@ document.addEventListener("DOMContentLoaded", function() {
                 const icon = btn.querySelector('.material-symbols-outlined');
                 const label = btn.querySelector('.toggle-label');
 
+                const lang = document.documentElement.lang || 'ko';
                 if (isHidden) {
                     targetEl.classList.remove('hidden');
                     btn.setAttribute('aria-expanded', 'true');
                     if (icon) icon.textContent = 'expand_less';
-                    if (label) label.textContent = '도구 접기';
+                    if (label) label.textContent = lang === 'en' ? 'Collapse Tools' : '도구 접기';
                 } else {
                     targetEl.classList.add('hidden');
                     btn.setAttribute('aria-expanded', 'false');
                     if (icon) icon.textContent = 'expand_more';
-                    if (label) label.textContent = '나머지 7개 도구 펼쳐보기 (더보기)';
+                    if (label) label.textContent = lang === 'en' ? 'Expand Remaining 7 Tools' : '나머지 7개 도구 펼쳐보기 (더보기)';
+                }
+            });
+        });
+
+        window.addEventListener('languagechange', (e) => {
+            const lang = e.detail.lang || 'ko';
+            document.querySelectorAll('.btn-toggle-extra').forEach(btn => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                const label = btn.querySelector('.toggle-label');
+                if (label) {
+                    label.textContent = isExpanded 
+                        ? (lang === 'en' ? 'Collapse Tools' : '도구 접기')
+                        : (lang === 'en' ? 'Expand Remaining 7 Tools' : '나머지 7개 도구 펼쳐보기 (더보기)');
                 }
             });
         });

@@ -10,7 +10,8 @@
     "games": "Games",
     "tests": "Tests",
     "guides": "Guides",
-    "arcade": "Arcade Console",
+    "arcade": "Arcade",
+    "about": "About",
     "theme": "Toggle Theme",
     "sound": "Sound FX",
     "lang": "English"
@@ -20,15 +21,37 @@
     "view_hub": "View Dedicated Hub",
     "more_tools": "Expand Remaining 7 Tools",
     "collapse_tools": "Collapse Tools",
-    "search_placeholder": "Search 100+ smart tools and mini games (e.g. excel, lotto, salary...)",
-    "copy_link": "Copy Link",
+    "search_placeholder": "Search 100+ smart tools & mini games (e.g. excel, salary, timer...)",
+    "copy_link": "Copy",
     "share": "Share"
+  },
+  "dock": {
+    "home": "Home",
+    "menu": "Menu",
+    "top": "Top"
+  },
+  "switcher": {
+    "related_tools": "Related Tools",
+    "prev": "Prev",
+    "next": "Next",
+    "all_list": "Tool List",
+    "other_themes": "Jump to Other Themes",
+    "view_hub": "View Theme Hub"
+  },
+  "stage": {
+    "select_stage": "Choose Stage (Selector)",
+    "random_pick": "Random Pick!",
+    "master_list": "100 Tools Master List",
+    "stage_shuffle": "Stage Shuffle",
+    "tool_shuffle": "Shuffle Tools"
   },
   "footer": {
     "copyright": "© 2026 ToolBox. All rights reserved.",
     "operated_by": "Operated by: leadmeta.xyz",
     "contact": "Contact: contact@leadmeta.xyz",
-    "privacy": "Privacy: privacy@leadmeta.xyz",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap",
     "disclaimer": "All tools run safely inside your browser with complete privacy."
   }
 }

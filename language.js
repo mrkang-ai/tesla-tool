@@ -1,7 +1,7 @@
 /**
  * ToolBox Universal Multi-Language (i18n) Engine
  * Supports ?lang=en URL parameters, localStorage persistence, modular /locales/{lang}/ JSON dictionaries,
- * and data-lang-ko/en & data-i18n attributes.
+ * and data-lang-ko/en, data-lang-ko-ph/en-ph & data-i18n attributes.
  */
 (function() {
     'use strict';
@@ -24,7 +24,7 @@
 
     // 2. Fetch modular translations for a specific language
     async function loadLocaleBundle(lang) {
-        if (Object.keys(translations[lang] || {}).length > 0) {
+        if (translations[lang] && Object.keys(translations[lang]).length >= 3) {
             return translations[lang];
         }
 
@@ -33,7 +33,7 @@
 
         await Promise.all(modules.map(async (mod) => {
             try {
-                const res = await fetch(`/locales/${lang}/${mod}.json?v=202`);
+                const res = await fetch(`/locales/${lang}/${mod}.json?v=306`, { cache: 'no-cache' });
                 if (res.ok) {
                     const data = await res.json();
                     translations[lang][mod] = data;
@@ -63,7 +63,7 @@
 
     // 3. Apply Language to DOM
     async function applyLanguage(lang, isInitialLoad = false) {
-        if (!lang) lang = currentLang;
+        if (!lang || (lang !== 'ko' && lang !== 'en')) lang = 'ko';
         currentLang = lang;
         localStorage.setItem('language', lang);
         document.documentElement.lang = lang;
@@ -72,14 +72,21 @@
         await loadLocaleBundle(lang);
         const bundle = translations[lang] || {};
 
-        // 3a. Update [data-lang-ko] and [data-lang-en]
+        // 3a. Update page title
+        const titleEl = document.querySelector('title[data-lang-ko], title[data-lang-en]');
+        if (titleEl) {
+            const titleText = titleEl.getAttribute(`data-lang-${lang}`);
+            if (titleText) document.title = titleText;
+        }
+
+        // 3b. Update [data-lang-ko] and [data-lang-en]
         document.querySelectorAll('[data-lang-ko], [data-lang-en]').forEach(element => {
             const text = element.getAttribute(`data-lang-${lang}`);
             if (text) {
-                if (element.placeholder !== undefined) {
-                    element.placeholder = text;
-                } else if (element.tagName === 'META') {
+                if (element.tagName === 'META') {
                     element.setAttribute('content', text);
+                } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
                 } else if (element.id !== 'current-service-name' && element.id !== 'current-language-text') {
                     if (/<[a-z][\s\S]*>/i.test(text)) {
                         element.innerHTML = text;
@@ -90,12 +97,20 @@
             }
         });
 
-        // 3b. Update [data-i18n] keys
+        // 3c. Update placeholders with [data-lang-ko-ph], [data-lang-en-ph]
+        document.querySelectorAll('[data-lang-ko-ph], [data-lang-en-ph]').forEach(element => {
+            const ph = element.getAttribute(`data-lang-${lang}-ph`);
+            if (ph) {
+                element.placeholder = ph;
+            }
+        });
+
+        // 3d. Update [data-i18n] keys
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const val = getNestedTranslation(bundle, key);
             if (val && typeof val === 'string') {
-                if (element.placeholder !== undefined) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = val;
                 } else {
                     element.textContent = val;
@@ -103,37 +118,78 @@
             }
         });
 
-        // 3c. Update language selector button display
+        // 3e. Update language selector buttons display and active state
         const currentLangTextElement = document.getElementById('current-language-text');
         if (currentLangTextElement) {
             currentLangTextElement.textContent = lang === 'ko' ? '한국어' : 'English';
         }
 
-        // 3d. Synchronize service name in header if applicable
-        if (window.updateCurrentServiceName) {
-            window.updateCurrentServiceName();
+        const checkKo = document.getElementById('lang-check-ko');
+        const checkEn = document.getElementById('lang-check-en');
+        if (checkKo) checkKo.classList.toggle('hidden', lang !== 'ko');
+        if (checkEn) checkEn.classList.toggle('hidden', lang !== 'en');
+
+        // Update mobile segment buttons
+        const mobileBtnKo = document.getElementById('mobile-lang-ko');
+        const mobileBtnEn = document.getElementById('mobile-lang-en');
+        if (mobileBtnKo && mobileBtnEn) {
+            if (lang === 'ko') {
+                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all bg-primary text-white shadow-sm';
+                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
+            } else {
+                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all bg-primary text-white shadow-sm';
+                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
+            }
         }
 
-        // 3e. Dispatch custom event for arcade console or custom reactive widgets
-        window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
+        // 3f. Synchronize URL search params (?lang=) without reloading
+        if (!isInitialLoad) {
+            try {
+                const currentUrl = new URL(window.location.href);
+                if (lang === 'ko') {
+                    currentUrl.searchParams.delete('lang');
+                } else {
+                    currentUrl.searchParams.set('lang', lang);
+                }
+                window.history.replaceState({}, '', currentUrl.toString());
+            } catch (e) {}
+        }
+
+        // 3g. Sound FX on switch
+        if (!isInitialLoad && window.SoundFX) {
+            if (typeof window.SoundFX.playClick === 'function') {
+                window.SoundFX.playClick();
+            } else if (typeof window.SoundFX.play === 'function') {
+                window.SoundFX.play('click');
+            }
+        }
+
+        // 3h. Dispatch custom event for arcade console, framework dock & side drawer
+        window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang, bundle } }));
     }
 
     // Expose to window immediately
     window.applyLanguage = applyLanguage;
     window.getLanguage = () => currentLang;
+    window.getTranslationBundle = (lang) => translations[lang || currentLang];
 
     // Initial load on DOM ready
-    document.addEventListener('DOMContentLoaded', () => {
+    if (document.readyState !== 'loading') {
         applyLanguage(currentLang, true);
-
-        // Delegated event listener for language switchers
-        document.addEventListener('click', (event) => {
-            const target = event.target.closest('#lang-ko, #lang-en');
-            if (!target) return;
-            event.preventDefault();
-            const chosenLang = target.id === 'lang-en' ? 'en' : 'ko';
-            applyLanguage(chosenLang);
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang, true);
         });
+    }
+
+    // Delegated event listener for all language switchers
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('#lang-ko, #lang-en, #mobile-lang-ko, #mobile-lang-en, [data-lang-choice]');
+        if (!target) return;
+        event.preventDefault();
+        const choice = target.getAttribute('data-lang-choice') || (target.id.includes('en') ? 'en' : 'ko');
+        applyLanguage(choice);
     });
 
 })();
+
