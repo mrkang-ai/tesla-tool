@@ -873,5 +873,12 @@
     "badge": "의사결정",
     "category": "guides",
     "url": "/guides/decision-making-tools.html"
+  },
+  "lotto-simulator": {
+    "name": "로또 1등 당첨 시뮬레이터",
+    "desc": "서대문 농협 본점 원정대 & 30억 사수 텍스트 RPG 시뮬레이션 게임.",
+    "badge": "텍스트 RPG",
+    "category": "games",
+    "url": "/tools/games/lotto-simulator/"
   }
 }

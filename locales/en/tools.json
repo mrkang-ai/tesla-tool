@@ -873,5 +873,12 @@
     "badge": "Psychology",
     "category": "guides",
     "url": "/guides/decision-making-tools.html"
+  },
+  "lotto-simulator": {
+    "name": "Lotto 1st Prize Simulator",
+    "desc": "Nonghyup HQ VIP stealth expedition & jackpot wealth defense text RPG game.",
+    "badge": "Text RPG",
+    "category": "games",
+    "url": "/tools/games/lotto-simulator/"
   }
 }
