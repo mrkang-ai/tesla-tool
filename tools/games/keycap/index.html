@@ -18,10 +18,13 @@
     <meta name="twitter:image" content="https://tossgpt.online/images/og_games.jpg">
 
     <!-- CSS Links -->
+    <script>
+        (function(){const w=console.warn;console.warn=function(...a){if(a[0]&&typeof a[0]==='string'&&a[0].includes('cdn.tailwindcss.com'))return;w.apply(console,a);};})();
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=303">
     <link rel="stylesheet" href="game.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -45,7 +48,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=301">
+  <link rel="stylesheet" href="/framework/core.css?v=303">
 </head>
 <body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
 
@@ -57,7 +60,7 @@
             <!-- Page Title -->
             <div class="text-center py-6 flex flex-col items-center justify-center">
                 <div class="flex items-center justify-center gap-2">
-                    <img src="../images/keycap_retro_icon.png" class="w-10 h-10 object-contain" alt="keycap icon">
+                    <img src="/images/keycap_retro_icon.png" class="w-10 h-10 object-contain" alt="keycap icon">
                     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="키캡 누르기 게임" data-lang-en="Keycap Clicking Game">키캡 누르기 게임</h1>
                 </div>
                 <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="웹 브라우저에서 청축, 갈축, 적축 스위치의 만족스러운 기계식 키보드 ASMR 사운드를 즐기세요. 실제 키보드로 타이핑하거나 마우스로 키캡을 클릭해 보세요." data-lang-en="Enjoy satisfying mechanical keyboard ASMR sounds in your web browser with Blue, Brown, and Red switches. Type on your physical keyboard or click virtual keycaps.">웹 브라우저에서 청축, 갈축, 적축 스위치의 만족스러운 기계식 키보드 ASMR 사운드를 즐기세요. 실제 키보드로 타이핑하거나 마우스로 키캡을 클릭해 보세요.</p>
@@ -139,7 +142,7 @@
             <section class="bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 shadow-md mb-8">
                 <div class="flex flex-col sm:flex-row justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-4 mb-6 gap-4">
                     <div class="flex items-center gap-2">
-                        <img src="../images/keycap_cyber_icon.png" class="w-6 h-6 object-contain" alt="cyber icon">
+                        <img src="/images/keycap_cyber_icon.png" class="w-6 h-6 object-contain" alt="cyber icon">
                         <h2 class="text-xl font-bold text-text-main dark:text-white" data-lang-ko="타건 모드 선택" data-lang-en="Select Typing Mode">타건 모드 선택</h2>
                     </div>
                     <div class="flex gap-2">
@@ -201,7 +204,7 @@
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="기계식 키보드 스위치 비교: 청축, 갈축, 적축의 물리적 차이와 ASMR" data-lang-en="Mechanical Keyboard Switch Comparison: Blue, Brown, Red & ASMR">기계식 키보드 스위치 비교: 청축, 갈축, 적축의 물리적 차이와 ASMR</h3>
                     <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="클릭, 넌클릭, 리니어 스위치의 내부 기계 구조와 키압, 뇌파를 안정시키는 타건음의 음향 물리학을 확인하세요." data-lang-en="Explore the mechanical actuation mechanisms, force curves, and acoustic physics behind relaxing keyboard ASMR sounds.">클릭, 넌클릭, 리니어 스위치의 내부 기계 구조와 키압, 뇌파를 안정시키는 타건음의 음향 물리학을 확인하세요.</p>
                 </div>
-                <a href="../guides/mechanical-keyboard-guide.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                <a href="/guides/mechanical-keyboard-guide.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
                     <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
@@ -214,7 +217,7 @@
                 <!-- Korean Version -->
                 <div class="lang-only-ko space-y-6">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
-                        <img src="../images/keycap_sakura_icon.png" class="w-8 h-8 object-contain inline-block" alt="sakura icon"> 기계식 키보드 스위치와 타건음(ASMR)의 과학
+                        <img src="/images/keycap_sakura_icon.png" class="w-8 h-8 object-contain inline-block" alt="sakura icon"> 기계식 키보드 스위치와 타건음(ASMR)의 과학
                     </h2>
                     <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
                         <section>
@@ -238,7 +241,7 @@
                 <!-- English Version -->
                 <div class="lang-only-en space-y-6">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
-                        <img src="../images/keycap_sakura_icon.png" class="w-8 h-8 object-contain inline-block" alt="sakura icon"> Science of Mechanical Keyboard Switches & ASMR Sound
+                        <img src="/images/keycap_sakura_icon.png" class="w-8 h-8 object-contain inline-block" alt="sakura icon"> Science of Mechanical Keyboard Switches & ASMR Sound
                     </h2>
                     <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
                         <section>
@@ -263,18 +266,18 @@
                 <!-- Korean Version -->
                 <div class="lang-only-ko space-y-6 border-t border-slate-100 dark:border-slate-800/80 pt-6">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2">
-                        <img src="../images/keycap_lavender_icon.png" class="w-8 h-8 object-contain inline-block" alt="lavender icon"> 최근 유행하는 키캡(Keycap) 문화와 트렌드
+                        <img src="/images/keycap_lavender_icon.png" class="w-8 h-8 object-contain inline-block" alt="lavender icon"> 최근 유행하는 키캡(Keycap) 문화와 트렌드
                     </h2>
                     <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
                         <section>
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">
-                                <img src="../images/keycap_artisan_icon.png" class="w-6 h-6 object-contain inline-block mr-1.5 align-text-bottom" alt="artisan icon"> 1. 개성 표현의 끝판왕: 아티산 키캡(Artisan Keycaps)
+                                <img src="/images/keycap_artisan_icon.png" class="w-6 h-6 object-contain inline-block mr-1.5 align-text-bottom" alt="artisan icon"> 1. 개성 표현의 끝판왕: 아티산 키캡(Artisan Keycaps)
                             </h3>
                             <p>최근 기계식 키보드는 단순한 입력 도구를 넘어 개인의 데스크 테리어를 완성하는 오브제로 진화했습니다. 그 중심에는 <strong>'아티산 키캡(Artisan Keycaps)'</strong>이 있습니다. 이는 수공예 아티스트들이 에폭시 레진, 클레이, 금속 등을 사용하여 직접 조각하고 색을 입힌 커스텀 키캡입니다. 우주 비행사, 귀여운 동물, 판타지 몬스터 등 하나의 미니어처 작품 같은 디자인으로 주로 잘 사용하지 않는 ESC나 방향키 등에 장착하여 시각적 포인트로 삼습니다.</p>
                             
                             <!-- Artisan Keycap Image inclusion -->
                             <div class="my-5 text-center">
-                                <img src="../images/artisan_keycap_detail.png" class="mx-auto rounded-2xl max-w-full md:max-w-md shadow-lg border border-slate-200 dark:border-slate-800" alt="Artisan Keycap Detail">
+                                <img src="/images/artisan_keycap_detail.png" class="mx-auto rounded-2xl max-w-full md:max-w-md shadow-lg border border-slate-200 dark:border-slate-800" alt="Artisan Keycap Detail">
                                 <p class="text-xs text-text-muted dark:text-slate-500 mt-2">정밀 레진 공예로 제작되어 미니어처 풍경을 담아낸 수공예 아티산 키캡 예시</p>
                             </div>
                         </section>
@@ -316,18 +319,18 @@
                 <!-- English Version -->
                 <div class="lang-only-en space-y-6 border-t border-slate-100 dark:border-slate-800/80 pt-6">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-2">
-                        <img src="../images/keycap_lavender_icon.png" class="w-8 h-8 object-contain inline-block" alt="lavender icon"> Modern Custom Keycap Culture & Trends
+                        <img src="/images/keycap_lavender_icon.png" class="w-8 h-8 object-contain inline-block" alt="lavender icon"> Modern Custom Keycap Culture & Trends
                     </h2>
                     <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
                         <section>
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">
-                                <img src="../images/keycap_artisan_icon.png" class="w-6 h-6 object-contain inline-block mr-1.5 align-text-bottom" alt="artisan icon"> 1. Visual Masterpieces: Artisan Keycaps
+                                <img src="/images/keycap_artisan_icon.png" class="w-6 h-6 object-contain inline-block mr-1.5 align-text-bottom" alt="artisan icon"> 1. Visual Masterpieces: Artisan Keycaps
                             </h3>
                             <p>Custom mechanical keyboards have transitioned from office utilities to desktop art pieces. At the forefront of this trend are <strong>"Artisan Keycaps"</strong>. These are miniature hand-crafted sculptures created by resin artists. Ranging from cute animal figures to detailed landscape diorama worlds, they are placed on single keys like ESC or arrow keys to serve as the signature centerpiece of a keyboard setup.</p>
                             
                             <!-- Artisan Keycap Image inclusion (EN) -->
                             <div class="my-5 text-center">
-                                <img src="../images/artisan_keycap_detail.png" class="mx-auto rounded-2xl max-w-full md:max-w-md shadow-lg border border-slate-200 dark:border-slate-800" alt="Artisan Keycap Detail">
+                                <img src="/images/artisan_keycap_detail.png" class="mx-auto rounded-2xl max-w-full md:max-w-md shadow-lg border border-slate-200 dark:border-slate-800" alt="Artisan Keycap Detail">
                                 <p class="text-xs text-text-muted dark:text-slate-500 mt-2">Example of a handmade artisan keycap featuring a miniature winter forest and mountain landscape</p>
                             </div>
                         </section>
@@ -370,8 +373,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="game.js" defer></script>
-    <script src="/language.js" defer></script>
-    <script src="/scripts/app.js" defer></script>
+    <script src="/language.js?v=303" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -407,6 +409,6 @@
       ]
     }
     </script>
-  <script src="/framework/core.js?v=301"></script>
+  <script src="/framework/core.js?v=303"></script>
 </body>
 </html>

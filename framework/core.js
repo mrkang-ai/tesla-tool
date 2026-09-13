@@ -5,6 +5,148 @@
  */
 (function() {
     'use strict';
+    // 0. Suppress benign third-party production warnings (e.g. Tailwind CDN)
+    if (typeof console !== 'undefined' && console.warn) {
+        const _origWarn = console.warn;
+        console.warn = function(...args) {
+            if (args[0] && typeof args[0] === 'string' && (
+                args[0].includes('cdn.tailwindcss.com should not be used in production') ||
+                args[0].includes('should not be used in production')
+            )) {
+                return;
+            }
+            _origWarn.apply(console, args);
+        };
+    }
+
+    // 0b. Global Procedural SoundFX Engine (Web Audio API - 0 external files)
+    let audioCtx = null;
+    let isSoundEnabled = localStorage.getItem('sound_enabled') === 'true';
+
+    function getAudioContext() {
+        if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        return audioCtx;
+    }
+
+    const SoundFX = {
+        isEnabled() { return isSoundEnabled; },
+        toggle() {
+            isSoundEnabled = !isSoundEnabled;
+            localStorage.setItem('sound_enabled', isSoundEnabled ? 'true' : 'false');
+            this.updateUI();
+            if (isSoundEnabled) {
+                getAudioContext();
+                this.playPop();
+            }
+            return isSoundEnabled;
+        },
+        setEnabled(val) {
+            isSoundEnabled = !!val;
+            localStorage.setItem('sound_enabled', isSoundEnabled ? 'true' : 'false');
+            this.updateUI();
+        },
+        updateUI() {
+            document.querySelectorAll('.sound-toggle-btn').forEach(btn => {
+                const icon = btn.querySelector('.material-symbols-outlined') || btn.querySelector('span');
+                if (icon) icon.textContent = isSoundEnabled ? 'volume_up' : 'volume_off';
+                btn.setAttribute('aria-label', isSoundEnabled ? '사운드 켜짐' : '사운드 꺼짐');
+                if (isSoundEnabled) {
+                    btn.classList.add('text-primary');
+                    btn.classList.remove('text-text-muted', 'dark:text-slate-400');
+                } else {
+                    btn.classList.remove('text-primary');
+                    btn.classList.add('text-text-muted', 'dark:text-slate-400');
+                }
+            });
+        },
+        playPop() {
+            if (!isSoundEnabled) return;
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            try {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                const now = ctx.currentTime;
+                osc.frequency.setValueAtTime(320, now);
+                osc.frequency.exponentialRampToValueAtTime(780, now + 0.06);
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            } catch(e) {}
+        },
+        playClick() {
+            if (!isSoundEnabled) return;
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            try {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                const now = ctx.currentTime;
+                osc.frequency.setValueAtTime(140, now);
+                osc.frequency.exponentialRampToValueAtTime(40, now + 0.04);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.05);
+            } catch(e) {}
+        },
+        playTick() {
+            if (!isSoundEnabled) return;
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            try {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                const now = ctx.currentTime;
+                osc.frequency.setValueAtTime(950, now);
+                osc.frequency.exponentialRampToValueAtTime(400, now + 0.025);
+                gain.gain.setValueAtTime(0.18, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.03);
+            } catch(e) {}
+        },
+        playWin() {
+            if (!isSoundEnabled) return;
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            try {
+                const notes = [523.25, 659.25, 783.99, 1046.50];
+                const now = ctx.currentTime;
+                notes.forEach((freq, idx) => {
+                    const startTime = now + idx * 0.09;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, startTime);
+                    gain.gain.setValueAtTime(0.25, startTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.35);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(startTime);
+                    osc.stop(startTime + 0.36);
+                });
+            } catch(e) {}
+        }
+    };
+    window.SoundFX = SoundFX;
+
 
     // 1. Determine site root path safely
     function getRootPrefix() {
@@ -64,12 +206,12 @@
         const primaryUrl = url.startsWith('/') ? url : '/' + url;
         const fallbackUrl = rootPrefix + url.replace(/^\//, '');
 
-        fetch(primaryUrl + '?v=203', { cache: 'no-cache' })
+        fetch(primaryUrl + '?v=303', { cache: 'no-cache' })
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.text();
             })
-            .catch(() => fetch(fallbackUrl + '?v=203', { cache: 'no-cache' }).then(res => res.text()))
+            .catch(() => fetch(fallbackUrl + '?v=303', { cache: 'no-cache' }).then(res => res.text()))
             .then(html => {
                 targetEl.innerHTML = html;
                 if (callback) callback(targetEl);
@@ -134,6 +276,42 @@
             }
         });
     }
+
+    
+    // 5b. Mega Menu Tabs Controller
+    function setupMegaMenuTabs(headerEl) {
+        const root = headerEl || document;
+        const tabs = root.querySelectorAll('.mega-menu-tab');
+        const panels = root.querySelectorAll('.mega-menu-panel');
+        if (!tabs.length || !panels.length) return;
+
+        const switchTab = (targetTab) => {
+            tabs.forEach(t => {
+                t.classList.remove('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
+                t.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+            targetTab.classList.add('active', 'bg-sky-50', 'dark:bg-sky-950/40', 'text-primary', 'font-bold');
+            targetTab.classList.remove('text-slate-600', 'dark:text-slate-400');
+
+            const targetId = targetTab.dataset.target;
+            panels.forEach(p => {
+                if (p.id === targetId) {
+                    p.classList.remove('hidden');
+                } else {
+                    p.classList.add('hidden');
+                }
+            });
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('mouseenter', () => switchTab(tab));
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchTab(tab);
+            });
+        });
+    }
+    window.setupMegaMenuTabs = setupMegaMenuTabs;
 
     // 5. Mobile Menu Controller
     function setupMobileMenu(headerEl) {
@@ -354,7 +532,7 @@
         let toolsData = {};
         try {
             const lang = localStorage.getItem('language') || 'ko';
-            const res = await fetch(`/locales/${lang}/tools.json?v=203`);
+            const res = await fetch(`/locales/${lang}/tools.json?v=303`);
             if (res.ok) {
                 toolsData = await res.json();
             }
@@ -544,7 +722,7 @@
             setupMobileMenu(headerEl);
             setupHeaderActions(headerEl);
 
-            if (window.setupMegaMenuTabs) window.setupMegaMenuTabs();
+            setupMegaMenuTabs(headerEl);
             if (window.applyLanguage) {
                 window.applyLanguage(localStorage.getItem('language') || 'ko', true);
             }

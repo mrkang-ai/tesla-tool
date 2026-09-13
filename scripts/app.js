@@ -462,34 +462,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     };
 
-    loadHTML(`${basePath}header.html?v=100`, 'header-placeholder', () => {
-        initializeDropdowns();
-        setupMegaMenuTabs();
-        setupShareButtons();
-        setupMobileMenu();
-        setupSoundToggle();
-        // Initial updates on page load
-        if (window.applyLanguage) {
-            window.applyLanguage(localStorage.getItem('language') || 'ko', true);
-        } else {
-            updateCurrentServiceName();
-        }
-    });
+    // Framework core handles header/footer and soundfx mounting safely
+    if (window.applyLanguage) {
+        window.applyLanguage(localStorage.getItem('language') || 'ko', true);
+    } else {
+        updateCurrentServiceName();
+    }
 
-    loadHTML(`${basePath}footer.html?v=100`, 'footer-placeholder');
-
-    // Dynamic Script Loader for Particles and SoundFX if not already loaded
-    const loadScriptIfNotPresent = (src) => {
-        if (!document.querySelector(`script[src*="${src}"]`)) {
-            const script = document.createElement('script');
-            script.src = `${basePath}${src}`;
-            script.defer = true;
-            document.head.appendChild(script);
-        }
-    };
-
-    loadScriptIfNotPresent('scripts/particles.js');
-    loadScriptIfNotPresent('scripts/sound.js');
 
 
     // 3D Parallax Tilt & Dynamic Glare Engine

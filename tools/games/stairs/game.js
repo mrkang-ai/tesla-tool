@@ -20,7 +20,7 @@ let feverEndTime = 0;
 
 // Background Image
 const imgSkyBg = new Image();
-imgSkyBg.src = '../images/sky_scenery.png';
+imgSkyBg.src = '/images/sky_scenery.png';
 
 let isSkyBgLoaded = false;
 imgSkyBg.onload = () => {

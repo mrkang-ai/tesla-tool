@@ -27,10 +27,13 @@
     </script>
     
     <!-- New Design Scripts and Links -->
+    <script>
+        (function(){const w=console.warn;console.warn=function(...a){if(a[0]&&typeof a[0]==='string'&&a[0].includes('cdn.tailwindcss.com'))return;w.apply(console,a);};})();
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=303">
     <link rel="stylesheet" href="game.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -58,7 +61,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=301">
+  <link rel="stylesheet" href="/framework/core.css?v=303">
 </head>
 <body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-slate-100">
 
@@ -213,7 +216,7 @@
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="한글 바이트(Byte) 계산의 완벽 가이드: UTF-8 vs EUC-KR" data-lang-en="Korean Byte & Character Guide: UTF-8 vs EUC-KR">한글 바이트(Byte) 계산의 완벽 가이드: UTF-8 vs EUC-KR</h3>
                     <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="왜 공공기관 자소서에서는 한글이 2바이트이고 웹에서는 3바이트일까요? 인코딩 원리와 줄바꿈 바이트 규칙을 상세히 확인하세요." data-lang-en="Why is Korean 2 bytes in job applications and 3 bytes in web UTF-8? Learn the full encoding rules and newline bytes.">왜 공공기관 자소서에서는 한글이 2바이트이고 웹에서는 3바이트일까요? 인코딩 원리와 줄바꿈 바이트 규칙을 상세히 확인하세요.</p>
                 </div>
-                <a href="../guides/korean-byte-character-guide.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                <a href="/guides/korean-byte-character-guide.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
                     <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
@@ -382,8 +385,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="/scripts/app.js" defer></script>
-    <script src="/language.js" defer></script>
+    <script src="/language.js?v=303" defer></script>
     <script src="game.js"></script>
     
     <script type="application/ld+json">
@@ -429,6 +431,6 @@
       ]
     }
     </script>
-  <script src="/framework/core.js?v=301"></script>
+  <script src="/framework/core.js?v=303"></script>
 </body>
 </html>
