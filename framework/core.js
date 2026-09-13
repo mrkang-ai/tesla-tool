@@ -1,6 +1,7 @@
-﻿/**
+/**
  * ToolBox Universal Core Framework (framework/core.js)
- * High-reliability Header/Footer Smart Mounter, Safe Dropdown Engine, Theme & Sound Sync
+ * High-reliability Header/Footer Smart Mounter, Safe Dropdown Engine, Theme & Sound Sync,
+ * Global Floating Quick Nav Dock (Home/Menu/Top), and Tool Screen Related Tools Switcher.
  */
 (function() {
     'use strict';
@@ -57,18 +58,18 @@
                 break;
             }
         }
-        if (!targetEl) return;
+        if (!targetEl || targetEl.getAttribute('data-mounted') === 'true') return;
+        targetEl.setAttribute('data-mounted', 'true');
 
-        // Try absolute root first, then relative prefix fallback
         const primaryUrl = url.startsWith('/') ? url : '/' + url;
         const fallbackUrl = rootPrefix + url.replace(/^\//, '');
 
-        fetch(primaryUrl + '?v=201', { cache: 'no-cache' })
+        fetch(primaryUrl + '?v=203', { cache: 'no-cache' })
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.text();
             })
-            .catch(() => fetch(fallbackUrl + '?v=201', { cache: 'no-cache' }).then(res => res.text()))
+            .catch(() => fetch(fallbackUrl + '?v=203', { cache: 'no-cache' }).then(res => res.text()))
             .then(html => {
                 targetEl.innerHTML = html;
                 if (callback) callback(targetEl);
@@ -93,7 +94,6 @@
                 e.stopPropagation();
                 const isOpen = menu.classList.contains('show') || menu.classList.contains('is-active');
                 
-                // Close all other dropdowns
                 document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openMenu => {
                     openMenu.classList.remove('show', 'is-active');
                 });
@@ -103,14 +103,12 @@
                 }
             });
 
-            // Close when clicking inside links
             menu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.remove('show', 'is-active');
                 });
             });
 
-            // Explicit close button if present
             const closeBtn = menu.querySelector('.dropdown-close-btn');
             if (closeBtn) {
                 closeBtn.addEventListener('click', (e) => {
@@ -120,7 +118,6 @@
             }
         });
 
-        // Global dismiss on click outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.dropdown, .nav-dropdown, .fw-dropdown')) {
                 document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openMenu => {
@@ -129,7 +126,6 @@
             }
         });
 
-        // Global dismiss on ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.dropdown-content.show, .fw-dropdown-menu.is-active').forEach(openMenu => {
@@ -149,7 +145,6 @@
                 e.stopPropagation();
                 mobileMenu.classList.toggle('hidden');
             });
-            // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('#mobile-menu, #mobile-menu-button, .mobile-menu-drawer, .mobile-menu-toggle')) {
                     mobileMenu.classList.add('hidden');
@@ -162,7 +157,6 @@
     function setupHeaderActions(headerEl) {
         if (!headerEl) return;
 
-        // Copy link
         const copyBtn = headerEl.querySelector('#copy-link-btn, .action-copy-link');
         if (copyBtn) {
             copyBtn.addEventListener('click', () => {
@@ -172,12 +166,10 @@
             });
         }
 
-        // Theme toggle buttons
         headerEl.querySelectorAll('.theme-toggle-btn').forEach(btn => {
             btn.addEventListener('click', () => ThemeEngine.toggle());
         });
 
-        // Sound toggle buttons
         headerEl.querySelectorAll('.sound-toggle-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -188,24 +180,389 @@
         ThemeEngine.updateIcons();
     }
 
-    // 7. Auto Initializer on DOM Ready
-    document.addEventListener('DOMContentLoaded', () => {
+    // ===================================================================
+    // 7. Global Floating Quick Nav Dock (Home / 10 Hubs Launcher / Scroll Top)
+    // ===================================================================
+    const CATEGORIES_DATA = [
+        { id: 'cat01', slug: 'cat01-work', icon: '💼', name: 'K-직장인 생존 키트', count: 10 },
+        { id: 'cat02', slug: 'cat02-public', icon: '🏛️', name: '공직 & 행정 생존기', count: 10 },
+        { id: 'cat03', slug: 'cat03-campus', icon: '🎓', name: '캠퍼스 & Z/알파 세대', count: 10 },
+        { id: 'cat04', slug: 'cat04-military', icon: '🪖', name: '밀리터리 & 국방 생존기', count: 10 },
+        { id: 'cat05', slug: 'cat05-sns', icon: '📱', name: 'SNS & 인플루언서 랩', count: 10 },
+        { id: 'cat06', slug: 'cat06-tech', icon: '🤖', name: 'AI & 미래 테크 샌드박스', count: 10 },
+        { id: 'cat07', slug: 'cat07-mind', icon: '🔮', name: '심리 & 멘탈 & 운명', count: 10 },
+        { id: 'cat08', slug: 'cat08-sf', icon: '🛸', name: '기상천외 SF & 우주', count: 10 },
+        { id: 'cat09', slug: 'cat09-life', icon: '🛠️', name: '초경량 실전 일상 유틸', count: 10 },
+        { id: 'cat10', slug: 'cat10-toy', icon: '🎮', name: '킬링타임 & 감각 토이', count: 10 }
+    ];
+
+    function setupGlobalFloatingDock() {
+        if (document.getElementById('fw-floating-dock')) return;
+
+        // 7a. Floating Dock HTML
+        const dockEl = document.createElement('div');
+        dockEl.id = 'fw-floating-dock';
+        dockEl.className = 'fw-floating-dock';
+        dockEl.innerHTML = `
+            <a href="/" class="fw-dock-btn" title="메인 홈으로 이동">
+                <span>🏠</span>
+                <span class="dock-label">홈</span>
+            </a>
+            <div class="fw-dock-divider"></div>
+            <button type="button" id="fw-dock-menu-btn" class="fw-dock-btn" title="10대 테마 및 퀵 메뉴">
+                <span>🎯</span>
+                <span class="dock-label">메뉴</span>
+            </button>
+            <div class="fw-dock-divider"></div>
+            <button type="button" id="fw-dock-top-btn" class="fw-dock-btn" title="맨 위로 스크롤">
+                <span>⬆️</span>
+                <span class="dock-label">맨위로</span>
+            </button>
+        `;
+
+        // 7b. Quick Launcher Popover HTML
+        const popoverEl = document.createElement('div');
+        popoverEl.id = 'fw-quick-launcher-popover';
+        popoverEl.className = 'fw-quick-launcher-popover';
+
+        const catItemsHtml = CATEGORIES_DATA.map(c => `
+            <a href="/category/${c.slug}/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
+                <span class="text-base p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">${c.icon}</span>
+                <div class="overflow-hidden">
+                    <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">${c.name}</div>
+                    <div class="text-[10px] text-slate-400 font-mono">${c.count}개 도구</div>
+                </div>
+            </a>
+        `).join('');
+
+        popoverEl.innerHTML = `
+            <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-200/80 dark:border-slate-800">
+                <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <span>🎯</span> <span>10대 테마 도구 허브 바로가기</span>
+                </div>
+                <button type="button" id="fw-popover-close" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-1 rounded-lg">✕</button>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 mb-3">
+                ${catItemsHtml}
+            </div>
+            <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <a href="/#tools-100" class="text-primary font-bold hover:underline">🚀 전체 100대 도구 보기</a>
+                <div class="flex items-center gap-2">
+                    <a href="/#group-games" class="text-slate-500 hover:text-primary">🎲 게임</a>
+                    <a href="/#group-classic" class="text-slate-500 hover:text-primary">⚙️ 클래식</a>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(dockEl);
+        document.body.appendChild(popoverEl);
+
+        // Scroll listener for dock visibility
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY || document.documentElement.scrollTop;
+                    if (scrollY > 250) {
+                        dockEl.classList.add('is-visible');
+                    } else {
+                        dockEl.classList.remove('is-visible');
+                        popoverEl.classList.remove('is-open');
+                        const menuBtn = document.getElementById('fw-dock-menu-btn');
+                        if (menuBtn) menuBtn.classList.remove('is-active');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Top button click
+        const topBtn = document.getElementById('fw-dock-top-btn');
+        if (topBtn) {
+            topBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Menu button click
+        const menuBtn = document.getElementById('fw-dock-menu-btn');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = popoverEl.classList.contains('is-open');
+                if (isOpen) {
+                    popoverEl.classList.remove('is-open');
+                    menuBtn.classList.remove('is-active');
+                } else {
+                    popoverEl.classList.add('is-open');
+                    menuBtn.classList.add('is-active');
+                }
+            });
+        }
+
+        // Popover close button
+        const popoverClose = document.getElementById('fw-popover-close');
+        if (popoverClose) {
+            popoverClose.addEventListener('click', () => {
+                popoverEl.classList.remove('is-open');
+                if (menuBtn) menuBtn.classList.remove('is-active');
+            });
+        }
+
+        // Global dismiss for popover
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#fw-quick-launcher-popover') && !e.target.closest('#fw-dock-menu-btn')) {
+                popoverEl.classList.remove('is-open');
+                if (menuBtn) menuBtn.classList.remove('is-active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                popoverEl.classList.remove('is-open');
+                if (menuBtn) menuBtn.classList.remove('is-active');
+            }
+        });
+    }
+
+    // ===================================================================
+    // 8. Tool Screen Related Tools Switcher (Top Strip & Side Drawer)
+    // ===================================================================
+    async function setupToolScreenSwitcher() {
+        const path = window.location.pathname;
+        if (!path.includes('/tools/')) return;
+
+        // Parse category slug and tool slug from path
+        // Pattern: /tools/{category_slug}/{tool_slug}/
+        const match = path.match(/\/tools\/([^\/]+)\/([^\/]+)/);
+        if (!match) return;
+
+        const currentCatSlug = match[1];
+        const currentToolSlug = match[2];
+
+        // Find Category Meta
+        const catMeta = CATEGORIES_DATA.find(c => c.slug === currentCatSlug) || {
+            id: currentCatSlug,
+            slug: currentCatSlug,
+            icon: '🛠️',
+            name: currentCatSlug,
+            count: 10
+        };
+
+        // Fetch tools dictionary
+        let toolsData = {};
+        try {
+            const lang = localStorage.getItem('language') || 'ko';
+            const res = await fetch(`/locales/${lang}/tools.json?v=203`);
+            if (res.ok) {
+                toolsData = await res.json();
+            }
+        } catch (e) {
+            console.warn('[ToolBox Framework] Unable to load tools.json:', e);
+        }
+
+        // Filter tools belonging to this category
+        const catTools = [];
+        for (const [slug, info] of Object.entries(toolsData)) {
+            if (info.category === catMeta.id || (info.url && info.url.includes(currentCatSlug))) {
+                catTools.push({
+                    slug,
+                    name: info.name,
+                    desc: info.desc,
+                    badge: info.badge || '',
+                    url: info.url || `/tools/${currentCatSlug}/${slug}/`
+                });
+            }
+        }
+
+        if (catTools.length === 0) return;
+
+        // Calculate prev / next tools
+        const currentIdx = catTools.findIndex(t => t.slug === currentToolSlug);
+        const prevTool = catTools[(currentIdx - 1 + catTools.length) % catTools.length];
+        const nextTool = catTools[(currentIdx + 1) % catTools.length];
+
+        // 8a. Top Related Tools Strip
+        const stripEl = document.createElement('div');
+        stripEl.id = 'fw-related-strip';
+        stripEl.className = 'fw-related-strip';
+
+        const chipsHtml = catTools.map((t, idx) => {
+            const isCurr = t.slug === currentToolSlug;
+            return `
+                <a href="${t.url}" class="fw-tool-chip ${isCurr ? 'is-current' : ''}" title="${t.name}: ${t.desc}">
+                    <span>#${(idx + 1).toString().padStart(2, '0')}</span>
+                    <span>${t.name}</span>
+                </a>
+            `;
+        }).join('');
+
+        stripEl.innerHTML = `
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="/category/${catMeta.slug}/" class="text-xs font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
+                    <span class="text-base">${catMeta.icon}</span>
+                    <span class="hidden md:inline font-extrabold">${catMeta.name}</span>
+                </a>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${catTools.length}종</span>
+            </div>
+
+            <div class="fw-chips-scroll flex-1 mx-1 sm:mx-3">
+                ${chipsHtml}
+            </div>
+
+            <div class="flex items-center gap-1 shrink-0">
+                <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="이전 도구: ${prevTool.name}">
+                    <span>◀</span><span class="hidden lg:inline text-[11px]">이전</span>
+                </a>
+                <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="다음 도구: ${nextTool.name}">
+                    <span class="hidden lg:inline text-[11px]">다음</span><span>▶</span>
+                </a>
+                <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
+                    <span>⚡ 도구 목록</span>
+                </button>
+            </div>
+        `;
+
+        // Mount strip right after header
+        const headerPlaceholder = document.getElementById('header-placeholder') || document.querySelector('header');
+        if (headerPlaceholder && headerPlaceholder.parentNode) {
+            headerPlaceholder.parentNode.insertBefore(stripEl, headerPlaceholder.nextSibling);
+        }
+
+        // Scroll current chip into view
+        setTimeout(() => {
+            const currentChip = stripEl.querySelector('.fw-tool-chip.is-current');
+            if (currentChip) {
+                currentChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }, 150);
+
+        // 8b. Floating Trigger Button & Side Drawer
+        const triggerBtn = document.createElement('button');
+        triggerBtn.id = 'fw-floating-trigger';
+        triggerBtn.className = 'fw-floating-trigger';
+        triggerBtn.innerHTML = `
+            <span>⚡</span>
+            <span>관련 도구 (${catTools.length})</span>
+        `;
+
+        const backdropEl = document.createElement('div');
+        backdropEl.id = 'fw-drawer-backdrop';
+        backdropEl.className = 'fw-drawer-backdrop';
+
+        const drawerEl = document.createElement('div');
+        drawerEl.id = 'fw-side-drawer';
+        drawerEl.className = 'fw-side-drawer';
+
+        const drawerItemsHtml = catTools.map((t, idx) => {
+            const isCurr = t.slug === currentToolSlug;
+            return `
+                <a href="${t.url}" class="p-3 rounded-xl flex items-start gap-3 transition-colors ${isCurr ? 'bg-sky-50 dark:bg-sky-950/70 border border-sky-300 dark:border-sky-700' : 'hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent'}">
+                    <span class="text-xs font-mono font-bold px-2 py-1 rounded-md ${isCurr ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} shrink-0">#${(idx + 1).toString().padStart(2, '0')}</span>
+                    <div class="overflow-hidden flex-1">
+                        <div class="flex items-center gap-1.5 mb-0.5">
+                            <span class="text-xs font-bold text-slate-900 dark:text-white truncate">${t.name}</span>
+                            ${t.badge ? `<span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 border border-rose-100 shrink-0">${t.badge}</span>` : ''}
+                        </div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${t.desc}</p>
+                    </div>
+                </a>
+            `;
+        }).join('');
+
+        const catShortcutsHtml = CATEGORIES_DATA.map(c => `
+            <a href="/category/${c.slug}/" class="p-1.5 rounded-lg text-center bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-xs transition-colors" title="${c.name}">
+                <span>${c.icon}</span>
+            </a>
+        `).join('');
+
+        drawerEl.innerHTML = `
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800">${catMeta.icon}</span>
+                    <div>
+                        <div class="text-xs font-mono text-primary font-bold">${catMeta.id.toUpperCase()} • ${catTools.length}개 도구</div>
+                        <h3 class="text-sm font-black text-slate-900 dark:text-white">${catMeta.name}</h3>
+                    </div>
+                </div>
+                <button type="button" id="fw-drawer-close-btn" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 text-sm">✕</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-3 space-y-1.5">
+                ${drawerItemsHtml}
+            </div>
+
+            <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                <div class="text-[11px] font-bold text-slate-400 mb-2">다른 테마로 바로가기:</div>
+                <div class="grid grid-cols-5 gap-1.5">
+                    ${catShortcutsHtml}
+                </div>
+                <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs">
+                    <a href="/category/${catMeta.slug}/" class="text-primary font-bold hover:underline">테마 허브 보기 →</a>
+                    <a href="/" class="text-slate-500 hover:underline">메인 홈으로</a>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(triggerBtn);
+        document.body.appendChild(backdropEl);
+        document.body.appendChild(drawerEl);
+
+        const openDrawer = () => {
+            drawerEl.classList.add('is-open');
+            backdropEl.classList.add('is-open');
+        };
+
+        const closeDrawer = () => {
+            drawerEl.classList.remove('is-open');
+            backdropEl.classList.remove('is-open');
+        };
+
+        triggerBtn.addEventListener('click', openDrawer);
+        const stripDrawerBtn = document.getElementById('fw-open-drawer-btn');
+        if (stripDrawerBtn) stripDrawerBtn.addEventListener('click', openDrawer);
+
+        const closeBtn = document.getElementById('fw-drawer-close-btn');
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        backdropEl.addEventListener('click', closeDrawer);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeDrawer();
+        });
+    }
+
+    // ===================================================================
+    // 9. Auto Initializer on DOM Ready
+    // ===================================================================
+    function initFramework() {
         ThemeEngine.init();
 
-        // Mount Header to #header-placeholder OR #header OR #site-header
+        // Mount Header
         fetchAndMount('header.html', ['header-placeholder', 'header', 'site-header'], (headerEl) => {
             setupNavDropdowns(headerEl);
             setupMobileMenu(headerEl);
             setupHeaderActions(headerEl);
 
-            // Backward compatibility with app.js functions if present
             if (window.setupMegaMenuTabs) window.setupMegaMenuTabs();
             if (window.applyLanguage) {
                 window.applyLanguage(localStorage.getItem('language') || 'ko', true);
             }
         });
 
-        // Mount Footer to #footer-placeholder OR #footer OR #site-footer
+        // Mount Footer
         fetchAndMount('footer.html', ['footer-placeholder', 'footer', 'site-footer']);
-    });
+
+        // Mount Global Floating Quick Nav Dock
+        setupGlobalFloatingDock();
+
+        // Mount Tool Screen Related Switcher
+        setupToolScreenSwitcher();
+    }
+
+    if (document.readyState !== 'loading') {
+        initFramework();
+    } else {
+        document.addEventListener('DOMContentLoaded', initFramework);
+    }
 })();
