@@ -190,8 +190,70 @@
 
     window.ToolboxTheme = ThemeEngine;
 
-    // 3. Robust HTML Loader
-    function fetchAndMount(url, candidateIds, callback) {
+    // 3. Robust HTML Loader with Anti-404 Guard & Built-in In-memory Fallback
+    const INLINE_FALLBACKS = {
+        'header.html': `
+<header class="border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 transition-colors w-full">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2.5">
+        <div class="flex items-center gap-6 lg:gap-8">
+            <a href="/" class="flex items-center gap-2.5 text-slate-900 dark:text-white cursor-pointer group select-none">
+                <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-xl text-white shadow-md shadow-sky-200 dark:shadow-none group-hover:scale-105 transition-transform">
+                    <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-base font-extrabold leading-none tracking-tight">ToolBox</span>
+                    <span class="text-[9px] font-bold text-primary leading-none mt-0.5 tracking-wider">100+ UTILS</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-2 text-sm font-semibold">
+                <a href="/" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors">홈</a>
+                <a href="/#tools-100" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-primary transition-colors">100대 도구모음</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <button type="button" class="sound-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="효과음 켜기/끄기">
+                <span class="material-symbols-outlined text-[20px]">volume_up</span>
+            </button>
+            <button type="button" class="theme-toggle-btn p-2 rounded-xl text-text-muted dark:text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="다크/라이트 모드 전환">
+                <span class="theme-toggle-icon">🌙</span>
+            </button>
+        </div>
+    </div>
+</header>`,
+        'footer.html': `
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 py-8 text-center text-xs text-slate-500 dark:text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>© 2026 ToolBox. All rights reserved. 100+ Productivity Web Apps.</div>
+        <div class="flex items-center gap-4">
+            <a href="/privacy.html" class="hover:underline">개인정보처리방침</a>
+            <a href="/terms.html" class="hover:underline">이용약관</a>
+            <a href="/sitemap.html" class="hover:underline">사이트맵</a>
+            <a href="/" class="hover:underline font-bold text-primary">홈으로</a>
+        </div>
+    </div>
+</footer>`
+    };
+
+    function isInvalidPartialHtml(html) {
+        if (!html || typeof html !== 'string' || !html.trim()) return true;
+        const lower = html.toLowerCase();
+        // Check for 404 page hallmarks
+        if (lower.includes('페이지를 찾을 수 없습니다') || lower.includes('page not found') || lower.includes('요청하신 페이지를 찾을 수 없습니다')) {
+            return true;
+        }
+        if (/<h1[^>]*>404<\/h1>/i.test(html)) {
+            return true;
+        }
+        // Partials must NOT be complete HTML documents (like 404.html)
+        if (html.trim().toLowerCase().startsWith('<!doctype') || html.includes('<html') || html.includes('<body')) {
+            return true;
+        }
+        return false;
+    }
+
+    async function fetchAndMount(url, candidateIds, callback) {
         let targetEl = null;
         for (const id of candidateIds) {
             const el = document.getElementById(id);
@@ -203,22 +265,54 @@
         if (!targetEl || targetEl.getAttribute('data-mounted') === 'true') return;
         targetEl.setAttribute('data-mounted', 'true');
 
-        const primaryUrl = url.startsWith('/') ? url : '/' + url;
-        const fallbackUrl = rootPrefix + url.replace(/^\//, '');
+        const cleanUrl = url.replace(/^\//, '');
+        const noExtUrl = cleanUrl.replace(/\.html$/, '');
 
-        fetch(primaryUrl + '?v=303', { cache: 'no-cache' })
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.text();
-            })
-            .catch(() => fetch(fallbackUrl + '?v=303', { cache: 'no-cache' }).then(res => res.text()))
-            .then(html => {
-                targetEl.innerHTML = html;
-                if (callback) callback(targetEl);
-            })
-            .catch(err => {
-                console.warn('[ToolBox Framework] Failed to mount:', url, err);
-            });
+        // Candidate endpoints to attempt in order of priority:
+        // 1. Root with extension (/header.html, /footer.html)
+        // 2. Relative fallback (../../../header.html)
+        // 3. Extensionless path (/header, /footer) for Pretty URLs
+        const endpoints = [];
+        endpoints.push('/' + cleanUrl);
+        endpoints.push(rootPrefix + cleanUrl);
+        if (noExtUrl !== cleanUrl) {
+            endpoints.push('/' + noExtUrl);
+            endpoints.push(rootPrefix + noExtUrl);
+        }
+
+        let mountedHtml = null;
+
+        for (const ep of endpoints) {
+            try {
+                const res = await fetch(ep + '?v=305', { cache: 'no-cache' });
+                if (!res.ok) continue;
+                const text = await res.text();
+                if (!isInvalidPartialHtml(text)) {
+                    mountedHtml = text;
+                    break;
+                }
+            } catch (e) {
+                // Endpoint fetch failed, proceed to next candidate
+            }
+        }
+
+        if (mountedHtml) {
+            targetEl.innerHTML = mountedHtml;
+        } else {
+            // Apply safe inline fallback (prevents ANY 404 injection or broken layout)
+            const fallbackKey = cleanUrl.endsWith('.html') ? cleanUrl : cleanUrl + '.html';
+            if (INLINE_FALLBACKS[fallbackKey]) {
+                targetEl.innerHTML = INLINE_FALLBACKS[fallbackKey];
+            }
+        }
+
+        if (callback) {
+            try {
+                callback(targetEl);
+            } catch (cbErr) {
+                console.warn('[ToolBox Framework] Callback error after mount:', cbErr);
+            }
+        }
     }
 
     // 4. Dropdown & Navigation Safe Controller
@@ -532,7 +626,7 @@
         let toolsData = {};
         try {
             const lang = localStorage.getItem('language') || 'ko';
-            const res = await fetch(`/locales/${lang}/tools.json?v=303`);
+            const res = await fetch(`/locales/${lang}/tools.json?v=305`);
             if (res.ok) {
                 toolsData = await res.json();
             }
