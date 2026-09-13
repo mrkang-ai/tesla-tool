@@ -188,9 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Expose the function to be called from language.js
     window.updateCurrentServiceName = updateCurrentServiceName;
 
-    const path = window.location.pathname;
-    const isSubdirectory = !!(document.querySelector('link[href*="../style.css"]') || document.querySelector('script[src*="../scripts/"]') || document.querySelector('link[href*="../favicon.ico"]'));
-    const basePath = isSubdirectory || path.includes('/lotto/') || path.includes('/lotto-simulator/') || path.includes('/TextCount/') || path.includes('/eat/') || path.includes('/Rock-paper-scissors/') || path.includes('/ladder/') || path.includes('/carrot-dodger/') || path.includes('/Dodger/') || path.includes('/meme-generator/') || path.includes('/roulette/') || path.includes('/keycap/') || path.includes('/stairs/') || path.includes('/guides/') || path.includes('/tests/') || path.includes('/stealth-excel/') || path.includes('/corporate-cushion/') || path.includes('/salary-ticker/') || path.includes('/escape-office/') || path.includes('/card-budget/') || path.includes('/dutch-pay-chaser/') || path.includes('/meeting-buzzword/') || path.includes('/cold-email-diplomat/') || path.includes('/fake-update/') || path.includes('/presence-status/') ? '../' : '';
+    const basePath = '/';
 
     const setupPortalSearchAndFilters = () => {
         const searchInput = document.getElementById('portal-search-input');

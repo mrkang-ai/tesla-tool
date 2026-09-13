@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="사다리 게임 - 온라인 도구모음" data-lang-en="Ladder Game - Online Toolkit">사다리 게임 - 온라인 도구모음</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="온라인 사다리 게임으로 친구들과 함께 즐거운 내기를 해보세요. 참가자 수와 결과를 입력하고 바로 시작할 수 있습니다." data-lang-ko="온라인 사다리 게임으로 친구들과 함께 즐거운 내기를 해보세요. 참가자 수와 결과를 입력하고 바로 시작할 수 있습니다." data-lang-en="Play a fun betting game with your friends with the online ladder game. You can enter the number of participants and results and start right away.">
+    <link rel="canonical" href="https://tossgpt.online/tools/games/ladder/">
+    <meta property="og:title" content="사다리 게임" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">
+    <meta property="og:description" content="온라인 사다리 게임으로 친구들과 함께 간단한 내기와 당번 정하기를 해보세요." data-lang-ko="온라인 사다리 게임으로 친구들과 함께 간단한 내기와 당번 정하기를 해보세요." data-lang-en="Make simple bets and decide duties with friends in this online ladder game.">
+    <meta property="og:image" content="https://tossgpt.online/images/og_games.jpg">
+    <meta property="og:url" content="https://tossgpt.online/tools/games/ladder/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="사다리 게임" data-lang-ko="사다리 게임" data-lang-en="Ladder Game">
+    <meta name="twitter:description" content="온라인 사다리 게임으로 친구들과 함께 간단한 내기와 당번 정하기를 해보세요." data-lang-ko="온라인 사다리 게임으로 친구들과 함께 간단한 내기와 당번 정하기를 해보세요." data-lang-en="Make simple bets and decide duties with friends in this online ladder game.">
+    <meta name="twitter:image" content="https://tossgpt.online/images/og_games.jpg">
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WTS1DYYQC');
+    </script>
+
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="game.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+  <link rel="stylesheet" href="/framework/core.css">
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+            <div class="text-center py-10">
+                <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🪜 실시간 사다리 타기" data-lang-en="🪜 Sleek Ladder Climb">🪜 실시간 사다리 타기</h1>
+                <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!" data-lang-en="Enjoy a fair, real-time ladder climb game for quick bets with your friends!">친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!</p>
+            </div>
+
+            <!-- SECTION 1: Game Setup -->
+            <section id="setup" class="w-full max-w-4xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
+                <!-- Preset Row -->
+                <div class="mb-8">
+                    <h2 class="text-sm font-extrabold text-text-muted dark:text-slate-400 uppercase tracking-widest mb-3" data-lang-ko="⚡ 빠른 내기 프리셋" data-lang-en="⚡ QUICK BET PRESETS">⚡ 빠른 내기 프리셋</h2>
+                    <div class="flex flex-wrap gap-2.5">
+                        <button type="button" id="preset-coffee" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>☕</span>
+                            <span data-lang-ko="커피 내기" data-lang-en="Coffee Bet">커피 내기</span>
+                        </button>
+                        <button type="button" id="preset-lunch" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>🍲</span>
+                            <span data-lang-ko="점심 턱내기" data-lang-en="Lunch Penalty">점심 턱내기</span>
+                        </button>
+                        <button type="button" id="preset-order" class="px-4 py-2 bg-slate-50 hover:bg-sky-50 dark:bg-slate-900/40 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-800 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+                            <span>🔢</span>
+                            <span data-lang-ko="순서 정하기" data-lang-en="Draw Sequence">순서 정하기</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Number of Participants Adjuster -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center border-t border-slate-100 dark:border-slate-800/80 pt-6 mb-6">
+                    <div class="flex flex-col gap-1.5 col-span-1">
+                        <label class="text-sm font-extrabold text-text-main dark:text-white" data-lang-ko="참가 인원 설정" data-lang-en="Number of Participants">참가 인원 설정</label>
+                        <p class="text-xs text-text-muted" data-lang-ko="2명에서 최대 12명까지 가능합니다." data-lang-en="Supports 2 to 12 participants.">2명에서 최대 12명까지 가능합니다.</p>
+                    </div>
+                    <div class="flex items-center gap-3 col-span-2">
+                        <button type="button" id="btn-count-dec" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xl font-bold cursor-pointer transition-colors">-</button>
+                        <input type="number" id="player-count" value="4" min="2" max="12" class="form-input w-24 h-12 text-center rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-lg font-extrabold text-text-main dark:text-white focus:border-primary focus:ring-primary [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                        <button type="button" id="btn-count-inc" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xl font-bold cursor-pointer transition-colors">+</button>
+                    </div>
+                </div>
+
+                <!-- Inputs Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                    <!-- Participant Names -->
+                    <div>
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-xl">groups</span>
+                            <span data-lang-ko="참가자 이름 입력" data-lang-en="Participant Names">참가자 이름 입력</span>
+                        </h3>
+                        <div id="players" class="space-y-3">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Match Results -->
+                    <div>
+                        <h3 class="text-md font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-emerald-500 text-xl">emoji_events</span>
+                            <span data-lang-ko="대결 결과 (벌칙) 입력" data-lang-en="Match Outcomes (Penalties)">대결 결과 (벌칙) 입력</span>
+                        </h3>
+                        <div id="results" class="space-y-3">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/80">
+                    <button id="start-game" class="w-full flex items-center justify-center rounded-2xl h-14 px-6 bg-primary text-white text-lg font-extrabold hover:bg-primary-hover shadow-lg hover:shadow-sky-100 dark:hover:shadow-none active:scale-95 transition-all cursor-pointer">
+                        <span data-lang-ko="사다리 생성하기 🚀" data-lang-en="Create Ladder 🚀">사다리 생성하기 🚀</span>
+                    </button>
+                </div>
+            </section>
+            
+            <!-- SECTION 2: Active Game Area -->
+            <section id="game-container" style="display: none;" class="w-full flex flex-col items-center">
+                <!-- Hint Banner -->
+                <div class="w-full max-w-4xl bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex flex-col gap-1.5 items-center justify-center">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg">info</span>
+                        <span data-lang-ko="사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다." data-lang-en="Click the circular player button at the top of the canvas to run their path individually.">사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-primary font-bold">
+                        <span class="material-symbols-outlined text-sm">swap_horiz</span>
+                        <span data-lang-ko="💡 사다리가 생성된 상태에서 상단 참가자 동그라미를 연속으로 2개 클릭하면 서로의 순서(위치)를 맞바꿀 수 있습니다." data-lang-en="💡 With the ladder generated, click any 2 circular player badges at the top sequentially to swap their starting positions.">💡 사다리가 생성된 상태에서 상단 참가자 동그라미를 연속으로 2개 클릭하면 서로의 순서(위치)를 맞바꿀 수 있습니다.</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Wrapper with horizontal scrollbar for overflow on small displays -->
+                <div class="w-full max-w-4xl overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
+                    <canvas id="ladder-canvas" class="bg-transparent block cursor-pointer"></canvas>
+                </div>
+
+                <!-- Results Display Panel -->
+                <div id="result-panel" class="w-full max-w-4xl bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
+                    <h3 class="text-lg font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
+                        <span data-lang-ko="🎯 대결 매칭 결과 요약" data-lang-en="🎯 Match Results Summary">🎯 대결 매칭 결과 요약</span>
+                    </h3>
+                    <div id="result-display" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm font-bold text-text-main dark:text-white">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Game Action Buttons -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <button id="run-all-btn" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-emerald-500 text-white font-extrabold hover:bg-emerald-600 active:scale-95 shadow-md transition-all cursor-pointer">
+                        <span class="material-symbols-outlined">double_arrow</span>
+                        <span data-lang-ko="전체 사다리 타기 🚀" data-lang-en="Run All Paths 🚀">전체 사다리 타기 🚀</span>
+                    </button>
+                    <button id="toggle-rungs" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 text-text-main dark:text-white font-extrabold active:scale-95 transition-all cursor-pointer border border-slate-200/40 dark:border-slate-800">
+                        <span class="material-symbols-outlined text-base">visibility</span>
+                        <span>사다리 보이기</span>
+                    </button>
+                    <button id="reset-game" class="flex items-center justify-center gap-1.5 rounded-2xl h-12 px-6 bg-slate-500 hover:bg-slate-600 text-white font-extrabold active:scale-95 transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-base">settings_backup_restore</span>
+                        <span data-lang-ko="사다리 재설정" data-lang-en="Reset Ladder">사다리 재설정</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Guide Link Banner -->
+            <div class="w-full max-w-4xl mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="space-y-2 text-center sm:text-left">
+                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">수학 & 대칭군 가이드</span>
+                    <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명" data-lang-en="Mathematics of Amidakuji: Symmetric Groups & Permutations">사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명</h3>
+                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요." data-lang-en="Explore the algebraic proof of bijective permutation mappings and how horizontal rungs create binomial probability distributions.">사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요.</p>
+                </div>
+                <a href="../guides/game-theory-and-psychology.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                    <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Blog Section: Ladder Game Probability & Secret Strategy -->
+            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
+                <!-- Korean Version -->
+                <div class="lang-only-ko">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📊</span> 사다리타기 게임의 수학적 확률과 필승 내기 전략
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. 사다리 게임의 수학적 원리: 치환군 (Permutation Group)</h3>
+                            <p>사다리타기 게임은 수학의 <strong>'대수학(Algebra)'</strong> 관점에서 매우 완벽한 <strong>치환(Permutation)</strong> 과정을 나타냅니다. 사다리의 수직 평행선들은 원소들을 나타내고, 수평으로 그어지는 가로선(다리)들은 인접한 두 열의 위치를 맞바꾸는 <strong>'인접 호환(Adjacent Transposition)'</strong>으로 기능합니다.</p>
+                            <p class="mt-2">수학적으로 아무리 많은 가로줄을 무작위로 그리더라도, 시작한 위치와 도착하는 위치는 항상 <strong>1대1 대응</strong>을 이룹니다. 즉, 한 곳으로 두 명이 동시에 당첨되거나 낙오되는 경우 없이 언제나 공평하게 매칭되는 이유가 여기에 있습니다.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. 수직 강하 편향 (Vertical Descent Bias): 바로 밑의 줄이 확률이 높다?</h3>
+                            <p>흔히 사다리 게임은 완벽히 공평한 랜덤 게임으로 여겨지지만, 실제로는 <strong>출발점 바로 밑에 위치한 결과 칸이 당첨될 확률이 통계적으로 가장 높습니다.</strong> 이를 수학 및 통계학에서는 <strong>수직 강하 편향(Vertical Descent Bias)</strong> 혹은 <strong>인접 전이 편향</strong>이라고 부릅니다.</p>
+                            <p class="mt-2">가로 사다리 줄이 생성될 때 무한히 빽빽하게 채워지지 않는 이상, 사다리를 타고 내려가는 경로는 좌우로 진동하는 <strong>무작위 행보(Random Walk)</strong>와 유사한 확률 분포를 따릅니다. 출발선 <em>i</em>에서 출발해 도달하는 결과선 <em>j</em>의 확률은 <em>|i - j|</em> 거리가 가까울수록 기하급수적으로 높으며, 거리가 멀어질수록 확률이 급격하게 떨어지는 <strong>이항분포(Binomial Distribution)</strong> 형태를 그리게 됩니다.</p>
+                            <p class="mt-2 text-primary font-bold">💡 통계적 사실: 보통의 사다리 구조에서 출발지 바로 밑에 있는 결과 칸으로 매칭될 확률은 약 30%~45%에 달하며, 반대편 극단으로 갈 확률은 5% 이하로 떨어집니다. 따라서 당첨 확률이 높은 슬롯이 있다면, 그 바로 위의 출발선을 선택하는 것이 수학적으로 명백히 유리합니다.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. 내기에서 살아남는 실전 사다리 필승 전략</h3>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>목표 슬롯을 정조준하라:</strong> 커피 쏘기나 청소 당번 등 피하고 싶은 벌칙 칸이 정해져 있다면, 그 칸의 바로 직속 상단 출발선은 무조건 피하세요. 반대로 통과(안전) 칸이 있는 경우 그 바로 위의 출발선을 고르는 것이 당첨 확률을 극대화합니다.</li>
+                                <li><strong>사다리의 밀도(가로줄 개수)를 관찰하라:</strong> 사다리를 생성할 때 가로줄 개수가 적을수록 무작위 행보의 굴곡이 발생하지 않아 바로 밑으로 직행할 확률이 70% 이상으로 올라갑니다. 가로줄이 적게 설정되어 있다면 100% 수직 정조준 전략을 사용해야 합니다.</li>
+                                <li><strong>경계선(가장자리)을 공략하라:</strong> 1번 선이나 마지막 번호선은 좌우 중 한쪽 방향으로만 다리가 연결되기 때문에, 사다리 중앙선에 위치한 참가자들에 비해 반대편 반경으로 튕겨 나갈 확률이 가장 적어 경로 예측이 훨씬 수월합니다.</li>
+                            </ul>
+                        </section>
+
+                        <!-- FAQ Section (KO) -->
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-xl">help</span> 4. 자주 묻는 질문 (FAQ)
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 두 사람이 같은 결과 슬롯에 도착하는 일이 발생할 수 있나요?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">수학적으로 절대 불가능합니다. 각 가로선은 인접한 두 수직선의 위치를 교환하는 대칭군 호환(Transposition)으로 작용하므로, 아무리 복잡한 사다리라도 출발지와 도착지는 항상 1대1 전단사 함수(Bijective Mapping)를 이룹니다.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 사다리를 가장 공평하게 만들려면 가로줄을 몇 개나 두어야 하나요?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">참가자가 N명일 때 수직 강하 편향을 최소화하고 모든 참가자가 모든 결과 칸에 균등한 확률로 도달하려면, 가로선의 개수가 최소 O(N²) 이상 충분히 촘촘하게 배치되어야 합니다.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- English Version -->
+                <div class="lang-only-en">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">📊</span> Mathematical Probabilities & Winning Strategies in Ladder Games
+                    </h2>
+                    <div class="space-y-6 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                        <section>
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">1. Mathematical Foundations: Permutation Groups</h3>
+                            <p>From an <strong>algebraic</strong> perspective, the Ladder Game (known as Amidakuji in Japan and Ghost Leg in English) represents a perfect <strong>Permutation Group</strong>. The vertical lines act as elements, and the horizontal rungs behave as <strong>adjacent transpositions</strong> swapping neighboring lines.</p>
+                            <p class="mt-2">Mathematically, regardless of how many rungs are randomly placed, the starting nodes and end results always maintain a strict <strong>one-to-one mapping</strong>. This ensures that two players never land on the same prize, providing a perfectly fair distribution.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">2. Vertical Descent Bias: Why Staying Close to Your Target Yields Higher Success</h3>
+                            <p>While often perceived as entirely random, the ladder game possesses a strong <strong>Vertical Descent Bias</strong>. Statistically, a player is far more likely to land on a slot closer to their starting column than one further away.</p>
+                            <p class="mt-2">Unless the rung density is infinitely high, the path mimics a bounded <strong>Random Walk</strong>. The probability of starting at column <em>i</em> and ending at column <em>j</em> follows a binomial-like distribution centered around <em>i</em>. The probability decreases exponentially as the horizontal distance <em>|i - j|</em> increases.</p>
+                            <p class="mt-2 text-primary font-bold">💡 Statistical Fact: Under standard rung distributions, the probability of landing on the slot directly below your starting point is approximately 30% to 45%, whereas landing on the opposite edge drops below 5%. Placing yourself directly above your desired target increases your odds of winning significantly.</p>
+                        </section>
+
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-2">3. Practical Betting Strategies</h3>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
+                                <li><strong>Target the Direct Verticals:</strong> If there is a penalty slot (e.g., buying coffee) you want to avoid, do NOT choose the starting line directly above it. Conversely, to win a prize, select the column directly above that prize.</li>
+                                <li><strong>Analyze the Rung Density:</strong> The fewer the horizontal rungs, the higher the vertical bias. If the ladder has low rung density, the direct descent probability rises past 70%, making direct positioning almost deterministic.</li>
+                                <li><strong>Prefer the Edges:</strong> The leftmost and rightmost lines only allow rungs in one direction. This restriction makes their paths highly predictable compared to middle lines that can divert in both directions.</li>
+                            </ul>
+                        </section>
+
+                        <!-- FAQ Section (EN) -->
+                        <section class="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+                            <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-xl">help</span> 4. Frequently Asked Questions (FAQ)
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                    <h4 class="font-bold text-text-main dark:text-white mb-1">Q. Can two players ever land on the exact same outcome?</h4>
+                                    <p class="text-text-muted dark:text-slate-400">No. Mathematically, rungs represent adjacent transpositions in symmetric group theory, ensuring that every configuration produces a strict bijective (1-to-1) mapping.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="game.js" defer></script>
+    <script src="/language.js" defer></script>
+    <script src="/scripts/app.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://tossgpt.online/tools/games/ladder/index.html",
+          "name": "사다리 게임 및 수학적 확률 분석 - 온라인 도구모음",
+          "description": "온라인 사다리 게임으로 복불복 내기와 대결을 즐기고 대칭군 치환 이론과 수직 강하 편향의 수학적 확률을 확인하세요.",
+          "url": "https://tossgpt.online/tools/games/ladder/index.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "두 사람이 같은 결과 칸에 도달할 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "사다리의 가로선은 인접 호환으로 작용하여 항상 일대일 전단사 매칭을 보장하므로 중복 당첨은 불가능합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "사다리타기에서 출발점 바로 밑이 당첨될 확률이 왜 더 높은가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "가로줄이 무한히 많지 않은 이상 경로는 유한 무작위 행보를 따르며, 출발선 주변으로 이항분포 형태의 수직 강하 편향이 나타나기 때문입니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  <script src="/framework/core.js"></script>
+</body>
+</html>

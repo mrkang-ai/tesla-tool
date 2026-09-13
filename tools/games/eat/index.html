@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="light" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-ko="오늘 뭐 먹지? - 온라인 도구모음" data-lang-en="What to Eat Today? - Online Toolkit">오늘 뭐 먹지? - 온라인 도구모음</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="오늘 점심, 저녁 메뉴가 고민될 때 버튼 하나로 메뉴를 추천받으세요. 다양한 음식 이미지와 함께 메뉴 선택의 어려움을 덜어드립니다." data-lang-ko="오늘 점심, 저녁 메뉴가 고민될 때 버튼 하나로 메뉴를 추천받으세요. 다양한 음식 이미지와 함께 메뉴 선택의 어려움을 덜어드립니다." data-lang-en="When you're wondering what to have for lunch or dinner today, get a menu recommendation with the click of a button. We'll help you choose a menu with a variety of food images.">
+    <link rel="canonical" href="https://tossgpt.online/tools/games/eat/">
+    <meta property="og:title" content="오늘 뭐 먹지?" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">
+    <meta property="og:description" content="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-ko="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get a recommendation for today's menu with the click of a button.">
+    <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
+    <meta property="og:url" content="https://tossgpt.online/tools/games/eat/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="오늘 뭐 먹지?" data-lang-ko="오늘 뭐 먹지?" data-lang-en="What to Eat Today?">
+    <meta name="twitter:description" content="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-ko="버튼 하나로 오늘 먹을 메뉴를 추천받으세요." data-lang-en="Get a recommendation for today's menu with the click of a button.">
+    <meta name="twitter:image" content="https://tossgpt.online/images/og_main.jpg">
+    
+    <!-- Google Analytics & Other Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTS1DYYQC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WTS1DYYQC');
+    </script>
+    
+    <!-- New Design Scripts and Links -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="game.css">
+    <script src="data.js" defer></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0ea5e9",
+                        "primary-hover": "#0284c7",
+                        "background-light": "#f0f9ff",
+                        "background-dark": "#0f172a",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                        "card-bg-light": "#ffffff",
+                        "card-bg-dark": "#1e293b",
+                        "accent-light": "#e0f2fe",
+                        "accent-dark": "#1e293b",
+                    },
+                    fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+  <link rel="stylesheet" href="/framework/core.css">
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
+
+    <div id="header-placeholder"></div>
+
+    <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+            <div class="max-w-xl w-full mx-auto text-center">
+                <header class="py-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white block whitespace-nowrap" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
+                    <p class="mt-3 text-sm sm:text-md text-text-muted dark:text-slate-400 block" data-lang-ko="결정 장애 해결! 버튼을 눌러 오늘 먹을 최적의 메뉴를 추천받으세요." data-lang-en="Get the perfect menu recommendation for today with a single click!">결정 장애 해결! 버튼을 눌러 오늘 먹을 최적의 메뉴를 추천받으세요.</p>
+                </header>
+
+                <button id="recommend-btn" class="w-full flex items-center justify-center rounded-2xl h-16 px-6 bg-primary text-white text-xl font-extrabold hover:bg-primary-hover shadow-lg hover:shadow-sky-100 dark:hover:shadow-none transition-all active:scale-95">
+                    <span data-lang-ko="🍽️ 메뉴 추천받기" data-lang-en="🍽️ Recommend a Menu!">🍽️ 메뉴 추천받기</span>
+                </button>
+                
+                <div id="loading-animation" class="hidden mt-8">
+                    <p class="text-lg font-bold text-text-muted dark:text-slate-400 animate-pulse" data-lang-ko="🍽️ 맛있는 메뉴 탐색중..." data-lang-en="🍽️ Searching for delicious menu...">🍽️ 맛있는 메뉴 탐색중...</p>
+                    <div id="image-spinner" class="mt-4"></div>
+                </div>
+            </div> <!-- CLOSE the max-w-xl container early -->
+
+            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[1200px]) -->
+            <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
+                <div class="grid grid-cols-1 md:grid-cols-12">
+                    <!-- Image Container (Col 6) - Giant photo for strong visual impact -->
+                    <div class="md:col-span-6 relative h-80 md:h-[480px]">
+                        <img id="result-image" src="" alt="추천 메뉴" class="w-full h-full object-cover">
+                        <span id="result-category" class="absolute top-5 left-5 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">한식</span>
+                    </div>
+                    <!-- Info Container (Col 6) - Premium spacing -->
+                    <div class="md:col-span-6 p-6 md:p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1.5 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
+                            <h3 id="result-name" class="mt-4 text-4xl font-black text-text-main dark:text-white leading-tight"></h3>
+                            <p id="result-description" class="mt-4 text-[15px] text-text-muted dark:text-slate-400 leading-relaxed font-medium italic"></p>
+                        </div>
+                        
+                        <!-- Add to Planner section -->
+                        <div id="add-to-planner-sec" class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-3">
+                            <p class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <select id="select-day" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="mon" data-lang-ko="월요일" data-lang-en="Monday">월요일</option>
+                                    <option value="tue" data-lang-ko="화요일" data-lang-en="Tuesday">화요일</option>
+                                    <option value="wed" data-lang-ko="수요일" data-lang-en="Wednesday">수요일</option>
+                                    <option value="thu" data-lang-ko="목요일" data-lang-en="Thursday">목요일</option>
+                                    <option value="fri" data-lang-ko="금요일" data-lang-en="Friday">금요일</option>
+                                    <option value="sat" data-lang-ko="토요일" data-lang-en="Saturday">토요일</option>
+                                    <option value="sun" data-lang-ko="일요일" data-lang-en="Sunday">일요일</option>
+                                </select>
+                                <select id="select-meal" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="lunch" data-lang-ko="점심 식사" data-lang-en="Lunch">점심 식사</option>
+                                    <option value="dinner" data-lang-ko="저녁 식사" data-lang-en="Dinner">저녁 식사</option>
+                                </select>
+                                <button id="add-to-planner-btn" class="h-10 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-sm font-bold shadow-md hover:shadow-emerald-100 dark:hover:shadow-none transition-all flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-base">add_circle</span>
+                                    <span data-lang-ko="식단에 추가" data-lang-en="Add to Plan">식단에 추가</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) inside a Collapsible Card (hidden by default) -->
+            <section id="planner-section" class="hidden w-full mt-16 border border-slate-200/60 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900/10 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm">
+                <!-- Accordion Header Toggle -->
+                <button id="planner-toggle-btn" class="w-full flex items-center justify-between p-6 bg-white dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 text-left border-none focus:outline-none transition-colors cursor-pointer select-none">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl">📅</span>
+                        <div>
+                            <h2 class="text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="나의 일주일 식단표" data-lang-en="My Weekly Meal Planner">나의 일주일 식단표</h2>
+                            <p class="text-xs text-text-muted dark:text-slate-400 mt-1" data-lang-ko="클릭해서 열고 나만의 주간 식단을 채워보세요!" data-lang-en="Click to expand and plan your weekly meals!">클릭해서 열고 나만의 주간 식단을 채워보세요!</p>
+                        </div>
+                    </div>
+                    <span id="planner-chevron" class="material-symbols-outlined text-2xl text-text-muted transition-transform duration-300">expand_more</span>
+                </button>
+
+                <!-- Expanded Content Area (starts folded/hidden) -->
+                <div id="planner-content" class="hidden p-6 border-t border-slate-100 dark:border-slate-800/80">
+                    <p class="text-sm text-text-muted dark:text-slate-400 text-center mb-6" data-lang-ko="오늘 추천받은 메뉴로 식단표를 구성해 보세요. 카드를 드래그하거나 탭하여 식단 순서를 변경할 수 있습니다." data-lang-en="Build your weekly menu with recommended dishes. Drag or click cards to swap their positions.">오늘 추천받은 메뉴로 식단표를 구성해 보세요. 카드를 드래그하거나 탭하여 식단 순서를 변경할 수 있습니다.</p>
+
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button id="auto-fill-btn" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-indigo-100 dark:hover:shadow-none transition-all flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+                            <span data-lang-ko="식단 전체 자동 구성" data-lang-en="Auto-Generate Week">식단 전체 자동 구성</span>
+                        </button>
+                        <button id="download-txt-btn" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-700 active:scale-95 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-sky-100 dark:hover:shadow-none transition-all flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-lg">download</span>
+                            <span data-lang-ko="텍스트 다운로드" data-lang-en="Download TXT">텍스트 다운로드</span>
+                        </button>
+                        <button id="download-png-btn" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-emerald-100 dark:hover:shadow-none transition-all flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            <span data-lang-ko="이미지 다운로드" data-lang-en="Download PNG">이미지 다운로드</span>
+                        </button>
+                        <button id="clear-planner-btn" class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/30 dark:hover:text-red-400 text-text-main dark:text-white text-sm font-semibold rounded-xl border border-slate-200/60 dark:border-slate-800 active:scale-95 transition-all flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-lg">delete_sweep</span>
+                            <span data-lang-ko="식단표 전체 초기화" data-lang-en="Reset Planner">식단표 전체 초기화</span>
+                        </button>
+                    </div>
+
+                    <!-- Planner Grid (7 Columns representing Mon - Sun) -->
+                    <div id="planner-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 w-full">
+                        <!-- Day Columns will be dynamically generated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guide Link Banner -->
+            <div class="w-full mt-12 bg-gradient-to-r from-purple-500/10 via-primary/10 to-sky-500/10 dark:from-purple-950/40 dark:via-sky-950/40 dark:to-slate-900 border border-purple-200/60 dark:border-purple-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="space-y-2 text-center sm:text-left">
+                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">심층 지식 가이드</span>
+                    <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="하루 35,000번의 선택: 결정 피로와 인지 부하 극복법" data-lang-en="Overcoming Decision Fatigue: Cognitive Science of Daily Choices">하루 35,000번의 선택: 결정 피로와 인지 부하 극복법</h3>
+                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요." data-lang-en="Learn the cognitive science behind why choosing lunch drains your willpower and how cognitive offloading can help.">메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요.</p>
+                </div>
+                <a href="../guides/decision-making-tools.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                    <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Deep Editorial Article Section -->
+            <div class="mt-10 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm w-full transition-all duration-300">
+                <!-- Korean Content -->
+                <div class="lang-only-ko space-y-8 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🥗</span> 영양학적으로 균형 잡힌 메뉴 선택의 과학과 식단 설계 원칙
+                    </h2>
+
+                    <section>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-primary rounded-full"></span> 1. 점심 메뉴 고민의 본질: '결정 피로(Decision Fatigue)'
+                        </h3>
+                        <p>직장인과 학생들이 매일 점심시간마다 겪는 가장 큰 스트레스 중 하나는 바로 <strong>"오늘 뭐 먹지?"</strong>라는 질문입니다. 심리학자 로이 바우마이스터(Roy Baumeister)의 연구에 따르면, 인간의 두뇌는 하루 평균 약 35,000번의 크고 작은 결정을 내립니다. 이 과정에서 뇌의 전두엽(Prefrontal Cortex)이 소모하는 포도당과 에너지는 한정되어 있으며, 선택의 가짓수가 많아질수록 뇌는 급격한 피로를 느낍니다.</p>
+                        <p class="mt-2">특히 식사 메뉴 결정은 가격, 거리, 동행인의 취향, 어제 먹은 음식, 현재의 영양 상태 등 다차원적인 변수를 동시에 고려해야 하므로 엄청난 인지적 부하(Cognitive Load)를 유발합니다. 이럴 때 '오늘 뭐 먹지?' 추천 도구를 활용하여 선택지를 무작위로 좁히는 것은 <strong>'인지적 외주화(Cognitive Offloading)'</strong>를 통해 뇌의 소중한 의지력을 절약하는 매우 과학적이고 현명한 전략입니다.</p>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-primary rounded-full"></span> 2. 5대 필수 영양소와 최적의 점심 영양 밸런스
+                        </h3>
+                        <p>점심 식사는 하루 활동량의 40~50%를 지탱하는 가장 중요한 에너지 공급원입니다. 활력 넘치는 오후를 보내기 위해서는 다음의 영양소 균형을 맞추는 것이 핵심입니다.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-sm">
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white mb-1.5">🍚 복합 탄수화물과 혈당 스파이크 예방</h4>
+                                <p>정제 탄수화물(흰 쌀밥, 밀가루 면, 빵) 위주의 단일 메뉴는 급격한 인슐린 분비를 촉진하여 식후 1~2시간 뒤 극심한 식곤증(Postprandial Somnolence)을 유발합니다. 잡곡밥, 메밀면, 채소가 곁들여진 복합 탄수화물 위주의 메뉴를 선택하면 안정적인 집중력을 유지할 수 있습니다.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white mb-1.5">🥩 양질의 단백질 확보</h4>
+                                <p>단백질은 포만감 호르몬인 펩타이드 YY를 분비시켜 오후 간식의 유혹을 차단합니다. 찌개나 덮밥을 고르더라도 두부, 닭가슴살, 달걀, 생선구이 등 1끼당 최소 20~30g의 단백질 공급원이 포함된 메뉴를 선택하는 것이 좋습니다.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-primary rounded-full"></span> 3. 카테고리별 외식 메뉴 현명하게 즐기는 팁
+                        </h3>
+                        <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
+                            <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                                <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-4 py-3">카테고리</th>
+                                        <th class="px-4 py-3">추천 대표 메뉴</th>
+                                        <th class="px-4 py-3">영양학적 장점</th>
+                                        <th class="px-4 py-3">주의 및 보완할 점</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr>
+                                        <td class="px-4 py-3 font-bold text-text-main dark:text-white">한식 (Korean)</td>
+                                        <td class="px-4 py-3">비빔밥, 된장찌개 백반, 생선구이</td>
+                                        <td class="px-4 py-3">풍부한 채소 식이섬유 및 발효식품(장류, 김치)</td>
+                                        <td class="px-4 py-3">국물 위주 식사 시 높은 나트륨 섭취 주의 (건더기 위주 섭취 권장)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 font-bold text-text-main dark:text-white">일식 (Japanese)</td>
+                                        <td class="px-4 py-3">사케동(연어덮밥), 회전초밥, 메밀소바</td>
+                                        <td class="px-4 py-3">오메가-3 지방산과 고단백 생선류 중심</td>
+                                        <td class="px-4 py-3">초밥 샤리(밥)의 설탕/식초 함량 및 튀김류(돈까스)의 과도한 칼로리 조절</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 font-bold text-text-main dark:text-white">중식 (Chinese)</td>
+                                        <td class="px-4 py-3">마파두부밥, 짬뽕밥, 고추잡채</td>
+                                        <td class="px-4 py-3">두부/해산물 및 고온 단시간 조리로 영양소 보존</td>
+                                        <td class="px-4 py-3">높은 식용유 사용량과 면류 중심의 빠른 혈당 상승 주의</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 font-bold text-text-main dark:text-white">양식 (Western)</td>
+                                        <td class="px-4 py-3">치킨 샐러드, 토마토 파스타, 스테이크</td>
+                                        <td class="px-4 py-3">리코펜(토마토) 및 단백질 비중 우수</td>
+                                        <td class="px-4 py-3">크림 소스, 치즈, 버터의 포화지방 과다 섭취 유의</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- FAQ Section -->
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-xl">help</span> 자주 묻는 질문 (FAQ)
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 추천된 메뉴가 마음에 들지 않으면 어떻게 하나요?</h4>
+                                <p class="text-xs">상단의 '메뉴 다시 추천받기' 버튼을 누르면 즉시 새로운 메뉴를 제안받을 수 있습니다. 또는 원치 않는 특정 카테고리를 필터링하여 선호하는 음식군 내에서만 추천을 받을 수도 있습니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 일주일 식단표는 로컬에 안전하게 저장되나요?</h4>
+                                <p class="text-xs">네, 본 서비스는 사용자의 브라우저 로컬 저장소(LocalStorage)만을 사용하여 데이터를 저장하므로 서버로 개인정보나 식단 데이터가 전송되지 않아 100% 안전합니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 다이어트나 건강 관리에 식단표를 어떻게 활용하면 좋은가요?</h4>
+                                <p class="text-xs">월요일부터 일요일까지 단백질과 채소 중심의 메뉴를 미리 배치해 두면, 즉흥적인 고칼로리 배달음식 주문을 최대 60% 이상 줄일 수 있어 자연스럽게 건강한 식습관이 형성됩니다.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- English Content -->
+                <div class="lang-only-en space-y-8 text-base text-text-muted dark:text-slate-300 leading-relaxed">
+                    <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
+                        <span class="text-3xl">🥗</span> The Science of Nutritional Balance & Menu Planning
+                    </h2>
+
+                    <section>
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-primary rounded-full"></span> 1. The Decision Fatigue Behind Meal Choices
+                        </h3>
+                        <p>According to research by psychologist Roy Baumeister, humans make approximately 35,000 choices daily. Picking what to eat involves processing budget, nutrition, social consensus, and cravings simultaneously. Delegating this friction to an algorithmic recommendation tool frees cognitive willpower for important creative and professional endeavors.</p>
+                    </section>
+
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-5 bg-primary rounded-full"></span> 2. Five Essential Nutrients for Peak Performance
+                        </h3>
+                        <p>Balancing complex carbohydrates with lean protein and fiber stabilizes post-meal blood sugar, preventing afternoon drowsiness and maintaining peak metabolic efficiency throughout the day.</p>
+                    </section>
+
+                    <!-- English FAQ -->
+                    <section class="border-t border-slate-100 dark:border-slate-800/80 pt-6">
+                        <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-xl">help</span> Frequently Asked Questions (FAQ)
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. What if I don't like the suggested dish?</h4>
+                                <p class="text-xs">Simply click the "Suggest Again" button to re-roll a new item, or filter by specific cuisine categories.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+                                <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. Is my meal planner stored privately?</h4>
+                                <p class="text-xs">Yes, all planner data is persisted locally in your browser's LocalStorage and is never uploaded to any external server.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="game.js" defer></script>
+    <script src="/language.js" defer></script>
+    <script src="/scripts/app.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://tossgpt.online/tools/games/eat/index.html",
+          "name": "오늘 뭐 먹지? - 온라인 메뉴 추천 및 주간 식단표",
+          "description": "오늘 점심, 저녁 메뉴가 고민될 때 버튼 하나로 메뉴를 추천받고 나만의 일주일 식단표를 구성해 보세요.",
+          "url": "https://tossgpt.online/tools/games/eat/index.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "추천된 메뉴가 마음에 들지 않으면 어떻게 하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "상단의 메뉴 다시 추천받기 버튼을 누르면 즉시 새로운 메뉴를 제안받을 수 있으며, 카테고리별 필터를 통해 원하는 음식군 내에서 추천받을 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "일주일 식단표는 안전하게 저장되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "본 서비스는 브라우저 로컬 저장소(LocalStorage)에만 저장되므로 서버로 데이터가 전송되지 않아 완벽하게 프라이버시가 보호됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "식단표를 다이어트나 건강 관리에 어떻게 활용하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "주간 식단표에 단백질과 식이섬유 중심의 식단을 미리 구성해 두면 충동적인 고칼로리 배달음식 소비를 60% 이상 줄일 수 있습니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  <script src="/framework/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "brand": {
+    "title": "ToolBox",
+    "subtitle": "100+ UTILS",
+    "tagline": "100+ Smart Online Tools & 10 Themed Hubs"
+  },
+  "nav": {
+    "hub": "Tool Hub",
+    "all_tools": "View All 100 Tools",
+    "games": "Games",
+    "tests": "Tests",
+    "guides": "Guides",
+    "arcade": "Arcade Console",
+    "theme": "Toggle Theme",
+    "sound": "Sound FX",
+    "lang": "English"
+  },
+  "actions": {
+    "launch": "Launch",
+    "view_hub": "View Dedicated Hub",
+    "more_tools": "Expand Remaining 7 Tools",
+    "collapse_tools": "Collapse Tools",
+    "search_placeholder": "Search 100+ smart tools and mini games (e.g. excel, lotto, salary...)",
+    "copy_link": "Copy Link",
+    "share": "Share"
+  },
+  "footer": {
+    "copyright": "© 2026 ToolBox. All rights reserved.",
+    "operated_by": "Operated by: leadmeta.xyz",
+    "contact": "Contact: contact@leadmeta.xyz",
+    "privacy": "Privacy: privacy@leadmeta.xyz",
+    "disclaimer": "All tools run safely inside your browser with complete privacy."
+  }
+}

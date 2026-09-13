@@ -1,0 +1,52 @@
+{
+  "cat01": {
+    "name": "K-Workplace Survival Kit",
+    "desc": "Quick escape, office camouflage, salary ticker, and smart corporate weapons",
+    "icon": "💼"
+  },
+  "cat02": {
+    "name": "Public & Civil Service Lounge",
+    "desc": "Official writing converter, civil defense, audit defense, and civil tools",
+    "icon": "🏛️"
+  },
+  "cat03": {
+    "name": "Campus & Gen Z Life Hacks",
+    "desc": "Assignment panic timer, free-rider detector, GPA calculator, and student kit",
+    "icon": "🎓"
+  },
+  "cat04": {
+    "name": "Military & Defense Survival",
+    "desc": "Discharge countdown, Morse code, MRE timer, and barracks utilities",
+    "icon": "🪖"
+  },
+  "cat05": {
+    "name": "Social Media & Creator Lab",
+    "desc": "Shorts script, YouTube title booster, hashtag optimizer, and viral tools",
+    "icon": "📱"
+  },
+  "cat06": {
+    "name": "AI & Future Tech Sandbox",
+    "desc": "Prompt enhancer, Turing test, AI hallucination checker, and tech tools",
+    "icon": "🤖"
+  },
+  "cat07": {
+    "name": "Psychology & Mental Care",
+    "desc": "MBTI clash checker, decision terminator, singing bowl, and mind care",
+    "icon": "🔮"
+  },
+  "cat08": {
+    "name": "Outrageous SF & Space Tools",
+    "desc": "Alien signals, time machine tickets, galactic tax, and sci-fi simulators",
+    "icon": "🛸"
+  },
+  "cat09": {
+    "name": "Essential Daily Utilities",
+    "desc": "Unit converter, timezone clock, color contrast, and daily calculations",
+    "icon": "🛠️"
+  },
+  "cat10": {
+    "name": "Interactive Dopamine Toys",
+    "desc": "Bubble wrap, vintage typewriter, neon particles, and fidget spinner",
+    "icon": "🎮"
+  }
+}
