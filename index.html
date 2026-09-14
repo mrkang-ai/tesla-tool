@@ -35,7 +35,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="/style.css?v=303" rel="stylesheet">
 <link href="/framework/core.css?v=320" rel="stylesheet"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -61,7 +60,13 @@
             },
         }
     </script>
-</link></head>
+</link>    <!-- Favicon & Mobile PWA -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0ea5e9">
+</head>
 <body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-[#f0f9ff]">
 <div id="header-placeholder"></div>
 <main class="layout-container flex h-full grow flex-col w-full min-w-0 overflow-x-hidden">
@@ -3059,7 +3064,7 @@
         "@type": "Organization",
         "name": "ToolBox",
         "url": "https://tossgpt.online/",
-        "logo": "https://tossgpt.online/images/og_main.jpg"
+        "logo": "https://tossgpt.online/images/logo-512.png"
       },
       {
         "@context": "https://schema.org",

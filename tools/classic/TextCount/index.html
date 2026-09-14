@@ -6,10 +6,10 @@
     <title data-lang-ko="글자 수 세기 - 온라인 도구모음" data-lang-en="Character Counter - Online Toolkit">글자 수 세기 - 온라인 도구모음</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 바이트 수, 줄 수를 실시간으로 확인하세요. 자기소개서, 이력서, 블로그 글 쓰기에 최적화되어 있습니다." data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 글자 수, 단어 수, 바이트 수, 줄 수를 실시간으로 확인하세요. 자기소개서, 이력서, 블로그 글 쓰기에 최적화되어 있습니다." data-lang-en="Check the character, word, byte, and line count of your text in real time. Optimized for cover letters, resumes, blog posts, and SEO writing.">
+    <meta name="description" content="문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 측정합니다." data-lang-ko="문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 측정합니다." data-lang-en="Accurately count characters, words, spaces, and UTF-8 / EUC-KR bytes in real time.">
     <link rel="canonical" href="https://tossgpt.online/tools/classic/TextCount/">
     <meta property="og:title" content="글자 수 세기" data-lang-ko="글자 수 세기" data-lang-en="Character Counter">
-    <meta property="og:description" content="온라인 글자 수 세기 도구로 텍스트의 길이를 정밀하게 조절하세요." data-lang-ko="온라인 글자 수 세기 도구로 텍스트의 길이를 정밀하게 조절하세요." data-lang-en="Precisely control the length of your text with the online character counter tool.">
+    <meta property="og:description" content="문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 측정합니다." data-lang-ko="문서의 글자 수, 공백 제외, UTF-8 및 EUC-KR 바이트 수를 간편하게 측정합니다." data-lang-en="Accurately count characters, words, spaces, and UTF-8 / EUC-KR bytes in real time.">
     <meta property="og:image" content="https://tossgpt.online/images/og_main.jpg">
     <meta property="og:url" content="https://tossgpt.online/tools/classic/TextCount/index.html">
     <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="/style.css?v=303">
     <link rel="stylesheet" href="game.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -62,6 +61,12 @@
         }
     </script>
   <link rel="stylesheet" href="/framework/core.css?v=320">
+    <!-- Favicon & Mobile PWA -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0ea5e9">
 </head>
 <body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden text-text-main dark:text-slate-100">
 
