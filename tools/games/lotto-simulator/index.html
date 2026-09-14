@@ -14,6 +14,11 @@
     <meta property="og:url" content="https://tossgpt.online/tools/games/lotto-simulator/index.html">
     <meta property="og:image" content="https://tossgpt.online/mysite.png">
 
+        <!-- Twitter Card SEO Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대 - ToolBox">
+    <meta name="twitter:description" content="서대문 농협 본점 원정대 & 30억 사수 텍스트 RPG 시뮬레이션 게임.">
+    <meta name="twitter:image" content="https://tossgpt.online/mysite.png">
     <!-- Stylesheets & Fonts -->
     <script>
         (function(){const w=console.warn;console.warn=function(...a){if(a[0]&&typeof a[0]==='string'&&a[0].includes('cdn.tailwindcss.com'))return;w.apply(console,a);};})();
@@ -361,6 +366,23 @@
     <!-- Interactive Game Engine Script -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        function showToast(msg) {
+            let toast = document.getElementById('game-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'game-toast';
+                toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-2xl bg-slate-900/90 dark:bg-white/90 text-white dark:text-slate-900 text-xs sm:text-sm font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none opacity-0 translate-y-4';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2500);
+        }
+
         // --- GAME STATE ---
         const gameState = {
             mental: 100,
@@ -773,20 +795,31 @@
             introView.classList.remove('hidden');
         });
 
+        window.showToast = showToast;
+
         // --- SHARE LINK ---
         shareLinkBtn.addEventListener('click', () => {
             playSound('pop');
             const shareUrl = window.location.href;
-            if (navigator.share) {
+            const lang = document.documentElement.lang || 'ko';
+            const msg = lang === 'en' ? 'Game link copied to clipboard! Share it with your friends.' : '게임 링크가 클립보드에 복사되었습니다! 카카오톡이나 SNS에 공유해보세요.';
+
+            const copyFallback = () => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(shareUrl).then(() => showToast(msg)).catch(() => showToast(msg));
+                } else {
+                    showToast(msg);
+                }
+            };
+
+            if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
                 navigator.share({
                     title: '로또 1등 당첨 시뮬레이터: 서대문 농협 본점 원정대',
                     text: `나의 로또 1등 수령 등급은 [${currentEndingData.badge}]! 서대문 농협 본점 VIP룸을 무사히 돌파해보세요.`,
                     url: shareUrl
-                }).catch(() => {});
+                }).catch(() => copyFallback());
             } else {
-                navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert('게임 링크가 클립보드에 복사되었습니다! 카카오톡이나 SNS에 공유해보세요.');
-                });
+                copyFallback();
             }
         });
 

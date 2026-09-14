@@ -171,6 +171,10 @@
 <button class="category-btn active px-3.5 py-2 rounded-xl text-xs font-extrabold transition-all bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-[0_4px_14px_rgba(14,165,233,0.35)] border-b-2 border-blue-700 cursor-pointer whitespace-nowrap" data-filter="all">
 <span data-lang-en="All 100+" data-lang-ko="🚀 전체 (100+ All)">🚀 전체 (100+ All)</span>
 </button>
+<button class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-amber-300 cursor-pointer whitespace-nowrap shadow-sm flex items-center gap-1.5" data-filter="favorites" id="filter-favorites-btn">
+<span>⭐</span> <span data-lang-en="Favorites" data-lang-ko="즐겨찾기">즐겨찾기</span>
+<span id="fav-count-badge" class="hidden px-1.5 py-0.5 rounded-full text-[10px] bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-extrabold">0</span>
+</button>
 <button class="category-btn px-3 py-2 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-sky-300 cursor-pointer whitespace-nowrap shadow-sm" data-filter="cat01">
                             💼 <span data-lang-en="01. Workplace" data-lang-ko="01. K-직장인">01. K-직장인</span>
 </button>
@@ -213,6 +217,14 @@
 </div>
 </div>
 <!-- Empty Search Result Alert -->
+<!-- Favorites Empty State -->
+<div id="favorites-empty-state" class="hidden py-16 text-center max-w-md mx-auto px-4">
+    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center justify-center text-3xl shadow-sm">
+        ⭐
+    </div>
+    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-1" data-lang-ko="즐겨찾기한 도구가 없습니다" data-lang-en="No Favorites Yet">즐겨찾기한 도구가 없습니다</h3>
+    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed" data-lang-ko="자주 사용하는 도구 카드의 오른쪽 위 별표(☆)를 누르면 여기에 등록되어 한눈에 바로 실행할 수 있습니다." data-lang-en="Click the star (☆) in the top-right corner of any tool card to save it here for fast access.">자주 사용하는 도구 카드의 오른쪽 위 별표(☆)를 누르면 여기에 등록되어 한눈에 바로 실행할 수 있습니다.</p>
+</div>
 <div class="hidden p-8 text-center bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 mx-4 my-4" id="no-search-results">
 <span class="material-symbols-outlined text-4xl text-slate-400 mb-2">search_off</span>
 <p class="text-sm font-bold text-text-main dark:text-white" data-lang-en="No results found." data-lang-ko="검색 결과가 없습니다.">검색 결과가 없습니다.</p>
@@ -3041,7 +3053,7 @@
 </main>
 <div id="footer-placeholder"></div>
 <script defer="" src="scripts/hero-3d.js"></script>
-<script defer="" src="scripts/app.js?v=103"></script>
+<script defer="" src="scripts/app.js?v=325"></script>
 <script defer="" src="/framework/core.js?v=320"></script>
 <script defer="" src="/language.js?v=320"></script>
 <script type="application/ld+json">

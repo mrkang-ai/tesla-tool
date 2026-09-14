@@ -34,6 +34,70 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0ea5e9">
+
+  <!-- Structured Data for Google Search & AI Answer Engines (SEO/AEO) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://tossgpt.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "라이브 마크다운 스크래치패드",
+      "item": "https://tossgpt.online/tools/cat09-life/markdown-scratchpad/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "라이브 마크다운 스크래치패드",
+  "description": "실시간 GitHub Flavored Markdown(GFM) 서식 렌더링, HTML 미리보기, 글자 수 계산 및 즉시 복사/다운로드 경량 에디터",
+  "url": "https://tossgpt.online/tools/cat09-life/markdown-scratchpad/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "featureList": "실시간 GFM 렌더링, 마크다운/HTML 복사 및 저장, 글자 수 계산, 다크모드 완벽 지원, 100% 브라우저 로컬 연산"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q1. 입력한 마크다운 문서 내용이 서버에 저장되거나 외부로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A1. 전혀 그렇지 않습니다. 라이브 마크다운 스크래치패드는 100% 클라이언트(브라우저) 환경에서만 렌더링되며, 작성하신 어떠한 텍스트도 서버로 전송되거나 저장되지 않아 프라이버시가 완벽히 보장됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q2. 어떤 마크다운 문법을 지원하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A2. 제목(#), 굵은 글씨, 기울임꼴, 취소선, 인용구, 목록, 순서 목록, 표(Table), 인라인 코드, 코드 블록, 링크, 이미지 등 표준 GitHub Flavored Markdown(GFM) 문법을 완벽히 지원합니다."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
   <div id="header-placeholder"></div>

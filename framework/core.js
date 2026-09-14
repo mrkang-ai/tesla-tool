@@ -924,3 +924,10 @@
         document.addEventListener('DOMContentLoaded', initFramework);
     }
 })();
+
+// Register PWA Service Worker for instant loading & offline support
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+}

@@ -190,6 +190,109 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const basePath = '/';
 
+    
+    // =========================================================================
+    // Favorites (⭐) Storage & Filter System
+    // =========================================================================
+    const FAV_STORAGE_KEY = 'toolbox_favorites_v1';
+
+    const getFavorites = () => {
+        try {
+            const raw = localStorage.getItem(FAV_STORAGE_KEY);
+            return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+            return [];
+        }
+    };
+
+    const saveFavorites = (favs) => {
+        try {
+            localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(favs));
+        } catch (e) {}
+    };
+
+    const updateFavoritesBadge = () => {
+        const badge = document.getElementById('fav-count-badge');
+        if (!badge) return;
+        const favs = getFavorites();
+        if (favs.length > 0) {
+            badge.textContent = favs.length;
+            badge.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+        }
+    };
+
+    const getCardSlug = (card) => {
+        const href = card.getAttribute('href') || '';
+        const clean = href.replace(/\/index\.html$/, '').replace(/^\/+|\/+$/g, '');
+        const parts = clean.split('/');
+        return parts[parts.length - 1] || '';
+    };
+
+    const setupFavoriteStars = () => {
+        const cards = document.querySelectorAll('.portal-card');
+        const favs = new Set(getFavorites());
+
+        cards.forEach(card => {
+            const slug = getCardSlug(card);
+            if (!slug) return;
+
+            card.classList.add('relative');
+
+            let starBtn = card.querySelector('.fav-star-btn');
+            const isFav = favs.has(slug);
+
+            if (!starBtn) {
+                starBtn = document.createElement('button');
+                starBtn.type = 'button';
+                starBtn.className = 'fav-star-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 dark:bg-slate-800/90 shadow-sm border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center transition-all z-20 cursor-pointer hover:scale-110 active:scale-95';
+                starBtn.setAttribute('aria-label', '즐겨찾기 토글');
+                starBtn.setAttribute('title', isFav ? '즐겨찾기 해제' : '즐겨찾기 추가');
+
+                starBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (window.SoundFX && window.SoundFX.playPop) window.SoundFX.playPop();
+
+                    const currentFavs = getFavorites();
+                    const idx = currentFavs.indexOf(slug);
+                    if (idx !== -1) {
+                        currentFavs.splice(idx, 1);
+                    } else {
+                        currentFavs.push(slug);
+                    }
+                    saveFavorites(currentFavs);
+
+                    setupFavoriteStars();
+                    updateFavoritesBadge();
+
+                    // If currently on favorites filter, trigger filter update
+                    const favFilterBtn = document.getElementById('filter-favorites-btn');
+                    if (favFilterBtn && favFilterBtn.classList.contains('active')) {
+                        const evt = new CustomEvent('filter-favorites-updated');
+                        window.dispatchEvent(evt);
+                    }
+                });
+
+                card.appendChild(starBtn);
+            }
+
+            if (isFav) {
+                starBtn.innerHTML = '<span class="material-symbols-outlined text-base leading-none text-amber-500 fill-1">star</span>';
+                starBtn.classList.add('text-amber-500');
+                starBtn.setAttribute('title', '즐겨찾기 해제');
+            } else {
+                starBtn.innerHTML = '<span class="material-symbols-outlined text-base leading-none text-slate-400 hover:text-amber-500">star_border</span>';
+                starBtn.classList.remove('text-amber-500');
+                starBtn.setAttribute('title', '즐겨찾기 추가');
+            }
+        });
+
+        updateFavoritesBadge();
+    };
+
     const setupPortalSearchAndFilters = () => {
         const searchInput = document.getElementById('portal-search-input');
         const clearBtn = document.getElementById('search-clear-btn');
@@ -215,6 +318,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 let matchesCategory = false;
                 if (currentCategory === 'all') {
                     matchesCategory = true;
+                } else if (currentCategory === 'favorites') {
+                    const favs = getFavorites();
+                    const slug = getCardSlug(card);
+                    matchesCategory = favs.includes(slug);
                 } else if (currentCategory.startsWith('cat')) {
                     matchesCategory = category.split(' ').includes(currentCategory) || card.closest(`#group-${currentCategory}`) !== null;
                 } else {
@@ -333,11 +440,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
 
-            if (noResults) {
-                if (visibleCount === 0) {
-                    noResults.classList.remove('hidden');
+            const favEmpty = document.getElementById('favorites-empty-state');
+            const tools100Section = document.getElementById('tools-100');
+
+            if (currentCategory === 'favorites') {
+                const favs = getFavorites();
+                if (favs.length === 0) {
+                    if (favEmpty) favEmpty.classList.remove('hidden');
+                    if (noResults) noResults.classList.add('hidden');
+                    if (tools100Section) tools100Section.classList.add('hidden');
+                    if (arcadeShowcase) arcadeShowcase.classList.add('hidden');
                 } else {
-                    noResults.classList.add('hidden');
+                    if (favEmpty) favEmpty.classList.add('hidden');
+                    if (visibleCount === 0 && noResults) {
+                        noResults.classList.remove('hidden');
+                    } else if (noResults) {
+                        noResults.classList.add('hidden');
+                    }
+                    if (tools100Section) tools100Section.classList.add('hidden');
+                    if (arcadeShowcase) arcadeShowcase.classList.add('hidden');
+                }
+            } else {
+                if (favEmpty) favEmpty.classList.add('hidden');
+                if (tools100Section && (currentCategory === 'all' || currentCategory.startsWith('cat'))) {
+                    tools100Section.classList.remove('hidden');
+                } else if (tools100Section) {
+                    tools100Section.classList.add('hidden');
+                }
+                if (noResults) {
+                    if (visibleCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
                 }
             }
         };
@@ -424,9 +559,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         });
+
+        window.addEventListener('filter-favorites-updated', () => {
+            filterItems();
+        });
+        window.refreshPortalFilters = filterItems;
     };
 
     setupPortalSearchAndFilters();
+    setupFavoriteStars();
 
     const setupSoundToggle = () => {
         const soundBtns = document.querySelectorAll('.sound-toggle-btn');
