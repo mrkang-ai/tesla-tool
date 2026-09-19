@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -44,10 +44,10 @@
   <div id="header-placeholder"></div>
 
   <!-- Main Content Container -->
-  <main class="flex-grow fw-container py-8">
+  <main class="flex-grow fw-container py-8 sm:py-12">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400 mb-6">
+    <nav class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-6">
       <a href="/" class="hover:text-primary transition-colors">홈</a>
       <span>/</span>
       <a href="{{CATEGORY_URL}}" class="hover:text-primary transition-colors">{{TOOL_CATEGORY}}</a>
@@ -64,13 +64,13 @@
       <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
         {{TOOL_NAME}}
       </h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
         {{TOOL_DESCRIPTION}}
       </p>
     </div>
 
     <!-- Interactive Tool Card (Custom Logic Container) -->
-    <div class="fw-card max-w-3xl mx-auto mb-8">
+    <div class="fw-card w-full mb-10">
       <div id="tool-interactive-area">
         <!-- Service controls, inputs, interactive buttons go here -->
         <div class="text-center py-12 text-slate-400">
@@ -80,7 +80,7 @@
     </div>
 
     <!-- 1000+ Character Guide Section -->
-    <section class="fw-guide-section max-w-3xl mx-auto">
+    <section class="fw-guide-section container-guide mx-auto">
       <div class="fw-guide-content">
         <h2>💡 {{TOOL_NAME}} 완벽 활용 가이드 & 상세 매뉴얼</h2>
         <p>
