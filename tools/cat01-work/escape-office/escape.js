@@ -112,37 +112,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fake Incoming Call Audio Synth
+    // Authentic Smartphone Ringtone Synthesizer (Realistic Marimba / Opening Style)
     let ringInterval = null;
+    let currentAudioCtx = null;
+
     function playRingtone() {
+        stopRingtone();
         try {
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const ring = () => {
-                const osc1 = ctx.createOscillator();
-                const osc2 = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc1.frequency.setValueAtTime(853, ctx.currentTime);
-                osc2.frequency.setValueAtTime(960, ctx.currentTime);
-                gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                gain.gain.setValueAtTime(0.2, ctx.currentTime + 1.2);
-                gain.gain.setValueAtTime(0, ctx.currentTime + 1.25);
-                osc1.connect(gain);
-                osc2.connect(gain);
-                gain.connect(ctx.destination);
-                osc1.start();
-                osc2.start();
-                osc1.stop(ctx.currentTime + 1.25);
-                osc2.stop(ctx.currentTime + 1.25);
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            currentAudioCtx = new AudioContext();
+
+            const playNote = (freq, startTime, duration = 0.22) => {
+                if (!currentAudioCtx || currentAudioCtx.state === 'closed') return;
+                const now = startTime;
+
+                // 1. Fundamental tone (warm sine wave)
+                const osc = currentAudioCtx.createOscillator();
+                const gain = currentAudioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                // Natural Acoustic Strike & Exponential Decay
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.linearRampToValueAtTime(0.32, now + 0.008);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+                osc.connect(gain);
+                gain.connect(currentAudioCtx.destination);
+                osc.start(now);
+                osc.stop(now + duration);
+
+                // 2. High harmonic mallet chime overtone (crisp wooden marimba strike)
+                const overtone = currentAudioCtx.createOscillator();
+                const overtoneGain = currentAudioCtx.createGain();
+                overtone.type = 'triangle';
+                overtone.frequency.setValueAtTime(freq * 3, now);
+
+                overtoneGain.gain.setValueAtTime(0.0001, now);
+                overtoneGain.gain.linearRampToValueAtTime(0.07, now + 0.004);
+                overtoneGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+
+                overtone.connect(overtoneGain);
+                overtoneGain.connect(currentAudioCtx.destination);
+                overtone.start(now);
+                overtone.stop(now + 0.06);
             };
-            ring();
-            ringInterval = setInterval(ring, 3000);
-        } catch (e) {}
+
+            const ringPattern = () => {
+                if (!currentAudioCtx || currentAudioCtx.state === 'closed') return;
+                const t = currentAudioCtx.currentTime;
+
+                // Iconic cheerful smartphone marimba melody:
+                // A5 (880), C#6 (1109), E6 (1319), A6 (1760), G#6 (1661), E6 (1319), C#6 (1109), D6 (1175), E6 (1319)
+                const melody = [
+                    { f: 880.00,  offset: 0.00, d: 0.18 },
+                    { f: 1108.73, offset: 0.14, d: 0.18 },
+                    { f: 1318.51, offset: 0.28, d: 0.22 },
+                    { f: 1760.00, offset: 0.44, d: 0.25 },
+                    { f: 1661.22, offset: 0.64, d: 0.22 },
+                    { f: 1318.51, offset: 0.82, d: 0.22 },
+                    { f: 1108.73, offset: 1.02, d: 0.18 },
+                    { f: 1174.66, offset: 1.18, d: 0.20 },
+                    { f: 1318.51, offset: 1.38, d: 0.45 },
+                ];
+
+                melody.forEach(note => {
+                    playNote(note.f, t + note.offset, note.d);
+                });
+            };
+
+            ringPattern();
+            ringInterval = setInterval(ringPattern, 2600);
+        } catch (e) {
+            console.warn('Ringtone audio error:', e);
+        }
     }
 
     function stopRingtone() {
         if (ringInterval) {
             clearInterval(ringInterval);
             ringInterval = null;
+        }
+        if (currentAudioCtx) {
+            currentAudioCtx.close().catch(() => {});
+            currentAudioCtx = null;
         }
     }
 
