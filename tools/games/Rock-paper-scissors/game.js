@@ -244,11 +244,11 @@ function addHistoryLog(user, computer, result) {
 
     let badge = '';
     if (result === 'win') {
-        badge = `<span class="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-xs px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="승리" data-lang-en="WIN">${lang === 'en' ? 'WIN' : '승리'}</span>`;
+        badge = `<span class="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-sm px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="승리" data-lang-en="WIN">${lang === 'en' ? 'WIN' : '승리'}</span>`;
     } else if (result === 'lose') {
-        badge = `<span class="bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 text-xs px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="패배" data-lang-en="LOSE">${lang === 'en' ? 'LOSE' : '패배'}</span>`;
+        badge = `<span class="bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 text-sm px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="패배" data-lang-en="LOSE">${lang === 'en' ? 'LOSE' : '패배'}</span>`;
     } else {
-        badge = `<span class="bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-xs px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="무승부" data-lang-en="DRAW">${lang === 'en' ? 'DRAW' : '무승부'}</span>`;
+        badge = `<span class="bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-sm px-2.5 py-1 rounded-full uppercase font-bold" data-lang-ko="무승부" data-lang-en="DRAW">${lang === 'en' ? 'DRAW' : '무승부'}</span>`;
     }
 
     const roundText = lang === 'en' ? `Round ${totalRounds}` : `제 ${totalRounds}회`;
@@ -256,7 +256,7 @@ function addHistoryLog(user, computer, result) {
 
     logItem.innerHTML = `
         <div class="flex items-center gap-3">
-            <span class="text-xs text-text-muted dark:text-slate-500 font-bold">${roundText}</span>
+            <span class="text-sm text-text-muted dark:text-slate-500 font-bold">${roundText}</span>
             <span class="text-text-main dark:text-white">${vsText}</span>
         </div>
         ${badge}

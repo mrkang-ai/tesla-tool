@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const input = document.createElement('input');
             input.type = 'text';
             input.value = opt;
-            input.className = 'w-full h-9 px-3 text-xs font-bold rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-text-main dark:text-white focus:border-purple-500 focus:ring-purple-500';
+            input.className = 'w-full h-9 px-3 text-sm font-bold rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-text-main dark:text-white focus:border-purple-500 focus:ring-purple-500';
             
             // Update options list dynamically as typed
             input.addEventListener('input', (e) => {

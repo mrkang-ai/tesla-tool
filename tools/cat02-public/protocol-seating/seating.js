@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderVipInputs() {
     vipsContainer.innerHTML = vips.map((v, i) => `
       <div class="flex items-center gap-2">
-        <span class="w-6 text-center text-xs font-bold ${i === 0 ? 'text-amber-400' : 'text-slate-400'}">#${i + 1}</span>
-        <input type="text" value="${v.name}" data-idx="${i}" class="vip-in flex-1 bg-slate-900 border border-slate-700 rounded px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-purple-500">
-        ${vips.length > 2 ? `<button data-idx="${i}" class="del-vip text-slate-500 hover:text-rose-400 text-xs px-1"><i class="fa-solid fa-xmark"></i></button>` : ''}
+        <span class="w-6 text-center text-sm font-bold ${i === 0 ? 'text-amber-400' : 'text-slate-400'}">#${i + 1}</span>
+        <input type="text" value="${v.name}" data-idx="${i}" class="vip-in flex-1 bg-slate-900 border border-slate-700 rounded px-2.5 py-1.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-purple-500">
+        ${vips.length > 2 ? `<button data-idx="${i}" class="del-vip text-slate-500 hover:text-rose-400 text-sm px-1"><i class="fa-solid fa-xmark"></i></button>` : ''}
       </div>
     `).join('');
 
@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
   sceneTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       sceneTabs.forEach(t => {
-        t.className = "scene-tab px-4 py-2 rounded-xl text-xs font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white";
+        t.className = "scene-tab px-4 py-2 rounded-xl text-sm font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white";
       });
-      tab.className = "scene-tab px-4 py-2 rounded-xl text-xs font-bold border border-purple-500 transition flex items-center gap-2 bg-purple-600 text-white";
+      tab.className = "scene-tab px-4 py-2 rounded-xl text-sm font-bold border border-purple-500 transition flex items-center gap-2 bg-purple-600 text-white";
       currentScene = tab.getAttribute('data-scene');
 
       if (currentScene === 'car') {

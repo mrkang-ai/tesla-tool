@@ -161,7 +161,7 @@
                     const btn = document.createElement('button');
                     btn.className = 'w-full text-left p-4 md:p-5 rounded-2xl bg-white dark:bg-slate-800/90 border-2 border-slate-200/80 dark:border-slate-700/80 hover:border-primary dark:hover:border-primary hover:bg-sky-50/50 dark:hover:bg-sky-950/30 transition-all transform active:scale-[0.99] flex items-start gap-3 group shadow-sm cursor-pointer';
                     btn.innerHTML = `
-                        <span class="size-7 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-primary group-hover:text-white text-slate-500 dark:text-slate-300 font-bold text-xs flex items-center justify-center shrink-0 transition-colors mt-0.5">${String.fromCharCode(65 + idx)}</span>
+                        <span class="size-7 rounded-xl bg-slate-100 dark:bg-slate-700/80 group-hover:bg-primary group-hover:text-white text-slate-500 dark:text-slate-300 font-bold text-sm flex items-center justify-center shrink-0 transition-colors mt-0.5">${String.fromCharCode(65 + idx)}</span>
                         <span class="text-sm md:text-base font-semibold text-slate-800 dark:text-slate-100 group-hover:text-primary transition-colors leading-relaxed">${opt.text}</span>
                     `;
                     btn.addEventListener('click', () => {
@@ -282,7 +282,7 @@
             if (badgeEl) badgeEl.textContent = res.badge;
 
             if (tagsEl && Array.isArray(res.tags)) {
-                tagsEl.innerHTML = res.tags.map(t => `<span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">${t}</span>`).join('');
+                tagsEl.innerHTML = res.tags.map(t => `<span class="px-3 py-1 rounded-full text-sm font-bold bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">${t}</span>`).join('');
             }
 
             if (summaryEl) summaryEl.textContent = `"${res.summary}"`;
@@ -301,10 +301,10 @@
                     <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
                         <div class="flex items-center gap-2 mb-1">
                             <span class="text-base">💖</span>
-                            <span class="text-xs font-bold text-emerald-700 dark:text-emerald-400">환상의 케미</span>
+                            <span class="text-sm font-bold text-emerald-700 dark:text-emerald-400">환상의 케미</span>
                         </div>
                         <div class="font-bold text-sm text-slate-900 dark:text-white">${res.bestMatch.title}</div>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">${res.bestMatch.reason}</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">${res.bestMatch.reason}</p>
                     </div>
                 `;
             }
@@ -314,10 +314,10 @@
                     <div class="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/50">
                         <div class="flex items-center gap-2 mb-1">
                             <span class="text-base">⚡</span>
-                            <span class="text-xs font-bold text-rose-700 dark:text-rose-400">환장의 케미</span>
+                            <span class="text-sm font-bold text-rose-700 dark:text-rose-400">환장의 케미</span>
                         </div>
                         <div class="font-bold text-sm text-slate-900 dark:text-white">${res.worstMatch.title}</div>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">${res.worstMatch.reason}</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">${res.worstMatch.reason}</p>
                     </div>
                 `;
             }
@@ -328,9 +328,9 @@
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-2xl text-primary">${res.recommendTool.icon || 'build'}</span>
                             <div>
-                                <span class="text-xs font-bold text-primary block">추천 맞춤 도구</span>
+                                <span class="text-sm font-bold text-primary block">추천 맞춤 도구</span>
                                 <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">${res.recommendTool.name}</h4>
-                                <p class="text-xs text-slate-600 dark:text-slate-400">${res.recommendTool.desc}</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">${res.recommendTool.desc}</p>
                             </div>
                         </div>
                         <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
@@ -404,7 +404,7 @@
             ctx.fillText('tossgpt.online · ToolBox Test', 540, 160);
 
             ctx.fillStyle = '#94a3b8'; // slate-400
-            ctx.font = '28px sans-serif';
+            ctx.font = "28px sans-serif';
             ctx.fillText(this.config.title, 540, 210);
 
             // 4. Emoji Avatar Circle
@@ -416,7 +416,7 @@
             ctx.lineWidth = 6;
             ctx.stroke();
 
-            ctx.font = '100px sans-serif';
+            ctx.font = "100px sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText(this.currentResult.emoji || '🎯', 540, 365);
@@ -435,7 +435,7 @@
             // 7. Tags
             if (Array.isArray(this.currentResult.tags)) {
                 ctx.fillStyle = '#cbd5e1';
-                ctx.font = '28px sans-serif';
+                ctx.font = "28px sans-serif';
                 ctx.fillText(this.currentResult.tags.slice(0, 3).join('  '), 540, 680);
             }
 
@@ -460,7 +460,7 @@
 
             // 10. Footer CTA
             ctx.fillStyle = '#94a3b8';
-            ctx.font = '26px sans-serif';
+            ctx.font = "26px sans-serif';
             ctx.fillText('나의 진짜 성향이 궁금하다면? 👉 tossgpt.online/tests/', 540, 1180);
 
             // Download trigger

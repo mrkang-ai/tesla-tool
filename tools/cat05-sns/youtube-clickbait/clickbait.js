@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="p-3.5 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-rose-500/50 flex items-center justify-between gap-3 transition">
           <div class="flex items-center gap-3">
-            <span class="w-6 text-center font-mono font-bold text-rose-400 text-xs">#${idx + 1}</span>
-            <span class="text-xs sm:text-sm font-bold text-slate-200">${title}</span>
+            <span class="w-6 text-center font-mono font-bold text-rose-400 text-sm">#${idx + 1}</span>
+            <span class="text-sm sm:text-sm font-bold text-slate-200">${title}</span>
           </div>
-          <button data-text="${title}" class="copy-t-btn text-xs px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-slate-300 transition whitespace-nowrap">
+          <button data-text="${title}" class="copy-t-btn text-sm px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-slate-300 transition whitespace-nowrap">
             복사
           </button>
         </div>

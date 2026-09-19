@@ -53,12 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     isPlaying = !isPlaying;
     if (isPlaying) {
       soundToggleBtn.innerHTML = '<i class="fa-solid fa-volume-xmark mr-1"></i> 소음 재생 중지';
-      soundToggleBtn.className = "px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-2";
+      soundToggleBtn.className = "px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm rounded-xl transition flex items-center gap-2";
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       tickInterval = setInterval(playTick, 1000);
     } else {
       soundToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high mr-1"></i> 실전 소음 재생 ON';
-      soundToggleBtn.className = "px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-2";
+      soundToggleBtn.className = "px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition flex items-center gap-2";
       clearInterval(tickInterval);
     }
   });

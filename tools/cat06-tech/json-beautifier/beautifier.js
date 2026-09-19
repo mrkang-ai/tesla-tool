@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!raw) {
       jsonOut.textContent = "";
       jsonStatus.textContent = "WAITING";
-      jsonStatus.className = "text-[10px] px-2 py-0.5 rounded bg-slate-700 text-slate-400 font-bold font-mono";
+      jsonStatus.className = "text-sm px-2 py-0.5 rounded bg-slate-700 text-slate-400 font-bold font-mono";
       return;
     }
 
@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const obj = JSON.parse(raw);
       jsonOut.textContent = JSON.stringify(obj, null, 2);
       jsonStatus.textContent = "VALID JSON ✅";
-      jsonStatus.className = "text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold font-mono";
+      jsonStatus.className = "text-sm px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold font-mono";
     } catch (e) {
       jsonOut.textContent = `❌ JSON 구문 오류:
 ${e.message}`;
       jsonStatus.textContent = "SYNTAX ERROR 🚨";
-      jsonStatus.className = "text-[10px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold font-mono";
+      jsonStatus.className = "text-sm px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold font-mono";
     }
   }
 

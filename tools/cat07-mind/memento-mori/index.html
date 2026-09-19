@@ -124,11 +124,11 @@
     <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 mb-8 max-w-xl mx-auto shadow-xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-1" data-lang-ko="태어난 생년월일" data-lang-en="Birth Date">태어난 생년월일</label>
+          <label class="block text-sm font-semibold text-slate-400 mb-1" data-lang-ko="태어난 생년월일" data-lang-en="Birth Date">태어난 생년월일</label>
           <input type="date" id="birthDate" value="1998-05-15" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-amber-400">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-1" data-lang-ko="목표 기대수명 (세)" data-lang-en="Life Expectancy (Age)">목표 기대수명 (세)</label>
+          <label class="block text-sm font-semibold text-slate-400 mb-1" data-lang-ko="목표 기대수명 (세)" data-lang-en="Life Expectancy (Age)">목표 기대수명 (세)</label>
           <input type="number" id="targetAge" value="85" min="50" max="110" class="w-full p-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-amber-400">
         </div>
       </div>
@@ -137,27 +137,27 @@
     <!-- Big Numbers -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 text-center">
       <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="살아온 날" data-lang-en="Days Lived">살아온 날</div>
+        <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="살아온 날" data-lang-en="Days Lived">살아온 날</div>
         <div id="livedDays" class="text-3xl sm:text-4xl font-mono font-black text-amber-400 mt-2">10,230일</div>
-        <div class="text-xs text-slate-500 mt-1" id="livedPercent">인생의 32.8% 경과</div>
+        <div class="text-sm text-slate-500 mt-1" id="livedPercent">인생의 32.8% 경과</div>
       </div>
 
       <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 인생 날수" data-lang-en="Days Left">남은 인생 날수</div>
+        <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 인생 날수" data-lang-en="Days Left">남은 인생 날수</div>
         <div id="leftDays" class="text-3xl sm:text-4xl font-mono font-black text-emerald-400 mt-2">20,810일</div>
-        <div class="text-xs text-slate-500 mt-1" id="leftWeeks">약 2,972번의 주말</div>
+        <div class="text-sm text-slate-500 mt-1" id="leftWeeks">약 2,972번의 주말</div>
       </div>
 
       <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 맛있는 식사 횟수" data-lang-en="Meals Remaining">남은 맛있는 식사 횟수</div>
+        <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold" data-lang-ko="남은 맛있는 식사 횟수" data-lang-en="Meals Remaining">남은 맛있는 식사 횟수</div>
         <div id="mealsLeft" class="text-3xl sm:text-4xl font-mono font-black text-indigo-400 mt-2">62,430끼</div>
-        <div class="text-xs text-slate-500 mt-1">하루 3끼 기준</div>
+        <div class="text-sm text-slate-500 mt-1">하루 3끼 기준</div>
       </div>
     </div>
 
     <!-- Progress Bar -->
     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-      <div class="flex justify-between text-xs font-semibold text-slate-400 mb-2">
+      <div class="flex justify-between text-sm font-semibold text-slate-400 mb-2">
         <span>0세 (탄생)</span>
         <span id="currentAgeText">현재 나이 28세</span>
         <span id="targetAgeText">85세 (목표)</span>
@@ -165,7 +165,7 @@
       <div class="w-full bg-slate-800 rounded-full h-4 overflow-hidden p-0.5">
         <div id="lifeBar" class="bg-gradient-to-r from-amber-500 to-emerald-500 h-full rounded-full transition-all duration-700" style="width: 32%;"></div>
       </div>
-      <p class="text-center text-xs text-slate-500 mt-4 italic">
+      <p class="text-center text-sm text-slate-500 mt-4 italic">
         “오늘이 내 인생의 가장 젊은 날이며, 동시에 결코 다시 돌아오지 않는 단 하루입니다.”
       </p>
     </div>
@@ -175,13 +175,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">07 심리 & 멘탈 & 운명 도파민</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">인생 성찰</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">07 심리 & 멘탈 & 운명 도파민</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">인생 성찰</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>⏳</span> <span>인생 잔여 시간 메멘토 모리 시계 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 기대수명 기준 살아온 날과 남은 날, 앞으로 남은 주말과 식사 횟수 시각화 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -225,15 +225,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '인생 잔여 시간 메멘토 모리 시계' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '인생 잔여 시간 메멘토 모리 시계' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

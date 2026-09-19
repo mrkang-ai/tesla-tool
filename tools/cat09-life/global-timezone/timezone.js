@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function setBadge(el, hour) {
     if (hour >= 9 && hour <= 18) {
       el.innerText = "🟢 업무 시간";
-      el.className = "text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300";
+      el.className = "text-sm font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300";
     } else if ((hour >= 7 && hour < 9) || (hour > 18 && hour <= 21)) {
       el.innerText = "🟡 출퇴근/식사";
-      el.className = "text-[11px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300";
+      el.className = "text-sm font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300";
     } else {
       el.innerText = "🔴 취침/심야";
-      el.className = "text-[11px] font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300";
+      el.className = "text-sm font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300";
     }
   }
 

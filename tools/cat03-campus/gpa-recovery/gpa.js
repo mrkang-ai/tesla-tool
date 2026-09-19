@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderRetakes() {
     retakeList.innerHTML = retakes.map((r, idx) => `
-      <div class="flex items-center gap-2 bg-slate-900/60 p-2 rounded border border-slate-700 text-xs">
+      <div class="flex items-center gap-2 bg-slate-900/60 p-2 rounded border border-slate-700 text-sm">
         <input type="text" value="${r.name}" data-idx="${idx}" class="r-name flex-1 bg-slate-800 rounded px-2 py-1 text-slate-200">
-        <span class="text-slate-400 text-[11px]">${r.credit}학점</span>
+        <span class="text-slate-400 text-sm">${r.credit}학점</span>
         <div class="flex items-center gap-1 font-mono">
           <span class="text-rose-400 font-bold">${r.oldG.toFixed(1)}</span>
           <span class="text-slate-500">→</span>
@@ -78,22 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (finalGpa >= 3.75) {
       gpaComment.innerHTML = "🏆 <b>상위 10% 우등 졸업 및 성적 장학금권</b> 진입 성공!";
-      m1.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
-      m2.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
-      m3.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
+      m1.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
+      m2.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
+      m3.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
       m3.querySelector('span:last-child').textContent = "장학금 유력 👑";
     } else if (finalGpa >= 3.0) {
       gpaComment.innerHTML = "🎯 <b>대기업/공기업 공채 서류 프리패스권(3.0 이상)</b> 안착 완료!";
-      m1.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
-      m2.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
-      m3.querySelector('span:last-child').className = "text-xs font-bold text-yellow-400";
+      m1.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
+      m2.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
+      m3.querySelector('span:last-child').className = "text-sm font-bold text-yellow-400";
       m3.querySelector('span:last-child').textContent = "근접 (+0.3필요)";
     } else {
       gpaComment.innerHTML = "⚠️ 아직 3.0 미만입니다. 남은 학기 재수강 과목을 1~2개 더 추가하세요!";
-      m1.querySelector('span:last-child').className = "text-xs font-bold text-emerald-400";
-      m2.querySelector('span:last-child').className = "text-xs font-bold text-rose-400";
+      m1.querySelector('span:last-child').className = "text-sm font-bold text-emerald-400";
+      m2.querySelector('span:last-child').className = "text-sm font-bold text-rose-400";
       m2.querySelector('span:last-child').textContent = "미달 위험 🚨";
-      m3.querySelector('span:last-child').className = "text-xs font-bold text-slate-500";
+      m3.querySelector('span:last-child').className = "text-sm font-bold text-slate-500";
       m3.querySelector('span:last-child').textContent = "불가";
     }
   }

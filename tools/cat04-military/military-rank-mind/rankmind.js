@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
   rankBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       rankBtns.forEach(b => {
-        b.className = "rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-xs font-bold transition flex flex-col items-center gap-1";
+        b.className = "rank-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-400 hover:text-white text-sm font-bold transition flex flex-col items-center gap-1";
       });
-      btn.className = "rank-btn p-3 rounded-xl border border-green-500 bg-green-600/20 text-green-300 text-xs font-bold transition flex flex-col items-center gap-1";
+      btn.className = "rank-btn p-3 rounded-xl border border-green-500 bg-green-600/20 text-green-300 text-sm font-bold transition flex flex-col items-center gap-1";
 
       const key = btn.getAttribute('data-rank');
       const data = rankData[key];

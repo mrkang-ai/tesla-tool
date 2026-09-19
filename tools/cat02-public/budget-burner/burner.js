@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <tr class="hover:bg-slate-700/30">
         <td class="py-2 px-3 font-medium text-slate-200">
           ${s.name}
-          <span class="block text-[10px] text-slate-400 font-normal">${s.reason.slice(0, 30)}...</span>
+          <span class="block text-sm text-slate-400 font-normal">${s.reason.slice(0, 30)}...</span>
         </td>
         <td class="py-2 px-3 text-slate-400 font-mono">${s.price.toLocaleString()}원</td>
         <td class="py-2 px-3 font-bold text-amber-400">${s.qty}개</td>

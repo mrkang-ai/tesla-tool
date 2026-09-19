@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (percent >= 100) {
       rankBadge.textContent = "전역 축하합니다! (예비역 병장)";
-      rankBadge.className = "px-3 py-1 bg-emerald-500 text-slate-950 font-bold rounded-full text-xs font-mono animate-bounce";
+      rankBadge.className = "px-3 py-1 bg-emerald-500 text-slate-950 font-bold rounded-full text-sm font-mono animate-bounce";
     } else if (percent >= 75) {
       rankBadge.textContent = "계급: 병장 (말년 모드)";
-      rankBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold font-mono";
+      rankBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-sm font-bold font-mono";
     } else if (percent >= 45) {
       rankBadge.textContent = "계급: 상병 (에이스 & 실세)";
-      rankBadge.className = "px-3 py-1 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full text-xs font-bold font-mono";
+      rankBadge.className = "px-3 py-1 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full text-sm font-bold font-mono";
     } else if (percent >= 15) {
       rankBadge.textContent = "계급: 일병 (체력 소모 최대)";
-      rankBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold font-mono";
+      rankBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-sm font-bold font-mono";
     } else {
       rankBadge.textContent = "계급: 이등병 (군기 바짝)";
-      rankBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono";
+      rankBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-sm font-bold font-mono";
     }
 
     requestAnimationFrame(update);

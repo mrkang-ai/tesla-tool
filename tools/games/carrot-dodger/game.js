@@ -831,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="${rankColorClass} w-5 text-right font-extrabold text-sm">${i + 1}</span>
                         <span class="font-extrabold text-text-main dark:text-white">${r.name}</span>
                     </div>
-                    <span class="text-primary font-black text-sm">${r.score} <span class="text-[10px] text-text-muted dark:text-slate-500">pts</span></span>
+                    <span class="text-primary font-black text-sm">${r.score} <span class="text-sm text-text-muted dark:text-slate-500">pts</span></span>
                 `;
                 rankingListEl.appendChild(li);
             });

@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       return `
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-sm text-slate-200">
           <span class="font-bold">${t}</span>
-          <span class="text-[9px] px-1.5 py-0.2 rounded border ${color}">${badge}</span>
+          <span class="text-sm px-1.5 py-0.2 rounded border ${color}">${badge}</span>
         </span>
       `;
     }).join('');

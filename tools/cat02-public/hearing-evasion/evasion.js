@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   stratBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       stratBtns.forEach(b => {
-        b.className = "strat-btn p-3 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-400 hover:text-slate-200 text-xs font-bold transition flex flex-col items-center gap-1.5";
+        b.className = "strat-btn p-3 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-400 hover:text-slate-200 text-sm font-bold transition flex flex-col items-center gap-1.5";
       });
-      btn.className = "strat-btn p-3 rounded-xl border border-rose-500 bg-rose-500/20 text-rose-300 text-xs font-bold transition flex flex-col items-center gap-1.5";
+      btn.className = "strat-btn p-3 rounded-xl border border-rose-500 bg-rose-500/20 text-rose-300 text-sm font-bold transition flex flex-col items-center gap-1.5";
       currentStrat = btn.getAttribute('data-strat');
       generateAnswer();
     });

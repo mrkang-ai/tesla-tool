@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderGrid() {
         let html = '<thead><tr class="bg-slate-100 border-b border-slate-300 text-slate-600">';
-        html += '<th class="w-10 border-r border-slate-300 bg-slate-200 text-center py-1 text-[11px]"></th>';
+        html += '<th class="w-10 border-r border-slate-300 bg-slate-200 text-center py-1 text-sm"></th>';
         columns.forEach(col => {
-            html += `<th class="border-r border-slate-300 px-3 py-1 font-bold text-center text-[11px] min-w-[110px]">${col}</th>`;
+            html += `<th class="border-r border-slate-300 px-3 py-1 font-bold text-center text-sm min-w-[110px]">${col}</th>`;
         });
         html += '</tr></thead><tbody>';
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let r = 1; r <= rowCount; r++) {
             html += `<tr class="border-b border-slate-200 hover:bg-sky-50/40 transition-colors">`;
-            html += `<td class="border-r border-slate-300 bg-slate-100 text-center text-slate-500 font-bold py-1 text-[11px] select-none">${r}</td>`;
+            html += `<td class="border-r border-slate-300 bg-slate-100 text-center text-slate-500 font-bold py-1 text-sm select-none">${r}</td>`;
             
             columns.forEach((col, cIdx) => {
                 let cellValue = '';
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         cellStyle += ' text-slate-400 text-center';
                     } else if (cIdx === 2 && r > 2 && r - 3 < sentences.length) {
                         cellValue = '참조 완료';
-                        cellStyle += ' text-slate-400 text-center text-[10px]';
+                        cellStyle += ' text-slate-400 text-center text-sm';
                     }
                 } else {
                     // Normal Hybrid Mode (looks like a financial model with disguised text)

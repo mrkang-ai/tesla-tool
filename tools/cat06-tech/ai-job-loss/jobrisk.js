@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (item.score >= 70) {
       jobRiskScore.className = "text-5xl sm:text-6xl font-black font-mono text-rose-400 my-2";
-      jobRiskBadge.className = "inline-block px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono animate-pulse";
+      jobRiskBadge.className = "inline-block px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-sm font-bold font-mono animate-pulse";
     } else if (item.score >= 40) {
       jobRiskScore.className = "text-5xl sm:text-6xl font-black font-mono text-yellow-400 my-2";
-      jobRiskBadge.className = "inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold font-mono";
+      jobRiskBadge.className = "inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-sm font-bold font-mono";
     } else {
       jobRiskScore.className = "text-5xl sm:text-6xl font-black font-mono text-emerald-400 my-2";
-      jobRiskBadge.className = "inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold font-mono";
+      jobRiskBadge.className = "inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-sm font-bold font-mono";
     }
   }
 

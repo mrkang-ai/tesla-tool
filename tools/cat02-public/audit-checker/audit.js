@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <input type="checkbox" data-id="${item.id}" checked class="audit-cb mt-0.5 rounded text-rose-600 focus:ring-rose-500 bg-slate-800 border-slate-600">
       <div class="flex-1">
         <span class="text-slate-200 font-medium">${item.id}. ${item.title}</span>
-        <span class="block text-[10px] text-slate-500">배점 가중치: ${item.weight}pt</span>
+        <span class="block text-sm text-slate-500">배점 가중치: ${item.weight}pt</span>
       </div>
     </label>
   `).join('');
@@ -57,22 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (violatedScore === 0) {
       riskBar.className = "bg-emerald-500 h-full transition-all duration-500";
-      riskBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold";
+      riskBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-sm font-bold";
       riskBadge.textContent = "완벽 (청렴도 1등급)";
       riskDesc.textContent = "모든 법적·행정적 규정을 철저히 준수하고 있습니다. 감사관도 칭찬하고 지나갈 수준입니다.";
     } else if (violatedScore <= 25) {
       riskBar.className = "bg-yellow-500 h-full transition-all duration-500";
-      riskBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full text-xs font-bold";
+      riskBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full text-sm font-bold";
       riskBadge.textContent = "주의 (구두 경고 위험)";
       riskDesc.textContent = "경미한 서류 미비가 존재합니다. 사전 영수증 첨부 및 지출결의서 보완을 권장합니다.";
     } else if (violatedScore <= 50) {
       riskBar.className = "bg-orange-500 h-full transition-all duration-500";
-      riskBadge.className = "px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded-full text-xs font-bold";
+      riskBadge.className = "px-3 py-1 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded-full text-sm font-bold";
       riskBadge.textContent = "경고 (문책/시정 요구)";
       riskDesc.textContent = "감사 적발 시 '주의' 또는 '시정' 처분이 예상됩니다. 소명 사유서를 즉시 미리 준비하십시오.";
     } else {
       riskBar.className = "bg-rose-500 h-full transition-all duration-500";
-      riskBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-full text-xs font-bold";
+      riskBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-full text-sm font-bold";
       riskBadge.textContent = "위기 (감사원 출두 각)";
       riskDesc.textContent = "중대한 회계/복무 위반 소지가 높습니다. 즉각적인 전수조사 및 환수/정정 조치가 시급합니다!";
     }

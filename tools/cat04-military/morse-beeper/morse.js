@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const dur = symbol === '.' ? dotMs : dashMs;
 
           // Lamp ON
-          lamp.className = "w-12 h-12 rounded-full bg-emerald-400 border-2 border-emerald-300 shadow-[0_0_20px_#10b981] flex items-center justify-center text-xs font-bold text-slate-950";
+          lamp.className = "w-12 h-12 rounded-full bg-emerald-400 border-2 border-emerald-300 shadow-[0_0_20px_#10b981] flex items-center justify-center text-sm font-bold text-slate-950";
           lamp.textContent = "ON";
 
           // Sound
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           osc.stop();
           // Lamp OFF
-          lamp.className = "w-12 h-12 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center text-xs font-bold text-slate-500";
+          lamp.className = "w-12 h-12 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center text-sm font-bold text-slate-500";
           lamp.textContent = "OFF";
 
           // inter-element space

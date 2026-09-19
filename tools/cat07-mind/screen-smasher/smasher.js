@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillStyle = "#e2e8f0";
     ctx.font = "14px sans-serif";
     ctx.fillText("당신의 기획서가 부장님에 의해 반려되었습니다.", canvas.width/2 - 150, canvas.height/2 - 20);
-    ctx.font = "12px sans-serif";
+    ctx.font = "14px sans-serif";
     ctx.fillStyle = "#94a3b8";
     ctx.fillText("(클릭하여 분노를 모니터에 표출하십시오)", canvas.width/2 - 120, canvas.height/2 + 20);
   }

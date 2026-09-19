@@ -16,16 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modeCompress.addEventListener('click', () => {
     currentMode = 'compress';
-    modeCompress.className = "flex-1 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-indigo-600 text-white";
-    modeExpand.className = "flex-1 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white";
+    modeCompress.className = "flex-1 py-2 rounded-lg text-sm font-bold transition flex items-center justify-center gap-1.5 bg-indigo-600 text-white";
+    modeExpand.className = "flex-1 py-2 rounded-lg text-sm font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white";
     hwpTip.innerHTML = "• 자간 줄이기: <kbd class='px-1 bg-slate-800 rounded border border-slate-600 text-slate-200'>Alt + Shift + N</kbd> (1%씩 축소) / 장평 줄이기: <kbd class='px-1 bg-slate-800 rounded border border-slate-600 text-slate-200'>Alt + Shift + J</kbd>";
     process();
   });
 
   modeExpand.addEventListener('click', () => {
     currentMode = 'expand';
-    modeExpand.className = "flex-1 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-indigo-600 text-white";
-    modeCompress.className = "flex-1 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white";
+    modeExpand.className = "flex-1 py-2 rounded-lg text-sm font-bold transition flex items-center justify-center gap-1.5 bg-indigo-600 text-white";
+    modeCompress.className = "flex-1 py-2 rounded-lg text-sm font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white";
     hwpTip.innerHTML = "• 자간 늘리기: <kbd class='px-1 bg-slate-800 rounded border border-slate-600 text-slate-200'>Alt + Shift + W</kbd> (1%씩 확대) / 줄간격 늘리기: <kbd class='px-1 bg-slate-800 rounded border border-slate-600 text-slate-200'>Alt + Shift + T</kbd>";
     process();
   });
@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const diff = ((outLen - inLen) / (inLen || 1) * 100).toFixed(1);
     if (diff > 0) {
-      diffRate.className = "text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold";
+      diffRate.className = "text-sm px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold";
       diffRate.textContent = `+${diff}% 증폭`;
     } else {
-      diffRate.className = "text-[10px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold";
+      diffRate.className = "text-sm px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold";
       diffRate.textContent = `${diff}% 압축`;
     }
   }

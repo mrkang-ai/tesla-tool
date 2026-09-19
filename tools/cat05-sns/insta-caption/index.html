@@ -117,7 +117,7 @@
   <main class="flex-grow container-tool py-8 sm:py-12">
     <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-pink-500/20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-sm font-semibold uppercase tracking-wider mb-2 border border-pink-500/20">
           <i class="fa-brands fa-instagram"></i> CAT-05 / No.41
         </div>
         <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="☕ 인스타그램 감성 카페 줄글 캡션 생성기" data-lang-en="☕ Instagram Aesthetic Caption Generator">☕ 인스타그램 감성 카페 줄글 캡션 생성기</h1>
@@ -130,11 +130,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <!-- Options Left -->
       <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
-        <h2 class="text-xs font-bold text-pink-400 uppercase tracking-wider">감성 톤앤매너 설정</h2>
+        <h2 class="text-sm font-bold text-pink-400 uppercase tracking-wider">감성 톤앤매너 설정</h2>
 
         <div>
-          <label class="block text-xs text-slate-300 mb-1">오늘의 감성 무드</label>
-          <select id="moodSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+          <label class="block text-sm text-slate-300 mb-1">오늘의 감성 무드</label>
+          <select id="moodSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm">
             <option value="rainy">비 오는 날의 온기 (LP판, 빗소리, 드립커피)</option>
             <option value="hip">성수동 힙스터 (무채색 콘크리트, 에스프레소)</option>
             <option value="dawn">새벽 세 시의 몽환 (고독, 푸른 밤, 헤드폰)</option>
@@ -143,11 +143,11 @@
         </div>
 
         <div>
-          <label class="block text-xs text-slate-300 mb-1">장소 / 오브젝트 키워드</label>
-          <input type="text" id="placeInput" value="성수 어느 골목, 필터 커피" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200">
+          <label class="block text-sm text-slate-300 mb-1">장소 / 오브젝트 키워드</label>
+          <input type="text" id="placeInput" value="성수 어느 골목, 필터 커피" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
         </div>
 
-        <button id="genCaptionBtn" class="w-full py-2.5 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-lg text-xs transition shadow-lg shadow-pink-600/20">
+        <button id="genCaptionBtn" class="w-full py-2.5 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-lg text-sm transition shadow-lg shadow-pink-600/20">
           감성 캡션 추출하기 ✨
         </button>
       </div>
@@ -155,13 +155,13 @@
       <!-- Preview Right -->
       <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col space-y-3">
         <div class="flex justify-between items-center pb-2 border-b border-slate-700">
-          <span class="text-xs font-bold text-pink-300 font-mono">인스타 피드 캡션 미리보기</span>
-          <button id="copyCaptionBtn" class="text-xs px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded">
+          <span class="text-sm font-bold text-pink-300 font-mono">인스타 피드 캡션 미리보기</span>
+          <button id="copyCaptionBtn" class="text-sm px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded">
             복사
           </button>
         </div>
 
-        <div id="captionOutput" class="flex-1 min-h-[220px] bg-slate-900 rounded-lg p-3 text-xs leading-relaxed text-slate-200 font-serif overflow-y-auto whitespace-pre-wrap border border-slate-700/80">
+        <div id="captionOutput" class="flex-1 min-h-[220px] bg-slate-900 rounded-lg p-3 text-sm leading-relaxed text-slate-200 font-serif overflow-y-auto whitespace-pre-wrap border border-slate-700/80">
 비 내리는 소리가 조용히 골목을 채우던 오후.
 유리창에 맺힌 온기와 쌉싸름한 드립 커피 한 잔.
 
@@ -180,13 +180,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">05 SNS & 인플루언서 랩</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">감성 뿜뿜</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">05 SNS & 인플루언서 랩</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">감성 뿜뿜</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>☕</span> <span>인스타 감성 카페 줄글 캡션기 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 여백의 미와 은은한 허세가 깃든 힙스터 카페 사진용 감성 문구 자동 생성 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -230,15 +230,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '인스타 감성 카페 줄글 캡션기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '인스타 감성 카페 줄글 캡션기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

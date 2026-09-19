@@ -127,7 +127,7 @@
 
     <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col gap-8">
         <div class="text-center flex flex-col items-center gap-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-sm font-bold">
                 <span>💼 K-직장인 생존 키트</span>
                 <span>•</span>
                 <span>CAT-01 No.10</span>
@@ -148,33 +148,33 @@
                     <span>상황 카테고리 선택</span>
                 </h3>
 
-                <div class="flex flex-col gap-2 text-xs font-bold" id="cat-btn-group">
+                <div class="flex flex-col gap-2 text-sm font-bold" id="cat-btn-group">
                     <button class="status-cat-btn active p-3 rounded-2xl bg-primary text-white text-left flex items-center gap-3 cursor-pointer" data-cat="focus">
                         <span class="text-xl">🎧</span>
                         <div>
                             <div>초집중 스프린트 (방해 금지)</div>
-                            <div class="text-[11px] opacity-80 font-normal">기획서 작성, 코드 리뷰 등 딥워크</div>
+                            <div class="text-sm opacity-80 font-normal">기획서 작성, 코드 리뷰 등 딥워크</div>
                         </div>
                     </button>
                     <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="data">
                         <span class="text-xl">📊</span>
                         <div>
                             <div>대용량 데이터 / 배치 작업</div>
-                            <div class="text-[11px] opacity-80 font-normal">인프라 모니터링, 쿼리 러닝 중</div>
+                            <div class="text-sm opacity-80 font-normal">인프라 모니터링, 쿼리 러닝 중</div>
                         </div>
                     </button>
                     <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="client">
                         <span class="text-xl">🤝</span>
                         <div>
                             <div>고객사 긴급 콜 / 실사 외근</div>
-                            <div class="text-[11px] opacity-80 font-normal">외부 미팅으로 답장 지연 정당화</div>
+                            <div class="text-sm opacity-80 font-normal">외부 미팅으로 답장 지연 정당화</div>
                         </div>
                     </button>
                     <button class="status-cat-btn p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 text-left flex items-center gap-3 cursor-pointer" data-cat="health">
                         <span class="text-xl">💊</span>
                         <div>
                             <div>합법적 건강 사유 / 리프레시</div>
-                            <div class="text-[11px] opacity-80 font-normal">안과 진료, 백신 접종 등 터치 불가</div>
+                            <div class="text-sm opacity-80 font-normal">안과 진료, 백신 접종 등 터치 불가</div>
                         </div>
                     </button>
                 </div>
@@ -183,8 +183,8 @@
             <!-- Right: Interactive Status Preview Cards -->
             <div class="lg:col-span-2 flex flex-col gap-4">
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex items-center justify-between">
-                    <span class="text-xs font-bold text-slate-500">복귀 예정 시각 맞춤:</span>
-                    <input type="time" id="return-time" value="16:00" class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold font-mono">
+                    <span class="text-sm font-bold text-slate-500">복귀 예정 시각 맞춤:</span>
+                    <input type="time" id="return-time" value="16:00" class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono">
                 </div>
 
                 <div id="status-cards-container" class="flex flex-col gap-3">
@@ -199,13 +199,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">재택 필수</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">재택 필수</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🟢</span> <span>슬랙/팀즈 자리비움 방지기 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 마우스 포인터를 미세하게 움직여 사내 메신저 온라인 녹색불을 영구 유지 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -249,15 +249,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '슬랙/팀즈 자리비움 방지기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '슬랙/팀즈 자리비움 방지기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

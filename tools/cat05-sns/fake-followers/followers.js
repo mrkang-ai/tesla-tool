@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const msg = isComment ? comments[Math.floor(Math.random() * comments.length)] : "회원님의 사진을 좋아합니다. ❤️";
 
     const item = document.createElement('div');
-    item.className = "p-2.5 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-between text-xs animate-slide-in";
+    item.className = "p-2.5 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-between text-sm animate-slide-in";
     item.innerHTML = `
       <div class="flex items-center gap-2">
-        <div class="w-7 h-7 rounded-full bg-pink-600 flex items-center justify-center font-bold text-[10px] text-white">
+        <div class="w-7 h-7 rounded-full bg-pink-600 flex items-center justify-center font-bold text-sm text-white">
           ${u[0].toUpperCase()}
         </div>
         <div>
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="text-slate-300 ml-1">${msg}</span>
         </div>
       </div>
-      <span class="text-[10px] text-slate-500">방금 전</span>
+      <span class="text-sm text-slate-500">방금 전</span>
     `;
 
     streamList.appendChild(item);
@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
     isStorming = !isStorming;
     if (isStorming) {
       toggleStormBtn.textContent = "도파민 폭풍 중지 STOP";
-      toggleStormBtn.className = "px-5 py-2.5 bg-slate-700 text-white font-bold text-xs rounded-xl";
+      toggleStormBtn.className = "px-5 py-2.5 bg-slate-700 text-white font-bold text-sm rounded-xl";
       intervalId = setInterval(addNotification, 180);
     } else {
       toggleStormBtn.textContent = "도파민 폭풍 가동 START";
-      toggleStormBtn.className = "px-5 py-2.5 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-black text-xs rounded-xl shadow-lg";
+      toggleStormBtn.className = "px-5 py-2.5 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-black text-sm rounded-xl shadow-lg";
       clearInterval(intervalId);
     }
   });

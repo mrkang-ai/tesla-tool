@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (filtered.length === 0) {
-            vocabGrid.innerHTML = '<div class="col-span-full text-center p-6 text-xs text-slate-400">일치하는 순화어가 없습니다.</div>';
+            vocabGrid.innerHTML = '<div class="col-span-full text-center p-6 text-sm text-slate-400">일치하는 순화어가 없습니다.</div>';
             return;
         }
 
@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div>
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-black text-rose-500 line-through">${item.orig}</span>
-                        <span class="material-symbols-outlined text-xs text-slate-400">arrow_forward</span>
-                        <span class="text-xs font-black text-emerald-600 dark:text-emerald-400">${item.plain}</span>
+                        <span class="text-sm font-black text-rose-500 line-through">${item.orig}</span>
+                        <span class="material-symbols-outlined text-sm text-slate-400">arrow_forward</span>
+                        <span class="text-sm font-black text-emerald-600 dark:text-emerald-400">${item.plain}</span>
                     </div>
-                    <div class="text-[11px] text-slate-400 mt-1 italic">예: "${item.ex}"</div>
+                    <div class="text-sm text-slate-400 mt-1 italic">예: "${item.ex}"</div>
                 </div>
             `;
             vocabGrid.appendChild(card);

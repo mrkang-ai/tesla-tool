@@ -59,8 +59,8 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
     <div id="header-placeholder"></div>
 
-    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
-        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+    <main class="flex-1 container-tool py-8 sm:py-12">
+        <nav class="flex items-center gap-2 text-sm md:text-sm text-slate-500 dark:text-slate-400 mb-6">
             <a href="/" class="hover:text-primary transition-colors">홈</a>
             <span>/</span>
             <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
@@ -71,7 +71,7 @@
         <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
             <!-- 1. INTRO VIEW -->
             <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 text-xs md:text-sm font-bold mb-5 border border-blue-200 dark:border-blue-800">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 text-sm md:text-sm font-bold mb-5 border border-blue-200 dark:border-blue-800">
                     <span>🛡️ 라자루스 &amp; 포크먼 대처 모델</span>
                     <span>•</span>
                     <span>소요 시간 1분 30초</span>
@@ -87,17 +87,17 @@
                 <div class="grid grid-cols-3 gap-3 mb-8 text-left">
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">⚔️</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">문항 수</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">📊</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">결과 제공</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">대처 카드</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">🍵</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">학술 기반</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">학술 기반</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">인지적 대처론</div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
             <!-- 2. QUIZ VIEW -->
             <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
                 <div class="mb-8">
-                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                    <div class="flex justify-between items-center text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
                         <span id="quiz-question-number" class="text-blue-600 dark:text-blue-400 text-sm">Q1.</span>
                         <span id="quiz-progress-text">1 / 8</span>
                     </div>
@@ -123,7 +123,7 @@
                     <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
                         질문 내용
                     </h2>
-                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                    <p id="quiz-question-context" class="text-sm md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
                 </div>
 
                 <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
@@ -148,7 +148,7 @@
                     <div class="size-24 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-800 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-blue-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
                         🥊
                     </div>
-                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 mb-2">
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-sm font-extrabold bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 mb-2">
                         멘탈 파워 99%
                     </span>
                     <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
@@ -167,13 +167,13 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
-                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>✨</span> 나의 위기 대응 강점
                         </h4>
                         <ul id="result-strengths" class="space-y-2"></ul>
                     </div>
                     <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
-                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>⚠️</span> 주의해야 할 심리적 함정
                         </h4>
                         <ul id="result-cautions" class="space-y-2"></ul>
@@ -203,7 +203,7 @@
                             <span>링크 복사</span>
                         </button>
                     </div>
-                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors underline cursor-pointer">
+                    <button id="restart-test-btn" class="text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors underline cursor-pointer">
                         처음부터 다시 테스트하기 ↺
                     </button>
                 </div>
@@ -220,19 +220,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-8">
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-1">1. 문제 중심 대처 (Problem-Focused)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">스트레스를 유발하는 환경적 요인을 직접 바꾸거나 해결책을 실행하여 근본 원인을 제거합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">스트레스를 유발하는 환경적 요인을 직접 바꾸거나 해결책을 실행하여 근본 원인을 제거합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">2. 정서 중심 대처 (Emotion-Focused)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">바꿀 수 없는 불가항력적 상황에서 발생하는 불안, 분노, 슬픔 등의 감정적 고통을 다스리고 완화합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">바꿀 수 없는 불가항력적 상황에서 발생하는 불안, 분노, 슬픔 등의 감정적 고통을 다스리고 완화합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">3. 인지적 재평가 (Cognitive Reappraisal)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">위기를 '위협'이 아닌 '도전과 성장의 기회'로 프레임을 전환하여 주관적 스트레스 수치를 대폭 낮춥니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">위기를 '위협'이 아닌 '도전과 성장의 기회'로 프레임을 전환하여 주관적 스트레스 수치를 대폭 낮춥니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-1">4. 회피 및 쿨다운 (Active Distraction)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">급성 스트레스 상황에서 전두엽이 마비되지 않도록 잠시 거리를 두고 신경계를 진정시키는 일시적 후퇴입니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">급성 스트레스 상황에서 전두엽이 마비되지 않도록 잠시 거리를 두고 신경계를 진정시키는 일시적 후퇴입니다.</p>
                 </div>
             </div>
 
@@ -243,7 +243,7 @@
                         <span>회피형 대처는 무조건 나쁜 건가요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         아닙니다. 감정이 격해진 상태에서 섣부른 행동을 하기보다 일시적으로 자리를 피하고 수면이나 휴식을 통해 감정을 식히는 '전략적 쿨다운'은 매우 건강하고 효과적인 방어 기제입니다.
                     </p>
                 </details>

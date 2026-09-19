@@ -74,7 +74,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 mx-auto">
             <div class="text-center py-8">
                 <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🍀 로또 번호 생성기" data-lang-en="🍀 Lotto Number Generator">🍀 로또 번호 생성기</h1>
                 <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="나만의 행운번호를 생성하고, 매주 자동으로 업데이트되는 최신 당첨 정보를 확인하세요." data-lang-en="Generate your lucky numbers and check the automatically updated lottery results.">나만의 행운번호를 생성하고, 매주 자동으로 업데이트되는 최신 당첨 정보를 확인하세요.</p>
@@ -84,8 +84,8 @@
             <!-- Workspace Layout (Stacked Vertically) -->
             <div class="flex flex-col gap-8 mt-4">
                 
-                <!-- SECTION 1: Lucky Number Generator (max-w-3xl mx-auto w-full) -->
-                <div class="max-w-3xl mx-auto w-full flex flex-col gap-5">
+                <!-- SECTION 1: Lucky Number Generator (max-w-[860px] mx-auto w-full) -->
+                <div class="max-w-[860px] mx-auto w-full flex flex-col gap-5">
                     <section class="bg-card-bg-light dark:bg-card-bg-dark p-8 md:p-10 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md text-center">
                         <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-3 flex items-center justify-center gap-2" data-lang-ko="🎰 행운의 번호 생성기" data-lang-en="🎰 Lucky Number Generator">🎰 행운의 번호 생성기</h2>
                         <p class="text-base text-text-muted dark:text-slate-400 mb-8" data-lang-ko="아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요." data-lang-en="Click the button below to generate 6 random lucky numbers from 1 to 45.">아래 버튼을 눌러 1부터 45 사이의 무작위 행운의 숫자 6개를 받아보세요.</p>
@@ -110,15 +110,15 @@
                     </div>
                 </div>
                 
-                <!-- SECTION 2: Latest Draw Info (max-w-4xl mx-auto w-full) -->
-                <div class="max-w-4xl mx-auto w-full">
+                <!-- SECTION 2: Latest Draw Info (max-w-[860px] mx-auto w-full) -->
+                <div class="max-w-[860px] mx-auto w-full">
                     <section class="bg-card-bg-light dark:bg-card-bg-dark p-6 md:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-md">
                         <h2 class="text-xl font-bold text-text-main dark:text-white mb-4 flex items-center gap-2" data-lang-ko="📢 최신 로또 당첨 정보" data-lang-en="📢 Latest Lotto Winning Information">📢 최신 로또 당첨 정보</h2>
                         
                         <!-- Round Header -->
                         <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl text-center mb-6 border border-slate-100 dark:border-slate-800/80">
                             <p class="text-md font-semibold text-text-main dark:text-white flex items-center justify-center gap-2">
-                                <span class="badge px-2.5 py-0.5 bg-primary/10 text-primary text-xs font-bold rounded-full" data-lang-ko="공식 결과" data-lang-en="Official Result">공식 결과</span>
+                                <span class="badge px-2.5 py-0.5 bg-primary/10 text-primary text-sm font-bold rounded-full" data-lang-ko="공식 결과" data-lang-en="Official Result">공식 결과</span>
                                 <strong id="lotto-round-title" data-lang-ko="제 1208회차" data-lang-en="Round 1208" class="text-lg">제 1208회차</strong> 
                                 <span class="text-text-muted dark:text-slate-400 font-medium">|</span>
                                 <span id="lotto-draw-date" data-lang-ko="2026년 01월 24일 추첨" data-lang-en="Drawing on January 24, 2026" class="text-sm text-text-muted dark:text-slate-400">2026년 01월 24일 추첨</span>
@@ -128,7 +128,7 @@
                         <!-- Draw Balls Graphic -->
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-6 bg-slate-50/50 dark:bg-slate-900/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/40">
                             <div class="flex flex-col items-center gap-2">
-                                <span class="text-xs text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="당첨 번호" data-lang-en="Winning Numbers">당첨 번호</span>
+                                <span class="text-sm text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="당첨 번호" data-lang-en="Winning Numbers">당첨 번호</span>
                                 <div id="lotto-win-balls" class="flex items-center gap-1.5">
                                     <span class="lotto-ball ball-yellow">6</span>
                                     <span class="lotto-ball ball-red">27</span>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="text-2xl font-light text-text-muted/40 dark:text-slate-600 select-none">+</div>
                             <div class="flex flex-col items-center gap-2">
-                                <span class="text-xs text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="보너스" data-lang-en="Bonus">보너스</span>
+                                <span class="text-sm text-text-muted dark:text-slate-500 font-bold uppercase tracking-wider" data-lang-ko="보너스" data-lang-en="Bonus">보너스</span>
                                 <div id="lotto-bonus-ball" class="flex items-center gap-1.5">
                                     <span class="lotto-ball ball-red">25</span>
                                 </div>
@@ -150,7 +150,7 @@
                         <!-- Prize Table -->
                         <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner">
                             <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
-                                <thead class="bg-slate-50 dark:bg-slate-900 text-xs font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
+                                <thead class="bg-slate-50 dark:bg-slate-900 text-sm font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
                                     <tr>
                                         <th scope="col" class="px-5 py-3.5" data-lang-ko="등위" data-lang-en="Rank">등위</th>
                                         <th scope="col" class="px-5 py-3.5" data-lang-ko="총 당첨금액" data-lang-en="Total Winnings">총 당첨금액</th>
@@ -201,9 +201,9 @@
             <!-- Guide Link Banner -->
             <div class="w-full mt-12 bg-gradient-to-r from-sky-500/10 via-primary/10 to-indigo-500/10 dark:from-sky-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-sky-200/60 dark:border-sky-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
-                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-300">수학 & 통계 가이드</span>
+                    <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-300">수학 & 통계 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="로또 6/45의 수학적 확률과 몬테카를로 시뮬레이션 심층 분석" data-lang-en="Lotto 6/45 Probability & Monte Carlo Simulation Deep Dive">로또 6/45의 수학적 확률과 몬테카를로 시뮬레이션 심층 분석</h3>
-                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="1등 당첨 확률 1/8,145,060의 조합론 수학적 유도 공식과 '도박사의 오류', 10만 회 가상 추첨 실험을 확인해 보세요." data-lang-en="Explore the combinatorics derivation of 1 in 8.14M odds, Gambler's Fallacy, and a 100,000-draw Monte Carlo simulation.">1등 당첨 확률 1/8,145,060의 조합론 수학적 유도 공식과 '도박사의 오류', 10만 회 가상 추첨 실험을 확인해 보세요.</p>
+                    <p class="text-sm md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="1등 당첨 확률 1/8,145,060의 조합론 수학적 유도 공식과 '도박사의 오류', 10만 회 가상 추첨 실험을 확인해 보세요." data-lang-en="Explore the combinatorics derivation of 1 in 8.14M odds, Gambler's Fallacy, and a 100,000-draw Monte Carlo simulation.">1등 당첨 확률 1/8,145,060의 조합론 수학적 유도 공식과 '도박사의 오류', 10만 회 가상 추첨 실험을 확인해 보세요.</p>
                 </div>
                 <a href="/guides/lotto-mathematics.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
@@ -212,7 +212,7 @@
             </div>
 
             <!-- Bottom Section: Lotto History & Historic Records -->
-            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[1200px] w-full mx-auto transition-all duration-300">
+            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[860px] w-full mx-auto transition-all duration-300">
                 
                 <!-- Korean Version -->
                 <div class="lang-only-ko">
@@ -238,7 +238,7 @@
                             <p class="mb-4">2002년 판매 시작 이래, 이월 규정과 당첨 비율에 의해 남겨진 역사의 경이로운 주요 당첨 기록들입니다.</p>
                             
                             <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
-                                <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                                <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
                                     <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
                                         <tr>
                                             <th class="px-4 py-3 text-center">회차 (추첨일)</th>
@@ -251,7 +251,7 @@
                                     </thead>
                                     <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19회<br><span class="text-[10px] text-text-muted">(2003-04-12)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19회<br><span class="text-sm text-text-muted">(2003-04-12)</span></td>
                                             <td class="px-4 py-3.5 font-medium">6, 30, 38, 39, 40, 43 + 26</td>
                                             <td class="px-4 py-3.5 text-right font-medium">407억 2,295만 원</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">1명</td>
@@ -259,7 +259,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>역대 최고 1인 당첨금</strong>. 이월 당첨금이 단 1명에게 귀속되어 실소득 부의 극대화 기록을 세웠습니다.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019회<br><span class="text-[10px] text-text-muted">(2022-06-11)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019회<br><span class="text-sm text-text-muted">(2022-06-11)</span></td>
                                             <td class="px-4 py-3.5 font-medium">1, 4, 13, 17, 34, 39 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">219억 2,825만 원</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">50명</td>
@@ -267,7 +267,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>역대 최다 1등 당첨자</strong>. 동일 번호 다중 당첨자가 대거 쏟아져 나오며 세간에 큰 화제를 모았습니다.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546회<br><span class="text-[10px] text-text-muted">(2013-05-18)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546회<br><span class="text-sm text-text-muted">(2013-05-18)</span></td>
                                             <td class="px-4 py-3.5 font-medium">8, 17, 20, 27, 37, 43 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">121억 7,819만 원</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">30명</td>
@@ -275,7 +275,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>역대 최저 1인 당첨금</strong>. 1게임 판매가 1,000원 인하된 이후 1인당 당첨 수령액이 가장 낮게 기록된 주차 중 하나입니다.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2회<br><span class="text-[10px] text-text-muted">(2002-12-14)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2회<br><span class="text-sm text-text-muted">(2002-12-14)</span></td>
                                             <td class="px-4 py-3.5 font-medium">9, 25, 30, 33, 41, 44 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">86억 8,422만 원</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">0명</td>
@@ -283,7 +283,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>최초의 1등 당첨 이월 회차</strong>. 1등 당첨자가 아무도 나오지 않아 총 당첨금이 3회차로 넘어가며 열풍의 초석이 되었습니다.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100회<br><span class="text-[10px] text-text-muted">(2023-12-30)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100회<br><span class="text-sm text-text-muted">(2023-12-30)</span></td>
                                             <td class="px-4 py-3.5 font-medium">17, 26, 29, 30, 31, 43 + 12</td>
                                             <td class="px-4 py-3.5 text-right font-medium">286억 9,853만 원</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">13명</td>
@@ -325,7 +325,7 @@
                             <ul class="list-disc pl-5 mt-2 space-y-1">
                                 <li><strong>당첨금 재원</strong>: 4등(5만원)과 5등(5천원) 금액을 먼저 지급한 후, 남은 금액을 1등(75%), 2등(12.5%), 3등(12.5%) 비율로 나누어 가집니다. 따라서 당첨자가 많을수록 개인이 수령하는 당첨금은 줄어듭니다.</li>
                                 <li><strong>세금 규정 (기타소득세 + 지방소득세)</strong>:
-                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-xs text-text-muted dark:text-slate-400">
+                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-sm text-text-muted dark:text-slate-400">
                                         <li><strong>200만 원 이하</strong>: <strong>비과세</strong> (세금을 떼지 않고 100% 수령).</li>
                                         <li><strong>200만 원 초과 ~ 3억 원 이하</strong>: <strong>22%</strong> 세율 적용 (기타소득세 20% + 지방소득세 2%).</li>
                                         <li><strong>3억 원 초과</strong>: <strong>33%</strong> 세율 적용 (국세 30% + 지방세 3%).</li>
@@ -342,15 +342,15 @@
                             <div class="space-y-4">
                                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 1등 당첨 확률 8,145,060분의 1은 어떻게 계산되나요?</h4>
-                                    <p class="text-xs text-text-muted dark:text-slate-400">1부터 45개의 숫자 중 순서와 상관없이 6개를 선택하는 조합 공식인 45C6 = (45 × 44 × 43 × 42 × 41 × 40) / (6 × 5 × 4 × 3 × 2 × 1)을 계산하면 정확히 8,145,060가지의 경우의 수가 도출됩니다.</p>
+                                    <p class="text-sm text-text-muted dark:text-slate-400">1부터 45개의 숫자 중 순서와 상관없이 6개를 선택하는 조합 공식인 45C6 = (45 × 44 × 43 × 42 × 41 × 40) / (6 × 5 × 4 × 3 × 2 × 1)을 계산하면 정확히 8,145,060가지의 경우의 수가 도출됩니다.</p>
                                 </div>
                                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 자주 나오는 번호나 소위 '명당' 판매점이 실제로 더 유리한가요?</h4>
-                                    <p class="text-xs text-text-muted dark:text-slate-400">수학적으로 모든 공의 추첨 확률은 매 회차 1/45로 완전히 동일한 '독립시행'입니다. 명당에서 1등이 많이 나오는 것은 단순히 판매량이 압도적으로 많아 표본 수가 크기 때문이며, 개별 복권 1장의 당첨 확률은 전국 어느 판매점에서 구매하든 정확히 같습니다.</p>
+                                    <p class="text-sm text-text-muted dark:text-slate-400">수학적으로 모든 공의 추첨 확률은 매 회차 1/45로 완전히 동일한 '독립시행'입니다. 명당에서 1등이 많이 나오는 것은 단순히 판매량이 압도적으로 많아 표본 수가 크기 때문이며, 개별 복권 1장의 당첨 확률은 전국 어느 판매점에서 구매하든 정확히 같습니다.</p>
                                 </div>
                                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 당첨금 수령 기한과 세금 공제 기준은 어떻게 되나요?</h4>
-                                    <p class="text-xs text-text-muted dark:text-slate-400">당첨금 수령 기한은 지급 개시일로부터 1년입니다. 세금은 200만 원 이하 비과세, 200만 원 초과~3억 원 이하는 22%, 3억 원 초과 금액에 대해서는 33%가 원천징수된 후 지급됩니다.</p>
+                                    <p class="text-sm text-text-muted dark:text-slate-400">당첨금 수령 기한은 지급 개시일로부터 1년입니다. 세금은 200만 원 이하 비과세, 200만 원 초과~3억 원 이하는 22%, 3억 원 초과 금액에 대해서는 33%가 원천징수된 후 지급됩니다.</p>
                                 </div>
                             </div>
                         </section>
@@ -381,7 +381,7 @@
                             <p class="mb-4">Here are the most notable milestone rounds in Korean lotto history since the game's launch in 2002.</p>
                             
                             <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
-                                <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                                <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
                                     <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
                                         <tr>
                                             <th class="px-4 py-3 text-center">Round (Draw Date)</th>
@@ -394,7 +394,7 @@
                                     </thead>
                                     <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19th<br><span class="text-[10px] text-text-muted">(2003-04-12)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">19th<br><span class="text-sm text-text-muted">(2003-04-12)</span></td>
                                             <td class="px-4 py-3.5 font-medium">6, 30, 38, 39, 40, 43 + 26</td>
                                             <td class="px-4 py-3.5 text-right font-medium">₩40.72 Billion</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">1</td>
@@ -402,7 +402,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>Highest Single Winnings</strong>. A single person took home the massive rolled-over pool, setting a legendary record.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019th<br><span class="text-[10px] text-text-muted">(2022-06-11)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1019th<br><span class="text-sm text-text-muted">(2022-06-11)</span></td>
                                             <td class="px-4 py-3.5 font-medium">1, 4, 13, 17, 34, 39 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">₩21.92 Billion</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">50</td>
@@ -410,7 +410,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>Most 1st Place Winners</strong>. An unprecedented number of winning tickets were drawn, sparking national news.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546th<br><span class="text-[10px] text-text-muted">(2013-05-18)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">546th<br><span class="text-sm text-text-muted">(2013-05-18)</span></td>
                                             <td class="px-4 py-3.5 font-medium">8, 17, 20, 27, 37, 43 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">₩12.17 Billion</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">30</td>
@@ -418,7 +418,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>Lowest Single Winnings</strong>. Recorded one of the lowest pay-outs per winner since the ticket price reduction.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2nd<br><span class="text-[10px] text-text-muted">(2002-12-14)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">2nd<br><span class="text-sm text-text-muted">(2002-12-14)</span></td>
                                             <td class="px-4 py-3.5 font-medium">9, 25, 30, 33, 41, 44 + 6</td>
                                             <td class="px-4 py-3.5 text-right font-medium">₩8.68 Billion</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">0</td>
@@ -426,7 +426,7 @@
                                             <td class="px-4 py-3.5 text-text-muted dark:text-slate-400"><strong>First Roll-over</strong>. No first-place winner emerged, initiating the first-ever jackpot accumulation in Korea.</td>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100th<br><span class="text-[10px] text-text-muted">(2023-12-30)</span></td>
+                                            <td class="px-4 py-3.5 text-center font-semibold text-text-main dark:text-white">1100th<br><span class="text-sm text-text-muted">(2023-12-30)</span></td>
                                             <td class="px-4 py-3.5 font-medium">17, 26, 29, 30, 31, 43 + 12</td>
                                             <td class="px-4 py-3.5 text-right font-medium">₩28.69 Billion</td>
                                             <td class="px-4 py-3.5 text-center font-bold text-primary">13</td>
@@ -468,7 +468,7 @@
                             <ul class="list-disc pl-5 mt-2 space-y-1">
                                 <li><strong>Prize Allocation</strong>: Fixed payouts for 4th (50k KRW) and 5th (5k KRW) places are paid out first. The remaining prize pool is split: 1st (75%), 2nd (12.5%), and 3rd (12.5%). Hence, more winners in a tier reduce the individual payout amount.</li>
                                 <li><strong>Taxation (Income Tax + Local Tax)</strong>:
-                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-xs text-text-muted dark:text-slate-400">
+                                    <ul class="list-circle pl-5 mt-1 space-y-0.5 text-sm text-text-muted dark:text-slate-400">
                                         <li><strong>Under 2 Million KRW</strong>: <strong>Tax-Free</strong> (100% payout without tax deductions).</li>
                                         <li><strong>2 Million KRW to 300 Million KRW</strong>: <strong>22%</strong> Tax Rate (20% Income Tax + 2% Local Tax).</li>
                                         <li><strong>Over 300 Million KRW</strong>: <strong>33%</strong> Tax Rate (30% Income Tax + 3% Local Tax).</li>
@@ -485,11 +485,11 @@
                             <div class="space-y-4">
                                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. How is the 1 in 8,145,060 probability calculated?</h4>
-                                    <p class="text-xs text-text-muted dark:text-slate-400">It is derived from the standard combination formula 45C6 = 45! / (6! × 39!) = 8,145,060 possible 6-number combinations from a pool of 45 balls.</p>
+                                    <p class="text-sm text-text-muted dark:text-slate-400">It is derived from the standard combination formula 45C6 = 45! / (6! × 39!) = 8,145,060 possible 6-number combinations from a pool of 45 balls.</p>
                                 </div>
                                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. Do "lucky lottery stores" actually offer better odds?</h4>
-                                    <p class="text-xs text-text-muted dark:text-slate-400">No. Every lottery ticket has identical independent odds regardless of purchase location. Popular stores produce more winners strictly because they sell vastly higher volumes of tickets.</p>
+                                    <p class="text-sm text-text-muted dark:text-slate-400">No. Every lottery ticket has identical independent odds regardless of purchase location. Popular stores produce more winners strictly because they sell vastly higher volumes of tickets.</p>
                                 </div>
                             </div>
                         </section>

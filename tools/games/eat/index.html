@@ -72,7 +72,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
             <div class="max-w-xl w-full mx-auto text-center">
                 <header class="py-8">
                     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white block whitespace-nowrap" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
@@ -89,25 +89,25 @@
                 </div>
             </div> <!-- CLOSE the max-w-xl container early -->
 
-            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[1200px]) -->
+            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[860px]) -->
             <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
                 <div class="grid grid-cols-1 md:grid-cols-12">
                     <!-- Image Container (Col 6) - Giant photo for strong visual impact -->
                     <div class="md:col-span-6 relative h-80 md:h-[480px]">
                         <img id="result-image" src="" alt="추천 메뉴" class="w-full h-full object-cover">
-                        <span id="result-category" class="absolute top-5 left-5 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">한식</span>
+                        <span id="result-category" class="absolute top-5 left-5 bg-primary text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-md">한식</span>
                     </div>
                     <!-- Info Container (Col 6) - Premium spacing -->
                     <div class="md:col-span-6 p-6 md:p-10 flex flex-col justify-between">
                         <div>
-                            <span class="text-[11px] font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1.5 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
+                            <span class="text-sm font-extrabold text-primary tracking-widest uppercase bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1.5 rounded-md" data-lang-ko="오늘의 추천 메뉴" data-lang-en="TODAY'S CHOICE">오늘의 추천 메뉴</span>
                             <h3 id="result-name" class="mt-4 text-4xl font-black text-text-main dark:text-white leading-tight"></h3>
                             <p id="result-description" class="mt-4 text-[15px] text-text-muted dark:text-slate-400 leading-relaxed font-medium italic"></p>
                         </div>
                         
                         <!-- Add to Planner section -->
                         <div id="add-to-planner-sec" class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-3">
-                            <p class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
+                            <p class="text-sm font-bold text-text-muted dark:text-slate-400" data-lang-ko="📋 이 메뉴를 일주일 식단표에 추가하기" data-lang-en="📋 Add this menu to the Weekly Planner">📋 이 메뉴를 일주일 식단표에 추가하기</p>
                             <div class="flex flex-wrap items-center gap-2">
                                 <select id="select-day" class="h-10 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
                                     <option value="mon" data-lang-ko="월요일" data-lang-en="Monday">월요일</option>
@@ -132,7 +132,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) inside a Collapsible Card (hidden by default) -->
+            <!-- SECTION 2: Weekly Meal Planner (max-w-[860px] w-full) inside a Collapsible Card (hidden by default) -->
             <section id="planner-section" class="hidden w-full mt-16 border border-slate-200/60 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900/10 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm">
                 <!-- Accordion Header Toggle -->
                 <button id="planner-toggle-btn" class="w-full flex items-center justify-between p-6 bg-white dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 text-left border-none focus:outline-none transition-colors cursor-pointer select-none">
@@ -140,7 +140,7 @@
                         <span class="text-3xl">📅</span>
                         <div>
                             <h2 class="text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="나의 일주일 식단표" data-lang-en="My Weekly Meal Planner">나의 일주일 식단표</h2>
-                            <p class="text-xs text-text-muted dark:text-slate-400 mt-1" data-lang-ko="클릭해서 열고 나만의 주간 식단을 채워보세요!" data-lang-en="Click to expand and plan your weekly meals!">클릭해서 열고 나만의 주간 식단을 채워보세요!</p>
+                            <p class="text-sm text-text-muted dark:text-slate-400 mt-1" data-lang-ko="클릭해서 열고 나만의 주간 식단을 채워보세요!" data-lang-en="Click to expand and plan your weekly meals!">클릭해서 열고 나만의 주간 식단을 채워보세요!</p>
                         </div>
                     </div>
                     <span id="planner-chevron" class="material-symbols-outlined text-2xl text-text-muted transition-transform duration-300">expand_more</span>
@@ -179,9 +179,9 @@
             <!-- Guide Link Banner -->
             <div class="w-full mt-12 bg-gradient-to-r from-purple-500/10 via-primary/10 to-sky-500/10 dark:from-purple-950/40 dark:via-sky-950/40 dark:to-slate-900 border border-purple-200/60 dark:border-purple-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
-                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">심층 지식 가이드</span>
+                    <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">심층 지식 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="하루 35,000번의 선택: 결정 피로와 인지 부하 극복법" data-lang-en="Overcoming Decision Fatigue: Cognitive Science of Daily Choices">하루 35,000번의 선택: 결정 피로와 인지 부하 극복법</h3>
-                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요." data-lang-en="Learn the cognitive science behind why choosing lunch drains your willpower and how cognitive offloading can help.">메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요.</p>
+                    <p class="text-sm md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요." data-lang-en="Learn the cognitive science behind why choosing lunch drains your willpower and how cognitive offloading can help.">메뉴 하나 고르는 데 왜 이렇게 머리가 아플까요? 로이 바우마이스터 교수의 결정 피로 이론과 인지적 외주화의 심리학을 만나보세요.</p>
                 </div>
                 <a href="/guides/decision-making-tools.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
@@ -228,7 +228,7 @@
                             <span class="w-1.5 h-5 bg-primary rounded-full"></span> 3. 카테고리별 외식 메뉴 현명하게 즐기는 팁
                         </h3>
                         <div class="overflow-x-auto border border-slate-100 dark:border-slate-800 rounded-xl shadow-inner bg-slate-50/50 dark:bg-slate-900/50">
-                            <table class="min-w-full text-xs text-left text-text-muted dark:text-slate-400">
+                            <table class="min-w-full text-sm text-left text-text-muted dark:text-slate-400">
                                 <thead class="bg-slate-100 dark:bg-slate-800/80 font-bold text-text-main dark:text-white border-b border-slate-200 dark:border-slate-800">
                                     <tr>
                                         <th class="px-4 py-3">카테고리</th>
@@ -275,15 +275,15 @@
                         <div class="space-y-4">
                             <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 추천된 메뉴가 마음에 들지 않으면 어떻게 하나요?</h4>
-                                <p class="text-xs">상단의 '메뉴 다시 추천받기' 버튼을 누르면 즉시 새로운 메뉴를 제안받을 수 있습니다. 또는 원치 않는 특정 카테고리를 필터링하여 선호하는 음식군 내에서만 추천을 받을 수도 있습니다.</p>
+                                <p class="text-sm">상단의 '메뉴 다시 추천받기' 버튼을 누르면 즉시 새로운 메뉴를 제안받을 수 있습니다. 또는 원치 않는 특정 카테고리를 필터링하여 선호하는 음식군 내에서만 추천을 받을 수도 있습니다.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 일주일 식단표는 로컬에 안전하게 저장되나요?</h4>
-                                <p class="text-xs">네, 본 서비스는 사용자의 브라우저 로컬 저장소(LocalStorage)만을 사용하여 데이터를 저장하므로 서버로 개인정보나 식단 데이터가 전송되지 않아 100% 안전합니다.</p>
+                                <p class="text-sm">네, 본 서비스는 사용자의 브라우저 로컬 저장소(LocalStorage)만을 사용하여 데이터를 저장하므로 서버로 개인정보나 식단 데이터가 전송되지 않아 100% 안전합니다.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. 다이어트나 건강 관리에 식단표를 어떻게 활용하면 좋은가요?</h4>
-                                <p class="text-xs">월요일부터 일요일까지 단백질과 채소 중심의 메뉴를 미리 배치해 두면, 즉흥적인 고칼로리 배달음식 주문을 최대 60% 이상 줄일 수 있어 자연스럽게 건강한 식습관이 형성됩니다.</p>
+                                <p class="text-sm">월요일부터 일요일까지 단백질과 채소 중심의 메뉴를 미리 배치해 두면, 즉흥적인 고칼로리 배달음식 주문을 최대 60% 이상 줄일 수 있어 자연스럽게 건강한 식습관이 형성됩니다.</p>
                             </div>
                         </div>
                     </section>
@@ -317,11 +317,11 @@
                         <div class="space-y-4">
                             <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. What if I don't like the suggested dish?</h4>
-                                <p class="text-xs">Simply click the "Suggest Again" button to re-roll a new item, or filter by specific cuisine categories.</p>
+                                <p class="text-sm">Simply click the "Suggest Again" button to re-roll a new item, or filter by specific cuisine categories.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white text-sm mb-1">Q. Is my meal planner stored privately?</h4>
-                                <p class="text-xs">Yes, all planner data is persisted locally in your browser's LocalStorage and is never uploaded to any external server.</p>
+                                <p class="text-sm">Yes, all planner data is persisted locally in your browser's LocalStorage and is never uploaded to any external server.</p>
                             </div>
                         </div>
                     </section>

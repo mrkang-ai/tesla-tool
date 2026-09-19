@@ -59,8 +59,8 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
     <div id="header-placeholder"></div>
 
-    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
-        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+    <main class="flex-1 container-tool py-8 sm:py-12">
+        <nav class="flex items-center gap-2 text-sm md:text-sm text-slate-500 dark:text-slate-400 mb-6">
             <a href="/" class="hover:text-primary transition-colors">홈</a>
             <span>/</span>
             <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
@@ -71,7 +71,7 @@
         <div id="test-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
             <!-- 1. INTRO VIEW -->
             <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 dark:bg-pink-950/60 text-pink-800 dark:text-pink-300 text-xs md:text-sm font-bold mb-5 border border-pink-200 dark:border-pink-800">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 dark:bg-pink-950/60 text-pink-800 dark:text-pink-300 text-sm md:text-sm font-bold mb-5 border border-pink-200 dark:border-pink-800">
                     <span>❤️ 볼비 &amp; 에인스워스 애착 이론</span>
                     <span>•</span>
                     <span>소요 시간 1분 30초</span>
@@ -87,17 +87,17 @@
                 <div class="grid grid-cols-3 gap-3 mb-8 text-left">
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">💌</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">문항 수</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">📊</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">결과 제공</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">애착 카드</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">💖</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">연애 궁합</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">연애 궁합</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">케미 매칭</div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
             <!-- 2. QUIZ VIEW -->
             <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
                 <div class="mb-8">
-                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                    <div class="flex justify-between items-center text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
                         <span id="quiz-question-number" class="text-pink-600 dark:text-pink-400 text-sm">Q1.</span>
                         <span id="quiz-progress-text">1 / 8</span>
                     </div>
@@ -123,7 +123,7 @@
                     <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
                         질문 내용
                     </h2>
-                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                    <p id="quiz-question-context" class="text-sm md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
                 </div>
 
                 <div id="quiz-options-container" class="space-y-3 transition-all duration-200"></div>
@@ -148,7 +148,7 @@
                     <div class="size-24 rounded-3xl bg-gradient-to-br from-pink-500 to-rose-700 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-pink-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
                         ⚓
                     </div>
-                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 mb-2">
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-sm font-extrabold bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 mb-2">
                         신뢰 지수 200%
                     </span>
                     <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
@@ -167,13 +167,13 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
-                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>✨</span> 나의 연애 강점
                         </h4>
                         <ul id="result-strengths" class="space-y-2"></ul>
                     </div>
                     <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
-                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>⚠️</span> 주의해야 할 연애 함정
                         </h4>
                         <ul id="result-cautions" class="space-y-2"></ul>
@@ -203,7 +203,7 @@
                             <span>링크 복사</span>
                         </button>
                     </div>
-                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-pink-600 transition-colors underline cursor-pointer">
+                    <button id="restart-test-btn" class="text-sm text-slate-500 dark:text-slate-400 hover:text-pink-600 transition-colors underline cursor-pointer">
                         처음부터 다시 테스트하기 ↺
                     </button>
                 </div>
@@ -220,19 +220,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-8">
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-sm text-pink-600 dark:text-pink-400 mb-1">⚓ 안정형 (Secure): 낮은 불안 + 낮은 회피</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">나 자신도 가치 있고 상대도 신뢰할 수 있다고 믿습니다. 친밀함을 편안하게 누리고 갈등을 성숙한 대화로 해결합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">나 자신도 가치 있고 상대도 신뢰할 수 있다고 믿습니다. 친밀함을 편안하게 누리고 갈등을 성숙한 대화로 해결합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-pink-600 dark:text-pink-400 text-sm mb-1">🌊 불안형 (Anxious): 높은 불안 + 낮은 회피</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">상대방의 사소한 반응에도 거절과 이별을 두려워하며, 끊임없는 확인과 연락을 통해 안정감을 갈구합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">상대방의 사소한 반응에도 거절과 이별을 두려워하며, 끊임없는 확인과 연락을 통해 안정감을 갈구합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-pink-600 dark:text-pink-400 text-sm mb-1">🦔 거부회피형 (Avoidant): 낮은 불안 + 높은 회피</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">친밀감이 깊어질수록 자율성을 뺏길까 두려워 거리를 둡니다. "난 아무도 필요 없어"라며 독립성을 방패 삼습니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">친밀감이 깊어질수록 자율성을 뺏길까 두려워 거리를 둡니다. "난 아무도 필요 없어"라며 독립성을 방패 삼습니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-pink-600 dark:text-pink-400 text-sm mb-1">🦋 공포혼란형 (Fearful): 높은 불안 + 높은 회피</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">사랑받고 싶은 갈망이 크지만, 상대가 다가오면 상처받을까 봐 공포를 느껴 먼저 도망치는 모순을 겪습니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">사랑받고 싶은 갈망이 크지만, 상대가 다가오면 상처받을까 봐 공포를 느껴 먼저 도망치는 모순을 겪습니다.</p>
                 </div>
             </div>
 
@@ -243,7 +243,7 @@
                         <span>불안형이나 회피형 애착도 안정형으로 바뀔 수 있나요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         네, 이를 '획득된 안정 애착(Earned Security)'이라 합니다. 자신의 무의식적 방어 기제를 자각하고, 정서적으로 성숙하고 일관된 안정형 파트너와의 교감을 통해 서서히 건강하게 변화할 수 있습니다.
                     </p>
                 </details>

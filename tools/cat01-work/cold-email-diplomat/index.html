@@ -127,7 +127,7 @@
 
     <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col gap-8">
         <div class="text-center flex flex-col items-center gap-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/70 border border-blue-300 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-bold">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/70 border border-blue-300 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-sm font-bold">
                 <span>💼 K-직장인 생존 키트</span>
                 <span>•</span>
                 <span>CAT-01 No.08</span>
@@ -149,8 +149,8 @@
                 </h3>
 
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500">목적 (Scenario)</label>
-                    <select id="scenario-select" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                    <label class="text-sm font-bold text-slate-500">목적 (Scenario)</label>
+                    <select id="scenario-select" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
                         <option value="followup">Follow-up (답장 재촉 및 리마인드)</option>
                         <option value="rejection">Rejection (제안 정중 거절)</option>
                         <option value="delay">Rescheduling (납기/일정 연기 요청)</option>
@@ -159,22 +159,22 @@
                 </div>
 
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500">수신자 이름 (Recipient Name)</label>
-                    <input type="text" id="recipient-name" value="Alex" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                    <label class="text-sm font-bold text-slate-500">수신자 이름 (Recipient Name)</label>
+                    <input type="text" id="recipient-name" value="Alex" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
                 </div>
 
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500">프로젝트/안건명 (Project Name)</label>
-                    <input type="text" id="project-name" value="Q3 Integration API" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                    <label class="text-sm font-bold text-slate-500">프로젝트/안건명 (Project Name)</label>
+                    <input type="text" id="project-name" value="Q3 Integration API" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
                 </div>
 
                 <div class="flex flex-col gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <div class="flex justify-between items-center text-xs font-bold">
+                    <div class="flex justify-between items-center text-sm font-bold">
                         <span>분노 / 단호함 레벨:</span>
                         <span id="level-display" class="text-primary">Lv 2: Standard</span>
                     </div>
                     <input type="range" id="tone-slider" min="1" max="4" value="2" step="1" class="w-full accent-primary cursor-pointer">
-                    <div class="flex justify-between text-[10px] text-slate-400 font-semibold">
+                    <div class="flex justify-between text-sm text-slate-400 font-semibold">
                         <span>Lv 1. Polite</span>
                         <span>Lv 2. Business</span>
                         <span>Lv 3. Firm</span>
@@ -186,18 +186,18 @@
             <!-- Right: Generated Email Preview -->
             <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4 font-mono">
                 <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-                    <div class="text-xs text-slate-500 font-bold">
+                    <div class="text-sm text-slate-500 font-bold">
                         Subject: <span id="email-subject" class="text-slate-900 dark:text-white">Quick follow-up on Q3 Integration API</span>
                     </div>
-                    <button id="copy-email-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold flex items-center gap-1 cursor-pointer font-sans">
+                    <button id="copy-email-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold flex items-center gap-1 cursor-pointer font-sans">
                         <span class="material-symbols-outlined text-sm">content_copy</span>
                         <span id="copy-email-text">메일 복사</span>
                     </button>
                 </div>
 
-                <textarea id="email-body" rows="11" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs leading-relaxed text-slate-800 dark:text-slate-200 focus:outline-none" readonly></textarea>
+                <textarea id="email-body" rows="11" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm leading-relaxed text-slate-800 dark:text-slate-200 focus:outline-none" readonly></textarea>
 
-                <div id="email-tip" class="text-xs text-slate-500 font-sans p-3 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900/60">
+                <div id="email-tip" class="text-sm text-slate-500 font-sans p-3 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900/60">
                     💡 <strong>비즈니스 팁:</strong> "Per my last email"은 영미권 오피스에서 '내가 지난 메일에 다 써놨는데 너 안 읽었지?'라는 뜻의 품격 있는 분노 표현입니다.
                 </div>
             </div>
@@ -209,13 +209,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">글로벌</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">글로벌</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>✉️</span> <span>글로벌 콜드메일 외교관 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 해외 바이어 및 파트너사에게 답장을 부르는 프로페셔널 영문 제휴 이메일 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -259,15 +259,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '글로벌 콜드메일 외교관' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '글로벌 콜드메일 외교관' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

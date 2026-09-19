@@ -59,9 +59,9 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
     <div id="header-placeholder"></div>
 
-    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    <main class="flex-1 container-tool py-8 sm:py-12">
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+        <nav class="flex items-center gap-2 text-sm md:text-sm text-slate-500 dark:text-slate-400 mb-6">
             <a href="/" class="hover:text-primary transition-colors">홈</a>
             <span>/</span>
             <a href="/#tests" class="hover:text-primary transition-colors">바이럴 &amp; 심리 테스트</a>
@@ -74,7 +74,7 @@
 
             <!-- 1. INTRO VIEW -->
             <div id="test-intro-section" class="text-center py-6 md:py-10 max-w-xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs md:text-sm font-bold mb-5 border border-sky-200 dark:border-sky-800">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-sm md:text-sm font-bold mb-5 border border-sky-200 dark:border-sky-800">
                     <span>💼 오피스 생존력 진단</span>
                     <span>•</span>
                     <span>소요 시간 1분 30초</span>
@@ -91,17 +91,17 @@
                 <div class="grid grid-cols-3 gap-3 mb-8 text-left">
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">📊</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">문항 수</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">문항 수</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">총 8문항</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">🎨</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">결과 제공</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">결과 제공</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">인스타 카드</div>
                     </div>
                     <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
                         <span class="text-2xl mb-1 block">⚡</span>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">참여 비용</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">참여 비용</div>
                         <div class="text-sm font-bold text-slate-800 dark:text-slate-200">100% 무료</div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
             <div id="test-quiz-section" class="hidden max-w-2xl mx-auto py-4">
                 <!-- Progress Header -->
                 <div class="mb-8">
-                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">
+                    <div class="flex justify-between items-center text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
                         <span id="quiz-question-number" class="text-primary text-sm">Q1.</span>
                         <span id="quiz-progress-text">1 / 8</span>
                     </div>
@@ -129,7 +129,7 @@
                     <h2 id="quiz-question-title" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
                         질문 내용이 여기에 표시됩니다.
                     </h2>
-                    <p id="quiz-question-context" class="text-xs md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
+                    <p id="quiz-question-context" class="text-sm md:text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-xl border border-slate-100 dark:border-slate-800 hidden"></p>
                 </div>
 
                 <!-- Options -->
@@ -158,7 +158,7 @@
                     <div class="size-24 rounded-3xl bg-gradient-to-br from-sky-400 to-indigo-600 mx-auto flex items-center justify-center text-5xl shadow-xl shadow-sky-500/20 mb-4 transform hover:scale-105 transition-transform" id="result-emoji">
                         ⚡
                     </div>
-                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-xs font-extrabold bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 mb-2">
+                    <span id="result-badge" class="inline-block px-4 py-1 rounded-full text-sm font-extrabold bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 mb-2">
                         생존력 99% / 정시퇴근 수호자
                     </span>
                     <h2 id="result-title" class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
@@ -183,13 +183,13 @@
                 <!-- Strengths & Cautions -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="p-5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
-                        <h4 class="text-xs font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-emerald-800 dark:text-emerald-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>✨</span> 나의 오피스 강점
                         </h4>
                         <ul id="result-strengths" class="space-y-2"></ul>
                     </div>
                     <div class="p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40">
-                        <h4 class="text-xs font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
+                        <h4 class="text-sm font-extrabold text-amber-800 dark:text-amber-300 uppercase mb-3 flex items-center gap-1.5">
                             <span>⚠️</span> 주의해야 할 멘탈 함정
                         </h4>
                         <ul id="result-cautions" class="space-y-2"></ul>
@@ -222,7 +222,7 @@
                             <span>링크 복사</span>
                         </button>
                     </div>
-                    <button id="restart-test-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
+                    <button id="restart-test-btn" class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
                         처음부터 다시 테스트하기 ↺
                     </button>
                 </div>
@@ -240,15 +240,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-sm text-primary mb-1">① 통제감 상실 (Learned Helplessness)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">내 노력과 무관하게 갑작스러운 야근 지시나 일정 변경이 반복될 때, 뇌는 스트레스에 대한 방어 기제를 포기하고 무기력 상태에 빠집니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">내 노력과 무관하게 갑작스러운 야근 지시나 일정 변경이 반복될 때, 뇌는 스트레스에 대한 방어 기제를 포기하고 무기력 상태에 빠집니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-primary text-sm mb-1">② 감정 노동과 가면성 증후군</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">자신의 본래 감정과 회사에서 요구되는 페르소나 사이의 괴리가 커질수록 '내가 언제 무능함을 들킬지 모른다'는 만성 불안이 형성됩니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">자신의 본래 감정과 회사에서 요구되는 페르소나 사이의 괴리가 커질수록 '내가 언제 무능함을 들킬지 모른다'는 만성 불안이 형성됩니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-primary text-sm mb-1">③ 디지털 알림 피로 (Hyper-Connected)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">퇴근 후에도 울리는 메신저 알림은 투쟁-도피(Fight or Flight) 반응을 지속 유발하여 교감신경의 정상적인 야간 이완을 방해합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">퇴근 후에도 울리는 메신저 알림은 투쟁-도피(Fight or Flight) 반응을 지속 유발하여 교감신경의 정상적인 야간 이완을 방해합니다.</p>
                 </div>
             </div>
 
@@ -256,11 +256,11 @@
             <div class="space-y-4 not-prose mb-8">
                 <div class="p-4 rounded-xl bg-sky-50/50 dark:bg-sky-950/20 border-l-4 border-primary">
                     <h4 class="font-bold text-sm text-slate-900 dark:text-white">⚡ 칼퇴 연금술사를 위한 조언: 유연한 소통의 윤활유</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">업무 경계선이 명확한 것은 훌륭한 자산이지만, 사내 동료들과의 가벼운 스몰토크는 예상치 못한 위기 상황에서 강력한 지지대가 되어줍니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">업무 경계선이 명확한 것은 훌륭한 자산이지만, 사내 동료들과의 가벼운 스몰토크는 예상치 못한 위기 상황에서 강력한 지지대가 되어줍니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 border-l-4 border-indigo-500">
                     <h4 class="font-bold text-sm text-slate-900 dark:text-white">🛡️ 유리멘탈 프로텍터를 위한 조언: 피드백의 대상 분리하기</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">'문서에 대한 비판'과 '나의 존재 가치'를 분리하세요. 보고서의 붉은 펜은 결과물을 다듬는 도구일 뿐, 당신의 인격이나 역량을 부정하는 것이 아닙니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">'문서에 대한 비판'과 '나의 존재 가치'를 분리하세요. 보고서의 붉은 펜은 결과물을 다듬는 도구일 뿐, 당신의 인격이나 역량을 부정하는 것이 아닙니다.</p>
                 </div>
             </div>
 
@@ -272,7 +272,7 @@
                         <span>직장인 생존 유형 테스트 결과는 어떻게 도출되나요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         8가지의 복합 오피스 딜레마 상황에서 사용자가 선택한 방어 기제(효율 지향, 공감 완벽주의, 돌파형 멘탈, 사교형 소통)의 가중치를 종합 계산하여 가장 지배적인 오피스 페르소나로 매핑됩니다.
                     </p>
                 </details>
@@ -282,7 +282,7 @@
                         <summary class="hidden"></summary>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         '인스타 카드 저장' 버튼을 누르면 서버 전송 없이 사용자의 웹 브라우저 내 HTML5 Canvas 엔진이 4:5 고해상도(1080x1350) 그래픽 카드를 즉시 렌더링하여 PNG 이미지로 다운로드해 드립니다.
                     </p>
                 </details>

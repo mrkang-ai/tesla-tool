@@ -352,9 +352,9 @@ function setupCustomizer() {
             initAudio();
             currentSwitch = key;
             Object.keys(switches).forEach(k => {
-                switches[k].className = "py-2 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted dark:text-slate-300 transition-all";
+                switches[k].className = "py-2 text-sm font-bold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted dark:text-slate-300 transition-all";
             });
-            switches[key].className = "py-2 text-xs font-bold rounded-lg border border-sky-200 dark:border-sky-900 bg-sky-50 dark:bg-sky-950/40 text-primary transition-all";
+            switches[key].className = "py-2 text-sm font-bold rounded-lg border border-sky-200 dark:border-sky-900 bg-sky-50 dark:bg-sky-950/40 text-primary transition-all";
             playSwitchSound(currentSwitch);
         });
     });
@@ -468,8 +468,8 @@ function setupTypingChallenge() {
         freePlayBox.classList.remove('hidden');
         practiceBox.classList.add('hidden');
 
-        modeFreeBtn.className = "px-4 py-2 rounded-xl text-xs font-extrabold bg-primary text-white shadow-md transition-all select-none";
-        modePracticeBtn.className = "px-4 py-2 rounded-xl text-xs font-extrabold bg-slate-100 dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all select-none";
+        modeFreeBtn.className = "px-4 py-2 rounded-xl text-sm font-extrabold bg-primary text-white shadow-md transition-all select-none";
+        modePracticeBtn.className = "px-4 py-2 rounded-xl text-sm font-extrabold bg-slate-100 dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all select-none";
     });
 
     modePracticeBtn.addEventListener('click', () => {
@@ -477,8 +477,8 @@ function setupTypingChallenge() {
         freePlayBox.classList.add('hidden');
         practiceBox.classList.remove('hidden');
 
-        modePracticeBtn.className = "px-4 py-2 rounded-xl text-xs font-extrabold bg-primary text-white shadow-md transition-all select-none";
-        modeFreeBtn.className = "px-4 py-2 rounded-xl text-xs font-extrabold bg-slate-100 dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all select-none";
+        modePracticeBtn.className = "px-4 py-2 rounded-xl text-sm font-extrabold bg-primary text-white shadow-md transition-all select-none";
+        modeFreeBtn.className = "px-4 py-2 rounded-xl text-sm font-extrabold bg-slate-100 dark:bg-slate-800 text-text-muted dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all select-none";
 
         resetChallenge();
     });

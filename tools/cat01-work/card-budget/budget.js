@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentItems.forEach((item, idx) => {
             const chip = document.createElement('div');
-            chip.className = `px-3 py-1.5 rounded-xl border text-xs font-bold cursor-pointer transition-all flex items-center gap-1.5 ${
+            chip.className = `px-3 py-1.5 rounded-xl border text-sm font-bold cursor-pointer transition-all flex items-center gap-1.5 ${
                 item.active 
                     ? 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-300 dark:border-slate-700 hover:border-rose-400' 
                     : 'bg-slate-50 dark:bg-slate-900/50 text-slate-400 line-through border-slate-200 dark:border-slate-800'
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCombos(combos, budget) {
         combosContainer.innerHTML = '';
         if (combos.length === 0) {
-            combosContainer.innerHTML = '<div class="p-6 text-center text-xs text-slate-400">설정하신 예산 한도 내에서 가능한 메뉴 조합이 없습니다. 한도를 늘리거나 저렴한 메뉴를 추가하세요.</div>';
+            combosContainer.innerHTML = '<div class="p-6 text-center text-sm text-slate-400">설정하신 예산 한도 내에서 가능한 메뉴 조합이 없습니다. 한도를 늘리거나 저렴한 메뉴를 추가하세요.</div>';
             return;
         }
 
@@ -120,14 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = `p-4 sm:p-5 rounded-2xl border ${cardBorder} flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all`;
             card.innerHTML = `
                 <div class="flex items-start gap-3">
-                    <div class="w-7 h-7 rounded-lg ${badgeClass} font-black text-xs flex items-center justify-center flex-shrink-0">
+                    <div class="w-7 h-7 rounded-lg ${badgeClass} font-black text-sm flex items-center justify-center flex-shrink-0">
                         #${rank + 1}
                     </div>
                     <div>
                         <div class="flex flex-wrap items-center gap-1.5 mb-1">
-                            ${c.items.map(it => `<span class="px-2.5 py-0.5 rounded-lg bg-white dark:bg-slate-800 text-xs font-bold border border-slate-200 dark:border-slate-700 shadow-sm">${it.name} (₩${it.price.toLocaleString()})</span>`).join('')}
+                            ${c.items.map(it => `<span class="px-2.5 py-0.5 rounded-lg bg-white dark:bg-slate-800 text-sm font-bold border border-slate-200 dark:border-slate-700 shadow-sm">${it.name} (₩${it.price.toLocaleString()})</span>`).join('')}
                         </div>
-                        <div class="text-xs text-slate-500">총 ${c.items.length}개 메뉴 선택</div>
+                        <div class="text-sm text-slate-500">총 ${c.items.length}개 메뉴 선택</div>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="text-sm font-black font-mono text-slate-900 dark:text-white">
                         ₩ ${c.total.toLocaleString()}
                     </div>
-                    <div class="text-xs font-bold ${isZero ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500'}">
+                    <div class="text-sm font-bold ${isZero ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500'}">
                         ${isZero ? '🎉 잔액 0원! (완벽한 법카 털기)' : `잔액: ₩ ${c.remaining.toLocaleString()} 남음`}
                     </div>
                 </div>

@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderDrinks() {
     drinkList.innerHTML = drinks.map((d, idx) => `
-      <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-slate-700 text-xs">
+      <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-slate-700 text-sm">
         <div>
           <span class="font-semibold text-slate-200 block">${d.name}</span>
-          <span class="text-[10px] text-amber-400 font-mono">${d.mg} mg</span>
+          <span class="text-sm text-amber-400 font-mono">${d.mg} mg</span>
         </div>
         <div class="flex items-center gap-2">
           <button data-idx="${idx}" class="minus-btn w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold">-</button>
@@ -72,25 +72,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (totalMg <= 200) {
       caffeineBar.className = "bg-emerald-500 h-full transition-all duration-300";
-      dangerZoneBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold";
+      dangerZoneBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-sm font-bold";
       dangerZoneBadge.textContent = "상태: 안전 각성존";
       symptomText.textContent = "• 집중력과 두뇌 회전이 쾌적하게 유지되는 이상적인 벼락치기 구간입니다.";
       peakHours.textContent = "약 3~4 시간";
     } else if (totalMg <= 400) {
       caffeineBar.className = "bg-yellow-500 h-full transition-all duration-300";
-      dangerZoneBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold";
+      dangerZoneBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-sm font-bold";
       dangerZoneBadge.textContent = "상태: 주의 각성존";
       symptomText.textContent = "• 경미한 심박수 증가와 가벼운 이뇨 작용이 시작됩니다. 물을 충분히 섭취하세요.";
       peakHours.textContent = "약 5~6 시간";
     } else if (totalMg <= 600) {
       caffeineBar.className = "bg-orange-500 h-full transition-all duration-300";
-      dangerZoneBadge.className = "px-3 py-1 bg-orange-500/20 text-orange-300 border border-orange-500/30 rounded-full text-xs font-bold";
+      dangerZoneBadge.className = "px-3 py-1 bg-orange-500/20 text-orange-300 border border-orange-500/30 rounded-full text-sm font-bold";
       dangerZoneBadge.textContent = "상태: 위험 (손떨림 구간)";
       symptomText.textContent = "• 손떨림, 동공 확대, 안구 건조, 두통 및 위산 역류 위험이 있습니다. 추가 카페인 섭취를 즉시 멈추세요!";
       peakHours.textContent = "약 7~8 시간";
     } else {
       caffeineBar.className = "bg-rose-500 h-full transition-all duration-300";
-      dangerZoneBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold animate-pulse";
+      dangerZoneBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-sm font-bold animate-pulse";
       dangerZoneBadge.textContent = "상태: 심장 폭주 (즉시 중단)";
       symptomText.textContent = "• 극심한 심장 두근거림 및 공황 불안 유발 가능! 시험 망치기 직전입니다. 즉시 물 1리터를 마시고 휴식을 취하십시오.";
       peakHours.textContent = "10시간 이상 지속";

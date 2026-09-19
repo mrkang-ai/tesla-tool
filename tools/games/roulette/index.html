@@ -60,7 +60,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
             
             <!-- Page Title -->
             <header class="text-center py-8">
@@ -87,7 +87,7 @@
                             <!-- Center SPIN Button (Overlay) -->
                             <button id="spin-btn" style="width: 72px; height: 72px;" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm shadow-xl border-4 border-white dark:border-slate-800 hover:scale-105 active:scale-95 transition-all cursor-pointer z-10 select-none flex flex-col items-center justify-center gap-0.5">
                                 <span class="material-symbols-outlined text-base leading-none">refresh</span>
-                                <span class="text-[10px] tracking-wider font-extrabold uppercase" data-lang-ko="돌리기" data-lang-en="SPIN">Spin</span>
+                                <span class="text-sm tracking-wider font-extrabold uppercase" data-lang-ko="돌리기" data-lang-en="SPIN">Spin</span>
                             </button>
                         </div>
 
@@ -109,15 +109,15 @@
                             <span data-lang-ko="추천 퀵 프리셋" data-lang-en="Decision Presets">추천 퀵 프리셋</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <button id="preset-lunch" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
+                            <button id="preset-lunch" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
                                 <span>🍲</span>
                                 <span data-lang-ko="오늘 점심" data-lang-en="Lunch Menu">오늘 점심</span>
                             </button>
-                            <button id="preset-penalty" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
+                            <button id="preset-penalty" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
                                 <span>☕</span>
                                 <span data-lang-ko="내기 벌칙" data-lang-en="Bet Penalty">내기 벌칙</span>
                             </button>
-                            <button id="preset-truth" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
+                            <button id="preset-truth" class="h-10 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-bold text-text-muted hover:text-primary dark:text-slate-300 transition-all cursor-pointer flex items-center gap-1">
                                 <span>🃏</span>
                                 <span data-lang-ko="진실 게임" data-lang-en="Truth or Dare">진실 게임</span>
                             </button>
@@ -131,7 +131,7 @@
                                 <span class="material-symbols-outlined text-primary text-lg">edit_note</span>
                                 <span data-lang-ko="원판 항목 편집" data-lang-en="Edit Wedges">원판 항목 편집</span>
                             </h3>
-                            <button id="add-option-btn" class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1">
+                            <button id="add-option-btn" class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-extrabold text-sm transition-all cursor-pointer flex items-center gap-1">
                                 <span class="material-symbols-outlined text-sm">add</span>
                                 <span data-lang-ko="항목 추가" data-lang-en="Add Choice">항목 추가</span>
                             </button>
@@ -152,7 +152,7 @@
                         
                         <!-- Spin Duration -->
                         <div class="space-y-1.5">
-                            <div class="flex items-center justify-between text-xs font-bold">
+                            <div class="flex items-center justify-between text-sm font-bold">
                                 <span class="text-text-muted dark:text-slate-400" data-lang-ko="회전 시간 설정" data-lang-en="Rotation Duration">회전 시간 설정</span>
                                 <span id="duration-display" class="text-primary">4s</span>
                             </div>
@@ -161,7 +161,7 @@
 
                         <!-- Sound Toggle -->
                         <div class="flex items-center justify-between pt-2">
-                            <span class="text-xs font-bold text-text-muted dark:text-slate-400" data-lang-ko="클릭 효과음 켜기" data-lang-en="Enable Sound Effects">클릭 효과음 켜기</span>
+                            <span class="text-sm font-bold text-text-muted dark:text-slate-400" data-lang-ko="클릭 효과음 켜기" data-lang-en="Enable Sound Effects">클릭 효과음 켜기</span>
                             <label class="relative inline-flex items-center cursor-pointer select-none">
                                 <input type="checkbox" id="sound-toggle" checked class="sr-only peer">
                                 <div class="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:height-4 after:width-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
@@ -176,9 +176,9 @@
             <!-- Guide Link Banner -->
             <div class="w-full mt-10 bg-gradient-to-r from-purple-500/10 via-primary/10 to-pink-500/10 dark:from-purple-950/40 dark:via-pink-950/40 dark:to-slate-900 border border-purple-200/60 dark:border-purple-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
-                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">인지심리학 가이드</span>
+                    <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300">인지심리학 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학" data-lang-en="Psychology of Random Decision Tools & Decision Fatigue">결정 피로(Decision Fatigue)를 줄이는 랜덤 의사결정 도구의 심리학</h3>
-                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요." data-lang-en="Explore how random wheels bypass analysis paralysis and help uncover your true subconscious preferences.">하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요.</p>
+                    <p class="text-sm md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요." data-lang-en="Explore how random wheels bypass analysis paralysis and help uncover your true subconscious preferences.">하루 35,000번의 선택에 지친 뇌를 구원하는 무작위 룰렛과 동전 던지기 뒤에 숨겨진 무의식 심리학을 확인하세요.</p>
                 </div>
                 <a href="/guides/decision-making-tools.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
@@ -189,7 +189,7 @@
             <!-- Bottom: Decisions Psychology Article -->
             <section class="w-full mt-10 border-t border-slate-200/60 dark:border-slate-800/80 pt-10">
                 <header class="text-center mb-10">
-                    <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/30 text-primary text-xs font-bold tracking-wide uppercase" data-lang-ko="심리학 및 결정 과학" data-lang-en="Decision Psychology">심리학 및 결정 과학</span>
+                    <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/30 text-primary text-sm font-bold tracking-wide uppercase" data-lang-ko="심리학 및 결정 과학" data-lang-en="Decision Psychology">심리학 및 결정 과학</span>
                     <h2 class="text-3xl font-extrabold text-text-main dark:text-white mt-2" data-lang-ko="💡 결정 장애(결정 피로)를 현명하게 극복하는 법" data-lang-en="💡 The Science of Overcoming Decision Fatigue">💡 결정 장애(결정 피로)를 현명하게 극복하는 법</h2>
                     <p class="text-text-muted dark:text-slate-400 text-sm mt-1" data-lang-ko="오늘 점심 고르기가 힘들었던 것은 당신 잘못이 아닙니다. 뇌과학적인 과학 법칙이 숨어있습니다!" data-lang-en="Struggling to pick what to eat? It's not your fault—it's cognitive science!">오늘 점심 고르기가 힘들었던 것은 당신 잘못이 아닙니다. 뇌과학적인 과학 법칙이 숨어있습니다!</p>
                 </header>
@@ -201,7 +201,7 @@
                             <span class="material-symbols-outlined">psychology</span>
                         </div>
                         <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="📊 선택의 패러독스 & 분석 마비" data-lang-en="📊 The Paradox of Choice">📊 선택의 패러독스 & 분석 마비</h3>
-                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="선택지가 많아질수록 뇌는 최적의 답을 찾기 위해 과도한 에너지를 씁니다. 이를 '분석 마비(Analysis Paralysis)'라고 부르며, 결국 결정하는 힘인 '의지력'을 고갈시킵니다." data-lang-en="Having too many choices drains cognitive energy, leading to Analysis Paralysis. As options increase, decision making becomes exhausting rather than liberating.">선택지가 많아질수록 뇌는 최적의 답을 찾기 위해 과도한 에너지를 씁니다. 이를 '분석 마비(Analysis Paralysis)'라고 부르며, 결국 결정하는 힘인 '의지력'을 고갈시킵니다.</p>
+                        <p class="text-text-muted dark:text-slate-400 text-sm font-medium leading-relaxed" data-lang-ko="선택지가 많아질수록 뇌는 최적의 답을 찾기 위해 과도한 에너지를 씁니다. 이를 '분석 마비(Analysis Paralysis)'라고 부르며, 결국 결정하는 힘인 '의지력'을 고갈시킵니다." data-lang-en="Having too many choices drains cognitive energy, leading to Analysis Paralysis. As options increase, decision making becomes exhausting rather than liberating.">선택지가 많아질수록 뇌는 최적의 답을 찾기 위해 과도한 에너지를 씁니다. 이를 '분석 마비(Analysis Paralysis)'라고 부르며, 결국 결정하는 힘인 '의지력'을 고갈시킵니다.</p>
                     </div>
 
                     <!-- Card 2 -->
@@ -210,7 +210,7 @@
                             <span class="material-symbols-outlined">shuffle</span>
                         </div>
                         <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="🎲 무작위 추첨이 주는 뇌의 안도감" data-lang-en="🎲 Random Relief & Brain Freedom">🎲 무작위 추첨이 주는 뇌의 안도감</h3>
-                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="원판 돌리기 같은 랜덤 위젯에 선택 권한을 위임하면, 뇌는 불필요한 비교 행위를 멈춥니다. 결정을 내린 책임이 원판에 있다는 심리적 안도감이 스트레스를 즉시 해소해 줍니다." data-lang-en="Handing choices to a random wheel stops the brain from endless comparisons. Delegating responsibility to an algorithm removes pressure and relieves instant mental stress.">원판 돌리기 같은 랜덤 위젯에 선택 권한을 위임하면, 뇌는 불필요한 비교 행위를 멈춥니다. 결정을 내린 책임이 원판에 있다는 심리적 안도감이 스트레스를 즉시 해소해 줍니다.</p>
+                        <p class="text-text-muted dark:text-slate-400 text-sm font-medium leading-relaxed" data-lang-ko="원판 돌리기 같은 랜덤 위젯에 선택 권한을 위임하면, 뇌는 불필요한 비교 행위를 멈춥니다. 결정을 내린 책임이 원판에 있다는 심리적 안도감이 스트레스를 즉시 해소해 줍니다." data-lang-en="Handing choices to a random wheel stops the brain from endless comparisons. Delegating responsibility to an algorithm removes pressure and relieves instant mental stress.">원판 돌리기 같은 랜덤 위젯에 선택 권한을 위임하면, 뇌는 불필요한 비교 행위를 멈춥니다. 결정을 내린 책임이 원판에 있다는 심리적 안도감이 스트레스를 즉시 해소해 줍니다.</p>
                     </div>
 
                     <!-- Card 3 -->
@@ -219,7 +219,7 @@
                             <span class="material-symbols-outlined">lightbulb</span>
                         </div>
                         <h3 class="text-lg font-bold text-text-main dark:text-white mb-2" data-lang-ko="🎯 동전 던지기 뒤에 숨겨진 진실" data-lang-en="🎯 The Coin Toss Revelation">🎯 동전 던지기 뒤에 숨겨진 진실</h3>
-                        <p class="text-text-muted dark:text-slate-400 text-xs font-medium leading-relaxed" data-lang-ko="원판이 돌아가는 동안, 우리는 마음속으로 특정 결과가 나오기를 원하게 됩니다. 룰렛이 당첨된 직후 '아쉬움'이나 '안도감'을 느끼는 것을 통해 본인의 '진짜 무의식 속 속마음'을 깨닫게 됩니다." data-lang-en="While the wheel spins, you subconsiously root for a specific wedge. The relief or disappointment you feel when the wheel stops reveals what you truly wanted all along.">원판이 돌아가는 동안, 우리는 마음속으로 특정 결과가 나오기를 원하게 됩니다. 룰렛이 당첨된 직후 '아쉬움'이나 '안도감'을 느끼는 것을 통해 본인의 '진짜 무의식 속 속마음'을 깨닫게 됩니다.</p>
+                        <p class="text-text-muted dark:text-slate-400 text-sm font-medium leading-relaxed" data-lang-ko="원판이 돌아가는 동안, 우리는 마음속으로 특정 결과가 나오기를 원하게 됩니다. 룰렛이 당첨된 직후 '아쉬움'이나 '안도감'을 느끼는 것을 통해 본인의 '진짜 무의식 속 속마음'을 깨닫게 됩니다." data-lang-en="While the wheel spins, you subconsiously root for a specific wedge. The relief or disappointment you feel when the wheel stops reveals what you truly wanted all along.">원판이 돌아가는 동안, 우리는 마음속으로 특정 결과가 나오기를 원하게 됩니다. 룰렛이 당첨된 직후 '아쉬움'이나 '안도감'을 느끼는 것을 통해 본인의 '진짜 무의식 속 속마음'을 깨닫게 됩니다.</p>
                     </div>
                 </div>
 
@@ -229,7 +229,7 @@
                         <span class="material-symbols-outlined">fact_check</span>
                         <span data-lang-ko="💡 일상의 의사결정을 가볍게 만드는 3단계 공식" data-lang-en="💡 3 Steps to Streamline Daily Choices">💡 일상의 의사결정을 가볍게 만드는 3단계 공식</span>
                     </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs leading-relaxed text-slate-700 dark:text-slate-300 font-bold">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300 font-bold">
                         <div>
                             <p class="text-purple-600 dark:text-purple-400 font-extrabold mb-1" data-lang-ko="1. 옵션을 5개 이하로 압축" data-lang-en="1. Limit Options to 5 or Less">1. 옵션을 5개 이하로 압축</p>
                             <p data-lang-ko="후보군이 너무 많다면, 먼저 떠오르는 4-5개 품목으로 리스트를 쳐내세요. 선택지가 좁을수록 뇌의 의지력 소모가 적어져 당첨 결과에 대한 승복도 빨라집니다." data-lang-en="If there are too many options, filter them down to 4 or 5 immediately. Restricting candidates lowers cognitive friction and increases satisfaction.">후보군이 너무 많다면, 먼저 떠오르는 4-5개 품목으로 리스트를 쳐내세요. 선택지가 좁을수록 뇌의 의지력 소모가 적어져 당첨 결과에 대한 승복도 빨라집니다.</p>
@@ -250,7 +250,7 @@
                     <h3 class="text-lg font-bold text-text-main dark:text-white mb-4 flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-xl">help</span> 자주 묻는 질문 (FAQ)
                     </h3>
-                    <div class="space-y-3 text-xs">
+                    <div class="space-y-3 text-sm">
                         <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800">
                             <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 원판의 각 항목이 당첨될 확률은 완벽하게 공평한가요?</h4>
                             <p class="text-text-muted dark:text-slate-400">네, 원판은 등록된 항목의 개수(N)에 따라 360도를 정확히 N등분하여 각 섹터의 면적을 균등하게 배정하며, 난수 각도를 회전시켜 100% 공평한 기댓값을 보장합니다.</p>

@@ -60,7 +60,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 mx-auto">
             
             <!-- Page Title -->
             <div class="text-center py-4">
@@ -79,15 +79,15 @@
                 <!-- Stats HUD -->
                 <div class="flex justify-between items-center mb-4 bg-slate-50 dark:bg-slate-900/40 p-3 rounded-xl border border-slate-100/50 dark:border-slate-800/80">
                     <div class="text-center">
-                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="점수" data-lang-en="Score">점수</span>
+                        <span class="text-sm font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="점수" data-lang-en="Score">점수</span>
                         <span id="score-display" class="text-2xl font-black text-primary">0</span>
                     </div>
                     <div class="text-center">
-                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="최고 점수" data-lang-en="High Score">최고 점수</span>
+                        <span class="text-sm font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="최고 점수" data-lang-en="High Score">최고 점수</span>
                         <span id="highscore-display" class="text-2xl font-black text-slate-500 dark:text-slate-400">0</span>
                     </div>
                     <div class="text-center">
-                        <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="콤보" data-lang-en="Combo">콤보</span>
+                        <span class="text-sm font-bold text-text-muted uppercase tracking-wider block" data-lang-ko="콤보" data-lang-en="Combo">콤보</span>
                         <span id="combo-display" class="text-2xl font-black text-violet-500">0</span>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <h3 class="text-2xl font-black text-white" data-lang-ko="무한의 계단 시작" data-lang-en="Infinite Stairs">무한의 계단 시작</h3>
                         <p class="text-sm text-slate-300 mt-2 max-w-xs" data-lang-ko="Z 키로 왼쪽, X 키로 오른쪽 계단을 디디세요. 제한시간 안에 높이 올라가세요!" data-lang-en="Z Key to go Left, X Key to go Right. Climb as high as you can before time runs out!">Z 키로 왼쪽, X 키로 오른쪽 계단을 디디세요. 제한시간 안에 높이 올라가세요!</p>
                         
-                        <div class="mt-4 flex gap-4 text-xs font-bold text-slate-400">
+                        <div class="mt-4 flex gap-4 text-sm font-bold text-slate-400">
                             <span data-lang-ko="[Z] 왼쪽" data-lang-en="[Z] Left">[Z] 왼쪽</span>
                             <span data-lang-ko="[X] 오른쪽" data-lang-en="[X] Right">[X] 오른쪽</span>
                         </div>
@@ -142,18 +142,18 @@
                     <button id="ctrl-turn" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all select-none border border-slate-200 dark:border-slate-700 shadow-sm relative group">
                         <span class="material-symbols-outlined text-2xl text-slate-600 dark:text-slate-300">arrow_back</span>
                         <span class="text-sm font-bold text-text-main dark:text-white mt-1" data-lang-ko="왼쪽" data-lang-en="Left">왼쪽</span>
-                        <span class="absolute bottom-1 right-2 text-[10px] text-text-muted dark:text-slate-500 font-extrabold uppercase hidden md:inline">Z Key</span>
+                        <span class="absolute bottom-1 right-2 text-sm text-text-muted dark:text-slate-500 font-extrabold uppercase hidden md:inline">Z Key</span>
                     </button>
                     <button id="ctrl-climb" class="h-20 flex flex-col items-center justify-center rounded-2xl bg-primary hover:bg-primary-hover active:scale-95 transition-all select-none border border-primary-hover shadow-sm relative group">
                         <span class="material-symbols-outlined text-2xl text-white">arrow_forward</span>
                         <span class="text-sm font-bold text-white mt-1" data-lang-ko="오른쪽" data-lang-en="Right">오른쪽</span>
-                        <span class="absolute bottom-1 right-2 text-[10px] text-sky-200 font-extrabold uppercase hidden md:inline">X Key</span>
+                        <span class="absolute bottom-1 right-2 text-sm text-sky-200 font-extrabold uppercase hidden md:inline">X Key</span>
                     </button>
                 </div>
             </div>
 
             <!-- Informational Blog Section (AEO) -->
-            <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
+            <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[860px] mx-auto transition-all duration-300 w-full">
                 <!-- Korean Version -->
                 <div class="lang-only-ko">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
@@ -180,7 +180,7 @@
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-primary text-xl">help</span> 4. 자주 묻는 질문 (FAQ)
                             </h3>
-                            <div class="space-y-3 text-xs">
+                            <div class="space-y-3 text-sm">
                                 <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 모바일과 데스크톱 모두에서 60FPS로 부드럽게 작동하나요?</h4>
                                     <p class="text-text-muted dark:text-slate-400">네, 본 게임은 HTML5 Canvas와 requestAnimationFrame 엔진을 채택하여 저사양 스마트폰에서도 지연 없이 60프레임의 부드러운 화면과 터치 반응을 지원합니다.</p>
@@ -215,7 +215,7 @@
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-primary text-xl">help</span> 3. Frequently Asked Questions (FAQ)
                             </h3>
-                            <div class="space-y-3 text-xs">
+                            <div class="space-y-3 text-sm">
                                 <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white mb-1">Q. How do I achieve higher scores?</h4>
                                     <p class="text-text-muted dark:text-slate-400">Anticipate patterns 2-3 steps ahead instead of focusing solely on your current character position, and maximize Fever Mode duration.</p>

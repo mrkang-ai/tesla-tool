@@ -105,11 +105,11 @@
                     <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-text-muted dark:text-slate-400 px-2">
                         <span data-lang-ko="💡 요소(텍스트/이미지)를 드래그하여 이동하고, 모서리를 잡아 크기를 조절하세요." data-lang-en="💡 Drag elements to move, and pull corners to resize them.">💡 요소(텍스트/이미지)를 드래그하여 이동하고, 모서리를 잡아 크기를 조절하세요.</span>
                         <div class="flex gap-2">
-                            <button id="add-text-btn" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover transition-colors text-xs">
+                            <button id="add-text-btn" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-white font-bold rounded-lg hover:bg-primary-hover transition-colors text-sm">
                                 <span class="material-symbols-outlined text-sm">title</span>
                                 <span data-lang-ko="텍스트 추가" data-lang-en="Add Text">텍스트 추가</span>
                             </button>
-                            <button id="add-overlay-btn" class="flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors text-xs relative">
+                            <button id="add-overlay-btn" class="flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors text-sm relative">
                                 <span class="material-symbols-outlined text-sm">image</span>
                                 <span data-lang-ko="이미지 추가" data-lang-en="Add Image">이미지 추가</span>
                                 <input type="file" id="overlay-image-input" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
@@ -144,8 +144,8 @@
                         
                         <!-- Upload Background -->
                         <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3">
-                            <span class="text-xs text-text-muted dark:text-slate-400" data-lang-ko="또는 직접 배경 업로드:" data-lang-en="Or upload custom background:">또는 직접 배경 업로드:</span>
-                            <label class="cursor-pointer px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-text-main dark:text-white transition-colors">
+                            <span class="text-sm text-text-muted dark:text-slate-400" data-lang-ko="또는 직접 배경 업로드:" data-lang-en="Or upload custom background:">또는 직접 배경 업로드:</span>
+                            <label class="cursor-pointer px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-text-main dark:text-white transition-colors">
                                 <span data-lang-ko="파일 선택..." data-lang-en="Select File...">파일 선택...</span>
                                 <input type="file" id="bg-upload-input" accept="image/*" class="hidden">
                             </label>
@@ -157,29 +157,29 @@
                         <div class="flex items-center justify-between mb-3">
                             <h3 id="style-panel-title" class="text-base font-bold text-text-main dark:text-white" data-lang-ko="2. 선택한 텍스트 스타일" data-lang-en="2. Selected Text Style">2. 선택한 텍스트 스타일</h3>
                             <div class="flex items-center gap-3">
-                                <button id="duplicate-selected-btn" class="flex items-center gap-1 text-primary hover:text-primary-hover font-semibold text-xs transition-colors">
+                                <button id="duplicate-selected-btn" class="flex items-center gap-1 text-primary hover:text-primary-hover font-semibold text-sm transition-colors">
                                     <span class="material-symbols-outlined text-sm">content_copy</span>
                                     <span data-lang-ko="복제 (Ctrl+C/V)" data-lang-en="Duplicate (Ctrl+C/V)">복제</span>
                                 </button>
-                                <button id="delete-selected-btn" class="flex items-center gap-1 text-red-500 hover:text-red-600 font-semibold text-xs transition-colors">
+                                <button id="delete-selected-btn" class="flex items-center gap-1 text-red-500 hover:text-red-600 font-semibold text-sm transition-colors">
                                     <span class="material-symbols-outlined text-sm">delete</span>
                                     <span data-lang-ko="삭제 (Del)" data-lang-en="Delete (Del)">삭제 (Del)</span>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="flex flex-col gap-4 text-xs">
+                        <div class="flex flex-col gap-4 text-sm">
                             
                             <!-- Style Presets (Only for text) -->
                             <div class="style-text-only">
                                 <label class="block text-text-muted dark:text-slate-400 mb-2" data-lang-ko="글자 스타일 프리셋" data-lang-en="Text Style Presets">글자 스타일 프리셋</label>
                                 <div class="grid grid-cols-2 gap-2" id="style-presets-grid">
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-white text-slate-900 border-slate-300 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-white" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px black;">흰색 (White)</button>
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-slate-900 text-white border-slate-800 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-black" style="font-family: 'Plus Jakarta Sans', sans-serif;">검정 (Black)</button>
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-red-500 text-white border-red-600 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-red" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px white;">빨강 (Red)</button>
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-bold transition-all text-xs bg-yellow-400 text-black border-yellow-500 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-yellow-outline" style="font-family: 'Impact', sans-serif; -webkit-text-stroke: 1px black;">노랑 테두리</button>
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-black text-green-400 border-slate-900 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-green-neon" style="font-family: 'Courier New', monospace;">그린 네온</button>
-                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-xs bg-amber-50 text-amber-900 border-amber-200 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-elegant-serif" style="font-family: 'Georgia', serif;">세리프 차분</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-sm bg-white text-slate-900 border-slate-300 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-white" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px black;">흰색 (White)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-sm bg-slate-900 text-white border-slate-800 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-black" style="font-family: 'Plus Jakarta Sans', sans-serif;">검정 (Black)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-sm bg-red-500 text-white border-red-600 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-red" style="font-family: 'Plus Jakarta Sans', sans-serif; -webkit-text-stroke: 0.5px white;">빨강 (Red)</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-bold transition-all text-sm bg-yellow-400 text-black border-yellow-500 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-yellow-outline" style="font-family: 'Impact', sans-serif; -webkit-text-stroke: 1px black;">노랑 테두리</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-sm bg-black text-green-400 border-slate-900 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-green-neon" style="font-family: 'Courier New', monospace;">그린 네온</button>
+                                    <button class="preset-btn p-2 rounded-lg border text-center font-semibold transition-all text-sm bg-amber-50 text-amber-900 border-amber-200 shadow-sm hover:scale-[1.02] focus:outline-none" data-preset="preset-elegant-serif" style="font-family: 'Georgia', serif;">세리프 차분</button>
                                 </div>
                             </div>
 
@@ -188,7 +188,7 @@
                                 <div class="flex justify-between items-center mb-1">
                                     <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="글자 크기" data-lang-en="Font Size">글자 크기</label>
                                     <div class="flex items-center gap-1">
-                                        <input type="number" id="font-size-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <input type="number" id="font-size-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
                                         <span class="text-text-muted dark:text-slate-400">px</span>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                                 <div class="flex justify-between items-center mb-1">
                                     <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="회전 각도" data-lang-en="Rotate">회전 각도</label>
                                     <div class="flex items-center gap-1">
-                                        <input type="number" id="rotation-num" min="-180" max="180" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <input type="number" id="rotation-num" min="-180" max="180" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
                                         <span class="text-text-muted dark:text-slate-400">°</span>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@
                                 <div class="flex justify-between items-center mb-1">
                                     <label class="text-text-muted dark:text-slate-400 font-semibold" data-lang-ko="불투명도" data-lang-en="Opacity">불투명도</label>
                                     <div class="flex items-center gap-1">
-                                        <input type="number" id="opacity-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
+                                        <input type="number" id="opacity-num" min="10" max="100" class="w-16 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-center p-1 text-text-main dark:text-white focus:ring-primary focus:border-primary">
                                         <span class="text-text-muted dark:text-slate-400">%</span>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
                     <!-- Section 3: Emoji Helper Picker -->
                     <div class="border-t border-slate-100 dark:border-slate-800 pt-4">
                         <h3 class="text-base font-bold text-text-main dark:text-white mb-2" data-lang-ko="3. 자주 쓰는 이모지" data-lang-en="3. Popular Emojis">3. 자주 쓰는 이모지</h3>
-                        <p class="text-xs text-text-muted dark:text-slate-400 mb-3" data-lang-ko="클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다." data-lang-en="Click an emoji to insert it into the selected textbox & copy to clipboard.">클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다.</p>
+                        <p class="text-sm text-text-muted dark:text-slate-400 mb-3" data-lang-ko="클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다." data-lang-en="Click an emoji to insert it into the selected textbox & copy to clipboard.">클릭하면 선택된 글자에 즉시 입력되고 클립보드에도 복사됩니다.</p>
                         
                         <div class="flex flex-wrap gap-2 p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl">
                             <button class="emoji-btn text-lg hover:scale-125 transition-transform p-0.5 focus:outline-none select-none">😂</button>
@@ -268,7 +268,7 @@
 
 
         <!-- Blog Post Section about Memes -->
-        <div class="mt-16 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300">
+        <div class="mt-16 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[860px] mx-auto transition-all duration-300">
             <!-- Korean Version -->
             <div class="lang-only-ko">
                 <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2">
@@ -312,7 +312,7 @@
                         <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-xl">help</span> 5. 자주 묻는 질문 (FAQ)
                         </h3>
-                        <div class="space-y-3 text-xs">
+                        <div class="space-y-3 text-sm">
                             <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 내가 업로드한 사진이나 제작한 밈이 서버에 저장되나요?</h4>
                                 <p class="text-text-muted dark:text-slate-400">아닙니다. 본 밈 생성기는 100% 클라이언트 HTML5 캔버스 기술로 동작하므로, 사용자의 사진은 서버로 전송되지 않고 브라우저 내부에서만 안전하게 렌더링됩니다.</p>
@@ -369,7 +369,7 @@
                         <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-xl">help</span> 5. Frequently Asked Questions (FAQ)
                         </h3>
-                        <div class="space-y-3 text-xs">
+                        <div class="space-y-3 text-sm">
                             <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                 <h4 class="font-bold text-text-main dark:text-white mb-1">Q. Are my uploaded photos or generated memes stored on your servers?</h4>
                                 <p class="text-text-muted dark:text-slate-400">No. The Meme Generator operates 100% on the client side using HTML5 Canvas. Your images are never sent to external servers.</p>

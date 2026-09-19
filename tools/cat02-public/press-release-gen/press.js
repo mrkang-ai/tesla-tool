@@ -79,20 +79,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const html = `
       <div class="text-center my-4">
-        <p class="text-xs font-sans text-blue-800 tracking-wider font-semibold mb-1">[ 보도자료 ]</p>
+        <p class="text-sm font-sans text-blue-800 tracking-wider font-semibold mb-1">[ 보도자료 ]</p>
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
           "${proj}" 본격 시동...<br/>${subMod}
         </h2>
-        <p class="text-xs font-sans text-slate-500 mt-2">
+        <p class="text-sm font-sans text-slate-500 mt-2">
           - 행정 역량 총결집으로 국민 신뢰 회복 및 일하는 방식 근본적 혁신 선도 -
         </p>
       </div>
 
-      <div class="bg-slate-50 border-y border-slate-200 py-3 px-4 my-3 text-xs sm:text-sm font-sans text-slate-700">
+      <div class="bg-slate-50 border-y border-slate-200 py-3 px-4 my-3 text-sm sm:text-sm font-sans text-slate-700">
         <b>[핵심 요약]</b> ${dept}은(는) 12일, 급변하는 대내외 행정 환경에 선제적으로 부응하고 행정 서비스의 일대 도약을 이루기 위하여 <b>「${proj}」</b>을(를) 전격 확정·시행한다고 밝혔다.
       </div>
 
-      <div class="space-y-3 text-xs sm:text-sm">
+      <div class="space-y-3 text-sm sm:text-sm">
         <div>
           <h3 class="font-bold text-slate-900 text-sm mb-1 font-sans">□ 추진 배경 및 필요성</h3>
           <p class="text-slate-700 indent-2">
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
 
-      <div class="text-right text-xs text-slate-400 font-sans mt-4">
+      <div class="text-right text-sm text-slate-400 font-sans mt-4">
         &lt;끝&gt;
       </div>
     `;

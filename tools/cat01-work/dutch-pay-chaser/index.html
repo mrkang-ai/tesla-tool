@@ -127,7 +127,7 @@
 
     <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col gap-8">
         <div class="text-center flex flex-col items-center gap-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-xs font-bold">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-sm font-bold">
                 <span>💼 K-직장인 생존 키트</span>
                 <span>•</span>
                 <span>CAT-01 No.06</span>
@@ -149,18 +149,18 @@
                 </h3>
 
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-600 dark:text-slate-400">총 결제 금액 (원)</label>
+                    <label class="text-sm font-bold text-slate-600 dark:text-slate-400">총 결제 금액 (원)</label>
                     <input type="number" id="total-amount" value="84000" step="1000" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-lg font-black font-mono focus:ring-2 focus:ring-primary">
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-600 dark:text-slate-400">총 참석 인원 (명)</label>
+                        <label class="text-sm font-bold text-slate-600 dark:text-slate-400">총 참석 인원 (명)</label>
                         <input type="number" id="people-count" value="4" min="1" max="50" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold font-mono">
                     </div>
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-600 dark:text-slate-400">단위 절사 옵션</label>
-                        <select id="round-option" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+                        <label class="text-sm font-bold text-slate-600 dark:text-slate-400">단위 절사 옵션</label>
+                        <select id="round-option" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold">
                             <option value="1">1원 단위 그대로 (원 단위 정확)</option>
                             <option value="100" selected>100원 단위 올림</option>
                             <option value="1000">1,000원 단위 올림</option>
@@ -169,14 +169,14 @@
                 </div>
 
                 <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex flex-col gap-3">
-                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">특수 정산 조건</span>
-                    <div class="flex items-center justify-between text-xs">
+                    <span class="text-sm font-bold text-slate-700 dark:text-slate-300">특수 정산 조건</span>
+                    <div class="flex items-center justify-between text-sm">
                         <span>술 안 마신 사람 (주류비 ₩24,000 제외)</span>
                         <input type="number" id="non-drinkers" value="1" min="0" max="10" class="w-16 px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 font-mono text-center">
                     </div>
-                    <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center justify-between text-sm">
                         <span>총무 계좌번호 (입금처)</span>
-                        <input type="text" id="account-info" value="카카오뱅크 3333-XX-XXXXXX (홍길동)" class="w-56 px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-xs">
+                        <input type="text" id="account-info" value="카카오뱅크 3333-XX-XXXXXX (홍길동)" class="w-56 px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-sm">
                     </div>
                 </div>
             </div>
@@ -187,10 +187,10 @@
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-4 font-mono">
                     <div class="text-center pb-3 border-b border-dashed border-slate-300 dark:border-slate-700">
                         <div class="text-sm font-black tracking-wider text-slate-900 dark:text-white">=== 깔끔 정산 영수증 ===</div>
-                        <div class="text-[11px] text-slate-400 mt-0.5">정산 일시: 2026-09-12</div>
+                        <div class="text-sm text-slate-400 mt-0.5">정산 일시: 2026-09-12</div>
                     </div>
 
-                    <div class="flex flex-col gap-2 text-xs">
+                    <div class="flex flex-col gap-2 text-sm">
                         <div class="flex justify-between">
                             <span class="text-slate-500">총 결제액:</span>
                             <span id="disp-total" class="font-bold">₩ 84,000</span>
@@ -199,13 +199,13 @@
                             <span>일반 참석자 (1인당):</span>
                             <span id="disp-normal-per">₩ 23,000</span>
                         </div>
-                        <div class="flex justify-between text-sky-600 dark:text-sky-400 font-bold text-xs">
+                        <div class="flex justify-between text-sky-600 dark:text-sky-400 font-bold text-sm">
                             <span>술 안 마신 사람 (1인당):</span>
                             <span id="disp-non-drinker-per">₩ 15,000</span>
                         </div>
                     </div>
 
-                    <div class="pt-2 border-t border-dashed border-slate-300 dark:border-slate-700 text-center text-xs text-slate-500">
+                    <div class="pt-2 border-t border-dashed border-slate-300 dark:border-slate-700 text-center text-sm text-slate-500">
                         입금 계좌: <span id="disp-account" class="font-bold text-slate-800 dark:text-slate-200"></span>
                     </div>
                 </div>
@@ -213,20 +213,20 @@
                 <!-- Chaser Message Generator -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">카톡 송금 독촉 톤앤매너:</span>
-                        <button id="copy-chaser-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold flex items-center gap-1 cursor-pointer">
+                        <span class="text-sm font-bold text-slate-700 dark:text-slate-300">카톡 송금 독촉 톤앤매너:</span>
+                        <button id="copy-chaser-btn" class="px-3 py-1 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold flex items-center gap-1 cursor-pointer">
                             <span class="material-symbols-outlined text-sm">content_copy</span>
                             <span id="copy-chaser-text">메시지 복사</span>
                         </button>
                     </div>
 
-                    <div class="flex gap-2 text-xs font-bold" id="tone-btns">
+                    <div class="flex gap-2 text-sm font-bold" id="tone-btns">
                         <button class="tone-btn active px-3 py-1.5 rounded-xl bg-primary text-white cursor-pointer" data-tone="polite">천사표 정중형</button>
                         <button class="tone-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 cursor-pointer" data-tone="firm">칼같은 팩트형</button>
                         <button class="tone-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 cursor-pointer" data-tone="funny">유쾌 애교형</button>
                     </div>
 
-                    <textarea id="chaser-output" rows="5" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-sans leading-relaxed focus:outline-none" readonly></textarea>
+                    <textarea id="chaser-output" rows="5" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-sans leading-relaxed focus:outline-none" readonly></textarea>
                 </div>
             </div>
         </div>
@@ -237,13 +237,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">회수율 100%</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">회수율 100%</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🧾</span> <span>더치페이 정중한 추심 독촉장 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 카카오페이 송금 링크와 함께 껄끄럽지 않게 식사비를 회수하는 센스 만점 독촉장 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -287,15 +287,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '더치페이 정중한 추심 독촉장' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '더치페이 정중한 추심 독촉장' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

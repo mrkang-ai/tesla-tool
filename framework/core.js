@@ -221,7 +221,7 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="text-base font-extrabold leading-none tracking-tight">ToolBox</span>
-                    <span class="text-[9px] font-bold text-primary leading-none mt-0.5 tracking-wider">100+ UTILS</span>
+                    <span class="text-sm font-bold text-primary leading-none mt-0.5 tracking-wider">100+ UTILS</span>
                 </div>
             </a>
             <nav class="hidden md:flex items-center gap-2 text-sm font-semibold">
@@ -240,7 +240,7 @@
     </div>
 </header>`,
         'footer.html': `
-<footer class="border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 py-8 text-center text-xs text-slate-500 dark:text-slate-400 mt-auto">
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 py-8 text-center text-sm text-slate-500 dark:text-slate-400 mt-auto">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>© 2026 ToolBox. All rights reserved. 100+ Productivity Web Apps.</div>
         <div class="flex items-center gap-4">
@@ -572,15 +572,15 @@
                 <a href="/category/${c.slug}/" class="flex items-center gap-2.5 p-2 rounded-xl hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors group">
                     <span class="text-base p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0">${c.icon}</span>
                     <div class="overflow-hidden">
-                        <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">${getCategoryName(c, lang)}</div>
-                        <div class="text-[10px] text-slate-400 font-mono">${countLabel}</div>
+                        <div class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-primary truncate">${getCategoryName(c, lang)}</div>
+                        <div class="text-sm text-slate-400 font-mono">${countLabel}</div>
                     </div>
                 </a>
             `).join('');
 
             popoverEl.innerHTML = `
                 <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-200/80 dark:border-slate-800">
-                    <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <div class="flex items-center gap-1.5 text-sm font-bold text-slate-900 dark:text-white">
                         <span>🎯</span> <span>${popoverTitle}</span>
                     </div>
                     <button type="button" id="fw-popover-close" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-1 rounded-lg">✕</button>
@@ -588,7 +588,7 @@
                 <div class="grid grid-cols-2 gap-1.5 mb-3">
                     ${catItemsHtml}
                 </div>
-                <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm">
                     <a href="/#tools-100" class="text-primary font-bold hover:underline">${all100Label}</a>
                     <div class="flex items-center gap-2">
                         <a href="/#group-games" class="text-slate-500 hover:text-primary">${gamesLabel}</a>
@@ -791,11 +791,11 @@
 
             stripEl.innerHTML = `
                 <div class="flex items-center gap-2 shrink-0">
-                    <a href="/category/${catMeta.slug}/" class="text-xs font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
+                    <a href="/category/${catMeta.slug}/" class="text-sm font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
                         <span class="text-base">${catMeta.icon}</span>
                         <span class="hidden md:inline font-extrabold">${localizedCatName}</span>
                     </a>
-                    <span class="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
+                    <span class="text-sm font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
                 </div>
 
                 <div class="fw-chips-scroll flex-1 mx-1 sm:mx-3">
@@ -803,13 +803,13 @@
                 </div>
 
                 <div class="flex items-center gap-1 shrink-0">
-                    <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="${prevLabel}: ${prevTool.name}">
-                        <span>◀</span><span class="hidden lg:inline text-[11px]">${prevLabel}</span>
+                    <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${prevLabel}: ${prevTool.name}">
+                        <span>◀</span><span class="hidden lg:inline text-sm">${prevLabel}</span>
                     </a>
-                    <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center gap-0.5" title="${nextLabel}: ${nextTool.name}">
-                        <span class="hidden lg:inline text-[11px]">${nextLabel}</span><span>▶</span>
+                    <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${nextLabel}: ${nextTool.name}">
+                        <span class="hidden lg:inline text-sm">${nextLabel}</span><span>▶</span>
                     </a>
-                    <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
+                    <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-sm font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
                         <span>${listBtnLabel}</span>
                     </button>
                 </div>
@@ -823,20 +823,20 @@
                 const isCurr = t.slug === currentToolSlug;
                 return `
                     <a href="${t.url}" class="p-3 rounded-xl flex items-start gap-3 transition-colors ${isCurr ? 'bg-sky-50 dark:bg-sky-950/70 border border-sky-300 dark:border-sky-700' : 'hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent'}">
-                        <span class="text-xs font-mono font-bold px-2 py-1 rounded-md ${isCurr ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} shrink-0">#${(idx + 1).toString().padStart(2, '0')}</span>
+                        <span class="text-sm font-mono font-bold px-2 py-1 rounded-md ${isCurr ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} shrink-0">#${(idx + 1).toString().padStart(2, '0')}</span>
                         <div class="overflow-hidden flex-1">
                             <div class="flex items-center gap-1.5 mb-0.5">
-                                <span class="text-xs font-bold text-slate-900 dark:text-white truncate">${t.name}</span>
-                                ${t.badge ? `<span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 border border-rose-100 shrink-0">${t.badge}</span>` : ''}
+                                <span class="text-sm font-bold text-slate-900 dark:text-white truncate">${t.name}</span>
+                                ${t.badge ? `<span class="text-sm font-bold px-1.5 py-0.2 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 border border-rose-100 shrink-0">${t.badge}</span>` : ''}
                             </div>
-                            <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${t.desc}</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${t.desc}</p>
                         </div>
                     </a>
                 `;
             }).join('');
 
             const catShortcutsHtml = CATEGORIES_DATA.map(c => `
-                <a href="/category/${c.slug}/" class="p-1.5 rounded-lg text-center bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-xs transition-colors" title="${getCategoryName(c, lang)}">
+                <a href="/category/${c.slug}/" class="p-1.5 rounded-lg text-center bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-sm transition-colors" title="${getCategoryName(c, lang)}">
                     <span>${c.icon}</span>
                 </a>
             `).join('');
@@ -846,7 +846,7 @@
                     <div class="flex items-center gap-2">
                         <span class="text-xl p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800">${catMeta.icon}</span>
                         <div>
-                            <div class="text-xs font-mono text-primary font-bold">${catMeta.id.toUpperCase()} • ${countLabel}</div>
+                            <div class="text-sm font-mono text-primary font-bold">${catMeta.id.toUpperCase()} • ${countLabel}</div>
                             <h3 class="text-sm font-black text-slate-900 dark:text-white">${localizedCatName}</h3>
                         </div>
                     </div>
@@ -858,11 +858,11 @@
                 </div>
 
                 <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-                    <div class="text-[11px] font-bold text-slate-400 mb-2">${otherThemesLabel}</div>
+                    <div class="text-sm font-bold text-slate-400 mb-2">${otherThemesLabel}</div>
                     <div class="grid grid-cols-5 gap-1.5">
                         ${catShortcutsHtml}
                     </div>
-                    <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-xs">
+                    <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between text-sm">
                         <a href="/category/${catMeta.slug}/" class="text-primary font-bold hover:underline">${hubLinkLabel}</a>
                         <a href="/" class="text-slate-500 hover:underline">${homeLinkLabel}</a>
                     </div>

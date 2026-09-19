@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const box = document.createElement('div');
             box.className = 'p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-col gap-1';
             box.innerHTML = `
-                <span class="text-xs font-black text-rose-600 dark:text-rose-400">${s.stage}</span>
-                <p class="text-xs leading-relaxed text-slate-800 dark:text-slate-200 font-medium font-sans select-all">${s.text}</p>
+                <span class="text-sm font-black text-rose-600 dark:text-rose-400">${s.stage}</span>
+                <p class="text-sm leading-relaxed text-slate-800 dark:text-slate-200 font-medium font-sans select-all">${s.text}</p>
             `;
             scriptContainer.appendChild(box);
         });

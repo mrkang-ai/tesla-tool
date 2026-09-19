@@ -40,25 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (prob >= 80) {
             emailVerdict.textContent = '🚨 "굳이 모여서 소중한 시간을 낭비한 전형적인 영혼 탈곡 회의"';
-            emailVerdict.className = 'text-xs font-bold text-rose-600 dark:text-rose-400 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/40 border border-rose-200';
+            emailVerdict.className = 'text-sm font-bold text-rose-600 dark:text-rose-400 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/40 border border-rose-200';
         } else if (prob >= 50) {
             emailVerdict.textContent = '⚠️ "슬랙 스레드 몇 개로 충분히 합의 가능했던 미팅"';
-            emailVerdict.className = 'text-xs font-bold text-amber-600 dark:text-amber-400 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200';
+            emailVerdict.className = 'text-sm font-bold text-amber-600 dark:text-amber-400 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200';
         } else {
             emailVerdict.textContent = '✅ "실질적인 논의가 오간 나름 유익한 회의"';
-            emailVerdict.className = 'text-xs font-bold text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200';
+            emailVerdict.className = 'text-sm font-bold text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200';
         }
 
         // Render buzzword chips
         buzzwordChips.innerHTML = '';
         const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
         if (sorted.length === 0) {
-            buzzwordChips.innerHTML = '<span class="text-xs text-slate-400">감지된 허세 버즈워드가 없습니다. 훌륭하고 담백한 회의입니다!</span>';
+            buzzwordChips.innerHTML = '<span class="text-sm text-slate-400">감지된 허세 버즈워드가 없습니다. 훌륭하고 담백한 회의입니다!</span>';
         } else {
             sorted.forEach(([w, count]) => {
                 const chip = document.createElement('span');
-                chip.className = 'px-2.5 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300 text-xs font-bold flex items-center gap-1';
-                chip.innerHTML = `<span>#${w}</span> <span class="text-[10px] bg-purple-200 dark:bg-purple-800 px-1 rounded font-mono">${count}회</span>`;
+                chip.className = 'px-2.5 py-1 rounded-lg bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-800 dark:text-purple-300 text-sm font-bold flex items-center gap-1';
+                chip.innerHTML = `<span>#${w}</span> <span class="text-sm bg-purple-200 dark:bg-purple-800 px-1 rounded font-mono">${count}회</span>`;
                 buzzwordChips.appendChild(chip);
             });
         }

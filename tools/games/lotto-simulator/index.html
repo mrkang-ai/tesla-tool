@@ -78,9 +78,9 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
     <div id="header-placeholder"></div>
 
-    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    <main class="flex-1 max-w-[860px] w-full mx-auto px-4 py-8 md:py-12">
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-6">
+        <nav class="flex items-center gap-2 text-sm md:text-sm text-slate-500 dark:text-slate-400 mb-6">
             <a href="/" class="hover:text-primary transition-colors">홈</a>
             <span>/</span>
             <a href="/#games" class="hover:text-primary transition-colors">미니 게임 &amp; 인터랙티브</a>
@@ -92,32 +92,32 @@
         <div id="game-app-container" class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-10 mb-12 overflow-hidden relative">
 
             <!-- HUD STATUS BAR (Visible during game) -->
-            <div id="game-hud" class="hidden mb-8 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm">
+            <div id="game-hud" class="hidden mb-8 p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm md:text-sm">
                 <div class="flex items-center gap-2">
                     <span class="text-xl heart-pulse">💖</span>
                     <div>
-                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">멘탈 유지도</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-bold">멘탈 유지도</div>
                         <div id="hud-mental" class="font-extrabold text-emerald-600 dark:text-emerald-400">100%</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xl">👁️</span>
                     <div>
-                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">주변 의심도</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-bold">주변 의심도</div>
                         <div id="hud-suspicion" class="font-extrabold text-blue-600 dark:text-blue-400">0%</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xl">💰</span>
                     <div>
-                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">확보 예상액</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-bold">확보 예상액</div>
                         <div id="hud-cash" class="font-extrabold text-amber-500">23.11억</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xl">📍</span>
                     <div>
-                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-bold">현재 위치</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-bold">현재 위치</div>
                         <div id="hud-location" class="font-bold text-slate-700 dark:text-slate-200 truncate">내 방 (토요일)</div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
 
             <!-- 1. INTRO VIEW -->
             <div id="game-intro-view" class="text-center py-6 md:py-10 max-w-xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs md:text-sm font-bold mb-5 border border-amber-300 dark:border-amber-700">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-sm md:text-sm font-bold mb-5 border border-amber-300 dark:border-amber-700">
                     <span>🎰 초현실 생존 시뮬레이션</span>
                     <span>•</span>
                     <span>인터넷 레전드 밈 기반</span>
@@ -142,9 +142,9 @@
 
                 <!-- Interactive Lottery Ticket Preview -->
                 <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-800/80 border-2 border-dashed border-amber-300 dark:border-amber-600 mb-8 max-w-md mx-auto gold-glow">
-                    <div class="text-xs text-amber-700 dark:text-amber-400 font-bold mb-2 flex items-center justify-between">
+                    <div class="text-sm text-amber-700 dark:text-amber-400 font-bold mb-2 flex items-center justify-between">
                         <span>제 1234회 로또 6/45 1등 당첨권</span>
-                        <span class="bg-amber-500 text-white text-[10px] px-2 py-0.5 rounded-full">자동 1등</span>
+                        <span class="bg-amber-500 text-white text-sm px-2 py-0.5 rounded-full">자동 1등</span>
                     </div>
                     <div class="flex justify-center gap-2 py-3">
                         <span class="w-10 h-10 rounded-full bg-amber-400 text-slate-900 font-black flex items-center justify-center shadow-md text-base">07</span>
@@ -154,7 +154,7 @@
                         <span class="w-10 h-10 rounded-full bg-slate-600 text-white font-black flex items-center justify-center shadow-md text-base">33</span>
                         <span class="w-10 h-10 rounded-full bg-emerald-500 text-white font-black flex items-center justify-center shadow-md text-base">42</span>
                     </div>
-                    <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">지급기한: 지급개시일로부터 1년 | 농협은행 본점 복권사업팀 전용</div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">지급기한: 지급개시일로부터 1년 | 농협은행 본점 복권사업팀 전용</div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
@@ -169,10 +169,10 @@
             <div id="game-play-view" class="hidden">
                 <!-- Stage Badge -->
                 <div class="flex items-center justify-between mb-4">
-                    <span id="stage-badge" class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 text-xs font-bold border border-amber-300 dark:border-amber-700">
+                    <span id="stage-badge" class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 text-sm font-bold border border-amber-300 dark:border-amber-700">
                         STAGE 1
                     </span>
-                    <span id="step-counter" class="text-xs text-slate-400 font-medium">1 / 6 단계</span>
+                    <span id="step-counter" class="text-sm text-slate-400 font-medium">1 / 6 단계</span>
                 </div>
 
                 <!-- Scenario Card -->
@@ -214,15 +214,15 @@
                 <!-- Stats Summary Card -->
                 <div class="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 mb-8 text-center">
                     <div>
-                        <div class="text-xs text-slate-500 font-bold mb-1">최종 멘탈 잔여</div>
+                        <div class="text-sm text-slate-500 font-bold mb-1">최종 멘탈 잔여</div>
                         <div id="final-mental" class="text-lg font-black text-emerald-600 dark:text-emerald-400">95%</div>
                     </div>
                     <div>
-                        <div class="text-xs text-slate-500 font-bold mb-1">주변 의심도</div>
+                        <div class="text-sm text-slate-500 font-bold mb-1">주변 의심도</div>
                         <div id="final-suspicion" class="text-lg font-black text-blue-600 dark:text-blue-400">10%</div>
                     </div>
                     <div>
-                        <div class="text-xs text-slate-500 font-bold mb-1">최종 손에 쥔 돈</div>
+                        <div class="text-sm text-slate-500 font-bold mb-1">최종 손에 쥔 돈</div>
                         <div id="final-cash" class="text-lg font-black text-amber-500">23억 1,150만</div>
                     </div>
                 </div>
@@ -238,7 +238,7 @@
                         <span>카톡 / SNS 공유</span>
                     </button>
                 </div>
-                <button id="restart-game-btn" class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
+                <button id="restart-game-btn" class="text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors underline cursor-pointer">
                     다른 선택지로 다시 도전하기 ↺
                 </button>
             </div>
@@ -259,15 +259,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-sm text-primary mb-1">① 필수 지참물 2가지</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">1등 실물 복권 용지 원본과 당첨자 본인의 신분증(주민등록증, 운전면허증, 여권)이 필수입니다. 대리인 수령은 원칙적으로 불가능합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">1등 실물 복권 용지 원본과 당첨자 본인의 신분증(주민등록증, 운전면허증, 여권)이 필수입니다. 대리인 수령은 원칙적으로 불가능합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-primary text-sm mb-1">② 감열지 용지 보존 주의</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">로또 용지는 열에 민감한 감열지(Thermal Paper)로 인쇄됩니다. 헤어드라이어나 다리미로 열을 가하면 전체가 검게 타서 바코드 인식이 불가해지므로 상온의 그늘진 곳에 밀봉 보관해야 합니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">로또 용지는 열에 민감한 감열지(Thermal Paper)로 인쇄됩니다. 헤어드라이어나 다리미로 열을 가하면 전체가 검게 타서 바코드 인식이 불가해지므로 상온의 그늘진 곳에 밀봉 보관해야 합니다.</p>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700">
                     <h4 class="font-bold text-primary text-sm mb-1">③ 지급 기한 (1년)</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">당첨금 지급 개시일로부터 정확히 1년 이내에 청구해야 합니다. 기한이 지난 미수령 당첨금은 전액 복권기금으로 귀속되어 공익사업에 사용됩니다.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">당첨금 지급 개시일로부터 정확히 1년 이내에 청구해야 합니다. 기한이 지난 미수령 당첨금은 전액 복권기금으로 귀속되어 공익사업에 사용됩니다.</p>
                 </div>
             </div>
 
@@ -276,7 +276,7 @@
                 대한민국 소득세법상 복권 당첨금은 <strong>'기타소득'</strong>으로 분류되며, 금융기관에서 당첨금을 지급할 때 세금을 원천징수한 후 차액만 지급합니다. 복권 당첨금은 종합과세에 합산되지 않고 <strong>분리과세</strong>로 종결되므로, 다른 근로소득이나 사업소득의 소득세율에 영향을 주지 않습니다.
             </p>
             <div class="overflow-x-auto not-prose mb-8">
-                <table class="w-full text-xs md:text-sm text-left border-collapse border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                <table class="w-full text-sm md:text-sm text-left border-collapse border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
                     <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                         <tr>
                             <th class="p-3 border border-slate-200 dark:border-slate-700">과세 구간</th>
@@ -310,7 +310,7 @@
 
             <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 not-prose mb-8">
                 <h4 class="font-bold text-sm text-amber-800 dark:text-amber-300 mb-1">💡 예시: 당첨금 34억 5,000만 원의 실제 수령액 계산</h4>
-                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     1) 3억 원 구간: \( 300,000,000 \times 22\% = 66,000,000 \)원<br>
                     2) 3억 초과 구간(31억 5천만 원): \( 3,150,000,000 \times 33\% = 1,039,500,000 \)원<br>
                     3) 총 세금: <strong>11억 550만 원</strong> | <strong>실제 통장 입금액: 23억 4,450만 원</strong> (구입비 1,000원 필요경비 공제)
@@ -330,7 +330,7 @@
                         <span>로또 1등 당첨금은 현금 다발로 즉시 들고 나올 수 있나요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         아닙니다. 수십억 원의 현금은 부피와 무게가 엄청나며 보안상 치명적입니다. 농협 본점 복권사업팀에 방문하면 당첨자 명의의 신규 NH농협은행 통장을 개설한 후, 세금을 공제한 실수령액을 전산 입금 처리해 줍니다. 이후 본인이 이용하는 타 시중은행으로 분할 이체할 수 있습니다.
                     </p>
                 </details>
@@ -339,7 +339,7 @@
                         <span>로또 1등 당첨금을 가족에게 나누어주면 증여세가 발생하나요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         네, 반드시 발생합니다. 복권 당첨금은 당첨자 1인의 고유 자산이므로, 이를 배우자나 자녀, 부모에게 무상으로 송금할 경우 상속세 및 증여세법에 따른 증여세가 부과됩니다. (단, 10년 합산 배우자 6억 원, 직계존비속 5,000만 원까지는 증여재산공제가 적용됩니다.)
                     </p>
                 </details>
@@ -348,7 +348,7 @@
                         <span>농협 본점에서 금융상품 가입을 강제로 강요하나요?</span>
                         <span class="material-symbols-outlined text-sm group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>
-                    <p class="mt-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p class="mt-3 text-sm md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         강제성은 전혀 없습니다. 자산 관리 전담 PB나 지점장급 직원이 예금, 신탁, 연금 등의 상품을 정중히 추천할 수는 있지만, 당첨자가 거절하면 전액 보통예금으로 수령하는 데 아무런 법적·절차적 문제가 없습니다.
                     </p>
                 </details>
@@ -371,7 +371,7 @@
             if (!toast) {
                 toast = document.createElement('div');
                 toast.id = 'game-toast';
-                toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-2xl bg-slate-900/90 dark:bg-white/90 text-white dark:text-slate-900 text-xs sm:text-sm font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none opacity-0 translate-y-4';
+                toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-2xl bg-slate-900/90 dark:bg-white/90 text-white dark:text-slate-900 text-sm sm:text-sm font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none opacity-0 translate-y-4';
                 document.body.appendChild(toast);
             }
             toast.textContent = msg;
@@ -703,7 +703,7 @@
                 const btn = document.createElement('button');
                 btn.className = 'w-full text-left p-4 md:p-5 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-amber-400 dark:hover:border-amber-500 hover:bg-amber-50/50 dark:hover:bg-slate-700/60 transition-all font-semibold text-sm md:text-base text-slate-800 dark:text-slate-100 flex items-start gap-3 shadow-sm hover:shadow-md cursor-pointer group active:scale-[0.99]';
                 btn.innerHTML = `
-                    <span class="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-black text-xs flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors shrink-0 mt-0.5">${String.fromCharCode(65 + cIdx)}</span>
+                    <span class="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-black text-sm flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors shrink-0 mt-0.5">${String.fromCharCode(65 + cIdx)}</span>
                     <span class="leading-snug">${choice.text}</span>
                 `;
                 btn.addEventListener('click', () => handleChoice(choice));

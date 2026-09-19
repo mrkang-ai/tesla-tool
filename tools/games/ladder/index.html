@@ -71,14 +71,14 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
             <div class="text-center py-10">
                 <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🪜 실시간 사다리 타기" data-lang-en="🪜 Sleek Ladder Climb">🪜 실시간 사다리 타기</h1>
                 <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!" data-lang-en="Enjoy a fair, real-time ladder climb game for quick bets with your friends!">친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!</p>
             </div>
 
             <!-- SECTION 1: Game Setup -->
-            <section id="setup" class="w-full max-w-4xl mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
+            <section id="setup" class="w-full max-w-[860px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
                 <!-- Preset Row -->
                 <div class="mb-8">
                     <h2 class="text-sm font-extrabold text-text-muted dark:text-slate-400 uppercase tracking-widest mb-3" data-lang-ko="⚡ 빠른 내기 프리셋" data-lang-en="⚡ QUICK BET PRESETS">⚡ 빠른 내기 프리셋</h2>
@@ -102,7 +102,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center border-t border-slate-100 dark:border-slate-800/80 pt-6 mb-6">
                     <div class="flex flex-col gap-1.5 col-span-1">
                         <label class="text-sm font-extrabold text-text-main dark:text-white" data-lang-ko="참가 인원 설정" data-lang-en="Number of Participants">참가 인원 설정</label>
-                        <p class="text-xs text-text-muted" data-lang-ko="2명에서 최대 12명까지 가능합니다." data-lang-en="Supports 2 to 12 participants.">2명에서 최대 12명까지 가능합니다.</p>
+                        <p class="text-sm text-text-muted" data-lang-ko="2명에서 최대 12명까지 가능합니다." data-lang-en="Supports 2 to 12 participants.">2명에서 최대 12명까지 가능합니다.</p>
                     </div>
                     <div class="flex items-center gap-3 col-span-2">
                         <button type="button" id="btn-count-dec" class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xl font-bold cursor-pointer transition-colors">-</button>
@@ -146,24 +146,24 @@
             <!-- SECTION 2: Active Game Area -->
             <section id="game-container" style="display: none;" class="w-full flex flex-col items-center">
                 <!-- Hint Banner -->
-                <div class="w-full max-w-4xl bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex flex-col gap-1.5 items-center justify-center">
+                <div class="w-full max-w-[860px] bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex flex-col gap-1.5 items-center justify-center">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-lg">info</span>
                         <span data-lang-ko="사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다." data-lang-en="Click the circular player button at the top of the canvas to run their path individually.">사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다.</span>
                     </div>
-                    <div class="flex items-center gap-2 text-xs text-primary font-bold">
+                    <div class="flex items-center gap-2 text-sm text-primary font-bold">
                         <span class="material-symbols-outlined text-sm">swap_horiz</span>
                         <span data-lang-ko="💡 사다리가 생성된 상태에서 상단 참가자 동그라미를 연속으로 2개 클릭하면 서로의 순서(위치)를 맞바꿀 수 있습니다." data-lang-en="💡 With the ladder generated, click any 2 circular player badges at the top sequentially to swap their starting positions.">💡 사다리가 생성된 상태에서 상단 참가자 동그라미를 연속으로 2개 클릭하면 서로의 순서(위치)를 맞바꿀 수 있습니다.</span>
                     </div>
                 </div>
 
                 <!-- Canvas Wrapper with horizontal scrollbar for overflow on small displays -->
-                <div class="w-full max-w-4xl overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
+                <div class="w-full max-w-[860px] overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
                     <canvas id="ladder-canvas" class="bg-transparent block cursor-pointer"></canvas>
                 </div>
 
                 <!-- Results Display Panel -->
-                <div id="result-panel" class="w-full max-w-4xl bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
+                <div id="result-panel" class="w-full max-w-[860px] bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
                     <h3 class="text-lg font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
                         <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
                         <span data-lang-ko="🎯 대결 매칭 결과 요약" data-lang-en="🎯 Match Results Summary">🎯 대결 매칭 결과 요약</span>
@@ -191,11 +191,11 @@
             </section>
 
             <!-- Guide Link Banner -->
-            <div class="w-full max-w-4xl mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+            <div class="w-full max-w-[860px] mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
-                    <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">수학 & 대칭군 가이드</span>
+                    <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">수학 & 대칭군 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명" data-lang-en="Mathematics of Amidakuji: Symmetric Groups & Permutations">사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명</h3>
-                    <p class="text-xs md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요." data-lang-en="Explore the algebraic proof of bijective permutation mappings and how horizontal rungs create binomial probability distributions.">사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요.</p>
+                    <p class="text-sm md:text-sm text-text-muted dark:text-slate-300" data-lang-ko="사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요." data-lang-en="Explore the algebraic proof of bijective permutation mappings and how horizontal rungs create binomial probability distributions.">사다리 게임이 언제나 1대1 전단사 함수를 만족하는 수학적 증명과 무작위 보폭(Random Walk)의 확률 편향을 상세히 확인하세요.</p>
                 </div>
                 <a href="/guides/game-theory-and-psychology.html" class="flex-shrink-0 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
                     <span data-lang-ko="심층 가이드 읽기" data-lang-en="Read Full Guide">심층 가이드 읽기</span>
@@ -204,7 +204,7 @@
             </div>
 
             <!-- Blog Section: Ladder Game Probability & Secret Strategy -->
-            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-4xl mx-auto transition-all duration-300 w-full">
+            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[860px] mx-auto transition-all duration-300 w-full">
                 <!-- Korean Version -->
                 <div class="lang-only-ko">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
@@ -238,7 +238,7 @@
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-primary text-xl">help</span> 4. 자주 묻는 질문 (FAQ)
                             </h3>
-                            <div class="space-y-3 text-xs">
+                            <div class="space-y-3 text-sm">
                                 <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white mb-1">Q. 두 사람이 같은 결과 슬롯에 도착하는 일이 발생할 수 있나요?</h4>
                                     <p class="text-text-muted dark:text-slate-400">수학적으로 절대 불가능합니다. 각 가로선은 인접한 두 수직선의 위치를 교환하는 대칭군 호환(Transposition)으로 작용하므로, 아무리 복잡한 사다리라도 출발지와 도착지는 항상 1대1 전단사 함수(Bijective Mapping)를 이룹니다.</p>
@@ -285,7 +285,7 @@
                             <h3 class="text-lg font-bold text-text-main dark:text-white mb-3 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-primary text-xl">help</span> 4. Frequently Asked Questions (FAQ)
                             </h3>
-                            <div class="space-y-3 text-xs">
+                            <div class="space-y-3 text-sm">
                                 <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
                                     <h4 class="font-bold text-text-main dark:text-white mb-1">Q. Can two players ever land on the exact same outcome?</h4>
                                     <p class="text-text-muted dark:text-slate-400">No. Mathematically, rungs represent adjacent transpositions in symmetric group theory, ensuring that every configuration produces a strict bijective (1-to-1) mapping.</p>

@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (diff > 0 && diff <= 600) {
       const minLeft = Math.floor(diff / 60);
       const secLeft = diff % 60;
-      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold border border-rose-500/30 animate-pulse";
+      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-sm font-bold border border-rose-500/30 animate-pulse";
       countdownBadge.textContent = `🚨 마감 ${minLeft}분 ${secLeft}초 전! (최대 방어 태세)`;
     } else if (diff <= 0) {
-      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30";
+      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-bold border border-emerald-500/30";
       countdownBadge.textContent = "🎉 18:00 정시 셧다운 완료! 칼퇴 성공!";
       if (!fanfarePlayed) {
         playFanfare();
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       countdownBadge.textContent = "평화로운 업무 시간입니다.";
-      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-slate-700 text-slate-300 text-xs";
+      countdownBadge.className = "inline-block mt-2 px-3 py-1 rounded-full bg-slate-700 text-slate-300 text-sm";
     }
   }
 

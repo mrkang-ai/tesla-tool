@@ -117,7 +117,7 @@
   <main class="flex-grow container-tool py-8 sm:py-12">
     <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-purple-500/20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-sm font-semibold uppercase tracking-wider mb-2 border border-purple-500/20">
           <i class="fa-solid fa-chair"></i> CAT-02 / No.18
         </div>
         <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🎖️ 공공 의전 서열 좌석 배치도 시뮬레이터" data-lang-en="🎖️ Protocol Seating Arrangement Simulator">🎖️ 공공 의전 서열 좌석 배치도 시뮬레이터</h1>
@@ -126,7 +126,7 @@
         </p>
       </div>
       <div class="flex items-center gap-2">
-        <button id="exportSvgBtn" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-lg transition font-medium">
+        <button id="exportSvgBtn" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-500 text-white text-sm rounded-lg transition font-medium">
           <i class="fa-solid fa-download mr-1"></i> 배치도 이미지 저장
         </button>
       </div>
@@ -134,13 +134,13 @@
 
     <!-- Mode Selector Tabs -->
     <div class="flex flex-wrap gap-2 mb-6">
-      <button class="scene-tab px-4 py-2 rounded-xl text-xs font-bold border border-slate-700 transition flex items-center gap-2 bg-purple-600 text-white border-purple-500" data-scene="car">
+      <button class="scene-tab px-4 py-2 rounded-xl text-sm font-bold border border-slate-700 transition flex items-center gap-2 bg-purple-600 text-white border-purple-500" data-scene="car">
         <i class="fa-solid fa-car-side"></i> 1호차 관용차 탑승 (세단)
       </button>
-      <button class="scene-tab px-4 py-2 rounded-xl text-xs font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white" data-scene="table">
+      <button class="scene-tab px-4 py-2 rounded-xl text-sm font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white" data-scene="table">
         <i class="fa-solid fa-users-rectangle"></i> 회의실 헤드테이블
       </button>
-      <button class="scene-tab px-4 py-2 rounded-xl text-xs font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white" data-scene="photo">
+      <button class="scene-tab px-4 py-2 rounded-xl text-sm font-bold border border-slate-700 transition flex items-center gap-2 bg-slate-800 text-slate-400 hover:text-white" data-scene="photo">
         <i class="fa-solid fa-camera"></i> 기념촬영 단상
       </button>
     </div>
@@ -150,19 +150,19 @@
       <div class="lg:col-span-5 bg-slate-800/80 rounded-xl p-5 border border-slate-700 space-y-4">
         <h2 class="text-sm font-bold text-purple-400 uppercase tracking-wider flex items-center justify-between">
           <span><i class="fa-solid fa-list-ol mr-1.5"></i> 참석자 서열 순서 (1위~N위)</span>
-          <button id="presetBtn" class="text-[11px] text-slate-400 hover:text-slate-200">기본 직급 채우기</button>
+          <button id="presetBtn" class="text-sm text-slate-400 hover:text-slate-200">기본 직급 채우기</button>
         </h2>
-        <p class="text-[11px] text-slate-400">위에서부터 서열 1위(최고 상석), 2위, 3위 순으로 배치됩니다.</p>
+        <p class="text-sm text-slate-400">위에서부터 서열 1위(최고 상석), 2위, 3위 순으로 배치됩니다.</p>
 
         <div id="vipsContainer" class="space-y-2">
           <!-- Dynamic VIP inputs -->
         </div>
 
-        <button id="addVipBtn" class="w-full py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold rounded-lg transition">
+        <button id="addVipBtn" class="w-full py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-sm font-semibold rounded-lg transition">
           + 참석자 추가
         </button>
 
-        <div class="p-3 bg-slate-900 rounded-lg border border-slate-700/80 text-[11px] text-slate-400 space-y-1">
+        <div class="p-3 bg-slate-900 rounded-lg border border-slate-700/80 text-sm text-slate-400 space-y-1">
           <p class="font-bold text-amber-400"><i class="fa-solid fa-circle-info"></i> 정부 의전 기본 원칙</p>
           <p id="ruleText">
             • <b>차량 상석</b>: 운전기사가 있을 때 뒷좌석 우측(1위) → 뒷좌석 좌측(2위) → 조수석(3위) → 뒷좌석 중앙(4위)
@@ -186,13 +186,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">02 공직 & 행정 생존기</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">의전 특화</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">02 공직 & 행정 생존기</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">의전 특화</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🪑</span> <span>공식 의전 좌석 배치 시뮬레이터 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 서열 1위부터 6위까지 차량 상석 및 회의실 VIP 좌석을 완벽 배치 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -236,15 +236,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '공식 의전 좌석 배치 시뮬레이터' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '공식 의전 좌석 배치 시뮬레이터' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

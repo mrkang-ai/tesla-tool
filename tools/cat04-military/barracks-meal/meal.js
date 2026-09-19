@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <input type="checkbox" data-idx="${idx}" ${idx < 3 ? 'checked' : ''} class="m-cb rounded text-orange-500 bg-slate-800 border-slate-600">
         <span class="text-slate-200 font-medium">${m.name}</span>
       </div>
-      <span class="text-[10px] text-slate-400 font-mono">${m.penalty > 0 ? `탈주 +${m.penalty}%` : `인기 ${m.penalty}%`}</span>
+      <span class="text-sm text-slate-400 font-mono">${m.penalty > 0 ? `탈주 +${m.penalty}%` : `인기 ${m.penalty}%`}</span>
     </label>
   `).join('');
 
@@ -42,15 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (finalRate >= 70) {
       alertBadge.textContent = "🚨 PX 전자레인지 대전쟁 경보";
-      alertBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-xs font-bold font-mono animate-pulse";
+      alertBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full text-sm font-bold font-mono animate-pulse";
       escapeComment.innerHTML = `🚨 <b>탈주율 ${finalRate}%:</b> 당직사관도 식당 포기하고 PX에서 컵라면 물 받는 중!`;
     } else if (finalRate >= 40) {
       alertBadge.textContent = "⚠️ PX 대기 보통";
-      alertBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold font-mono";
+      alertBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-sm font-bold font-mono";
       escapeComment.innerHTML = `⚠️ <b>탈주율 ${finalRate}%:</b> 짬밥 절반 먹고 부족해서 맛다시 비비는 인원 급증.`;
     } else {
       alertBadge.textContent = "✅ 잔반 제로 평화의 날";
-      alertBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold font-mono";
+      alertBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-sm font-bold font-mono";
       escapeComment.innerHTML = `✅ <b>탈주율 ${finalRate}%:</b> 쏘야/제육 등장으로 취사병 칭찬 폭발, PX 한산함.`;
     }
   }

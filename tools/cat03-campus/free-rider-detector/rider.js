@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   container.innerHTML = behaviors.map(b => `
-    <label class="flex items-start gap-2 p-2 rounded bg-slate-900/60 hover:bg-slate-900 border border-slate-700/60 cursor-pointer transition text-xs">
+    <label class="flex items-start gap-2 p-2 rounded bg-slate-900/60 hover:bg-slate-900 border border-slate-700/60 cursor-pointer transition text-sm">
       <input type="checkbox" data-id="${b.id}" class="v-cb mt-0.5 rounded text-rose-500 bg-slate-800 border-slate-600">
       <span class="text-slate-300">${b.text}</span>
     </label>
@@ -61,15 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkedCount >= 7) {
       vText = `[재앙급 빌런 보스] "이름 표기 삭제 및 F학점 부여 강력 권고"`;
       villainBadge.textContent = "빌런 지수: 재앙 (99%)";
-      villainBadge.className = "px-3 py-1 bg-rose-600 text-white rounded-full text-xs font-bold animate-pulse";
+      villainBadge.className = "px-3 py-1 bg-rose-600 text-white rounded-full text-sm font-bold animate-pulse";
     } else if (checkedCount >= 4) {
       vText = `[숙련된 버스 승객] "적당히 묻어가며 무임승차를 노리는 얌체형"`;
       villainBadge.textContent = "빌런 지수: 위험 (75%)";
-      villainBadge.className = "px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full text-xs font-bold";
+      villainBadge.className = "px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full text-sm font-bold";
     } else {
       vText = `[경미한 의심] "소통 부진형 (약간의 채찍질로 교정 가능)"`;
       villainBadge.textContent = "빌런 지수: 주의 (35%)";
-      villainBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-xs font-bold";
+      villainBadge.className = "px-3 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 rounded-full text-sm font-bold";
     }
     villainType.textContent = vText;
 

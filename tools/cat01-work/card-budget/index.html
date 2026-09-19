@@ -127,7 +127,7 @@
 
     <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col gap-8">
         <div class="text-center flex flex-col items-center gap-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/70 border border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/70 border border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-sm font-bold">
                 <span>💼 K-직장인 생존 키트</span>
                 <span>•</span>
                 <span>CAT-01 No.05</span>
@@ -151,13 +151,13 @@
                     </h3>
                     <div class="relative">
                         <input type="number" id="budget-limit" value="12000" step="500" class="w-full pl-4 pr-12 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-lg font-black font-mono focus:ring-2 focus:ring-primary focus:outline-none">
-                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">원</span>
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-400">원</span>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="10000">10,000원</button>
-                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="12000">12,000원</button>
-                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="15000">15,000원</button>
-                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-xs font-bold cursor-pointer" data-val="25000">25,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-sm font-bold cursor-pointer" data-val="10000">10,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-sm font-bold cursor-pointer" data-val="12000">12,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-sm font-bold cursor-pointer" data-val="15000">15,000원</button>
+                        <button class="budget-preset px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 text-sm font-bold cursor-pointer" data-val="25000">25,000원</button>
                     </div>
                 </div>
 
@@ -167,7 +167,7 @@
                         <span class="material-symbols-outlined text-amber-500 text-lg">restaurant_menu</span>
                         <span>식당 카테고리 프리셋</span>
                     </h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                    <div class="grid grid-cols-2 gap-2 text-sm font-bold">
                         <button class="menu-theme-btn active p-2.5 rounded-xl bg-primary text-white text-center cursor-pointer" data-theme="chinese">🍜 중식당</button>
                         <button class="menu-theme-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center cursor-pointer" data-theme="japanese">🍱 일식/돈까스</button>
                         <button class="menu-theme-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center cursor-pointer" data-theme="snack">🍙 분식/김밥</button>
@@ -177,12 +177,12 @@
 
                 <!-- Custom Item Add -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
-                    <span class="text-xs font-bold text-slate-600 dark:text-slate-300">내 식당 메뉴 추가</span>
+                    <span class="text-sm font-bold text-slate-600 dark:text-slate-300">내 식당 메뉴 추가</span>
                     <div class="flex gap-2">
-                        <input type="text" id="custom-name" placeholder="메뉴명" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
-                        <input type="number" id="custom-price" placeholder="가격(원)" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
+                        <input type="text" id="custom-name" placeholder="메뉴명" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm">
+                        <input type="number" id="custom-price" placeholder="가격(원)" class="w-1/2 p-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm">
                     </div>
-                    <button id="add-item-btn" class="py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer transition-all">메뉴 추가</button>
+                    <button id="add-item-btn" class="py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-sm font-bold cursor-pointer transition-all">메뉴 추가</button>
                 </div>
             </div>
 
@@ -191,8 +191,8 @@
                 <!-- Menu Items Pool Chips -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col gap-3">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-slate-500">후보 메뉴 목록 (클릭하여 제외/포함 가능)</span>
-                        <span id="pool-count" class="text-xs font-mono text-primary font-bold">6개 메뉴</span>
+                        <span class="text-sm font-bold text-slate-500">후보 메뉴 목록 (클릭하여 제외/포함 가능)</span>
+                        <span id="pool-count" class="text-sm font-mono text-primary font-bold">6개 메뉴</span>
                     </div>
                     <div id="menu-pool-container" class="flex flex-wrap gap-2">
                         <!-- Populated by JS -->
@@ -206,7 +206,7 @@
                             <span class="material-symbols-outlined text-emerald-500 text-xl">recommend</span>
                             <span>알고리즘 추천 최적 메뉴 조합</span>
                         </h3>
-                        <button id="calc-btn" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-black shadow-md shadow-emerald-500/20 cursor-pointer flex items-center gap-1 transition-all">
+                        <button id="calc-btn" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-black shadow-md shadow-emerald-500/20 cursor-pointer flex items-center gap-1 transition-all">
                             <span class="material-symbols-outlined text-sm">calculate</span>
                             <span>최적 조합 계산</span>
                         </button>
@@ -225,13 +225,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">총무 필수</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">01 K-직장인 생존 키트</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">총무 필수</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>💳</span> <span>법인카드 잔여 0원 조합기 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 김영란법 한도(3만원) 및 팀 회식비 잔액을 딱 0원으로 맞추는 메뉴 최적화기 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -275,15 +275,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '법인카드 잔여 0원 조합기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '법인카드 잔여 0원 조합기' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

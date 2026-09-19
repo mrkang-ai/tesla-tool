@@ -139,11 +139,11 @@
         const mobileBtnEn = document.getElementById('mobile-lang-en');
         if (mobileBtnKo && mobileBtnEn) {
             if (lang === 'ko') {
-                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all bg-primary text-white shadow-sm';
-                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
+                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-sm font-bold transition-all bg-primary text-white shadow-sm';
+                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-sm font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
             } else {
-                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all bg-primary text-white shadow-sm';
-                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
+                mobileBtnEn.className = 'mobile-lang-btn px-3 py-1 rounded-md text-sm font-bold transition-all bg-primary text-white shadow-sm';
+                mobileBtnKo.className = 'mobile-lang-btn px-3 py-1 rounded-md text-sm font-bold transition-all text-slate-600 dark:text-slate-400 hover:text-primary';
             }
         }
 

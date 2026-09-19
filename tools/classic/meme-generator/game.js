@@ -1178,7 +1178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showToast(emoji, copiedOnly = false) {
         const toast = document.createElement("div");
-        toast.className = "fixed top-5 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white text-xs px-4 py-2.5 rounded-full shadow-lg z-[200] flex items-center gap-2 transition-all duration-300 opacity-0 -translate-y-2 select-none pointer-events-none";
+        toast.className = "fixed top-5 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white text-sm px-4 py-2.5 rounded-full shadow-lg z-[200] flex items-center gap-2 transition-all duration-300 opacity-0 -translate-y-2 select-none pointer-events-none";
         
         const isEn = document.documentElement.lang === "en";
         const message = copiedOnly 

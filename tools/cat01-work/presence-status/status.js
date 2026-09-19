@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex items-center gap-3">
                     <span class="text-2xl">${item.emoji}</span>
                     <div>
-                        <div class="text-xs font-bold text-slate-900 dark:text-white font-mono">${item.emoji} ${formatted}</div>
-                        <div class="text-[11px] text-slate-400 mt-0.5">슬랙 / 잔디 원클릭 프로필 상태 적용</div>
+                        <div class="text-sm font-bold text-slate-900 dark:text-white font-mono">${item.emoji} ${formatted}</div>
+                        <div class="text-sm text-slate-400 mt-0.5">슬랙 / 잔디 원클릭 프로필 상태 적용</div>
                     </div>
                 </div>
-                <button class="copy-status-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white text-xs font-bold text-slate-700 dark:text-slate-300 transition-all flex items-center gap-1 cursor-pointer flex-shrink-0">
+                <button class="copy-status-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white text-sm font-bold text-slate-700 dark:text-slate-300 transition-all flex items-center gap-1 cursor-pointer flex-shrink-0">
                     <span class="material-symbols-outlined text-sm">content_copy</span>
                     <span>복사</span>
                 </button>

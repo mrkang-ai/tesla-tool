@@ -209,12 +209,12 @@ function renderPlanner(lang) {
                     <div class="flex items-center gap-2.5">
                         <img src="${imageUrl}" alt="${mealItem.name_ko}" class="w-12 h-12 object-cover rounded-lg border border-slate-100 dark:border-slate-700 pointer-events-none flex-shrink-0">
                         <div class="min-w-0 flex-1">
-                            <span class="text-[9px] font-bold text-text-muted/70 dark:text-slate-500 uppercase tracking-wide">${dayLabels[lang][meal]}</span>
+                            <span class="text-sm font-bold text-text-muted/70 dark:text-slate-500 uppercase tracking-wide">${dayLabels[lang][meal]}</span>
                             <h4 class="text-sm font-extrabold text-text-main dark:text-white truncate mt-0.5">${lang === 'en' ? mealItem.name_en : mealItem.name_ko}</h4>
                         </div>
                     </div>
-                    <button class="delete-slot-btn absolute top-1.5 right-1.5 w-5 h-5 flex items-center justify-center rounded-full bg-slate-100/60 dark:bg-slate-700/60 hover:bg-red-500 hover:text-white dark:hover:bg-red-600 text-text-muted dark:text-slate-400 text-xs transition-colors" title="Delete">
-                        <span class="material-symbols-outlined text-xs">close</span>
+                    <button class="delete-slot-btn absolute top-1.5 right-1.5 w-5 h-5 flex items-center justify-center rounded-full bg-slate-100/60 dark:bg-slate-700/60 hover:bg-red-500 hover:text-white dark:hover:bg-red-600 text-text-muted dark:text-slate-400 text-sm transition-colors" title="Delete">
+                        <span class="material-symbols-outlined text-sm">close</span>
                     </button>
                 `;
 
@@ -231,8 +231,8 @@ function renderPlanner(lang) {
                 slotCard.innerHTML = `
                     <span class="material-symbols-outlined text-text-muted/40 dark:text-slate-600 text-lg">add_circle</span>
                     <div class="flex flex-col">
-                        <span class="text-[9px] font-bold text-text-muted/60 dark:text-slate-500 uppercase">${dayLabels[lang][meal]}</span>
-                        <span class="text-[10px] text-text-muted/50 dark:text-slate-600 font-medium">${dayLabels[lang].empty}</span>
+                        <span class="text-sm font-bold text-text-muted/60 dark:text-slate-500 uppercase">${dayLabels[lang][meal]}</span>
+                        <span class="text-sm text-text-muted/50 dark:text-slate-600 font-medium">${dayLabels[lang].empty}</span>
                     </div>
                 `;
             }
@@ -428,7 +428,7 @@ function downloadPng() {
     ctx.fillText(title, 500, 110);
 
     ctx.fillStyle = '#64748b';
-    ctx.font = '16px sans-serif';
+    ctx.font = "16px sans-serif';
     const subtitle = lang === 'en' ? 'Online Toolkit - tossgpt.online' : '온라인 도구모음 - tossgpt.online';
     ctx.fillText(subtitle, 500, 140);
 

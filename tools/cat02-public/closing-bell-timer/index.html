@@ -126,7 +126,7 @@
   <main class="flex-grow container-tool py-8 sm:py-12">
     <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold uppercase tracking-wider mb-2 border border-emerald-500/20">
           <i class="fa-solid fa-bell"></i> CAT-02 / No.20
         </div>
         <h1 class="text-2xl sm:text-3xl font-bold" data-lang-ko="🛎️ 17:59 칼퇴 수호 & 포커페이스 타이머" data-lang-en="🛎️ 17:59 Closing Bell Defense Timer">🛎️ 17:59 칼퇴 수호 & 포커페이스 타이머</h1>
@@ -135,7 +135,7 @@
         </p>
       </div>
       <div class="flex items-center gap-2">
-        <button id="testBellBtn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition">
+        <button id="testBellBtn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-lg transition">
           <i class="fa-solid fa-music mr-1"></i> 퇴근 팡파레 미리듣기
         </button>
       </div>
@@ -145,11 +145,11 @@
       <!-- Timer & Breathing Display -->
       <div class="lg:col-span-6 bg-slate-800/80 rounded-2xl p-6 border border-slate-700 flex flex-col items-center justify-between text-center min-h-[420px]">
         <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">현재 시각 / 마감 카운트다운</span>
+          <span class="text-sm font-bold text-slate-400 uppercase tracking-wider">현재 시각 / 마감 카운트다운</span>
           <div id="currentTimeDisplay" class="text-3xl sm:text-4xl font-mono font-black text-emerald-400 mt-1">
             17:58:30
           </div>
-          <span id="countdownBadge" class="inline-block mt-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+          <span id="countdownBadge" class="inline-block mt-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-bold border border-emerald-500/30">
             마감 1분 30초 전 (긴장 최고조)
           </span>
         </div>
@@ -159,13 +159,13 @@
           <div class="breathe-circle absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/20 to-teal-500/40 border border-emerald-400/40"></div>
           <div class="relative z-10 text-center">
             <span id="breatheText" class="text-sm font-bold text-emerald-300 block">들숨 (Inhale)</span>
-            <span class="text-[10px] text-slate-400 block mt-0.5">평정심 유지</span>
+            <span class="text-sm text-slate-400 block mt-0.5">평정심 유지</span>
           </div>
         </div>
 
         <!-- Quick 60-second test simulator -->
         <div class="w-full pt-4 border-t border-slate-700">
-          <button id="simBtn" class="w-full py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+          <button id="simBtn" class="w-full py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-sm font-bold rounded-xl transition flex items-center justify-center gap-2">
             <i class="fa-solid fa-forward-step text-emerald-400"></i> 10초 뒤 18:00 시뮬레이션
           </button>
         </div>
@@ -174,14 +174,14 @@
       <!-- Defense Dialogue Cards -->
       <div class="lg:col-span-6 space-y-4">
         <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700 space-y-3">
-          <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+          <h2 class="text-sm font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
             <i class="fa-solid fa-shield-halved"></i> 17:59 긴급 난입 방어 멘트 매뉴얼
           </h2>
-          <p class="text-[11px] text-slate-400">클릭 시 텍스트 복사 및 음성(TTS) 읽기 지원</p>
+          <p class="text-sm text-slate-400">클릭 시 텍스트 복사 및 음성(TTS) 읽기 지원</p>
 
-          <div class="space-y-2.5 text-xs">
+          <div class="space-y-2.5 text-sm">
             <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="선생님, 정부 행정 전산 시스템이 18시 정각에 서버 유지보수로 자동 로그아웃 및 전면 셧다운됩니다. 지금 접수하시면 중간에 전송 실패로 서류가 유실될 위험이 크니 내일 아침 9시 정각에 1등으로 신속히 처리해 드리겠습니다!">
-              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+              <div class="flex justify-between items-center text-slate-400 text-sm mb-1">
                 <span class="text-emerald-400 font-bold">1단계: 시스템 서버 셧다운 핑계형</span>
                 <i class="fa-solid fa-volume-high"></i>
               </div>
@@ -189,7 +189,7 @@
             </div>
 
             <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="선생님, 담당 공결재권자 및 부서장님께서 관내 긴급 현장 안전 점검으로 부재중이셔서 오늘 날짜로는 최종 결재 인장이 발급되지 않습니다.">
-              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+              <div class="flex justify-between items-center text-slate-400 text-sm mb-1">
                 <span class="text-amber-400 font-bold">2단계: 최종 결재권자 부재형</span>
                 <i class="fa-solid fa-volume-high"></i>
               </div>
@@ -197,7 +197,7 @@
             </div>
 
             <div class="dialogue-card p-3 bg-slate-900 rounded-xl border border-slate-700/80 hover:border-emerald-500/50 cursor-pointer transition" data-text="정부24(gov.kr) 모바일 앱이나 관내 24시간 무인민원발급기를 이용하시면 수수료 50% 감면 및 즉시 출력이 가능하십니다. 위치 약도를 안내해 드릴까요?">
-              <div class="flex justify-between items-center text-slate-400 text-[10px] mb-1">
+              <div class="flex justify-between items-center text-slate-400 text-sm mb-1">
                 <span class="text-blue-400 font-bold">3단계: 무인민원기/온라인 우회형</span>
                 <i class="fa-solid fa-volume-high"></i>
               </div>
@@ -207,7 +207,7 @@
         </div>
 
         <!-- Copied Toast -->
-        <div id="toast" class="hidden p-3 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs text-center font-bold">
+        <div id="toast" class="hidden p-3 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-sm text-center font-bold">
           대화 멘트가 클립보드에 복사되었습니다!
         </div>
       </div>
@@ -219,13 +219,13 @@
     <section class="container-guide mx-auto mt-12 px-4 sm:px-6 py-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm tool-guide-container mb-12">
         <div class="border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
             <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">02 공직 & 행정 생존기</span>
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">퇴근 알림</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950/60 text-primary font-mono">02 공직 & 행정 생존기</span>
+                <span class="text-sm font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 font-mono">퇴근 알림</span>
             </div>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <span>🔔</span> <span>퇴근 10분 전 시보 알림 타이머 완벽 활용 가이드 &amp; 상세 매뉴얼</span>
             </h2>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p class="text-sm sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 18시 정각 정년퇴임 및 퇴근 종소리와 함께 칼퇴 카운트다운 울림 - 기획 배경부터 실전 200% 활용 노하우, 자주 묻는 질문(FAQ)까지 상세하게 안내해 드립니다.
             </p>
         </div>
@@ -269,15 +269,15 @@
                 <div class="space-y-3">
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q1. 입력한 데이터나 사용 기록이 서버에 저장되거나 외부로 유출될 위험이 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '퇴근 10분 전 시보 알림 타이머' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A1. 절대 안심하셔도 좋습니다. '퇴근 10분 전 시보 알림 타이머' 도구는 사용자의 프라이버시와 데이터 보안을 최우선으로 고려하여 제작되었습니다. 모든 계산과 텍스트 생성 로직은 사용자의 기기(웹 브라우저) 안에서만 독립적으로 실행되며, 서버로 일체의 입력 데이터나 사용 기록이 전송되지 않습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q2. 모바일 스마트폰이나 태블릿에서도 모든 기능을 제약 없이 쓸 수 있나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A2. 네, 100% 완벽하게 지원합니다. 반응형 모바일 웹 표준(HTML5/CSS3)을 준수하여 제작되었기 때문에, 아이폰(Safari), 갤럭시(Chrome/Samsung Internet) 등 모든 모바일 환경에서 터치 제스처와 깔끔한 레이아웃으로 편리하게 이용하실 수 있습니다.</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                         <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Q3. 생성된 결과물을 상업적 용도나 대외 문서, 보고서 등에 자유롭게 활용해도 되나요?</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
+                        <p class="text-sm sm:text-sm text-slate-600 dark:text-slate-400">A3. 물론입니다. 본 도구를 통해 생성된 텍스트, 계산 결과표, 서식 및 아이디어는 개인적 용도는 물론 회사 업무, 학교 과제, 비즈니스 보고서 등에 자유롭게 복사하여 수정 및 배포하실 수 있습니다.</p>
                     </div>
                 </div>
             </div>

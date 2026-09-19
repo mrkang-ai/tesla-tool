@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     timelineContainer.innerHTML = steps.map(s => `
-      <div class="p-4 rounded-xl border ${s.color} flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs">
+      <div class="p-4 rounded-xl border ${s.color} flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm">
         <div>
           <span class="font-bold text-sm block">${s.title}</span>
-          <span class="text-[11px] text-slate-400 font-mono">${s.years}</span>
+          <span class="text-sm text-slate-400 font-mono">${s.years}</span>
           <p class="text-slate-300 mt-1">${s.desc}</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-mono font-bold self-end sm:self-auto border border-slate-700">
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-sm font-mono font-bold self-end sm:self-auto border border-slate-700">
           ${s.status}
         </span>
       </div>
