@@ -1,4 +1,4 @@
-// 실시간 연봉 시급화 및 응가 머니 로직
+// 실시간 연봉 시급화, 응가 머니 & 데스크 스탠드바이(StandBy) 로직
 document.addEventListener('DOMContentLoaded', () => {
     const salaryInput = document.getElementById('salary-input');
     const workStart = document.getElementById('work-start');
@@ -15,9 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const poopMoney = document.getElementById('poop-money');
     const poopTimer = document.getElementById('poop-timer');
 
+    // StandBy Overlay Elements
+    const openStandbyBtn = document.getElementById('open-standby-btn');
+    const closeStandbyBtn = document.getElementById('close-standby-btn');
+    const standbyOverlay = document.getElementById('standby-overlay');
+    const standbyHud = document.getElementById('standby-hud');
+    const standbyAmount = document.getElementById('standby-amount');
+    const standbyRate = document.getElementById('standby-rate');
+    const standbyProgressBadge = document.getElementById('standby-progress-badge');
+    const standbyCountdownSub = document.getElementById('standby-countdown-sub');
+    const standbyBar = document.getElementById('standby-bar');
+    const standbyToggleWidgetBtn = document.getElementById('standby-toggle-widget-btn');
+    const standbyWidgetLabel = document.getElementById('standby-widget-label');
+    const standbyFsBtn = document.getElementById('standby-fs-btn');
+    const standbyFsIcon = document.getElementById('standby-fs-icon');
+    const standbyCalendarBox = document.getElementById('standby-calendar-box');
+    const standbyClockBox = document.getElementById('standby-clock-box');
+    const standbyMonthTitle = document.getElementById('standby-month-title');
+    const standbyYearLabel = document.getElementById('standby-year-label');
+    const standbyDaysGrid = document.getElementById('standby-days-grid');
+    const standbyDigitalClock = document.getElementById('standby-digital-clock');
+    const standbyRemainTime = document.getElementById('standby-remain-time');
+    const standbyWakelockLabel = document.getElementById('standby-wakelock-label');
+
     let isPooping = false;
     let poopSeconds = 0;
     let poopInterval = null;
+
+    let isStandByActive = false;
+    let standbyRightMode = 'calendar'; // 'calendar' | 'clock'
+    let wakeLock = null;
+    let hudTimeout = null;
+    let showCents = false; // true = with decimals, false = integer like reference photo
 
     function getRates() {
         const salary = parseFloat(salaryInput.value) || 0;
@@ -34,26 +63,353 @@ document.addEventListener('DOMContentLoaded', () => {
         rateMin.textContent = `₩ ${Math.round(minuteRate).toLocaleString()} / 분`;
         rateHour.textContent = `₩ ${Math.round(hourlyRate).toLocaleString()} / 시`;
         rateDay.textContent = `₩ ${Math.round(dailyRate).toLocaleString()} / 일`;
+
+        if (standbyRate) {
+            standbyRate.textContent = `초당 ₩${secondRate.toFixed(2)}`;
+        }
+    }
+
+    function calculateWorkProgress(now) {
+        const [sH, sM] = workStart.value.split(':').map(Number);
+        const [eH, eM] = workEnd.value.split(':').map(Number);
+
+        const startTime = new Date(now);
+        startTime.setHours(sH, sM, 0, 0);
+
+        const endTime = new Date(now);
+        endTime.setHours(eH, eM, 0, 0);
+
+        const totalWorkMs = Math.max(1000, endTime - startTime);
+        const elapsedMs = Math.max(0, Math.min(totalWorkMs, now - startTime));
+        const progressPct = Math.min(100, Math.max(0, (elapsedMs / totalWorkMs) * 100));
+
+        const remainMs = Math.max(0, endTime - now);
+        const remainSec = Math.floor(remainMs / 1000);
+        const rHours = Math.floor(remainSec / 3600);
+        const rMins = Math.floor((remainSec % 3600) / 60);
+        const rSecs = remainSec % 60;
+
+        return {
+            startTime,
+            endTime,
+            diffMs: now - startTime,
+            progressPct,
+            remainMs,
+            remainText: `${rHours}시간 ${rMins}분 ${rSecs}초`,
+            remainShort: `${rHours.toString().padStart(2, '0')}:${rMins.toString().padStart(2, '0')}:${rSecs.toString().padStart(2, '0')}`
+        };
     }
 
     function updateLiveTicker() {
         const { secondRate } = getRates();
         const now = new Date();
-        const [sH, sM] = workStart.value.split(':').map(Number);
-        const startTime = new Date();
-        startTime.setHours(sH, sM, 0, 0);
+        const { diffMs, progressPct, remainMs, remainText, remainShort } = calculateWorkProgress(now);
 
-        const diffMs = now - startTime;
+        let earned = 0;
         if (diffMs <= 0) {
             earnedToday.textContent = '0.00 (출근 전)';
+            if (isStandByActive && standbyAmount) {
+                standbyAmount.textContent = '0';
+            }
         } else {
             const workedSec = diffMs / 1000;
-            const earned = workedSec * secondRate;
+            earned = workedSec * secondRate;
             earnedToday.textContent = earned.toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            
+            if (isStandByActive && standbyAmount) {
+                if (showCents) {
+                    standbyAmount.textContent = earned.toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                } else {
+                    // Reference photo shows clean integer: ₩146,409
+                    standbyAmount.textContent = Math.floor(earned).toLocaleString('ko-KR');
+                }
+            }
         }
+
+        // Update Standby details
+        if (isStandByActive) {
+            if (standbyProgressBadge) {
+                standbyProgressBadge.textContent = diffMs <= 0 ? '출근 전' : `근무 ${Math.round(progressPct)}%`;
+            }
+            if (standbyCountdownSub) {
+                standbyCountdownSub.textContent = remainMs <= 0 ? '🎉 퇴근 완료' : `퇴근까지 ${remainShort}`;
+            }
+            if (standbyBar) {
+                standbyBar.style.width = `${progressPct}%`;
+            }
+
+            // If clock mode is visible
+            if (standbyRightMode === 'clock') {
+                if (standbyDigitalClock) {
+                    const h = now.getHours().toString().padStart(2, '0');
+                    const m = now.getMinutes().toString().padStart(2, '0');
+                    const s = now.getSeconds().toString().padStart(2, '0');
+                    standbyDigitalClock.textContent = `${h}:${m}:${s}`;
+                }
+                if (standbyRemainTime) {
+                    standbyRemainTime.textContent = remainMs <= 0 ? '🎉 수고하셨습니다! 퇴근!' : remainText;
+                }
+            }
+        }
+
         requestAnimationFrame(updateLiveTicker);
     }
 
+    // =========================================================================
+    // StandBy Ambient Mode: Calendar Generator (Matches Reference Image)
+    // =========================================================================
+    function renderStandbyCalendar() {
+        if (!standbyDaysGrid) return;
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth(); // 0-indexed
+        const todayDate = now.getDate();
+
+        if (standbyMonthTitle) {
+            standbyMonthTitle.textContent = `${month + 1}월`;
+        }
+        if (standbyYearLabel) {
+            standbyYearLabel.textContent = `${year}`;
+        }
+
+        const firstDayIndex = new Date(year, month, 1).getDay(); // 0=Sun, 6=Sat
+        const totalDays = new Date(year, month + 1, 0).getDate();
+
+        let html = '';
+
+        // Empty cells before day 1
+        for (let i = 0; i < firstDayIndex; i++) {
+            html += '<div class="py-1"></div>';
+        }
+
+        // Days of month
+        for (let day = 1; day <= totalDays; day++) {
+            const dayCol = (firstDayIndex + day - 1) % 7;
+            const isToday = day === todayDate;
+
+            let colorClass = 'text-slate-200';
+            if (dayCol === 0) colorClass = 'text-rose-400/90'; // Sunday
+            else if (dayCol === 6) colorClass = 'text-sky-400/90'; // Saturday
+
+            if (isToday) {
+                // Highlight circle matching uploaded image
+                html += `
+                    <div class="flex items-center justify-center py-0.5">
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full border-2 border-white bg-white/20 text-white font-black shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+                            ${day}
+                        </span>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="flex items-center justify-center py-0.5">
+                        <span class="${colorClass} font-semibold hover:text-white transition-colors">
+                            ${day}
+                        </span>
+                    </div>
+                `;
+            }
+        }
+
+        standbyDaysGrid.innerHTML = html;
+    }
+
+    // =========================================================================
+    // Screen Wake Lock API (Prevents screen from turning off on desk stand)
+    // =========================================================================
+    async function requestWakeLock() {
+        if ('wakeLock' in navigator) {
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                if (standbyWakelockLabel) {
+                    standbyWakelockLabel.textContent = '화면 켜짐 유지 (Wake Lock ON)';
+                }
+                wakeLock.addEventListener('release', () => {
+                    wakeLock = null;
+                });
+            } catch (err) {
+                console.warn('[StandBy] WakeLock request error:', err);
+                if (standbyWakelockLabel) {
+                    standbyWakelockLabel.textContent = '화면 유지 미지원 기기';
+                }
+            }
+        } else {
+            if (standbyWakelockLabel) {
+                standbyWakelockLabel.textContent = '화면 유지 API 미지원';
+            }
+        }
+    }
+
+    function releaseWakeLock() {
+        if (wakeLock) {
+            wakeLock.release().catch(() => {});
+            wakeLock = null;
+        }
+    }
+
+    // =========================================================================
+    // HUD Visibility & Interaction
+    // =========================================================================
+    function showHud() {
+        if (!standbyHud) return;
+        standbyHud.classList.remove('opacity-0', 'pointer-events-none');
+        standbyHud.classList.add('opacity-100');
+
+        clearTimeout(hudTimeout);
+        hudTimeout = setTimeout(() => {
+            hideHud();
+        }, 4000);
+    }
+
+    function hideHud() {
+        if (!standbyHud) return;
+        clearTimeout(hudTimeout);
+        standbyHud.classList.remove('opacity-100');
+        standbyHud.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function toggleHud() {
+        if (!standbyHud) return;
+        if (standbyHud.classList.contains('opacity-0')) {
+            showHud();
+        } else {
+            hideHud();
+        }
+    }
+
+    function toggleStandbyWidget() {
+        if (standbyRightMode === 'calendar') {
+            standbyRightMode = 'clock';
+            standbyCalendarBox.classList.add('hidden');
+            standbyClockBox.classList.remove('hidden');
+            standbyWidgetLabel.textContent = '달력 보기 모드';
+        } else {
+            standbyRightMode = 'calendar';
+            standbyClockBox.classList.add('hidden');
+            standbyCalendarBox.classList.remove('hidden');
+            standbyWidgetLabel.textContent = '시계 & 퇴근 모드';
+            renderStandbyCalendar();
+        }
+    }
+
+    async function toggleFullscreen() {
+        try {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (standbyOverlay.requestFullscreen) {
+                    await standbyOverlay.requestFullscreen();
+                } else if (standbyOverlay.webkitRequestFullscreen) {
+                    await standbyOverlay.webkitRequestFullscreen();
+                }
+                if (standbyFsIcon) standbyFsIcon.textContent = 'fullscreen_exit';
+            } else {
+                if (document.exitFullscreen) {
+                    await document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    await document.webkitExitFullscreen();
+                }
+                if (standbyFsIcon) standbyFsIcon.textContent = 'fullscreen';
+            }
+        } catch (e) {
+            console.warn('[StandBy] Fullscreen toggle error:', e);
+        }
+    }
+
+    function openStandby() {
+        if (!standbyOverlay) return;
+        isStandByActive = true;
+        standbyOverlay.classList.remove('hidden');
+        renderStandbyCalendar();
+        updateRateDisplays();
+        requestWakeLock();
+        showHud();
+
+        // Auto request fullscreen if user interacted
+        toggleFullscreen();
+    }
+
+    function closeStandby() {
+        if (!standbyOverlay) return;
+        isStandByActive = false;
+        standbyOverlay.classList.add('hidden');
+        releaseWakeLock();
+        clearTimeout(hudTimeout);
+
+        if (document.fullscreenElement || document.webkitFullscreenElement) {
+            if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen().catch(() => {});
+        }
+    }
+
+    // StandBy Event Listeners
+    if (openStandbyBtn) {
+        openStandbyBtn.addEventListener('click', openStandby);
+    }
+    if (closeStandbyBtn) {
+        closeStandbyBtn.addEventListener('click', closeStandby);
+    }
+    if (standbyToggleWidgetBtn) {
+        standbyToggleWidgetBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleStandbyWidget();
+            showHud();
+        });
+    }
+    if (standbyFsBtn) {
+        standbyFsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFullscreen();
+            showHud();
+        });
+    }
+
+    // Tap on standby overlay to reveal/hide HUD
+    if (standbyOverlay) {
+        standbyOverlay.addEventListener('click', (e) => {
+            if (e.target.closest('#standby-hud')) return;
+            toggleHud();
+        });
+
+        // Tap amount to toggle cents/integers
+        if (standbyAmount) {
+            standbyAmount.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showCents = !showCents;
+                showHud();
+            });
+        }
+
+        // Tap right calendar or clock box to switch widget
+        if (standbyCalendarBox) {
+            standbyCalendarBox.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleStandbyWidget();
+                showHud();
+            });
+        }
+        if (standbyClockBox) {
+            standbyClockBox.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleStandbyWidget();
+                showHud();
+            });
+        }
+    }
+
+    // Keyboard ESC to close
+    document.addEventListener('keydown', (e) => {
+        if (isStandByActive && e.key === 'Escape') {
+            closeStandby();
+        }
+    });
+
+    // Re-acquire wake lock if tab visibility changes
+    document.addEventListener('visibilitychange', () => {
+        if (isStandByActive && document.visibilityState === 'visible') {
+            requestWakeLock();
+        }
+    });
+
+    // Salary Input Listeners
     salaryInput.addEventListener('input', updateRateDisplays);
     salaryChips.forEach(chip => {
         chip.addEventListener('click', () => {
@@ -62,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Poop Money Logic
     function playFlushSound() {
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();

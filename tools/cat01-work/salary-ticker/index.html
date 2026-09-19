@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=420">
+    <link rel="stylesheet" href="/style.css?v=430">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -26,7 +26,7 @@
             }
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=420">
+  <link rel="stylesheet" href="/framework/core.css?v=430">
 
   <!-- OpenGraph & Social Media SEO -->
   <meta property="og:type" content="website">
@@ -154,6 +154,13 @@
                     0.00
                 </span>
             </div>
+
+            <!-- Desktop/Mobile StandBy Ambient Launcher Button -->
+            <button id="open-standby-btn" type="button" class="my-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-800/90 hover:bg-slate-750 text-white font-bold text-sm border border-emerald-500/40 hover:border-emerald-400 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer group hover:scale-[1.02] active:scale-95">
+                <span class="material-symbols-outlined text-emerald-400 text-xl group-hover:rotate-90 transition-transform">stay_current_landscape</span>
+                <span class="font-extrabold tracking-wide">데스크 스탠드바이 모드 (전체화면 / AOD)</span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold">Reels 감성 📱</span>
+            </button>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl pt-4 border-t border-slate-700/80 text-sm">
                 <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
@@ -311,9 +318,125 @@
         </div>
     </section>
     
+    <!-- ================================================================= -->
+    <!-- Fullscreen StandBy Ambient Display (iOS StandBy / Deskterior Mode) -->
+    <!-- ================================================================= -->
+    <div id="standby-overlay" class="fixed inset-0 z-[99999] bg-black text-white hidden select-none overflow-hidden font-sans">
+        <!-- Floating HUD Top Toolbar (Auto-fades out after 3s, reveals on tap/touch) -->
+        <header id="standby-hud" class="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent transition-opacity duration-500 opacity-100">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="standby-wakelock-label">화면 켜짐 유지 (Wake Lock ON)</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-slate-400">
+                    <span>💡 화면 탭 시 메뉴 토글</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Widget Mode Toggle (Calendar vs Digital Clock / Countdown) -->
+                <button id="standby-toggle-widget-btn" type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-xs font-bold text-slate-200 cursor-pointer transition-colors" title="달력 / 시계 전환">
+                    <span class="material-symbols-outlined text-sm">swap_horiz</span>
+                    <span id="standby-widget-label">시계 &amp; 퇴근 모드</span>
+                </button>
+
+                <!-- Fullscreen Toggle Button -->
+                <button id="standby-fs-btn" type="button" class="p-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 cursor-pointer transition-colors" title="전체화면 전환">
+                    <span id="standby-fs-icon" class="material-symbols-outlined text-lg">fullscreen</span>
+                </button>
+
+                <!-- Exit StandBy Button -->
+                <button id="close-standby-btn" type="button" class="flex items-center gap-1 px-3.5 py-1.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-700/60 text-xs font-bold text-rose-200 cursor-pointer transition-colors" title="스탠드바이 종료">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                    <span>종료</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Screen Body (Supports Landscape & Portrait via responsive flex) -->
+        <div class="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 sm:p-10 md:p-14 lg:p-20 gap-8 md:gap-12 lg:gap-16">
+            
+            <!-- Left Panel: Realtime Salary Live Earnings (Exact match to reference photo) -->
+            <div class="flex-1 w-full flex flex-col justify-center items-start pl-2 sm:pl-6 md:pl-10">
+                <!-- '오늘' Label -->
+                <p class="text-slate-400 text-base sm:text-lg md:text-xl font-medium tracking-wide mb-1 sm:mb-2">오늘</p>
+                
+                <!-- Large Realtime Ticking Amount -->
+                <div class="flex items-baseline gap-1.5 sm:gap-2 font-mono">
+                    <span class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">₩</span>
+                    <span id="standby-amount" class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white font-mono drop-shadow-[0_2px_15px_rgba(255,255,255,0.15)]">0</span>
+                </div>
+
+                <!-- Sub Rate & Progress -->
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3 mt-2 sm:mt-4 text-slate-400 font-mono text-sm sm:text-base md:text-lg">
+                    <span id="standby-rate" class="text-slate-300 font-bold">초당 ₩0.00</span>
+                    <span class="text-slate-600">•</span>
+                    <span id="standby-progress-badge" class="text-emerald-400 font-semibold">근무 0%</span>
+                    <span class="text-slate-600">•</span>
+                    <span id="standby-countdown-sub" class="text-slate-400 text-xs sm:text-sm">퇴근까지 00:00</span>
+                </div>
+
+                <!-- Subtle Progress Bar -->
+                <div class="w-full max-w-xs sm:max-w-sm h-1.5 bg-slate-900 rounded-full mt-3 sm:mt-4 overflow-hidden border border-slate-800">
+                    <div id="standby-bar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Calendar or Clock (Exact match to reference photo) -->
+            <div class="flex-1 w-full flex flex-col justify-center items-center pr-2 sm:pr-6 md:pr-10">
+                
+                <!-- Mode A: Calendar View (Default - Exact match to reference photo) -->
+                <div id="standby-calendar-box" class="w-full max-w-sm sm:max-w-md flex flex-col transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3 px-2">
+                        <span id="standby-month-title" class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-wide">9월</span>
+                        <span id="standby-year-label" class="text-xs sm:text-sm font-mono text-slate-500">2026</span>
+                    </div>
+
+                    <!-- Weekdays Header -->
+                    <div class="grid grid-cols-7 text-center text-slate-400 font-semibold text-xs sm:text-sm mb-2.5">
+                        <div class="text-rose-400/90">일</div>
+                        <div>월</div>
+                        <div>화</div>
+                        <div>수</div>
+                        <div>목</div>
+                        <div>금</div>
+                        <div class="text-sky-400/90">토</div>
+                    </div>
+
+                    <!-- Calendar Days Grid (Injected by JS) -->
+                    <div id="standby-days-grid" class="grid grid-cols-7 text-center font-mono text-sm sm:text-base gap-y-1.5 sm:gap-y-2.5">
+                        <!-- Dynamic dates injected here -->
+                    </div>
+                </div>
+
+                <!-- Mode B: Clock & Countdown View (Optional Toggle) -->
+                <div id="standby-clock-box" class="w-full max-w-sm sm:max-w-md flex flex-col items-center justify-center text-center hidden transition-all duration-300">
+                    <p class="text-slate-400 text-xs sm:text-sm font-mono tracking-widest uppercase mb-1">CURRENT TIME</p>
+                    <div id="standby-digital-clock" class="text-5xl sm:text-6xl md:text-7xl font-black font-mono tracking-tight text-white mb-4">
+                        00:00:00
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 w-full flex flex-col gap-1.5">
+                        <div class="text-xs text-slate-400 font-bold">🏁 오늘 퇴근까지 남은 시간</div>
+                        <div id="standby-remain-time" class="text-2xl sm:text-3xl font-black font-mono text-emerald-400">
+                            0시간 00분 00초
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Tap Hint Footer -->
+        <footer class="absolute bottom-3 left-0 right-0 text-center pointer-events-none">
+            <span class="text-xs font-mono text-slate-600">OLED Ambient Display • 터치 시 조작 메뉴 토글</span>
+        </footer>
+    </div>
+
     <div id="footer-placeholder"></div>
-    <script src="/language.js?v=320" defer></script>
+    <script src="/language.js?v=420" defer></script>
     <script src="ticker.js"></script>
-  <script src="/framework/core.js?v=320"></script>
+    <script src="/framework/core.js?v=430"></script>
 </body>
 </html>

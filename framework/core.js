@@ -734,7 +734,7 @@
             // Fetch tools dictionary
             let toolsData = {};
             try {
-                const res = await fetch(`/locales/${lang}/tools.json?v=420`);
+                const res = await fetch(`/locales/${lang}/tools.json?v=430`);
                 if (res.ok) {
                     toolsData = await res.json();
                 }
@@ -812,11 +812,81 @@
                     <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-sm font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
                         <span>${listBtnLabel}</span>
                     </button>
+                    <button type="button" id="fw-fullscreen-btn" class="ml-0.5 sm:ml-1 p-1 sm:px-2 sm:py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold border border-slate-200 dark:border-slate-700 transition-colors flex items-center gap-1 cursor-pointer" title="모바일 / PC 전체화면 (화면 켜짐 유지)">
+                        <span id="fw-fs-icon" class="material-symbols-outlined text-sm sm:text-base">fullscreen</span>
+                        <span class="hidden sm:inline text-xs font-bold">전체화면</span>
+                    </button>
                 </div>
             `;
 
             const stripDrawerBtn = document.getElementById('fw-open-drawer-btn');
             if (stripDrawerBtn) stripDrawerBtn.onclick = openDrawer;
+
+            // Universal Fullscreen & Wake Lock Controller
+            const stripFsBtn = document.getElementById('fw-fullscreen-btn');
+            let exitPill = document.getElementById('fw-fullscreen-exit-pill');
+            if (!exitPill) {
+                exitPill = document.createElement('button');
+                exitPill.id = 'fw-fullscreen-exit-pill';
+                exitPill.type = 'button';
+                exitPill.className = 'fw-fullscreen-exit-pill';
+                exitPill.innerHTML = `
+                    <span class="material-symbols-outlined text-sm">fullscreen_exit</span>
+                    <span>전체화면 종료</span>
+                `;
+                exitPill.onclick = () => {
+                    if (document.fullscreenElement || document.webkitFullscreenElement) {
+                        if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+                        else if (document.webkitExitFullscreen) document.webkitExitFullscreen().catch(()=>{});
+                    }
+                };
+                document.body.appendChild(exitPill);
+            }
+
+            const toggleToolFullscreen = async () => {
+                try {
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                        if (document.documentElement.requestFullscreen) {
+                            await document.documentElement.requestFullscreen();
+                        } else if (document.documentElement.webkitRequestFullscreen) {
+                            await document.documentElement.webkitRequestFullscreen();
+                        }
+                        if ('wakeLock' in navigator) {
+                            try { window._toolWakeLock = await navigator.wakeLock.request('screen'); } catch(e){}
+                        }
+                    } else {
+                        if (document.exitFullscreen) await document.exitFullscreen();
+                        else if (document.webkitExitFullscreen) await document.webkitExitFullscreen();
+                        if (window._toolWakeLock) {
+                            window._toolWakeLock.release().catch(()=>{});
+                            window._toolWakeLock = null;
+                        }
+                    }
+                } catch (e) {
+                    console.warn('[ToolBox] Fullscreen toggle error:', e);
+                }
+            };
+
+            if (stripFsBtn) stripFsBtn.onclick = toggleToolFullscreen;
+
+            const handleFsStateChange = () => {
+                const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                const fsIcon = document.getElementById('fw-fs-icon');
+                if (fsIcon) fsIcon.textContent = isFs ? 'fullscreen_exit' : 'fullscreen';
+                if (exitPill) {
+                    if (isFs) exitPill.classList.add('is-active');
+                    else exitPill.classList.remove('is-active');
+                }
+                if (!isFs && window._toolWakeLock) {
+                    window._toolWakeLock.release().catch(()=>{});
+                    window._toolWakeLock = null;
+                }
+            };
+
+            document.removeEventListener('fullscreenchange', handleFsStateChange);
+            document.removeEventListener('webkitfullscreenchange', handleFsStateChange);
+            document.addEventListener('fullscreenchange', handleFsStateChange);
+            document.addEventListener('webkitfullscreenchange', handleFsStateChange);
 
             // 8b. Side Drawer Content
             const drawerItemsHtml = catTools.map((t, idx) => {
