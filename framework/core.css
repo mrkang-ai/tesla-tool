@@ -617,3 +617,26 @@ html.dark .fw-side-drawer {
   display: inline-flex;
 }
 
+/* 4. Universal CSS Fullscreen Mode (Essential for iPhone Safari & Mobile Browsers) */
+body.fw-fullscreen-mode {
+  overflow: hidden !important;
+}
+
+body.fw-fullscreen-mode #header-placeholder,
+body.fw-fullscreen-mode header:not(#standby-hud),
+body.fw-fullscreen-mode #footer-placeholder,
+body.fw-fullscreen-mode footer:not(#standby-footer),
+body.fw-fullscreen-mode .fw-floating-trigger,
+body.fw-fullscreen-mode .tool-guide-container,
+body.fw-fullscreen-mode .container-guide {
+  display: none !important;
+}
+
+body.fw-fullscreen-mode main {
+  padding-top: 48px !important;
+  padding-bottom: 24px !important;
+  min-height: 100dvh !important;
+  justify-content: center !important;
+}
+
+

@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=430">
+    <link rel="stylesheet" href="/style.css?v=440">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -26,7 +26,7 @@
             }
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=430">
+  <link rel="stylesheet" href="/framework/core.css?v=440">
 
   <!-- OpenGraph & Social Media SEO -->
   <meta property="og:type" content="website">
@@ -120,7 +120,11 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0ea5e9">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="연봉초시계">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
     <div id="header-placeholder"></div>
@@ -161,6 +165,10 @@
                 <span class="font-extrabold tracking-wide">데스크 스탠드바이 모드 (전체화면 / AOD)</span>
                 <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold">Reels 감성 📱</span>
             </button>
+            <p class="text-xs text-slate-400 mt-0.5 mb-1 flex items-center justify-center gap-1.5 flex-wrap">
+                <span class="text-emerald-400 font-bold">💡 완벽한 전체화면 팁:</span>
+                <span>모바일에서 사파리 '공유' → [홈 화면에 추가] 하시면 주소창 없이 릴스처럼 실행됩니다.</span>
+            </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl pt-4 border-t border-slate-700/80 text-sm">
                 <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50">
@@ -321,7 +329,7 @@
     <!-- ================================================================= -->
     <!-- Fullscreen StandBy Ambient Display (iOS StandBy / Deskterior Mode) -->
     <!-- ================================================================= -->
-    <div id="standby-overlay" class="fixed inset-0 z-[99999] bg-black text-white hidden select-none overflow-hidden font-sans">
+    <div id="standby-overlay" class="fixed inset-0 z-[99999] bg-black text-white hidden select-none overflow-hidden font-sans" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; width: 100dvw !important; height: 100vh !important; height: 100dvh !important; z-index: 999999 !important;">
         <!-- Floating HUD Top Toolbar (Auto-fades out after 3s, reveals on tap/touch) -->
         <header id="standby-hud" class="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent transition-opacity duration-500 opacity-100">
             <div class="flex items-center gap-3">
@@ -436,7 +444,7 @@
 
     <div id="footer-placeholder"></div>
     <script src="/language.js?v=420" defer></script>
-    <script src="ticker.js"></script>
-    <script src="/framework/core.js?v=430"></script>
+    <script src="ticker.js?v=440"></script>
+    <script src="/framework/core.js?v=440"></script>
 </body>
 </html>

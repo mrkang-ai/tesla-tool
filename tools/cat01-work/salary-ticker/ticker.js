@@ -318,12 +318,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!standbyOverlay) return;
         isStandByActive = true;
         standbyOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
+
         renderStandbyCalendar();
         updateRateDisplays();
         requestWakeLock();
         showHud();
 
-        // Auto request fullscreen if user interacted
+        // Auto request fullscreen if user interacted (works on Android / Desktop)
         toggleFullscreen();
     }
 
@@ -331,6 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!standbyOverlay) return;
         isStandByActive = false;
         standbyOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         releaseWakeLock();
         clearTimeout(hudTimeout);
 
@@ -340,26 +346,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // StandBy Event Listeners
+    // StandBy Event Listeners (both click and touchend for mobile zero-delay)
     if (openStandbyBtn) {
-        openStandbyBtn.addEventListener('click', openStandby);
+        const handleOpen = (e) => {
+            if (e && e.type === 'touchend') e.preventDefault();
+            openStandby();
+        };
+        openStandbyBtn.addEventListener('click', handleOpen);
+        openStandbyBtn.addEventListener('touchend', handleOpen);
     }
     if (closeStandbyBtn) {
-        closeStandbyBtn.addEventListener('click', closeStandby);
+        const handleClose = (e) => {
+            if (e && e.type === 'touchend') e.preventDefault();
+            closeStandby();
+        };
+        closeStandbyBtn.addEventListener('click', handleClose);
+        closeStandbyBtn.addEventListener('touchend', handleClose);
     }
     if (standbyToggleWidgetBtn) {
-        standbyToggleWidgetBtn.addEventListener('click', (e) => {
+        const handleToggleWidget = (e) => {
+            if (e && e.type === 'touchend') e.preventDefault();
             e.stopPropagation();
             toggleStandbyWidget();
             showHud();
-        });
+        };
+        standbyToggleWidgetBtn.addEventListener('click', handleToggleWidget);
+        standbyToggleWidgetBtn.addEventListener('touchend', handleToggleWidget);
     }
     if (standbyFsBtn) {
-        standbyFsBtn.addEventListener('click', (e) => {
+        const handleToggleFs = (e) => {
+            if (e && e.type === 'touchend') e.preventDefault();
             e.stopPropagation();
             toggleFullscreen();
             showHud();
-        });
+        };
+        standbyFsBtn.addEventListener('click', handleToggleFs);
+        standbyFsBtn.addEventListener('touchend', handleToggleFs);
     }
 
     // Tap on standby overlay to reveal/hide HUD

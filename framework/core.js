@@ -734,7 +734,7 @@
             // Fetch tools dictionary
             let toolsData = {};
             try {
-                const res = await fetch(`/locales/${lang}/tools.json?v=430`);
+                const res = await fetch(`/locales/${lang}/tools.json?v=440`);
                 if (res.ok) {
                     toolsData = await res.json();
                 }
@@ -834,29 +834,64 @@
                     <span class="material-symbols-outlined text-sm">fullscreen_exit</span>
                     <span>전체화면 종료</span>
                 `;
-                exitPill.onclick = () => {
+                const exitAction = (e) => {
+                    if (e && e.type === 'touchend') e.preventDefault();
                     if (document.fullscreenElement || document.webkitFullscreenElement) {
                         if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
                         else if (document.webkitExitFullscreen) document.webkitExitFullscreen().catch(()=>{});
                     }
+                    document.body.classList.remove('fw-fullscreen-mode');
+                    exitPill.classList.remove('is-active');
+                    const fsIcon = document.getElementById('fw-fs-icon');
+                    if (fsIcon) fsIcon.textContent = 'fullscreen';
+                    if (window._toolWakeLock) {
+                        window._toolWakeLock.release().catch(()=>{});
+                        window._toolWakeLock = null;
+                    }
                 };
+                exitPill.onclick = exitAction;
+                exitPill.ontouchend = exitAction;
                 document.body.appendChild(exitPill);
             }
 
-            const toggleToolFullscreen = async () => {
+            const toggleToolFullscreen = async (e) => {
+                if (e && e.type === 'touchend') e.preventDefault();
                 try {
-                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                        if (document.documentElement.requestFullscreen) {
-                            await document.documentElement.requestFullscreen();
-                        } else if (document.documentElement.webkitRequestFullscreen) {
-                            await document.documentElement.webkitRequestFullscreen();
+                    const isFsNative = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                    const isFsCSS = document.body.classList.contains('fw-fullscreen-mode');
+
+                    if (!isFsNative && !isFsCSS) {
+                        // Enter Fullscreen
+                        try {
+                            if (document.documentElement.requestFullscreen) {
+                                await document.documentElement.requestFullscreen();
+                            } else if (document.documentElement.webkitRequestFullscreen) {
+                                await document.documentElement.webkitRequestFullscreen();
+                            }
+                        } catch(err) {
+                            console.warn('[ToolBox] Native requestFullscreen note:', err);
                         }
+
+                        // Always apply CSS Fullscreen (vital for iPhone iOS Safari where requestFullscreen is unsupported)
+                        document.body.classList.add('fw-fullscreen-mode');
+                        if (exitPill) exitPill.classList.add('is-active');
+                        const fsIcon = document.getElementById('fw-fs-icon');
+                        if (fsIcon) fsIcon.textContent = 'fullscreen_exit';
+
                         if ('wakeLock' in navigator) {
                             try { window._toolWakeLock = await navigator.wakeLock.request('screen'); } catch(e){}
                         }
                     } else {
-                        if (document.exitFullscreen) await document.exitFullscreen();
-                        else if (document.webkitExitFullscreen) await document.webkitExitFullscreen();
+                        // Exit Fullscreen
+                        if (document.fullscreenElement || document.webkitFullscreenElement) {
+                            if (document.exitFullscreen) await document.exitFullscreen().catch(()=>{});
+                            else if (document.webkitExitFullscreen) await document.webkitExitFullscreen().catch(()=>{});
+                        }
+                        document.body.classList.remove('fw-fullscreen-mode');
+                        if (exitPill) exitPill.classList.remove('is-active');
+                        const fsIcon = document.getElementById('fw-fs-icon');
+                        if (fsIcon) fsIcon.textContent = 'fullscreen';
+
                         if (window._toolWakeLock) {
                             window._toolWakeLock.release().catch(()=>{});
                             window._toolWakeLock = null;
@@ -867,7 +902,10 @@
                 }
             };
 
-            if (stripFsBtn) stripFsBtn.onclick = toggleToolFullscreen;
+            if (stripFsBtn) {
+                stripFsBtn.onclick = toggleToolFullscreen;
+                stripFsBtn.ontouchend = toggleToolFullscreen;
+            }
 
             const handleFsStateChange = () => {
                 const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
