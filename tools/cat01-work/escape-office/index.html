@@ -213,13 +213,18 @@
                     </div>
                 </div>
 
-                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-col gap-3">
                     <div class="flex items-center justify-between text-sm text-slate-500">
                         <span id="excuse-title" class="font-bold text-rose-600 dark:text-rose-400">🚨 정형외과 도수치료 예약</span>
-                        <button id="copy-excuse-btn" class="text-sm font-bold text-primary hover:underline flex items-center gap-0.5 cursor-pointer">
-                            <span class="material-symbols-outlined text-sm">content_copy</span>
-                            <span>멘트 복사</span>
-                        </button>
+                        <div class="flex items-center gap-2.5">
+                            <button type="button" id="share-excuse-btn" class="text-sm font-bold text-sky-600 dark:text-sky-400 hover:underline flex items-center gap-0.5 cursor-pointer" title="비상 탈출 알리바이 카드 공유">
+                                <span>📸</span>
+                                <span>카드 공유</span>
+                            </button>
+                            <button type="button" id="copy-excuse-btn" class="text-sm font-bold text-primary hover:underline flex items-center gap-0.5 cursor-pointer">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                                <span>멘트 복사</span>
+                            </button>
+                        </div>
                     </div>
                     <p id="excuse-body" class="text-sm font-medium text-slate-800 dark:text-slate-200 leading-relaxed">
                         "팀장님, 제가 지난주부터 허리 디스크 통증이 심해져 오늘 18시 30분에 도수치료 및 주사 치료 예약이 되어 있습니다. 취소 시 위약금이 발생하여 부득이 정시 퇴근하고자 합니다. 내일 아침 일찍 출근하여 팔로업하겠습니다!"
@@ -360,7 +365,7 @@
     
     <div id="footer-placeholder"></div>
     <script src="/language.js?v=320" defer></script>
-    <script src="escape.js?v=450"></script>
-  <script src="/framework/core.js?v=450"></script>
+    <script src="escape.js?v=460"></script>
+  <script src="/framework/core.js?v=460"></script>
 </body>
 </html>

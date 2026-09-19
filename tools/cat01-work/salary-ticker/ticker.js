@@ -484,6 +484,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Salary Receipt Share Card Handler
+    const salaryShareCardBtn = document.getElementById('salary-share-card-btn');
+    if (salaryShareCardBtn) {
+        salaryShareCardBtn.addEventListener('click', () => {
+            const earnedStr = earnedToday.textContent.trim();
+            const earnedNum = parseFloat(earnedStr.replace(/,/g, '')) || 0;
+            const coffees = (earnedNum / 4500).toFixed(1);
+            const { secondRate, hourlyRate } = getRates();
+
+            if (window.ToolBoxShare) {
+                window.ToolBoxShare.openModal({
+                    title: '초정밀 실시간 연봉 초시계',
+                    subtitle: '오늘의 실시간 획득 급여 & 커피값 영수증',
+                    badge: '💸 실시간 금융 치료',
+                    metrics: [
+                        { label: '오늘 번 돈', value: `₩ ${earnedStr}`, highlight: true },
+                        { label: '초당 단가', value: `₩ ${secondRate.toFixed(2)}/초`, highlight: false },
+                        { label: '통상 시급', value: `₩ ${Math.round(hourlyRate).toLocaleString()}/시`, highlight: false }
+                    ],
+                    quote: `☕ 오늘 현재 아메리카노 약 ${coffees}잔 적립 완료!\n숨만 쉬어도 1초마다 통장에 돈이 꽂히고 있습니다. 노동의 고통을 실시간 금융 숫자로 치유하세요.`
+                });
+            }
+        });
+    }
+
     updateRateDisplays();
     updateLiveTicker();
 });

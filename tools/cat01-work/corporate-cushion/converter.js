@@ -117,6 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const shareCardBtn = document.getElementById('share-card-btn');
+    if (shareCardBtn) {
+        shareCardBtn.addEventListener('click', () => {
+            const raw = rawInput.value.trim();
+            const polished = outputText.textContent.trim();
+            const level = parseInt(levelSlider.value);
+            if (window.ToolBoxShare) {
+                window.ToolBoxShare.openModal({
+                    title: '넵병 퇴치 쿠션어 번역기',
+                    subtitle: `적용 강도: ${levelDescriptions[level].split(' ')[1]}`,
+                    badge: '💼 K-직장인 생존 키트',
+                    metrics: [
+                        { label: '원문 길이', value: `${raw.length}자`, highlight: false },
+                        { label: '공손함 레벨', value: `Lv ${level}`, highlight: true }
+                    ],
+                    quote: `[속마음]\n"${raw}"\n\n[비즈니스 쿠션어]\n${polished}`
+                });
+            }
+        });
+    }
+
     copyBtn.addEventListener('click', () => {
         const text = outputText.textContent;
         navigator.clipboard.writeText(text).then(() => {

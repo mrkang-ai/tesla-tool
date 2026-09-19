@@ -165,6 +165,27 @@ document.addEventListener('DOMContentLoaded', () => {
     startBtn.addEventListener('click', startGame);
     retryBtn.addEventListener('click', startGame);
 
+    const gameShareBtn = document.getElementById('game-share-btn');
+    if (gameShareBtn) {
+        gameShareBtn.addEventListener('click', () => {
+            const finalScore = finalScoreEl.textContent.trim() || finalScoreStandardEl.textContent.trim() || String(score);
+            const survTime = timeEl.textContent.trim() || '00:00';
+            if (window.ToolBoxShare) {
+                window.ToolBoxShare.openModal({
+                    title: '당근 피하기 명예의 전당 인증서',
+                    subtitle: '당근 폭탄 회피 생존 기록',
+                    badge: '🥕 익스트림 아케이드',
+                    metrics: [
+                        { label: '최종 점수', value: `${finalScore} pts`, highlight: true },
+                        { label: '생존 시간', value: survTime, highlight: false },
+                        { label: '콤보 기록', value: `${comboStreak} combo`, highlight: false }
+                    ],
+                    quote: `당근 폭탄의 소나기 속에서 침착한 반사신경으로 ${finalScore}점을 달성했습니다!\n당신도 지금 바로 당근 피하기 최고 기록에 도전해 보세요!`
+                });
+            }
+        });
+    }
+
     function startGame() {
         gameState = 'playing';
         startOverlay.classList.add('hidden');

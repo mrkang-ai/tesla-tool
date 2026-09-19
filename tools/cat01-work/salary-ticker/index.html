@@ -159,12 +159,18 @@
                 </span>
             </div>
 
-            <!-- Desktop/Mobile StandBy Ambient Launcher Button -->
-            <button id="open-standby-btn" type="button" class="my-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-800/90 hover:bg-slate-750 text-white font-bold text-sm border border-emerald-500/40 hover:border-emerald-400 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer group hover:scale-[1.02] active:scale-95">
-                <span class="material-symbols-outlined text-emerald-400 text-xl group-hover:rotate-90 transition-transform">stay_current_landscape</span>
-                <span class="font-extrabold tracking-wide">데스크 스탠드바이 모드 (전체화면 / AOD)</span>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold">Reels 감성 📱</span>
-            </button>
+            <!-- Desktop/Mobile StandBy Ambient Launcher Button & Share Card -->
+            <div class="flex items-center gap-2.5 flex-wrap justify-center my-1">
+                <button id="open-standby-btn" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-800/90 hover:bg-slate-750 text-white font-bold text-sm border border-emerald-500/40 hover:border-emerald-400 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer group hover:scale-[1.02] active:scale-95">
+                    <span class="material-symbols-outlined text-emerald-400 text-xl group-hover:rotate-90 transition-transform">stay_current_landscape</span>
+                    <span class="font-extrabold tracking-wide">데스크 스탠드바이 모드</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-bold">Reels 감성 📱</span>
+                </button>
+                <button id="salary-share-card-btn" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-600/90 hover:bg-emerald-500 text-white font-bold text-sm border border-emerald-400 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer hover:scale-[1.02] active:scale-95">
+                    <span>📸</span>
+                    <span class="font-extrabold tracking-wide">오늘 번 돈 영수증 공유</span>
+                </button>
+            </div>
             <p class="text-xs text-slate-400 mt-0.5 mb-1 flex items-center justify-center gap-1.5 flex-wrap">
                 <span class="text-emerald-400 font-bold">💡 완벽한 전체화면 팁:</span>
                 <span>모바일에서 사파리 '공유' → [홈 화면에 추가] 하시면 주소창 없이 릴스처럼 실행됩니다.</span>
@@ -444,7 +450,7 @@
 
     <div id="footer-placeholder"></div>
     <script src="/language.js?v=420" defer></script>
-    <script src="ticker.js?v=440"></script>
-    <script src="/framework/core.js?v=440"></script>
+    <script src="ticker.js?v=460"></script>
+    <script src="/framework/core.js?v=460"></script>
 </body>
 </html>

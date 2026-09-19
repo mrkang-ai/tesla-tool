@@ -138,10 +138,16 @@
                                 <p class="text-white text-3xl font-black"><span id="final-score-standard">0</span> <span class="text-sm font-bold text-slate-400" data-lang-ko="점" data-lang-en="pts">점</span></p>
                             </div>
 
-                            <button id="retry-btn" class="px-6 h-12 bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm rounded-xl active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-base">replay</span>
-                                <span data-lang-ko="다시 도전하기" data-lang-en="Try Again">다시 도전하기</span>
-                            </button>
+                            <div class="flex items-center gap-2.5 flex-wrap justify-center">
+                                <button id="retry-btn" class="px-6 h-12 bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm rounded-xl active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">replay</span>
+                                    <span data-lang-ko="다시 도전하기" data-lang-en="Try Again">다시 도전하기</span>
+                                </button>
+                                <button id="game-share-btn" type="button" class="px-5 h-12 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm rounded-xl active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-lg shadow-orange-900/30">
+                                    <span>📸</span>
+                                    <span>생존 인증서 공유</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -350,7 +356,7 @@
 
     <!-- Scripts -->
     <script src="/language.js?v=320" defer></script>
-    <script src="game.js"></script>
+    <script src="game.js?v=460"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -386,6 +392,6 @@
       ]
     }
     </script>
-  <script src="/framework/core.js?v=440"></script>
+  <script src="/framework/core.js?v=460"></script>
 </body>
 </html>

@@ -105,12 +105,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     genExcuseBtn.addEventListener('click', pickRandomExcuse);
 
-    copyExcuseBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(excuseBody.textContent).then(() => {
-            copyExcuseBtn.querySelector('span:last-child').textContent = '복사 완료!';
-            setTimeout(() => copyExcuseBtn.querySelector('span:last-child').textContent = '멘트 복사', 1500);
+    const shareExcuseBtn = document.getElementById('share-excuse-btn');
+    if (shareExcuseBtn) {
+        shareExcuseBtn.addEventListener('click', () => {
+            const title = excuseTitle.textContent.trim();
+            const body = excuseBody.textContent.trim();
+            if (window.ToolBoxShare) {
+                window.ToolBoxShare.openModal({
+                    title: '칼퇴 비상 탈출 알리바이',
+                    subtitle: title,
+                    badge: '🏃 100% 합법적 칼퇴 핑계',
+                    metrics: [
+                        { label: '칼퇴 달성률', value: workPct.textContent.trim(), highlight: true },
+                        { label: '퇴근 잔여', value: `${hoursLeft.textContent}:${minsLeft.textContent}:${secsLeft.textContent}`, highlight: false }
+                    ],
+                    quote: `${title}\n\n${body}`
+                });
+            }
         });
-    });
+    }
+
+    if (copyExcuseBtn) {
+        copyExcuseBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(excuseBody.textContent).then(() => {
+                const label = copyExcuseBtn.querySelector('span:last-child');
+                if (label) {
+                    label.textContent = '복사 완료!';
+                    setTimeout(() => label.textContent = '멘트 복사', 1500);
+                }
+            });
+        });
+    }
 
     // Authentic Smartphone Ringtone Synthesizer (Realistic Marimba / Opening Style)
     let ringInterval = null;

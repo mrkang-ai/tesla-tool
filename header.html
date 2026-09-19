@@ -214,6 +214,27 @@
         <!-- Right: Actions & Tools -->
         <div class="flex items-center gap-1.5 sm:gap-2">
             
+            <!-- Quick Search Palette Trigger (Ctrl + K) -->
+            <button type="button" id="header-search-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/80 dark:border-slate-800 cursor-pointer" title="빠른 도구 검색 (Ctrl + K)">
+                <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span class="hidden sm:inline font-bold" data-lang-ko="검색" data-lang-en="Search">검색</span>
+                <kbd class="hidden lg:inline-flex items-center px-1.5 py-0.2 text-xs font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-300 dark:border-slate-700">Ctrl K</kbd>
+            </button>
+
+            <!-- Daily Attendance / Fortune Cookie Trigger -->
+            <button type="button" id="header-streak-btn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-sm font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/50 hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors border border-amber-200/80 dark:border-amber-800/80 cursor-pointer" title="오늘의 출석 체크 & 포춘 쿠키">
+                <span>🥠</span>
+                <span class="hidden sm:inline font-bold" data-lang-ko="출석" data-lang-en="Daily">출석</span>
+                <span id="header-streak-badge" class="hidden text-xs font-mono px-1.5 py-0.2 rounded-full bg-rose-500 text-white font-black">1일</span>
+            </button>
+
+            <!-- Universal Favorite Toggle (shown on tool pages) -->
+            <button type="button" id="header-fav-btn" class="hidden items-center justify-center w-8 h-8 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer" title="이 도구 즐겨찾기">
+                <span class="material-symbols-outlined text-xl leading-none">star_border</span>
+            </button>
+
             <!-- Language Selector Dropdown (Desktop & Tablet) -->
             <div class="dropdown fw-dropdown relative">
                 <button type="button" class="dropbtn flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/80 dark:border-slate-800" id="language-dropdown-btn" title="언어 선택 / Change Language">
@@ -280,6 +301,16 @@
                     🇺🇸 English
                 </button>
             </div>
+        </div>
+
+        <!-- Mobile Quick Action Row (Search & Daily Fortune) -->
+        <div class="grid grid-cols-2 gap-2">
+            <button type="button" id="mobile-search-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-primary font-bold text-sm border border-sky-200 dark:border-sky-800/80 cursor-pointer">
+                <span>🔍</span> <span data-lang-ko="도구 빠른 검색" data-lang-en="Quick Search">도구 빠른 검색</span>
+            </button>
+            <button type="button" id="mobile-streak-btn" class="flex items-center justify-center gap-2 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold text-sm border border-amber-200 dark:border-amber-800/80 cursor-pointer">
+                <span>🥠</span> <span data-lang-ko="포춘 출석체크" data-lang-en="Daily Check-in">포춘 출석체크</span>
+            </button>
         </div>
         
         <!-- Mobile 10 Category Hubs Accordion -->
