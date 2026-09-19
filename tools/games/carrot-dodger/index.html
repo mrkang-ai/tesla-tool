@@ -24,7 +24,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=303">
+    <link rel="stylesheet" href="/style.css?v=420">
     <link rel="stylesheet" href="game.css">
 
     <script id="tailwind-config">
@@ -47,7 +47,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=320">
+  <link rel="stylesheet" href="/framework/core.css?v=420">
     <!-- Favicon & Mobile PWA -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -60,7 +60,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
             
             <!-- Page Title -->
             <header class="text-center py-8">
@@ -206,21 +206,27 @@
                             <span class="material-symbols-outlined text-primary text-lg">sports_esports</span>
                             <span data-lang-ko="통합 조작 안내" data-lang-en="Controls Guide">통합 조작 안내</span>
                         </h3>
-                        <div class="grid grid-cols-3 gap-2 text-center">
-                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
-                                <span class="material-symbols-outlined text-primary text-xl mb-1">keyboard</span>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="키보드" data-lang-en="Keyboard">키보드</p>
-                                <p class="text-sm text-text-muted dark:text-slate-400 mt-0.5">← / → / A / D</p>
+                        <div class="flex flex-col gap-2.5">
+                            <div class="p-2.5 px-3 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">keyboard</span>
+                                    <span class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="키보드" data-lang-en="Keyboard">키보드</span>
+                                </div>
+                                <span class="text-sm font-semibold text-text-muted dark:text-slate-300">← → / A D</span>
                             </div>
-                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
-                                <span class="material-symbols-outlined text-primary text-xl mb-1">touch_app</span>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="터치/버튼" data-lang-en="Touch/Buttons">터치/버튼</p>
-                                <p class="text-sm text-text-muted dark:text-slate-400 mt-0.5" data-lang-ko="드래그/버튼" data-lang-en="Drag/Buttons">드래그/버튼</p>
+                            <div class="p-2.5 px-3 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">touch_app</span>
+                                    <span class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="터치 조작" data-lang-en="Touch">터치 조작</span>
+                                </div>
+                                <span class="text-sm font-semibold text-text-muted dark:text-slate-300" data-lang-ko="화면 드래그" data-lang-en="Drag">화면 드래그</span>
                             </div>
-                            <div class="p-2.5 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex flex-col items-center justify-center">
-                                <span class="material-symbols-outlined text-primary text-xl mb-1">mouse</span>
-                                <p class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="마우스" data-lang-en="Mouse">마우스</p>
-                                <p class="text-sm text-text-muted dark:text-slate-400 mt-0.5" data-lang-ko="커서 이동" data-lang-en="Cursor Hover">커서 이동</p>
+                            <div class="p-2.5 px-3 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/40 dark:border-orange-900/30 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-xl">mouse</span>
+                                    <span class="text-sm font-bold text-text-main dark:text-white" data-lang-ko="마우스" data-lang-en="Mouse">마우스</span>
+                                </div>
+                                <span class="text-sm font-semibold text-text-muted dark:text-slate-300" data-lang-ko="커서 이동" data-lang-en="Cursor Hover">커서 이동</span>
                             </div>
                         </div>
                         <p id="control-hint" class="mt-3 text-sm text-text-muted dark:text-slate-400 font-medium leading-relaxed" data-lang-ko="키보드(방향키, A/D), 마우스 커서 이동, 모바일 화면 터치 및 좌우 드래그가 모두 동시에 지원됩니다." data-lang-en="Supports Keyboard (Arrows, A/D), Mouse Hover, and Mobile Touch / Drag simultaneously.">키보드(방향키, A/D), 마우스 커서 이동, 모바일 화면 터치 및 좌우 드래그가 모두 동시에 지원됩니다.</p>

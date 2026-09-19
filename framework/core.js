@@ -301,7 +301,7 @@
 
         for (const ep of endpoints) {
             try {
-                const res = await fetch(ep + '?v=320', { cache: 'no-cache' });
+                const res = await fetch(ep + '?v=420', { cache: 'no-cache' });
                 if (!res.ok) continue;
                 const text = await res.text();
                 if (!isInvalidPartialHtml(text)) {
@@ -734,7 +734,7 @@
             // Fetch tools dictionary
             let toolsData = {};
             try {
-                const res = await fetch(`/locales/${lang}/tools.json?v=320`);
+                const res = await fetch(`/locales/${lang}/tools.json?v=420`);
                 if (res.ok) {
                     toolsData = await res.json();
                 }

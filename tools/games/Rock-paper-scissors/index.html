@@ -33,7 +33,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=303">
+    <link rel="stylesheet" href="/style.css?v=420">
     <link rel="stylesheet" href="game.css">
 
     <script id="tailwind-config">
@@ -58,7 +58,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=320">
+  <link rel="stylesheet" href="/framework/core.css?v=420">
     <!-- Favicon & Mobile PWA -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -71,13 +71,13 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
             <div class="text-center py-10">
                 <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="✊✌️✋ 가위바위보 대결" data-lang-en="✊✌️✋ Rock-Paper-Scissors Arena">✊✌️✋ 가위바위보 대결</h1>
                 <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="시작 버튼을 눌러 컴퓨터의 셔플을 시작하고 타이밍을 맞춰 격파해 보세요!" data-lang-en="Click Start to spin the computer's hand and time your play to win!">시작 버튼을 눌러 컴퓨터의 셔플을 시작하고 타이밍을 맞춰 격파해 보세요!</p>
             </div>
 
-            <section class="w-full max-w-[860px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl text-center border border-slate-100 dark:border-slate-800/80">
+            <section class="w-full max-w-[1200px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl text-center border border-slate-100 dark:border-slate-800/80">
                 <!-- Battle Cards Area -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-8">
                     <!-- Player Card -->
@@ -118,7 +118,7 @@
                 </div>
             </section>
 
-            <section class="stats-container w-full max-w-[860px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl mt-8 border border-slate-100 dark:border-slate-800/80">
+            <section class="stats-container w-full max-w-[1200px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl mt-8 border border-slate-100 dark:border-slate-800/80">
                 <h2 class="text-2xl font-extrabold text-center text-text-main dark:text-white mb-6" data-lang-ko="📊 게임 기록 및 전적" data-lang-en="📊 Match Records & Stats">📊 게임 기록 및 전적</h2>
                 <div class="stats grid grid-cols-3 gap-4 text-center">
                     <div class="bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/80">
@@ -140,7 +140,7 @@
             </section>
 
             <!-- Guide Link Banner -->
-            <div class="w-full max-w-[860px] mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+            <div class="w-full max-w-[1200px] mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
                     <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">게임 이론 & 수학 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군" data-lang-en="Game Theory & Symmetric Groups: RPS & Ladder Games">가위바위보와 사다리타기로 배우는 게임 이론과 수학적 대칭군</h3>
@@ -153,7 +153,7 @@
             </div>
 
             <!-- SECTION 4: Rock-Paper-Scissors Strategy Guide -->
-            <section class="w-full max-w-[860px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl mt-8 border border-slate-100 dark:border-slate-800/80 text-left">
+            <section class="w-full max-w-[1200px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl mt-8 border border-slate-100 dark:border-slate-800/80 text-left">
                 <h2 class="text-2xl font-black text-text-main dark:text-white mb-6 border-b border-slate-150 dark:border-slate-850 pb-3 flex items-center gap-2">
                     <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
                     <span data-lang-ko="🧠 가위바위보 심리학과 필승 전략" data-lang-en="🧠 Rock-Paper-Scissors: Psychology & Strategy">🧠 가위바위보 심리학과 필승 전략</span>

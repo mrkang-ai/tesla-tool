@@ -33,7 +33,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=303">
+    <link rel="stylesheet" href="/style.css?v=420">
     <link rel="stylesheet" href="game.css">
     <script src="data.js" defer></script>
 
@@ -59,7 +59,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=320">
+  <link rel="stylesheet" href="/framework/core.css?v=420">
     <!-- Favicon & Mobile PWA -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -72,7 +72,7 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
             <div class="max-w-xl w-full mx-auto text-center">
                 <header class="py-8">
                     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-main dark:text-white block whitespace-nowrap" data-lang-ko="🍲 오늘 뭐 먹지?" data-lang-en="🍲 What to Eat Today?">🍲 오늘 뭐 먹지?</h1>
@@ -89,7 +89,7 @@
                 </div>
             </div> <!-- CLOSE the max-w-xl container early -->
 
-            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[860px]) -->
+            <!-- SECTION 1-2: Recommended Result Card (Full Width max-w-[1200px]) -->
             <div id="result" class="hidden mt-8 w-full bg-card-bg-light dark:bg-card-bg-dark p-0 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80 overflow-hidden text-left">
                 <div class="grid grid-cols-1 md:grid-cols-12">
                     <!-- Image Container (Col 6) - Giant photo for strong visual impact -->
@@ -132,7 +132,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: Weekly Meal Planner (max-w-[860px] w-full) inside a Collapsible Card (hidden by default) -->
+            <!-- SECTION 2: Weekly Meal Planner (max-w-[1200px] w-full) inside a Collapsible Card (hidden by default) -->
             <section id="planner-section" class="hidden w-full mt-16 border border-slate-200/60 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900/10 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm">
                 <!-- Accordion Header Toggle -->
                 <button id="planner-toggle-btn" class="w-full flex items-center justify-between p-6 bg-white dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 text-left border-none focus:outline-none transition-colors cursor-pointer select-none">

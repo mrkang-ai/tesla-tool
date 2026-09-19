@@ -33,7 +33,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css?v=303">
+    <link rel="stylesheet" href="/style.css?v=420">
     <link rel="stylesheet" href="game.css">
 
     <script id="tailwind-config">
@@ -58,7 +58,7 @@
             },
         }
     </script>
-  <link rel="stylesheet" href="/framework/core.css?v=320">
+  <link rel="stylesheet" href="/framework/core.css?v=420">
     <!-- Favicon & Mobile PWA -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -71,14 +71,14 @@
     <div id="header-placeholder"></div>
 
     <main class="px-4 md:px-10 lg:px-16 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[860px] flex-1 items-center mx-auto">
+        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 items-center mx-auto">
             <div class="text-center py-10">
                 <h1 class="text-4xl font-extrabold tracking-tight text-text-main dark:text-white" data-lang-ko="🪜 실시간 사다리 타기" data-lang-en="🪜 Sleek Ladder Climb">🪜 실시간 사다리 타기</h1>
                 <p class="mt-2 text-md text-text-muted dark:text-slate-400" data-lang-ko="친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!" data-lang-en="Enjoy a fair, real-time ladder climb game for quick bets with your friends!">친구들과 함께 공정하고 흥미진진한 내기 사다리를 타보세요!</p>
             </div>
 
             <!-- SECTION 1: Game Setup -->
-            <section id="setup" class="w-full max-w-[860px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
+            <section id="setup" class="w-full max-w-[1200px] mx-auto bg-card-bg-light dark:bg-card-bg-dark p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800/80">
                 <!-- Preset Row -->
                 <div class="mb-8">
                     <h2 class="text-sm font-extrabold text-text-muted dark:text-slate-400 uppercase tracking-widest mb-3" data-lang-ko="⚡ 빠른 내기 프리셋" data-lang-en="⚡ QUICK BET PRESETS">⚡ 빠른 내기 프리셋</h2>
@@ -146,7 +146,7 @@
             <!-- SECTION 2: Active Game Area -->
             <section id="game-container" style="display: none;" class="w-full flex flex-col items-center">
                 <!-- Hint Banner -->
-                <div class="w-full max-w-[860px] bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex flex-col gap-1.5 items-center justify-center">
+                <div class="w-full max-w-[1200px] bg-sky-50/50 dark:bg-slate-900/30 border border-sky-100/50 dark:border-slate-800/60 p-4 rounded-2xl mb-6 text-center text-sm font-semibold flex flex-col gap-1.5 items-center justify-center">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-lg">info</span>
                         <span data-lang-ko="사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다." data-lang-en="Click the circular player button at the top of the canvas to run their path individually.">사다리 상단의 동그란 참가자 버튼을 직접 클릭하면 개별 경로만 탐색합니다.</span>
@@ -158,12 +158,12 @@
                 </div>
 
                 <!-- Canvas Wrapper with horizontal scrollbar for overflow on small displays -->
-                <div class="w-full max-w-[860px] overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
+                <div class="w-full max-w-[1200px] overflow-x-auto bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl flex justify-start md:justify-center">
                     <canvas id="ladder-canvas" class="bg-transparent block cursor-pointer"></canvas>
                 </div>
 
                 <!-- Results Display Panel -->
-                <div id="result-panel" class="w-full max-w-[860px] bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
+                <div id="result-panel" class="w-full max-w-[1200px] bg-card-bg-light dark:bg-card-bg-dark border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl mt-6 hidden">
                     <h3 class="text-lg font-extrabold text-text-main dark:text-white mb-4 flex items-center gap-1.5">
                         <span class="material-symbols-outlined text-primary text-xl">fact_check</span>
                         <span data-lang-ko="🎯 대결 매칭 결과 요약" data-lang-en="🎯 Match Results Summary">🎯 대결 매칭 결과 요약</span>
@@ -191,7 +191,7 @@
             </section>
 
             <!-- Guide Link Banner -->
-            <div class="w-full max-w-[860px] mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+            <div class="w-full max-w-[1200px] mx-auto mt-10 bg-gradient-to-r from-teal-500/10 via-primary/10 to-indigo-500/10 dark:from-teal-950/40 dark:via-indigo-950/40 dark:to-slate-900 border border-teal-200/60 dark:border-teal-800/60 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div class="space-y-2 text-center sm:text-left">
                     <span class="text-sm font-extrabold uppercase px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300">수학 & 대칭군 가이드</span>
                     <h3 class="text-lg md:text-xl font-extrabold text-text-main dark:text-white" data-lang-ko="사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명" data-lang-en="Mathematics of Amidakuji: Symmetric Groups & Permutations">사다리타기의 수학: 대칭군(Symmetric Group)과 치환 함수 증명</h3>
@@ -204,7 +204,7 @@
             </div>
 
             <!-- Blog Section: Ladder Game Probability & Secret Strategy -->
-            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[860px] mx-auto transition-all duration-300 w-full">
+            <div class="mt-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-sm max-w-[1200px] mx-auto transition-all duration-300 w-full">
                 <!-- Korean Version -->
                 <div class="lang-only-ko">
                     <h2 class="text-2xl font-extrabold text-text-main dark:text-white mb-6 flex items-center gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-4">
