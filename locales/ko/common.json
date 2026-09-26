@@ -28,7 +28,33 @@
   "dock": {
     "home": "홈",
     "menu": "메뉴",
+    "suggest": "건의",
     "top": "맨위로"
+  },
+  "feedback": {
+    "title": "이런 도구 만들어주세요!",
+    "subtitle": "원하시는 도구 아이디어를 남겨주시면 빠르게 검토 후 무료로 제작합니다.",
+    "category": "카테고리 분야",
+    "tool_name": "원하시는 도구 이름 (아이디어)",
+    "features": "어떤 기능이 있으면 좋겠나요?",
+    "email": "이메일 (선택 - 출시 알림용)",
+    "submit": "도구 제작 건의 제출하기"
+  },
+  "share_card": {
+    "title": "인증 카드 공유",
+    "download_png": "고화질 카드 다운로드 (PNG)",
+    "copy_link": "링크 복사",
+    "close": "닫기"
+  },
+  "search": {
+    "placeholder": "도구 이름, 설명 또는 초성 검색 (예: ㅋㅅㅇ, ㅇㅂ, ㄷㄱ)...",
+    "random": "아무 도구나 랜덤 실행",
+    "favorites": "내 즐겨찾기 도구만 보기"
+  },
+  "streak": {
+    "title": "오늘의 출석 체크 & 포춘 쿠키",
+    "share": "출석 인증 카드 공유",
+    "confirm": "확인"
   },
   "switcher": {
     "related_tools": "관련 도구",

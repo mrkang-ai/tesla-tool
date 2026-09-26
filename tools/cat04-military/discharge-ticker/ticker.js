@@ -71,5 +71,25 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
+  const shareBtn = document.getElementById('military-share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      if (window.ToolBoxShare) {
+        window.ToolBoxShare.openModal({
+          title: '🎖️ 전역일 & 복무율 실시간 티커',
+          subtitle: `입대: ${enlistDate.value} ~ 전역: ${dischargeDate.value}`,
+          badge: rankBadge.textContent.trim(),
+          metrics: [
+            { label: '복무 달성률', value: percentDisplay.textContent.trim(), highlight: true },
+            { label: '남은 복무 일수', value: daysLeft.textContent.trim(), highlight: true },
+            { label: '남은 짬밥', value: mealsLeft.textContent.trim(), highlight: false },
+            { label: '남은 불침번/당직', value: guardLeft.textContent.trim(), highlight: false }
+          ],
+          quote: '국방부 시계는 거꾸로 매달아도 돌아간다!\n오늘도 무사 무탈하게 전역을 향해 달려가는 중입니다 🫡'
+        });
+      }
+    });
+  }
+
   requestAnimationFrame(update);
 });

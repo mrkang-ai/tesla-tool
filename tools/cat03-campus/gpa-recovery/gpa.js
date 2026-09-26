@@ -105,4 +105,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderRetakes();
   calculate();
+
+  const shareBtn = document.getElementById('gpa-share-btn');
+  const scaleType = document.getElementById('scaleType');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      if (window.ToolBoxShare) {
+        const curG = parseFloat(currentGpa.value) || 0;
+        const finalG = parseFloat(finalGpaDisplay.textContent.trim()) || 0;
+        const scale = scaleType ? scaleType.value : '4.5';
+        const badgeText = finalG >= 3.75 ? '장학금 유력 👑' : (finalG >= 3.0 ? '대기업 프리패스 🎯' : '학점 세탁 진행중 🚀');
+        window.ToolBoxShare.openModal({
+          title: '🎓 학점 복구 & 졸업 평점 시뮬레이터',
+          subtitle: `현재 평점 ${curG} → 졸업 목표 ${finalG.toFixed(2)} (${scale} 만점)`,
+          badge: badgeText,
+          metrics: [
+            { label: '현재 평점', value: `${curG}`, highlight: false },
+            { label: '목표 졸업 평점', value: `${finalG.toFixed(2)}`, highlight: true },
+            { label: '세탁 과목수', value: `${retakes.length}개 과목`, highlight: false },
+            { label: '남은학기 목표', value: `${futureGpaVal.textContent}`, highlight: true }
+          ],
+          quote: `${gpaComment.textContent.trim().replace(/\s+/g, ' ')}\n\n"포기하지 마라, F학점도 A+로 씻어내면 역전할 수 있다!"`
+        });
+      }
+    });
+  }
 });

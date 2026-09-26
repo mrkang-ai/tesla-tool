@@ -352,7 +352,32 @@
             }
         }
 
+        openToolBoxShareModal() {
+            if (!this.currentResult) return false;
+            if (window.ToolBoxShare) {
+                const strengthsText = Array.isArray(this.currentResult.strengths)
+                    ? this.currentResult.strengths.slice(0, 2).map(s => '• ' + s).join('\n')
+                    : '';
+                const matchText = this.currentResult.bestMatch ? `\n💖 환상 케미: ${this.currentResult.bestMatch.title}` : '';
+
+                window.ToolBoxShare.openModal({
+                    title: this.config.title,
+                    subtitle: `${this.currentResult.badge || ''} · ${this.currentResult.title}`,
+                    badge: this.currentResult.badge || '심리테스트 결과',
+                    metrics: [
+                        { label: '나의 캐릭터', value: this.currentResult.title, highlight: true },
+                        { label: '환상 케미', value: this.currentResult.bestMatch ? this.currentResult.bestMatch.title.slice(0, 8) : '전체 원만', highlight: false }
+                    ],
+                    quote: `"${this.currentResult.summary}"\n\n[나의 핵심 성향 & 강점]\n${strengthsText}${matchText}`
+                });
+                return true;
+            }
+            return false;
+        }
+
         shareNative() {
+            if (this.openToolBoxShareModal()) return;
+
             const url = window.location.href.split('?')[0];
             const title = `[${this.config.title}] 나의 결과: ${this.currentResult ? this.currentResult.title : ''}`;
             const text = `${this.currentResult ? this.currentResult.summary : this.config.subtitle}\n\n지금 바로 확인해보세요!`;
@@ -373,6 +398,8 @@
         }
 
         downloadResultImage() {
+            if (this.openToolBoxShareModal()) return;
+
             if (!this.currentResult) return;
             this.showToast('인스타그램 공유용 결과 카드를 생성하는 중...');
 
@@ -404,7 +431,7 @@
             ctx.fillText('tossgpt.online · ToolBox Test', 540, 160);
 
             ctx.fillStyle = '#94a3b8'; // slate-400
-            ctx.font = "28px sans-serif';
+            ctx.font = '28px sans-serif';
             ctx.fillText(this.config.title, 540, 210);
 
             // 4. Emoji Avatar Circle
@@ -416,7 +443,7 @@
             ctx.lineWidth = 6;
             ctx.stroke();
 
-            ctx.font = "100px sans-serif';
+            ctx.font = '100px sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText(this.currentResult.emoji || '🎯', 540, 365);
@@ -435,7 +462,7 @@
             // 7. Tags
             if (Array.isArray(this.currentResult.tags)) {
                 ctx.fillStyle = '#cbd5e1';
-                ctx.font = "28px sans-serif';
+                ctx.font = '28px sans-serif';
                 ctx.fillText(this.currentResult.tags.slice(0, 3).join('  '), 540, 680);
             }
 
@@ -460,7 +487,7 @@
 
             // 10. Footer CTA
             ctx.fillStyle = '#94a3b8';
-            ctx.font = "26px sans-serif';
+            ctx.font = '26px sans-serif';
             ctx.fillText('나의 진짜 성향이 궁금하다면? 👉 tossgpt.online/tests/', 540, 1180);
 
             // Download trigger

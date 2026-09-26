@@ -28,7 +28,33 @@
   "dock": {
     "home": "Home",
     "menu": "Menu",
+    "suggest": "Suggest",
     "top": "Top"
+  },
+  "feedback": {
+    "title": "Suggest a New Tool",
+    "subtitle": "Tell us your idea and we will build it as a free tool!",
+    "category": "Category",
+    "tool_name": "Tool Idea Title",
+    "features": "Details & How it works",
+    "email": "Email (Optional)",
+    "submit": "Submit Tool Suggestion"
+  },
+  "share_card": {
+    "title": "Share Verification Card",
+    "download_png": "Download HD Card (PNG)",
+    "copy_link": "Copy Link",
+    "close": "Close"
+  },
+  "search": {
+    "placeholder": "Search tool name, description or chosung (e.g. salary, excel)...",
+    "random": "Launch Random Tool",
+    "favorites": "My Favorite Tools"
+  },
+  "streak": {
+    "title": "Daily Attendance & Fortune Cookie",
+    "share": "Share Attendance Card",
+    "confirm": "Confirm"
   },
   "switcher": {
     "related_tools": "Related Tools",

@@ -469,6 +469,14 @@
             });
         });
 
+        const feedbackBtns = headerEl.querySelectorAll('#header-feedback-btn, #mobile-feedback-btn, .open-feedback-btn');
+        feedbackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.ToolBoxFeedback) window.ToolBoxFeedback.openModal();
+            });
+        });
+
         ThemeEngine.updateIcons();
     }
 
@@ -513,6 +521,14 @@
                 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
+            const feedbackBtn = document.getElementById('fw-dock-feedback-btn');
+            if (feedbackBtn) {
+                feedbackBtn.onclick = (e) => {
+                    e.preventDefault();
+                    if (window.ToolBoxFeedback) window.ToolBoxFeedback.openModal();
+                };
+            }
+
             const menuBtn = document.getElementById('fw-dock-menu-btn');
             if (menuBtn) {
                 menuBtn.onclick = (e) => {
@@ -541,9 +557,11 @@
             lang = lang || getActiveLang();
             const homeLabel = lang === 'en' ? 'Home' : '홈';
             const menuLabel = lang === 'en' ? 'Menu' : '메뉴';
+            const suggestLabel = lang === 'en' ? 'Suggest' : '건의';
             const topLabel = lang === 'en' ? 'Top' : '맨위로';
             const homeTitle = lang === 'en' ? 'Go to Main Home' : '메인 홈으로 이동';
             const menuTitle = lang === 'en' ? '10 Themed Hubs & Quick Menu' : '10대 테마 및 퀵 메뉴';
+            const suggestTitle = lang === 'en' ? 'Suggest a New Tool' : '새 도구 건의하기';
             const topTitle = lang === 'en' ? 'Scroll to Top' : '맨 위로 스크롤';
             const popoverTitle = lang === 'en' ? '10 Themed Tool Hubs' : '10대 테마 도구 허브 바로가기';
             const countLabel = lang === 'en' ? '10 Tools' : '10개 도구';
@@ -560,6 +578,11 @@
                 <button type="button" id="fw-dock-menu-btn" class="fw-dock-btn" title="${menuTitle}">
                     <span>🎯</span>
                     <span class="dock-label">${menuLabel}</span>
+                </button>
+                <div class="fw-dock-divider"></div>
+                <button type="button" id="fw-dock-feedback-btn" class="fw-dock-btn text-amber-500 hover:text-amber-400" title="${suggestTitle}">
+                    <span>💡</span>
+                    <span class="dock-label">${suggestLabel}</span>
                 </button>
                 <div class="fw-dock-divider"></div>
                 <button type="button" id="fw-dock-top-btn" class="fw-dock-btn" title="${topTitle}">
@@ -2182,6 +2205,157 @@
         }
     };
     window.ToolBoxPWA = ToolBoxPWA;
+
+    // ===================================================================
+    // ToolBoxFeedback: User Tool Suggestion & Idea Box
+    // ===================================================================
+    const ToolBoxFeedback = {
+        modalEl: null,
+
+        openModal(prefillCategory = '') {
+            if (window.SoundFX && window.SoundFX.isEnabled()) window.SoundFX.playPop();
+            if (!this.modalEl) {
+                this.buildModal();
+            }
+            if (prefillCategory) {
+                const catSelect = this.modalEl.querySelector('#feedback-cat');
+                if (catSelect) catSelect.value = prefillCategory;
+            }
+            this.modalEl.classList.remove('opacity-0', 'pointer-events-none');
+            const card = this.modalEl.querySelector('.feedback-modal-card');
+            if (card) card.classList.remove('scale-95');
+        },
+
+        closeModal() {
+            if (!this.modalEl) return;
+            this.modalEl.classList.add('opacity-0', 'pointer-events-none');
+            const card = this.modalEl.querySelector('.feedback-modal-card');
+            if (card) card.classList.add('scale-95');
+        },
+
+        buildModal() {
+            const el = document.createElement('div');
+            el.id = 'toolbox-feedback-modal';
+            el.className = 'fixed inset-0 z-[10002] bg-black/70 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-200 opacity-0 pointer-events-none';
+            const lang = typeof getActiveLang === 'function' ? getActiveLang() : 'ko';
+            const isEn = lang === 'en';
+
+            el.innerHTML = `
+                <div class="feedback-modal-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col transform scale-95 transition-all duration-200">
+                    <!-- Modal Header -->
+                    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-2xl p-1.5 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-500">💡</span>
+                            <div>
+                                <h3 class="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white" data-lang-ko="이런 도구 만들어주세요!" data-lang-en="Suggest a New Tool!">
+                                    ${isEn ? 'Suggest a New Tool!' : '이런 도구 만들어주세요!'}
+                                </h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400" data-lang-ko="원하시는 도구 아이디어를 남겨주시면 빠르게 검토 후 무료로 제작합니다." data-lang-en="Tell us your idea and we will build it as a free tool!">
+                                    ${isEn ? 'Tell us your idea and we will build it as a free tool!' : '원하시는 도구 아이디어를 남겨주시면 빠르게 검토 후 무료로 제작합니다.'}
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" id="feedback-modal-close" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">✕</button>
+                    </div>
+
+                    <!-- Modal Body Form -->
+                    <form id="feedback-form" class="p-6 space-y-4 text-sm">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1" data-lang-ko="카테고리 분야" data-lang-en="Category">
+                                ${isEn ? 'Category' : '카테고리 분야'}
+                            </label>
+                            <select id="feedback-cat" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 dark:text-white font-medium focus:ring-2 focus:ring-primary outline-none">
+                                <option value="cat01-work">💼 K-직장인 생존 키트</option>
+                                <option value="cat02-public">🏛️ 공직 & 행정 생존기</option>
+                                <option value="cat03-campus">🎓 캠퍼스 & Z세대</option>
+                                <option value="cat04-military">🪖 밀리터리 & 국방</option>
+                                <option value="cat05-sns">📱 SNS & 인플루언서</option>
+                                <option value="cat06-tech">🤖 AI & 미래 테크</option>
+                                <option value="cat07-mind">🔮 심리 & 멘탈 케어</option>
+                                <option value="cat08-sf">🛸 SF & 공상 상상</option>
+                                <option value="cat09-daily">☕ 일상 생활 밀착</option>
+                                <option value="cat10-play">🎮 킬링타임 & 플레이</option>
+                                <option value="other">✨ 기타 자유 아이디어</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1" data-lang-ko="원하시는 도구 이름 (아이디어)" data-lang-en="Tool Idea Title">
+                                ${isEn ? 'Tool Idea Title' : '원하시는 도구 이름 (아이디어)'}
+                            </label>
+                            <input type="text" id="feedback-title" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary outline-none" placeholder="${isEn ? 'e.g. Salary take-home calculator, Pet age converter' : '예: 2026 연봉 실수령액 역산기, 강아지 나이 계산기'}" />
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1" data-lang-ko="어떤 기능이 있으면 좋겠나요?" data-lang-en="Details & How it works">
+                                ${isEn ? 'Details & How it works' : '어떤 기능이 있으면 좋겠나요?'}
+                            </label>
+                            <textarea id="feedback-desc" rows="3" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary outline-none" placeholder="${isEn ? 'Describe key features, inputs and expected outputs...' : '필요한 입력값, 계산 공식, 또는 겪고 계신 불편한 점을 자유롭게 적어주세요.'}"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1" data-lang-ko="이메일 (선택 - 출시 알림용)" data-lang-en="Email (Optional, for notifications)">
+                                ${isEn ? 'Email (Optional, for notifications)' : '이메일 (선택 - 출시 알림용)'}
+                            </label>
+                            <input type="email" id="feedback-email" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary outline-none" placeholder="name@example.com" />
+                        </div>
+
+                        <div class="pt-2 flex flex-col gap-2">
+                            <button type="submit" class="w-full py-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black rounded-xl text-sm transition-all shadow-lg shadow-amber-500/20 cursor-pointer active:scale-98">
+                                🚀 ${isEn ? 'Submit Tool Suggestion' : '도구 제작 건의 제출하기'}
+                            </button>
+                            <div class="flex items-center justify-between text-xs text-slate-400 px-1 pt-1">
+                                <span>🔒 개인정보는 안전하게 보호됩니다.</span>
+                                <a href="mailto:support@tossgpt.online?subject=[ToolBox 도구 건의]" class="hover:text-primary transition-colors">이메일 직접 문의 →</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(el);
+            this.modalEl = el;
+
+            // Events
+            el.querySelector('#feedback-modal-close').onclick = () => this.closeModal();
+            el.onclick = (e) => { if (e.target === el) this.closeModal(); };
+
+            const form = el.querySelector('#feedback-form');
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                const cat = el.querySelector('#feedback-cat').value;
+                const title = el.querySelector('#feedback-title').value.trim();
+                const desc = el.querySelector('#feedback-desc').value.trim();
+                const email = el.querySelector('#feedback-email').value.trim();
+
+                if (!title || !desc) return;
+
+                const suggestion = {
+                    id: 'sug_' + Date.now(),
+                    category: cat,
+                    title,
+                    description: desc,
+                    email,
+                    createdAt: new Date().toISOString()
+                };
+
+                try {
+                    const list = JSON.parse(localStorage.getItem('toolbox_user_suggestions_v1') || '[]');
+                    list.unshift(suggestion);
+                    localStorage.setItem('toolbox_user_suggestions_v1', JSON.stringify(list.slice(0, 50)));
+                } catch (err) {}
+
+                if (window.SoundFX && window.SoundFX.isEnabled()) window.SoundFX.playSuccess();
+                if (typeof showToast === 'function') {
+                    showToast(isEn ? 'Thank you! Your idea has been received!' : '소중한 아이디어가 접수되었습니다! 빠르게 검토하여 제작하겠습니다. 💖', '💡', 3500);
+                }
+
+                form.reset();
+                this.closeModal();
+            };
+        }
+    };
+    window.ToolBoxFeedback = ToolBoxFeedback;
 
     // ===================================================================
     // 9. Auto Initializer on DOM Ready

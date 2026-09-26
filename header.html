@@ -223,6 +223,12 @@
                 <kbd class="hidden lg:inline-flex items-center px-1.5 py-0.2 text-xs font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-300 dark:border-slate-700">Ctrl K</kbd>
             </button>
 
+            <!-- Feedback Suggestion Trigger -->
+            <button type="button" id="header-feedback-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm font-semibold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors border border-amber-200/80 dark:border-amber-800/80 cursor-pointer" title="이런 도구 만들어주세요! (새 도구 건의)">
+                <span class="text-sm">💡</span>
+                <span class="hidden xl:inline font-bold" data-lang-ko="도구 건의" data-lang-en="Suggest">도구 건의</span>
+            </button>
+
             <!-- Daily Attendance / Fortune Cookie Trigger -->
             <button type="button" id="header-streak-btn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-sm font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/50 hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors border border-amber-200/80 dark:border-amber-800/80 cursor-pointer" title="오늘의 출석 체크 & 포춘 쿠키">
                 <span>🥠</span>
@@ -312,6 +318,15 @@
                 <span>🥠</span> <span data-lang-ko="포춘 출석체크" data-lang-en="Daily Check-in">포춘 출석체크</span>
             </button>
         </div>
+
+        <!-- Mobile Tool Suggestion Banner -->
+        <button type="button" id="mobile-feedback-btn" class="w-full flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/40 dark:to-yellow-950/40 border border-amber-200/80 dark:border-amber-800/80 text-amber-800 dark:text-amber-300 text-sm font-bold cursor-pointer">
+            <span class="flex items-center gap-2">
+                <span>💡</span>
+                <span data-lang-ko="이런 도구 만들어주세요! (아이디어 건의)" data-lang-en="Suggest a New Tool Idea">이런 도구 만들어주세요! (아이디어 건의)</span>
+            </span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-amber-200/80 dark:bg-amber-900/80 font-bold" data-lang-ko="제안하기" data-lang-en="Suggest">제안하기</span>
+        </button>
         
         <!-- Mobile 10 Category Hubs Accordion -->
         <details class="group rounded-xl border border-slate-200 dark:border-slate-800 p-3 bg-slate-50 dark:bg-slate-800/50">
