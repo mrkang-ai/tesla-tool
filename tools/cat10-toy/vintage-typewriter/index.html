@@ -15,7 +15,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     .typewriter-font {
-      font-family: 'Special Elite', monospace;
+      font-family: 'Special Elite', 'Courier New', monospace;
+    }
+    .typewriter-shake {
+      transform: translate(0.5px, 0.5px);
+    }
+    .typewriter-slide {
+      animation: carriageSlide 0.35s ease-out;
+    }
+    @keyframes carriageSlide {
+      0% { transform: translateX(8px); }
+      50% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+    .vk-key {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: all 0.08s ease;
+      cursor: pointer;
+    }
+    .vk-key:active, .vk-key.is-pressed {
+      transform: translateY(2px) scale(0.96);
+      background-color: #d97706 !important;
+      color: #ffffff !important;
+      border-color: #f59e0b !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.5) inset !important;
     }
   </style>
   <link rel="stylesheet" href="/framework/core.css?v=440">
@@ -126,9 +151,142 @@
       <p class="text-stone-600 dark:text-stone-400 text-sm">키보드를 누르면 묵직한 금속 타자기 소리가 울리고, 엔터를 치면 '땡!' 종소리가 납니다.</p>
     </div>
 
-    <!-- Paper Container -->
-    <div class="w-full bg-[#fcf8ed] dark:bg-stone-800/90 border-4 border-[#e2d5bd] dark:border-stone-700 rounded-2xl shadow-2xl p-8 min-h-[420px] flex flex-col">
-      <textarea id="typewriterArea" class="typewriter-font w-full flex-grow bg-transparent text-lg text-stone-900 dark:text-stone-100 resize-none focus:outline-none leading-relaxed" placeholder="Click here and start typing... (키보드를 눌러보세요)"></textarea>
+    <!-- Typewriter Control Bar -->
+    <div class="w-full max-w-3xl flex flex-wrap items-center justify-between gap-3 px-4 py-3 mb-4 rounded-2xl bg-white/90 dark:bg-stone-800/90 border border-stone-200 dark:border-stone-700 shadow-sm backdrop-blur-md">
+      <!-- Volume & Bell Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Sound Toggle & Slider -->
+        <div class="flex items-center gap-1.5">
+          <button type="button" id="soundToggleBtn" class="w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-700 hover:bg-amber-100 dark:hover:bg-stone-600 text-stone-700 dark:text-stone-200 transition-colors flex items-center justify-center cursor-pointer" title="사운드 음소거">
+            <span id="soundIcon" class="material-symbols-outlined text-lg leading-none">volume_up</span>
+          </button>
+          <input id="volumeSlider" type="range" min="0" max="100" value="85" class="w-16 sm:w-24 accent-amber-600 cursor-pointer" title="볼륨 조절">
+        </div>
+
+        <!-- Margin Bell Toggle -->
+        <button type="button" id="bellToggleBtn" class="active px-2.5 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer hover:bg-amber-100">
+          <span id="bellIcon" class="material-symbols-outlined text-base leading-none transition-transform">notifications_active</span>
+          <span id="bellLabel" class="hidden sm:inline">줄 바꿈 벨 켜짐</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button type="button" id="autoTypeBtn" class="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1 cursor-pointer">
+          <span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+          <span>ASMR 자동 타이핑</span>
+        </button>
+        <button type="button" id="copyBtn" class="px-2.5 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-700 hover:bg-stone-200 dark:hover:bg-stone-600 text-stone-700 dark:text-stone-200 text-xs font-bold border border-stone-200 dark:border-stone-600 transition-colors flex items-center gap-1 cursor-pointer">
+          <span class="material-symbols-outlined text-sm leading-none">content_copy</span>
+          <span class="hidden sm:inline">복사</span>
+        </button>
+        <button type="button" id="clearBtn" class="px-2.5 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-700 hover:bg-rose-100 dark:hover:bg-rose-950/40 text-stone-700 dark:text-stone-200 hover:text-rose-600 text-xs font-bold border border-stone-200 dark:border-stone-600 transition-colors flex items-center gap-1 cursor-pointer" title="새 종이 끼우기">
+          <span class="material-symbols-outlined text-sm leading-none">restart_alt</span>
+          <span class="hidden sm:inline">새 종이</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Paper Container with Platen Carriage Header -->
+    <div id="typewriterPaper" class="w-full max-w-3xl bg-[#fdfbf7] dark:bg-stone-800/95 border-4 border-[#e2d5bd] dark:border-stone-700 rounded-3xl shadow-2xl p-5 sm:p-8 min-h-[360px] sm:min-h-[420px] flex flex-col transition-transform duration-75 relative overflow-hidden">
+      <!-- Metallic Roller Bar & Carriage Ruler -->
+      <div class="relative w-full pb-3 mb-4 border-b-2 border-stone-300 dark:border-stone-700 flex flex-col gap-1 select-none">
+        <div class="flex items-center justify-between text-[11px] font-mono text-stone-400 dark:text-stone-500 font-bold">
+          <span>0</span>
+          <span>....10....</span>
+          <span>....20....</span>
+          <span class="hidden sm:inline">....30....</span>
+          <span class="hidden sm:inline">....40....</span>
+          <span>....50....</span>
+          <span class="text-amber-600 dark:text-amber-400 font-bold">🔔 60</span>
+          <span>70</span>
+        </div>
+        <!-- Carriage Track & Moving Indicator -->
+        <div class="w-full h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full relative overflow-visible">
+          <div id="carriageIndicator" class="absolute top-1/2 -translate-y-1/2 left-0 w-3.5 h-3.5 bg-amber-600 dark:bg-amber-400 rounded-full border-2 border-white dark:border-stone-900 shadow-md transition-all duration-75"></div>
+        </div>
+      </div>
+
+      <!-- Real Textarea -->
+      <textarea id="typewriterArea" class="typewriter-font w-full flex-grow bg-transparent text-base sm:text-lg text-stone-900 dark:text-stone-100 resize-none focus:outline-none leading-relaxed tracking-wide min-h-[220px]" placeholder="Click here and start typing... (키보드를 눌러 글을 써보세요)"></textarea>
+
+      <!-- Bottom Status & Retro Stamp -->
+      <div class="flex items-center justify-between pt-3 mt-2 border-t border-stone-200/60 dark:border-stone-700/60 text-xs text-stone-500 dark:text-stone-400 font-mono select-none">
+        <div class="flex items-center gap-3">
+          <span>글자 수: <strong id="charCount" class="text-stone-800 dark:text-stone-200">0</strong></span>
+          <span>줄 수: <strong id="lineCount" class="text-stone-800 dark:text-stone-200">1</strong></span>
+        </div>
+        <div class="text-[11px] font-bold px-2 py-0.5 rounded border border-stone-300 dark:border-stone-600 text-stone-400 uppercase tracking-widest">
+          1920s Antique Typewriter
+        </div>
+      </div>
+    </div>
+
+    <!-- Virtual Mechanical Typewriter Keyboard (Responsive for Mobile & Desktop) -->
+    <div class="w-full max-w-3xl mt-6 p-4 sm:p-5 bg-gradient-to-b from-stone-900 to-stone-950 rounded-3xl border-4 border-stone-800 shadow-2xl select-none">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <span class="text-xs font-bold text-stone-400 font-mono flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          기계식 타자기 키보드 터치
+        </span>
+        <span class="text-[11px] text-stone-500 font-mono hidden sm:inline">PC 키보드 타이핑 시에도 실시간 연동됩니다</span>
+      </div>
+
+      <div class="flex flex-col gap-1.5 sm:gap-2 items-center">
+        <!-- Row 1: Q W E R T Y U I O P Backspace -->
+        <div class="flex gap-1 sm:gap-1.5 w-full justify-center">
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="q">Q</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="w">W</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="e">E</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="r">R</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="t">T</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="y">Y</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="u">U</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="i">I</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="o">O</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="p">P</button>
+          <button type="button" class="vk-key px-2.5 sm:px-3 h-9 sm:h-12 rounded-xl bg-stone-700 text-stone-200 border-2 border-stone-500 font-mono font-bold text-xs sm:text-sm shadow-md" data-action="backspace" data-key="backspace">⌫</button>
+        </div>
+
+        <!-- Row 2: A S D F G H J K L Enter -->
+        <div class="flex gap-1 sm:gap-1.5 w-full justify-center">
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="a">A</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="s">S</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="d">D</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="f">F</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="g">G</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="h">H</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="j">J</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="k">K</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="l">L</button>
+          <button type="button" class="vk-key px-3 sm:px-4 h-9 sm:h-12 rounded-xl bg-amber-600 hover:bg-amber-500 text-white border-2 border-amber-400 font-mono font-bold text-xs sm:text-sm shadow-md flex items-center gap-1" data-action="enter" data-key="enter">
+            <span>⏎</span>
+            <span class="text-[10px] hidden sm:inline">줄바꿈</span>
+          </button>
+        </div>
+
+        <!-- Row 3: Z X C V B N M , . ? -->
+        <div class="flex gap-1 sm:gap-1.5 w-full justify-center">
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="z">Z</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="x">X</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="c">C</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="v">V</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="b">B</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="n">N</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="m">M</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char=",">,</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char=".">.</button>
+          <button type="button" class="vk-key w-8 sm:w-12 h-9 sm:h-12 rounded-full bg-stone-800 text-stone-200 border-2 border-stone-600 font-mono font-bold text-xs sm:text-sm shadow-md" data-char="?">?</button>
+        </div>
+
+        <!-- Row 4: Spacebar -->
+        <div class="flex gap-2 w-full justify-center mt-1">
+          <button type="button" class="vk-key w-48 sm:w-72 h-9 sm:h-11 rounded-2xl bg-stone-800 text-stone-300 border-2 border-stone-600 font-mono font-bold text-xs shadow-md tracking-widest flex items-center justify-center gap-2 hover:bg-stone-700" data-action="space" data-key="space">
+            <span>␣</span>
+            <span>SPACE</span>
+          </button>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -203,6 +361,7 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
+  <script src="sounds-data.js"></script>
   <script src="typewriter.js"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
