@@ -74,6 +74,16 @@ html.dark .dropdown-content a:hover {
     font-size: inherit;
     font-family: inherit;
     color: inherit;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+header nav,
+header nav a,
+header nav button,
+.fw-dropdown {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 
 /* Language toggling styles for bilingual rich text blocks */

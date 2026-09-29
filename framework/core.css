@@ -250,6 +250,15 @@ html.dark .fw-badge {
 .fw-dropdown {
   position: relative;
   display: inline-block;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+header nav,
+header nav a,
+header nav button {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 .fw-dropdown-menu {

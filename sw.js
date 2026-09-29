@@ -3,7 +3,7 @@
 // Provides high-performance static asset caching & offline capability
 // ===========================================================================
 
-const CACHE_NAME = 'toolbox-pwa-v2';
+const CACHE_NAME = 'toolbox-pwa-v3';
 
 const STATIC_PRECACHE = [
   '/',

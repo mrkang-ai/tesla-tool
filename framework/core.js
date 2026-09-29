@@ -307,7 +307,7 @@
 
         for (const ep of endpoints) {
             try {
-                const res = await fetch(ep + '?v=420', { cache: 'no-cache' });
+                const res = await fetch(ep + '?v=455', { cache: 'no-cache' });
                 if (!res.ok) continue;
                 const text = await res.text();
                 if (!isInvalidPartialHtml(text)) {
