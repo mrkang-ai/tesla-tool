@@ -394,6 +394,24 @@ html.dark .fw-dock-btn {
   box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
 }
 
+@media (max-width: 640px) {
+  .fw-floating-dock {
+    bottom: 16px;
+    padding: 4px 8px;
+    gap: 3px;
+    max-width: 96vw;
+  }
+  .fw-dock-btn {
+    height: 36px;
+    padding: 0 8px;
+    font-size: 0.8125rem;
+    gap: 3px;
+  }
+  .fw-dock-divider {
+    height: 14px;
+  }
+}
+
 .fw-dock-divider {
   width: 1px;
   height: 18px;
@@ -538,6 +556,12 @@ html.dark .fw-tool-chip {
   background: #0284c7;
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+}
+
+@media (max-width: 768px) {
+  .fw-floating-trigger {
+    display: none !important;
+  }
 }
 
 .fw-drawer-backdrop {

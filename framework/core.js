@@ -813,37 +813,61 @@
             }).join('');
 
             stripEl.innerHTML = `
-                <div class="flex items-center gap-2 shrink-0">
-                    <a href="/category/${catMeta.slug}/" class="text-sm font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
-                        <span class="text-base">${catMeta.icon}</span>
-                        <span class="hidden md:inline font-extrabold">${localizedCatName}</span>
-                    </a>
-                    <span class="text-sm font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
+                <!-- Desktop / Tablet Layout (>=640px) -->
+                <div class="hidden sm:flex items-center justify-between w-full gap-2">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <a href="/category/${catMeta.slug}/" class="text-sm font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors">
+                            <span class="text-base">${catMeta.icon}</span>
+                            <span class="hidden md:inline font-extrabold">${localizedCatName}</span>
+                        </a>
+                        <span class="text-xs font-mono px-1.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
+                    </div>
+
+                    <div class="fw-chips-scroll flex-1 mx-2">
+                        ${chipsHtml}
+                    </div>
+
+                    <div class="flex items-center gap-1 shrink-0">
+                        <a href="${prevTool.url}" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${prevLabel}: ${prevTool.name}">
+                            <span>◀</span><span class="hidden lg:inline text-xs">${prevLabel}</span>
+                        </a>
+                        <a href="${nextTool.url}" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${nextLabel}: ${nextTool.name}">
+                            <span class="hidden lg:inline text-xs">${nextLabel}</span><span>▶</span>
+                        </a>
+                        <button type="button" class="fw-open-drawer-btn ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-sm font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1 cursor-pointer">
+                            <span>${listBtnLabel}</span>
+                        </button>
+                        <button type="button" class="fw-fullscreen-btn ml-0.5 sm:ml-1 p-1 sm:px-2 sm:py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold border border-slate-200 dark:border-slate-700 transition-colors flex items-center gap-1 cursor-pointer" title="모바일 / PC 전체화면 (화면 켜짐 유지)">
+                            <span class="material-symbols-outlined text-sm sm:text-base leading-none">fullscreen</span>
+                            <span class="hidden sm:inline text-xs font-bold">전체화면</span>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="fw-chips-scroll flex-1 mx-1 sm:mx-3">
-                    ${chipsHtml}
-                </div>
+                <!-- Mobile Responsive Strip (<640px) -->
+                <div class="flex sm:hidden items-center justify-between w-full gap-2">
+                    <a href="/category/${catMeta.slug}/" class="text-sm font-bold flex items-center gap-1.5 text-slate-800 dark:text-white hover:text-primary transition-colors truncate max-w-[50%]">
+                        <span class="text-base shrink-0">${catMeta.icon}</span>
+                        <span class="font-extrabold truncate text-xs sm:text-sm">${localizedCatName}</span>
+                        <span class="text-xs font-mono px-1.5 py-0.2 rounded-full bg-sky-100 dark:bg-sky-950 text-primary font-bold shrink-0">${countLabel}</span>
+                    </a>
 
-                <div class="flex items-center gap-1 shrink-0">
-                    <a href="${prevTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${prevLabel}: ${prevTool.name}">
-                        <span>◀</span><span class="hidden lg:inline text-sm">${prevLabel}</span>
-                    </a>
-                    <a href="${nextTool.url}" class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-bold transition-colors flex items-center gap-0.5" title="${nextLabel}: ${nextTool.name}">
-                        <span class="hidden lg:inline text-sm">${nextLabel}</span><span>▶</span>
-                    </a>
-                    <button type="button" id="fw-open-drawer-btn" class="ml-1 px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-sm font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1">
-                        <span>${listBtnLabel}</span>
-                    </button>
-                    <button type="button" id="fw-fullscreen-btn" class="ml-0.5 sm:ml-1 p-1 sm:px-2 sm:py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold border border-slate-200 dark:border-slate-700 transition-colors flex items-center gap-1 cursor-pointer" title="모바일 / PC 전체화면 (화면 켜짐 유지)">
-                        <span id="fw-fs-icon" class="material-symbols-outlined text-sm sm:text-base">fullscreen</span>
-                        <span class="hidden sm:inline text-xs font-bold">전체화면</span>
-                    </button>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <a href="${prevTool.url}" class="w-8 h-8 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center justify-center border border-slate-200 dark:border-slate-800" title="${prevLabel}: ${prevTool.name}">◀</a>
+                        <a href="${nextTool.url}" class="w-8 h-8 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors flex items-center justify-center border border-slate-200 dark:border-slate-800" title="${nextLabel}: ${nextTool.name}">▶</a>
+                        <button type="button" class="fw-open-drawer-btn px-2.5 h-8 rounded-lg bg-sky-50 dark:bg-sky-950/60 hover:bg-primary hover:text-white text-primary dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-sky-800 transition-colors flex items-center gap-1 cursor-pointer">
+                            <span>⚡ 도구목록</span>
+                        </button>
+                        <button type="button" class="fw-fullscreen-btn w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors flex items-center justify-center cursor-pointer" title="전체화면">
+                            <span class="material-symbols-outlined text-sm leading-none">fullscreen</span>
+                        </button>
+                    </div>
                 </div>
             `;
 
-            const stripDrawerBtn = document.getElementById('fw-open-drawer-btn');
-            if (stripDrawerBtn) stripDrawerBtn.onclick = openDrawer;
+            stripEl.querySelectorAll('.fw-open-drawer-btn').forEach(btn => {
+                btn.onclick = openDrawer;
+            });
 
             // Universal Fullscreen & Wake Lock Controller
             const stripFsBtn = document.getElementById('fw-fullscreen-btn');
@@ -925,15 +949,16 @@
                 }
             };
 
-            if (stripFsBtn) {
-                stripFsBtn.onclick = toggleToolFullscreen;
-                stripFsBtn.ontouchend = toggleToolFullscreen;
-            }
+            stripEl.querySelectorAll('.fw-fullscreen-btn').forEach(btn => {
+                btn.onclick = toggleToolFullscreen;
+                btn.ontouchend = toggleToolFullscreen;
+            });
 
             const handleFsStateChange = () => {
                 const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
-                const fsIcon = document.getElementById('fw-fs-icon');
-                if (fsIcon) fsIcon.textContent = isFs ? 'fullscreen_exit' : 'fullscreen';
+                stripEl.querySelectorAll('.fw-fullscreen-btn span.material-symbols-outlined').forEach(icon => {
+                    icon.textContent = isFs ? 'fullscreen_exit' : 'fullscreen';
+                });
                 if (exitPill) {
                     if (isFs) exitPill.classList.add('is-active');
                     else exitPill.classList.remove('is-active');

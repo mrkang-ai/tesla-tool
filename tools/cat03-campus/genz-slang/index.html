@@ -114,8 +114,8 @@
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
   <div id="header-placeholder"></div>
 
-  <main class="flex-grow container-tool py-8 sm:py-12">
-    <div class="mb-6 border-b border-slate-700 pb-4 flex flex-wrap justify-between items-center gap-4">
+  <main class="flex-grow container-tool py-6 sm:py-10">
+    <div class="mb-5 border-b border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-sm font-semibold uppercase tracking-wider mb-2 border border-pink-500/20">
           <i class="fa-solid fa-wand-magic"></i> CAT-03 / No.24
@@ -125,18 +125,14 @@
           Skibidi, Rizz, 중꺾마, 폼 미쳤다, 뇌절 등 꼰대어 ↔ 요즘 애들 신조어 완벽 상호 변환
         </p>
       </div>
-      <div>
-        <button id="swapModeBtn" class="px-3 py-1.5 bg-pink-600 hover:bg-pink-500 text-white font-bold text-sm rounded-lg transition flex items-center gap-1.5">
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+        <span id="directionLabel" class="px-3.5 py-1.5 bg-slate-800 text-pink-400 rounded-xl text-sm font-bold border border-slate-700 truncate">
+          표준어/꼰대어 ➔ Z세대 힙스터어
+        </span>
+        <button id="swapModeBtn" class="px-3.5 py-1.5 bg-pink-600 hover:bg-pink-500 text-white font-bold text-sm rounded-xl transition flex items-center gap-1.5 shrink-0 shadow-md cursor-pointer active:scale-95">
           <i class="fa-solid fa-repeat"></i> 방향 전환
         </button>
       </div>
-    </div>
-
-    <!-- Direction Header -->
-    <div class="text-center mb-4">
-      <span id="directionLabel" class="inline-block px-4 py-1.5 bg-slate-800 text-pink-400 rounded-full text-sm font-bold border border-slate-700">
-        표준어/꼰대어 ➔ Z세대 힙스터어
-      </span>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -240,7 +236,7 @@
     
     <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
-  <script src="slang.js?v=202"></script>
-  <script src="/framework/core.js?v=440"></script>
+  <script src="slang.js?v=470"></script>
+  <script src="/framework/core.js?v=470"></script>
 </body>
 </html>
