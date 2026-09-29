@@ -5,6 +5,12 @@
  */
 (function() {
     'use strict';
+    // Canonical Host Redirect: Ensures users landing on *.pages.dev are seamlessly redirected to official domain
+    if (typeof window !== 'undefined' && window.location && window.location.hostname === 'tesla-tool.pages.dev') {
+        window.location.replace('https://tossgpt.online' + window.location.pathname + window.location.search + window.location.hash);
+        return;
+    }
+
     // 0. Suppress benign third-party production warnings (e.g. Tailwind CDN)
     if (typeof console !== 'undefined' && console.warn) {
         const _origWarn = console.warn;
@@ -870,8 +876,35 @@
             });
 
             // Universal Fullscreen & Wake Lock Controller
-            const stripFsBtn = document.getElementById('fw-fullscreen-btn');
             let exitPill = document.getElementById('fw-fullscreen-exit-pill');
+            let fsHideTimer = null;
+
+            const showExitPillTemporarily = () => {
+                const targetPill = document.getElementById('fw-fullscreen-exit-pill');
+                if (!targetPill || !targetPill.classList.contains('is-active')) return;
+                targetPill.classList.remove('is-faded');
+                if (fsHideTimer) clearTimeout(fsHideTimer);
+                fsHideTimer = setTimeout(() => {
+                    if (targetPill && targetPill.classList.contains('is-active')) {
+                        targetPill.classList.add('is-faded');
+                    }
+                }, 3000);
+            };
+
+            const onFsActivity = () => {
+                const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('fw-fullscreen-mode'));
+                if (isFs) {
+                    showExitPillTemporarily();
+                }
+            };
+
+            if (!window._fwFsEventsBound) {
+                window._fwFsEventsBound = true;
+                ['mousemove', 'touchstart', 'scroll'].forEach(evt => {
+                    window.addEventListener(evt, onFsActivity, { passive: true });
+                });
+            }
+
             if (!exitPill) {
                 exitPill = document.createElement('button');
                 exitPill.id = 'fw-fullscreen-exit-pill';
@@ -883,14 +916,16 @@
                 `;
                 const exitAction = (e) => {
                     if (e && e.type === 'touchend') e.preventDefault();
+                    if (fsHideTimer) clearTimeout(fsHideTimer);
                     if (document.fullscreenElement || document.webkitFullscreenElement) {
                         if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
                         else if (document.webkitExitFullscreen) document.webkitExitFullscreen().catch(()=>{});
                     }
                     document.body.classList.remove('fw-fullscreen-mode');
-                    exitPill.classList.remove('is-active');
-                    const fsIcon = document.getElementById('fw-fs-icon');
-                    if (fsIcon) fsIcon.textContent = 'fullscreen';
+                    exitPill.classList.remove('is-active', 'is-faded');
+                    stripEl.querySelectorAll('.fw-fullscreen-btn span.material-symbols-outlined').forEach(icon => {
+                        icon.textContent = 'fullscreen';
+                    });
                     if (window._toolWakeLock) {
                         window._toolWakeLock.release().catch(()=>{});
                         window._toolWakeLock = null;
@@ -898,6 +933,15 @@
                 };
                 exitPill.onclick = exitAction;
                 exitPill.ontouchend = exitAction;
+
+                exitPill.addEventListener('mouseenter', () => {
+                    if (fsHideTimer) clearTimeout(fsHideTimer);
+                    exitPill.classList.remove('is-faded');
+                });
+                exitPill.addEventListener('mouseleave', () => {
+                    showExitPillTemporarily();
+                });
+
                 document.body.appendChild(exitPill);
             }
 
@@ -921,9 +965,13 @@
 
                         // Always apply CSS Fullscreen (vital for iPhone iOS Safari where requestFullscreen is unsupported)
                         document.body.classList.add('fw-fullscreen-mode');
-                        if (exitPill) exitPill.classList.add('is-active');
-                        const fsIcon = document.getElementById('fw-fs-icon');
-                        if (fsIcon) fsIcon.textContent = 'fullscreen_exit';
+                        if (exitPill) {
+                            exitPill.classList.add('is-active');
+                            showExitPillTemporarily();
+                        }
+                        stripEl.querySelectorAll('.fw-fullscreen-btn span.material-symbols-outlined').forEach(icon => {
+                            icon.textContent = 'fullscreen_exit';
+                        });
 
                         if ('wakeLock' in navigator) {
                             try { window._toolWakeLock = await navigator.wakeLock.request('screen'); } catch(e){}
@@ -935,9 +983,11 @@
                             else if (document.webkitExitFullscreen) await document.webkitExitFullscreen().catch(()=>{});
                         }
                         document.body.classList.remove('fw-fullscreen-mode');
-                        if (exitPill) exitPill.classList.remove('is-active');
-                        const fsIcon = document.getElementById('fw-fs-icon');
-                        if (fsIcon) fsIcon.textContent = 'fullscreen';
+                        if (fsHideTimer) clearTimeout(fsHideTimer);
+                        if (exitPill) exitPill.classList.remove('is-active', 'is-faded');
+                        stripEl.querySelectorAll('.fw-fullscreen-btn span.material-symbols-outlined').forEach(icon => {
+                            icon.textContent = 'fullscreen';
+                        });
 
                         if (window._toolWakeLock) {
                             window._toolWakeLock.release().catch(()=>{});
@@ -960,8 +1010,13 @@
                     icon.textContent = isFs ? 'fullscreen_exit' : 'fullscreen';
                 });
                 if (exitPill) {
-                    if (isFs) exitPill.classList.add('is-active');
-                    else exitPill.classList.remove('is-active');
+                    if (isFs) {
+                        exitPill.classList.add('is-active');
+                        showExitPillTemporarily();
+                    } else {
+                        if (fsHideTimer) clearTimeout(fsHideTimer);
+                        exitPill.classList.remove('is-active', 'is-faded');
+                    }
                 }
                 if (!isFs && window._toolWakeLock) {
                     window._toolWakeLock.release().catch(()=>{});

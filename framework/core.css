@@ -627,18 +627,39 @@ html.dark .fw-side-drawer {
   font-weight: 700;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  transition: all 0.2s ease;
-  opacity: 0.85;
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.2s ease;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.fw-fullscreen-exit-pill.is-active {
+  display: inline-flex;
+  opacity: 0.95;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fw-fullscreen-exit-pill.is-active.is-faded {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
 }
 
 .fw-fullscreen-exit-pill:hover {
   opacity: 1;
   background: rgba(15, 23, 42, 0.98);
-  transform: scale(1.04);
+  transform: translateY(0) scale(1.04);
 }
 
-.fw-fullscreen-exit-pill.is-active {
-  display: inline-flex;
+@media (max-width: 640px) {
+  .fw-fullscreen-exit-pill {
+    top: 10px;
+    right: 10px;
+    padding: 5px 12px;
+    font-size: 12px;
+    gap: 4px;
+  }
 }
 
 /* 4. Universal CSS Fullscreen Mode (Essential for iPhone Safari & Mobile Browsers) */
