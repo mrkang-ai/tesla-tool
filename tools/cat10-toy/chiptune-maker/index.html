@@ -108,36 +108,219 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0ea5e9">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-mono select-none">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans select-none">
   <div id="header-placeholder"></div>
   <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col items-center">
-    <div class="text-center mb-8">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-sm font-semibold mb-3">
-        <i class="fa-solid fa-gamepad"></i>
-        <span>NES 8-BIT SOUND SYNTH</span>
+    <div class="text-center mb-6 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-xs sm:text-sm font-semibold mb-3 shadow-sm font-mono">
+        <i class="fa-solid fa-gamepad text-emerald-400"></i>
+        <span>NES 8-BIT RICOH 2A03 SYNTH STUDIO</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-emerald-400">8비트 레트로 사운드 칩튠 메이커</h1>
-      <p class="text-slate-400 text-sm font-sans">고전 게임의 향수를 자극하는 사각파(Square)와 노이즈 음원을 실시간 합성하세요.</p>
+      <h1 class="text-2xl sm:text-4xl font-black mb-2 text-emerald-400 tracking-tight flex items-center justify-center gap-2 break-keep">
+        <span>👾</span> <span>8비트 레트로 사운드 칩튠 메이커</span>
+      </h1>
+      <p class="text-slate-400 text-xs sm:text-sm leading-relaxed px-4 break-keep">
+        고전 아케이드 &amp; 패미컴 감성의 펄스 사각파(Square)와 4비트 LFSR 노이즈를 실시간 합성합니다.<br class="hidden sm:inline">
+        날카로운 레이저 발사음과 묵직한 서브베이스 폭발음을 직접 연주하고 WAV 파일로 추출하세요!
+      </p>
     </div>
 
-    <!-- Sound Board Buttons -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full  mb-8">
-      <button class="synth-btn p-5 bg-slate-900 border-2 border-emerald-500/40 hover:border-emerald-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="coin">
-        <span class="text-3xl">🪙</span>
-        <span class="text-sm font-bold text-emerald-300">코인 획득</span>
+    <!-- Retro CRT Oscilloscope Screen -->
+    <div class="w-full max-w-3xl mb-6 bg-slate-900/90 rounded-2xl border-2 border-emerald-500/50 shadow-[0_0_25px_rgba(16,185,129,0.15)] p-3 relative overflow-hidden">
+      <div class="flex items-center justify-between text-[11px] text-emerald-400/80 font-mono mb-1.5 px-1">
+        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>CH1: PULSE / LFSR CRUNCH NOISE</span>
+        <span>44.1kHz • 16-BIT PCM</span>
+      </div>
+      <canvas id="oscilloscopeCanvas" class="w-full h-24 sm:h-28 bg-[#0a0f1d] rounded-xl border border-emerald-900/60 block"></canvas>
+    </div>
+
+    <!-- Sound Board Buttons (8 Presets) -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-3xl mb-6">
+      <!-- 1. Coin -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-emerald-500/40 hover:border-emerald-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="coin">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">1</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">💰</span>
+        <span class="text-xs sm:text-sm font-bold text-emerald-300">코인 획득</span>
+        <span class="text-[10px] text-slate-500 font-sans">B5→E6 아르페지오</span>
       </button>
-      <button class="synth-btn p-5 bg-slate-900 border-2 border-cyan-500/40 hover:border-cyan-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="jump">
-        <span class="text-3xl">🍄</span>
-        <span class="text-sm font-bold text-cyan-300">점프 사운드</span>
+
+      <!-- 2. Jump -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-cyan-500/40 hover:border-cyan-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="jump">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-cyan-400 border border-slate-700">2</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">🍄</span>
+        <span class="text-xs sm:text-sm font-bold text-cyan-300">점프 사운드</span>
+        <span class="text-[10px] text-slate-500 font-sans">상승 사각파 첩</span>
       </button>
-      <button class="synth-btn p-5 bg-slate-900 border-2 border-purple-500/40 hover:border-purple-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="laser">
-        <span class="text-3xl">🔫</span>
-        <span class="text-sm font-bold text-purple-300">레이저 발사</span>
+
+      <!-- 3. Laser (Upgraded) -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-purple-500/60 hover:border-purple-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg bg-gradient-to-b from-purple-950/20 to-transparent ring-1 ring-purple-500/30" data-type="laser">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-purple-400 border border-slate-700">3</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">🔫</span>
+        <span class="text-xs sm:text-sm font-bold text-purple-300 flex items-center gap-1">레이저 발사 <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span></span>
+        <span class="text-[10px] text-purple-400/80 font-sans">공진 필터 퓨-퓨</span>
       </button>
-      <button class="synth-btn p-5 bg-slate-900 border-2 border-rose-500/40 hover:border-rose-400 rounded-2xl flex flex-col items-center gap-2 active:scale-95 transition-all" data-type="boom">
-        <span class="text-3xl">💥</span>
-        <span class="text-sm font-bold text-rose-300">폭발 사운드</span>
+
+      <!-- 4. Boom (Upgraded) -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-rose-500/60 hover:border-rose-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg bg-gradient-to-b from-rose-950/20 to-transparent ring-1 ring-rose-500/30" data-type="boom">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-rose-400 border border-slate-700">4</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">💥</span>
+        <span class="text-xs sm:text-sm font-bold text-rose-300 flex items-center gap-1">폭발 사운드 <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-ping"></span></span>
+        <span class="text-[10px] text-rose-400/80 font-sans">LFSR+서브베이스 쿵</span>
       </button>
+
+      <!-- 5. Power-Up -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-amber-500/40 hover:border-amber-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="powerup">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-amber-400 border border-slate-700">5</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">⚡</span>
+        <span class="text-xs sm:text-sm font-bold text-amber-300">파워업</span>
+        <span class="text-[10px] text-slate-500 font-sans">상승 4음 메이저</span>
+      </button>
+
+      <!-- 6. Game Over -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-indigo-500/40 hover:border-indigo-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="gameover">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-indigo-400 border border-slate-700">6</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">💀</span>
+        <span class="text-xs sm:text-sm font-bold text-indigo-300">게임오버</span>
+        <span class="text-[10px] text-slate-500 font-sans">하강 마이너 징글</span>
+      </button>
+
+      <!-- 7. Hit / Hurt -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-orange-500/40 hover:border-orange-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="hit">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-orange-400 border border-slate-700">7</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">🎯</span>
+        <span class="text-xs sm:text-sm font-bold text-orange-300">피격 / 타격</span>
+        <span class="text-[10px] text-slate-500 font-sans">노이즈 바이트 크런치</span>
+      </button>
+
+      <!-- 8. 1-UP / Victory -->
+      <button class="synth-btn p-4 bg-slate-900/90 border-2 border-teal-500/40 hover:border-teal-400 rounded-2xl flex flex-col items-center gap-1.5 active:scale-95 transition-all relative group shadow-lg" data-type="oneup">
+        <span class="absolute top-2 right-2 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-teal-400 border border-slate-700">8</span>
+        <span class="text-3xl group-hover:scale-110 transition-transform">🏆</span>
+        <span class="text-xs sm:text-sm font-bold text-teal-300">1-UP 클리어</span>
+        <span class="text-[10px] text-slate-500 font-sans">승리의 팡파르</span>
+      </button>
+    </div>
+
+    <!-- Sound Variation Selectors (For Laser & Explosion) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl mb-6 text-xs font-sans">
+      <!-- Laser Variations -->
+      <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-purple-900/50 shadow-md">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-bold text-purple-300 flex items-center gap-1.5">
+            <span>🔫</span> <span>레이저 스타일 세부 선택</span>
+          </span>
+          <span class="text-[10px] text-slate-500">클릭 시 즉시 청음</span>
+        </div>
+        <div class="grid grid-cols-3 gap-1.5">
+          <button data-laser-variant="arcade" class="py-2 px-2 rounded-xl border border-purple-400 bg-purple-600 text-white font-bold text-center text-xs transition-all active:scale-95 shadow-sm">
+            아케이드 퓨-퓨
+          </button>
+          <button data-laser-variant="plasma" class="py-2 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white font-bold text-center text-xs transition-all active:scale-95">
+            플라즈마 빔
+          </button>
+          <button data-laser-variant="alien" class="py-2 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white font-bold text-center text-xs transition-all active:scale-95">
+            외계인 광선
+          </button>
+        </div>
+      </div>
+
+      <!-- Explosion Variations -->
+      <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-rose-900/50 shadow-md">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-bold text-rose-300 flex items-center gap-1.5">
+            <span>💥</span> <span>폭발 스타일 세부 선택</span>
+          </span>
+          <span class="text-[10px] text-slate-500">클릭 시 즉시 청음</span>
+        </div>
+        <div class="grid grid-cols-3 gap-1.5">
+          <button data-boom-variant="kaboom" class="py-2 px-2 rounded-xl border border-rose-400 bg-rose-600 text-white font-bold text-center text-xs transition-all active:scale-95 shadow-sm">
+            클래식 카붐
+          </button>
+          <button data-boom-variant="heavy" class="py-2 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white font-bold text-center text-xs transition-all active:scale-95">
+            묵직한 캐논폭탄
+          </button>
+          <button data-boom-variant="metal" class="py-2 px-2 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white font-bold text-center text-xs transition-all active:scale-95">
+            레트로 외계선격추
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Synthesizer Studio & WAV Export -->
+    <div class="w-full max-w-3xl mb-8 p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl font-sans">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3 mb-4">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-emerald-400"></i>
+          <h2 class="text-sm sm:text-base font-bold text-white">칩튠 커스텀 스튜디오 &amp; WAV 파일 추출</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <label for="customSoundSelect" class="text-xs text-slate-400">대상:</label>
+          <select id="customSoundSelect" class="bg-slate-800 text-slate-200 border border-slate-700 rounded-lg px-2.5 py-1 text-xs focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+            <option value="laser" selected>🔫 레이저 발사</option>
+            <option value="boom">💥 폭발 사운드</option>
+            <option value="coin">🪙 코인 획득</option>
+            <option value="jump">🍄 점프 사운드</option>
+            <option value="powerup">⚡ 파워업</option>
+            <option value="hit">🎯 피격/타격</option>
+            <option value="gameover">💀 게임오버</option>
+            <option value="oneup">🏆 1-UP 클리어</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Sliders Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5 text-xs text-slate-300">
+        <!-- Pitch Slider -->
+        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="font-medium text-slate-400">기본 주파수(피치)</span>
+            <span id="pitchVal" class="font-mono text-emerald-400 font-bold">1200Hz</span>
+          </div>
+          <input id="customPitch" type="range" min="150" max="2800" value="1200" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+        </div>
+
+        <!-- Duration Slider -->
+        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="font-medium text-slate-400">지속 시간(길이)</span>
+            <span id="durVal" class="font-mono text-sky-400 font-bold">1.0x</span>
+          </div>
+          <input id="customDur" type="range" min="0.4" max="2.0" step="0.1" value="1.0" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-500">
+        </div>
+
+        <!-- Crunch / Bitcrush Slider -->
+        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="font-medium text-slate-400">8비트 왜곡(크런치)</span>
+            <span id="crunchVal" class="font-mono text-rose-400 font-bold">80%</span>
+          </div>
+          <input id="customCrunch" type="range" min="0" max="1" step="0.05" value="0.8" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500">
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <div class="flex items-center gap-2">
+          <button id="testCustomBtn" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-xl text-xs sm:text-sm shadow-md flex items-center gap-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-play"></i>
+            <span>사운드 테스트 재생</span>
+          </button>
+          <button id="randomSfxBtn" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-dice"></i>
+            <span>🎲 SFXR 랜덤 생성</span>
+          </button>
+        </div>
+
+        <button id="exportWavBtn" class="px-5 py-2.5 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold rounded-xl text-xs sm:text-sm shadow-lg flex items-center gap-1.5 active:scale-95 transition-all ml-auto">
+          <i class="fa-solid fa-download"></i>
+          <span>WAV 파일 다운로드 (.wav)</span>
+        </button>
+      </div>
+
+      <!-- Shortcut Tip -->
+      <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-500 text-center">
+        ⌨️ 키보드 숫자키 <span class="text-emerald-400 font-mono font-bold">1 ~ 8</span>을 누르면 마우스 클릭 없이 실시간으로 8비트 사운드를 연주할 수 있습니다.
+      </div>
     </div>
   </main>
 
@@ -212,7 +395,7 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
-  <script src="chiptune.js"></script>
+  <script src="chiptune.js?v=450"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
 </html>
