@@ -106,31 +106,195 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0ea5e9">
+    <style>
+      #cowArena {
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      @keyframes cowFoundPop {
+        0% { transform: translate(-50%, -50%) scale(0.2) rotate(-15deg); opacity: 0; }
+        50% { transform: translate(-50%, -50%) scale(1.3) rotate(10deg); opacity: 1; }
+        70% { transform: translate(-50%, -50%) scale(0.9) rotate(-5deg); }
+        100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+      }
+      .cow-found-anim {
+        animation: cowFoundPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      .cow-radar-ripple {
+        position: absolute;
+        pointer-events: none;
+        border-radius: 9999px;
+      }
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col select-none">
   <div id="header-placeholder"></div>
-  <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col items-center">
-    <div class="text-center mb-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-sm font-semibold mb-3">
-        <i class="fa-solid fa-headphones"></i>
-        <span>소리 기반 탐색 게임</span>
+  <main class="flex-grow container-tool py-6 sm:py-10 flex flex-col items-center">
+    <!-- Canvas for Confetti -->
+    <canvas id="confettiCanvas" class="pointer-events-none fixed inset-0 z-50"></canvas>
+
+    <!-- Header / Title -->
+    <div class="text-center mb-6 max-w-xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-xs sm:text-sm font-semibold mb-3 shadow-sm">
+        <i class="fa-solid fa-volume-high text-emerald-400"></i>
+        <span>100% 리얼 암소 '음메~' 사운드 탑재</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-emerald-400">보이지 않는 숨은 소 찾기</h1>
-      <p class="text-slate-400 text-sm">마우스를 움직여보세요! 소에게 가까워질수록 "음메~" 소리가 급박하고 커집니다!</p>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2.5 text-emerald-400 tracking-tight flex items-center justify-center gap-2">
+        <span>🐮</span> <span>보이지 않는 숨은 소 찾기</span>
+      </h1>
+      <p class="text-slate-400 text-xs sm:text-sm leading-relaxed px-4">
+        화면 어딘가에 투명한 소가 숨어있습니다! 가까워질수록 진짜 암소의 <span class="text-emerald-400 font-bold">"음메~"</span> 소리가 커지고 긴박해집니다. 소리의 음량과 주기를 단서로 소를 찾아 클릭(터치)하세요!
+      </p>
+    </div>
+
+    <!-- Status & Stats Bar -->
+    <div class="w-full max-w-3xl mb-4 p-3 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 shadow-xl flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+      <!-- Left Stats: Time, Clicks, Best -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-stopwatch text-emerald-400"></i>
+          <span class="text-slate-400">시간:</span>
+          <span id="cowTimer" class="font-mono font-bold text-white text-sm sm:text-base">0.0s</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-arrow-pointer text-sky-400"></i>
+          <span class="text-slate-400">클릭:</span>
+          <span id="cowClicks" class="font-mono font-bold text-white text-sm sm:text-base">0회</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-trophy text-amber-400"></i>
+          <span class="text-slate-400">최고기록:</span>
+          <span id="cowBestTime" class="font-mono font-bold text-amber-300 text-sm sm:text-base">--.-s</span>
+        </div>
+      </div>
+
+      <!-- Right Controls: Difficulty & Volume -->
+      <div class="flex items-center gap-3 ml-auto">
+        <div class="flex items-center gap-1.5">
+          <label for="cowDiffSelect" class="text-slate-400 text-xs">난이도:</label>
+          <select id="cowDiffSelect" class="bg-slate-800 text-slate-200 border border-slate-700 rounded-lg px-2.5 py-1 text-xs focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+            <option value="easy">쉬움 (반경 65px)</option>
+            <option value="normal" selected>보통 (반경 42px)</option>
+            <option value="hard">어려움 (반경 25px)</option>
+          </select>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 pl-2 border-l border-slate-800">
+          <i class="fa-solid fa-volume-high text-slate-400 text-xs"></i>
+          <input id="cowVolSlider" type="range" min="0" max="100" value="85" class="w-16 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+          <span id="cowVolVal" class="text-slate-400 font-mono text-xs w-7">85%</span>
+        </div>
+      </div>
     </div>
 
     <!-- Game Arena -->
-    <div id="cowArena" class="w-full h-[420px] bg-slate-900 rounded-3xl border-2 border-slate-800 shadow-2xl relative cursor-crosshair flex items-center justify-center overflow-hidden">
-      <div id="soundRadar" class="text-sm font-mono text-slate-500">마우스를 화면 위에서 움직이세요...</div>
-      <div id="foundCow" class="hidden absolute text-7xl animate-bounce">
-        🐮
+    <div id="cowArena" class="w-full max-w-3xl h-[340px] sm:h-[440px] bg-slate-900 rounded-3xl border-2 border-slate-800 shadow-2xl relative cursor-crosshair flex flex-col items-center justify-between p-4 sm:p-5 overflow-hidden touch-none select-none">
+      
+      <!-- Top Radar Bar Inside Arena -->
+      <div class="w-full max-w-md flex flex-col items-center z-10 pointer-events-none">
+        <div id="tempBar" class="w-full h-2.5 bg-slate-800/90 rounded-full overflow-hidden border border-slate-700/60 shadow-inner mb-2">
+          <div id="tempFill" class="h-full w-0 rounded-full transition-all duration-150 bg-slate-600"></div>
+        </div>
+        <div id="soundRadar" class="text-xs sm:text-sm font-mono text-slate-400 text-center tracking-wide px-3 py-1 rounded-full bg-slate-950/60 border border-slate-800/70 shadow-sm backdrop-blur-sm">
+          화면 위를 터치하거나 마우스를 움직여 <span class="text-emerald-400 font-bold">"음메~"</span> 소리를 따라가세요!
+        </div>
+      </div>
+
+      <!-- Discovered Cow with Pop Animation -->
+      <div id="foundCow" class="hidden absolute pointer-events-none text-7xl sm:text-8xl flex flex-col items-center z-20">
+        <span class="filter drop-shadow-[0_10px_20px_rgba(16,185,129,0.5)]">🐮</span>
+        <span class="text-xs font-black bg-emerald-500 text-slate-950 px-3 py-0.5 rounded-full mt-1 shadow-xl uppercase tracking-wider">찾았다!</span>
+      </div>
+
+      <!-- Start Overlay (shown before game start) -->
+      <div id="arenaOverlay" class="absolute inset-0 bg-slate-950/85 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30 cursor-pointer transition-opacity">
+        <div class="text-5xl sm:text-6xl mb-4 animate-bounce">🎧</div>
+        <h2 class="text-xl sm:text-2xl font-black text-white mb-2">사운드 레이더를 켤 준비가 되셨나요?</h2>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-sm mb-6 leading-relaxed">
+          화면 어딘가에 투명한 소가 숨어있습니다.<br>
+          스피커나 이어폰 볼륨을 켜고 터치/클릭하여 탐색을 시작하세요!
+        </p>
+        <button class="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-sm sm:text-base shadow-xl flex items-center gap-2 transform active:scale-95 transition-all">
+          <i class="fa-solid fa-play"></i>
+          <span>탐색 시작하기 (터치 / 클릭)</span>
+        </button>
+      </div>
+
+      <!-- Bottom Hint inside Arena -->
+      <div class="text-[11px] sm:text-xs text-slate-600 font-mono z-10 pointer-events-none">
+        💡 팁: 가까울수록 소리가 고음으로 높아지며 반복 주기가 매우 빨라집니다.
       </div>
     </div>
 
-    <button id="startCowBtn" class="mt-6 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black rounded-xl text-base shadow-lg transition-all">
-      게임 시작 (오디오 활성화)
-    </button>
+    <!-- Main Control Buttons Below Arena -->
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+      <button id="startCowBtn" class="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black rounded-xl text-sm sm:text-base shadow-lg transition-all flex items-center gap-2 active:scale-95">
+        <i class="fa-solid fa-play"></i>
+        <span>게임 시작 (오디오 활성화)</span>
+      </button>
+    </div>
+
+    <!-- Sound Mode & Mobile Guidance Cards -->
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl text-xs text-slate-400">
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-2.5">
+        <span class="text-lg">🐮</span>
+        <div>
+          <span class="font-bold text-slate-200 block mb-0.5">리얼 암소 음성</span>
+          인공 전자음이 아닌 실제 암소의 울음소리 음향 샘플을 Web Audio 엔진으로 실시간 믹싱합니다.
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-2.5">
+        <span class="text-lg">⚡</span>
+        <div>
+          <span class="font-bold text-slate-200 block mb-0.5">거리 비례 다이내믹스</span>
+          거리가 좁혀질수록 재생 간격(1200ms→140ms), 피치(0.8x→1.4x), 음량이 동시에 급상승합니다.
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-2.5">
+        <span class="text-lg">📱</span>
+        <div>
+          <span class="font-bold text-slate-200 block mb-0.5">모바일 터치 & 햅틱</span>
+          터치 드래그 스크롤 방지 및 모바일 스마트폰 진동 햅틱 피드백을 완벽하게 지원합니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div id="victoryModal" class="hidden fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 items-center justify-center p-4">
+      <div class="bg-slate-900 border-2 border-emerald-500/60 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl text-center relative overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <!-- Glow header -->
+        <div class="w-20 h-20 mx-auto mb-4 bg-emerald-500/20 border-2 border-emerald-400/80 rounded-full flex items-center justify-center text-4xl shadow-inner">
+          🐮
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-black text-white mb-1">소를 찾았습니다!</h3>
+        <p class="text-emerald-400 font-bold text-sm mb-6">"음메~~~~~~~~~~! 🎉"</p>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-3 mb-6 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
+          <div class="p-2">
+            <span class="text-xs text-slate-500 block mb-1">소요 시간</span>
+            <span id="victoryTime" class="text-xl sm:text-2xl font-black font-mono text-emerald-400">0.0초</span>
+          </div>
+          <div class="p-2 border-l border-slate-800">
+            <span class="text-xs text-slate-500 block mb-1">클릭 횟수</span>
+            <span id="victoryClicks" class="text-xl sm:text-2xl font-black font-mono text-sky-400">0회</span>
+          </div>
+        </div>
+
+        <!-- Rank Card -->
+        <div id="victoryRank" class="mb-6 p-4 rounded-2xl bg-gradient-to-b from-amber-500/10 to-transparent border border-amber-500/30">
+          <div class="text-2xl font-black text-amber-300 mb-1">🌟 S등급</div>
+          <div class="text-sm font-bold text-white mb-0.5">음향 레이더 마스터</div>
+          <div class="text-xs text-slate-400">미세한 음메 소리의 변화를 정확하게 간파했습니다!</div>
+        </div>
+
+        <!-- Action Button -->
+        <button id="nextRoundBtn" class="w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black rounded-xl text-base shadow-xl flex items-center justify-center gap-2 transform active:scale-95 transition-all">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>다음 소 찾기 (새 라운드 시작)</span>
+        </button>
+      </div>
+    </div>
   </main>
 
     <!-- 1,000+ Char In-Depth Guide Section -->
@@ -204,7 +368,8 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
-  <script src="cow.js"></script>
+  <script src="sounds-data.js?v=450"></script>
+  <script src="cow.js?v=450"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
 </html>
