@@ -126,10 +126,49 @@
         직장인 생존부터 공공행정, Z세대, 밀리터리, SNS, AI테크, 심리, SF, 유틸, 킬링타임까지!<br>
         화면을 자유롭게 클릭하여 축하 불꽃을 쏘아 올려보세요! 🎆
       </p>
-      <div class="pointer-events-auto">
-        <a href="/" class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black rounded-2xl text-base shadow-2xl transition-all">
-          <i class="fa-solid fa-house"></i> 100개 도구 메인 포털 홈으로 가기
-        </a>
+      <!-- Control Panel -->
+      <div id="controlPanel" class="pointer-events-auto mt-6 flex flex-col items-center gap-3">
+        <!-- Row 1: Grand Finale & Auto Show Toggle -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <button id="finaleBtn" class="px-6 py-3 bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-500 hover:from-amber-400 hover:via-rose-400 hover:to-indigo-400 text-white font-black rounded-2xl text-sm sm:text-base shadow-[0_0_30px_rgba(244,63,94,0.4)] flex items-center gap-2 transform active:scale-95 transition-all">
+            <span class="text-xl">🎆</span>
+            <span>그랜드 피날레 30연발 폭격!</span>
+          </button>
+          <button id="autoShowToggleBtn" class="px-4 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-2xl text-xs sm:text-sm shadow-lg flex items-center gap-1.5 transition-all active:scale-95 border border-amber-400">
+            <i class="fa-solid fa-play"></i>
+            <span>자동 쇼 ON</span>
+          </button>
+        </div>
+
+        <!-- Row 2: Speed, Sound & Volume -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 p-2 px-3 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-slate-800 text-xs">
+          <!-- Speed selector -->
+          <div class="flex items-center gap-1">
+            <span class="text-slate-400 mr-1">발사 속도:</span>
+            <button data-show-speed="1200" class="px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold transition-colors">여유롭게</button>
+            <button data-show-speed="750" class="px-2.5 py-1 rounded-xl bg-amber-600 text-white font-bold transition-colors">보통</button>
+            <button data-show-speed="380" class="px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold transition-colors">축제 모드</button>
+          </div>
+
+          <!-- Volume & Mute -->
+          <div class="flex items-center gap-2 pl-2 border-l border-slate-800">
+            <button id="soundToggleBtn" class="text-emerald-400 hover:text-emerald-300 text-sm" title="효과음 On/Off">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <input id="fireworksVol" type="range" min="0" max="100" value="85" class="w-16 sm:w-20 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
+          </div>
+        </div>
+
+        <!-- Portal home button -->
+        <div class="mt-2">
+          <a href="/" class="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white font-bold rounded-xl text-xs sm:text-sm border border-slate-800 transition-all">
+            <i class="fa-solid fa-house text-amber-400"></i> 100개 도구 메인 홈으로
+          </a>
+        </div>
+
+        <p class="text-[11px] text-slate-400/80 font-mono mt-1">
+          💡 밤하늘 어디든 터치/클릭하면 그 위치로 불꽃 로켓이 솟구쳐 터집니다!
+        </p>
       </div>
     </div>
   </main>
@@ -205,7 +244,7 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
-  <script src="fireworks.js"></script>
+  <script src="fireworks.js?v=450"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
 </html>
