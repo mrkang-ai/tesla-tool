@@ -107,28 +107,173 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0ea5e9">
+    <style>
+      #windowContainer {
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        transition: background-image 0.4s ease-in-out;
+      }
+      #fogCanvas {
+        touch-action: none;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col select-none">
   <div id="header-placeholder"></div>
-  <main class="flex-grow container-tool py-8 sm:py-12 flex flex-col items-center">
-    <div class="text-center mb-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950 text-sky-300 border border-sky-800 text-sm font-semibold mb-3">
-        <i class="fa-solid fa-droplet"></i>
-        <span>겨울 감성 힐링 토이</span>
+  <main class="flex-grow container-tool py-6 sm:py-10 flex flex-col items-center">
+    <!-- Header / Title -->
+    <div class="text-center mb-6 max-w-xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/80 text-sky-300 border border-sky-800 text-xs sm:text-sm font-semibold mb-3 shadow-sm">
+        <i class="fa-solid fa-droplet text-sky-400"></i>
+        <span>겨울 감성 &amp; 빗소리 ASMR 힐링 토이</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-sky-300">김 서린 유리창 닦기 클리너</h1>
-      <p class="text-slate-400 text-sm">마우스나 손가락으로 뽀얗게 서린 김을 슥슥 문질러 닦아보세요.</p>
+      <h1 class="text-3xl sm:text-4xl font-black mb-2 text-sky-300 tracking-tight flex items-center justify-center gap-2 break-keep">
+        <span>❄️</span> <span>김 서린 유리창 닦기 클리너</span>
+      </h1>
+      <p class="text-slate-400 text-xs sm:text-sm leading-relaxed px-4 break-keep">
+        손가락이나 스퀴지로 뽀얗게 서린 김을 슥슥 문질러 닦아보세요.<br class="hidden sm:inline">
+        비 내리는 도시, 아늑한 카페 등 다양한 풍경과 촉각적인 유리창 뽀드득 사운드가 함께합니다.
+      </p>
     </div>
 
-    <div class="w-full flex justify-end mb-2">
-      <button id="refogBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm font-bold transition-colors">
-        <i class="fa-solid fa-wind mr-1"></i> 다시 입김 불기 (김 서리기)
-      </button>
+    <!-- Theme Gallery Selector -->
+    <div class="w-full max-w-3xl mb-4 p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl">
+      <div class="flex items-center justify-between mb-2 px-1">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-image text-sky-400 text-xs"></i>
+          <span class="text-xs font-bold text-slate-200">창밖 풍경 테마</span>
+        </div>
+        <span id="currentThemeDesc" class="text-[11px] text-slate-400 font-sans truncate max-w-[240px] sm:max-w-md">네온사인이 비에 번지는 감성적인 도시의 밤</span>
+      </div>
+
+      <!-- Scrollable Theme Pills List -->
+      <div id="themeListContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <!-- Rendered dynamically by wiper.js -->
+      </div>
+      <input type="file" id="customPhotoInput" accept="image/*" class="hidden">
+    </div>
+
+    <!-- Ambient Sounds & Quick Actions Bar -->
+    <div class="w-full max-w-3xl mb-3 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+      <!-- Left: Ambient Sound Toggles -->
+      <div class="flex items-center gap-2">
+        <button id="rainBgmBtn" class="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-sm">
+          <i class="fa-solid fa-cloud-rain text-slate-400"></i>
+          <span>빗소리 BGM OFF</span>
+        </button>
+        <button id="soundFxBtn" class="px-2.5 py-1.5 rounded-xl border border-slate-800 bg-slate-900 text-emerald-400 hover:bg-slate-800 font-bold flex items-center gap-1.5 transition-all shadow-sm" title="유리 닦는 소리 켜기/끄기">
+          <i class="fa-solid fa-volume-high"></i>
+          <span class="hidden sm:inline">효과음</span>
+        </button>
+      </div>
+
+      <!-- Right: Main Actions -->
+      <div class="flex items-center gap-2 ml-auto">
+        <button id="trickleBtn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 rounded-xl font-bold transition-all active:scale-95 flex items-center gap-1.5 shadow-sm" title="유리창에 맺힌 빗방울이 아래로 주르륵 흘러내립니다">
+          <span>💧</span>
+          <span>빗방울 흘리기</span>
+        </button>
+        <button id="refogBtn" class="px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl transition-all active:scale-95 flex items-center gap-1.5 shadow-md">
+          <i class="fa-solid fa-wind"></i>
+          <span>다시 입김 불기</span>
+        </button>
+        <button id="clearAllBtn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-xl font-bold transition-all active:scale-95 flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-broom text-amber-400"></i>
+          <span>전체 닦기</span>
+        </button>
+      </div>
     </div>
 
     <!-- Window Canvas Container -->
-    <div class="w-full h-[450px] relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800 flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517849845537-4d257902454a?w=1000&auto=format&fit=crop');">
+    <div id="windowContainer" class="w-full max-w-3xl h-[420px] sm:h-[480px] relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800 flex items-center justify-center bg-cover bg-center">
       <canvas id="fogCanvas" class="absolute inset-0 w-full h-full cursor-pointer"></canvas>
+
+      <!-- Top Right Status Badge Overlay -->
+      <div class="absolute top-3.5 right-3.5 flex items-center gap-2 pointer-events-none z-10">
+        <div class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md border border-slate-700/80 text-xs font-mono text-slate-300 flex items-center gap-2 shadow-lg">
+          <span>🧹 청소율</span>
+          <span id="cleanProgressText" class="font-bold text-sky-400">0%</span>
+          <div class="w-14 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+            <div id="cleanProgressBar" class="h-full w-0 bg-sky-400 rounded-full transition-all duration-200"></div>
+          </div>
+        </div>
+        <div id="sparkleBadge" class="hidden px-2.5 py-1 rounded-full bg-emerald-500 text-slate-950 font-black text-xs shadow-lg animate-bounce">
+          ✨ 거울처럼 맑음!
+        </div>
+      </div>
+
+      <!-- Watermark guidance on canvas -->
+      <div class="absolute bottom-3 left-4 text-[11px] text-slate-500/80 font-mono pointer-events-none z-10">
+        💡 마우스나 손가락으로 문질러 김을 닦거나 글씨를 써보세요
+      </div>
+    </div>
+
+    <!-- Bottom Tools & Brush Customizer Bar -->
+    <div class="w-full max-w-3xl mt-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl flex flex-col gap-3 text-xs">
+      <!-- Row 1: Brush & Stamp Tools -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-1.5">
+          <span class="text-slate-400 font-bold mr-1">도구:</span>
+          <button data-wiper-tool="finger" class="px-3 py-1.5 rounded-xl border border-sky-400 bg-sky-600 text-white font-bold flex items-center gap-1 transition-all active:scale-95 shadow-sm">
+            <span>👆</span> <span>손가락</span>
+          </button>
+          <button data-wiper-tool="pen" class="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:text-white font-bold flex items-center gap-1 transition-all active:scale-95">
+            <span>✏️</span> <span>가는 펜(낙서)</span>
+          </button>
+          <button data-wiper-tool="palm" class="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:text-white font-bold flex items-center gap-1 transition-all active:scale-95">
+            <span>🖐️</span> <span>손바닥</span>
+          </button>
+          <button data-wiper-tool="squeegee" class="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:text-white font-bold flex items-center gap-1 transition-all active:scale-95">
+            <span>🧽</span> <span>스퀴지</span>
+          </button>
+        </div>
+
+        <!-- Stamps -->
+        <div class="flex items-center gap-1 pl-2 border-l border-slate-800">
+          <span class="text-slate-400 font-bold mr-1">스탬프:</span>
+          <button data-wiper-tool="heart" class="p-1.5 px-2 rounded-xl border border-slate-700 bg-slate-900 text-rose-300 hover:bg-slate-800 font-bold transition-all active:scale-95" title="하트 스탬프 찍기">
+            ❤️
+          </button>
+          <button data-wiper-tool="star" class="p-1.5 px-2 rounded-xl border border-slate-700 bg-slate-900 text-amber-300 hover:bg-slate-800 font-bold transition-all active:scale-95" title="별 스탬프 찍기">
+            ⭐
+          </button>
+          <button data-wiper-tool="paw" class="p-1.5 px-2 rounded-xl border border-slate-700 bg-slate-900 text-purple-300 hover:bg-slate-800 font-bold transition-all active:scale-95" title="발자국 스탬프 찍기">
+            🐾
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 2: Brush Size & Fog Density & Snapshot Export -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80">
+        <!-- Brush Size Slider -->
+        <div class="flex items-center gap-2">
+          <span class="text-slate-400">크기:</span>
+          <input id="brushSizeSlider" type="range" min="8" max="130" value="28" class="w-24 sm:w-32 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-500">
+          <span id="brushSizeVal" class="font-mono text-sky-400 font-bold w-10">28px</span>
+        </div>
+
+        <!-- Fog Density -->
+        <div class="flex items-center gap-1.5">
+          <span class="text-slate-400 mr-0.5">김 농도:</span>
+          <button data-fog-density="0.96" class="px-2 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white font-bold text-xs transition-colors">짙음</button>
+          <button data-fog-density="0.88" class="px-2 py-1 rounded-lg bg-slate-700 text-white font-bold text-xs transition-colors">보통</button>
+          <button data-fog-density="0.65" class="px-2 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white font-bold text-xs transition-colors">옅음</button>
+        </div>
+
+        <!-- Save Snapshot Button -->
+        <button id="saveSnapshotBtn" class="px-4 py-2 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white font-bold rounded-xl shadow-md flex items-center gap-1.5 active:scale-95 transition-all ml-auto">
+          <i class="fa-solid fa-camera"></i>
+          <span>내 유리창 사진 저장 (PNG)</span>
+        </button>
+      </div>
     </div>
   </main>
 
@@ -203,7 +348,7 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
-  <script src="wiper.js"></script>
+  <script src="wiper.js?v=450"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
 </html>
