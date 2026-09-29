@@ -107,6 +107,23 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0ea5e9">
+    <style>
+      .piano-key {
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .white-key.is-pressed {
+        background: linear-gradient(to bottom, #fef3c7, #fde68a) !important;
+        transform: translateY(3px) scale(0.99);
+        box-shadow: 0 0 14px rgba(245, 158, 11, 0.4) inset;
+      }
+      .black-key.is-pressed {
+        background: linear-gradient(to bottom, #78350f, #92400e) !important;
+        transform: translateY(2px) scale(0.98);
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+      }
+    </style>
 </head>
 <body class="bg-amber-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col select-none">
   <div id="header-placeholder"></div>
@@ -120,23 +137,179 @@
       <p class="text-slate-600 dark:text-slate-400 text-sm">건반을 누르면 피치에 맞춰 귀여운 동물 소리가 울려 퍼집니다.</p>
     </div>
 
-    <!-- Animal Selector -->
-    <div class="flex gap-3 mb-8">
-      <button class="animal-btn active px-4 py-2 bg-amber-500 text-white rounded-xl font-bold text-sm shadow-md" data-sound="cat">🐱 야옹이</button>
-      <button class="animal-btn px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold text-sm" data-sound="dog">🐶 댕댕이</button>
-      <button class="animal-btn px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold text-sm" data-sound="duck">🦆 오리</button>
+    <!-- Animal Selector (8 Cute Animals) -->
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-5 max-w-2xl px-2">
+      <button class="animal-btn active px-3 sm:px-4 py-2 bg-amber-500 text-white rounded-2xl font-black text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 hover:scale-105" data-sound="cat">
+        <span class="text-base sm:text-lg">🐱</span>
+        <span>야옹이</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="dog">
+        <span class="text-base sm:text-lg">🐶</span>
+        <span>댕댕이</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="duck">
+        <span class="text-base sm:text-lg">🦆</span>
+        <span>오리</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="frog">
+        <span class="text-base sm:text-lg">🐸</span>
+        <span>개구리</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="cow">
+        <span class="text-base sm:text-lg">🐮</span>
+        <span>젖소</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="sheep">
+        <span class="text-base sm:text-lg">🐑</span>
+        <span>아기양</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="pig">
+        <span class="text-base sm:text-lg">🐷</span>
+        <span>꿀꿀이</span>
+      </button>
+      <button class="animal-btn px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 hover:scale-105" data-sound="rooster">
+        <span class="text-base sm:text-lg">🐓</span>
+        <span>꼬꼬댁</span>
+      </button>
     </div>
 
-    <!-- Piano Keys (Do Re Mi Fa Sol La Ti Do) -->
-    <div class="flex justify-center shadow-2xl rounded-2xl overflow-hidden border-4 border-slate-800 bg-slate-800 p-2">
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="261.63">도</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="293.66">레</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="329.63">미</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="349.23">파</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="392.00">솔</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="440.00">라</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg border-r border-slate-300 flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="493.88">시</button>
-      <button class="piano-key w-12 sm:w-16 h-48 bg-white hover:bg-amber-100 rounded-b-lg flex flex-col justify-end items-center pb-4 text-sm font-black text-slate-700 transition-transform active:translate-y-1" data-note="523.25">높은도</button>
+    <!-- Animal Avatar Status & Octave Controls -->
+    <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 mb-5 rounded-2xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 shadow-sm max-w-xl w-full">
+      <div class="flex items-center gap-3 relative">
+        <div id="animal-avatar" class="text-3xl transition-transform duration-150">🐱</div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span id="animal-name" class="font-black text-slate-900 dark:text-white text-sm sm:text-base">야옹이 오케스트라</span>
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">리얼 사운드</span>
+          </div>
+          <span id="animal-hint" class="text-xs text-slate-500 dark:text-slate-400">도레미파솔에 맞춰 귀여운 고양이 울음소리가 울려 퍼집니다!</span>
+        </div>
+        <!-- Speech Bubble Badge -->
+        <div id="animal-bubble" class="absolute -top-3.5 left-7 px-2 py-0.5 rounded-full bg-amber-500 text-white text-[10px] font-black shadow-md opacity-0 translate-y-1 transition-all pointer-events-none whitespace-nowrap">
+          야옹~🎶
+        </div>
+      </div>
+
+      <!-- Octave Switcher -->
+      <div class="flex items-center gap-1 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-700 ml-auto">
+        <span class="text-xs text-slate-500 dark:text-slate-400 font-bold hidden sm:inline mr-1">옥타브:</span>
+        <button type="button" class="octave-btn px-2 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-600 transition-colors" data-octave="-1">-1</button>
+        <button type="button" class="octave-btn active px-2.5 py-1 rounded-lg text-xs font-black bg-amber-500 text-white shadow-sm" data-octave="0">기본</button>
+        <button type="button" class="octave-btn px-2 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-600 transition-colors" data-octave="1">+1</button>
+      </div>
+    </div>
+
+    <!-- Piano Keys (13 Keys: 8 Diatonic White Keys + 5 Chromatic Black Keys) -->
+    <div class="w-full max-w-xl px-2 mb-5">
+      <div class="relative flex justify-center p-2.5 sm:p-4 bg-gradient-to-b from-slate-900 to-slate-800 rounded-3xl shadow-2xl border-4 border-slate-700/80 select-none overflow-x-auto">
+        <div class="relative flex items-start">
+          <!-- C4 도 -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="261.63">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">A / 1</span>
+              <span class="text-xs sm:text-sm font-black">도</span>
+            </button>
+            <!-- C#4 도# Black Key -->
+            <button class="piano-key black-key absolute -right-3.5 sm:-right-4.5 top-0 w-7 sm:w-9 h-28 sm:h-32 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-b-lg shadow-md z-20 flex flex-col justify-end items-center pb-2 text-[10px] sm:text-xs font-bold transition-all border-x border-b border-slate-700" data-note="277.18">
+              <span class="hidden sm:inline text-[9px] text-slate-400 font-mono">W</span>
+              <span>도#</span>
+            </button>
+          </div>
+
+          <!-- D4 레 -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="293.66">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">S / 2</span>
+              <span class="text-xs sm:text-sm font-black">레</span>
+            </button>
+            <!-- D#4 레# Black Key -->
+            <button class="piano-key black-key absolute -right-3.5 sm:-right-4.5 top-0 w-7 sm:w-9 h-28 sm:h-32 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-b-lg shadow-md z-20 flex flex-col justify-end items-center pb-2 text-[10px] sm:text-xs font-bold transition-all border-x border-b border-slate-700" data-note="311.13">
+              <span class="hidden sm:inline text-[9px] text-slate-400 font-mono">E</span>
+              <span>레#</span>
+            </button>
+          </div>
+
+          <!-- E4 미 (No black key) -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="329.63">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">D / 3</span>
+              <span class="text-xs sm:text-sm font-black">미</span>
+            </button>
+          </div>
+
+          <!-- F4 파 -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="349.23">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">F / 4</span>
+              <span class="text-xs sm:text-sm font-black">파</span>
+            </button>
+            <!-- F#4 파# Black Key -->
+            <button class="piano-key black-key absolute -right-3.5 sm:-right-4.5 top-0 w-7 sm:w-9 h-28 sm:h-32 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-b-lg shadow-md z-20 flex flex-col justify-end items-center pb-2 text-[10px] sm:text-xs font-bold transition-all border-x border-b border-slate-700" data-note="369.99">
+              <span class="hidden sm:inline text-[9px] text-slate-400 font-mono">T</span>
+              <span>파#</span>
+            </button>
+          </div>
+
+          <!-- G4 솔 -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="392.00">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">G / 5</span>
+              <span class="text-xs sm:text-sm font-black">솔</span>
+            </button>
+            <!-- G#4 솔# Black Key -->
+            <button class="piano-key black-key absolute -right-3.5 sm:-right-4.5 top-0 w-7 sm:w-9 h-28 sm:h-32 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-b-lg shadow-md z-20 flex flex-col justify-end items-center pb-2 text-[10px] sm:text-xs font-bold transition-all border-x border-b border-slate-700" data-note="415.30">
+              <span class="hidden sm:inline text-[9px] text-slate-400 font-mono">Y</span>
+              <span>솔#</span>
+            </button>
+          </div>
+
+          <!-- A4 라 -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="440.00">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">H / 6</span>
+              <span class="text-xs sm:text-sm font-black">라</span>
+            </button>
+            <!-- A#4 라# Black Key -->
+            <button class="piano-key black-key absolute -right-3.5 sm:-right-4.5 top-0 w-7 sm:w-9 h-28 sm:h-32 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-b-lg shadow-md z-20 flex flex-col justify-end items-center pb-2 text-[10px] sm:text-xs font-bold transition-all border-x border-b border-slate-700" data-note="466.16">
+              <span class="hidden sm:inline text-[9px] text-slate-400 font-mono">U</span>
+              <span>라#</span>
+            </button>
+          </div>
+
+          <!-- B4 시 (No black key) -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl border-r border-slate-300 flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="493.88">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">J / 7</span>
+              <span class="text-xs sm:text-sm font-black">시</span>
+            </button>
+          </div>
+
+          <!-- C5 높은도 (No black key) -->
+          <div class="relative">
+            <button class="piano-key white-key w-10 sm:w-14 h-44 sm:h-52 bg-white hover:bg-amber-50 active:bg-amber-200 rounded-b-xl flex flex-col justify-end items-center pb-3 text-slate-700 shadow-sm transition-all" data-note="523.25">
+              <span class="hidden sm:inline text-[10px] font-mono text-slate-400 font-normal">K / 8</span>
+              <span class="text-xs sm:text-sm font-black">높은도</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auto-Play Demo Songs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-8 max-w-xl">
+      <span class="text-xs font-bold text-slate-500 dark:text-slate-400 mr-1">🎵 인기 동요 연주 듣기:</span>
+      <button type="button" class="demo-song-btn px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-sm transition-all flex items-center gap-1" data-song="airplane">
+        <span>✈️ 비행기</span>
+      </button>
+      <button type="button" class="demo-song-btn px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-sm transition-all flex items-center gap-1" data-song="star">
+        <span>⭐ 작은 별</span>
+      </button>
+      <button type="button" class="demo-song-btn px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-sm transition-all flex items-center gap-1" data-song="bear">
+        <span>🐻 곰 세마리</span>
+      </button>
+      <button type="button" id="stop-song-btn" class="hidden px-3 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1">
+        <span>⏹️ 정지</span>
+      </button>
     </div>
   </main>
 
@@ -211,6 +384,7 @@
     
   <div id="footer-placeholder"></div>
   <script src="/language.js?v=320"></script>
+  <script src="sounds-data.js"></script>
   <script src="piano.js"></script>
   <script src="/framework/core.js?v=440"></script>
 </body>
